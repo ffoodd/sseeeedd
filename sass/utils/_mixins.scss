@@ -1,0 +1,149 @@
+@charset "UTF-8";
+//
+// @author Gaël Poupard
+// @lastmodified 2014-06-10
+
+
+// ----------------------------- */
+// ==Mixins */
+// ----------------------------- */
+
+// -- @subsection Gestion de l’échelle typographique -------------------- */
+//
+// @note Inspiré de plusieurs outils et techniques :
+ // @author Pascal C
+ // @see https://twitter.com/eQRoeil
+ // @see http://soqr.fr/vertical-rhythm/
+ // @author Emmanuel Georjon
+ // @see https://twitter.com/emmanuelgeorjon/
+ // @see http://www.emmanuelgeorjon.com/grille-typographique-la-theorie-5001/
+// @note Le premier paramètre est obligatoire : c’est le corps cible, en PX — et ce doit être un nombre, évidemment.
+// @note Le second paramètre est optionnel (« true » par défaut) : il active le calcul des marges externes.
+
+@mixin ffeeeedd--font( $s, $m: true ) {
+  $everything-okay: true;
+
+  @if type-of( $s ) != number {
+    @warn "Biip ! `{$s}` is not a valid number.";
+    $everything-okay: false;
+  }
+
+  @if $everything-okay == true {
+    @if $s > $ratio {
+
+      font-size: em( $s );
+      line-height:  ceil( $s / $ratio ) * $ratio / $s;
+      @if $m == true {
+        $margin: ceil( $s / $ratio ) * $ratio / $s * 1em;
+        margin: $margin (0) $margin / 2 ;
+      }
+
+    } @else if $s == $ratio {
+
+      font-size: em( $s );
+      line-height: $unitless-line-height;
+      @if $m == true {
+        $margin: $unitless-line-height * 1em;
+        margin: $margin (0);
+      }
+
+    } @else if $s < $ratio {
+
+      font-size: em( $s );
+      line-height: $ratio / $s;
+      @if $m == true {
+        $margin: $ratio / $s * 1em;
+        margin: $margin (0) $margin / 2;
+      }
+    }
+  }
+}
+
+// -- @subsection Styles d’action -------------------- */
+//
+// @note Défini un style standard pour les boutons d’actions et éléments avec un dégradé.
+// @note Trois paramtères existent :
+ // @note Les deux premiers sont les couleurs de début et de fin du dégradé de base.
+ // @note Elles doivent être dans un format de couleurs valide, et sont obligatoires.
+ // @note La dernière est facultative (« false » par défaut) et active les interactions (survol, focus…).
+
+@mixin ffeeeedd--action( $c1, $c2, $able: false ) {
+  $everything-okay: true;
+
+  @if type-of( $c1 ) != color
+   or type-of( $c2 ) != color {
+    @warn "Either `#{$c1}` or `#{$c2}` is not a color.";
+    $everything-okay: false;
+  }
+
+  @if $everything-okay == true {
+    // @note On étend le placeholder précédent pour adjoindre les styles communs
+    @extend %ffeeeedd--action;
+    // @note Personnalisation des zones d’action (boutons, navigation, etc.)
+    // @note On passe en paramètre la couleur désirée.
+    // @note Les éléments cliquables doivent avoir la classe «action--able» également.
+    background-color: $c2;
+    background-image: -webkit-linear-gradient( top, lighten( $c1, 5 ) 0%, darken( $c2, 5 ) 100% );
+    background-image: linear-gradient( to bottom, lighten( $c1, 5 ) 0%, darken( $c2, 5 ) 100% );
+    border: 1px solid darken( $c2, 20 );
+
+    @if $able == true {
+      &:hover,
+      &:focus {
+        background-color: darken( $c2, 5 );
+        background-position: 0 100%;
+      }
+      &:active,
+      &:visited {
+        background-color: lighten( $c2, 5 );
+        background-position: 0 0;
+      }
+    }
+  }
+}
+
+// -- @subsection Récupérer la position des sprites en EM -------------------- */
+//
+// @note Une seule modification apportée : retirer l’unité PX de la position du sprite.
+ // @author Marie Guillaumet
+ // @see https://twitter.com/kReEsTaL
+ // @see http://marieguillaumet.com/
+ // @see https://gist.github.com/kReEsTaL/7222348
+ // @author Mehdi Kabab
+ // @see https://twitter.com/piouPiouM
+ // @see http://pioupioum.fr/
+
+@mixin ffeeeedd--em--position( $map, $sprite, $context: $unitless-font-size, $offset-x: 0, $offset-y: 0) {
+
+  $position: sprite-position( $map, $sprite, $offset-x, $offset-x );
+  $x: ffeeeedd--unit( nth( $position, 1 ) );
+  $y: ffeeeedd--unit( nth( $position, 2 ) );
+
+  @if "%" == unit( $offset-x ) {
+    background-position: $offset-x em( $y, $context );
+  } @else if "%" == unit( $offset-y ) {
+    background-position: em( $x, $context ) $offset-y;
+  } @else {
+    background-position: em( $x, $context ) em( $y, $context );
+  }
+}
+
+// -- @subsection Récupérer les dimensions du sprite en EM -------------------- */
+//
+// @note Une seule modification apportée : retirer l’unité PX des dimensions du sprite.
+ // @author Marie Guillaumet
+ // @see https://twitter.com/kReEsTaL
+ // @see http://marieguillaumet.com/
+ // @see https://gist.github.com/kReEsTaL/6997139
+
+@mixin ffeeeedd--em--size( $image, $context: $unitless-font-size, $sprite-map: false ) {
+  @if $sprite-map == true {
+    $image-width:  ffeeeedd--unit( image-width( sprite-path( $image ) ) );
+    $image-height:  ffeeeedd--unit( image-height( sprite-path( $image ) ) );
+    background-size: em( $image-width, $context ) em( $image-height, $context );
+  } @else {
+    $image-width:  ffeeeedd--unit( image-width( $image ) );
+    $image-height:  ffeeeedd--unit( image-height( $image ) );
+    background-size: em( $image-width, $context ) em( $image-height, $context );
+  }
+}

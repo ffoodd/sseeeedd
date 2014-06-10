@@ -1,0 +1,271 @@
+@charset "UTF-8";
+/**
+* @author Gaël Poupard
+* @lastmodified 2014-06-10
+* @subsection Références :
+  * @see KNACSS.com V1.1 @author : Raphael Goetter, Alsacreations
+  * @see HTML5boilerplate
+  * @see http://rocssti.nicolas-hoffmann.net/ @author : @Nico3333fr
+*/
+
+/* ----------------------------- */
+/* ==Structure */
+/* @note : Aucun de ces éléments ne doit être modifié.
+/* ----------------------------- */
+
+/* ----------------------------- */
+/* Sommaire */
+/* ----------------------------- */
+/*
+  == Modèle de boîte
+  == Structure flottante
+  == Structure en tableau
+  == Alignements ( blocs et en ligne )
+    -- Alignement horizontal
+    -- Alignement vertical
+  == Grilles
+  == Inline-block
+  == Largeurs
+  == Espacements
+    -- Marges externes
+    -- Marges internes
+  == Éléments masqués
+    -- Remplacement d’image
+  == Orientation
+*/
+
+
+/* == @section Modèle de boîte ==================== */
+/* @see http://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing:    border-box;
+  box-sizing:         border-box;
+}
+
+
+/* == @section Structure flottante ==================== */
+/* Bloc capable de contenir plusieurs .mod, peut contenir des flottants */
+.line {
+  overflow: hidden;
+  @extend .clear;
+}
+
+
+/* == @section Structure en tableau ==================== */
+.row {
+  @extend .clear;
+  display: table;
+  table-layout: fixed;
+  @extend .w-100;
+}
+
+.col {
+  display: table-cell;
+  padding: 1em;
+  @extend .aligntop;
+}
+
+/* Blocs qui peuvent suivre des flottants */
+.clear { clear: both; }
+
+/* Blocs qui peuvent contenir des flottants */
+.clearfix:after,
+.line:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+
+/* == @section Alignements ( blocs et en ligne ) ==================== */
+
+/* -- @subsection Alignement horizontal -------------------- */
+@if $direction == ltr {
+
+  .start,
+  .alignleft { float: left; }
+
+  .end,
+  .alignright { float: right; }
+
+  img.start,
+  img.alignleft { @extend .mr2; }
+
+  img.end,
+  img.alignright { @extend .ml2; }
+
+} @else if $direction == rtl {
+
+  .start,
+  .alignleft { float: right; }
+
+  .end,
+  .alignright { float: left; }
+
+  img.start,
+  img.alignleft { @extend .ml2; }
+
+  img.end,
+  img.alignright { @extend .mr2; }
+}
+
+/* Centré */
+.aligncenter {
+  clear: both;
+  display: block;
+}
+
+/* Autorise les marges verticales spécifiques */
+.center,
+.aligncenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Alignement du texte */
+@each $t in left, right, center {
+  .txt#{$t} {
+    text-align: $t;
+  }
+}
+
+/* -- @subsection Alignement vertical -------------------- */
+@each $a in top, middle, bottom {
+  .align#{$a} { vertical-align: $a; }
+}
+
+
+/* == @section Grilles ==================== */
+// Contexte de formatage
+[class*="grid"] {
+  @extend .line;
+
+  // Les enfants directs sont flottants
+  & > * {
+    float: left;
+
+    & + * {
+      // Et voilà la gouttière
+      margin-left: percentage( $grid-guts / 100 );
+    }
+  }
+}
+
+%clear-left {
+  clear: left;
+  margin-left: 0;
+}
+
+@for $c from 2 through $grid-cols {
+  $g: 100 - ( $c - 1 ) * $grid-guts;
+  $as: $c - 1 ;
+  $n: $c + 1;
+
+  // Grille symétrique
+  .grid-#{$c} > *,
+  // Grille asymétrique
+  .grid-1-#{$as} > *:first-child,
+  .grid-#{$as}-1 > * + * {
+    width: percentage( $g / $c / 100 );
+  }
+
+  // Largeur double, triple, etc.
+  .grid-#{$as}-1 > *:first-child,
+  .grid-1-#{$as} > * + * {
+    // On prend la largeur de base, qu’on multiplie par le nombre de colonnes réunies;
+    // Puis on ajoute la gouttière devenue manquante.
+    width: percentage( $g / $c / 100 * $as + $grid-guts / 100 );
+  }
+
+  // On «nettoie» la grille pour autoriser les lignes multiples
+  // @to-do : compatibilité IE8. Ajouter une classe en javascript ?
+  .grid-#{$c} > *:nth-child( #{$c}n + #{$n} ),
+  [class*="grid-1-#{$as}"] > *:nth-child( 2n + #{$c} ),
+  .grid-#{$as}-1 > *:nth-child( 2n + #{$c} ) {
+    @extend %clear-left;
+  }
+}
+
+
+/* == @section Inline-block ==================== */
+.inbl,
+.btn {
+  display: inline-block;
+  vertical-align: top;
+}
+
+
+/* == @section Largeurs ==================== */
+@each $w in 10, 20, 25, 30, 33, 40, 50, 60, 66, 70, 75, 80, 90, 100 {
+  .w-#{$w} { width: percentage( $w / 100 ); }
+}
+
+
+/* == @section Espacements ====================
+ * @note p, m = padding, margin
+ * @note a, t, r, b, l = all, top, right, bottom, left
+ * @note Nous avons besoin des valeurs de 0 à 2 au minimum.
+*/
+@for $i from 0 through $base-spacing {
+
+  .ma#{$i} { margin: #{$i}em; }
+
+  .mt#{$i} { margin-top: #{$i}em; }
+
+  .mr#{$i} { margin-right: #{$i}em; }
+
+  .mb#{$i} { margin-bottom: #{$i}em; }
+
+  .ml#{$i} { margin-left: #{$i}em; }
+
+  .pa#{$i} { padding: #{$i}em; }
+
+  .pt#{$i} { padding-top: #{$i}em; }
+
+  .pr#{$i} { padding-right: #{$i}em; }
+
+  .pb#{$i} { padding-bottom: #{$i}em; }
+
+  .pl#{$i} { padding-left: #{$i}em; }
+
+}
+
+
+/* == @section Éléments masqués ==================== */
+.visually-hidden {
+  left: -7000px;
+  overflow: hidden;
+  position: absolute;
+}
+
+.js .js-hidden,
+.no-js .js-visible { display: none; }
+
+.js .js-visible,
+.no-js .js-hidden { display: block; }
+
+/* -- @subsection Remplacement d’image -------------------- */
+.ir {
+  background-color: transparent;
+  @extend .b-reset;
+  overflow: hidden;
+
+  &:before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 0;
+  }
+}
+
+
+/* == @section Orientation ====================
+ * @note Corrige un bug sur les font-size lors du changement d’orientation sur iOS
+*/
+@media ( orientation: landscape ) and ( max-device-width: 768px ) {
+  html,
+  body { -webkit-text-size-adjust: 100%; }
+}

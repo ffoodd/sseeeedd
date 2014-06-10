@@ -1,0 +1,49 @@
+//
+// @author Gaël Poupard
+// @lastmodified 2014-06-10
+//
+
+// ----------------------------- */
+// ==Fonctions */
+// ----------------------------- */
+
+// -- @subsection Supprimer l’unité d’une valeur -------------------- */
+//
+// @note Inspiré directement des « helpers » de Foundation
+// @see https://github.com/zurb/foundation/blob/master/scss/foundation/_functions.scss#L39
+// @note Le seul paramètre est obligatoire et doit être un nombre.
+
+@function ffeeeedd--unit( $num ) {
+  $everything-okay: true;
+
+  @if type-of( $num ) != number {
+    @warn "Biip ! `{$num}` is not a valid number.";
+    $everything-okay: false;
+  }
+
+  @if $everything-okay == true {
+    @return $num / ( $num * 0 + 1 );
+  }
+}
+
+// -- @subsection Conversion en em -------------------- */
+//
+// @note Référence trouvée grâce aux Gists de Marie Guillaumet
+ // @author Marie Guillaumet
+ // @see https://twitter.com/kReEsTaL
+ // @see http://marieguillaumet.com/
+// @see https://gist.github.com/ijy/1441967
+
+@function em( $f, $base: $unitless-font-size ) {
+  $everything-okay: true;
+
+  @if type-of( $f ) != number {
+    @warn "Biip ! `{$s}` is not a valid number.";
+    $everything-okay: false;
+  }
+
+  @if $everything-okay == true {
+    @if $f == 0 { @return 0 }
+    @return $f / $base * 1em;
+  }
+}

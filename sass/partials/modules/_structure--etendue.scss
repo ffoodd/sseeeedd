@@ -1,0 +1,105 @@
+@charset "UTF-8";
+/**
+* @author Gaël Poupard
+* @lastmodified 2014-06-10
+* @subsection Références :
+  * @see KNACSS.com V1.1 @author : Raphael Goetter, Alsacreations
+  * @see HTML5boilerplate
+  * @see http://rocssti.nicolas-hoffmann.net/ @author : @Nico3333fr
+*/
+
+/* ----------------------------- */
+/* ==Structure étendue // Design réactif
+/* @note Utilisé pour étendre la structure d’origine : personnaliser la largeur du site, ajouter des tailles en px par exemple, personnaliser les versions responsive (MQ en em)…
+ * @see http://marieguillaumet.com/refonte-mon-portfolio-du-responsive-en-em-premiere-partie
+ * @see http://lanyrd.com/2013/parisweb/sckdfg/
+/* ----------------------------- */
+
+/* ----------------------------- */
+/* Sommaire */
+/* ----------------------------- */
+/*
+  == Largeur du contenu
+  == Modification des classes
+    -- Palier «large»
+    -- Palier «medium»
+    -- Palier «small»
+    -- Palier «tiny»
+*/
+
+
+/* == @section Largeur du contenu ==================== */
+.w--site { width: em( $base-width ); }
+
+.mw--site { max-width: em( $base-width ); }
+
+
+/* == @section Modification des classes ====================
+ * @note Premier palier :    «large»
+ * @note Deuxième palier :   «medium»
+ * @note Troisième palier :  «small»
+ * @note Quatrième palier :  «tiny»
+*/
+
+/* -- @subsection Palier «large» -------------------- */
+@media ( min-width: em( $sseeeeeeeedd-width ) ) {
+    .large-hidden { display: none !important; }
+
+    .large-visible { display: block !important; }
+
+    .large-no-float { float: none; }
+}
+
+/* -- @subsection Palier «medium» -------------------- */
+@media ( max-width: em( $sseeeeeedd-width ) ) {
+    .medium-hidden { display: none !important; }
+
+    .medium-visible { display: block !important; }
+
+    .medium-no-float { float: none; }
+
+    /* Linéarisation basique du contenu
+     * @note Non recommandé
+     * @note Préférer une stratégie spécifique à votre structure
+     * @note Penser aux dispositions tabulaires, à flexbox, etc.
+     * @see http://knacss.com/demos/tutoriel.html#table-cell
+     * @see http://knacss.com/demos/tutoriel.html#flex
+     */
+    .col,
+    .medium-full,
+    #nav > ul li,
+    [class^="grid"] > * {
+      clear: both;
+      display: block;
+      float: none;
+      margin: 1em auto;
+      width: 100%;
+    }
+
+    body {
+      background-color: lighten( $background-color, 5 );
+      color: darken( $primary-color, 5 );
+    }
+
+    a { color: darken( $secondary-color, 5 ); }
+
+    strong { color: darken( $strong-color, 5 ); }
+}
+
+/* -- @subsection Palier «small» -------------------- */
+@media ( max-width: em( $sseeeedd-width ) ) {
+    .small-hidden { display: none !important; }
+
+    .small-visible { display: block !important; }
+
+    .small-no-float {float: none; }
+}
+
+/* -- @subsection Palier «tiny» -------------------- */
+@media ( max-width: em( $sseedd-width ) ) {
+    .tiny-hidden { display: none !important; }
+
+    .tiny-visible { display: block !important; }
+
+    .tiny-no-float { float: none; }
+}

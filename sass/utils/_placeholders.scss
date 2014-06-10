@@ -1,0 +1,25 @@
+@charset "UTF-8";
+//
+// @author Gaël Poupard
+// @lastmodified 2014-06-10
+
+
+// ----------------------------- */
+// ==Placeholders */
+// ----------------------------- */
+
+// -- @subsection Styles communs aux actions -------------------- */
+//
+// @note Regroupement des styles communs pour le mixin éponyme.
+// @see « CSS maintenables avec Sass & Compass », pages 238/239
+// @author Kaelig Deloumeau-Prigent
+
+%ffeeeedd--action {
+  background-size: auto 300%;
+  background-position: 0 50%;
+  box-shadow: inset 1px 1px 0 transparentize( white, .75);
+  color: #fff !important;
+  text-decoration: none !important;
+  text-shadow: 1px 1px transparentize( black, .75);
+  transition: all .3s linear;
+}

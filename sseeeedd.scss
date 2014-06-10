@@ -1,0 +1,63 @@
+/**
+ * @author Gaël Poupard
+ * @site Thème ffeeeedd--sass
+ * @lastmodified 2013-11-13
+ */
+
+// Variables
+
+  // Typographie
+$base-line-height:     24px !default; // Inutile, mais Compass attend des valeurs en PX
+$base-font-size:       16px !default; // Inutile, mais Compass attend des valeurs en PX
+$unitless-line-height: 1.5 !default; // ffeeeedd se sert de valeurs sans unité
+$unitless-font-size:   16 !default; // Représente une valeur en PX, mais uniquement pour faciliter le calcul du contexte en EM
+$ratio:                $unitless-font-size * $unitless-line-height !default; // Le ratio doit être dépourvu d’unité
+$regular-font-stack:   "Arial", "Helvetica", sans-serif !default;
+$monospace-font-stack: "Consolas", "Monaco", "Andale Mono", monospace !default;
+$direction:            ltr !default;
+
+  // Grilles
+$base-width:           980 !default; // Largeur maximum en PX (sera convertie en EM)
+$base-spacing:         3 !default;   // Pour les espacements : padding, margin (en EM)…
+$grid-cols:            6 !default;   // Nombre de colonnes pour la grille */
+$grid-gut:             20 !default;  // La gouttière en PX, convertie en pourcentage à la ligne suivante
+$grid-guts:            round( $grid-gut * 100 / $base-width ) !default; // Et voilà la gouttière en pourcents
+
+  // Couleurs
+$primary-color:        #032c36 !default; // Le texte courant
+$secondary-color:      #c42419 !default; // Les liens
+$strong-color:         #04192f !default; // Les éléments importants : emphases, titres…
+$light-color:          #054656 !default; // Les éléments anecdotiques ou secondaires.
+$background-color:     #f2f2e2 !default;
+
+  // Responsive
+$sseedd-width:         320 !default;
+$sseeeedd-width:       480 !default;
+$sseeeeeedd-width:     800 !default;
+$sseeeeeeeedd-width:   1280 !default;
+
+// Imports
+  // Compass
+@import "compass/utilities/sprites";
+
+  // Utilitaires
+@import "sass/utils/mixins";
+@import "sass/utils/functions";
+@import "sass/utils/placeholders";
+
+  // Fichiers de base : ne devraient pas être modifiés
+@import "sass/partials/base";
+@import "sass/partials/structure";
+@import "sass/partials/formulaires";
+
+  // Fichiers personnalisables
+@import "sass/partials/modules/typographie";
+@import "sass/partials/modules/modules";
+@import "sass/partials/modules/sprites";
+    // Spécifiques aux contenus
+  @import "sass/partials/contenus/types";
+  @import "sass/partials/contenus/pages";
+@import "sass/partials/modules/structure--etendue";
+
+// Audits
+// @import "sass/audits/a11y";
