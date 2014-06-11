@@ -575,11 +575,18 @@ blockquote {
   padding-left: 3em;
 }
 
-/* == @section Éléments masqués ==================== */
+/* == @section Éléments masqués ====================
+ * @note Cette technique suit les recommandations de Yahoo!
+ * @see https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
+ */
 .visually-hidden {
-  left: -7000px;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px !important;
   overflow: hidden;
-  position: absolute;
+  padding: 0 !important;
+  position: absolute !important;
+  width: 1px !important;
 }
 
 .js .js-hidden,
