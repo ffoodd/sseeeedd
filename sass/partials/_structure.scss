@@ -85,42 +85,29 @@
 /* -- @subsection Alignement horizontal -------------------- */
 @if $direction == ltr {
 
-  .start,
-  .alignleft { float: left; }
+  .start { float: left; }
 
-  .end,
-  .alignright { float: right; }
+  .end { float: right; }
 
-  img.start,
-  img.alignleft { @extend .mr2; }
+  img.start { @extend .mr2; }
 
-  img.end,
-  img.alignright { @extend .ml2; }
+  img.end { @extend .ml2; }
 
 } @else if $direction == rtl {
 
-  .start,
-  .alignleft { float: right; }
+  .start { float: right; }
 
-  .end,
-  .alignright { float: left; }
+  .end { float: left; }
 
-  img.start,
-  img.alignleft { @extend .ml2; }
+  img.start { @extend .ml2; }
 
-  img.end,
-  img.alignright { @extend .mr2; }
-}
-
-/* Centré */
-.aligncenter {
-  clear: both;
-  display: block;
+  img.end { @extend .mr2; }
 }
 
 /* Autorise les marges verticales spécifiques */
-.center,
-.aligncenter {
+.center {
+  clear: both;
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }

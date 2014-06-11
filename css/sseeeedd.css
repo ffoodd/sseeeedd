@@ -229,25 +229,18 @@ a:focus img {
 
 /* == @section Alignements ( blocs et en ligne ) ==================== */
 /* -- @subsection Alignement horizontal -------------------- */
-.start,
-.alignleft {
+.start {
   float: left;
 }
 
-.end,
-.alignright {
+.end {
   float: right;
 }
 
-/* Centré */
-.aligncenter {
+/* Autorise les marges verticales spécifiques */
+.center {
   clear: both;
   display: block;
-}
-
-/* Autorise les marges verticales spécifiques */
-.center,
-.aligncenter {
   margin-left: auto;
   margin-right: auto;
 }
@@ -508,8 +501,7 @@ label {
   margin-top: 2em;
 }
 
-.mr2, img.start,
-img.alignleft {
+.mr2, img.start {
   margin-right: 2em;
 }
 
@@ -517,8 +509,7 @@ img.alignleft {
   margin-bottom: 2em;
 }
 
-.ml2, img.end,
-img.alignright {
+.ml2, img.end {
   margin-left: 2em;
 }
 
