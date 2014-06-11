@@ -209,7 +209,24 @@
  * @note a, t, r, b, l = all, top, right, bottom, left
  * @note Nous avons besoin des valeurs de 0 à 2 au minimum.
 */
-@for $i from 0 through $base-spacing {
+
+.mt0 { margin-top: 0; }
+
+.mr0 { margin-right: 0; }
+
+.mb0 { margin-bottom: 0; }
+
+.ml0 { margin-left: 0;}
+
+.pt0 { padding-top: 0; }
+
+.pr0 { padding-right: 0; }
+
+.pb0 { padding-bottom: 0; }
+
+.pl0 { padding-left: 0;}
+
+@for $i from 1 through $base-spacing {
 
   .ma#{$i} { margin: #{$i}em; }
 
