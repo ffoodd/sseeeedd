@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--[if IE 8 ]><html lang="fr-FR" class="ie8 no-js"><![endif]-->
-<!--[if gte IE 9]><!--><html lang="fr-FR" class="no-js"><!--<![endif]-->
+<!--[if gte IE 9]><!--><html dir="ltr" lang="fr-FR" class="no-js"><!--<![endif]-->
   <head>
     <meta charset="utf-8">
     <base href="">
@@ -26,7 +26,7 @@
       <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');</script>
     <!-- / Fin du Javascript -->
   </head>
-  <body role="document" itemscope itemtype="http://schema.org/WebPage">
+  <body role="document">
 
     <ul class="mw--site center mb0 mt0 p-reset small print-hidden" id="top">
       <li class="inbl m-reset">
@@ -38,34 +38,57 @@
     </ul>
 
     <header class="mw--site center print-hidden" role="banner">
-      <h1 itemprop="name">
-        <a href="http://www.ffoodd.fr" itemprop="url">
-          sseeeedd
-        </a>
-      </h1>
-      <h2 itemprop="description">La graine à semer pour que l’intégration pousse bien !</h2>
+      <h1>sseeeedd</h1>
+      <h2>La graine à semer pour que l’intégration pousse bien !</h2>
     </header><!-- / banner -->
 
     <nav class="mw--site center clear print-hidden" id="nav" role="navigation">
       <ul>
         <li>
-          <a href="http://www.ffoodd.fr">ffoodd</a>
+          <a href="#section-1">Section 1</a>
         </li>
-        <li>
-          <a href="http://ffoodd.github.io/a11y.css/" target="_blank" title="(nouvelle fenêtre)">a11y.css</a>
-        </li>
+
       </ul>
     </nav><!-- / #nav -->
 
-    <main class="mw--site center clear" id="content" role="main" itemprop="mainContentOfPage">
-      <article class="col" role="article" itemscope itemtype="http://schema.org/Article">
-        <h2 itemprop="name">Titre de la page</h2>
-        <div itemprop="articleBody">Contenu</div>
-      </article>
+    <main class="mw--site center clear" id="content" role="main">
+    
+      <section id="section-1">
+        
+        <article class="col" role="article">
+          <h2>Section 1</h2>
+          <div>
+            <ul>
+              <li>Paragraphes avec justifications et alignements ;</li>
+              <li>em, strong, abbr, dfn, del et ins, mark, small, sub et sup, time ;</li>
+              <li>Liens : 
+                <ol>
+                  <li>externe, mail, fichier, téléphone, interne ;</li>
+                  <li>survolé, visité, actif, inactif (mort), focus ;</li>
+                </ol>
+              </li>
+              <li>Niveaux de titre ;</li>
+              <li>Description ;</li>
+              <li>Listes : ordonnée, non ordonnée, de définitions ;</li>
+              <li>Tableaux de données : simple et complexe ;</li>
+              <li>Citations ;</li>
+              <li>Code, bloc pré-formaté, raccourci clavier, extrait de script, variable ;</li>
+              <li>Contact de la page (address) ;</li>
+              <li>Encart (aside) ;</li>
+              <li>Image : avec et sans légende, avec et sans crédits ;</li>
+              <li>Autres styles.</li>
+            </ul>
+          </div>
+        </article>
 
-      <aside class="col w-25 print-hidden" role="complementary">
-
-      </aside>
+        <aside class="col w-25 print-hidden" role="complementary">
+          <p>Dans l’idéal, chaque item de cette liste devrait faire l’objet d’une section à part entière 
+          détaillant les différents styles mis en situation dans des contenus rééls - et adjoint dans un encart du code source
+          correspondant.</p>
+          <a href="http://tinytypo.tetue.net/tinytypo.html">La référence : TinyTypo</a>
+        </aside>
+      </section><!-- / #section-1 -->
+      
     </main><!-- / #content -->
 
     <footer class="mw--site center" role="contentinfo">
