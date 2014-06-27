@@ -1,100 +1,133 @@
 <!DOCTYPE html>
 <!--[if IE 8 ]><html lang="fr-FR" class="ie8 no-js"><![endif]-->
 <!--[if gte IE 9]><!--><html dir="ltr" lang="fr-FR" class="no-js"><!--<![endif]-->
-  <head>
-    <meta charset="utf-8">
-    <base href="">
-    <title>Titre de la page</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Description de la page en 160 caractères maximum">
-    <meta name="robots" content="index,follow">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/sseeeedd.css" type="text/css" media="all">
-    <link rel="stylesheet" href="css/sseeeedd--print.css" type="text/css" media="print">
-    <!--[if lt IE 9]><script src="html5shiv.js"></script><![endif]-->
-    <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');</script>
-  </head>
-  <body role="document">
+<head>
+  <meta charset="utf-8">
+  <base href="">
+  <title>Titre de la page</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Description de la page en 160 caractères maximum">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="css/sseeeedd.css" type="text/css" media="all">
+  <link rel="stylesheet" href="css/sseeeedd--print.css" type="text/css" media="print">
+  <!--[if lt IE 9]><script src="html5shiv.js"></script><![endif]-->
+  <script>document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/,'js');</script>
+</head>
+<body role="document">
 
-    <ul class="mw--site center mb0 mt0 p-reset small print-hidden" id="top">
-      <li class="inbl m-reset">
-        <a class="skip" href="#nav">Aller à la navigation</a>
+  <ul class="mw--site center mb0 mt0 p-reset small print-hidden" id="top">
+    <li class="inbl m-reset">
+      <a class="skip" href="#nav">Aller à la navigation</a>
+    </li>
+    <li class="inbl m-reset">
+      <a class="skip" href="#content">Aller au contenu</a>
+    </li>
+  </ul>
+
+  <header class="mw--site center print-hidden" role="banner">
+    <h1>sseeeedd</h1>
+    <h2>La graine à semer pour que l’intégration pousse bien !</h2>
+  </header><!-- / banner -->
+
+  <nav class="mw--site center clear print-hidden" id="nav" role="navigation">
+    <ul>
+      <li>
+        <a href="#texte">Texte</a>
       </li>
-      <li class="inbl m-reset">
-        <a class="skip" href="#content">Aller au contenu</a>
+      <li>
+        <a href="#liens">Liens</a>
       </li>
     </ul>
+  </nav><!-- / #nav -->
 
-    <header class="mw--site center print-hidden" role="banner">
-      <h1>sseeeedd</h1>
-      <h2>La graine à semer pour que l’intégration pousse bien !</h2>
-    </header><!-- / banner -->
+  <main class="mw--site center clear" id="content" role="main">
 
-    <nav class="mw--site center clear print-hidden" id="nav" role="navigation">
-      <ul>
-        <li>
-          <a href="#texte">Texte</a>
-        </li>
+    <section id="texte">
+      <h2>Texte</h2>
 
-      </ul>
-    </nav><!-- / #nav -->
+      <article class="col" role="article">
+        <dl>
+          <dt><code>&lt;strong&gt;</code> et <code>&lt;em&gt;</code></dt>
+          <dd>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Donec a diam lectus</strong>. semper sed, adipiscing id dolor. Pellentesque auctor nisi <em>id magna</em> consequat sagittis.</dd>
 
-    <main class="mw--site center clear" id="content" role="main">
+          <dt><code>&lt;abbr&gt;</code></dt>
+          <dd>ante hendrerit. Donec et mollis dolor <abbr title="Société Française de Radiophonie">SFR</abbr> convallis libero in urna ultrices accumsan. Donec sed odio eros.</dd>
 
-      <section id="texte">
+          <dt><code>&lt;del&gt;</code> et <code>&lt;ins&gt;</code></dt>
+          <dd>Cum sociis natoque penatibus et magnis dis. <del>Praesent</del> et <ins>diam</ins> eget libero egestas mattis quam pulvinar at malesuada arcu rhoncus.</dd>
 
-        <article class="col" role="article">
-          <h2>Texte</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <strong>Donec a diam lectus</strong>. semper sed, adipiscing id dolor. Pellentesque auctor nisi id magna consequat sagittis.</p>
-          <p>Sed sit amet ipsum mauris. <em>Maecenas congue</em> ligula ac quam viverra. Curabitur dapibus enim sit amet elit pharetra tincidunt feugiat nisl imperdiet.</p>
-          <p>ante hendrerit. Donec et mollis dolor <abbr title="Société Française de Radiophonie">SFR</abbr> convallis libero in urna ultrices accumsan. Donec sed odio eros.</p>
-          <p><del>Praesent</del> et <ins>diam</ins> eget libero egestas mattis quam pulvinar at malesuada arcu rhoncus. Cum sociis natoque penatibus et magnis dis.</p>
-          <p>sit amet vitae augue. Nam tincidunt congue enim, ut porta <mark>lorem</mark> lacinia consectetur parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies.</p>
-          <p><small>Donec ut libero sed arcu vehicula ultricies a non tortor.</small></p>
-          <p>consectetur adipiscing elit. Aenean <sub>ut</sub> gravida lorem. <sup>Ut</sup> turpis felis, pulvinar a nisi at sem facilisis semper ac in est.</p>
+          <dt><code>&lt;mark&gt;</code></dt>
+          <dd>Nam tincidunt congue enim, ut porta <mark>lorem</mark> lacinia consectetur parturient montes, nascetur ridiculus mus. In rutrum accumsan ultricies.</dd>
 
-          <div>
-            <ul>
-              <li><del>Paragraphes ;</del></li>
-              <li><del>em, strong, abbr, dfn, del et ins, mark, small, sub et sup, time ;</del></li>
-              <li>Liens :
-                <ol>
-                  <li>externe, mail, fichier, téléphone, interne ;</li>
-                  <li>survolé, visité, actif, inactif (mort), focus ;</li>
-                </ol>
-              </li>
-              <li>Niveaux de titre ;</li>
-              <li>Description ;</li>
-              <li>Listes : ordonnée, non ordonnée, de définitions ;</li>
-              <li>Tableaux de données : simple et complexe ;</li>
-              <li>Citations ;</li>
-              <li>Code, bloc pré-formaté, raccourci clavier, extrait de script, variable ;</li>
-              <li>Contact de la page (address) ;</li>
-              <li>Encart (aside) ;</li>
-              <li>Image : avec et sans légende, avec et sans crédits ;</li>
-              <li>Formulaires : différents types de champ, encadré et légende ;</li>
-              <li>Boutons : liens, input ou button avec variantes ;</li>
-              <li>Grille(s) ;</li>
-              <li>Couleurs ;</li>
-              <li>Autres styles.</li>
-            </ul>
-          </div>
-        </article>
+          <dt><code>&lt;sub&gt;</code> et <code>&lt;sup&gt;</code></dt>
+          <dd>Consectetur adipiscing elit. Aenean <sub>ut</sub> gravida lorem. <sup>Ut</sup> turpis felis, pulvinar a nisi at sem facilisis semper ac in est.</dd>
 
-        <aside class="col w-25 print-hidden" role="complementary">
-          <p>Dans l’idéal, chaque item de cette liste devrait faire l’objet d’une section à part entière
+          <dt><code>&lt;small&gt;</code></dt>
+          <dd><small>Donec ut libero sed arcu vehicula ultricies a non tortor.</small></dd>
+        </dl>
+      </article>
+
+      <aside class="col w-25 print-hidden" role="complementary">
+        <p>Dans l’idéal, chaque item de cette liste devrait faire l’objet d’une section à part entière
           détaillant les différents styles mis en situation dans des contenus rééls - et adjoint dans un encart du code source
           correspondant.</p>
-          <a href="http://tinytypo.tetue.net/tinytypo.html">La référence : TinyTypo</a>
-        </aside>
-      </section><!-- / #section-1 -->
+        <a href="http://tinytypo.tetue.net/tinytypo.html">La référence : TinyTypo</a>
+      </aside>
+    </section><!-- / #texte -->
 
-    </main><!-- / #content -->
+    <section id="liens">
+      <h2>Liens</h2>
 
-    <footer class="mw--site center" role="contentinfo">
-      <small>&copy; 2014 — sseeeedd. Ces contenus sont sous <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Licence <abbr lang="en" title="Creative Commons">CC</abbr> <abbr lang="en" title="Attribution">BY</abbr>-<abbr lang="en" title="Non Commercial">NC</abbr>-<abbr lang="en" title="Share Alike">SA</abbr></a>.</small>
-    </footer><!-- / contentinfo -->
+      <article class="col" role="article">
+        <ul>
+          <li>
+            <a href="#top">Lien interne</a>
+          </li>
+          <li>
+            <a href="#top">Lien interne</a>
+          </li>
+        </ul>
+      </article>
 
-  </body>
+      <aside class="col w-25 print-hidden" role="complementary">
+        <a href="http://tinytypo.tetue.net/tinytypo.html">La référence : TinyTypo</a>
+      </aside>
+    </section><!-- / #liens -->
+
+
+    <div>
+      <ul>
+        <li><del>Paragraphes ;</del></li>
+        <li><del>em, strong, abbr, dfn, del et ins, mark, small, sub et sup, time ;</del></li>
+        <li>Liens :
+          <ol>
+            <li>externe, mail, fichier, téléphone, interne ;</li>
+            <li>survolé, visité, actif, inactif (mort), focus ;</li>
+          </ol>
+        </li>
+        <li>Niveaux de titre ;</li>
+        <li>Description ;</li>
+        <li>Listes : ordonnée, non ordonnée, de définitions ;</li>
+        <li>Tableaux de données : simple et complexe ;</li>
+        <li>Citations ;</li>
+        <li>Code, bloc pré-formaté, raccourci clavier, extrait de script, variable ;</li>
+        <li>Contact de la page (address) ;</li>
+        <li>Encart (aside) ;</li>
+        <li>Image : avec et sans légende, avec et sans crédits ;</li>
+        <li>Formulaires : différents types de champ, encadré et légende ;</li>
+        <li>Boutons : liens, input ou button avec variantes ;</li>
+        <li>Grille(s) ;</li>
+        <li>Couleurs ;</li>
+        <li>Autres styles.</li>
+      </ul>
+    </div>
+
+  </main><!-- / #content -->
+
+  <footer class="mw--site center" role="contentinfo">
+    <small>&copy; 2014 — sseeeedd. Ces contenus sont sous <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/3.0/fr/">Licence <abbr lang="en" title="Creative Commons">CC</abbr> <abbr lang="en" title="Attribution">BY</abbr>-<abbr lang="en" title="Non Commercial">NC</abbr>-<abbr lang="en" title="Share Alike">SA</abbr></a>.</small>
+  </footer><!-- / contentinfo -->
+
+</body>
 </html>
