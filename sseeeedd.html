@@ -322,12 +322,79 @@
 
       <article class="col" role="article">
         <form action="#" method="POST">
-      
+          <fieldset>
+            <legend>Légende urbaine</legend>
+            
+            <label for="text">Texte</label>
+            <input type="text" id="text" placeholder="Exemple" autofocus />
+            
+            <label for="text-d">Texte</label>
+            <input type="text" id="text-d" placeholder="Exemple désactivé" disabled />
+            
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" />
+            
+            <label for="number">Nombre</label>
+            <input type="number" id="number" />
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" />
+            
+            <label for="select">Sélection</label>
+            <select id="select">
+                <option>Option N°1</option>
+                <option>Option N°2</option>
+                <option>Option N°3</option>
+            </select>
+            
+            <button>Bouton</button>
+            
+            <label for="checkboxes">Choix multiple</label>
+            <label for="checkbox-1">
+              Choix 1
+              <input type="checkbox" name="checkboxes" id="checkbox-1" />
+            </label>
+            <label for="checkbox-2">
+              Choix 1
+              <input type="checkbox" name="checkboxes" id="checkbox-2" checked />
+            </label>
+            
+            <label for="textarea">Champ multiligne</label>
+            <textarea id="textarea"></textarea>
+            
+            <label for="radios">Choix unique</label>
+            <label for="radio-1">
+              Choix 1
+              <input type="radio" name="radios" id="radio-1" />
+            </label>
+            <label for="radio-2">
+              Choix 1
+              <input type="radio" name="radios" id="radio-2" />
+            </label>
+            
+            <label for="readonly">Texte en lecture seule</label>
+            <input type="text" id="readonly" placeholder="Exemple" readonly />
+            
+            <label for="required">Texte obligatoire</label>
+            <input type="text" id="required" placeholder="Exemple" required />
+            
+            <label for="file">Champ de téléversement</label>
+            <input type="file" id="file" />
+            
+            <label for="search">Recherche</label>
+            <input type="search" id="search" />
+            
+            <label for="tel">Téléphone</label>
+            <input type="tel" id="tel" />
+            
+            <label for="url">Adresse web</label>
+            <input type="url" id="url" />
+        </fieldset>
         </form>
       </article>
 
       <aside class="col w-25 print-hidden" role="complementary">
-        <a href="http://tinytypo.tetue.net/tinytypo.html">La référence&nbsp;: TinyTypo</a>
+        <a href="http://www.w3.org/html/wg/drafts/html/master/forms.html#attr-input-type">La liste des types sur le W3C</a>
       </aside>
     </section><!-- / #formulaires -->
 
