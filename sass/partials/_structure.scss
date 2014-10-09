@@ -85,42 +85,29 @@
 /* -- @subsection Alignement horizontal -------------------- */
 @if $direction == ltr {
 
-  .start,
-  .alignleft { float: left; }
+  .start { float: left; }
 
-  .end,
-  .alignright { float: right; }
+  .end { float: right; }
 
-  img.start,
-  img.alignleft { @extend .mr2; }
+  img.start { @extend .mr2; }
 
-  img.end,
-  img.alignright { @extend .ml2; }
+  img.end { @extend .ml2; }
 
 } @else if $direction == rtl {
 
-  .start,
-  .alignleft { float: right; }
+  .start { float: right; }
 
-  .end,
-  .alignright { float: left; }
+  .end { float: left; }
 
-  img.start,
-  img.alignleft { @extend .ml2; }
+  img.start { @extend .ml2; }
 
-  img.end,
-  img.alignright { @extend .mr2; }
-}
-
-/* Centré */
-.aligncenter {
-  clear: both;
-  display: block;
+  img.end { @extend .mr2; }
 }
 
 /* Autorise les marges verticales spécifiques */
-.center,
-.aligncenter {
+.center {
+  clear: both;
+  display: block;
   margin-left: auto;
   margin-right: auto;
 }
@@ -209,7 +196,24 @@
  * @note a, t, r, b, l = all, top, right, bottom, left
  * @note Nous avons besoin des valeurs de 0 à 2 au minimum.
 */
-@for $i from 0 through $base-spacing {
+
+.mt0 { margin-top: 0; }
+
+.mr0 { margin-right: 0; }
+
+.mb0 { margin-bottom: 0; }
+
+.ml0 { margin-left: 0;}
+
+.pt0 { padding-top: 0; }
+
+.pr0 { padding-right: 0; }
+
+.pb0 { padding-bottom: 0; }
+
+.pl0 { padding-left: 0;}
+
+@for $i from 1 through $base-spacing {
 
   .ma#{$i} { margin: #{$i}em; }
 
@@ -234,11 +238,18 @@
 }
 
 
-/* == @section Éléments masqués ==================== */
+/* == @section Éléments masqués ====================
+ * @note Cette technique suit les recommandations de Yahoo!
+ * @see https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
+ */
 .visually-hidden {
-  left: -7000px;
+  border:0 !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px !important;
   overflow: hidden;
-  position: absolute;
+  padding:0 !important;
+  position: absolute !important;
+  width: 1px !important;
 }
 
 .js .js-hidden,
