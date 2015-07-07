@@ -24,6 +24,8 @@ ul,
 ol,
 blockquote { @extend .pl2; }
 
+p + p { text-indent: 2em; }
+
 dd {
   margin: 0;
   padding: 0 0 1em 1em;
@@ -46,10 +48,19 @@ table { @extend .mb1; }
 
 .b-reset { border: 0 !important; }
 
+ul,
 .ul-reset { list-style: none !important; }
 
 /* Élude la fusion des marges pour les éléments imbriqués */
 li {
+  &::before {
+    content: "‒ ";	
+    color: $secondary-color;
+    display: inline-block;
+    margin-left: -1.2em;
+    width: 1.2em;
+  }
+  
   p,
   ul,
   ol {
