@@ -1,0 +1,66 @@
+@media print {
+  * {
+    background: #fff !important;
+    border: 0 !important;
+    box-shadow: none !important;
+    color: #000 !important;
+    float: none !important;
+    height: auto !important;
+    margin: 0;
+    max-width: 100% !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    position: static !important;
+    width: auto !important;
+  }
+
+  body {
+    font-size: 12pt;
+    padding: .5em;
+  }
+
+  *::after,
+  *::before,
+  body > :not(main) {
+    display: none !important;
+  }
+
+  /**
+    * 1. Pas d’orphelines
+    * 2. Pas de veuves
+    */
+  p,
+  blockquote {
+    orphans: 3; /* 1 */
+    widows: 3;  /* 2 */
+  }
+
+  /* @note Éviter les sauts de page hasardeux */
+  blockquote, ul, ol {
+    page-break-inside: avoid;
+  }
+
+  h1, h2, h3, h4, h5, h6, caption {
+    page-break-after: avoid;
+  }
+
+  /**
+    * @note Affichage des liens, sauf pour image contenue
+    * @note Attention, penser à vérifier le résultat et penser à limiter cette possibilité aux liens dans le contenu
+    */
+  a::after {
+    content: " (" attr(href) ") ";
+    display: inline-block !important;
+  }
+
+  /* Masque l’URL des ancres */
+  a::after img,
+  a[href^="#"]::after,
+  a[href^="javascript"]::after {
+    content: "";
+  }
+
+  abbr::after {
+    content: " (" attr(title) ") ";
+  }
+}

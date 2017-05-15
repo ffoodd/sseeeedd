@@ -1,0 +1,84 @@
+// ----------------------------- */
+// == Mixins
+// ----------------------------- */
+
+// -- @subsection Soulignement factice -------------------- */
+//
+// @author Gaël Poupard
+// @see http://www.ffoodd.fr/le-soulignement-factice/
+// @note Nécessite le test Modernizr pour les dégradés + le test maison pour le mode de contrastes élevés
+// @see https://gist.github.com/ffoodd/78f99204b5806e183574
+// @see http://codepen.io/ffoodd/pen/RWmmOO
+//
+@mixin underline($background: white, $position: 88%) {
+  text-decoration: underline;
+
+  // @note Check if browser supports text-decoration-skip: ink
+  // @see http://caniuse.com/#search=%40support
+  // @see https://developer.mozilla.org/en-US/docs/Web/CSS/@supports
+  // @see https://developer.mozilla.org/fr/docs/Web/CSS/text-decoration-skip
+  // @affected Safari 9
+  @supports (text-decoration-skip: ink) {
+    text-decoration-skip: ink;
+  }
+
+  // @note If text-decoration-skip is not supported bu @supports is
+  // @see http://caniuse.com/#search=%40support
+  @supports not (text-decoration-skip: ink) {
+    // @note check if high contrast mode IS NOT activated
+    // @note HC mode usually remove CSS backgrounds, wich would break fake underline
+    .no-highcontrast  & {
+      background: #{$background} 0 #{$position} / 100% .1rem no-repeat content-box content-box;
+      background-image:
+        linear-gradient(
+          transparentize($background, .33),
+          transparentize($background, .33)
+        ),
+        linear-gradient(
+          currentColor,
+          currentColor
+        );
+      display: inline;
+      text-decoration: none;
+      text-shadow:
+        .05rem 0 0 $background, -.05rem 0 0 $background,
+        .1rem  0 0 $background, -.1rem  0 0 $background,
+        .2rem  0 0 $background, -.2rem  0 0 $background;
+      width: auto;
+
+      // For selection
+      // https://developer.mozilla.org/en-US/docs/Web/CSS/::selection
+      &::-moz-selection {
+        background-color: invert($background);
+        color: $background;
+        text-shadow: none;
+      }
+
+      &::selection {
+        background-color: invert($background);
+        color: $background;
+        text-shadow: none;
+      }
+
+      // @bugfix Needed for Blink to match currentColor in background on hover/focus
+      // @see https://bugs.chromium.org/p/chromium/issues/detail?id=595467
+      // @affected Chromium, Brave, Vivaldi, Opera, Chrome
+      // @author Vincent De Oliveira
+      // @see https://twitter.com/iamvdo/status/822130026384592898
+      &:hover,
+      &:focus {
+        position: relative;
+        z-index: 1;
+      }
+    }
+  }
+}
+
+@mixin underline-reset($background: none) {
+  .no-highcontrast.cssgradients & {
+    background: $background;
+    background-clip: border-box;
+    display: inline-block;
+    text-decoration: none;
+  }
+}
