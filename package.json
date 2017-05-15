@@ -1,0 +1,35 @@
+{
+  "name": "sseeeedd",
+  "version": "0.0.1",
+  "description": "Sow sseeeedd and see your front-end grow",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ffoodd/sseeeedd.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "template",
+    "accessibility",
+    "front-end",
+    "starter"
+  ],
+  "author": "Gaël Poupard",
+  "ignore": [
+    "node_modules"
+  ],
+  "devDependencies": {
+    "axe-core": "^2.1.7",
+    "browser-sync": "^2.18.5",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-axe-webdriver": "^1.4.0",
+    "gulp-imagemin": "^3.1.1",
+    "gulp-inject-svg": "^0.1.9",
+    "gulp-nunjucks": "^2.3.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.2",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-uglify": "^2.0.0",
+    "gulp-zip": "^4.0.0"
+  }
+}
