@@ -1,11 +1,11 @@
 # sseeeedd
 
-« seed » signifie semence, en anglais. C’est donc un excellent commencement, fidèle à la philosophie à l’origine de [ffoodd](http://www.ffoodd.fr) et [ffeeeedd](https://github.com/ffoodd/ffeeeedd).
+sseeeedd is a starting point, to sow & grow a good front-end.
 
 
-## Travail en cours
+## WIP
 
-Veuillez patienter…
+Please wait…
 
-Ce projet est sous licence [MIT](http://opensource.org/licenses/MIT "The MIT licence") et [CC BY 3.0 FR](http://creativecommons.org/licenses/by/3.0/fr/ "Explications de la licence").
+This project is licenced under [MIT](http://opensource.org/licenses/MIT "The MIT licence") and [CC BY 3.0 FR](http://creativecommons.org/licenses/by/3.0/fr/ "Licence's explanations").
 *Copyright (c) 2017 Gaël Poupard*
