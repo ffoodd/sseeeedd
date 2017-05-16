@@ -1,36 +1,36 @@
 $colors: (
   dominant: (
-    base: #0a2435,
-    light: lighten( #0a2435, 10 ),
-    dark: darken( #0a2435, 1 )
+    base: MidnightBlue,
+    light: lighten( MidnightBlue, 10 ),
+    dark: darken( MidnightBlue, 1 )
   ),
   secondary: (
-    base: #e8680c,
-    light: lighten( #e8680c, 10 ),
-    dark: darken( #e8680c, 10 )
+    base: DodgerBlue,
+    light: lighten( DodgerBlue, 10 ),
+    dark: darken( DodgerBlue, 10 )
   ),
   accent: (
-    base: #27a4ad,
-    light: lighten( #27a4ad, 10 ),
-    dark: darken( #27a4ad, 10 )
+    base: rebeccaPurple,
+    light: lighten( rebeccaPurple, 10 ),
+    dark: darken( rebeccaPurple, 10 )
   ),
   muted: (
-    base: #8398a5,
-    x-light: lighten( #8398a5, 40 ),
-    light: lighten( #8398a5, 10 ),
-    dark: darken( #8398a5, 10 )
+    base: LightSlateGray,
+    x-light: lighten( LightSlateGray, 40 ),
+    light: lighten( LightSlateGray, 10 ),
+    dark: darken( LightSlateGray, 10 )
   ),
   alert: (
-    base: #ff4f0d,
-    dark: darken( #ff4f0d, 10 )
+    base: OrangeRed,
+    dark: darken( OrangeRed, 10 )
   ),
   success: (
-    base: #14ccaa,
-    dark: darken( #14ccaa, 10 )
+    base: SpringGreen,
+    dark: darken( SpringGreen, 10 )
   ),
   default: (
-    base: #0a2435,
-    secondary: #fff
+    base: DimGray,
+    secondary: whiteSmoke
   )
 );
 
