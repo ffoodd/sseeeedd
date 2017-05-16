@@ -7,15 +7,14 @@
   == Imports
   == Base
   == Helpers
-     == Improved sr-only
+     -- Improved sr-only
   == Colors
   == Typography
   == Images
   == Tables
   == Grid
   == Forms
-  == Footnotes
-  == Tooltips
+  == Components
   == Header
   == Footer
 
@@ -24,10 +23,11 @@
 /* == Imports
 /* ==================== */
 
-@import "mixins";
-@import "functions";
-@import "normalize";
-@import "system-font";
+@import "utilities/mixins";
+@import "utilities/functions";
+@import "utilities/variables";
+@import "dependencies/normalize";
+@import "dependencies/system-font";
 
 
 /* ==================== */
@@ -92,10 +92,6 @@ main {
   padding: 0;
 }
 
-.d-inbl {
-  display: inline-block;
-  vertical-align: top;
-}
 
 /* ----------------------------- */
 /* -- Improved sr-only
@@ -160,45 +156,9 @@ main {
 /* == Colors
 /* ==================== */
 
-$palettes: (
-  dominante: (
-    base:   #0a2435,
-    clair:  lighten( #0a2435, 10 ),
-    sombre: darken( #0a2435, 1 )
-  ),
-  secondaire: (
-    base:   #e8680c,
-    clair:  lighten( #e8680c, 10 ),
-    sombre: darken( #e8680c, 10 )
-  ),
-  tonique: (
-    base:   #27a4ad,
-    clair:  lighten( #27a4ad, 10 ),
-    sombre: darken( #27a4ad, 10 )
-  ),
-  inerte: (
-    base:    #8398a5,
-    x-clair: lighten( #8398a5, 40 ),
-    clair:   lighten( #8398a5, 10 ),
-    sombre:  darken( #8398a5, 10 )
-  ),
-  erreur: (
-    base: #ff4f0d,
-    sombre: darken( #ff4f0d, 10 )
-  ),
-  succes: (
-    base: #14ccaa,
-    sombre : darken( #14ccaa, 10 )
-  ),
-  texte: (
-    base: #0a2435,
-    secondaire: #fff
-  )
-);
-
 body {
-  background: palette( texte, secondaire );
-  color: palette( dominante );
+  background: palette( default, secondary );
+  color: palette( primary );
 }
 
 /**
@@ -207,18 +167,18 @@ body {
  * 1. Shadow is required for fake underlines
  */
 ::selection {
-  background-color: palette( secondaire );
-  color: palette( texte, secondaire );
+  background-color: palette( secondary );
+  color: palette( default, secondary );
   text-shadow: none;
 }
 
 a {
   @include underline();
-  color: palette( tonique );
+  color: palette( tertiary );
 
   &:hover,
   &:focus {
-    color: palette( tonique, sombre );
+    color: palette( tertiary, dark );
   }
 
   &:active,
@@ -233,12 +193,12 @@ main address {
   padding: 0 0 0 2em;
 }
 
-.inerte {
-  color: palette( inerte ) !important;
+.muted {
+  color: palette( muted ) !important;
 
   em,
   strong {
-    color: palette( texte, secondaire );
+    color: palette( default, secondary );
   }
 }
 
@@ -279,24 +239,24 @@ caption {
 
 h1,
 .h1 {
-  color: palette( secondaire );
+  color: palette( secondary );
   font-size: em( 46 );
   line-height: 1.0434;
   margin:  em( 48, 46 ) 0 em( 24, 46 );
   @extend .hn;
 
   &::first-line {
-    color: palette( dominante );
+    color: palette( primary );
   }
 
   strong {
-    color: palette( dominante );
+    color: palette( primary );
   }
 }
 
 h2,
 .h2 {
-  color: palette( tonique );
+  color: palette( tertiary );
   font-size: em( 40 );
   line-height: 1.2;
   margin: em( 48, 40 ) 0 em( 24, 40 );
@@ -305,7 +265,7 @@ h2,
 
 h3,
 .h3 {
-  color: palette( dominante );
+  color: palette( primary );
   font-size: em( 36 );
   line-height: 1.3334;
   margin: em( 48, 36 ) 0 em( 24, 36 );
@@ -361,7 +321,7 @@ blockquote {
   z-index: 2;
 
   &::before {
-    color: palette( inerte, clair );
+    color: palette( muted, light );
     content: open-quote;
     font-size: 10em;
     font-weight: 700;
@@ -398,7 +358,7 @@ strong {
 }
 
 cite {
-  color: palette( tonique );
+  color: palette( tertiary );
   font-style: normal;
   @extend .hn;
 }
@@ -427,7 +387,7 @@ img[alt] {
 
   /* 1 */
   &::after {
-    background: palette( inerte, x-clair );
+    background: palette( muted, x-light );
     bottom: 0;
     content:
       "Couldn't find picture  (╯°□°）╯︵ ┻━┻
@@ -482,7 +442,7 @@ td {
 
   thead &,
   tbody & {
-    border-bottom: 1px solid lighten( palette( inerte, clair ), 25 );
+    border-bottom: 1px solid lighten( palette( muted, light ), 25 );
   }
 }
 
@@ -498,10 +458,10 @@ table > caption:first-child {
 }
 
 tbody {
-  border: 1px solid lighten( palette( inerte, clair ), 25 );
+  border: 1px solid lighten( palette( muted, light ), 25 );
 
   tr > * + * {
-    border-left: 1px solid lighten( palette( inerte, clair ), 25 );
+    border-left: 1px solid lighten( palette( muted, light ), 25 );
   }
 }
 
@@ -526,7 +486,7 @@ tbody {
     background-color: #fff;
     background-repeat: no-repeat;
     background-size: em( 10 ) 100%, em( 10 ) 100%;
-    border: 1px solid lighten( palette( inerte, clair ), 25 );
+    border: 1px solid lighten( palette( muted, light ), 25 );
     max-width: 100% !important;        /* 1 */
     -webkit-overflow-scrolling: touch; /* 1 */
   }
@@ -561,7 +521,7 @@ tbody {
     background-repeat: no-repeat;
     background-position: 100% 0, 0 0;
     background-size: em( 20 ) 100%, em( 20 ) 100%;
-    border-bottom: 1px solid lighten( palette( inerte, clair ), 25 );
+    border-bottom: 1px solid lighten( palette( muted, light ), 25 );
   }
 }
 
@@ -584,7 +544,7 @@ tbody {
   }
 
   tbody tr:nth-child(odd) {
-    background: lighten( palette( inerte, x-clair ), 1 );
+    background: lighten( palette( muted, x-light ), 1 );
   }
 }
 
@@ -598,7 +558,7 @@ tbody {
  ** @see http://fr.slideshare.net/TheZero1/webexpo-highcontrast (slide 11)
  */
 button[type] {
-  background-color: palette( secondaire );
+  background-color: palette( secondary );
   background-image:
     linear-gradient(
       rgba( 255, 255, 255, .1 ),
@@ -608,7 +568,7 @@ button[type] {
   box-shadow:
     inset 0 2px rgba( 255, 255, 255, .2 ),
     0 .25em 0 -.1em rgba( 0, 0, 0, .1 );
-  color: palette( texte, secondaire );
+  color: palette( default, secondary );
   display: inline-block;
   margin: .5em auto;
   outline: 1px solid rgba( 0, 0, 0, .15 );
@@ -625,11 +585,11 @@ button[type] {
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    background-color: palette( secondaire, sombre );
+    background-color: palette( secondary, dark );
     box-shadow:
       inset 0 2px rgba( 255, 255, 255, .2 ),
       0 .25em 0 -.1em rgba( 0, 0, 0, .15 );
-    color: palette( texte, secondaire );
+    color: palette( default, secondary );
     outline: 1px solid rgba( 0, 0, 0, .15 );
     outline-offset: -1px;
   }
@@ -647,8 +607,8 @@ button[type] {
     &:hover,
     &:focus,
     &:active {
-      background-color: palette( inerte, sombre );
-      color: palette( inerte, x-clair );
+      background-color: palette( muted, dark );
+      color: palette( muted, x-light );
       cursor: not-allowed;
     }
   }
@@ -672,36 +632,36 @@ button[type] {
 }
 
 /* Colors */
-.btn--dominante {
-  background-color: palette( dominante, clair );
+.btn--primary {
+  background-color: palette( primary, light );
 
   &:hover,
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    background-color: palette( dominante, sombre );
+    background-color: palette( primary, dark );
   }
 }
 
-.btn--tonique {
-  background-color: palette( tonique );
+.btn--tertiary {
+  background-color: palette( tertiary );
 
   &:hover,
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    background-color: palette( tonique, sombre );
+    background-color: palette( tertiary, dark );
   }
 }
 
-.btn--inerte {
-  background-color: palette( inerte );
+.btn--muted {
+  background-color: palette( muted );
 
   &:hover,
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    background-color: palette( inerte, sombre );
+    background-color: palette( muted, dark );
   }
 }
 
@@ -720,7 +680,6 @@ button[type] {
  * @note You might extend it to match your grid:
  * @see https://unicode-table.com/en/blocks/number-forms/
  */
-$gutter: 1rem !default;
 
 .grid {
   display: flex;    /* 1 */
@@ -774,17 +733,17 @@ form {
 
 fieldset {
   background: #fff;
-  border: .1rem solid lighten( palette( inerte ), 25 );
+  border: .1rem solid lighten( palette( muted ), 25 );
   margin: 1.5em 0 0;
 
   &::selection {
-    background-color: palette( tonique, sombre );
-    color: palette( texte, secondaire );
+    background-color: palette( tertiary, dark );
+    color: palette( default, secondary );
   }
 }
 
 fieldset > legend:first-child {
-  color: palette( tonique );
+  color: palette( tertiary );
   font-weight: 700;
 }
 
@@ -830,19 +789,19 @@ input[type="password"] {
 
   &:hover,
   &:focus {
-    background: lighten( palette( tonique, clair ), 46 );
-    color: palette( tonique );
-    outline-color: lighten( palette( tonique, clair ), 46 );
+    background: lighten( palette( tertiary, light ), 46 );
+    color: palette( tertiary );
+    outline-color: lighten( palette( tertiary, light ), 46 );
     transition: all 300ms ease-out;
 
     + .label {
-      color: palette( tonique );
+      color: palette( tertiary );
     }
   }
 
   &::selection {
-    background-color: palette( tonique, sombre );
-    color: palette( texte, secondaire );
+    background-color: palette( tertiary, dark );
+    color: palette( default, secondary );
   }
 }
 
@@ -889,7 +848,7 @@ textarea {
   &:hover + label[for],
   &:focus + label[for],
   &:checked + label[for] {
-    color: palette( tonique );
+    color: palette( tertiary );
   }
 }
 
@@ -915,7 +874,7 @@ textarea {
  */
 select {
   appearance: none;         /* 1 */
-  border: 1px solid palette( inerte, clair );
+  border: 1px solid palette( muted, light );
   border-radius: 0;
   padding: .1em;
 
@@ -952,9 +911,9 @@ textarea {
     & + .label,
     &:hover + .label,
     &:focus + .label {
-      background: lighten( palette( inerte, clair ), 46 );
-      color: palette( inerte );
-      outline-color: lighten( palette( inerte, clair ), 46 );
+      background: lighten( palette( muted, light ), 46 );
+      color: palette( muted );
+      outline-color: lighten( palette( muted, light ), 46 );
       cursor: default;
       opacity: .8;
     }
@@ -967,9 +926,9 @@ textarea {
     & + .label,
     &:hover + .label,
     &:focus + .label {
-      background: lighten( palette( inerte, clair ), 46 );
-      color: palette( inerte );
-      outline-color: lighten( palette( inerte, clair ), 46 );
+      background: lighten( palette( muted, light ), 46 );
+      color: palette( muted );
+      outline-color: lighten( palette( muted, light ), 46 );
       cursor: not-allowed;
       opacity: .4;
     }
@@ -977,7 +936,7 @@ textarea {
 }
 
 [aria-required] + .label::after {
-  color: palette( erreur );
+  color: palette( alert );
   content: "\00A0*";
 }
 
@@ -990,125 +949,22 @@ textarea {
 }
 
 [aria-invalid="true"] {
-  border-color: palette( erreur );
+  border-color: palette( alert );
 
   &,
   & + .label,
   & ~ [role="alert"] {
-    color: palette( erreur );
+    color: palette( alert );
   }
 }
 
 
 /* ==================== */
-/* == Footnotes
+/* == Components
 /* ==================== */
-/**
- * Footnotes
- ** 1. Incrementing counter
- ** 2. Removes fake underline
 
- */
-a[id^="footnote-"][aria-describedby] {
-  counter-increment: footnotes; /* 1 */
-  color: inherit;               /* 2 */
-  cursor: default;              /* 2 */
-  outline: none;                /* 2 */
-
-  @include underline-reset();   /* 2 */
-
-  &::after {
-    content: "[" counter(footnotes) "]";
-    vertical-align: super;
-    font-size: rem( 14 );
-    font-weight: 400;
-    margin-left: 2px;
-
-    @include underline();
-    color: palette( tonique );
-    cursor: pointer;
-  }
-}
-
-footer[id="footnotes"] {
-  max-width: 75ch;
-}
-
-/**
- * Adding an effect when receiving focus
- */
-@keyframes footnotes {
-  from {
-    color: palette( succes );
-  } to {
-    color: palette( dominante );
-  }
-}
-
-[role="note"]:target {
-  animation: footnotes 1600ms ease-in;
-}
-
-
-/* ==================== */
-/* == Tooltips
-/* ==================== */
-.tooltip {
-  display: inline-block;
-  position: relative;
-
-  button {
-    margin: 0;
-  }
-}
-
-[role="tooltip"] {
-  background: palette( dominante, clair );
-  bottom: calc( 100% + .5em );
-  color: palette( texte, secondaire );
-  left: 50%;
-  opacity: 0;
-  padding: .25em .5em .3em;
-  pointer-events: none;
-  position: absolute;
-  transform-origin: 50% calc( 100% + 10px );
-  transform:
-    perspective( 1000px )
-    rotate3d( 1, 0, 0, 45deg )
-    translateX( -50% );
-  transition:
-    opacity .2s ease-in,
-    transform .2s ease-in,
-    visibility 0s linear .2s;
-  visibility: hidden;
-
-  &::after {
-    border-left: em( 4 ) solid transparent;
-    border-right: em( 4 ) solid transparent;
-    border-top: em( 4 ) solid palette( dominante, clair );
-    bottom: em( -4 );
-    content: "";
-    left: calc( 50% - .25em );
-    position: absolute;
-  }
-}
-
-.tooltip {
-  button:hover + [role="tooltip"],
-  button:focus + [role="tooltip"] {
-    opacity: 1;
-    pointer-events: auto;
-    transform:
-      perspective( 1000px )
-      rotate3d( 1, 0, 0, 0deg )
-      translateX( -50% );
-    transition:
-      opacity .2s ease-out,
-      transform .2s ease-out;
-    visibility: visible;
-  }
-}
-
+@import "components/footnotes";
+@import "components/tooltips";
 
 
 /* ==================== */

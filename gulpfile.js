@@ -35,7 +35,7 @@ gulp.task('system-font', function () {
       prefix: '_',
       extname: '.scss'
     }))
-    .pipe(gulp.dest(paths.dev + '/scss'));
+    .pipe(gulp.dest(paths.dev + '/scss/dependencies'));
 });
 
 gulp.task('normalize', function () {
@@ -44,7 +44,7 @@ gulp.task('normalize', function () {
       prefix: '_',
       extname: '.scss'
     }))
-    .pipe(gulp.dest(paths.dev + '/scss'));
+    .pipe(gulp.dest(paths.dev + '/scss/dependencies'));
 });
 
 gulp.task('dependencies', ['system-font', 'normalize']);
