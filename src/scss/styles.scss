@@ -1,67 +1,38 @@
 @charset "UTF-8";
 
 /* ----------------------------- */
-/* Sommaire */
+/* Table of contents */
 /* ----------------------------- */
 /*
   == Imports
   == Base
-  == Utilitaires
-     == Éléments masqués
-  == Atomes
-     == Couleurs
-     == Typographie
-     == Images
-     == Tableaux
-     == Grille
-     == Formulaires
-  == Molécules
-     == Pictogrammes
-     == Formulaires
-     == Mise en page
-     == Navigation
-        -- Navigation principale
-        -- Navigation secondaire
-        -- Notes de bas de page
-        -- Fil d’Ariane
-     == Messages
-     == Composants JS
-        -- Ressources
-        -- Infobulles
-        -- Menu déroulant
-        -- Onglets
-           - Onglets à la verticale
-        -- Accordéons
-  == Organismes
-     == Blocs principaux
-        -- Entête
-        -- Navigation mobile
-        -- Pied-de-page
-     == Fenêtre modale
-     == Questions fréquentes
-     == Formulaire complet
-     == Bloc tarifaire
-     == Témoignages
-     == Presse et Équipe
-     == Argumentaire
-  == Impression
-  == Pages
-     == Conduite
-*/
+  == Helpers
+     == Improved sr-only
+  == Colors
+  == Typography
+  == Images
+  == Tables
+  == Grid
+  == Forms
+  == Footnotes
+  == Tooltips
+  == Header
+  == Footer
 
 
-/* ----------------------------- */
+/* ==================== */
 /* == Imports
-/* ----------------------------- */
+/* ==================== */
 
 @import "mixins";
 @import "functions";
 @import "normalize";
+@import "system-font";
 
 
-/* ----------------------------- */
+/* ==================== */
 /* == Base
-/* ----------------------------- */
+/* ==================== */
 
 html[lang] {
   box-sizing: border-box;
@@ -74,7 +45,6 @@ html[lang] {
   box-sizing: inherit;
 }
 
-/* Valeurs max */
 code,
 pre,
 video,
@@ -82,7 +52,6 @@ svg {
   max-width: 100%;
 }
 
-/* Élude la fusion des marges pour les éléments imbriqués */
 li {
   p,
   ul,
@@ -102,12 +71,9 @@ main {
 }
 
 
-/* ----------------------------- */
-/* == Utilitaires
-/* ----------------------------- */
-
-$l-max: 980 !default;
-$max-z-index: 2147483647;
+/* ==================== */
+/* == Helpers
+/* ==================== */
 
 .no-margin {
   margin: 0 !important;
@@ -126,138 +92,73 @@ $max-z-index: 2147483647;
   padding: 0;
 }
 
-.ml-0 {
-  margin-left: 0;
-}
-
-.mt-0 {
-  margin-top: 0;
-}
-
-.t-center {
-  text-align: center;
-}
-
-.t-right {
-  text-align: right;
-}
-
-.t-left {
-  text-align: left;
-}
-
-.mw--site {
-  margin: 0 auto;
-  max-width: rem( $l-max );
-}
-
-/* -- @subsection Bordures -----------------------
- * @note Utile surtout dans les formulaires
- */
-.has-bt {
-  border-top-width: .1rem !important;
-}
-
-.no-bt {
-  border-top-width: 0 !important;
-}
-
-.no-bb {
-  border-bottom-width: 0 !important;
-}
-
-.no-bl {
-  border-left-width: 0 !important;
-}
-
-.no-br {
-  border-right-width: 0 !important;
-  border-right-width: 0 !important;
-}
-
-
-/* -- @subsection Clearfix -----------------------
- * @see http://cssmojo.com/the-very-latest-clearfix-reloaded/
- */
-.clearfix::after {
-  clear: both;
-  content: " ";
-  display: block;
-}
-
-
-/* -- @subsection Éléments masqués -----------------------
- * @note Cette technique suit les recommandations de Yahoo!
- * @see https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
- */
-.visually-hidden {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px !important;
-  overflow: hidden;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-}
-
 .d-inbl {
   display: inline-block;
   vertical-align: top;
 }
 
-
 /* ----------------------------- */
-/* == Couleurs
+/* -- Improved sr-only
 /* ----------------------------- */
-/*doc
----
-title: "Couleurs"
-name: 1-couleurs
-category: atomes
----
+/*
+ * @author Gaël Poupard
+ ** @note Based on Yahoo!'s technique
+ ** @author Thierry Koblentz
+ ** @see https://developer.yahoo.com/blogs/ydn/clip-hidden-content-better-accessibility-53456.html
+ ** 1.
+ *** @note `clip` is deprecated but works everywhere
+ *** @see https://developer.mozilla.org/en-US/docs/Web/CSS/clip
+ ** 2.
+ *** @note `clip-path` is the future-proof version, but not very well supported yet
+ *** @see https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path
+ *** @see http://caniuse.com/#search=clip-path
+ *** @author Yvain Liechti
+ *** @see https://twitter.com/ryuran78/status/778943389819604992
+ ** 3.
+ *** @note preventing text to be condensed
+ *** author J. Renée Beach
+ *** @see https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ *** @note Drupal 8 goes with word-wrap: normal instead
+ *** @see https://www.drupal.org/node/2045151
+ *** @see http://cgit.drupalcode.org/drupal/commit/?id=5b847ea
+ ** 4.
+ *** @note !important is important
+ *** @note Obviously you wanna hide something
+ *** @author Harry Roberts
+ *** @see http://csswizardry.com/2016/05/the-importance-of-important/
+ */
+.sr-only {
+	border: 0 !important;
+	clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+	clip-path: inset(50%) !important;  /* 2 */
+	height: 1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+	white-space: nowrap !important;            /* 3 */
+}
 
-Une micro-API Sass permet d’accéder aux différentes couleurs incluses dans la palette de couleurs de la charte.
-Chaque couleur nommée ci-dessous dispose de deux variantes — sombre et clair — pour avoir un peu de jeu et gérer
-très facilement les états et interactions, par exemple.
-
-##Palette
-
-Couleur dominante              | Couleur secondaire              | Tonique
------------------------------- | ------------------------------- | ----------------------------
-                               |                                 |
-                               |                                 |
-**#0a2435**                    | **#e8680c**                     | **#27a4ad**
-`palette( dominante )`         | `palette( secondaire )`         | `palette( tonique )`
-**#134363**                    | **#f48433**                     | **#37c8d2**
-`palette( dominante, clair )`  | `palette( secondaire, clair )`  | `palette( tonique, clair )`
-**#020609**                    | **#b35009**                     | **#1d7a81**
-`palette( dominante, sombre )` | `palette( secondaire, sombre )` | `palette( tonique, sombre )`
-
-
-##Alertes
-
-Erreurs                     | Succès                      | Inerte
---------------------------- | --------------------------- | ---------------------------------------------
-                            |                             |
-                            |                             |
-**#ff4f0d**                 | **#14ccaa**                 | **#8398a5**
-`palette( erreur )`         | `palette( succes )`         | `palette( inerte )`
-**#d63a00**                 | **#0f9980**                 | **#fcfdfd, #a3b3bd, #677f8e**
-`palette( erreur, sombre )` | `palette( succes, sombre )` | `palette( inerte, [x-clair, clair, sombre] )`
+/*
+ * Use in conjunction with .sr-only to only display content when it's focused.
+ ** @note Useful for skip links
+ ** @see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+ ** @note Based on a HTML5 Boilerplate technique, included in Bootstrap
+ */
+.sr-only-focusable:focus,
+.sr-only-focusable:active {
+	clip: auto !important;
+	clip-path: none !important;
+	height: auto !important;
+	overflow: visible !important;
+	width: auto !important;
+	white-space: normal !important;
+}
 
 
-##Textes
-
-Prenez garde aux contrastes ! En cas de doute, utilisez <http://contrast-finder.tanaguru.com/> en
-définissant un ratio minimum de 3 (on est pas des nazis).
-
-Base                   | Secondaire                     | Inerte
----------------------- | ------------------------------ | -------------------
-#0a2435                | #fff                           | #8398a5
-#0a2435                | #fff                           | #8398a5
-`palette( dominante )` | `palette( texte, secondaire )` | `palette( inerte )`
-
-*/
+/* ==================== */
+/* == Colors
+/* ==================== */
 
 $palettes: (
   dominante: (
@@ -295,16 +196,15 @@ $palettes: (
   )
 );
 
-
 body {
   background: palette( texte, secondaire );
   color: palette( dominante );
 }
 
 /**
- * @note Pour la sélection
+ * @note Selection
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::selection
- * 1. l'ombre sert au cas ou il y ait un soulignement factice
+ * 1. Shadow is required for fake underlines
  */
 ::selection {
   background-color: palette( secondaire );
@@ -312,11 +212,7 @@ body {
   text-shadow: none;
 }
 
-/**
- * @note Le sélecteur négatif est nécessaire à cause du soulignement factice.
- * @note Si on vire ce soulignement, on peut virer ce sélecteur.
- */
-a:not([class*="bouton"]) {
+a {
   @include underline();
   color: palette( tonique );
 
@@ -335,25 +231,8 @@ main address {
   font-size: em( 22 );
   font-style: normal;
   padding: 0 0 0 2em;
-
-  &::before {
-    color: palette( tonique );
-    content: "\1f4cd\A0";
-    cursor: default;
-    font-family: "Ornikar", sans-serif, "Segoe UI Emoji", "Segoe UI Symbol" !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    line-height: 1;
-    text-transform: none;
-    vertical-align: middle;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 }
 
-/* @old .text-muted */
 .inerte {
   color: palette( inerte ) !important;
 
@@ -364,125 +243,17 @@ main address {
 }
 
 
-/* ----------------------------- */
-/* == Typographie
-/* ----------------------------- */
-/*doc
----
-title: "Typographie"
-name: 2-typographie
-category: atomes
----
-
-Une échelle typographique assez précise est mise en place, aussi fidèle que possible à la charte graphique.
-Un rythme vertical est également défini afin de conserver un maximum d’équilibre et d’aération entre les éléments.
-
-La typographie utilisée est la Gotham, en déclinaison Book et Bold.
-
-##Titrailles
-
-```html_example
-<h1>Le Quatuor Concertant<span>déconcerté</span></h1>
-<p>
-  Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-  et leur vitesse atteint de quinze à dix-huit kilomètres.
-</p>
-<h2>Puissance d’une sonate cacophonique</h2>
-<p class="h3-like">—&nbsp;Partout en France&nbsp;—</p>
-<p>
-  Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-  et leur vitesse atteint de quinze à dix-huit kilomètres.
-</p>
-<h3>Un loquace cicérone</h3>
-<p>
-  Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-  et leur vitesse atteint de quinze à dix-huit kilomètres.
-</p>
-<h4>Le Quatuor Concertant déconcerté</h4>
-<p>
-  Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-  et leur vitesse atteint de quinze à dix-huit kilomètres.
-</p>
-<h5>Standard-Island et Milliard-City</h5>
-<p>
-  Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-  et leur vitesse atteint de quinze à dix-huit kilomètres.
-</p>
-<h6>Cap à l’ouest </h6>
-<p>
-  Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-  et leur vitesse atteint de quinze à dix-huit kilomètres.
-</p>
-```
-
-##Corps de texte
-
-```html_example
-<p>
-  Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-  <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
-  Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-  et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à dix-huit kilomètres.
-</p>
-```
-
-##Listes
-
-```html_example
-<ul>
-  <li>L’archipel des Sandwich</li>
-  <li>Îles Marquises</li>
-  <li>Trois semaines aux Pomotou</li>
-  <li>Relâche à Taïti</li>
-</ul>
-
-<ol>
-  <li>Aux îles de Cook</li>
-  <li>D’îles en îles</li>
-  <li>Concert à la cour</li>
-  <li>Ultimatum britannique</li>
-</ol>
-```
-
-##Citations
-
-Le nom de la personne citée doit se trouver dans un élément `<footer>`. Aucune autre contrainte :)
-
-```html_example
-<blockquote>
-  On voit que les cours d’eau sont peu abondants dans le pays !
-  <footer><cite>Pinchinat</cite></footer>
-</blockquote>
-```
-
-##Abréviations
-
-Une abréviation a nécessairement un attribut `title`, sans quoi elle est inaccessible et ne sera pas stylée.
-Inutile de l’écrire en majuscules, les styles s’en chargent !
-
-```html_example
-<abbr title="Foire Aux Questions">faq</abbr>
-```
-*/
+/* ==================== */
+/* == Typography
+/* ==================== */
 
 body {
   counter-reset: footnotes;
-  font-family: "Gotham A", "Gotham B", "Helvetica Neue", Helvetica, Arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 1em;
-  line-height: 1.5;
+  font: normal 400 1em/1.5 system;
   overflow-x: hidden;
   position: relative;
   -webkit-font-smoothing: subpixel-antialiased;
   text-rendering: optimizeSpeed;
-}
-
-.hn {
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizelegibility;
 }
 
 p,
@@ -499,8 +270,15 @@ caption {
   margin: 1.5em 0;
 }
 
+.hn {
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+}
+
 h1,
-.h1-like {
+.h1 {
   color: palette( secondaire );
   font-size: em( 46 );
   line-height: 1.0434;
@@ -517,7 +295,7 @@ h1,
 }
 
 h2,
-.h2-like {
+.h2 {
   color: palette( tonique );
   font-size: em( 40 );
   line-height: 1.2;
@@ -525,22 +303,8 @@ h2,
   @extend .hn;
 }
 
-h2 em,
-.h2--sous_titre {
-  color: palette( inerte, clair );
-  display: block;
-  font-size: rem( 30 );
-  font-style: italic;
-  font-weight: 300;
-  line-height: 1.6;
-}
-
-.h2--sous_titre {
-  margin-top: rem( -24 );
-}
-
 h3,
-.h3-like {
+.h3 {
   color: palette( dominante );
   font-size: em( 36 );
   line-height: 1.3334;
@@ -549,7 +313,7 @@ h3,
 }
 
 h4,
-.h4-like {
+.h4 {
   font-size: em( 30 );
   line-height: 1.6;
   margin: em( 48, 30 ) 0 em( 24, 30 );
@@ -557,7 +321,7 @@ h4,
 }
 
 h5,
-.h5-like {
+.h5 {
   font-size: em( 26 );
   line-height: 1.8462;
   margin: em( 48, 26 ) 0 em( 24, 26 );
@@ -566,7 +330,7 @@ h5,
 
 h6,
 th,
-.h6-like {
+.h6 {
   font-size: em( 22 );
   line-height: 1.0909;
   margin: em( 48, 22 ) 0 em( 24, 22 );
@@ -611,10 +375,7 @@ blockquote {
 
   footer {
     font-style: normal;
-    font-weight: 700;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizelegibility;
+    @extend .hn;
   }
 }
 
@@ -633,129 +394,26 @@ small,
 b,
 dt,
 strong {
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizelegibility;
+  @extend .hn;
 }
 
 cite {
   color: palette( tonique );
   font-style: normal;
-  font-weight: 700;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizelegibility;
-}
-
-@media only screen and(min-width: em( 1024 )) {
-  h1 span,
-  .h1-like span {
-    display: block;
-    text-align: center;
-  }
-
-  h1 strong,
-  .h1-like strong {
-    display: block;
-    text-align: right;
-  }
+  @extend .hn;
 }
 
 
-/* ----------------------------- */
+/* ==================== */
 /* == Images
-/* ----------------------------- */
-/*doc
----
-title: "Images"
-name: 3-images
-category: atomes
----
-
-##Logo et favicon
-
-Pour le logo, nous utilisons un SVG dans le HTML, avec un élément `<title>`référencé _via_ `[aria-labelledby]`.
-C’est utile autant pour l’accessibilité que pour le référencement naturel.
-
-* <http://www.sitepoint.com/tips-accessible-svg/>
-* <http://codepen.io/goetsu/full/BNKoeG>
-
-```html_example
-<div class="section--exergue">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.42 56.07" aria-labelledby="titre" role="img" width="200" height="57" id="logo">
-    <title id="titre">Ornikar</title>
-    <g>
-      <path d="M25.76,23.52a15.37,15.37,0,0,0-4.81-3.13,15.2,15.2,0,0,0-5.89-1.15A15,15,0,0,0,4.45,23.57,15.26,15.26,0,0,0,1.2,28.31,14.17,14.17,0,0,0,0,34.1,14.63,14.63,0,0,0,4.4,44.66a15.18,15.18,0,0,0,4.79,3.15A15,15,0,0,0,15.05,49a15.4,15.4,0,0,0,10.7-4.28A14.36,14.36,0,0,0,29,40a15.31,15.31,0,0,0,0-11.75A14.29,14.29,0,0,0,25.76,23.52Zm-3.27,14a8.81,8.81,0,0,1-1.73,2.74A7.93,7.93,0,0,1,18.2,42,7.7,7.7,0,0,1,12,42,7.94,7.94,0,0,1,9.4,40.21a8.81,8.81,0,0,1-1.73-2.74A9,9,0,0,1,9.4,28,7.94,7.94,0,0,1,12,26.16a7.7,7.7,0,0,1,6.24,0A7.93,7.93,0,0,1,20.75,28,9.15,9.15,0,0,1,22.48,37.47Z"/>
-      <path d="M47.85,19.24a6.3,6.3,0,0,0-3.45,1A10.13,10.13,0,0,0,41.59,23V20h-7V48h7V32.29a7.84,7.84,0,0,1,.49-3,6,6,0,0,1,1.2-1.93,4.33,4.33,0,0,1,1.52-1.05A4.1,4.1,0,0,1,46.28,26a4.42,4.42,0,0,1,2.52.85,13.28,13.28,0,0,1,1.25,1C51.76,24.06,53,21.22,53,21.22s-1-.69-1.49-1A7.36,7.36,0,0,0,47.85,19.24Z"/>
-      <path d="M79.64,22a9.94,9.94,0,0,0-3.52-2.1A12.55,12.55,0,0,0,72,19.24a11.08,11.08,0,0,0-2,.2,12.75,12.75,0,0,0-2.05.56,12.27,12.27,0,0,0-1.93.9,7.54,7.54,0,0,0-1.56,1.17l0-2.1h-7V48h7V27.65a8,8,0,0,1,2.85-1.78,9.41,9.41,0,0,1,3.19-.56,6.05,6.05,0,0,1,2.09.37,5.05,5.05,0,0,1,1.79,1.12,5.46,5.46,0,0,1,1.25,1.91A7,7,0,0,1,76,31.36V48h7V31a13.92,13.92,0,0,0-.93-5.33A10.17,10.17,0,0,0,79.64,22Z"/>
-      <rect x="88.51" y="19.99" width="7" height="28.02"/>
-      <rect x="88.52" y="7.98" width="6.99" height="6.99"/>
-      <path d="M172,22.56a10.53,10.53,0,0,0-3.7-2.39,13.82,13.82,0,0,0-5.22-.93A16.36,16.36,0,0,0,157,20.42a16,16,0,0,0-5.2,3.32l4.15,4.2a9.17,9.17,0,0,1,3.13-2,9.29,9.29,0,0,1,3-.54,6.67,6.67,0,0,1,4.64,1.47,5.09,5.09,0,0,1,1.61,4H164.3a22,22,0,0,0-5.21.59,13.24,13.24,0,0,0-4.23,1.78,9.08,9.08,0,0,0-2.86,3A6.79,6.79,0,0,0,151,40a8.2,8.2,0,0,0,2.54,6,8.36,8.36,0,0,0,2.88,1.76,11.26,11.26,0,0,0,3.81.73,17.79,17.79,0,0,0,4.18-.32,11,11,0,0,0,3.93-1.47V48h7V32.58a19.21,19.21,0,0,0-.75-5.86A10.5,10.5,0,0,0,172,22.56Zm-3.69,18.62a14.89,14.89,0,0,1-3.1,1.42,10.18,10.18,0,0,1-3.1.49,4.55,4.55,0,0,1-3-.93,2.94,2.94,0,0,1-1.15-2.4,2.81,2.81,0,0,1,.56-1.76,4.17,4.17,0,0,1,1.52-1.2,7.8,7.8,0,0,1,2.25-.66,18.57,18.57,0,0,1,2.76-.2h3.23v5.23Z"/>
-      <path d="M197.94,20.24a7.36,7.36,0,0,0-3.64-1,6.3,6.3,0,0,0-3.45,1A10.13,10.13,0,0,0,188,23V20h-7V48h7V32.29a7.85,7.85,0,0,1,.49-3,6,6,0,0,1,1.2-1.93,4.33,4.33,0,0,1,1.52-1.05,4.1,4.1,0,0,1,1.49-.32,4.42,4.42,0,0,1,2.52.85,13.27,13.27,0,0,1,1.25,1c1.71-3.81,2.92-6.64,2.92-6.64S198.45,20.53,197.94,20.24Z"/>
-    </g>
-    <path fill="currentColor" d="M143.48,0.86a3.5,3.5,0,0,0-2-.86H105.74a3.9,3.9,0,0,0-2.08.9,5.06,5.06,0,0,0-1.16,2.18v50a4.93,4.93,0,0,0,1.09,2.16,3.53,3.53,0,0,0,2,.84h36a4.06,4.06,0,0,0,2.06-1,4.25,4.25,0,0,0,.88-2.06V3A4.81,4.81,0,0,0,143.48.86Zm-14.9,47.07-11-12.36V47.93h-7v-40h7v24l9.57-12h8.21L123.74,33.71l13.2,14.22h-8.36Z"/>
-  </svg>
-</div>
-```
-
-##Avatar
-
-```html_example
-<div class="avatar">
-  <img src="http://placehold.it/40x40" alt="" width="40" height="40" class="avatar--img" />
-  <span>Gaël</span>
-</div>
-```
-
-##Image avec légende
-
-Si la légende de l’image doit apparaître, un seul modèle est viable : une `<figure>` avec un `role="group"`.
-L’image doit être un enfant direct, et la légende va dans l’élément `<figcaption>`.
-
-```html_example
-<figure role="group">
-  <img src="http://placehold.it/700x263" width="700" height="263"
-       alt="Aperçu du permis de conduire. L'emplacement du numéro de permis est détaillé dans la légende ci-après.">
-  <figcaption>
-    Le numéro de permis est composé de 12 chiffres.
-    Sur les anciens permis (papier rose, plié en trois), il se trouve à gauche de votre photo.
-    Sur les nouveaux permis (carte plastifiée), il se trouve juste au-dessus de votre signature.
-    <a href="http://placehold.it/700x263">Afficher l&#700;image en grand</a>
-  </figcaption>
-</figure>
-```
-
-##Captures d’écran
-
-Pour afficher une capture d’écran sur le site, on ajoute un arrière-plan léger afin de le faire ressortir.
-
-```html_example
-<img src="http://placehold.it/700x263" width="350" height="200"
-     alt="" class="capture">
-```
-
-##Image cassée
-
-Si pour une raison quelconque l’image ne peut pas être affichée :
-
-* on se relaxe ;
-* on affiche un gentil message ;
-* on ajoute l'alternative de l’image, qui sera souvent vide ;
-* et finalement on précise l’URL source.
-
-```html_example
-<img src="httpplacehold.it/700x263" width="400" height="200"
-     alt="">
-```
-*/
+/* ==================== */
 
 /**
- * 1. Petit délire perso, l'affichage si la source de l'image est introuvable
+ * 1. DIsplay something if source is unreachable
  * @see http://bitsofco.de/styling-broken-images/
- * 2. Ça, c'est un saut de ligne, genre \n. Classe, non ?
- * 3. La fonction attr() retourne la valeur de l’attribut demandé (uniquement dans la propriété content)
- * 4. Et le \A0, c’est une espace insécable. Si si, carrément.
+ * 2. This is a line break, like \n.
+ * 3. attr() functions returns attribute value, only in content property for now
+ * 4. And \A0 is a non-breakable space.
  */
 img[alt] {
   display: inline-block;
@@ -772,7 +430,7 @@ img[alt] {
     background: palette( inerte, x-clair );
     bottom: 0;
     content:
-      "Cette image est introuvable  (╯°□°）╯︵ ┻━┻
+      "Couldn't find picture  (╯°□°）╯︵ ┻━┻
       \A"                 /* 2 */
       attr( alt )         /* 3 */
       "\A"
@@ -786,25 +444,6 @@ img[alt] {
   }
 }
 
-[id="logo"] {
-  fill: palette( texte, secondaire );
-  color: palette( secondaire );
-  transition: color 300ms linear;
-}
-
-:hover > [id="logo"],
-:focus > [id="logo"] {
-  color: palette( secondaire, clair );
-}
-
-.avatar--img {
-  border-radius: 50%;
-}
-
-/**
- * @see http://thenewcode.com/662/Design-From-the-Inside-Out-With-CSS-Min-Content
- * @see http://dabblet.com/gist/82eb1575806f6eff9c37
- */
 figure[role="group"] {
   margin: 1.5em auto;
   max-width: 100%;
@@ -816,65 +455,13 @@ figure[role="group"] figcaption {
   padding: 1em 0;
 }
 
-.capture {
-  background-color: palette( inerte, x-clair );
-  background-image:
-  linear-gradient(
-    rgba( 255, 255, 255, .1 ),
-    rgba( 255, 255, 255, 0 )
-  );
-  box-shadow: 0 .25em 0 -.1em rgba( 0, 0, 0, .1 );
-  outline: 1px solid rgba( 0, 0, 0, .1 );
-  outline-offset: -1px;
-  padding: 1em;
-}
 
-
-/* ----------------------------- */
-/* == Tableaux
-/* ----------------------------- */
-/*doc
----
-title: "Tableaux"
-name: 5-tableaux
-category: atomes
----
-
-Rien d’inédit, si ce n’est que le titre du tableau doit systématiquement être dans `<caption>`
-et impérativement tout en haut du tableau. On peut contrôler son affichage en CSS`:
-
-* soit en le masquant visuellement à l’aide de la classe `.visually-hidden` ;
-* soit en le plaçant en-haut ou en-bas du tableau grâce à la propriété `caption-side: top;` —
-qui s’applique sur `table`.
-
-L’aspect visuel est sobre, mais il s’agit de données. Un tableau avec un travail graphique plus élaboré
-sera systématiquement un cas particulier.
-
-```html_example
-<table>
-  <caption>Exemple de tableaux</caption>
-  <thead>
-    <tr>
-      <th scope="col">Entête №1</th>
-      <th scope="col">Entête №2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Cellule №1-1</td>
-      <td>Cellule №2-1</td>
-    </tr>
-    <tr>
-      <td>Cellule №1-2</td>
-      <td>Cellule №2-2</td>
-    </tr>
-  </tbody>
-</table>
-```
-*/
+/* ==================== */
+/* == Tables
+/* ==================== */
 
 /**
- * 1. @note Gestion des tableaux scrollables
+ * 1. @note Scrollable tables
  * @author David Bushell
  * @see http://dbushell.com/2016/03/04/css-only-responsive-tables/
  * @see http://codepen.io/dbushell/full/8e6a1ee85418f3c5abe839647dbcdec5/
@@ -919,7 +506,7 @@ tbody {
 }
 
 /**
- * @note Gestion des ombres au scroll pour les tableaux scrollables
+ * @note Scrollable tables's shadows on scroll
  * @author David Bushell
  * @see http://dbushell.com/2016/03/04/css-only-responsive-tables/
  * @see http://codepen.io/dbushell/full/8e6a1ee85418f3c5abe839647dbcdec5/
@@ -959,7 +546,7 @@ tbody {
     background-size: em( 20 ) 100%;
   }
 
-  caption {
+  > caption:first-child {
     background-image:
       linear-gradient(
           to left,
@@ -1002,87 +589,15 @@ tbody {
 }
 
 
-/* ----------------------------- */
-/* == Boutons
-/* ----------------------------- */
-/*doc
----
-title: "Boutons"
-name: 4-boutons
-category: atomes
----
-
-Les boutons sont assez sensibles. Nous disposons de plusieurs variantes afin de pouvoir
-en adapter l’affichage le plus simplement du monde.
-
-##Bouton de base
-
-```html_example
-<button type="button" class="bouton">Je réserve</button>
-<a href="/" class="bouton">Je réserve</a>
-```
-
-##Variantes de taille
-
-Un classique dont nous pourrions peut-être nous passer ?
-
-```html_example
-<button type="button" class="bouton--s">Je réserve</button>
-<a href="/" class="bouton--s">Je réserve</a>
-
-<button type="button" class="bouton--l">Je réserve</button>
-<a href="/" class="bouton--l">Je réserve</a>
-
-<button type="button" class="bouton--xl">Je réserve</button>
-<a href="/" class="bouton--xl">Je réserve</a>
-```
-
-##Variantes de couleurs
-
-Les trois couleurs de la palette principale sont disponibles.
-
-```html_example
-<button type="button" class="bouton--dominante">Je réserve</button>
-<a href="/" class="bouton--tonique">Je réserve</a>
-<button type="button" class="bouton--inerte">Je réserve</button>
-```
-
-##Variantes de styles
-
-Un style alternatif existe, principalement pour les appels à action.
-
-```html_example
-<button type="button" class="bouton--cadre">Je réserve</button>
-<button type="button" class="bouton--cadre bouton--dominante">Je réserve</button>
-<button type="button" class="bouton--cadre bouton--tonique">Je réserve</button>
-<a href="/" class="bouton--cadre bouton--inerte">Je réserve</a>
-```
-
-##Variantes
-
-Un style pour déguiser un bouton en lien — l'idéal serait de *ne pas faire ça* — et un style pour les boutons avec un long intitulé.
-
-```html_example
-<button type="button" class="bouton--lien">Je réserve</button>
-<button type="button" class="bouton--tonique bouton--multiligne">Je mʼinscris pour réserver des<br>heures de conduite</button>
-```
-
-##Boutons spéciaux
-
-LaPoste et Facebook ont même droit à leurs propres boutons.
-
-```html_example
-<button type="button" class="bouton--laposte">La Poste</button>
-<button type="button" class="bouton--facebook">Facebook</button>
-```
-*/
+/* ==================== */
+/* == Buttons
+/* ==================== */
 
 /**
- * 1. Utiles pour le mode de contrastes élevés
+ * 1. High contrast mode helper
  ** @see http://fr.slideshare.net/TheZero1/webexpo-highcontrast (slide 11)
  */
-button,
-[class*="bouton"] {
+button[type] {
   background-color: palette( secondaire );
   background-image:
     linear-gradient(
@@ -1139,25 +654,25 @@ button,
   }
 }
 
-/* Déclinaisons de taille */
-.bouton--s {
+/* Sizing */
+.btn--s {
   font-size: .875rem;
   line-height: 1.5;
 }
 
-.bouton--l {
+.btn--l {
   font-size: 1.25rem;
   line-height: 1.2;
 }
 
-.bouton--xl {
+.btn--xl {
   font-size: 1.875rem;
   line-height: 1.6;
   margin: 1.2em 0;
 }
 
-/* Déclinaison de couleur */
-.bouton--dominante {
+/* Colors */
+.btn--dominante {
   background-color: palette( dominante, clair );
 
   &:hover,
@@ -1168,7 +683,7 @@ button,
   }
 }
 
-.bouton--tonique {
+.btn--tonique {
   background-color: palette( tonique );
 
   &:hover,
@@ -1179,7 +694,7 @@ button,
   }
 }
 
-.bouton--inerte {
+.btn--inerte {
   background-color: palette( inerte );
 
   &:hover,
@@ -1190,340 +705,63 @@ button,
   }
 }
 
-.bouton--laposte {
-  background-color: #fbea00;
-  color: #003a8e;
-  font-style: italic;
 
-  &:hover,
-  &:focus,
-  &:active,
-  &[aria-expanded="true"] {
-    background-color: lighten( #fbea00, 2 );
-    color: darken( #003a8e, 10 );
-  }
+/* ==================== */
+/* == Grid
+/* ==================== */
+
+/**
+ * @note Fukol grid
+ * @author Heydon Pickering
+ * @see https://github.com/Heydon/fukol-grids
+ **
+ * @note column naming using fractions
+ * @author Gaël Poupard
+ * @note You might extend it to match your grid:
+ * @see https://unicode-table.com/en/blocks/number-forms/
+ */
+$gutter: 1rem !default;
+
+.grid {
+  display: flex;    /* 1 */
+  flex-wrap: wrap;  /* 2 */
+  margin: -$gutter; /* 5 */
 }
 
-.bouton--facebook {
-  background-color: #3b5998;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &[aria-expanded="true"] {
-    background-color: darken( #3b5998, 10 );
-  }
-}
-
-/* Déclinaisons de style */
-.bouton--cadre {
-  background: linear-gradient( #fff, #fff ), currentColor;
-  border: .125em solid;
-  box-shadow: 0 .25em 0 -.1em rgba( 0, 0, 0, .1 );
-  color: palette( secondaire );
-  outline: none;
-  text-shadow: none;
-
-  &:hover,
-  &:focus,
-  &:active,
-  &[aria-expanded="true"] {
-    background: linear-gradient( rgba( 255, 255, 255, .95 ), rgba( 255, 255, 255, .95 ) ), currentColor;
-    color: palette( secondaire, sombre );
-    outline: none;
-  }
-
-  &.bouton--dominante {
-    color: palette( dominante, clair );
-
-    &:hover,
-    &:focus,
-    &:active,
-    &[aria-expanded="true"] {
-      color: palette( dominante, sombre );
-    }
-  }
-
-  &.bouton--tonique {
-    color: palette( tonique );
-
-    &:hover,
-    &:focus,
-    &:active,
-    &[aria-expanded="true"] {
-      color: palette( tonique, sombre );
-    }
-  }
-
-  &.bouton--inerte {
-    color: palette( inerte );
-
-    &:hover,
-    &:focus,
-    &:active,
-    &[aria-expanded="true"] {
-      color: palette( inerte, sombre );
-    }
-  }
-}
-
-.bouton--lien {
-  @include underline();
-  box-shadow: none;
-  color: palette( tonique );
-  outline: none;
-  text-shadow: none;
-
-  &:hover,
-  &:focus,
-  &:active {
-    box-shadow: none;
-    color: palette( tonique, sombre );
-    outline: none;
-  }
-}
-
-.bouton--multiligne {
-  display: block;
-  font-size: em( 22 );
-  font-weight: 700;
-  line-height: 1.2;
-  max-width: rem( $l-max / 3 );
-  padding: .5em .5em .6em;
-  width: 100%;
-  @extend .hn;
-
-  &::first-line {
-    font-size: em( 14, 22 );
-    font-weight: 400;
-  }
-}
-
-.validation {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  margin: 1.5em auto;
-
-  > * {
-    margin-left: 0;
-    margin-right: 0;
-  }
-}
-
-
-/* ----------------------------- */
-/* == Grille
-/* ----------------------------- */
-/*doc
----
-title: "Grille"
-name: 6-grille
-category: atomes
----
-
-Voici un bien bel exemple de grille très basique. Quelques points à noter :
-
-* un conteneur avec `class="grille"`est indispensable ;
-* la grille est conçue pour quatre colonnes ;
-* vous pouvez doubler ou tripler une colonne en particulier ;
-* pour casser le rythme, nous disposons d’une répartition par tiers également ;
-* plusieurs niveaux de grilles peuvent s’imbriquer.
-
-Pour le responsive, je n’ai conservé qu’un seul palier à `768px`. C’est le seul dont nous nous servons couramment.
-
-```html_example
-<div class="grille" id="grille">
-  <div class="grille">
-    <div class="colonne__double"><br></div>
-  </div>
-  <div><br></div>
-  <div><br></div>
-  <div><br></div>
-
-  <div class="colonne__double"><br></div>
-  <div><br></div>
-  <div><br></div>
-
-  <div class="colonne__triple"><br></div>
-  <div><br></div>
-
-  <div class="colonne__tiers"><br></div>
-  <div class="colonne__deux-tiers"><br></div>
-
-  <div class="colonne__double grille">
-    <div class="colonne__double"><br></div>
-    <div class="colonne__double"><br></div>
-  </div>
-  <div class="colonne__double"><br></div>
-</div>
-```
-*/
-
-$gouttiere: 1rem !default;
-
-/* 1. Sert de version de base pour mobile et de fix pour IE9 */
-.grille {
-  padding: 0;
-
-  > * {
-    display: block; /* 1 */
-    margin: 0 auto;
-    padding: 0 $gouttiere 1.5rem;
-  }
-
-  > ul,
-  > ol {
-    padding: 0 $gouttiere 1.5rem 4rem;
-  }
-
-  form & > *,
-  > .grille > * {
-    margin: 0;
-    padding: 0;
-  }
-
-  > img[alt] {
-    display: block;
-    margin: 0 auto;
-  }
+.grid > * {
+  flex: 1 0 5em;    /* 3 */
+  margin: $gutter;  /* 4 */
 }
 
 @media screen and (min-width: em( 768 )) {
-  .grille {
-    align-items: center;
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-between;
-  }
-
-  .grille > * {
-    margin: 0;
-    width: 25%;
-  }
-
-  .colonne__double {
+  .½ {
     width: 50%;
   }
 
-  .colonne__triple {
+  .¼ {
+    width: 25%;
+  }
+
+  .¾ {
     width: 75%;
   }
 
-  .colonne__quadruple {
-    width: 100%;
+  .⅓ {
+    width: calc( 100% / 3 );
   }
 
-  .colonne__tiers {
-    width: 33%;
-  }
-
-  .colonne__deux-tiers {
-    width: 67%;
-  }
-
-  .grille[class*="colonne"] > * {
-    padding: 0 $gouttiere;
-
-    &:first-child {
-      padding-left: 0;
-    }
-
-    &:last-child {
-      padding-right: 0;
-    }
+  .⅔ {
+    width: calc( (100% / 3) * 2 );
   }
 }
 
 
-/* ----------------------------- */
-/* == Encarts
-/* ----------------------------- */
-/*doc
----
-title: "Encarts"
-name: 8-encarts
-category: atomes
----
-
-```html_example
-<p class="encart">Déjà titulaire du permis de conduire&nbsp;? Vous pouvez aussi vous perfectionner ou vous remettre à niveau.</p>
-```
-*/
-.encart {
-  background: rgba( 255, 255, 255, .66 );
-  border: em( 4 ) solid palette( inerte, clair );
-  margin: 3em auto;
-  max-width: rem( $l-max );
-  padding: 1.5em 1em;
-}
-
-
-/* ----------------------------- */
-/* == Formulaires
-/* ----------------------------- */
-/*doc
----
-title: "Formulaires"
-name: 7-formulaires
-category: atomes
----
-
-```html_example
-<form action="/">
-  <p>
-    <label for="texte">
-      <input type="text" id="texte" name="texte" />
-      <span class="label">Texte</span>
-    </label>
-  </p>
-  <fieldset>
-    <legend>Genre</legend>
-    <input type="radio" name="genre" id="F" value="F">
-    <label for="F">Féminin</label>
-    <input type="radio" name="genre" id="M" value="M">
-    <label for="M">Masculin</label>
-   </fieldset>
-   <p>
-    <label for="options">
-      <select id="options" name="options">
-        <option value="1">Option №1</option>
-        <option value="2">Option №2</option>
-        <option value="3">Option №3</option>
-      </select>
-      <span class="label">Options</span>
-    </label>
-  </p>
-  <fieldset>
-    <legend>Choix</legend>
-    <input type="checkbox" name="choix" id="C" value="C">
-    <label for="C">Choix №1</label>
-    <input type="checkbox" name="choix" id="D" value="D">
-    <label for="D">Choix №2</label>
-    <input type="checkbox" name="choix" id="E" value="E">
-    <label for="E">Choix №3</label>
-   </fieldset>
-  <p>
-    <label for="zone">
-      <textarea id="zone" name="zone"></textarea>
-      <span class="label">Zone de texte</span>
-    </label>
-  </p>
-  <p>
-    <label for="fichier">
-      <input type="file" id="fichier" name="fichier" />
-      <span class="label">Envoi de fichier</span>
-    </label>
-  </p>
-  <button>Bouton</button>
-</form>
-```
-*/
+/* ==================== */
+/* == Forms
+/* ==================== */
 
 form {
-  /* @old .onk-row */
-  > p,
-  > div {
+  > p {
     margin: 0;
     overflow: hidden;
     padding: 0;
@@ -1531,15 +769,9 @@ form {
 
   > * + * {
     margin-top: 2rem;
-
-    /* @old .onk-group */
-    label[for] {
-      border-top: 0;
-    }
   }
 }
 
-/* @old .onk-fieldset */
 fieldset {
   background: #fff;
   border: .1rem solid lighten( palette( inerte ), 25 );
@@ -1551,16 +783,12 @@ fieldset {
   }
 }
 
-/* @old .onk-legend */
 fieldset > legend:first-child {
   color: palette( tonique );
   font-weight: 700;
 }
 
-/* @old .onk-group */
 label[for] {
-  background: #fff;
-  border: .1rem solid lighten( palette( inerte ), 25 );
   cursor: pointer;
   display: block;
   margin: 0;
@@ -1581,7 +809,6 @@ label[for] {
   }
 }
 
-/* @old .onk-field */
 select,
 textarea,
 input[type="tel"],
@@ -1637,7 +864,7 @@ textarea {
 [type="radio"],
 [type="checkbox"] {
 
-  @extend .visually-hidden;
+  @extend .sr-only;
 
   + label[for] {
     background: none;
@@ -1648,12 +875,8 @@ textarea {
 
     &::before {
       content: "\2610";
-      font-family: "Ornikar", sans-serif, "Segoe UI Emoji", "Segoe UI Symbol" !important;
+      font: normal normal normal 1em/1 system !important;
       speak: none;
-      font-style: normal;
-      font-weight: normal;
-      font-variant: normal;
-      line-height: 1;
       padding: 0 em( 4 ) 0 0;
       text-transform: none;
     }
@@ -1686,13 +909,11 @@ textarea {
 }
 
 /**
- * 1. Supprime l'apparence par défaut
- * 2. Supprime la flèche du select sur IE
- * 3. Supprime le focus chelou sur Firefox
+ * 1. Removes default appearance
+ * 2. Removes arrow for IE
+ * 3. Remove weird focus on Firefox
  */
 select {
-  -webkit-appearance: none; /* 1 */
-  -moz-appearance: none;    /* 1 */
   appearance: none;         /* 1 */
   border: 1px solid palette( inerte, clair );
   border-radius: 0;
@@ -1711,8 +932,7 @@ select {
     position: relative;
   }
 
-  // On utilise ::before car le ::after est utilisé pour l'astérisque rouge
-  // quand le champ est obligatoire
+  // Using ::before because ::after is used for red mandatory mark
   + .label::before {
     content: "\00A0\25bc";
     position: absolute;
@@ -1721,79 +941,9 @@ select {
   }
 }
 
-@media screen and ( max-width: em( 768 ) ) {
-  form .grille {
-    .no-bl {
-      border-left-width: .1rem !important;
-      border-top: 0;
-    }
-
-    .no-br {
-      border-right-width: .1rem !important;
-      border-top: 0;
-    }
-  }
-}
-
-
-/*doc
----
-title: "Formulaires"
-name: 2-formulaires
-category: molecules
----
-
-##Champs enrichis
-
-```html_example
-<form action="/">
-  <p>
-    <label for="texte-6">
-      <input type="text" id="texte-6" name="texte-6" readonly />
-      <span class="label">Texte en lecture seule</span>
-    </label>
-  </p>
-
-  <p>
-    <label for="texte-5">
-      <input type="text" id="texte-5" name="texte-5" disabled />
-      <span class="label">Texte désactivé</span>
-    </label>
-  </p>
-
-  <p>
-    <label for="texte-2">
-      <input type="text" id="texte-2" name="texte-2" aria-describedby="note-texte" />
-      <span class="label">Texte décrit</span>
-      <span id="note-texte">Description du champ</span>
-    </label>
-  </p>
-
-  <p>
-    <label for="texte-3">
-      <input type="text" id="texte-3" name="texte-3" required aria-required="true" />
-      <span class="label">Texte obligatoire</span>
-    </label>
-  </p>
-
-  <p>
-    <label for="texte-4">
-      <input type="text" id="texte-4" name="texte-4" required aria-required="true"
-        aria-invalid="true" aria-describedby="note-texte-4" />
-      <span class="label">Texte erroné</span>
-      <span id="note-texte-4" role="alert" aria-live="assertive">
-        <span>Message d&#700;erreur</span>
-      </span>
-    </label>
-  </p>
-</form>
-```
-*/
-
 input,
 select,
 textarea {
-
   &[readonly],
   &[type="readonly"] {
     &,
@@ -1831,8 +981,6 @@ textarea {
   content: "\00A0*";
 }
 
-
-/* @old .text-* */
 [aria-describedby] ~ [id^="note"] {
   font-size: em( 12 );
   position: absolute;
@@ -1841,11 +989,7 @@ textarea {
   z-index: 3;
 }
 
-
-/**
- * @note Filtrer la classe ng-untouched permet de ne pas appliquer le rouge avant que le champ n'ait été touché
- */
-[aria-invalid="true"]:not(.ng-untouched) {
+[aria-invalid="true"] {
   border-color: palette( erreur );
 
   &,
@@ -1856,747 +1000,14 @@ textarea {
 }
 
 
-/* ----------------------------- */
-/* == Pictogrammes
-/* ----------------------------- */
-/*doc
----
-title: "Pictogrammes"
-name: 1-pictogrammes
-category: molecules
----
-
-Les icônes sont chargées à l’aide d’une fonte générée _via_ <https://icomoon.io/app>.
-Les accès sont disponibles dans les commentaires ;)
-
-##Texte courant
-
-```html_example
-<p><span class="i-diplome" aria-hidden="true"></span> Le Quatuor Concertant</p>
-```
-
-##Argument
-
-```html_example
-<ul class="grille">
-  <li class="argument">
-    <span class="i-diplome" aria-hidden="true"></span>
-    <strong>Diplômés<br>d&#700;État</strong>
-  </li>
-  <li class="argument">
-    <span class="i-suivi" aria-hidden="true"></span>
-    <strong>Suivi<br>personnalisé</strong>
-  </li>
-  <li class="argument">
-    <span class="i-conforme" aria-hidden="true"></span>
-    <strong>Conforme aux<br>examens <time>2016</time></strong>
-  </li>
-</ul>
-```
-
-##Iconographie
-
-```html_example
-<div class="grille argument">
-  <div class="grille colonne__double">
-    <span class="i-diplome" aria-hidden="true"></span>
-    <span class="i-suivi" aria-hidden="true"></span>
-    <span class="i-conforme" aria-hidden="true"></span>
-    <span class="i-mobile" aria-hidden="true"></span>
-  </div>
-  <div class="grille colonne__double">
-    <span class="i-stat" aria-hidden="true"></span>
-    <span class="i-lieu" aria-hidden="true"></span>
-    <span class="i-curseur" aria-hidden="true"></span>
-    <span class="i-mail" aria-hidden="true"></span>
-  </div>
-  <div class="grille colonne__double">
-    <span class="i-facebook" aria-hidden="true"></span>
-    <span class="i-twitter" aria-hidden="true"></span>
-    <span class="i-instagram" aria-hidden="true"></span>
-    <span class="i-ornikar" aria-hidden="true"></span>
-  </div>
-  <div class="grille colonne__double">
-    <span class="i-bas" aria-hidden="true"></span>
-    <span class="i-haut" aria-hidden="true"></span>
-    <span class="i-droite" aria-hidden="true"></span>
-    <span class="i-gauche" aria-hidden="true"></span>
-  </div>
-  <div class="grille colonne__double">
-    <span class="i-france" aria-hidden="true"></span>
-    <span class="i-7j" aria-hidden="true"></span>
-    <span class="i-permis" aria-hidden="true"></span>
-    <span class="i-horaires" aria-hidden="true"></span>
-  </div>
-  <div class="grille colonne__double">
-    <span class="i-radio_off" aria-hidden="true"></span>
-    <span class="i-radio_on" aria-hidden="true"></span>
-    <span class="i-checkbox_off" aria-hidden="true"></span>
-    <span class="i-checkbox_on" aria-hidden="true"></span>
-  </div>
-  <div class="grille colonne__double">
-    <span class="i-pedagogie" aria-hidden="true"></span>
-    <span class="i-outils" aria-hidden="true"></span>
-    <span class="i-aide" aria-hidden="true"></span>
-    <span class="i-travail" aria-hidden="true"></span>
-  </div>
-  <div class="grille colonne__double">
-    <span class="i-lancement" aria-hidden="true"></span>
-    <span class="i-euro" aria-hidden="true"></span>
-  </div>
-</div>
-```
-*/
-
+/* ==================== */
+/* == Footnotes
+/* ==================== */
 /**
- * @note Utilisation du service IcoMoon :
- * gael@ornikar.com + lanfeust#
- * @see https://icomoon.io/app
- */
-@font-face {
-  font-family: "Ornikar";
-  src:
-    url("/fonts/ornikar-if.woff2?8") format("woff2"),
-    url("/fonts/ornikar-if.woff?8") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
+ * Footnotes
+ ** 1. Incrementing counter
+ ** 2. Removes fake underline
 
-[class^="i-"],
-[class*=" i-"] {
-  cursor: default;
-  font-family: "Ornikar", sans-serif, "Segoe UI Emoji", "Segoe UI Symbol" !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  line-height: 1;
-  text-transform: none;
-  vertical-align: middle;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.i-france::before {
-  content: "\e907";
-}
-
-.i-7j::before {
-  content: "\e900";
-}
-
-.i-permis::before {
-  content: "\e909";
-}
-
-.i-ornikar::before {
-  content: "\e906";
-}
-
-.i-gauche::before {
-  content: "\2329";
-}
-
-.i-droite::before {
-  content: "\232a";
-}
-
-.i-haut::before {
-  content: "\2303";
-}
-
-.i-bas::before {
-  content: "\2304";
-}
-
-.i-conforme::before {
-  content: "\2714";
-}
-
-.i-curseur::before {
-  content: "\1f446";
-}
-
-.i-horaires::before {
-  content: "\1f553";
-}
-
-.i-mail::before {
-  content: "\1f4e4";
-}
-
-.i-facebook::before {
-  content: "\222b";
-}
-
-.i-instagram::before {
-  content: "\1f4f7";
-}
-
-.i-twitter::before {
-  content: "\1f413";
-}
-
-.i-suivi::before {
-  content: "\1f4d4";
-}
-
-.i-mobile::before {
-  content: "\1f4f1";
-}
-
-.i-stat::before {
-  content: "\1f4c8";
-}
-
-.i-lieu::before {
-  content: "\1f4cd";
-}
-
-.i-diplome::before {
-  content: "\1f396";
-}
-
-.i-checkbox_on::before {
-  content: "\2611";
-}
-
-.i-checkbox_off::before {
-  content: "\2610";
-}
-
-.i-radio_on::before {
-  content: "\25cf";
-}
-
-.i-radio_off::before {
-  content: "\25cb";
-}
-
-.i-pedagogie::before {
-  content: "\2699";
-}
-
-.i-outils::before {
-  content: "\1f511";
-}
-
-.i-aide::before {
-  content: "\1f4ac";
-}
-
-.i-travail::before {
-  content: "\1f464";
-}
-
-.i-euro::before {
-  content: "\1f4b6";
-}
-
-.i-lancement::before {
-  content: "\1f513";
-}
-
-
-.argument {
-  display: inline-bloc;
-  width: auto;
-
-  [class^="i-"],
-  [class*=" i-"] {
-    color: palette( dominante, clair );
-    display: inline-block;
-    font-size: 2em;
-    min-width: 1em;
-  }
-
-  strong {
-    color: palette( dominante, sombre );
-    display: inline-block;
-    font-size: .875em;
-    font-weight: 700;
-    line-height: 1.2;
-    padding: 0 0 0 .5em;
-    vertical-align: middle;
-  }
-}
-
-@media screen and (min-width: em( 768 )) {
-  .argument {
-    padding: 0;
-
-    [class^="i-"],
-    [class*=" i-"] {
-      min-width: 0;
-    }
-  }
-}
-
-
-/* ----------------------------- */
-/* == Mise en page
-/* ----------------------------- */
-/*doc
----
-title: "Mise en page"
-name: 3-mise-en-page
-category: molecules
----
-
-##Vis-à-vis
-
-```html_example
-<div class="grille">
-  <div>
-    <img src="https://placehold.it/200x200" alt="" width="200" height="200" />
-  </div>
-  <p class="colonne__triple">
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-  </p>
-</div>
-```
-
-##Sections
-
-###Section alternative
-```html_example
-<div class="section section--discrete">
-  <h3>Le Quatuor Concertant</h3>
-  <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-  </p>
-</div>
-```
-
-###Section « mise en exergue »
-```html_example
-<div class="section--exergue">
-  <h3>Le Quatuor Concertant</h3>
-  <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-  </p>
-</div>
-```
-
-###Section « rappel »
-```html_example
-<div class="section--rappel">
-  <h3>Le Quatuor Concertant</h3>
-  <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-  </p>
-</div>
-```
-
-###Section « scroll »
-```html_example
-<div class="section--scroll">
-  <h3>Le Quatuor Concertant</h3>
-  <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-  </p>
-</div>
-```
-
-###Variantes
-
-####Flèches et motifs
-```html_example
-<div class="section--discrete m-points">
-  <h3>Le Quatuor Concertant</h3>
-  <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-  </p>
-</div>
-<div class="section--exergue fl-droite">
-  <h3>Le Quatuor Concertant</h3>
-  <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-  </p>
-</div>
-<div class="section--rappel m-hachures">
-  <h3>Le Quatuor Concertant</h3>
-  <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-  </p>
-</div>
-```
-*/
-
-[class*="section"] {
-  background-color: palette( texte, secondaire );
-  color: palette( dominante );
-  max-width: 100%;
-  padding: .75em 1em 1.5em;
-  position: relative;
-  width: 100vw;
-
-  > * {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: rem( $l-max );
-  }
-
-  > h3,
-  > h2 + .h3-like {
-    color: palette( tonique );
-  }
-
-  > ul,
-  > ol,
-  > dl,
-  > p:not([class*="-like"]):not([class*="encart"]) {
-    max-width: 75ch;
-  }
-
-  .bouton--lien,
-  a:not([class*="bouton"]) {
-    @include underline(palette( texte, secondaire ));
-  }
-
-  &[class*="fl-"]::after {
-    color: palette( texte, secondaire );
-  }
-}
-
-.section--exergue {
-  background-color: palette( dominante );
-  color: palette( texte, secondaire );
-
-  h1,
-  h1::first-line {
-    color: inherit;
-  }
-
-  h2,
-  h3 {
-    color: palette( secondaire );
-  }
-
-  a:not([class*="bouton"]) {
-    @include underline(palette( dominante ));
-  }
-
-  &[class*="fl-"]::after {
-    color: palette( dominante );
-  }
-
-  .capture {
-    background-color: palette( dominante, clair );
-  }
-}
-
-.section--rappel {
-  background-color: palette( secondaire );
-  color: palette( texte, secondaire );
-
-  h2,
-  h3 {
-    color: inherit;
-  }
-
-  a:not([class*="bouton"]) {
-    color: inherit;
-    @include underline(palette( secondaire ));
-  }
-
-  &[class*="fl-"]::after {
-    color: palette( secondaire );
-  }
-
-  .capture {
-    background-color: palette( secondaire, clair );
-  }
-}
-
-.section--discrete {
-  background-color: palette( inerte, x-clair );
-  padding: .75em 1em 1.5em;
-
-  .bouton--lien,
-  a:not([class*="bouton"]) {
-    @include underline(palette( inerte, x-clair ));
-  }
-
-  &[class*="fl-"]::after {
-    color: palette( inerte, x-clair );
-  }
-
-  .capture {
-    background-color: palette( inerte, x-clair );
-  }
-}
-
-.section--scroll {
-  margin: 0 0 -4em;
-  min-height:  em( ($l-max + 64) / 3 );
-  overflow: hidden;
-  padding: .75em 1em 4em;
-
-  > * {
-    position: relative;
-    z-index: 3;
-  }
-
-  > .encart {
-    margin: 1.5em auto 3em;
-    max-width: rem( $l-max );
-    padding: 1.5em 1em;
-  }
-
-  &::before {
-    $width: 1100;
-    $left: em( $width / 2 );
-
-    background-color: lighten( palette( inerte ), 38 );
-    background-image: inherit;
-    background-size: inherit;
-    background-position: inherit;
-    content: "";
-    height: em( $width );
-    left: calc( 50% - #{$left} );
-    position: absolute;
-    transform: rotate( 45deg ) translateZ( 0 );
-    top: em( $width / -2 );
-    width: em( $width );
-    z-index: 2;
-  }
-}
-
-@media screen and (min-width: em( 768 )) {
-  [class*="section"] > * {
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-/* ----------------------------- */
-/* -- Flèches
-/* ----------------------------- */
-
-/**
- * 1. La couleur dépend du texte courant, définie pour chaque type de section
- */
-[class*="fl-"]::after {
-  border-left: em( 44 ) solid transparent;
-  border-right: em( 44 ) solid transparent;
-  border-top: em( 44 ) solid; /* 1 */
-  bottom: em( -43 );
-  content: "";
-  left: em( $l-max / 2 );
-  margin-left: 1em;
-  position: absolute;
-  z-index: 3;
-}
-
-.fl-droite::after {
-  left: auto;
-  margin-right: 4em;
-  right: em( $l-max / 2 );
-}
-
-.fl-centre::after {
-  left: 50%;
-  margin-left: em( -44 );
-}
-
-.fl-haut::after {
-  border-bottom: em( 44 ) solid;
-  border-top: 0;
-  bottom: auto;
-  top: em( -44 );
-}
-
-
-/* ----------------------------- */
-/* -- Motifs
-/* ----------------------------- */
-
-[class*="m-"] {
-  background-image:
-    linear-gradient(
-      -45deg,
-      rgba(0, 0, 0, .05) 10%,
-      transparent 10%,
-      transparent 50%,
-      rgba(0, 0, 0, .05) 50%,
-      rgba(0, 0, 0, .05) 60%,
-      transparent 60%
-    );
-  background-size: .5em .5em;
-}
-
-.m-points {
-  background-image:
-    radial-gradient(
-      rgba( 0, 0, 0, .05 ) 15%,
-      transparent 16%
-    ),
-    radial-gradient(
-      rgba( 0, 0, 0, .05 ) 15%,
-      transparent 16%
-    );
-  background-position: 0 0, .25em .25em;
-}
-
-
-/* ----------------------------- */
-/* == Navigation
-/* ----------------------------- */
-/*doc
----
-title: "Navigation"
-name: 4-navigation
-category: molecules
----
-
-##Menu principal
-
-```html_example
-<nav role="navigation" aria-label="Navigation principale">
-  <ul class="navigation">
-    <li><a href="atomes.html">Atomes</a></li>
-    <li><a href="molecules.html">Molécules</a></li>
-  </ul>
-</nav>
-```
-
-##Menu secondaire
-
-```html_example
-<nav role="navigation" aria-label="Navigation secondaire">
-  <ul class="navigation--bis">
-    <li><a href="atomes.html">Atomes</a></li>
-    <li><a href="molecules.html">Molécules</a></li>
-  </ul>
-</nav>
-```
-
-##Fil d’Ariane
-
-```html_example
-<nav role="navigation" aria-labelledby="ici" id="fil-d_ariane" itemscope itemtype="http://schema.org/BreadcrumbList" class="small">
-  <span id="ici" class="inerte">Vous êtes ici&nbsp;: </span>
-  <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="/" itemprop="item" ><span itemprop="name" >Ornikar</span></a>
-    <meta itemprop="position" content="1" />
-    <span> ›&nbsp;</span>
-  </span>
-  <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <a href="/guide-de-style" itemprop="item"><span itemprop="name" >Guide de styles</span></a>
-    <meta itemprop="position" content="2" />
-    <span> ›&nbsp;</span>
-  </span>
-  <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-    <span itemprop="item"><span itemprop="name" >Molécules</span></span>
-    <meta itemprop="position" content="3" />
-  </span>
-</nav>
-```
-
-##Note de bas de page
-
-```html_example
-<a href="#footnote-1" id="footnote-1-ref" aria-describedby="footnote-1">Auto-école traditionnelle</a>
-<footer id="footnotes">
-  <ol>
-    <li id="footnote-1" role="note">
-      Tarif médian pour une auto-école en île-de-France, d’après une
-      enquête <abbr title="Consommation, Logement et Cadre de Vie">CLCV</abbr> «&nbsp;Tarifs et pratiques des auto-écoles&nbsp;»
-      en Août 2013
-      <a href="#footnote-1-ref" aria-label="Retour au contenu">↩</a>
-    </li>
-  </ol>
-</footer>
-```
-*/
-
-/* ----------------------------- */
-/* -- Navigation principale (horizontale)
-/* ----------------------------- */
-nav > .navigation {
-  align-items: center;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  list-style: none;
-  padding: 0;
-
-  a {
-    padding: em( 5 );
-  }
-
-  .bouton {
-    padding: .25em .5em .3em;
-  }
-}
-
-/* ----------------------------- */
-/* -- Navigation secondaire (verticale)
-/* ----------------------------- */
-nav > .navigation--bis {
-  list-style: none;
-  padding: 0;
-
-  a {
-    padding: em( 5 ) 0;
-  }
-
-  li {
-    padding: .25em 0;
-  }
-}
-
-@media screen and (min-width: em( 640 )) {
-  nav > .navigation > li + li {
-    margin: 0 0 0 1em;
-  }
-}
-
-@media screen and (min-width: em( 1120 )) {
-  nav > [class="navigation"] {
-    justify-content: flex-end;
-  }
-}
-
-/* ----------------------------- */
-/* -- Notes de bas de page
-/* ----------------------------- */
-/**
- * Les notes de bas page
- ** 1. On incrémente le compteur défini sur body
- ** 2. On annule les styles de lien
-
- * Le chiffre correspondant à la note
- * 1. Affiche le compteur (ex: `[1]`)
- * 2. Aligne le texte en exposant
- * 3. Réduit le corps (c’est un exposant, après tout)
- * 4. Décale légèrement l’exposant du texte
- * 5. Remets un style de lien pour montrer l’interaction
  */
 a[id^="footnote-"][aria-describedby] {
   counter-increment: footnotes; /* 1 */
@@ -2604,18 +1015,18 @@ a[id^="footnote-"][aria-describedby] {
   cursor: default;              /* 2 */
   outline: none;                /* 2 */
 
-  @include underline-reset();     /* 2 */
+  @include underline-reset();   /* 2 */
 
   &::after {
-    content: "[" counter(footnotes) "]"; /* 1 */
-    vertical-align: super;               /* 2 */
-    font-size: rem( 14 );                /* 3 */
+    content: "[" counter(footnotes) "]";
+    vertical-align: super;
+    font-size: rem( 14 );
     font-weight: 400;
-    margin-left: 2px;                    /* 4 */
+    margin-left: 2px;
 
-    @include underline();                /* 5 */
-    color: palette( tonique );           /* 5 */
-    cursor: pointer;                     /* 5 */
+    @include underline();
+    color: palette( tonique );
+    cursor: pointer;
   }
 }
 
@@ -2624,7 +1035,7 @@ footer[id="footnotes"] {
 }
 
 /**
- * On ajoute un effet lorsque la note reçoit le focus
+ * Adding an effect when receiving focus
  */
 @keyframes footnotes {
   from {
@@ -2634,310 +1045,15 @@ footer[id="footnotes"] {
   }
 }
 
-
 [role="note"]:target {
   animation: footnotes 1600ms ease-in;
 }
 
-/* ----------------------------- */
-/* -- Fil d’Ariane
-/* ----------------------------- */
-/* @note Éh non, besoin de rien :) */
 
-
-/* ----------------------------- */
-/* == Messages
-/* ----------------------------- */
-/*doc
----
-title: "Messages"
-name: 5-messages
-category: molecules
----
-
-```html_example
-<div class="message--erreur">
-  <p>Kaboom!</p>
-</div>
-
-<div class="message--succes">
-  <p>Kaboom!</p>
-</div>
-
-<div class="message--information">
-  <p>Kaboom!</p>
-</div>
-```
-*/
-
-[class*="message"] {
-  background: #fff;
-  border: 1px solid;
-  border-radius: .25em;
-  margin: 1.5em auto;
-  padding: 0 1em;
-}
-
-.message--erreur {
-  background: lighten( palette( erreur ), 45 );
-  color: palette( erreur, sombre );
-
-  a {
-    @include underline(palette( erreur, sombre ));
-  }
-}
-
-.message--succes {
-  background: lighten( palette( succes ), 55 );
-  color: palette( succes, sombre );
-
-  a {
-    @include underline(palette( succes, sombre ));
-  }
-}
-
-.message--information {
-  background: palette( inerte, x-clair );
-  color: palette( inerte, sombre );
-
-  a {
-    @include underline(palette( inerte, sombre ));
-  }
-}
-
-/**
- * 1.
- ** @bugfix Le paragraphe boute le bouton hors de l'écran
- ** @affected IE10
- */
-.message--cnil {
-  bottom: 1.5rem;
-  display: flex;
-  margin-left: 2rem;
-  max-width: 100%;
-  position: fixed;
-  z-index: $max-z-index - 1 ;
-  visibility: hidden;
-  width: calc( 100% - 4rem ); /* 1 */
-
-  p {
-    flex: 0 1 auto; /* 1 */
-  }
-
-  button {
-    align-self: center;
-    min-width: rem( 48 );
-  }
-}
-
-@media only screen and (min-width: em( $l-max )) {
-  .message--cnil {
-    left: 50%;
-    margin-left: rem($l-max / -2);
-    max-width: rem($l-max);
-  }
-}
-
-
-/* ----------------------------- */
-/* == Composants JS
-/* ----------------------------- */
-/*doc
----
-title: "Composants JS"
-name: 6-composants
-category: molecules
----
-
-##Ressources
-
-Nicolas Hoffmann a écrit d’excellents plugins jQuery accessibles et personnalisables, incorporant les contrôles au clavier.
-Il faut au minimum y jeter un œil pour implémenter correctement ces motifs de conception, notamment les interactions au clavier.
-
-* <http://a11y.nicolas-hoffmann.net/hide-show/>
-* <http://a11y.nicolas-hoffmann.net/tabs/>
-* <http://a11y.nicolas-hoffmann.net/accordion/>
-* <http://a11y.nicolas-hoffmann.net/simple-tooltip/>
-
-##Infobulles
-
-Le motif de conception (implémenté par Nicolas) exige une gestion des événements clavier.
-Cependant ça n'est pas nécessaire, je lui préfère une alternative en CSS :
-
-* <http://heydonworks.com/practical_aria_examples/#input-tooltip>
-
-```html_example
-<span class="infobulle">
-  <button type="button" aria-describedby="tooltip">Même pas cap de me survoler&nbsp;!</button>
-  <span id="tooltip" role="tooltip">Bravo&nbsp;!</span>
-</span>
-```
-
-##Menu déroulant
-
-Il est possible de faire varier l’apparence puisque qu’elle repose sur les classes dédiées aux boutons.
-Ça laisse un peu de marge pour s’amuser.
-
-```html_example
-<div class="menu">
-  <h4 class="menu-titre">
-    <button id="menu-2" aria-controls="menu-deroulant-2" aria-expanded="false" type="button" class="bouton bouton--cadre">Menu fermé</button>
-  </h4>
-  <ul id="menu-deroulant-2" aria-labelledby="menu-2" aria-hidden="true" class="menu-deroulant bouton">
-    <li><button type="button" class="bouton">Option №1</button></li>
-    <li><button type="button" class="bouton">Option №2</button></li>
-  </ul>
-</div>
-
-<div class="menu">
-  <h4 class="menu-titre">
-    <button id="menu" aria-controls="menu-deroulant" aria-expanded="true" type="button" class="bouton bouton--cadre">Menu ouvert</button>
-  </h4>
-  <ul id="menu-deroulant" aria-labelledby="menu" class="menu-deroulant">
-    <li><button type="button" class="bouton">Option №1</button></li>
-    <li><button type="button" class="bouton">Option №2</button></li>
-  </ul>
-</div>
-```
-
-##Onglets
-
-Les onglets sont utiles lorsqu’un seul des contenus doit apparaître à la fois. Il est possible de les afficher verticalement.
-
-```html_example
-<ul role="tablist">
-  <li role="presentation">
-    <a role="tab" id="prems" aria-controls="prems-tab" tabindex="0" aria-selected="true">Premier onglet</a>
-  </li>
-  <li role="presentation">
-    <a role="tab" id="deuz" aria-controls="deuz-tab" tabindex="-1" aria-selected="false">Deuxième onglet</a>
-  </li>
-  <li role="presentation">
-    <a role="tab" id="ter" aria-controls="ter-tab" tabindex="-1" aria-selected="false">Troisième onglet</a>
-  </li>
-</ul>
-<div role="tabpanel" id="prems-tab" aria-labelledby="prems">
-  <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-  </p>
-</div>
-<div role="tabpanel" id="deux-tab" aria-labelledby="deuz" aria-hidden="true">
-  <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-  </p>
-</div>
-<div role="tabpanel" id="ter-tab" aria-labelledby="ter" aria-hidden="true">
-  <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-  </p>
-</div>
-```
-
-###Onglets à la verticale
-
-Comme personne n’aime se répéter, la répartition dans la largeur se fait à l’aide de la grille. On peut donc gérer
-facilement la répartition des deux colonnes. Le seul éceuil est de s’assurer de bien mettre les bonnes classes aux bons endroits.
-Restez attentifs !
-
-```html_example
-<div class="grille onglets-alternatifs">
-  <ul role="tablist">
-    <li role="presentation">
-      <a role="tab" id="prems" aria-controls="prems-tab" tabindex="0" aria-selected="true">Premier onglet</a>
-    </li>
-    <li role="presentation">
-      <a role="tab" id="deuz" aria-controls="deuz-tab" tabindex="-1" aria-selected="false">Deuxième onglet</a>
-    </li>
-    <li role="presentation">
-      <a role="tab" id="ter" aria-controls="ter-tab" tabindex="-1" aria-selected="false">Troisième onglet</a>
-    </li>
-  </ul>
-  <div role="tabpanel" id="prems-tab" aria-labelledby="prems" class="colonne__triple">
-    <p>
-      Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-      Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-      Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-      et leur vitesse atteint de quinze à dix-huit kilomètres.
-    </p>
-  </div>
-  <div role="tabpanel" id="deux-tab" aria-labelledby="deuz" aria-hidden="true" class="colonne__triple">
-    <p>
-      Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-      Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-      Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-      et leur vitesse atteint de quinze à dix-huit kilomètres.
-    </p>
-  </div>
-  <div role="tabpanel" id="ter-tab" aria-labelledby="ter" aria-hidden="true" class="colonne__triple">
-    <p>
-      Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-      Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-      Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-      et leur vitesse atteint de quinze à dix-huit kilomètres.
-    </p>
-  </div>
-</div>
-```
-
-##Accordéons
-
-À l’inverse, dans un système d’accordéons il est possible d’afficher plusieurs contenus en même temps.
-
-```html_example
-<div role="tablist" aria-multiselectable="true">
- <button id="first" aria-controls="first-tab" aria-expanded="true" role="tab" aria-selected="true" tabindex="-1">
-     Premier accordéon
- </button>
- <div id="first-tab" aria-labelledby="first" role="tabpanel" aria-hidden="false">
-   <h3 tabindex="0">Premier accordéon</h3>
-   <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-   </p>
- </div>
- <button id="second" aria-controls="second-tab" aria-expanded="false" role="tab" aria-selected="false" tabindex="-1">
-     Deuxième accordéon
- </button>
- <div id="second-tab" aria-labelledby="second" role="tabpanel" aria-hidden="true">
-   <h3 tabindex="0">Deuxième accordéon</h3>
-   <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-   </p>
- </div>
- <button id="third" aria-controls="third-tab" aria-expanded="false" role="tab" aria-selected="false" tabindex="-1">
-     Troisième accordéon
- </button>
- <div id="third-tab" aria-labelledby="third" role="tabpanel" aria-hidden="true">
-   <h3 tabindex="0">Troisième accordéon</h3>
-   <p>
-    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-    Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à dix-huit kilomètres.
-   </p>
- </div>
-</div>
-```
-*/
-
-/* ----------------------------- */
-/* -- Infobulles
-/* ----------------------------- */
-.infobulle {
+/* ==================== */
+/* == Tooltips
+/* ==================== */
+.tooltip {
   display: inline-block;
   position: relative;
 
@@ -2977,7 +1093,7 @@ Restez attentifs !
   }
 }
 
-.infobulle {
+.tooltip {
   button:hover + [role="tooltip"],
   button:focus + [role="tooltip"] {
     opacity: 1;
@@ -2993,618 +1109,19 @@ Restez attentifs !
   }
 }
 
-/* ----------------------------- */
-/* -- Menu déroulant
-/* ----------------------------- */
-.menu {
-  display: inline-block;
-  margin: 0;
-  position: relative;
-}
 
-.menu-titre {
-  font-size: 1em;
-  margin: 0;
 
-  button {
-    margin: 0;
-
-    &::after {
-      content: "\00A0\25bc";
-    }
-
-    &[aria-expanded="true"]::after {
-      content: "\00A0\25b2";
-    }
-  }
-}
-
-.menu-deroulant {
-  display: block;
-  left: 0;
-  list-style: none;
-  margin: 0;
-  max-height: 20em;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  right: 0;
-  top: 100%;
-  transition:
-    visibility 0s ease,
-    max-height .2s ease;
-  transition-delay: 0s;
-  visibility: visible;
-
-  &[aria-hidden="true"] {
-    display: block;
-    max-height: 0;
-    transition-delay: 2s, 0s;
-    visibility: hidden;
-  }
-
-  [class*="bouton"] {
-    margin: 0;
-    padding: .5em;
-    text-align: left;
-    width: 100%;
-  }
-}
-
-/* ----------------------------- */
-/* -- Onglets et accordéons
-/* ----------------------------- */
-[role="tablist"] {
-  display: flex;
-  list-style: none;
-  margin: 1.5em auto 0;
-
-  @extend .no-padding;
-}
-
-[role="tab"],
-a[role="tab"] {
-  @include underline-reset(#fff);
-  border: 1px solid;
-  border-color:
-    currentColor
-    currentColor
-    palette( tonique );
-  color: palette( inerte );
-  cursor: pointer;
-  display: inline-block;
-  padding: .75em 1em;
-  text-align: left;
-
-  &:hover,
-  &:focus {
-    color: palette( secondaire );
-  }
-
-  li + li & {
-    border-width: 1px 1px 1px 0;
-  }
-
-  &[aria-selected="true"],
-  &[aria-selected="true"]:hover,
-  &[aria-selected="true"]:focus {
-    border-color:
-      currentColor
-      currentColor
-      transparent;
-    color: palette( tonique );
-    cursor: default;
-  }
-}
-
-[role="tabpanel"] {
-  background: palette( texte, secondaire );
-  border: 1px solid palette( tonique );
-  margin: -1px auto 1.5em;
-  padding: .75em 1em;
-
-  &[aria-hidden="true"] {
-    display: none;
-  }
-}
-
-@media screen and (min-width: em( 768 )) {
-  .onglets-alternatifs {
-    align-items: flex-start;
-
-    [role="tablist"] {
-      flex-direction: column;
-      margin: 0;
-    }
-
-    [role="tab"],
-    a[role="tab"] {
-      border-color: currentColor;
-      border-width: 1px 0 1px 1px;
-      position: relative;
-      min-width: 100%;
-
-      &[aria-selected="true"],
-      &[aria-selected="true"]:hover,
-      &[aria-selected="true"]:focus {
-        border-color:
-          currentColor
-          transparent
-          currentColor
-          currentColor;
-      }
-
-      &[aria-selected="true"]::after {
-        background: palette( texte, secondaire );
-        bottom: 0;
-        content: "";
-        position: absolute;
-        right: -1px;
-        top: 0;
-        width: 1px;
-      }
-    }
-
-    li + li [role="tab"] {
-      border-width: 0 0 1px 1px;
-    }
-
-    [role="tabpanel"] {
-      margin: 0 0 1.5em;
-    }
-  }
-}
-
-/* ----------------------------- */
-/* -- Accordéons
-/* ----------------------------- */
-/** 1.
-  * @bugfix Le flex container déborde
-  * @affected IE 10 / 11
-  */
-[role="tablist"][aria-multiselectable="true"] {
-  flex-flow: column wrap;
-  max-width: 100%; /* 1 */
-
-  > * + * {
-    border-top: 0;
-  }
-
-  [role="tab"] {
-    background: palette( texte, secondaire );
-    border-color: currentColor;
-    margin: 0;
-
-    &::before {
-      content: "+\00A0";
-      font-weight: 700;
-      speak: none;
-    }
-
-    &[aria-selected="true"] {
-      border-bottom-color: transparent;
-
-      &::before {
-        content: "-\00A0";
-      }
-    }
-  }
-
-  [role="tabpanel"] {
-    display: block;
-    margin: -1px auto 0;
-    max-height: 40em;
-    overflow: hidden;
-    padding: .75em 1em;
-    transition:
-      visibility 0s ease,
-      max-height 1s ease;
-    transition-delay: 0s;
-    visibility: visible;
-
-    &[aria-hidden="true"] {
-      display: block;
-      max-height: 0;
-      padding: 0;
-      transition-delay: 2s, 0s;
-      visibility: hidden;
-    }
-  }
-}
-
-/* ----------------------------- */
-/* == Blocs principaux
-/* ----------------------------- */
-/*doc
----
-title: "Blocs principaux"
-name: 1-blocs-principaux
-category: organismes
----
-
-##Entête
-
-```html_example
-<header role="banner">
-  <a href="#main" class="evitement">Aller au contenu</a>
-  <div>
-    <a href="/">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 199.42 56.07" aria-labelledby="titre" role="img" width="200" height="57" id="logo">
-        <title id="titre">Ornikar</title>
-        <g>
-          <path d="M25.76,23.52a15.37,15.37,0,0,0-4.81-3.13,15.2,15.2,0,0,0-5.89-1.15A15,15,0,0,0,4.45,23.57,15.26,15.26,0,0,0,1.2,28.31,14.17,14.17,0,0,0,0,34.1,14.63,14.63,0,0,0,4.4,44.66a15.18,15.18,0,0,0,4.79,3.15A15,15,0,0,0,15.05,49a15.4,15.4,0,0,0,10.7-4.28A14.36,14.36,0,0,0,29,40a15.31,15.31,0,0,0,0-11.75A14.29,14.29,0,0,0,25.76,23.52Zm-3.27,14a8.81,8.81,0,0,1-1.73,2.74A7.93,7.93,0,0,1,18.2,42,7.7,7.7,0,0,1,12,42,7.94,7.94,0,0,1,9.4,40.21a8.81,8.81,0,0,1-1.73-2.74A9,9,0,0,1,9.4,28,7.94,7.94,0,0,1,12,26.16a7.7,7.7,0,0,1,6.24,0A7.93,7.93,0,0,1,20.75,28,9.15,9.15,0,0,1,22.48,37.47Z"/>
-          <path d="M47.85,19.24a6.3,6.3,0,0,0-3.45,1A10.13,10.13,0,0,0,41.59,23V20h-7V48h7V32.29a7.84,7.84,0,0,1,.49-3,6,6,0,0,1,1.2-1.93,4.33,4.33,0,0,1,1.52-1.05A4.1,4.1,0,0,1,46.28,26a4.42,4.42,0,0,1,2.52.85,13.28,13.28,0,0,1,1.25,1C51.76,24.06,53,21.22,53,21.22s-1-.69-1.49-1A7.36,7.36,0,0,0,47.85,19.24Z"/>
-          <path d="M79.64,22a9.94,9.94,0,0,0-3.52-2.1A12.55,12.55,0,0,0,72,19.24a11.08,11.08,0,0,0-2,.2,12.75,12.75,0,0,0-2.05.56,12.27,12.27,0,0,0-1.93.9,7.54,7.54,0,0,0-1.56,1.17l0-2.1h-7V48h7V27.65a8,8,0,0,1,2.85-1.78,9.41,9.41,0,0,1,3.19-.56,6.05,6.05,0,0,1,2.09.37,5.05,5.05,0,0,1,1.79,1.12,5.46,5.46,0,0,1,1.25,1.91A7,7,0,0,1,76,31.36V48h7V31a13.92,13.92,0,0,0-.93-5.33A10.17,10.17,0,0,0,79.64,22Z"/>
-          <rect x="88.51" y="19.99" width="7" height="28.02"/>
-          <rect x="88.52" y="7.98" width="6.99" height="6.99"/>
-          <path d="M172,22.56a10.53,10.53,0,0,0-3.7-2.39,13.82,13.82,0,0,0-5.22-.93A16.36,16.36,0,0,0,157,20.42a16,16,0,0,0-5.2,3.32l4.15,4.2a9.17,9.17,0,0,1,3.13-2,9.29,9.29,0,0,1,3-.54,6.67,6.67,0,0,1,4.64,1.47,5.09,5.09,0,0,1,1.61,4H164.3a22,22,0,0,0-5.21.59,13.24,13.24,0,0,0-4.23,1.78,9.08,9.08,0,0,0-2.86,3A6.79,6.79,0,0,0,151,40a8.2,8.2,0,0,0,2.54,6,8.36,8.36,0,0,0,2.88,1.76,11.26,11.26,0,0,0,3.81.73,17.79,17.79,0,0,0,4.18-.32,11,11,0,0,0,3.93-1.47V48h7V32.58a19.21,19.21,0,0,0-.75-5.86A10.5,10.5,0,0,0,172,22.56Zm-3.69,18.62a14.89,14.89,0,0,1-3.1,1.42,10.18,10.18,0,0,1-3.1.49,4.55,4.55,0,0,1-3-.93,2.94,2.94,0,0,1-1.15-2.4,2.81,2.81,0,0,1,.56-1.76,4.17,4.17,0,0,1,1.52-1.2,7.8,7.8,0,0,1,2.25-.66,18.57,18.57,0,0,1,2.76-.2h3.23v5.23Z"/>
-          <path d="M197.94,20.24a7.36,7.36,0,0,0-3.64-1,6.3,6.3,0,0,0-3.45,1A10.13,10.13,0,0,0,188,23V20h-7V48h7V32.29a7.85,7.85,0,0,1,.49-3,6,6,0,0,1,1.2-1.93,4.33,4.33,0,0,1,1.52-1.05,4.1,4.1,0,0,1,1.49-.32,4.42,4.42,0,0,1,2.52.85,13.27,13.27,0,0,1,1.25,1c1.71-3.81,2.92-6.64,2.92-6.64S198.45,20.53,197.94,20.24Z"/>
-        </g>
-        <path fill="currentColor" d="M143.48,0.86a3.5,3.5,0,0,0-2-.86H105.74a3.9,3.9,0,0,0-2.08.9,5.06,5.06,0,0,0-1.16,2.18v50a4.93,4.93,0,0,0,1.09,2.16,3.53,3.53,0,0,0,2,.84h36a4.06,4.06,0,0,0,2.06-1,4.25,4.25,0,0,0,.88-2.06V3A4.81,4.81,0,0,0,143.48.86Zm-14.9,47.07-11-12.36V47.93h-7v-40h7v24l9.57-12h8.21L123.74,33.71l13.2,14.22h-8.36Z"/>
-      </svg>
-    </a>
-    <a href="/agrement">
-      <small><abbr title="numéro">N<sup>o</sup></abbr> dʼagrément E16.044.00090</small>
-    </a>
-  </div>
-  <nav role="navigation" aria-label="Navigation principale">
-    <ul class="navigation">
-      <li><a href="atomes.html">Atomes</a></li>
-      <li><a href="molecules.html" class="ici">Molécules</a></li>
-      <li><a href="organismes.html">Organismes</a></li>
-    </ul>
-  </nav>
-</header>
-```
-
-##Pied de page
-```html_example
-<footer role="contentinfo" class="m-hachures">
-  <div  class="grille mw--site">
-    <div class="colonne__deux-tiers" itemscope itemtype="http://schema.org/Organization">
-      <p class="h4-like"><i class="i-ornikar" aria-hidden="true"></i>Prêt à passer votre permis&nbsp;?</p>
-      <p>
-        Ornikar est une auto-école en ligne agréée permettant de réviser son code de la route en ligne,
-        et de réserver des leçons de conduite près de son domicile pour préparer les épreuves du permis de conduire.
-      </p>
-      <p><span itemprop="name">Ornikar</span>, le permis libre&nbsp;!</p>
-      <link itemprop="url" href="https://www.ornikar.com/">
-      <link itemprop="logo" content="https://www.ornikar.com/img/ornikar.png">
-      <ul class="contacts no-list">
-        <li>
-          <i class="i-mail" aria-hidden="true"></i>
-          <a href="/contact">Contactez-nous</a>
-        </li>
-        <li>
-          <i class="i-facebook" aria-hidden="true"></i>
-          <a href="https://www.facebook.com/ornikar" itemprop="sameAs">Facebook</a>
-        </li>
-        <li>
-          <i class="i-twitter" aria-hidden="true"></i>
-          <a href="https://twitter.com/ornikar" itemprop="sameAs">Twitter</a>
-        </li>
-      </ul>
-    </div>
-    <nav role="navigation" aria-labelledby="utiles" class="colonne__tiers">
-      <p class="h4-like" id="utiles">Liens utiles</p>
-      <ul class="navigation--bis">
-        <li><a href="/parents">Pour les parents</a></li>
-        <li><a href="/legal"><abbr title="Conditions Générales d’Utilisation">cgu</abbr></a></li>
-        <li><a href="/articles/nous-sommes-ornikar">Qui est Ornikar ?</a></li>
-        <li><a href="/plan-du-site">Plan du site</a></li>
-        <li><a href="/cgv"><abbr title="Conditions Générales de Vente">cgv</abbr></a></li>
-        <li><a href="http://aide.ornikar.com/category/120-questions-frequentes"><abbr title="Foire Aux Questions">faq</abbr></a></li>
-      </ul>
-    </nav>
-    <p class="colonne__triple">
-      <strong>© 2016 Ornikar</strong>
-      <span>
-        <b aria-hidden="true" class="bullet-time">•&nbsp;</b>
-        Horaires dʼ<a href="http://aide.ornikar.com/category/120-questions-frequentes">assistance</a>&nbsp;:
-        <time>10:00</time>/<time>12:00</time>&nbsp;—&nbsp;<time>14:00</time>/<time>18:00</time>
-        du <abbr title="lundi">lun.</abbr> au <abbr title="vendredi">ven.</abbr>
-      </span>
-    </p>
-    <p class="colonne">
-      <a href="#haut">Haut de page<span aria-hidden="true">&nbsp;&#9757;</span></a>
-    </p>
-  </div>
-</footer>
-```
-*/
-
-.evitement {
-  color: palette( texte, secondaire ) !important;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-
-  &:focus {
-    opacity: 1;
-  }
-}
-
-/* ----------------------------- */
-/* -- Entête
-/* ----------------------------- */
+/* ==================== */
+/* == Header
+/* ==================== */
 header[role="banner"] {
-  align-items: center;
-  background: palette(dominante);
-  color: palette(texte, secondaire);
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  padding: 1.5em 1em;
 
-  > * {
-    flex: 1 0 auto;
-  }
-
-  > div {
-    max-width:rem(200);
-  }
-
-  div a:not([class*="bouton"]) {
-    max-width:rem(200);
-    @include underline-reset();
-  }
-
-  * a:not([class*="bouton"]) {
-    color:  palette( texte, secondaire );
-    @include underline(palette( dominante ));
-
-    &:hover,
-    &:focus {
-      color: palette( inerte, clair );
-    }
-  }
-
-  .ici:not([class*="bouton"]) {
-    color:  palette( secondaire, clair );
-
-    &:hover,
-    &:focus {
-      color: palette( secondaire );
-    }
-  }
-
-  small {
-    color: palette( inerte );
-    font-size: em( 12 );
-  }
-
-  a:hover small,
-  a:focus small {
-    color: palette( inerte, clair );
-  }
-}
-
-@media screen and (max-width: em( 480 )) {
-  header[role="banner"] {
-    /** 1.
-     * @bugfix Le flex container déborde
-     * @affected IE 10 / 11
-     */
-    nav {
-      max-width: 100%; /* 1 */
-    }
-
-    li {
-      flex: 1 0 auto;
-      width: 50%;
-    }
-
-    .connexion {
-      margin: 0 auto;
-      text-align: center;
-    }
-  }
-}
-
-@media screen and (min-width: em( 380 )) and (max-width: em( 704 )) {
-  header[role="banner"] {
-    > div {
-      align-self: flex-start;
-    }
-
-    > nav {
-      position: relative;
-      width: 100%;
-    }
-
-    .connexion {
-      position: absolute;
-      right: 0;
-      top: -3em;
-    }
-  }
-}
-
-@media screen and (min-width: em( 1024 )) {
-  header[role="banner"] {
-    flex-flow: row wrap;
-
-    > div {
-      flex: 0 1 em(200);
-    }
-
-    > nav {
-      $space: $l-max - 200;
-      flex: 0 1 em( $space );
-    }
-  }
-
-  nav > .navigation {
-    justify-content: flex-end;
-  }
-}
-
-/* ----------------------------- */
-/* -- Navigation mobile
-/* ----------------------------- */
-/**
- * @note Navigation mobile enrichie en JS
- * @note Cette classe et toute cette variante n'existe que si le script est éxécuté
- * @see navigation.js
- */
-
-.navigation--rwd {
-  backface-visibility: hidden;
-
-  header[role="banner"] {
-    flex-flow: column wrap;
-
-    > * {
-      flex: 1 0 auto;
-    }
-
-    a + a {
-      align-self: flex-start;
-    }
-  }
-}
-
-.navigation--rwd #nav {
-  $logo-w: rem( 200 );
-
-  align-items: flex-start;
-  align-self: flex-end;
-  display: flex;
-  margin: em( -48 ) 0 0;
-  max-width: calc( 100% - #{$logo-w} );
-  position: static;
-  width: auto;
-}
-
-/**
- * 1. Impératif pour ne pas hériter de display: flex
- */
-#nav--rwd {
-  background: palette( dominante );
-  bottom: 0;
-  display: block; /* 1 */
-  margin: 0;
-  padding: 2.5em .75em .75em;
-  position: absolute;
-  right: 0;
-  top: 0;
-  transform: translate3d( 0, 0, 0 ) scale3d( 1, 1, 1 );
-  transition:
-    transform 300ms ease-out,
-    visibility 0s ease;
-  transition-delay: 300ms;
-  visibility: hidden;
-  will-change: transform;
-  z-index: -1;
-
-  li {
-    margin: 0 0 1em;
-    position: relative;
-    width: 100%;
-  }
-
-  a::after {
-    bottom: 0;
-    content: "";
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-}
-
-.navigation--close {
-  backface-visibility: hidden;
-  transform: translate3d( 0, 0, 0 ) scale3d( 1, 1, 1 );
-  transition: transform 300ms ease-in;
-  will-change: transform;
-}
-
-.navigation--ouverte {
-  transform: translate3d( em( -186 ), 0, 0 ) scale3d( 1, 1, 1 );
-  transition: transform 300ms ease-out;
-
-  #nav--rwd {
-    transform: translate3d( em( 186 ), 0, 0 ) scale3d( 1, 1, 1 );
-    transition-delay: 0s;
-    visibility: visible;
-  }
 }
 
 
-/* ----------------------------- */
-/* -- Pied-de-page
-/* ----------------------------- */
+/* ==================== */
+/* == Footer
+/* ==================== */
 footer[role="contentinfo"] {
-  border-top: em( 8 ) solid palette( secondaire );
-  background-color: palette( dominante );
-  color: palette( texte, secondaire );
-  margin: auto 0 0;
-  padding: 1.5em 1em;
 
-  .grille {
-    align-items: flex-start;
-  }
-
-  .h4-like {
-    color: palette( secondaire );
-    position: relative;
-  }
-
-  .i-ornikar {
-    font-size: rem( 60 );
-    left: calc( 50% - .625em);
-    position: absolute;
-    top: em( -84, 60 );
-  }
-
-  a {
-    color: inherit;
-    @include underline(palette( dominante ));
-
-    &:hover,
-    &:focus,
-    &:active {
-      color: palette( inerte, clair );
-    }
-  }
-
-  > * > *:last-child {
-    text-align: right;
-  }
-
-  i {
-    font-size: em( 20 );
-    margin: 0 1em 0 0;
-    width: em( 20 );
-  }
-}
-
-.contacts li {
-  display: flex;
-  margin: 0 0 1em;
-}
-
-.ouvert {
-  color: palette( succes );
-}
-
-.ferme {
-  color: palette( erreur );
-}
-
-
-@media screen and (max-width: em( 1120 )) {
-  footer[role="contentinfo"] .h4-like {
-    margin: 3.2em 0 .8em;
-  }
-}
-
-@media screen and (min-width: em( 1120 )) {
-  footer[role="contentinfo"] .i-ornikar {
-    font-size: rem( 60 );
-    left: em( -72, 60 );
-    position: absolute;
-    top: em( -12, 60 );
-  }
 }

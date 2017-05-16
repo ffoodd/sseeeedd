@@ -26,8 +26,8 @@
   }
 
   /**
-    * 1. Pas d’orphelines
-    * 2. Pas de veuves
+    * 1. No orphans
+    * 2. No widows
     */
   p,
   blockquote {
@@ -35,7 +35,7 @@
     widows: 3;  /* 2 */
   }
 
-  /* @note Éviter les sauts de page hasardeux */
+  /* @note Avoid random page break */
   blockquote, ul, ol {
     page-break-inside: avoid;
   }
@@ -45,15 +45,14 @@
   }
 
   /**
-    * @note Affichage des liens, sauf pour image contenue
-    * @note Attention, penser à vérifier le résultat et penser à limiter cette possibilité aux liens dans le contenu
+    * @note Display links' target, except for images
     */
   a::after {
     content: " (" attr(href) ") ";
     display: inline-block !important;
   }
 
-  /* Masque l’URL des ancres */
+  /* Hide anchors' target */
   a::after img,
   a[href^="#"]::after,
   a[href^="javascript"]::after {

@@ -16,7 +16,8 @@ const zip      = require('gulp-zip');
 
 let paths = {
     dev: './src/',
-    dest: './dist/'
+    dest: './dist/',
+    node: './node_modules/'
 };
 
 let test = {
@@ -28,7 +29,27 @@ let test = {
  * @section Build
  * Compile Sass files for theme
  */
-gulp.task('sass', function () {
+gulp.task('system-font', function () {
+  return gulp.src([paths.node + '/system-font-css/*.css'])
+    .pipe(rename({
+      prefix: '_',
+      extname: '.scss'
+    }))
+    .pipe(gulp.dest(paths.dev + '/scss'));
+});
+
+gulp.task('normalize', function () {
+  return gulp.src([paths.node + '/normalize.css/*.css'])
+    .pipe(rename({
+      prefix: '_',
+      extname: '.scss'
+    }))
+    .pipe(gulp.dest(paths.dev + '/scss'));
+});
+
+gulp.task('dependencies', ['system-font', 'normalize']);
+
+gulp.task('sass', ['dependencies'], function () {
     return gulp.src(paths.dev + '/scss/*.scss')
         .pipe(maps.init())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
