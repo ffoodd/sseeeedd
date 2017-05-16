@@ -1,0 +1,58 @@
+/* ==================== */
+/* == Tooltips
+/* ==================== */
+.tooltip {
+  display: inline-block;
+  position: relative;
+
+  button {
+    margin: 0;
+  }
+}
+
+[role="tooltip"] {
+  background: palette( primary, light );
+  bottom: calc( 100% + .5em );
+  color: palette( default, secondary );
+  left: 50%;
+  opacity: 0;
+  padding: .25em .5em .3em;
+  pointer-events: none;
+  position: absolute;
+  transform-origin: 50% calc( 100% + 10px );
+  transform:
+    perspective( 1000px )
+    rotate3d( 1, 0, 0, 45deg )
+    translateX( -50% );
+  transition:
+    opacity .2s ease-in,
+    transform .2s ease-in,
+    visibility 0s linear .2s;
+  visibility: hidden;
+
+  &::after {
+    border-left: em( 4 ) solid transparent;
+    border-right: em( 4 ) solid transparent;
+    border-top: em( 4 ) solid palette( primary, light );
+    bottom: em( -4 );
+    content: "";
+    left: calc( 50% - .25em );
+    position: absolute;
+  }
+}
+
+.tooltip {
+  button:hover + [role="tooltip"],
+  button:focus + [role="tooltip"] {
+    opacity: 1;
+    pointer-events: auto;
+    transform:
+      perspective( 1000px )
+      rotate3d( 1, 0, 0, 0deg )
+      translateX( -50% );
+    transition:
+      opacity .2s ease-out,
+      transform .2s ease-out;
+    visibility: visible;
+  }
+}

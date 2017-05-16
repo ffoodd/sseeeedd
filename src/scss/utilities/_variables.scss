@@ -1,0 +1,37 @@
+$colors: (
+  primary: (
+    base: #0a2435,
+    light: lighten( #0a2435, 10 ),
+    dark: darken( #0a2435, 1 )
+  ),
+  secondary: (
+    base: #e8680c,
+    light: lighten( #e8680c, 10 ),
+    dark: darken( #e8680c, 10 )
+  ),
+  tertiary: (
+    base: #27a4ad,
+    light: lighten( #27a4ad, 10 ),
+    dark: darken( #27a4ad, 10 )
+  ),
+  muted: (
+    base: #8398a5,
+    x-light: lighten( #8398a5, 40 ),
+    light: lighten( #8398a5, 10 ),
+    dark: darken( #8398a5, 10 )
+  ),
+  alert: (
+    base: #ff4f0d,
+    dark: darken( #ff4f0d, 10 )
+  ),
+  success: (
+    base: #14ccaa,
+    dark: darken( #14ccaa, 10 )
+  ),
+  default: (
+    base: #0a2435,
+    secondary: #fff
+  )
+);
+
+$gutter: 1rem !default;
