@@ -1,32 +1,32 @@
 $colors: (
   dominant: (
     base: MidnightBlue,
-    light: lighten( MidnightBlue, 10 ),
-    dark: darken( MidnightBlue, 1 )
+    light: MediumBlue,
+    dark: Black
   ),
   secondary: (
     base: DodgerBlue,
-    light: lighten( DodgerBlue, 10 ),
-    dark: darken( DodgerBlue, 10 )
+    light: DeepSkyBlue,
+    dark: MediumBlue
   ),
   accent: (
     base: rebeccaPurple,
-    light: lighten( rebeccaPurple, 10 ),
-    dark: darken( rebeccaPurple, 10 )
+    light: BlueViolet,
+    dark: Indigo
   ),
   muted: (
-    base: LightSlateGray,
-    x-light: lighten( LightSlateGray, 40 ),
-    light: lighten( LightSlateGray, 10 ),
-    dark: darken( LightSlateGray, 10 )
+    base: Gray,
+    x-light: whiteSmoke,
+    light: DarkGray,
+    dark: DimGray
   ),
   alert: (
-    base: OrangeRed,
-    dark: darken( OrangeRed, 10 )
+    base: Coral,
+    dark: OrangeRed
   ),
   success: (
     base: SpringGreen,
-    dark: darken( SpringGreen, 10 )
+    dark: MediumSeaGreen
   ),
   default: (
     base: DimGray,

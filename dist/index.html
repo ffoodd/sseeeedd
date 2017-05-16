@@ -5,28 +5,44 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>sseeeedd</title>
-        <link href="dist/css/styles.min.css" media="screen">
-        <link href="dist/css/print.min.css" media="print">
+        <base href="/">
+        <script>
+          document.documentElement.classList.remove('no-js');
+          document.documentElement.classList.add('js');
+        </script>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="/css/styles.min.css" media="screen">
+        <link rel="stylesheet" href="/print.min.css" media="print">
     </head>
-    <body>
-      
-        <a href="#main" class="sr-only sr-only-focusable">
-            <span class="skiplink-text">Skip to content</span>
-        </a>
-        <a href="#nav" class="sr-only sr-only-focusable">
-            <span class="skiplink-text">Skip to navigation</span>
-        </a>
-      
-
+    <body itemscope="" itemtype="http://schema.org/WebPage">
       <header role="banner">
+        
+          <div>
+            <a href="#main" class="sr-only sr-only-focusable">Skip to content</a>
+            <a href="#nav" class="sr-only sr-only-focusable">Skip to navigation</a>
+          </div>
+        
+
         <nav role="navigation" id="nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="/" aria-current="page">Home</a></li>
+            <li><a href="/styles.html">Styles</a></li>
+          </ul>
         </nav>
       </header>
 
-      <main role="main" id="main" tabindex="-1">
-        <h1>sseeeedd</h1>
+      <main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">
+        
+          <h1>sseeeedd</h1>
+        
       </main>
 
-      <script src="dist/js/scripts.min.js"></script>
+      <aside role="complementary">
+      </aside>
+
+      <footer role="contentinfo">
+      </footer>
+
+      <script src="/js/scripts.min.js"></script>
     </body>
 </html>

@@ -23,7 +23,7 @@ a[id^="footnote-"][aria-describedby] {
     margin-left: 2px;
 
     @include underline();
-    color: palette( tertiary );
+    color: palette( accent );
     cursor: pointer;
   }
 }
@@ -39,7 +39,7 @@ footer[id="footnotes"] {
   from {
     color: palette( success );
   } to {
-    color: palette( primary );
+    color: palette( dominant );
   }
 }
 
