@@ -1,5 +1,5 @@
 $colors: (
-  primary: (
+  dominant: (
     base: #0a2435,
     light: lighten( #0a2435, 10 ),
     dark: darken( #0a2435, 1 )
@@ -9,7 +9,7 @@ $colors: (
     light: lighten( #e8680c, 10 ),
     dark: darken( #e8680c, 10 )
   ),
-  tertiary: (
+  accent: (
     base: #27a4ad,
     light: lighten( #27a4ad, 10 ),
     dark: darken( #27a4ad, 10 )

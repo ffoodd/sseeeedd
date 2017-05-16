@@ -158,7 +158,7 @@ main {
 
 body {
   background: palette( default, secondary );
-  color: palette( primary );
+  color: palette( dominant );
 }
 
 /**
@@ -174,11 +174,11 @@ body {
 
 a {
   @include underline();
-  color: palette( tertiary );
+  color: palette( accent );
 
   &:hover,
   &:focus {
-    color: palette( tertiary, dark );
+    color: palette( accent, dark );
   }
 
   &:active,
@@ -246,17 +246,17 @@ h1,
   @extend .hn;
 
   &::first-line {
-    color: palette( primary );
+    color: palette( dominant );
   }
 
   strong {
-    color: palette( primary );
+    color: palette( dominant );
   }
 }
 
 h2,
 .h2 {
-  color: palette( tertiary );
+  color: palette( accent );
   font-size: em( 40 );
   line-height: 1.2;
   margin: em( 48, 40 ) 0 em( 24, 40 );
@@ -265,7 +265,7 @@ h2,
 
 h3,
 .h3 {
-  color: palette( primary );
+  color: palette( dominant );
   font-size: em( 36 );
   line-height: 1.3334;
   margin: em( 48, 36 ) 0 em( 24, 36 );
@@ -358,7 +358,7 @@ strong {
 }
 
 cite {
-  color: palette( tertiary );
+  color: palette( accent );
   font-style: normal;
   @extend .hn;
 }
@@ -632,25 +632,25 @@ button[type] {
 }
 
 /* Colors */
-.btn--primary {
-  background-color: palette( primary, light );
+.btn--dominant {
+  background-color: palette( dominant, light );
 
   &:hover,
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    background-color: palette( primary, dark );
+    background-color: palette( dominant, dark );
   }
 }
 
-.btn--tertiary {
-  background-color: palette( tertiary );
+.btn--accent {
+  background-color: palette( accent );
 
   &:hover,
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    background-color: palette( tertiary, dark );
+    background-color: palette( accent, dark );
   }
 }
 
@@ -737,13 +737,13 @@ fieldset {
   margin: 1.5em 0 0;
 
   &::selection {
-    background-color: palette( tertiary, dark );
+    background-color: palette( accent, dark );
     color: palette( default, secondary );
   }
 }
 
 fieldset > legend:first-child {
-  color: palette( tertiary );
+  color: palette( accent );
   font-weight: 700;
 }
 
@@ -789,18 +789,18 @@ input[type="password"] {
 
   &:hover,
   &:focus {
-    background: lighten( palette( tertiary, light ), 46 );
-    color: palette( tertiary );
-    outline-color: lighten( palette( tertiary, light ), 46 );
+    background: lighten( palette( accent, light ), 46 );
+    color: palette( accent );
+    outline-color: lighten( palette( accent, light ), 46 );
     transition: all 300ms ease-out;
 
     + .label {
-      color: palette( tertiary );
+      color: palette( accent );
     }
   }
 
   &::selection {
-    background-color: palette( tertiary, dark );
+    background-color: palette( accent, dark );
     color: palette( default, secondary );
   }
 }
@@ -848,7 +848,7 @@ textarea {
   &:hover + label[for],
   &:focus + label[for],
   &:checked + label[for] {
-    color: palette( tertiary );
+    color: palette( accent );
   }
 }
 
