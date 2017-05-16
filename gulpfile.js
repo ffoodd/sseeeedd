@@ -21,7 +21,7 @@ let paths = {
 };
 
 let test = {
-    home: paths.dest + '/'
+    home: paths.dest + '/index.html'
 };
 
 
