@@ -960,16 +960,9 @@ textarea {
 
 
 /* ==================== */
-/* == Components
-/* ==================== */
-
-@import "components/footnotes";
-@import "components/tooltips";
-
-
-/* ==================== */
 /* == Header
 /* ==================== */
+
 header[role="banner"] {
 
 }
@@ -978,6 +971,15 @@ header[role="banner"] {
 /* ==================== */
 /* == Footer
 /* ==================== */
+
 footer[role="contentinfo"] {
 
 }
+
+
+/* ==================== */
+/* == Components
+/* ==================== */
+
+@import "components/footnotes";
+@import "components/tooltips";

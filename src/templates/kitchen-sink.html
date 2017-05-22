@@ -1,0 +1,153 @@
+{% extends "index.html" %}
+
+{% block main %}
+  <h1>Le Quatuor Concertant déconcerté</h1>
+
+  <p>
+    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
+    et leur vitesse atteint de quinze à dix-huit kilomètres.
+  </p>
+
+  <figure role="group">
+    <img src="http://placehold.it/700x263" width="700" height="263"
+         alt="Aperçu du permis de conduire. L'emplacement du numéro de permis est détaillé dans la légende ci-après.">
+    <figcaption>
+      Le numéro de permis est composé de 12 chiffres.
+      Sur les anciens permis (papier rose, plié en trois), il se trouve à gauche de votre photo.
+      Sur les nouveaux permis (carte plastifiée), il se trouve juste au-dessus de votre signature.
+      <a href="http://placehold.it/700x263">Afficher lʼimage en grand</a>
+    </figcaption>
+  </figure>
+
+  <h2>Puissance d’une sonate cacophonique</h2>
+
+  <blockquote>
+    On voit que les cours d’eau sont peu abondants dans le pays&nbsp;!
+    <footer><cite>Pinchinat</cite></footer>
+  </blockquote>
+
+  <h3>Un loquace cicérone</h3>
+
+  <ul>
+    <li>L’archipel des Sandwich</li>
+    <li>Îles Marquises</li>
+    <li>Trois semaines aux Pomotou</li>
+    <li>Relâche à Taïti</li>
+  </ul>
+
+  <h4>Le Quatuor Concertant déconcerté</h4>
+
+  <ol>
+    <li>Aux îles de Cook</li>
+    <li>D’îles en îles</li>
+    <li>Concert à la cour</li>
+    <li>Ultimatum britannique</li>
+  </ol>
+
+  <h5>Standard-Island et Milliard-City</h5>
+
+  <p>
+    Ces cars sont traînés par une locomotive <em>électrique</em>, avec accumulateurs d’une capacité de deux cents <abbr title="ampères-ohms">AO</abbr>,
+    et leur vitesse atteint de quinze à dix-huit kilomètres.
+  </p>
+
+  <img src="httpplacehold.it/400x200" width="400" height="200" alt="">
+
+  <h6>Cap à l’ouest</h6>
+
+  <p>
+    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+    <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+    Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+    et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+  </p>
+
+  <hr>
+
+  <table>
+    <caption>Exemple de tableaux</caption>
+    <thead>
+      <tr>
+        <th scope="col">Entête №1</th>
+        <th scope="col">Entête №2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cellule №1-1</td>
+        <td>Cellule №2-1</td>
+      </tr>
+      <tr>
+        <td>Cellule №1-2</td>
+        <td>Cellule №2-2</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <form action="/">
+    <p>
+      <label for="texte">Texte</label>
+      <input type="text" id="texte" name="texte" />
+    </p>
+    <fieldset>
+      <legend>Genre</legend>
+      <input type="radio" name="genre" id="F" value="F">
+      <label for="F">Féminin</label>
+      <input type="radio" name="genre" id="M" value="M">
+      <label for="M">Masculin</label>
+     </fieldset>
+     <p>
+      <label for="options">Option</label>
+      <select id="options" name="options">
+        <option value="1">Option №1</option>
+        <option value="2">Option №2</option>
+        <option value="3">Option №3</option>
+      </select>
+    </p>
+    <fieldset>
+      <legend>Choix</legend>
+      <input type="checkbox" name="choix" id="C" value="C">
+      <label for="C">Choix №1</label>
+      <input type="checkbox" name="choix" id="D" value="D">
+      <label for="D">Choix №2</label>
+      <input type="checkbox" name="choix" id="E" value="E">
+      <label for="E">Choix №3</label>
+    </fieldset>
+    <p>
+      <label for="zone">Zone de texte</label>
+      <textarea id="zone" name="zone"></textarea>
+    </p>
+    <p>
+      <label for="fichier">Envoi de fichier</label>
+      <input type="file" id="fichier" name="fichier" />
+    </p>
+    <p>
+      <label for="texte-2">Texte en lecture seule</label>
+      <input type="text" id="texte-2" name="texte-2" readonly />
+    </p>
+    <p>
+      <label for="texte-3">Texte désactivé</label>
+      <input type="text" id="texte-3" name="texte-3" disabled />
+    </p>
+    <p>
+      <label for="texte-2">Champ avec description</label>
+      <input type="text" id="texte-2" name="texte-2" aria-describedby="note-texte" />
+      <span id="note-texte">Description du champ</span>
+    </p>
+    <p>
+      <label for="texte-3">Champ obligatoire</label>
+      <input type="text" id="texte-3" name="texte-3" required aria-required="true" />
+    </p>
+    <p>
+      <label for="texte-4">Champ erroné</label>
+      <input type="text" id="texte-4" name="texte-4" required aria-required="true"
+             aria-invalid="true" aria-describedby="note-texte-4" />
+      <span id="note-texte-4" role="alert" aria-live="assertive">
+        <span>Message dʼerreur</span>
+      </span>
+    </p>
+    <button>Bouton</button>
+  </form>
+{% endblock %}
