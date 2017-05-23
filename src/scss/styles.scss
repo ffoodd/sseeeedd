@@ -92,6 +92,57 @@ main {
   padding: 0;
 }
 
+/* Sizing */
+[class*="--s"] {
+  font-size: rem( 14 );
+  line-height: 1.5;
+}
+
+[class*="--l"] {
+  font-size: rem( 20 );
+  line-height: 1.2;
+}
+
+[class*="--xl"] {
+  font-size: rem( 30 );
+  line-height: 1.6;
+  margin: em( 36, 30 ) 0;
+}
+
+/* Colors */
+[class*="--bg-dominant"] {
+  background-color: palette( dominant, light );
+
+  &:hover,
+  &:focus,
+  &:active,
+  &[aria-expanded="true"] {
+    background-color: palette( dominant, dark );
+  }
+}
+
+[class*="--bg-accent"] {
+  background-color: palette( accent );
+
+  &:hover,
+  &:focus,
+  &:active,
+  &[aria-expanded="true"] {
+    background-color: palette( accent, dark );
+  }
+}
+
+[class*="--bg-muted"] {
+  background-color: palette( muted );
+
+  &:hover,
+  &:focus,
+  &:active,
+  &[aria-expanded="true"] {
+    background-color: palette( muted, dark );
+  }
+}
+
 
 /* ----------------------------- */
 /* -- Improved sr-only
@@ -225,9 +276,9 @@ pre,
 td,
 th,
 caption {
-  font-size: 1em;
+  font-size: em( 16 );
   line-height: 1.5;
-  margin: 1.5em 0;
+  margin: em( 24 ) 0;
 }
 
 .hn {
@@ -308,7 +359,7 @@ p {
 }
 
 table {
-  margin-bottom: 1.5em;
+  margin-bottom: rem( 24 );
   max-width: 100%;
 }
 
@@ -323,7 +374,7 @@ blockquote {
   &::before {
     color: palette( muted, light );
     content: open-quote;
-    font-size: 10em;
+    font-size: em( 160 );
     font-weight: 700;
     left: 0;
     line-height: 0;
@@ -396,7 +447,7 @@ img[alt] {
       "\A"
       "—\A0" attr( src ); /* 4 */
     left: 0;
-    padding: 1em;
+    padding: em( 16 );
     position: absolute;
     top: 0;
     width: 100%;
@@ -405,7 +456,7 @@ img[alt] {
 }
 
 figure[role="group"] {
-  margin: 1.5em auto;
+  margin: rem( 24 ) auto;
   max-width: 100%;
 }
 
@@ -437,7 +488,7 @@ table {
 
 th,
 td {
-  padding: .5em rem( 12 );
+  padding: rem( 8 ) rem( 12 );
   text-align: left;
 
   thead &,
@@ -454,7 +505,7 @@ td {
 table > caption:first-child {
   font-style: italic;
   margin: 0;
-  padding: 2.5em 1em;
+  padding: em( 40 ) em( 16 );
 }
 
 tbody {
@@ -570,10 +621,10 @@ button[type] {
     0 .25em 0 -.1em rgba( 0, 0, 0, .1 );
   color: palette( default, secondary );
   display: inline-block;
-  margin: .5em auto;
+  margin: em( 8 ) auto;
   outline: 1px solid rgba( 0, 0, 0, .15 );
   outline-offset: -1px;
-  padding: .25em .5em .3em;
+  padding: em( 4 ) em( 8 ) em( 5 );
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -599,7 +650,7 @@ button[type] {
     box-shadow:
       inset 0 2px rgba( 255, 255, 255, .2 ),
       0 .125em 0 -.1em rgba( 0, 0, 0, .15 );
-    top: .125em;
+    top: em( 2 );
   }
 
   &[disabled] {
@@ -611,57 +662,6 @@ button[type] {
       color: palette( muted, x-light );
       cursor: not-allowed;
     }
-  }
-}
-
-/* Sizing */
-.btn--s {
-  font-size: .875rem;
-  line-height: 1.5;
-}
-
-.btn--l {
-  font-size: 1.25rem;
-  line-height: 1.2;
-}
-
-.btn--xl {
-  font-size: 1.875rem;
-  line-height: 1.6;
-  margin: 1.2em 0;
-}
-
-/* Colors */
-.btn--dominant {
-  background-color: palette( dominant, light );
-
-  &:hover,
-  &:focus,
-  &:active,
-  &[aria-expanded="true"] {
-    background-color: palette( dominant, dark );
-  }
-}
-
-.btn--accent {
-  background-color: palette( accent );
-
-  &:hover,
-  &:focus,
-  &:active,
-  &[aria-expanded="true"] {
-    background-color: palette( accent, dark );
-  }
-}
-
-.btn--muted {
-  background-color: palette( muted );
-
-  &:hover,
-  &:focus,
-  &:active,
-  &[aria-expanded="true"] {
-    background-color: palette( muted, dark );
   }
 }
 
@@ -688,7 +688,7 @@ button[type] {
 }
 
 .grid > * {
-  flex: 1 0 5em;    /* 3 */
+  flex: 1 0 em( 80 );    /* 3 */
   margin: $gutter;  /* 4 */
 }
 
@@ -719,22 +719,14 @@ button[type] {
 /* == Forms
 /* ==================== */
 
-form {
-  > p {
-    margin: 0;
-    overflow: hidden;
-    padding: 0;
-  }
-
-  > * + * {
-    margin-top: 2rem;
-  }
+form > * + * {
+  margin-top: rem( 32 );
 }
 
 fieldset {
   background: #fff;
-  border: .1rem solid palette( muted, light );
-  margin: 1.5em 0 0;
+  border: rem( 2 ) solid palette( muted, light );
+  margin: rem( 24 ) 0 0;
 
   &::selection {
     background-color: palette( accent, dark );
@@ -750,22 +742,8 @@ fieldset > legend:first-child {
 label[for] {
   cursor: pointer;
   display: block;
-  margin: 0;
-  overflow: hidden;
-  padding: .5em;
-  position: relative;
+  padding: em( 8 );
   transition: color 300ms ease-in;
-
-  .label {
-    left: .5em;
-    margin: 0;
-    padding: 0 0 0 em( 4 );
-    position: absolute;
-    right: .5em;
-    top: .5em;
-    transition: color 300ms ease-in;
-    z-index: 2;
-  }
 }
 
 select,
@@ -777,26 +755,22 @@ input[type="file"],
 input[type="email"],
 input[type="number"],
 input[type="password"] {
-  background: transparent;
-  border: 0;
-  font-size: 1.375em;
+  background: white;
+  border: 1px solid palette( muted, light );
+  font-size: em( 16 );
   line-height: 1.0909;
-  margin-top: 1.5em;
-  outline: 8em solid transparent;
+  margin-top: rem( 24 );
   padding: em( 4 );
   transition: all 300ms ease-in;
   width: 100%;
 
   &:hover,
   &:focus {
-    background: palette( accent, light );
+    background-color: palette( accent, light );
+    border-color: palette( accent, dark );
     color: palette( accent );
     outline-color: palette( accent, light );
     transition: all 300ms ease-out;
-
-    + .label {
-      color: palette( accent );
-    }
   }
 
   &::selection {
@@ -811,93 +785,13 @@ input[type] {
 }
 
 input[type="file"] {
-  font-size: 1em;
+  font-size: em( 16 );
   line-height: 1.5;
 }
 
 textarea {
   max-width: 100%;
   resize: vertical;
-}
-
-[type="radio"],
-[type="checkbox"] {
-
-  @extend .sr-only;
-
-  + label[for] {
-    background: none;
-    border: 0;
-    display: inline-block;
-    padding: .5em .5em .5em 0;
-    vertical-align: middle;
-
-    &::before {
-      content: "\2610";
-      font: normal normal normal 1em/1 system !important;
-      speak: none;
-      padding: 0 em( 4 ) 0 0;
-      text-transform: none;
-    }
-  }
-
-  &:checked + label[for]::before {
-    content: "\2611";
-  }
-
-  &:hover + label[for],
-  &:focus + label[for],
-  &:checked + label[for] {
-    color: palette( accent );
-  }
-}
-
-[type="radio"] {
-  + label[for]::before {
-    content: "\25cb";
-  }
-
-  &:checked + label[for]::before {
-    content: "\25cf";
-  }
-}
-
-[type="radio"] ~ [type="radio"] + label[for],
-[type="checkbox"] ~ [type="checkbox"] + label[for] {
-  margin: 0 0 0 1em;
-}
-
-/**
- * 1. Removes default appearance
- * 2. Removes arrow for IE
- * 3. Remove weird focus on Firefox
- */
-select {
-  appearance: none;         /* 1 */
-  border: 1px solid palette( muted, light );
-  border-radius: 0;
-  padding: .1em;
-
-  &::-ms-expand {
-    display: none;          /* 2 */
-  }
-
-  &:-moz-focusring {
-    color: transparent;     /* 3 */
-    text-shadow: 0 0 0 #000;/* 3 */
-  }
-
-  + .label {
-    position: relative;
-  }
-
-  // Using ::before because ::after is used for red mandatory mark
-  + .label::before {
-    content: "\00A0\25bc";
-    position: absolute;
-    right: em( 8 );
-    top: em( 40 );
-  }
 }
 
 input,
@@ -907,10 +801,7 @@ textarea {
   &[type="readonly"] {
     &,
     &:hover,
-    &:focus,
-    & + .label,
-    &:hover + .label,
-    &:focus + .label {
+    &:focus {
       background: palette( muted, x-light );
       color: palette( muted );
       outline-color: palette( muted, x-light );
@@ -922,10 +813,7 @@ textarea {
   &[disabled] {
     &,
     &:hover,
-    &:focus,
-    & + .label,
-    &:hover + .label,
-    &:focus + .label {
+    &:focus {
       background: palette( muted, x-light );
       color: palette( muted );
       outline-color: palette( muted, x-light );
@@ -935,9 +823,9 @@ textarea {
   }
 }
 
-[aria-required] + .label::after {
-  color: palette( alert );
-  content: "\00A0*";
+[required],
+[aria-required] {
+  border-color: palette( alert );
 }
 
 [aria-describedby] ~ [id^="note"] {
@@ -952,7 +840,6 @@ textarea {
   border-color: palette( alert );
 
   &,
-  & + .label,
   & ~ [role="alert"] {
     color: palette( alert );
   }
