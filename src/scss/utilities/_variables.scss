@@ -34,4 +34,29 @@ $colors: (
   )
 );
 
-$gutter: 1rem !default;
+$gutter: rem( 16 ) !default;
+
+/** Formage override */
+$form-is-normalize          : true;
+$form-is-box-sizing         : true;
+$form-is-visually-hidden    : true;
+
+$form-input-padding         : em( 18 );
+$form-input-width           : 400;
+$form-input-background      : white;
+
+$form-border-radius         : em( 4 );
+$form-border-color          : palette( dominant );
+$form-border-shadow         : palette( dominant );
+
+$form-button-background     : palette( accent );
+$form-button-border         : palette( accent );
+$form-button-color          : white;
+
+$form-screen-small          : 768;
+
+$form-placeholder           : palette( muted, light );
+
+$form-help                  : palette( muted, dark );
+$form-error                 : palette( alert );
+$form-valid                 : palette( success );

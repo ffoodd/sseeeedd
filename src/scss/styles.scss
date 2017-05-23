@@ -28,6 +28,9 @@
 @import "utilities/variables";
 @import "dependencies/normalize";
 @import "dependencies/system-font";
+@import "dependencies/formage-dependencies";
+@import "dependencies/formage-variables";
+@import "dependencies/formage";
 
 
 /* ==================== */
@@ -721,111 +724,6 @@ button[type] {
 
 form > * + * {
   margin-top: rem( 32 );
-}
-
-fieldset {
-  background: #fff;
-  border: rem( 2 ) solid palette( muted, light );
-  margin: rem( 24 ) 0 0;
-
-  &::selection {
-    background-color: palette( accent, dark );
-    color: palette( default, secondary );
-  }
-}
-
-fieldset > legend:first-child {
-  color: palette( accent );
-  font-weight: 700;
-}
-
-label[for] {
-  cursor: pointer;
-  display: block;
-  padding: em( 8 );
-  transition: color 300ms ease-in;
-}
-
-select,
-textarea,
-input[type="tel"],
-input[type="url"],
-input[type="text"],
-input[type="file"],
-input[type="email"],
-input[type="number"],
-input[type="password"] {
-  background: white;
-  border: 1px solid palette( muted, light );
-  font-size: em( 16 );
-  line-height: 1.0909;
-  margin-top: rem( 24 );
-  padding: em( 4 );
-  transition: all 300ms ease-in;
-  width: 100%;
-
-  &:hover,
-  &:focus {
-    background-color: palette( accent, light );
-    border-color: palette( accent, dark );
-    color: palette( accent );
-    outline-color: palette( accent, light );
-    transition: all 300ms ease-out;
-  }
-
-  &::selection {
-    background-color: palette( accent, dark );
-    color: palette( default, secondary );
-  }
-}
-
-input[type] {
-  max-width: 100%;
-  vertical-align: middle;
-}
-
-input[type="file"] {
-  font-size: em( 16 );
-  line-height: 1.5;
-}
-
-textarea {
-  max-width: 100%;
-  resize: vertical;
-}
-
-input,
-select,
-textarea {
-  &[readonly],
-  &[type="readonly"] {
-    &,
-    &:hover,
-    &:focus {
-      background: palette( muted, x-light );
-      color: palette( muted );
-      outline-color: palette( muted, x-light );
-      cursor: default;
-      opacity: .8;
-    }
-  }
-
-  &[disabled] {
-    &,
-    &:hover,
-    &:focus {
-      background: palette( muted, x-light );
-      color: palette( muted );
-      outline-color: palette( muted, x-light );
-      cursor: not-allowed;
-      opacity: .4;
-    }
-  }
-}
-
-[required],
-[aria-required] {
-  border-color: palette( alert );
 }
 
 [aria-describedby] ~ [id^="note"] {
