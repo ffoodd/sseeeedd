@@ -8,7 +8,6 @@
   == Base
   == Helpers
      -- Improved sr-only
-  == Colors
   == Typography
   == Images
   == Tables
@@ -17,7 +16,7 @@
   == Components
   == Header
   == Footer
-
+*/
 
 /* ==================== */
 /* == Imports
@@ -26,10 +25,11 @@
 @import "utilities/mixins";
 @import "utilities/functions";
 @import "utilities/variables";
+
 @import "dependencies/normalize";
 @import "dependencies/system-font";
-@import "dependencies/formage-dependencies";
 @import "dependencies/formage-variables";
+@import "dependencies/formage-dependencies";
 @import "dependencies/formage";
 
 
@@ -46,6 +46,49 @@ html[lang] {
 *::after,
 *::before {
   box-sizing: inherit;
+}
+
+body {
+  background: palette( default, secondary );
+  color: palette( dominant );
+  counter-reset: footnotes;
+  font: normal 400 1em/1.5 system;
+  overflow-x: hidden;
+  position: relative;
+  -webkit-font-smoothing: subpixel-antialiased;
+  text-rendering: optimizeSpeed;
+}
+
+/**
+ * @note Selection
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::selection
+ * 1. Shadow is required for fake underlines
+ */
+::selection {
+  background-color: palette( secondary );
+  color: palette( default, secondary );
+  text-shadow: none;
+}
+
+a {
+  @include underline();
+  color: palette( accent );
+
+  &:hover,
+  &:focus {
+    color: palette( accent, dark );
+  }
+
+  &:active,
+  &:visited {
+    opacity: .75;
+  }
+}
+
+main address {
+  font-size: em( 22 );
+  font-style: normal;
+  padding: 0 0 0 2em;
 }
 
 code,
@@ -71,6 +114,7 @@ li {
 
 main {
   margin: 0 auto;
+  outline: none;
 }
 
 
@@ -113,36 +157,12 @@ main {
 }
 
 /* Colors */
-[class*="--bg-dominant"] {
-  background-color: palette( dominant, light );
+.muted {
+  color: palette( muted ) !important;
 
-  &:hover,
-  &:focus,
-  &:active,
-  &[aria-expanded="true"] {
-    background-color: palette( dominant, dark );
-  }
-}
-
-[class*="--bg-accent"] {
-  background-color: palette( accent );
-
-  &:hover,
-  &:focus,
-  &:active,
-  &[aria-expanded="true"] {
-    background-color: palette( accent, dark );
-  }
-}
-
-[class*="--bg-muted"] {
-  background-color: palette( muted );
-
-  &:hover,
-  &:focus,
-  &:active,
-  &[aria-expanded="true"] {
-    background-color: palette( muted, dark );
+  em,
+  strong {
+    color: palette( default, secondary );
   }
 }
 
@@ -205,76 +225,23 @@ main {
 	white-space: normal !important;
 }
 
-
-/* ==================== */
-/* == Colors
-/* ==================== */
-
-body {
-  background: palette( default, secondary );
-  color: palette( dominant );
-}
-
 /**
- * @note Selection
- * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::selection
- * 1. Shadow is required for fake underlines
+ * Aliasing .sr-only
+ * @note To match H5BP, Foundation, and Formage
  */
-::selection {
-  background-color: palette( secondary );
-  color: palette( default, secondary );
-  text-shadow: none;
+.visually-hidden {
+  @extend .sr-only;
 }
 
-a {
-  @include underline();
-  color: palette( accent );
-
-  &:hover,
-  &:focus {
-    color: palette( accent, dark );
-  }
-
-  &:active,
-  &:visited {
-    opacity: .75;
-  }
-}
-
-main address {
-  font-size: em( 22 );
-  font-style: normal;
-  padding: 0 0 0 2em;
-}
-
-.muted {
-  color: palette( muted ) !important;
-
-  em,
-  strong {
-    color: palette( default, secondary );
-  }
-}
 
 
 /* ==================== */
 /* == Typography
 /* ==================== */
-
-body {
-  counter-reset: footnotes;
-  font: normal 400 1em/1.5 system;
-  overflow-x: hidden;
-  position: relative;
-  -webkit-font-smoothing: subpixel-antialiased;
-  text-rendering: optimizeSpeed;
-}
-
 p,
 ul,
 ol,
 dl,
-blockquote,
 pre,
 td,
 th,
@@ -285,6 +252,7 @@ caption {
 }
 
 .hn {
+  color: palette( dominant, dark );
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -361,13 +329,11 @@ p {
   hyphens: auto;
 }
 
-table {
-  margin-bottom: rem( 24 );
-  max-width: 100%;
-}
-
 blockquote {
+  font-size: em( 16 );
   font-style: italic;
+  line-height: 1.5;
+  margin: em( 48 ) 0 em( 24 );
   max-width: 100%;
   padding-left: em( 112 );
   position: relative;
@@ -402,6 +368,7 @@ abbr[title] {
 
 small,
 .small {
+  color: palette( muted );
   font-size: em( 14 );
 }
 
@@ -436,21 +403,20 @@ img[alt] {
   vertical-align: middle;
 
   &:not([src$=".svg"]) {
+    min-height: em( 64 );
     height: auto;
   }
 
   /* 1 */
   &::after {
-    background: palette( muted, x-light );
+    background: white;
     bottom: 0;
     content:
-      "Couldn't find picture  (╯°□°）╯︵ ┻━┻
-      \A"                 /* 2 */
       attr( alt )         /* 3 */
-      "\A"
+      "\A"                /* 2 */
       "—\A0" attr( src ); /* 4 */
     left: 0;
-    padding: em( 16 );
+    padding: em( 8 );
     position: absolute;
     top: 0;
     width: 100%;
@@ -459,14 +425,20 @@ img[alt] {
 }
 
 figure[role="group"] {
+  background: white;
   margin: rem( 24 ) auto;
-  max-width: 100%;
-}
+  max-width: min-content;
+  padding: em( 16 );
 
-figure[role="group"] figcaption {
-  display: block;
-  font-size: em( 14 );
-  padding: 1em 0;
+  figcaption {
+    display: block;
+    font-size: em( 14 );
+    padding: 1em 0;
+  }
+
+  img[alt] {
+    max-width: none;
+  }
 }
 
 
@@ -484,9 +456,17 @@ table {
   border-collapse: collapse;
   caption-side: top;
   display: inline-block; /* 1 */
+  margin-bottom: rem( 24 );
+  max-width: 100%;
   overflow-x: auto;      /* 1 */
   vertical-align: top;
   white-space: nowrap;   /* 1 */
+
+  > caption:first-child {
+    font-style: italic;
+    margin: 0;
+    padding: em( 40 ) em( 16 );
+  }
 }
 
 th,
@@ -496,7 +476,7 @@ td {
 
   thead &,
   tbody & {
-    border-bottom: 1px solid palette( muted, x-light );
+    border-bottom: 1px solid palette( default, secondary );
   }
 }
 
@@ -505,17 +485,11 @@ td {
   max-width: 100%;
 }
 
-table > caption:first-child {
-  font-style: italic;
-  margin: 0;
-  padding: em( 40 ) em( 16 );
-}
-
 tbody {
-  border: 1px solid palette( muted, x-light );
+  border: 1px solid palette( default, secondary );
 
   tr > * + * {
-    border-left: 1px solid palette( muted, x-light );
+    border-left: 1px solid palette( default, secondary );
   }
 }
 
@@ -540,9 +514,27 @@ tbody {
     background-color: #fff;
     background-repeat: no-repeat;
     background-size: em( 10 ) 100%, em( 10 ) 100%;
-    border: 1px solid palette( muted, x-light );
+    border: 1px solid palette( default, secondary );
     max-width: 100% !important;        /* 1 */
     -webkit-overflow-scrolling: touch; /* 1 */
+
+    > caption:first-child {
+      background-image:
+        linear-gradient(
+            to left,
+            #fff 50%,
+            rgba(255, 255, 255, 0) 100%
+        ),
+        linear-gradient(
+            to right,
+            #fff 50%,
+            rgba(255, 255, 255, 0) 100%
+        );
+      background-repeat: no-repeat;
+      background-position: 100% 0, 0 0;
+      background-size: em( 20 ) 100%, em( 20 ) 100%;
+      border-bottom: 1px solid palette( default, secondary );
+    }
   }
 
   td:first-child,
@@ -558,24 +550,6 @@ tbody {
     background-repeat: no-repeat;
     background-position: 100% 0;
     background-size: em( 20 ) 100%;
-  }
-
-  > caption:first-child {
-    background-image:
-      linear-gradient(
-          to left,
-          #fff 50%,
-          rgba(255, 255, 255, 0) 100%
-      ),
-      linear-gradient(
-          to right,
-          #fff 50%,
-          rgba(255, 255, 255, 0) 100%
-      );
-    background-repeat: no-repeat;
-    background-position: 100% 0, 0 0;
-    background-size: em( 20 ) 100%, em( 20 ) 100%;
-    border-bottom: 1px solid palette( muted, x-light );
   }
 }
 
@@ -598,7 +572,7 @@ tbody {
   }
 
   tbody tr:nth-child(odd) {
-    background: palette( muted, x-light );
+    background: palette( default, secondary );
   }
 }
 
@@ -661,8 +635,8 @@ button[type] {
     &:hover,
     &:focus,
     &:active {
-      background-color: palette( muted, dark );
-      color: palette( muted, x-light );
+      background-color: palette( default );
+      color: palette( default, secondary );
       cursor: not-allowed;
     }
   }
@@ -688,11 +662,11 @@ button[type] {
   display: flex;    /* 1 */
   flex-wrap: wrap;  /* 2 */
   margin: -$gutter; /* 5 */
-}
 
-.grid > * {
-  flex: 1 0 em( 80 );    /* 3 */
-  margin: $gutter;  /* 4 */
+  > * {
+    flex: 1 0 em( 80 );    /* 3 */
+    margin: $gutter;  /* 4 */
+  }
 }
 
 @media screen and (min-width: em( 768 )) {
@@ -727,35 +701,38 @@ form > * + * {
 }
 
 [aria-describedby] ~ [id^="note"] {
-  font-size: em( 12 );
-  position: absolute;
-  right: 1em;
-  top: em( 14, 12 );
-  z-index: 3;
+  @extend .small;
 }
 
 [aria-invalid="true"] {
-  border-color: palette( alert );
+  border-color: palette( alert, dark );
 
   &,
   & ~ [role="alert"] {
-    color: palette( alert );
+    color: palette( alert, dark );
   }
 }
 
 
 /* ==================== */
-/* == Header
+/* == Layout
 /* ==================== */
+body > * {
+  max-width: em( 960 );
+  margin: 0 auto;
+}
+
+/* ----------------------------- */
+/* -- Header
+/* ----------------------------- */
 
 header[role="banner"] {
 
 }
 
-
-/* ==================== */
-/* == Footer
-/* ==================== */
+/* ----------------------------- */
+/* -- Footer
+/* ----------------------------- */
 
 footer[role="contentinfo"] {
 

@@ -1,62 +1,84 @@
+@charset "UTF-8";
+/* ----------------------------- */
+/* Table of contents */
+/* ----------------------------- */
+/*
+  == Colors
+  == Spacings
+  == Formage
+*/
+
+
+/* ==================== */
+/* == Colors
+/* ==================== */
+
 $colors: (
   dominant: (
-    base: MidnightBlue,
-    light: MediumBlue,
-    dark: Black
+    base: #444,
+    light: mediumblue,
+    dark: black
   ),
   secondary: (
-    base: DodgerBlue,
-    light: DeepSkyBlue,
-    dark: MediumBlue
+    base: dodgerblue,
+    light: deepskyblue,
+    dark: mediumblue
   ),
   accent: (
-    base: rebeccaPurple,
-    light: BlueViolet,
-    dark: Indigo
+    base: rebeccapurple,
+    light: blueviolet,
+    dark: indigo
   ),
   muted: (
-    base: Gray,
-    x-light: whiteSmoke,
-    light: DarkGray,
-    dark: DimGray
+    base: gray,
+    light: darkgray
   ),
   alert: (
-    base: Coral,
-    dark: OrangeRed
+    base: coral,
+    dark: orangered
   ),
   success: (
-    base: SpringGreen,
-    dark: MediumSeaGreen
+    base: springgreen,
+    dark: mediumseagreen
   ),
   default: (
-    base: DimGray,
-    secondary: whiteSmoke
+    base: dimgray,
+    secondary: whitesmoke
   )
 );
 
+
+/* ==================== */
+/* == Spacings
+/* ==================== */
+
 $gutter: rem( 16 ) !default;
 
-/** Formage override */
-$form-is-normalize          : true;
-$form-is-box-sizing         : true;
-$form-is-visually-hidden    : true;
 
-$form-input-padding         : em( 18 );
-$form-input-width           : 400;
-$form-input-background      : white;
+/* ==================== */
+/* == Formage
+/* ==================== */
 
-$form-border-radius         : em( 4 );
-$form-border-color          : palette( dominant );
-$form-border-shadow         : palette( dominant );
+$form-is-normalize: true;
+$form-is-box-sizing: true;
+$form-is-visually-hidden: true;
 
-$form-button-background     : palette( accent );
-$form-button-border         : palette( accent );
-$form-button-color          : white;
+$form-input-padding: em( 8 );
+$form-input-width: 400;
+$form-input-background: white;
 
-$form-screen-small          : 768;
+$form-border-radius: em( 4 );
+$form-border-color: palette( dominant );
+$form-border-shadow: palette( dominant );
 
-$form-placeholder           : palette( muted, light );
+$form-button-background: palette( accent );
+$form-button-border: palette( accent );
+$form-button-color: white;
 
-$form-help                  : palette( muted, dark );
-$form-error                 : palette( alert );
-$form-valid                 : palette( success );
+$form-screen-small: 768;
+
+$form-placeholder: palette( muted, light );
+
+$form-help: palette( default );
+$form-error: palette( alert, dark );
+$form-valid: palette( success );
