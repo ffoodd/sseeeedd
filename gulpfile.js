@@ -21,7 +21,8 @@ let paths = {
 };
 
 let test = {
-    home: paths.dest + '/index.html'
+    home: paths.dest + '/index.html',
+    styles: paths.dest + '/kitchen-sink.html'
 };
 
 
@@ -144,7 +145,8 @@ gulp.task('axe', function(done) {
         saveOutputIn: 'axe.json',
         folderOutputReport: 'reports',
         urls: [
-            test.home
+            test.home,
+            test.styles
         ]
     };
     return axe(options, done);
