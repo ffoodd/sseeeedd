@@ -90,7 +90,7 @@
   </table>
 
   <form action="/">
-    <p>
+    <p class="fieldset">
       <label for="texte">Texte</label>
       <input type="text" id="texte" name="texte" />
     </p>
@@ -101,7 +101,7 @@
       <input type="radio" name="genre" id="M" value="M">
       <label for="M">Masculin</label>
      </fieldset>
-     <p>
+    <p class="fieldset">
       <label for="options">Option</label>
       <select id="options" name="options">
         <option value="1">Option №1</option>
@@ -118,39 +118,53 @@
       <input type="checkbox" name="choix" id="E" value="E">
       <label for="E">Choix №3</label>
     </fieldset>
-    <p>
+    <p class="fieldset">
       <label for="zone">Zone de texte</label>
       <textarea id="zone" name="zone"></textarea>
     </p>
-    <p>
+    <div class="fieldset">
+      <div>
+        <div class="toggle-field">
+            <input id="toggle" class="toggle-input" type="checkbox">
+            <label for="toggle" class="toggle-label">Send me an e-mail please</label>
+        </div>
+        <span class="label">Toggle switch</span>
+      </div>
+    </div>
+    <p class="fieldset">
       <label for="fichier">Envoi de fichier</label>
       <input type="file" id="fichier" name="fichier" />
     </p>
-    <p>
+    <p class="fieldset">
       <label for="texte-2">Texte en lecture seule</label>
       <input type="text" id="texte-2" name="texte-2" readonly />
     </p>
-    <p>
+    <p class="fieldset">
       <label for="texte-3">Texte désactivé</label>
       <input type="text" id="texte-3" name="texte-3" disabled />
     </p>
-    <p>
-      <label for="texte-2">Champ avec description</label>
-      <input type="text" id="texte-2" name="texte-2" aria-describedby="note-texte" />
-      <span id="note-texte">Description du champ</span>
+    <p class="fieldset">
+      <label for="texte-2">
+        Champ avec description
+        <span class="label-msg-help">Description du champ</span>
+      </label>
+      <input type="text" id="texte-2" name="texte-2" />
+
     </p>
-    <p>
+    <p class="fieldset">
       <label for="texte-3">Champ obligatoire</label>
       <input type="text" id="texte-3" name="texte-3" required aria-required="true" />
     </p>
-    <p>
-      <label for="texte-4">Champ erroné</label>
-      <input type="text" id="texte-4" name="texte-4" required aria-required="true"
-             aria-invalid="true" aria-describedby="note-texte-4" />
-      <span id="note-texte-4" role="alert" aria-live="assertive">
-        <span>Message dʼerreur</span>
-      </span>
+    <p class="fieldset">
+      <label for="texte-4">
+        Champ erroné
+        <span class="label-msg-error">Message dʼerreur</span>
+      </label>
+      <input type="text" id="texte-4" name="texte-4" required aria-required="true" aria-invalid="true"/>
     </p>
-    <button>Bouton</button>
+    <p class="fieldset">
+      <input type="reset" />
+      <button>Bouton</button>
+    </p>
   </form>
 {% endblock %}

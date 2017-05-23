@@ -700,17 +700,9 @@ form > * + * {
   margin-top: rem( 32 );
 }
 
-[aria-describedby] ~ [id^="note"] {
-  @extend .small;
-}
-
-[aria-invalid="true"] {
-  border-color: palette( alert, dark );
-
-  &,
-  & ~ [role="alert"] {
-    color: palette( alert, dark );
-  }
+[type="radio"]:not(:first-of-type),
+[type="checkbox"]:not(:first-of-type) {
+  margin-left: em( 8 );
 }
 
 
