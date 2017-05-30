@@ -18,7 +18,7 @@
     "node_modules"
   ],
   "devDependencies": {
-    "axe-core": "^2.1.7",
+    "axe-core": "^2.2.2",
     "browser-sync": "^2.18.5",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
