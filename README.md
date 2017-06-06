@@ -16,7 +16,14 @@ Please wait…
 * [x] Use something like [gulp-uncss](https://www.npmjs.com/package/gulp-uncss) to remove unused CSS, based on a a list of HTML pages;
 * [ ] Add a tool to inline critical CSS?
 * [x] Add [gulp-louis](https://www.npmjs.com/package/gulp-louis) for performance budget, or as a simple performance testing tool;
-* [ ] Add a style guide generator? Or would a dedicated HTML page *and*  well modularized CSS components ben enough?
+* [ ] Add a style guide generator? Or would a dedicated HTML page *and*  well modularized CSS components be enough?
+ * Try to document tooltips and footnotes.
+* [ ] Check for `favicon.ico`, `.htaccess` or `humans.txt`?
+* [ ] Use a `.editorconfig` file?
+* [ ] Linting for:
+ * Sass,
+ * JS,
+ * HTML…
 
 This project is licenced under [MIT](http://opensource.org/licenses/MIT "The MIT licence") and [CC BY 3.0 FR](http://creativecommons.org/licenses/by/3.0/fr/ "Licence's explanations").
 *Copyright (c) 2017 Gaël Poupard*
