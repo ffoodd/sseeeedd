@@ -14,8 +14,9 @@
   == Grid
   == Forms
   == Components
-  == Header
-  == Footer
+    -- Navigation
+    -- Header
+    -- Footer
 */
 
 /* ==================== */
@@ -37,8 +38,20 @@
 /* == Base
 /* ==================== */
 
+/**
+ * @note Some improvements taken from Ergonomize.css
+ * @author Effeilo
+ - @see https://github.com/Effeilo/ergonomize.css/blob/master/ergonomize.css
+ * 1. Force scrollbars to always be visible to prevent awkward jumps when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 2. For some Firefox.
+ *    css-tricks.com/snippets/css/force-vertical-scrollbar/
+ */
 html[lang] {
   box-sizing: border-box;
+  overflow-y: scroll;                 /* 1 */
+  overflow: -moz-scrollbars-vertical; /* 2 */
   position: relative;
 }
 
@@ -424,6 +437,10 @@ img[alt] {
   }
 }
 
+svg {
+  fill: currentColor;
+}
+
 figure[role="group"] {
   background: white;
   margin: rem( 24 ) auto;
@@ -712,6 +729,20 @@ form > * + * {
 body > * {
   max-width: em( 960 );
   margin: 0 auto;
+}
+
+/* ----------------------------- */
+/* -- Navigation
+/* ----------------------------- */
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+nav a {
+  padding: em( 8 ) em( 16 );
 }
 
 /* ----------------------------- */
