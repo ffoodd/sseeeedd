@@ -18,18 +18,18 @@
     "node_modules"
   ],
   "devDependencies": {
-    "axe-core": "^2.2.2",
-    "browser-sync": "^2.18.5",
+    "axe-core": "^2.2.3",
+    "browser-sync": "^2.5.1",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
+    "gulp-autoprefixer": "^4.0.0",
     "gulp-axe-webdriver": "^1.4.0",
-    "gulp-imagemin": "^3.1.1",
+    "gulp-imagemin": "^3.3.0",
     "gulp-inject-svg": "^0.1.9",
-    "gulp-nunjucks": "^2.3.0",
+    "gulp-nunjucks": "^3.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sourcemaps": "^1.9.1",
-    "gulp-uglify": "^2.0.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0",
     "gulp-zip": "^4.0.0"
   },
   "dependencies": {
