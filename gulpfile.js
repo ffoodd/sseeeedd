@@ -3,6 +3,7 @@
 const gulp     = require('gulp');
 const sass     = require('gulp-sass');
 const maps     = require('gulp-sourcemaps');
+const uncss    = require('gulp-uncss');
 const prefix   = require('gulp-autoprefixer');
 const uglify   = require('gulp-uglify');
 const rename   = require('gulp-rename');
@@ -58,6 +59,9 @@ gulp.task('sass', ['dependencies'], function () {
             browsers: ['last 1 versions']
         }))
         .pipe(rename({suffix: '.min'}))
+        .pipe(uncss({
+          html: ['dist/**/*.html']
+        }))
         .pipe(maps.write())
         .pipe(gulp.dest(paths.dest + '/css'))
         .pipe(browser.stream());
