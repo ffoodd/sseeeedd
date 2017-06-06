@@ -25,6 +25,7 @@
     "gulp-axe-webdriver": "^1.4.0",
     "gulp-imagemin": "^3.3.0",
     "gulp-inject-svg": "^0.1.9",
+    "gulp-louis": "^2.4.0",
     "gulp-nunjucks": "^3.0.0",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",

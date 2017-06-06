@@ -11,6 +11,7 @@ const imgmin   = require('gulp-imagemin');
 const svg      = require('gulp-inject-svg');
 const browser  = require('browser-sync').create();
 const axe      = require('gulp-axe-webdriver');
+const louis    = require('gulp-louis');
 const nunjucks = require('gulp-nunjucks');
 const zip      = require('gulp-zip');
 
@@ -155,6 +156,25 @@ gulp.task('axe', function(done) {
     };
     return axe(options, done);
 });
+
+
+/**
+ * @section Test
+ * Louis, using Phantomas
+ */
+gulp.task('louis', function() {
+  louis({
+    url: test.styles,
+    outputFileName: 'reports/louis.json'
+  });
+});
+
+
+/**
+ * @section Test
+ * All
+ */
+gulp.task('test', ['louis', 'axe']);
 
 
 /**
