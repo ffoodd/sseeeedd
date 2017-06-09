@@ -18,7 +18,7 @@ Please wait…
 * [x] Add [gulp-louis](https://www.npmjs.com/package/gulp-louis) for performance budget, or as a simple performance testing tool;
 * [ ] Add a style guide generator? Or would a dedicated HTML page *and*  well modularized CSS components be enough?
  * Try to document tooltips and footnotes.
-* [ ] Check for `favicon.ico`, `.htaccess` or `humans.txt`?
+* [ ] Check for `favicon.ico`, use a favicon generator like [gulp-favicons](https://github.com/evilebottnawi/favicons)?
 * [ ] Use a `.editorconfig` file?
 * [ ] Linting for:
  * Sass,
