@@ -14,6 +14,7 @@ const axe      = require('gulp-axe-webdriver');
 const louis    = require('gulp-louis');
 const nunjucks = require('gulp-nunjucks');
 const zip      = require('gulp-zip');
+const del      = require('del');
 
 
 let paths = {
@@ -108,10 +109,19 @@ gulp.task('nunjucks', function() {
 
 
 /**
+ * @section Build
+ * Clean up `dist` folder
+ */
+gulp.task('clean', function () {
+    return del(paths.dest + '/*');
+});
+
+
+/**
  * @section All
  * Watch Sass and JavaScript files
  */
-gulp.task('all', ['sass', 'js', 'img', 'nunjucks']);
+gulp.task('all', ['clean', 'sass', 'js', 'img', 'nunjucks']);
 
 
 /**
