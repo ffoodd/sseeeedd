@@ -18,7 +18,6 @@ const del      = require('del');
 const critical = require('critical').stream;
 const newer    = require('gulp-newer');
 
-
 let paths = {
     dev: './src/',
     dest: './dist/',
@@ -224,7 +223,6 @@ gulp.task('default', ['sync']);
  * @section Packaging
  * Copy files
  */
-
 gulp.task('copy', ['build'], function () {
     return gulp.src([paths.dest + '/**/*.*'])
       .pipe(gulp.dest('pkg'));
