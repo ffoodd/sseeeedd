@@ -16,6 +16,7 @@ const nunjucks = require('gulp-nunjucks');
 const zip      = require('gulp-zip');
 const del      = require('del');
 const critical = require('critical').stream;
+const newer    = require('gulp-newer');
 
 
 let paths = {
@@ -36,6 +37,7 @@ let test = {
  */
 gulp.task('system-font', function () {
   return gulp.src([paths.node + '/system-font-css/*.css'])
+    .pipe(newer(paths.dev + '/scss/dependencies/_system-font.scss'))
     .pipe(rename({
       prefix: '_',
       extname: '.scss'
@@ -45,6 +47,7 @@ gulp.task('system-font', function () {
 
 gulp.task('normalize', function () {
   return gulp.src([paths.node + '/normalize.css/*.css'])
+    .pipe(newer(paths.dev + '/scss/dependencies/_normalize.scss'))
     .pipe(rename({
       prefix: '_',
       extname: '.scss'
@@ -56,18 +59,19 @@ gulp.task('dependencies', ['system-font', 'normalize']);
 
 gulp.task('sass', ['dependencies'], function () {
     return gulp.src(paths.dev + '/scss/*.scss')
-        .pipe(maps.init())
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(prefix({
-            browsers: ['last 1 versions']
-        }))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(uncss({
-          html: ['dist/**/*.html']
-        }))
-        .pipe(maps.write())
-        .pipe(gulp.dest(paths.dest + '/css'))
-        .pipe(browser.stream());
+      .pipe(newer(paths.dest + '/css'))
+      .pipe(maps.init())
+      .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+      .pipe(prefix({
+          browsers: ['last 1 versions']
+      }))
+      .pipe(rename({suffix: '.min'}))
+      .pipe(uncss({
+        html: ['dist/**/*.html']
+      }))
+      .pipe(maps.write())
+      .pipe(gulp.dest(paths.dest + '/css'))
+      .pipe(browser.stream());
 });
 
 
@@ -77,10 +81,11 @@ gulp.task('sass', ['dependencies'], function () {
  */
 gulp.task('js', function () {
     return gulp.src(paths.dev + '/js/*.js')
-        .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulp.dest(paths.dest + '/js'))
-        .pipe(browser.stream());
+      .pipe(newer(paths.dest + '/js'))
+      .pipe(uglify())
+      .pipe(rename({suffix: '.min'}))
+      .pipe(gulp.dest(paths.dest + '/js'))
+      .pipe(browser.stream());
 });
 
 
@@ -90,9 +95,10 @@ gulp.task('js', function () {
  */
 gulp.task('img', function () {
     return gulp.src(paths.dev + '/img/**/*')
-        .pipe(imgmin())
-        .pipe(gulp.dest(paths.dest + '/img'))
-        .pipe(browser.stream());
+      .pipe(newer(paths.dest + '/img'))
+      .pipe(imgmin())
+      .pipe(gulp.dest(paths.dest + '/img'))
+      .pipe(browser.stream());
 });
 
 
@@ -102,10 +108,11 @@ gulp.task('img', function () {
  */
 gulp.task('nunjucks', function() {
     gulp.src(paths.dev + '/templates/*.html')
-        .pipe(nunjucks.compile())
-        .pipe(svg())
-        .pipe(gulp.dest(paths.dest))
-        .pipe(browser.stream())
+      .pipe(newer(paths.dest))
+      .pipe(nunjucks.compile())
+      .pipe(svg())
+      .pipe(gulp.dest(paths.dest))
+      .pipe(browser.stream())
 });
 
 
