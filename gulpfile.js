@@ -15,6 +15,7 @@ const louis    = require('gulp-louis');
 const nunjucks = require('gulp-nunjucks');
 const zip      = require('gulp-zip');
 const del      = require('del');
+const critical = require('critical').stream;
 
 
 let paths = {
@@ -118,10 +119,29 @@ gulp.task('clean', function () {
 
 
 /**
- * @section All
+ * @section Build
  * Watch Sass and JavaScript files
  */
-gulp.task('all', ['clean', 'sass', 'js', 'img', 'nunjucks']);
+gulp.task('build', ['clean', 'sass', 'js', 'img', 'nunjucks']);
+
+
+/**
+ * @section Build
+ * Inline critical CSS
+ */
+ gulp.task('critical', ['build'], function () {
+   return gulp.src(paths.dest + '*.html')
+      .pipe(critical({
+         base: paths.dest,
+         inline: true,
+         minify: true,
+         css: paths.dest + 'css/styles.min.css'
+      }))
+      .on('error', function(err) {
+         gutil.log(gutil.colors.red(err.message));
+      })
+      .pipe(gulp.dest(paths.dest));
+});
 
 
 /**
@@ -198,7 +218,7 @@ gulp.task('default', ['sync']);
  * Copy files
  */
 
-gulp.task('copy', ['all'], function () {
+gulp.task('copy', ['build'], function () {
     return gulp.src([paths.dest + '/**/*.*'])
       .pipe(gulp.dest('pkg'));
 });
