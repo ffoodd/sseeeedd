@@ -84,7 +84,6 @@ body {
 }
 
 a {
-  @include underline();
   color: palette( accent );
 
   &:hover,

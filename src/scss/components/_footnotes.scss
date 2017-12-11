@@ -4,16 +4,10 @@
 /**
  * Footnotes
  ** 1. Incrementing counter
- ** 2. Removes fake underline
 
  */
 a[id^="footnote-"][aria-describedby] {
   counter-increment: footnotes; /* 1 */
-  color: inherit;               /* 2 */
-  cursor: default;              /* 2 */
-  outline: none;                /* 2 */
-
-  @include underline-reset();   /* 2 */
 
   &::after {
     content: "[" counter(footnotes) "]";
@@ -21,8 +15,6 @@ a[id^="footnote-"][aria-describedby] {
     font-size: rem( 14 );
     font-weight: 400;
     margin-left: 2px;
-
-    @include underline();
     color: palette( accent );
     cursor: pointer;
   }
