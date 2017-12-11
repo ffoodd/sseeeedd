@@ -11,11 +11,12 @@
 }
 
 [role="tooltip"] {
-  background: palette( dominant, light );
+  background: palette( dominant );
   bottom: calc( 100% + .5em );
   color: palette( default, secondary );
   left: 50%;
   opacity: 0;
+  margin: 0;
   padding: .25em .5em .3em;
   pointer-events: none;
   position: absolute;
@@ -29,11 +30,12 @@
     transform .2s ease-in,
     visibility 0s linear .2s;
   visibility: hidden;
+  white-space: nowrap;
 
   &::after {
     border-left: em( 4 ) solid transparent;
     border-right: em( 4 ) solid transparent;
-    border-top: em( 4 ) solid palette( dominant, light );
+    border-top: em( 4 ) solid palette( dominant );
     bottom: em( -4 );
     content: "";
     left: calc( 50% - .25em );

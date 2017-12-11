@@ -602,40 +602,27 @@ tbody {
  ** @see http://fr.slideshare.net/TheZero1/webexpo-highcontrast (slide 11)
  */
 button[type] {
-  background-color: palette( secondary );
-  background-image:
-    linear-gradient(
-      rgba( 255, 255, 255, .1 ),
-      rgba( 0, 0, 0, .1 )
-    );
-  border: 1px solid transparent; /* 1 */
-  box-shadow:
-    inset 0 2px rgba( 255, 255, 255, .2 ),
-    0 .25em 0 -.1em rgba( 0, 0, 0, .1 );
-  color: palette( default, secondary );
-  display: inline-block;
-  margin: em( 8 ) auto;
-  outline: 1px solid rgba( 0, 0, 0, .15 );
-  outline-offset: -1px;
-  padding: em( 4 ) em( 8 ) em( 5 );
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  text-shadow: .05em .05em rgba( 0, 0, 0, .2 );
-  top: 0;
+  background-color: palette( accent );
+  border: 1px solid palette( accent );
+  border-radius: $form-border-radius;
+  color: $form-button-color;
+  font-family: inherit; // Fix typo inputs
+  font-size: 1em; // Fix typo inputs
+  line-height: $form-line-height;
+  margin: .5em 0;
+  padding: $form-input-padding;
+  vertical-align: middle;
   transition: all 300ms;
+  width: auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 
   &:hover,
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    background-color: palette( secondary, dark );
-    box-shadow:
-      inset 0 2px rgba( 255, 255, 255, .2 ),
-      0 .25em 0 -.1em rgba( 0, 0, 0, .15 );
-    color: palette( default, secondary );
-    outline: 1px solid rgba( 0, 0, 0, .15 );
-    outline-offset: -1px;
+    border: 1px solid rgba( palette( accent ), .75 );
+    background-color: rgba( palette( accent ), .75 );
   }
 
   &:active,
