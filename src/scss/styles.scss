@@ -668,29 +668,29 @@ button[type] {
 
   > * {
     flex: 1 0 em( 80 );    /* 3 */
-    margin: $gutter;  /* 4 */
+    padding: $gutter;  /* 4 */
   }
 }
 
 @media screen and (min-width: em( 768 )) {
   .½ {
-    width: 50%;
+    flex-basis: 50%;
   }
 
   .¼ {
-    width: 25%;
+    flex-basis: 25%;
   }
 
   .¾ {
-    width: 75%;
+    flex-basis: 75%;
   }
 
   .⅓ {
-    width: calc( 100% / 3 );
+    flex-basis: calc( 100% / 3 );
   }
 
   .⅔ {
-    width: calc( (100% / 3) * 2 );
+    flex-basis: calc( (100% / 3) * 2 );
   }
 }
 
