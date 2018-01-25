@@ -95,11 +95,6 @@ a {
   &:visited {
     opacity: .75;
   }
-  
-  &[target$="blank"]::after {
-    content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMBAMAAACkW0HUAAAAGFBMVEX///////////////////////////////8pK8DIAAAAAXRSTlMAQObYZgAAADZJREFUCJljKC8vYCsvZwBSDCCKgYHBHUKVu4Mo5gJ2IMUOFmBgLwZTTKlgCgjYUShxoAkgAADDIA8SMJqkyAAAAABJRU5ErkJggg==);
-    padding-left: .5em;
-  }
 }
 
 main address {
