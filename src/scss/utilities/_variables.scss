@@ -47,6 +47,8 @@ $colors: (
   )
 );
 
+$blank: str-replace(to-string(palette( accent )), "#", "%23");
+$blank-focus: str-replace(to-string(palette( accent, dark )), "#", "%23");
 
 /* ==================== */
 /* == Spacings
