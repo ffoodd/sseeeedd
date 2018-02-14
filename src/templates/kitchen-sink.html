@@ -12,7 +12,7 @@
 
   <p>
     Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
-    et leur vitesse atteint de quinze à <a href="https://www.ffoodd.fr" target="_blank">dix-huit</a> kilomètres.
+    et leur vitesse atteint de quinze à <a href="https://www.ffoodd.fr" target="_blank">dix-huit</a> <a href="#footnote-1" id="footnote-ref-1" aria-describedby="footnotes-label" rev="footnote">kilomètres</a>.
   </p>
 
   <figure role="group">
@@ -181,6 +181,17 @@
     <p role="tooltip">Et hop&nbsp;!</p>
   </div>
 
-  <h3>Notes de bas de page</h3>
+  <h3 id="footnotes-label">Notes de bas-de-page</h3>
+  
+  <footer>    
+    <ol>
+      <li id="footnote-1" role="note">
+        Ceci est un exemple de note de bas-de-page.
+        <a href="#footnote-ref-1" aria-label="Rerprendre la lecture" rev="footnote">
+          <span aria-hidden="true">↩</span>
+        </a>
+      </li>
+    </ol>
+  </footer>
 
 {% endblock %}
