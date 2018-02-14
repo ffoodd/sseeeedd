@@ -785,6 +785,10 @@ details {
       
       ~ * {        
         padding-left: rem( 56 );
+        
+        > *:first-child {
+          margin-top: 0;
+        }
       }
     }
   }
