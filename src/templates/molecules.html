@@ -1,0 +1,83 @@
+{% extends "index.html" %}
+
+{% block navigation %}
+  <ul>
+    <li><a href="/">Accueil</a></li>
+    <li><a href="/atomes.html">Atomes</a></li>
+    <li><a aria-current="page">Molécules</a></li>
+  </ul>
+{% endblock %}
+
+{% block main %}
+  <h1>Molécules</h1>
+  
+  <p>Les molécules sont les éléments d’interface de complexité intermédiare.</p>
+  
+  <h2>Messages</h2>
+  
+  {% set messages = ['alert','success','accent','dominant','secondary'] %}
+  {% for message in messages %}
+   <div role="alert" aria-live="assertive" class="alert bg-{{ message }}">
+     <p>Oh, le joli message&nbsp;!</p>
+   </div>
+  {% endfor %}
+  
+  <h2>Liste d’articles</h2>
+  
+  <ol class="no-list grid">
+      {% set articles = [1,2,3,4,5] %}
+      {% for article in articles %}
+        <li class="½">
+            {% include 'includes/_article.html' %}
+        </li>
+      {% endfor %}
+  </ol>
+  
+  <h2>Panneaux</h2>
+  
+  {% set panneaux = [1,2,3,4] %}
+  {% for panneau in panneaux %}
+    <details>
+      <summary>Panneau №{{ loop.index }}</summary>
+      <div>
+        <h3>Contenu №{{ loop.index }}</h3>
+        <p>
+          Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+          <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+          Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+          et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+        </p>
+      </div>
+    </details>
+  {% endfor %}
+  
+  <h3>Panneaux verticaux</h3>
+  
+  <div class="vertical">
+    {% for panneau in panneaux %}
+      <details {% if loop.index == 1%}open{% endif %}>
+        <summary>Panneau №{{ loop.index }}</summary>
+        <div>
+          <h3>Contenu №{{ loop.index }}</h3>
+          <p>
+            Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+            <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+            Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+            et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+          </p>
+        </div>
+      </details>
+    {% endfor %}
+  </div>
+  
+  <h2>Blocs de code</h2>
+  
+  <pre><code class="language-css">.open-space {
+  display: grid;
+  grid-template: repeat(16, minmax(3rem, 1fr)) / repeat(44, minmax(calc(3rem * 4 / 3), 1fr));
+  height: 100vh;
+  position: fixed;
+  width: 100vw; 
+}</code></pre>
+  
+{% endblock %}

@@ -85,6 +85,8 @@ body {
 
 a {
   color: palette( accent );
+  text-decoration-style: dotted;
+  text-decoration-skip-ink: auto;
 
   &:hover,
   &:focus {
@@ -406,6 +408,59 @@ cite {
   @extend .hn;
 }
 
+hr {
+  border-bottom: 1px solid white;
+  border-top: 1px solid transparentize( palette( muted, light ), .5 ); 
+  height: 0;
+}
+
+code {
+  font: inherit;
+  line-height: 1;
+}
+
+pre {
+  background: palette( dominant );
+  border: 0;
+  border-radius: rem( 4 );
+  color: palette( dominant, contrast );
+  direction: ltr;
+  font-family: "Fira Mono", "Consolas", "Monaco", "Andale Mono", monospace;
+  font-size: small;
+  line-height: 1.5;
+  hyphens: none;
+	tab-size: 4;
+  overflow-x: auto;
+  padding: rem( 32 ) rem( 16 ) rem( 8 );
+  text-align: left;
+  white-space: pre;
+  word-break: normal;
+  word-spacing: normal;
+  word-wrap: normal;
+  
+  &::before {
+    background: palette( alert );
+    border-radius: 50%;
+    box-shadow: rem( 24 ) 0 0 0 Orange,
+                rem( 48 ) 0 0 0 palette( success );
+    content: "";
+    display: block;
+    height: 1rem;
+    transform: translateY( -1rem );
+    width: 1rem;
+  }
+}
+
+p code,
+ul code {
+  border: 1px solid;
+  border-radius: .2em;
+  display: inline-block;
+  font-family: inherit;
+  padding: .1em;
+  white-space: nowrap;
+}
+
 
 /* ==================== */
 /* == Images
@@ -657,6 +712,88 @@ button[type] {
 
 
 /* ==================== */
+/* == Details
+/* ==================== */
+
+details {
+  border: rem( 4 ) solid palette( dominant, dark );
+  padding: 1rem;
+  transition: all .3s ease-in-out;  
+  
+  & + & {
+    border-top-width: 0;
+  }
+  
+  summary {
+    background: palette( dominant );
+    color: palette( dominant, contrast );
+    margin: -1rem;
+    padding: inherit;
+    transition: background .2s ease-in-out;
+    
+    &:hover,
+    &:focus {
+      background: palette( dominant, dark );
+    }
+    
+    ~ * {
+     max-height: 80em;
+     overflow: hidden;
+     opacity: 1;
+     transition: visibility 0s ease, max-height 2s ease, opacity 1s ease;
+     transition-delay: 0s;
+     visibility: visible;
+    }
+  }
+  
+  &:not([open]) summary ~ * {
+   max-height: 0;
+   opacity: 0;
+   visibility: hidden;
+   transition-delay: 2s, 0s, 0s;
+  }
+}
+
+/**
+ * @note Writing-mode
+ ** 1. For everyone except Firefox
+ ** 2. Firefox is the only one supporting the nicer value
+ * @link https://developer.mozilla.org/fr/docs/Web/CSS/writing-mode#Compatibilité_des_navigateurs
+ */
+.vertical {
+  display: flex;
+  
+  details {
+    flex: 1;
+    min-width: rem( 56 );
+    overflow: hidden;
+    transition: none;
+    
+    &:not([open]) {
+      flex: 0;
+    }
+    
+    & + details {
+      border-width: rem( 4 ) rem( 4 ) rem( 4 ) 0;
+    }
+    
+    summary {
+      float: left;
+      min-height: rem( 320 );
+      transition: inherit;
+      writing-mode: vertical-lr; /* 1 */
+      writing-mode: sideways-lr; /* 2 */
+    }
+    
+    summary ~ * {
+      padding-left: rem( 36 );
+      transition: inherit;
+    }
+  }
+}
+
+
+/* ==================== */
 /* == Grid
 /* ==================== */
 
@@ -723,8 +860,14 @@ form > * + * {
 /* == Layout
 /* ==================== */
 body > * {
-  max-width: em( 960 );
+  background: transparentize( palette( default, secondary ), .25 );
   margin: 0 auto;
+  
+  @if $full-width == false {
+    max-width: $width;
+  }
+  
+  padding: 1rem;
 }
 
 /* ----------------------------- */
@@ -764,3 +907,4 @@ footer[role="contentinfo"] {
 
 @import "components/footnotes";
 @import "components/tooltips";
+@import "components/alerts";

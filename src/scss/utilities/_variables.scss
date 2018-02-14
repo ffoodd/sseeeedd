@@ -17,17 +17,20 @@ $colors: (
   dominant: (
     base: #444,
     light: mediumblue,
-    dark: black
+    dark: black,
+    contrast: white
   ),
   secondary: (
     base: dodgerblue,
     light: deepskyblue,
-    dark: mediumblue
+    dark: mediumblue,
+    contrast: white
   ),
   accent: (
     base: rebeccapurple,
     light: blueviolet,
-    dark: indigo
+    dark: indigo,
+    contrast: white
   ),
   muted: (
     base: gray,
@@ -35,25 +38,31 @@ $colors: (
   ),
   alert: (
     base: coral,
-    dark: orangered
+    dark: orangered,
+    contrast: white
   ),
   success: (
     base: springgreen,
-    dark: mediumseagreen
+    dark: mediumseagreen,
+    contrast: dimray
   ),
   default: (
     base: dimgray,
-    secondary: whitesmoke
+    secondary: whitesmoke,
+    contrast: white
   )
 );
 
 $blank: str-replace(to-string(palette( accent )), "#", "%23");
 $blank-focus: str-replace(to-string(palette( accent, dark )), "#", "%23");
 
+
 /* ==================== */
 /* == Spacings
 /* ==================== */
 
+$full-width: false !default;
+$width: em( 1024 ) !default;
 $gutter: rem( 16 ) !default;
 
 
@@ -67,15 +76,15 @@ $form-is-visually-hidden: true;
 
 $form-input-padding: em( 8 );
 $form-input-width: 400;
-$form-input-background: white;
+$form-input-background: palette( default, secondary );
 
 $form-border-radius: em( 4 );
-$form-border-color: palette( dominant );
-$form-border-shadow: palette( dominant );
+$form-border-color: palette( dominant, dark );
+$form-border-shadow: palette( dominant, dark );
 
-$form-button-background: palette( accent );
-$form-button-border: palette( accent );
-$form-button-color: white;
+$form-button-background: palette( dominant, dark );
+$form-button-border: palette( dominant, dark );
+$form-button-color: palette( dominant, contrast );
 
 $form-screen-small: 768;
 
