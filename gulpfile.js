@@ -65,9 +65,6 @@ gulp.task('sass', ['dependencies'], function () {
           browsers: ['last 1 versions']
       }))
       .pipe(rename({suffix: '.min'}))
-      .pipe(uncss({
-        html: ['dist/**/*.html']
-      }))
       .pipe(maps.write())
       .pipe(gulp.dest(paths.dest + '/css'))
       .pipe(browser.stream());
