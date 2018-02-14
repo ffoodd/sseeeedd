@@ -13,6 +13,9 @@
     "front-end",
     "starter"
   ],
+  "style": "dist/css/styles.min.css",
+  "sass": "src/scss/styles.scss",
+  "main": "dist/js/script.min.js",
   "author": "Gaël Poupard",
   "ignore": [
     "node_modules"
