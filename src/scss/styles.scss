@@ -720,15 +720,19 @@ button[type] {
 details {
   border: rem( 4 ) solid palette( dominant, dark );
   padding: 1rem;
-  transition: all .3s ease-in-out;  
   
   & + & {
     border-top-width: 0;
   }
   
+  &[open] summary ~ * {
+    animation: slide-down .5s ease-in-out;
+  }
+  
   summary {
     background: palette( dominant );
     color: palette( dominant, contrast );
+    cursor: pointer;
     margin: -1rem;
     padding: inherit;
     transition: background .2s ease-in-out;
@@ -737,22 +741,13 @@ details {
     &:focus {
       background: palette( dominant, dark );
     }
-    
-    ~ * {
-     max-height: 80em;
-     overflow: hidden;
-     opacity: 1;
-     transition: visibility 0s ease, max-height 2s ease, opacity 1s ease;
-     transition-delay: 0s;
-     visibility: visible;
-    }
   }
-  
-  &:not([open]) summary ~ * {
-   max-height: 0;
-   opacity: 0;
-   visibility: hidden;
-   transition-delay: 2s, 0s, 0s;
+}
+
+@keyframes slide-down {
+  0%, 50% {
+    opacity: 0;
+    transform: translateY(rem( 24 ));
   }
 }
 
@@ -766,13 +761,16 @@ details {
   display: flex;
   
   details {
-    flex: 1;
+    flex: 0;
     min-width: rem( 56 );
     overflow: hidden;
-    transition: none;
     
-    &:not([open]) {
-      flex: 0;
+    &[open] {
+      flex: 1;
+      
+      summary ~ * {
+        animation: slide-in .5s ease-in-out;
+      }
     }
     
     & + details {
@@ -782,18 +780,22 @@ details {
     summary {
       float: left;
       min-height: rem( 320 );
-      transition: inherit;
       writing-mode: vertical-lr; /* 1 */
       writing-mode: sideways-lr; /* 2 */
-    }
-    
-    summary ~ * {
-      padding-left: rem( 36 );
-      transition: inherit;
+      
+      ~ * {        
+        padding-left: rem( 56 );
+      }
     }
   }
 }
 
+@keyframes slide-in {
+  0%, 50% {
+    opacity: 0;
+    transform: translateX(rem( -24 ));
+  }
+}
 
 /* ==================== */
 /* == Grid
