@@ -1,13 +1,39 @@
-{% extends "index.html" %}
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sseeeedd</title>
+        <script>
+          document.documentElement.classList.remove('no-js');
+          document.documentElement.classList.add('js');
+        </script>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/styles.min.css" media="screen">
+        <link rel="stylesheet" href="css/print.min.css" media="print">
+    </head>
+    <body itemscope="" itemtype="http://schema.org/WebPage">
+      <header role="banner">
+        
+          <div>
+            <a href="#nav" class="sr-only sr-only-focusable">Aller à la navigation</a>
+            <a href="#main" class="sr-only sr-only-focusable">Aller au contenu</a>
+          </div>
+        
 
-{% block navigation %}
+        <nav role="navigation" id="nav" aria-label="Main navigation">
+          
   <ul>
     <li><a href="/">Accueil</a></li>
-    <li><a href="/kitchen-sink.html" aria-current="page">Démonstration</a></li>
+    <li><a href="/atomes.html" aria-current="page">Atomes</a></li>
   </ul>
-{% endblock %}
 
-{% block main %}
+        </nav>
+      </header>
+
+      <main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">
+        
   <h1>Le Quatuor Concertant déconcerté</h1>
 
   <p>
@@ -16,8 +42,7 @@
   </p>
 
   <figure role="group">
-    <img src="http://placehold.it/700x263" width="700" height="263"
-         alt="Aperçu du permis de conduire. L'emplacement du numéro de permis est détaillé dans la légende ci-après.">
+    <img src="http://placehold.it/700x263" width="700" height="263" alt="Aperçu du permis de conduire. L'emplacement du numéro de permis est détaillé dans la légende ci-après.">
     <figcaption>
       Le numéro de permis est composé de 12 chiffres.
       Sur les anciens permis (papier rose, plié en trois), il se trouve à gauche de votre photo.
@@ -96,7 +121,7 @@
   <form action="/">
     <p class="fieldset">
       <label for="texte">Texte</label>
-      <input type="text" id="texte" name="texte" />
+      <input type="text" id="texte" name="texte">
     </p>
     <fieldset>
       <legend>Genre</legend>
@@ -137,37 +162,37 @@
     </div>
     <p class="fieldset">
       <label for="fichier">Envoi de fichier</label>
-      <input type="file" id="fichier" name="fichier" />
+      <input type="file" id="fichier" name="fichier">
     </p>
     <p class="fieldset">
       <label for="texte-2">Texte en lecture seule</label>
-      <input type="text" id="texte-2" name="texte-2" readonly />
+      <input type="text" id="texte-2" name="texte-2" readonly>
     </p>
     <p class="fieldset">
       <label for="texte-3">Texte désactivé</label>
-      <input type="text" id="texte-3" name="texte-3" disabled />
+      <input type="text" id="texte-3" name="texte-3" disabled>
     </p>
     <p class="fieldset">
       <label for="texte-2">
         Champ avec description
         <span class="label-msg-help">Description du champ</span>
       </label>
-      <input type="text" id="texte-2" name="texte-2" />
+      <input type="text" id="texte-2" name="texte-2">
 
     </p>
     <p class="fieldset">
       <label for="texte-3">Champ obligatoire</label>
-      <input type="text" id="texte-3" name="texte-3" required aria-required="true" />
+      <input type="text" id="texte-3" name="texte-3" required aria-required="true">
     </p>
     <p class="fieldset">
       <label for="texte-4">
         Champ erroné
         <span class="label-msg-error">Message dʼerreur</span>
       </label>
-      <input type="text" id="texte-4" name="texte-4" required aria-required="true" aria-invalid="true"/>
+      <input type="text" id="texte-4" name="texte-4" required aria-required="true" aria-invalid="true">
     </p>
     <p class="fieldset">
-      <input type="reset" />
+      <input type="reset">
       <button>Bouton</button>
     </p>
   </form>
@@ -194,4 +219,14 @@
     </ol>
   </footer>
 
-{% endblock %}
+      </main>
+
+      <aside role="complementary">
+      </aside>
+
+      <footer role="contentinfo">
+      </footer>
+
+      <script src="js/scripts.min.js"></script>
+    </body>
+</html>
