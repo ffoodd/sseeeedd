@@ -10,10 +10,13 @@
 
 @each $alert in alert, success, accent, dominant, secondary {
 	.bg-#{$alert} {
-		background-color: palette( #{$alert} );
-		border: 1px solid palette( #{$alert}, dark );
-		box-shadow: rem( 4 ) rem( 4 ) 0 0 palette( #{$alert}, dark );
+		background-color: palette( #{$alert} );		
 		color: palette( #{$alert}, contrast );
-		text-shadow: 2px 2px palette( #{$alert}, dark );
+		
+		&[role="alert"] {
+			border: 1px solid palette( #{$alert}, dark );
+			box-shadow: rem( 4 ) rem( 4 ) 0 0 palette( #{$alert}, dark );
+			text-shadow: 2px 2px palette( #{$alert}, dark );
+		}
 	}
 }
