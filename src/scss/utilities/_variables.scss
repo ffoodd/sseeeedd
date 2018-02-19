@@ -21,9 +21,9 @@ $colors: (
     contrast: white
   ),
   secondary: (
-    base: dodgerblue,
+    base: mediumblue,
     light: deepskyblue,
-    dark: mediumblue,
+    dark: DarkBlue,
     contrast: white
   ),
   accent: (
@@ -38,14 +38,14 @@ $colors: (
     contrast: black
   ),
   alert: (
-    base: coral,
-    dark: orangered,
+    base: crimson,
+    dark: firebrick,
     contrast: white
   ),
   success: (
     base: springgreen,
     dark: mediumseagreen,
-    contrast: dimray
+    contrast: #444
   ),
   default: (
     base: dimgray,

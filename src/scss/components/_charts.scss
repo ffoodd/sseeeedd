@@ -38,7 +38,7 @@
     --size: calc(var(--scale) * 1%);
     --position: calc(var(--value) / var(--scale) * 100%);
     background-image: linear-gradient(to right, 
-      palette( success ),
+      palette( success, dark ),
       palette( dominant ),
       palette( secondary ),
       palette( accent ),

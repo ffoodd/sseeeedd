@@ -395,7 +395,6 @@ abbr[title] {
 small,
 .small {
   font-size: em( 14 );
-  opacity: .75;
 }
 
 b,
@@ -422,7 +421,7 @@ code {
 }
 
 pre {
-  background: palette( accent );
+  background: palette( dominant );
   border: 0;
   border-radius: rem( 4 );
   color: palette( dominant, contrast );

@@ -25,7 +25,7 @@
   <h2>Liste d’articles</h2>
   
   <ol class="no-list grid-2">
-      {% set articles = [1,2,3,4,5] %}
+      {% set articles = [1,2,3] %}
       {% for article in articles %}
         <li class="½">
             {% include 'includes/_article.html' %}
@@ -138,10 +138,10 @@
   <figure role="group">
     <dl class="charts-pie" style="--offset: 8rem">
       {{ charts.pie('HTML', '2', '%', '', '0', '#444') }}
-      {{ charts.pie('CSS', '2', '%', '', '2', 'springgreen') }}
-      {{ charts.pie('JS', '32', '%', '', '4', 'orangered') }}
-      {{ charts.pie('Json', '1', '%', '', '36', 'dodgerblue') }}
-      {{ charts.pie('Images', '44', '%', '', '37', 'mediumblue') }}
+      {{ charts.pie('CSS', '2', '%', '', '2', 'firebrick') }}
+      {{ charts.pie('JS', '32', '%', '', '4', 'crimson') }}
+      {{ charts.pie('Json', '1', '%', '', '36', 'mediumblue') }}
+      {{ charts.pie('Images', '44', '%', '', '37', 'darkblue') }}
       {{ charts.pie('Webfonts', '17', '%', '', '81', 'rebeccapurple') }}
       {{ charts.pie('Autres', '2', '%', '', '98', 'indigo') }}
     </dl>
