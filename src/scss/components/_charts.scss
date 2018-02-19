@@ -15,6 +15,10 @@
  ** @see https://www.ffoodd.fr/le-web-en-kit/
  ** @see http://dabblet.com/gist/08fddf3666c39ebc62ca
  ** @author Gaël Poupard
+ **
+ * @note
+ * 3. SVG patterns inline coming from:
+ ** @see http://www.heropatterns.com/
 /* ==================== */
 
 .charts-bar {
@@ -153,7 +157,7 @@
     
     dt:nth-of-type(#{$i})::before,
     dt:nth-of-type(#{$i}) + * + dd[role="presentation"]::before  {
-      background-image: url($pattern);
+      background-image: url($pattern); /* 3 */
     }
   }
 }
