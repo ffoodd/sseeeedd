@@ -147,4 +147,13 @@
       width: 100%;
     }
   }
+  
+  @each $name, $pattern in $patterns {
+    $i: index($patterns, ($name $pattern));
+    
+    dt:nth-of-type(#{$i})::before,
+    dt:nth-of-type(#{$i}) + * + dd[role="presentation"]::before  {
+      background-image: url($pattern);
+    }
+  }
 }
