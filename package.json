@@ -6,6 +6,7 @@
     "type": "git",
     "url": "git@github.com:ffoodd/sseeeedd.git"
   },
+  "author": "Gaël Poupard",  
   "license": "MIT",
   "keywords": [
     "template",
@@ -16,7 +17,9 @@
   "style": "dist/css/styles.min.css",
   "sass": "src/scss/styles.scss",
   "main": "dist/js/script.min.js",
-  "author": "Gaël Poupard",
+  "scripts": {
+    "docs": "git add docs/build && git commit -m 'chore: compile documentation' --allow-empty && git push origin :gh-pages && git subtree push --prefix docs/build origin gh-pages && echo 'Documentation successfully deployed'",
+  },
   "ignore": [
     "node_modules"
   ],
