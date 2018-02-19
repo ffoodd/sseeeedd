@@ -1,0 +1,150 @@
+/* ==================== */
+/* == Charts
+ *
+ * @note Grid charts based on:
+ * @see https://css-tricks.com/css-charts-grid-custom-properties/
+ * @author Miriam Suzanne
+ **
+ * @note
+ * 1. 1st column to display legends, fixed width
+ * 1. 2nd column is a repeater, creating a subcolumn for each unit in --scale
+ * 1. 3rd columns with 6ch width to ensure that 6 characters long values has enough space to not overflow <dl>
+ **
+ * @note 
+ * 2. Clipped value coming from:
+ ** @see https://www.ffoodd.fr/le-web-en-kit/
+ ** @see http://dabblet.com/gist/08fddf3666c39ebc62ca
+ ** @author Gaël Poupard
+/* ==================== */
+
+.charts-bar {
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-row-gap: $gutter / 2;
+  grid-template-columns: rem( 200 ) repeat(var(--scale), minmax(0, 1fr)) 6ch; /* 1 */
+  
+  + figcaption {
+    text-indent: rem( 200 );
+  }
+  
+  dt {
+    color: palette( default );
+    grid-column: 1 / 1;
+    padding: 0 $gutter 0 0;
+    text-align: right;
+  }
+  
+  dd {
+    --size: calc(var(--scale) * 1%);
+    --position: calc(var(--value) / var(--scale) * 100%);
+    background-image: linear-gradient(to right, 
+      palette( success ),
+      palette( dominant ),
+      palette( secondary ),
+      palette( accent ),
+      palette( alert )
+    );
+    background-position: var(--position) 0%;
+    background-size:  var(--size) 100%;
+    grid-column: 2 / var(--value);
+    position: relative;
+    
+    b {
+      background: inherit;                  /* 2 */
+      -webkit-text-fill-color: transparent; /* 2 */
+      -webkit-background-clip: text;        /* 2 */
+      left: 100%;
+      position: absolute;
+    }
+    
+    small {
+      font-weight: normal;
+    }
+    
+    abbr[title] {
+      border-bottom: 0;
+      text-transform: none;
+    }
+  }
+}
+
+.charts-pie {
+  align-items: end;
+  background-color: inherit;
+  display: flex;
+  height: calc(#{$width / 2} - #{$gutter * 2});
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
+  
+  &::after {
+    content: "";
+    background: inherit;
+    clip-path: circle(var(--offset));
+    height: calc(#{$width / 2} - #{$gutter * 2});
+    left: 50%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: calc(#{$width / 2} - #{$gutter * 2});
+  }
+  
+  + figcaption {
+    text-align: center;
+  }
+  
+  dt {
+    color: var(--color);   
+    
+    &::before {
+      background: currentColor;
+      content: "";
+      display: inline-block;
+      height: 1rem;
+      transform: translate3d(-.2rem, .1rem, 0);
+      width: 1rem;
+    }
+    
+    + dd {
+      color: var(--color);
+      padding: 0 $gutter * 1.5 0 $gutter / 2;
+      
+      &::before {
+        content: " (";
+        speak: none;
+      }
+      
+      &::after {
+        content: ")";
+        speak: none;
+      }
+    }
+  }
+  
+  dd[role="presentation"] {
+    --position: calc(var(--start) * 3.6deg);
+    clip-path: circle(50% at 0% 50%);
+    height: 100%;
+    left: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    transform: rotate(var(--position));
+    transform-origin: left center;
+    width: calc(#{$width / 4} - #{$gutter * 2});
+    
+    &::before {
+      --position: calc(var(--value) * 3.6deg + 1deg);
+      background: var(--color);
+      content: "";
+      height: inherit;
+      left: -100%;
+      position: inherit;
+      top: 0;
+      transform: rotate(var(--position));
+      transform-origin: right center;
+      width: 100%;
+    }
+  }
+}

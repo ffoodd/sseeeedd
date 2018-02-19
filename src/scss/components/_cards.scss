@@ -1,0 +1,41 @@
+/* ==================== */
+/* == Cards
+/* ==================== */
+
+[class*="card"] {
+  background: palette( default, contrast );
+  border: 1px solid palette( muted, light );
+  border-radius: rem( 4 );
+  color: palette( default );
+  overflow: hidden;
+  
+  > img {
+    border-radius: rem( 3 ) rem( 3 ) 0 0;
+  }
+  
+  > *:not(img) {
+    margin: 0 0 $gutter;
+    padding: 0 $gutter;
+  }
+  
+  > h3 {
+    color: inherit;
+    display: inline-block;
+    font-size: em( 26 );
+    line-height: 1.2;
+    margin: $gutter 0;
+  } 
+}
+
+
+/* -------------------- */
+/* -- Variants
+/* -------------------- */
+
+@each $variant in alert, success, accent, dominant, secondary {
+	.card-#{$variant} {
+		background: palette( #{$variant} );
+    border-color: palette( #{$variant}, dark );
+		color: palette( #{$variant}, contrast );
+	}
+}

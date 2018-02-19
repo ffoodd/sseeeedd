@@ -1,0 +1,16 @@
+{% macro card(variant='', image='true', text='true', time='true') %}
+  <article class="card{{ variant }}">
+    {% if image == 'true' %}
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150" />
+    {% endif %}
+    {% if text == 'true' %}
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    {% endif %}
+    {% if time == 'true' %}
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    {% endif %}
+  </article>
+{% endmacro %}

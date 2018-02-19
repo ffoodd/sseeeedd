@@ -1,0 +1,6 @@
+{% macro bar(term='', definition='', unit='', title='') %}
+  <dt>{{ term }}</dt>
+  <dd class="no-margin" style="--value: {{ definition }}">
+    <b>{{ definition }}{% if unit != '' %}<small>&nbsp;{% if title != '' %}<abbr title="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}</small>{% endif %}</b>
+  </dd>
+{% endmacro %}

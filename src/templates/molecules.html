@@ -24,7 +24,7 @@
   
   <h2>Liste d’articles</h2>
   
-  <ol class="no-list grid">
+  <ol class="no-list grid-2">
       {% set articles = [1,2,3,4,5] %}
       {% for article in articles %}
         <li class="½">
@@ -32,6 +32,36 @@
         </li>
       {% endfor %}
   </ol>
+  
+  <h2>Cartes</h2>
+  
+  {% import 'macros/_cards.html' as cards %}
+  
+  <h3>En grille fixe</h3>
+  
+  <div class="grid-3">
+    {{ cards.card() }}
+    {{ cards.card('-dominant') }}
+    {{ cards.card('-success') }}    
+    {{ cards.card('-accent') }}
+    {{ cards.card() }}
+    {{ cards.card('-alert') }}
+    {{ cards.card() }}
+    {{ cards.card('-secondary') }}
+  </div>
+  
+  <h3>En colonnes</h3>
+
+  <div class="columns-3">
+    {{ cards.card() }}
+    {{ cards.card('-dominant', 'true', '', '') }}
+    {{ cards.card('-success', '', 'true', '') }}    
+    {{ cards.card('-accent') }}
+    {{ cards.card('', '', 'true', 'true') }}
+    {{ cards.card('-alert', '', 'true', '') }}
+    {{ cards.card('', '', 'true', 'true') }}
+    {{ cards.card('-secondary') }}
+  </div>
   
   <h2>Panneaux</h2>
   
@@ -79,5 +109,43 @@
   position: fixed;
   width: 100vw; 
 }</code></pre>
+
+  <h2>Graphiques</h2>
+
+  <h3>Graphique en barre</h3>  
+  {% import 'macros/_bar.html' as charts %}
+
+  <figure role="group">
+    <dl class="charts-bar" style="--scale: 3000">
+      {{ charts.bar('Temps : backend', '4', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Temps : Frontend', '96', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Délai : premier octet', '102', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Délai : dernier octet', '129', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Délai : première image', '188', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Délai : premier CSS', '194', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Délai : premier JS', '326', 'ms', 'Milliseconde') }}
+      {{ charts.bar('DOM Interactif', '836', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Chargement du DOM', '836', 'ms', 'Milliseconde') }}
+      {{ charts.bar('DOM complet', '2561', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Trafic HTTP terminé', '2980', 'ms', 'Milliseconde') }}
+    </dl>
+    <figcaption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption> 
+  </figure>
+
+  <h3>Graphique en tarte</h3>
+  {% import 'macros/_pie.html' as charts %}
+
+  <figure role="group">
+    <dl class="charts-pie" style="--offset: 8rem">
+      {{ charts.pie('HTML', '2', '%', '', '0', '#444') }}
+      {{ charts.pie('CSS', '2', '%', '', '2', 'springgreen') }}
+      {{ charts.pie('JS', '32', '%', '', '4', 'orangered') }}
+      {{ charts.pie('Json', '1', '%', '', '36', 'dodgerblue') }}
+      {{ charts.pie('Images', '44', '%', '', '37', 'mediumblue') }}
+      {{ charts.pie('Webfonts', '17', '%', '', '81', 'rebeccapurple') }}
+      {{ charts.pie('Autres', '2', '%', '', '98', 'indigo') }}
+    </dl>
+    <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
+  </figure>
   
 {% endblock %}

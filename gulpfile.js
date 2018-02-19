@@ -56,7 +56,7 @@ gulp.task('normalize', function () {
 
 gulp.task('dependencies', ['system-font', 'normalize']);
 
-gulp.task('sass', ['dependencies'], function () {
+gulp.task('sass', function () {
     return gulp.src(paths.dev + '/scss/*.scss')
       .pipe(newer(paths.dest + '/css'))
       .pipe(maps.init())
