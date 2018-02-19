@@ -222,7 +222,7 @@ gulp.task('default', ['sync']);
  */
 gulp.task('copy', ['build'], function () {
     return gulp.src([paths.dest + '/**/*.*'])
-      .pipe(gulp.dest('pkg'));
+      .pipe(gulp.dest('docs'));
 });
 
 
@@ -231,7 +231,7 @@ gulp.task('copy', ['build'], function () {
  * Zip package folder
  */
 gulp.task('zip', ['copy'], function () {
-    return gulp.src('./pkg/**/*.*')
+    return gulp.src('./docs/**/*.*')
         .pipe(zip('pkg.zip'))
         .pipe(gulp.dest('./'));
 });
