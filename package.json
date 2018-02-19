@@ -18,7 +18,7 @@
   "sass": "src/scss/styles.scss",
   "main": "dist/js/script.min.js",
   "scripts": {
-    "docs": "git add docs/build && git commit -m 'chore: compile documentation' --allow-empty && git push origin :gh-pages && git subtree push --prefix docs/build origin gh-pages && echo 'Documentation successfully deployed'",
+    "docs": "git add dist && git commit -m 'chore: compile dist and update gh-page' --allow-empty && git push origin :gh-pages && git subtree push --prefix dist origin gh-pages && echo 'Documentation successfully deployed'"
   },
   "ignore": [
     "node_modules"
