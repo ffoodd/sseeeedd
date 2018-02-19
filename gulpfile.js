@@ -218,16 +218,6 @@ gulp.task('default', ['sync']);
 
 /**
  * @section Packaging
- * Copy files
- */
-gulp.task('copy', ['build'], function () {
-    return gulp.src([paths.dest + '/**/*.*'])
-      .pipe(gulp.dest('docs'));
-});
-
-
-/**
- * @section Packaging
  * Zip package folder
  */
 gulp.task('zip', ['copy'], function () {
