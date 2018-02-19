@@ -20,7 +20,7 @@ const newer    = require('gulp-newer');
 
 let paths = {
     dev: './src/',
-    dest: './dist/',
+    dest: './docs/',
     node: './node_modules/'
 };
 
@@ -163,7 +163,7 @@ gulp.task('watch', function () {
 gulp.task('sync', ['sass', 'js', 'nunjucks', 'img'], function() {
     browser.init({
         server: {
-           baseDir: "./dist/"
+           baseDir: "./docs/"
         }
     });
 
