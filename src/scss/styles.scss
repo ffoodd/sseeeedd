@@ -806,37 +806,12 @@ details {
 /* ==================== */
 
 /* -------------------- */
-/* -- Fixed grid
-/* -------------------- */
-[class*="grid"] {
-  column-gap: $gutter;
-  display: grid;
-  grid-gap: $gutter;
-}
-
-@each $number in 2, 3, 4 {
-  .grid-#{$number} {
-    columns: $number;
-    grid-template-columns: repeat($number, 1fr);
-  }
-}
-
-.grid-1-2 {
-  columns: 2;
-  grid-template-columns: 1fr 2fr;
-}
-
-.grid-1-3 {
-  columns: 2;
-  grid-template-columns: 1fr 3fr;
-}
-
-/* -------------------- */
 /* -- Columns
  *
  * @note Avoiding break inside children isn't so well supported
  * @see https://caniuse.com/#search=break-inside
 /* -------------------- */
+[class*="grid"],
 [class*="columns"] {
   column-gap: $gutter;
   
@@ -849,8 +824,37 @@ details {
 }
 
 @each $number in 2, 3, 4 {
+  .grid-#{$number},
   .columns-#{$number} {
     columns: $number;
+  }
+}
+
+/* -------------------- */
+/* -- Fixed grid
+/* -------------------- */
+@supports (display: grid) {
+  [class*="grid"] {
+    display: grid;
+    grid-gap: $gutter;
+    
+    > * {
+      margin: 0;
+    }
+  }
+
+  @each $number in 2, 3, 4 {
+    .grid-#{$number} {
+      grid-template-columns: repeat(#{$number}, 1fr);
+    }
+  }
+
+  .grid-1-2 {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .grid-1-3 {
+    grid-template-columns: 1fr 3fr;
   }
 }
 
