@@ -1,0 +1,75 @@
+/* ==================== */
+/* == Dropdown
+ *
+ * @note The whole thing needs :focus-within support
+ * @link https://caniuse.com/#search=%3Afocus-within
+/* ==================== */
+
+.dropdown {
+  &,
+  & ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  a {
+    background: palette( default, contrast );
+    display: block;
+    padding: $gutter / 2 $gutter * 2 $gutter / 2 $gutter;
+    text-decoration: none;
+    white-space: nowrap;
+    
+    &:hover,
+    &:focus {
+      background: palette( default, secondary );
+      color: palette( dominant, dark );
+    }
+  }
+  
+  > li {
+    position: relative;
+    z-index: 1;
+    
+    + li {
+      margin-left: $gutter;
+    }
+  }
+  
+  ul {
+    clip-path: circle(rem( 40 ) at top right);
+    flex-direction: column;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: clip-path .3s ease-in .5s;
+    will-change: clip-path;
+    z-index: 1;
+    
+    &::before {
+      align-self: flex-end;
+      color: palette( secondary, dark );
+      content: "↓";
+      padding: $gutter / 2 $gutter $gutter / 2 0;
+    }
+    
+    a {
+      pointer-events: auto;
+    }
+  }
+  
+  li:hover > ul,
+  li > a:hover + ul,
+  li > a:focus + ul,
+  li:focus-within > ul {
+    box-shadow: rem( 4 ) rem( 4 ) 0 0 transparentize( palette( default ), .8 );
+    clip-path: circle(150% at top right);
+    outline: 1px solid palette( muted, light );
+    transition: clip-path .3s ease-out;
+    
+    &::before {
+      color: palette( dominant, dark );
+    }
+  }
+}
