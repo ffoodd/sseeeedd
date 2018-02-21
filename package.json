@@ -41,7 +41,6 @@
     "gulp-zip": "^4.0.0"
   },
   "dependencies": {
-    "normalize.css": "^7.0.0",
-    "system-font-css": "^1.1.0"
+    "normalize.css": "^7.0.0"
   }
 }

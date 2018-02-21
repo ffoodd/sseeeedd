@@ -34,16 +34,6 @@ let test = {
  * @section Build
  * Compile Sass files for theme
  */
-gulp.task('system-font', function () {
-  return gulp.src([paths.node + '/system-font-css/*.css'])
-    .pipe(newer(paths.dev + '/scss/dependencies/_system-font.scss'))
-    .pipe(rename({
-      prefix: '_',
-      extname: '.scss'
-    }))
-    .pipe(gulp.dest(paths.dev + '/scss/dependencies'));
-});
-
 gulp.task('normalize', function () {
   return gulp.src([paths.node + '/normalize.css/*.css'])
     .pipe(newer(paths.dev + '/scss/dependencies/_normalize.scss'))
@@ -53,8 +43,6 @@ gulp.task('normalize', function () {
     }))
     .pipe(gulp.dest(paths.dev + '/scss/dependencies'));
 });
-
-gulp.task('dependencies', ['system-font', 'normalize']);
 
 gulp.task('sass', function () {
     return gulp.src(paths.dev + '/scss/*.scss')
