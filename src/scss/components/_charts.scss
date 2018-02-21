@@ -127,7 +127,7 @@
   }
   
   dd[role="presentation"] {
-    --position: calc(var(--start) * 3.6deg);
+    --position: calc(var(--start) * .01turn);
     clip-path: circle(50% at 0% 50%);
     height: 100%;
     left: 50%;
@@ -139,7 +139,7 @@
     width: calc(#{$width / 4} - #{$gutter * 2});
     
     &::before {
-      --position: calc(var(--value) * 3.6deg + 1deg);
+      --position: calc(var(--value) * .01turn + 1deg);
       background: var(--color);
       content: "";
       height: inherit;
