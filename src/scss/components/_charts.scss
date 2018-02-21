@@ -158,6 +158,7 @@
     dt:nth-of-type(#{$i})::before,
     dt:nth-of-type(#{$i}) + * + dd[role="presentation"]::before  {
       background-image: url($pattern); /* 3 */
+      background-blend-mode: soft-light;
     }
   }
 }
