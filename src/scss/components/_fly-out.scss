@@ -1,11 +1,18 @@
 /* ==================== */
-/* == Dropdown
+/* == Fly-out
  *
  * @note The whole thing needs :focus-within support
  * @link https://caniuse.com/#search=%3Afocus-within
+ **
+ * 1. clip-path is used to visually hide subnav
+ * @link https://developer.mozilla.org/fr/docs/Web/CSS/clip-path
+ **
+ * 2. Using a delay to improve unprecise mouse navigation
+ * @link https://www.w3.org/WAI/tutorials/menus/flyout/#mouse-users
+ * @link https://developer.mozilla.org/fr/docs/Web/CSS/transition-delay
 /* ==================== */
 
-.dropdown {
+.fly-out {
   &,
   & ul {
     display: flex;
@@ -38,12 +45,12 @@
   }
   
   ul {
-    clip-path: circle(rem( 40 ) at top right);
+    clip-path: circle(rem( 40 ) at top right); /* 1 */
     flex-direction: column;
     pointer-events: none;
     position: absolute;
     top: 0;
-    transition: clip-path .3s ease-in .5s;
+    transition: clip-path .3s ease-in .5s; /* 2 */
     will-change: clip-path;
     z-index: 1;
     
