@@ -25,7 +25,7 @@
   display: grid;
   grid-auto-rows: 1fr;
   grid-row-gap: $gutter / 2;
-  grid-template-columns: rem( 200 ) repeat(var(--scale), minmax(0, 1fr)) 6ch; /* 1 */
+  grid-template-columns: rem( 200 ) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch; /* 1 */
   
   + figcaption {
     text-indent: rem( 200 );
@@ -39,8 +39,8 @@
   }
   
   dd {
-    --size: calc(var(--scale) * 1%);
-    --position: calc(var(--value) / var(--scale) * 100%);
+    --size: calc(var(--scale, 100) * 1%);
+    --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
     background-image: linear-gradient(to right, 
       palette( success, dark ),
       palette( dominant ),
@@ -50,7 +50,7 @@
     );
     background-position: var(--position) 0%;
     background-size:  var(--size) 100%;
-    grid-column: 2 / var(--value);
+    grid-column: 2 / var(--value, 0);
     position: relative;
     
     b {
@@ -84,7 +84,7 @@
   &::after {
     content: "";
     background: inherit;
-    clip-path: circle(var(--offset));
+    clip-path: circle(var(--offset, 5rem));
     height: calc(#{$width / 2} - #{$gutter * 2});
     left: 50%;
     margin: auto;
@@ -99,7 +99,7 @@
   }
   
   dt {
-    color: var(--color);   
+    color: var(--color, currentColor);   
     
     &::before {
       background: currentColor;
@@ -111,7 +111,7 @@
     }
     
     + dd {
-      color: var(--color);
+      color: var(--color, currentColor);
       padding: 0 $gutter * 1.5 0 $gutter / 2;
       
       &::before {
@@ -127,7 +127,7 @@
   }
   
   dd[role="presentation"] {
-    --position: calc(var(--start) * .01turn);
+    --position: calc(var(--start, 0) * .01turn);
     clip-path: circle(50% at 0% 50%);
     height: 100%;
     left: 50%;
@@ -139,7 +139,7 @@
     width: calc(#{$width / 4} - #{$gutter * 2});
     
     &::before {
-      --position: calc(var(--value) * .01turn + 1deg);
+      --position: calc(var(--value, 0) * .01turn + 1deg);
       background: var(--color);
       content: "";
       height: inherit;
