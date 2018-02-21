@@ -21,46 +21,14 @@
  ** @see http://www.heropatterns.com/
 /* ==================== */
 
-.charts-bar {
-  display: grid;
-  grid-auto-rows: 1fr;
-  grid-row-gap: $gutter / 2;
-  grid-template-columns: rem( 200 ) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch; /* 1 */
-  
-  + figcaption {
-    text-indent: rem( 200 );
-  }
-  
+.charts-bar {  
   dt {
     color: palette( default );
-    grid-column: 1 / 1;
-    padding: 0 $gutter 0 0;
-    text-align: right;
+    float: left;
+    padding: 0 $gutter 0 0;    
   }
   
-  dd {
-    --size: calc(var(--scale, 100) * 1%);
-    --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
-    background-image: linear-gradient(to right, 
-      palette( success, dark ),
-      palette( dominant ),
-      palette( secondary ),
-      palette( accent ),
-      palette( alert )
-    );
-    background-position: var(--position) 0%;
-    background-size:  var(--size) 100%;
-    grid-column: 2 / var(--value, 0);
-    position: relative;
-    
-    b {
-      background: inherit;                  /* 2 */
-      -webkit-text-fill-color: transparent; /* 2 */
-      -webkit-background-clip: text;        /* 2 */
-      left: 100%;
-      position: absolute;
-    }
-    
+  dd {    
     small {
       font-weight: normal;
     }
@@ -72,27 +40,55 @@
   }
 }
 
+@supports (grid-template-columns: rem( 200 ) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch) {
+  .charts-bar {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-row-gap: $gutter / 2;
+    grid-template-columns: rem( 200 ) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch; /* 1 */
+    
+    + figcaption {
+      text-indent: rem( 200 );
+    }
+    
+    dt {
+      grid-column: 1 / 1;
+      text-align: right;
+    }
+    
+    dd {
+      --size: calc(var(--scale, 100) * 1%);
+      --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+      background-image: linear-gradient(to right, 
+        palette( success, dark ),
+        palette( dominant ),
+        palette( secondary ),
+        palette( accent ),
+        palette( alert )
+      );
+      background-position: var(--position) 0%;
+      background-size:  var(--size) 100%;
+      grid-column: 2 / var(--value, 0);
+      position: relative;
+      
+      b {
+        background: inherit;                  /* 2 */
+        -webkit-text-fill-color: transparent; /* 2 */
+        -webkit-background-clip: text;        /* 2 */
+        left: 100%;
+        position: absolute;
+      }
+    }
+  }
+}
+
 .charts-pie {
   align-items: flex-end;
   background-color: inherit;
   display: flex;
-  height: calc(#{$width / 2} - #{$gutter * 2});
   justify-content: center;
   margin: 0 auto;
   position: relative;
-  
-  &::after {
-    content: "";
-    background: inherit;
-    clip-path: circle(var(--offset, 5rem));
-    height: calc(#{$width / 2} - #{$gutter * 2});
-    left: 50%;
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    transform: translate3d(-50%, -50%, 0);
-    width: calc(#{$width / 2} - #{$gutter * 2});
-  }
   
   + figcaption {
     text-align: center;
@@ -101,9 +97,40 @@
   dt {
     color: var(--color, currentColor);
     position: relative;
-    z-index: 2;
+    z-index: 2;   
     
-    &::before {
+    + dd {
+      color: var(--color, currentColor);
+      padding: 0 $gutter * 1.5 0 $gutter / 2;
+      position: relative;
+      z-index: 2;
+      
+      &::before {
+        content: ": ";
+        speak: none;
+      }
+    }
+  }
+}
+
+@supports (--position: calc(var(--start, 0) * .01turn)) {
+  .charts-pie {
+    height: calc(#{$width / 2} - #{$gutter * 2});
+    
+    &::after {
+      content: "";
+      background: inherit;
+      clip-path: circle(var(--offset, 5rem));
+      height: calc(#{$width / 2} - #{$gutter * 2});
+      left: 50%;
+      margin: auto;
+      position: absolute;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: calc(#{$width / 2} - #{$gutter * 2});
+    }
+    
+    dt::before {
       background: currentColor;
       content: "";
       display: inline-block;
@@ -112,12 +139,7 @@
       width: 1rem;
     }
     
-    + dd {
-      color: var(--color, currentColor);
-      padding: 0 $gutter * 1.5 0 $gutter / 2;
-      position: relative;
-      z-index: 2;
-      
+    dt + dd {
       &::before {
         content: " (";
         speak: none;
@@ -128,41 +150,41 @@
         speak: none;
       }
     }
-  }
-  
-  dd[role="presentation"] {
-    --position: calc(var(--start, 0) * .01turn);
-    clip-path: circle(50% at 0% 50%);
-    height: 100%;
-    left: 50%;
-    overflow: hidden;
-    position: absolute;
-    top: 0;
-    transform: rotate(var(--position));
-    transform-origin: left center;
-    width: calc(#{$width / 4} - #{$gutter * 2});
     
-    &::before {
-      --position: calc(var(--value, 0) * .01turn + 1deg);
-      background: var(--color);
-      content: "";
-      height: inherit;
-      left: -100%;
-      position: inherit;
+    dd[role="presentation"] {
+      --position: calc(var(--start, 0) * .01turn);
+      clip-path: circle(50% at 0% 50%);
+      height: 100%;
+      left: 50%;
+      overflow: hidden;
+      position: absolute;
       top: 0;
       transform: rotate(var(--position));
-      transform-origin: right center;
-      width: 100%;
+      transform-origin: left center;
+      width: calc(#{$width / 4} - #{$gutter * 2});
+      
+      &::before {
+        --position: calc(var(--value, 0) * .01turn + 1deg);
+        background: var(--color);
+        content: "";
+        height: inherit;
+        left: -100%;
+        position: inherit;
+        top: 0;
+        transform: rotate(var(--position));
+        transform-origin: right center;
+        width: 100%;
+      }
     }
-  }
-  
-  @each $name, $pattern in $patterns {
-    $i: index($patterns, ($name $pattern));
     
-    dt:nth-of-type(#{$i})::before,
-    dt:nth-of-type(#{$i}) + * + dd[role="presentation"]::before  {
-      background-image: url($pattern); /* 3 */
-      background-blend-mode: soft-light;
+    @each $name, $pattern in $patterns {
+      $i: index($patterns, ($name $pattern));
+      
+      dt:nth-of-type(#{$i})::before,
+      dt:nth-of-type(#{$i}) + * + dd[role="presentation"]::before  {
+        background-image: url($pattern); /* 3 */
+        background-blend-mode: soft-light;
+      }
     }
   }
 }
