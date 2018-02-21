@@ -73,7 +73,7 @@
 }
 
 .charts-pie {
-  align-items: end;
+  align-items: flex-end;
   background-color: inherit;
   display: flex;
   height: calc(#{$width / 2} - #{$gutter * 2});
