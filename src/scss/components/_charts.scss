@@ -99,7 +99,9 @@
   }
   
   dt {
-    color: var(--color, currentColor);   
+    color: var(--color, currentColor);
+    position: relative;
+    z-index: 2;
     
     &::before {
       background: currentColor;
@@ -113,6 +115,8 @@
     + dd {
       color: var(--color, currentColor);
       padding: 0 $gutter * 1.5 0 $gutter / 2;
+      position: relative;
+      z-index: 2;
       
       &::before {
         content: " (";
