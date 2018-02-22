@@ -293,10 +293,6 @@ h1,
   margin:  em( 48, 46 ) 0 em( 24, 46 );
   @extend .hn;
 
-  &::first-line {
-    color: palette( dominant );
-  }
-
   strong {
     color: palette( dominant );
   }
