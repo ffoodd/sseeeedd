@@ -12,7 +12,7 @@ a[id^="footnote-"][aria-describedby] {
   &::after {
     content: "[" counter(footnotes) "]";
     vertical-align: super;
-    font-size: rem( 14 );
+    font-size: em( 14 );
     font-weight: 400;
     margin-left: 2px;
     color: palette( accent );

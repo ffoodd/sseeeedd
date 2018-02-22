@@ -43,7 +43,7 @@
     display: grid;
     grid-auto-rows: 1fr;
     grid-row-gap: $gutter / 2;
-    grid-template-columns: minmax(min-content, rem( 200 )) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch; /* 1 */
+    grid-template-columns: minmax(min-content, em( 200 )) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch; /* 1 */
     
     dt {
       grid-column: 1 / 1;
@@ -76,7 +76,7 @@
   
   @media screen and (min-width: em(480)) {
     .charts-bar + figcaption {
-      text-indent: rem( 200 );
+      text-indent: em( 200 );
     }
       
     .charts-bar dt {

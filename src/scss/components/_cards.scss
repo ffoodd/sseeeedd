@@ -5,13 +5,13 @@
 [class*="card"] {
   background: palette( default, contrast );
   border: 1px solid palette( muted, light );
-  border-radius: rem( 4 );
+  border-radius: em( 4 );
   color: palette( default );
   display: block;
   overflow: hidden;
   
   > img {
-    border-radius: rem( 3 ) rem( 3 ) 0 0;
+    border-radius: em( 3 ) em( 3 ) 0 0;
   }
   
   > *:not(img) {

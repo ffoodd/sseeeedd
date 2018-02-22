@@ -58,7 +58,7 @@
   }
 }
 
-@supports (:focus-within) {
+@supports (clip-path: circle(150% at top right)) {
   @media screen and (min-width: em(480)) {
     .fly-out {
       &,
@@ -94,9 +94,9 @@
       }
       
       ul {
-        clip-path: circle(rem( 18 ) at left top); /* 1 */
+        clip-path: circle(em( 18 ) at left top); /* 1 */
         font-size: inherit;
-        padding-top: rem( 40 );
+        padding-top: em( 40 );
         pointer-events: none;
         position: absolute;
         top: 0;
@@ -113,7 +113,7 @@
       > li > a:focus + ul,
       > li:hover > ul,
       > li:focus-within > ul {
-        box-shadow: rem( 4 ) rem( 4 ) 0 0 transparentize( palette( default ), .8 );
+        box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
         clip-path: circle(150% at top right);
         outline: 1px solid palette( muted, light );
         transition: clip-path .3s ease-out;

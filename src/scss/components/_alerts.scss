@@ -15,7 +15,7 @@
 		
 		&[role="alert"] {
 			border: 1px solid palette( #{$alert}, dark );
-			box-shadow: rem( 4 ) rem( 4 ) 0 0 palette( #{$alert}, dark );
+			box-shadow: em( 4 ) em( 4 ) 0 0 palette( #{$alert}, dark );
 		}
 	}
 }
