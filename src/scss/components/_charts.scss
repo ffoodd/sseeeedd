@@ -27,33 +27,26 @@
     float: left;
     padding: 0 $gutter 0 0;    
   }
-  
-  dd {    
-    small {
-      font-weight: normal;
-    }
+     
+  dd small {
+    font-weight: normal;
+  }
     
-    abbr[title] {
-      border-bottom: 0;
-      text-transform: none;
-    }
+  dd abbr[title] {
+    border-bottom: 0;
+    text-transform: none;
   }
 }
 
-@supports (grid-template-columns: rem( 200 ) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch) {
+@supports (grid-template-columns: repeat(var(--scale, 100), minmax(0, 1fr))) {
   .charts-bar {
     display: grid;
     grid-auto-rows: 1fr;
     grid-row-gap: $gutter / 2;
-    grid-template-columns: rem( 200 ) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch; /* 1 */
-    
-    + figcaption {
-      text-indent: rem( 200 );
-    }
+    grid-template-columns: minmax(min-content, rem( 200 )) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch; /* 1 */
     
     dt {
       grid-column: 1 / 1;
-      text-align: right;
     }
     
     dd {
@@ -80,57 +73,33 @@
       }
     }
   }
+  
+  @media screen and (min-width: em(480)) {
+    .charts-bar + figcaption {
+      text-indent: rem( 200 );
+    }
+      
+    .charts-bar dt {
+      text-align: right;
+    }
+  }
 }
 
 .charts-pie {
   align-items: flex-end;
   background-color: inherit;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   margin: 0 auto;
   position: relative;
-  
-  + figcaption {
-    text-align: center;
-  }
-  
-  dt {
-    color: var(--color, currentColor);
-    position: relative;
-    z-index: 2;   
-    
-    + dd {
-      color: var(--color, currentColor);
-      padding: 0 $gutter * 1.5 0 $gutter / 2;
-      position: relative;
-      z-index: 2;
-      
-      &::before {
-        content: ": ";
-        speak: none;
-      }
-    }
-  }
-}
 
-@supports (--position: calc(var(--start, 0) * .01turn)) {
-  .charts-pie {
-    height: calc(#{$width / 2} - #{$gutter * 2});
+  dt {
+    color: var(--color, currentColor);  
+    position: relative;
+    z-index: 2; 
     
-    &::after {
-      content: "";
-      background: inherit;
-      clip-path: circle(var(--offset, 5rem));
-      height: calc(#{$width / 2} - #{$gutter * 2});
-      left: 50%;
-      margin: auto;
-      position: absolute;
-      top: 50%;
-      transform: translate3d(-50%, -50%, 0);
-      width: calc(#{$width / 2} - #{$gutter * 2});
-    }
-    
-    dt::before {
+    &::before {
       background: currentColor;
       content: "";
       display: inline-block;
@@ -139,51 +108,88 @@
       width: 1rem;
     }
     
-    dt + dd {
-      &::before {
-        content: " (";
-        speak: none;
-      }
+    + dd {
+      color: var(--color, currentColor);
+      padding: 0 $gutter * 1.5 0 $gutter / 2;
+      position: relative;
+      z-index: 2;
+    }
+  }
+  
+  dd[role="presentation"] {
+    display: none;
+  }
+}
+
+@supports (--position: calc(var(--start, 0) * .01turn)) {
+  @media screen and (min-width: em(480)) {
+    .charts-pie {
+      height: calc(#{$width / 2} - #{$gutter * 2});
       
       &::after {
-        content: ")";
-        speak: none;
-      }
-    }
-    
-    dd[role="presentation"] {
-      --position: calc(var(--start, 0) * .01turn);
-      clip-path: circle(50% at 0% 50%);
-      height: 100%;
-      left: 50%;
-      overflow: hidden;
-      position: absolute;
-      top: 0;
-      transform: rotate(var(--position));
-      transform-origin: left center;
-      width: calc(#{$width / 4} - #{$gutter * 2});
-      
-      &::before {
-        --position: calc(var(--value, 0) * .01turn + 1deg);
-        background: var(--color);
         content: "";
-        height: inherit;
-        left: -100%;
-        position: inherit;
+        background: inherit;
+        clip-path: circle(var(--offset, 5rem));
+        height: calc(#{$width / 2} - #{$gutter * 2});
+        left: 50%;
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        transform: translate3d(-50%, -50%, 0);
+        width: calc(#{$width / 2} - #{$gutter * 2});
+      }
+      
+      + figcaption {
+        text-align: center;
+      }
+      
+      dt + dd {        
+        &::before {
+          content: " (";
+          speak: none;
+        }
+        
+        &::after {
+          content: ")";
+          speak: none;
+        }
+      }
+      
+      dd[role="presentation"] {
+        --position: calc(var(--start, 0) * .01turn);
+        clip-path: circle(50% at 0% 50%);
+        display: block;
+        height: 100%;
+        left: 50%;
+        overflow: hidden;
+        position: absolute;
         top: 0;
         transform: rotate(var(--position));
-        transform-origin: right center;
-        width: 100%;
+        transform-origin: left center;
+        width: calc(#{$width / 4} - #{$gutter * 2});
+        
+        &::before {
+          --position: calc(var(--value, 0) * .01turn + 1deg);
+          background: var(--color, currentColor);
+          content: "";
+          height: inherit;
+          left: -100%;
+          position: inherit;
+          top: 0;
+          transform: rotate(var(--position));
+          transform-origin: right center;
+          width: 100%;
+        }
       }
-    }
-    
-    @each $name, $pattern in $patterns {
-      $i: index($patterns, ($name $pattern));
       
-      dt:nth-of-type(#{$i})::before,
-      dt:nth-of-type(#{$i}) + * + dd[role="presentation"]::before  {
-        background-image: url($pattern); /* 3 */
-        background-blend-mode: soft-light;
+      @each $name, $pattern in $patterns {
+        $i: index($patterns, ($name $pattern));
+        
+        dt:nth-of-type(#{$i})::before,
+        dt:nth-of-type(#{$i}) + * + dd[role="presentation"]::before  {
+          background-image: url($pattern); /* 3 */
+          background-blend-mode: soft-light;
+        }
       }
     }
   }
