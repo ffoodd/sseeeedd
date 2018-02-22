@@ -13,19 +13,19 @@
 /* ==================== */
 
 .fly-out {
+  padding: 0;
+  
   &,
   & ul {
-    display: flex;
     list-style: none;
     margin: 0;
-    padding: 0;
   }
   
   a {
+    background: palette( default, contrast );
     display: block;
     padding: $gutter / 2 $gutter;
     text-decoration: none;
-    white-space: nowrap;
     
     &:hover,
     &:focus {
@@ -34,48 +34,19 @@
     }       
   }
   
-  > li {
-    background: palette( default, contrast );
-    position: relative;
-    z-index: 1;
-    
-    + li {
-      margin-left: $gutter;
-    }
-    
-    > a {
-      &:hover,
-      &:focus {
-        background: none;
-      }
-      
-      &:last-child {
-        padding-right: $gutter;
-      }
-      
-      &:not(:last-child)::after {
-        content: "↓";
-        display: inline-block;
-        padding-left: $gutter / 2;
-        transition: transform .3s ease-in .5s;
-        will-change: transform;
-      }
-    }    
+  > li > a {
+    &:hover,
+    &:focus {
+      background: none;
+    }   
   }
   
   ul {
     align-items: flex-start;
     background: inherit;
-    clip-path: circle(rem( 18 ) at left top); /* 1 */
     flex-direction: column;
+    font-size: small;
     min-width: 100%;
-    padding-top: rem( 40 );
-    pointer-events: none;
-    position: absolute;
-    top: 0;
-    transition: clip-path .3s ease-in .5s; /* 2 */
-    will-change: clip-path;
-    z-index: -1;
     
     li {
       min-width: inherit;
@@ -83,25 +54,78 @@
     
     a {
       padding: $gutter / 2 $gutter;
-      pointer-events: auto;
     }
   }
-  
-  > li > a:hover + ul,
-  > li > a:focus + ul,
-  > li:hover > ul,
-  > li:focus-within > ul {
-    box-shadow: rem( 4 ) rem( 4 ) 0 0 transparentize( palette( default ), .8 );
-    clip-path: circle(150% at top right);
-    outline: 1px solid palette( muted, light );
-    transition: clip-path .3s ease-out;
-  }
-  
-  > li > a:not(:last-child):hover::after,
-  > li > a:not(:last-child):focus::after,
-  > li:hover > a:not(:last-child)::after,
-  > li:focus-within > a:not(:last-child)::after {
-    transform: rotateX( .5turn );
-    transition: transform .3s ease-out;
+}
+
+@supports (:focus-within) {
+  @media screen and (min-width: em(480)) {
+    .fly-out {
+      &,
+      & ul {
+        display: flex;
+        padding: 0;
+      }
+      
+      a {
+        white-space: nowrap;  
+      }
+      
+      > li {
+        background: palette( default, contrast );
+        position: relative;
+        z-index: 1;
+        
+        + li {
+          margin-left: $gutter;
+        }
+        
+        > a:last-child {
+          padding-right: $gutter;
+        }
+          
+        > a:not(:last-child)::after {
+          content: "↓";
+          display: inline-block;
+          padding-left: $gutter / 2;
+          transition: transform .3s ease-in .5s;
+          will-change: transform;
+        }  
+      }
+      
+      ul {
+        clip-path: circle(rem( 18 ) at left top); /* 1 */
+        font-size: inherit;
+        padding-top: rem( 40 );
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        transition: clip-path .3s ease-in .5s; /* 2 */
+        will-change: clip-path;
+        z-index: -1;
+        
+        a {
+          pointer-events: auto;
+        }
+      }
+      
+      > li > a:hover + ul,
+      > li > a:focus + ul,
+      > li:hover > ul,
+      > li:focus-within > ul {
+        box-shadow: rem( 4 ) rem( 4 ) 0 0 transparentize( palette( default ), .8 );
+        clip-path: circle(150% at top right);
+        outline: 1px solid palette( muted, light );
+        transition: clip-path .3s ease-out;
+      }
+      
+      > li > a:not(:last-child):hover::after,
+      > li > a:not(:last-child):focus::after,
+      > li:hover > a:not(:last-child)::after,
+      > li:focus-within > a:not(:last-child)::after {
+        transform: rotateX( .5turn );
+        transition: transform .3s ease-out;
+      }
+    }
   }
 }
