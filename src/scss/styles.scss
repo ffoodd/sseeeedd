@@ -745,44 +745,46 @@ details {
   }
 }
 
-/**
- * @note Writing-mode
- ** 1. For everyone except Firefox
- ** 2. Firefox is the only one supporting the nicer value
- * @link https://developer.mozilla.org/fr/docs/Web/CSS/writing-mode#Compatibilité_des_navigateurs
- */
- @supports (--foo: bar, baz) {
-  .vertical {
-    display: flex;
-    
-    details {
-      flex: 0;
-      min-width: rem( 56 );
-      overflow: hidden;
+@media screen and (min-width: em(480)) {
+  /**
+   * @note Writing-mode
+   ** 1. For everyone except Firefox
+   ** 2. Firefox is the only one supporting the nicer value
+   * @link https://developer.mozilla.org/fr/docs/Web/CSS/writing-mode#Compatibilité_des_navigateurs
+   */
+   @supports (--foo: bar, baz) {
+    .vertical {
+      display: flex;
       
-      &[open] {
-        flex: 1;
+      details {
+        flex: 0;
+        min-width: rem( 56 );
+        overflow: hidden;
         
-        summary ~ * {
-          animation: slide-in .5s ease-in-out;
-        }
-      }
-      
-      & + details {
-        border-width: rem( 4 ) rem( 4 ) rem( 4 ) 0;
-      }
-      
-      summary {
-        float: left;
-        min-height: rem( 320 );
-        writing-mode: vertical-lr; /* 1 */
-        writing-mode: sideways-lr; /* 2 */
-        
-        ~ * {        
-          padding-left: rem( 56 );
+        &[open] {
+          flex: 1;
           
-          > *:first-child {
-            margin-top: 0;
+          summary ~ * {
+            animation: slide-in .5s ease-in-out;
+          }
+        }
+        
+        & + details {
+          border-width: rem( 4 ) rem( 4 ) rem( 4 ) 0;
+        }
+        
+        summary {
+          float: left;
+          min-height: rem( 320 );
+          writing-mode: vertical-lr; /* 1 */
+          writing-mode: sideways-lr; /* 2 */
+          
+          ~ * {        
+            padding-left: rem( 56 );
+            
+            > *:first-child {
+              margin-top: 0;
+            }
           }
         }
       }
@@ -797,6 +799,7 @@ details {
   }
 }
 
+
 /* ==================== */
 /* == Grid
 /* ==================== */
@@ -807,50 +810,56 @@ details {
  * @note Avoiding break inside children isn't so well supported
  * @see https://caniuse.com/#search=break-inside
 /* -------------------- */
-[class*="grid"],
-[class*="columns"] {
-  column-gap: $gutter;
-  
-  > * {
-    page-break-inside: avoid; /* 1 */
-    break-inside: avoid;      /* 1 */
-    display: inline-block;
-    margin-bottom: $gutter;
-  }
+[class*="grid"] > *,
+[class*="columns"] > * {
+  display: inline-block;
+  margin-bottom: $gutter;
 }
 
-@each $number in 2, 3, 4 {
-  .grid-#{$number},
-  .columns-#{$number} {
-    columns: $number;
-  }
-}
-
-/* -------------------- */
-/* -- Fixed grid
-/* -------------------- */
-@supports (display: grid) {
-  [class*="grid"] {
-    display: grid;
-    grid-gap: $gutter;
+@media screen and (min-width: em(480)) {
+  [class*="grid"],
+  [class*="columns"] {
+    column-gap: $gutter;
     
     > * {
-      margin: 0;
+      page-break-inside: avoid; /* 1 */
+      break-inside: avoid;      /* 1 */
     }
   }
 
   @each $number in 2, 3, 4 {
-    .grid-#{$number} {
-      grid-template-columns: repeat(#{$number}, 1fr);
+    .grid-#{$number},
+    .columns-#{$number} {
+      columns: $number;
     }
   }
+  
+  /* -------------------- */
+  /* -- Fixed grid
+  /* -------------------- */
+  @supports (display: grid) {
+    [class*="grid"] {
+      display: grid;
+      grid-gap: $gutter;
+      
+      > * {
+        margin: 0;
+      }
+    }
 
-  .grid-1-2 {
-    grid-template-columns: 1fr 2fr;
-  }
+    @each $number in 2, 3, 4 {
+      .grid-#{$number} {
+        grid-template-columns: repeat(#{$number}, [col] 1fr);
+      }
+    }
 
-  .grid-1-3 {
-    grid-template-columns: 1fr 3fr;
+    .grid-1-2 {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    .grid-1-3 {
+      grid-template-columns: 1fr 3fr;
+    }
   }
 }
 
