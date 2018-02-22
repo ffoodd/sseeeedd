@@ -22,7 +22,7 @@
           </div>
         {% endblock %}
 
-        <nav role="navigation" id="nav" aria-label="Main navigation">
+        <nav role="navigation" id="nav" aria-label="Navigation principale">
           {% block navigation %}
             <ul class="fly-out">
               <li><a aria-current="page">Accueil</a></li>
@@ -31,7 +31,6 @@
                 <a href="./molecules.html">Molécules</a>
                 <ul>
                   <li><a href="./molecules.html#messages">Messages</a></li>
-                  <li><a href="./molecules.html#list">Liste d’articles</a></li>
                   <li><a href="./molecules.html#cards">Cartes</a></li>
                   <li><a href="./molecules.html#panels">Panneaux</a></li>
                   <li><a href="./molecules.html#codeblocks">Blocs de code</a></li>
@@ -47,6 +46,31 @@
       <main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">
         {% block main %}
           <h1>sseeeedd</h1>
+          
+          <p>
+            sseeeedd est à la fois <strong>un socle de travail</strong> pour l’intégration statique — qui peut servir d’environnement de travail —
+            et un <strong>espace d’expérimentations</strong>.
+          </p>
+          
+          <div class="grid-2">
+            <div>
+              <h2>Personnalisation</h2>
+              
+              <p>
+                Vous pouvez le personnaliser facilement à l’aide de quelques variables dans <code>src/scss/utilities/_variables.scss</code>
+                et l’alléger en supprimant quelques imports dans le fichier principal.
+              </p>
+            </div>
+            <div>
+              <h2>Utilisation</h2>
+              
+              <p>
+                Si vous êtes familiers de npm et Gulp, vous vous y retrouverez sans mal.
+                La tâche <code>gulp</code> par défaut lancer une instance de <span lang="en">BrowserSync</span>,
+                surveillant les sources Sass, JavaScript, Nunjucks et les images.
+              </p>
+            </div>
+          </div>
         {% endblock %}
       </main>
 

@@ -27,13 +27,18 @@
     float: left;
     padding: 0 $gutter 0 0;    
   }
+  
+  dd {
+    margin: 0;
+  }
      
-  dd small {
-    font-weight: normal;
+  dd span {
+    font-weight: bold;
   }
     
   dd abbr[title] {
     border-bottom: 0;
+    font-weight: normal;
     text-transform: none;
   }
 }
@@ -64,7 +69,7 @@
       grid-column: 2 / var(--value, 0);
       position: relative;
       
-      b {
+      span {
         background: inherit;                  /* 2 */
         -webkit-text-fill-color: transparent; /* 2 */
         -webkit-background-clip: text;        /* 2 */
@@ -76,7 +81,7 @@
   
   @media screen and (min-width: em(480)) {
     .charts-bar + figcaption {
-      text-indent: em( 200 );
+      text-indent: rem( 200 );
     }
       
     .charts-bar dt {
@@ -114,6 +119,10 @@
       position: relative;
       z-index: 2;
     }
+  }
+  
+  dd {
+    margin: 0;
   }
   
   dd[role="presentation"] {

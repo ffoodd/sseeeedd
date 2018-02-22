@@ -72,7 +72,7 @@ $blank-focus: str-replace(to-string(palette( accent, dark )), "#", "%23");
 /* ==================== */
 
 $full-width: false !default;
-$width: em( 1280 ) !default;
+$width: em( 1024 ) !default;
 $gutter: rem( 16 ) !default;
 
 

@@ -1,5 +1,5 @@
 {% macro pie(term='', definition='', unit='', title='', start='0', color='') %}
   <dt style="--color: {{ color }}">{{ term }}</dt>
-  <dd class="no-margin" style="--color: {{ color }}">{{ definition }}{% if unit != '' %}<small>&nbsp;{% if title != '' %}<abbr title="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}</small>{% endif %}</dd>
-  <dd class="no-margin" style="--value: {{ definition }}; --start: {{ start }}; --color: {{ color }}" role="presentation"></dd>
+  <dd style="--color: {{ color }}">{{ definition }}{% if unit != '' %}&nbsp;{% if title != '' %}<abbr title="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}{% endif %}</dd>
+  <dd style="--value: {{ definition }}; --start: {{ start }}; --color: {{ color }}" role="presentation"></dd>
 {% endmacro %}
