@@ -22,7 +22,6 @@
   }
   
   a {
-    background: palette( default, contrast );
     display: block;
     padding: $gutter / 2 $gutter * 2 $gutter / 2 $gutter;
     text-decoration: none;
@@ -32,36 +31,56 @@
     &:focus {
       background: palette( default, secondary );
       color: palette( dominant, dark );
-    }
+    }       
   }
   
   > li {
+    background: palette( default, contrast );
     position: relative;
     z-index: 1;
     
     + li {
       margin-left: $gutter;
     }
+    
+    a:last-child {
+      padding-right: $gutter;
+    }
+    
+    > a:hover,
+    > a:focus {
+      background: none;
+    }
   }
   
   ul {
-    clip-path: circle(rem( 40 ) at top right); /* 1 */
+    align-items: flex-start;
+    background: inherit;
+    clip-path: circle(rem( 18 ) at 90% rem( 20 )); /* 1 */
     flex-direction: column;
+    min-width: 100%;
     pointer-events: none;
     position: absolute;
     top: 0;
     transition: clip-path .3s ease-in .5s; /* 2 */
     will-change: clip-path;
-    z-index: 1;
+    z-index: -1;
     
     &::before {
       align-self: flex-end;
       color: palette( secondary, dark );
       content: "↓";
-      padding: $gutter / 2 $gutter $gutter / 2 0;
+      padding: $gutter / 2;
+      transition: transform .3s ease-in .5s;
+      will-change: transform;
+    }
+    
+    li {
+      min-width: inherit;
     }
     
     a {
+      padding: $gutter / 2 $gutter;
       pointer-events: auto;
     }
   }
@@ -77,6 +96,8 @@
     
     &::before {
       color: palette( dominant, dark );
+      transform: rotateX( .5turn );
+      transition: transform .3s ease-out;
     }
   }
 }
