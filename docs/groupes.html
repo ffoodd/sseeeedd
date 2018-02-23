@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sseeeedd</title>
+        <script>
+          document.documentElement.classList.remove('no-js');
+          document.documentElement.classList.add('js');
+        </script>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/styles.min.css" media="screen">
+        <link rel="stylesheet" href="css/print.min.css" media="print">
+    </head>
+    <body itemscope="" itemtype="http://schema.org/WebPage">
+      <header role="banner">
+        
+          <div>
+            <a href="#nav" class="sr-only sr-only-focusable">Aller à la navigation</a>
+            <a href="#main" class="sr-only sr-only-focusable">Aller au contenu</a>
+          </div>
+        
+
+        <nav role="navigation" id="nav" aria-label="Navigation principale">
+          
+  <ul class="fly-out">
+    <li><a href="./index.html">Accueil</a></li>
+    <li><a href="./elements.html">Éléments</a></li>
+    <li>
+      <a aria-current="page">Groupes</a>
+      <ul>
+        <li><a href="./groupes.html#messages">Messages</a></li>
+        <li><a href="./groupes.html#cards">Cartes</a></li>
+        <li><a href="./groupes.html#panels">Panneaux</a></li>
+        <li><a href="./groupes.html#fly-out">Menu déroulant</a></li>
+        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>        
+      </ul>
+    </li>
+    <li><a href="./graphiques.html">Graphiques</a></li>
+  </ul>
+
+        </nav>
+      </header>
+
+      <main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">
+        
+  <h1>Molécules</h1>
+  
+  <p>Les molécules sont les éléments d’interface de complexité intermédiare.</p>
+  
+  <h2 id="messages">Messages</h2>
+  
+  <p>
+    Les boîtes de message respectent le motif de conception <abbr lang="en" title="Accessible Rich Internet Application">aria</abbr> 
+    associé. Pour vous en servir correctement, deux conditions&nbsp;:
+  </p>
+  
+  <ol>
+    <li>
+      la <code>div role="alert" aria-live="assertive"</code> doit être présente mais vide dans le code source 
+      dès le chargement de la page&nbsp;;
+    </li>
+    <li>
+      lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang="en" title="HyperText Markup Language">html</abbr>, 
+      de préférence avec la méthode JavaScript <code>.innerHTML()</code>.
+    </li>
+  </ol>
+  
+  
+  
+   <div role="alert" aria-live="assertive" class="alert bg-alert">
+     <p>Oh, le joli message&nbsp;!</p>
+   </div>
+  
+   <div role="alert" aria-live="assertive" class="alert bg-success">
+     <p>Oh, le joli message&nbsp;!</p>
+   </div>
+  
+   <div role="alert" aria-live="assertive" class="alert bg-accent">
+     <p>Oh, le joli message&nbsp;!</p>
+   </div>
+  
+   <div role="alert" aria-live="assertive" class="alert bg-dominant">
+     <p>Oh, le joli message&nbsp;!</p>
+   </div>
+  
+   <div role="alert" aria-live="assertive" class="alert bg-secondary">
+     <p>Oh, le joli message&nbsp;!</p>
+   </div>
+  
+  
+  <h2 id="cards">Cartes</h2>
+  
+  <p>
+    Un système de grille basique mais efficace est disponible.
+    La version de base repose sur les <strong>colonnes</strong> <abbr lang="en" title="Cascading StyleSheet">css</abbr> 
+    —&nbsp;supportées depuis <abbr lang="en" title="Internet Explorer">ie</abbr>10&nbsp;— et la grille fixe
+    s’appuie sur les <strong>grilles</strong> CSS (sans préfixes Microsoft, mais avec une bascule sur les colonnes pour les navigateurs intermédiaires).
+  </p>
+  
+  
+  
+  <h3>En colonnes</h3>
+
+  <div class="columns-3">
+    
+  <article class="card">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+    
+  <article class="card-dominant">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+    
+  </article>
+
+    
+  <article class="card-success">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+  </article>
+    
+    
+  <article class="card-accent">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+    
+  <article class="card">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+    
+  <article class="card-alert">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+  </article>
+
+    
+  <article class="card">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+    
+  <article class="card-secondary">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+  </div>
+  
+  <h3>En grille fixe</h3>
+  
+  <div class="grid-3">
+    
+  <article class="card">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+    
+  <article class="card-dominant">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+    
+  <article class="card-success">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+    
+    
+  <article class="card-accent">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+    
+  <article class="card">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+    
+  <article class="card-alert">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+    
+  <article class="card">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+    
+  <article class="card-secondary">
+    
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150">
+    
+    
+      <h3>Intitulé de la carte</h3>
+      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+    
+    
+      <footer>
+        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      </footer>
+    
+  </article>
+
+  </div>
+  
+  <h2 id="panels">Panneaux</h2>
+  
+  <p>
+    Les panneaux sont les éléments HTML5 natifs <code>details</code> et <code>summary</code>.
+    Ces éléments travaillent conjointement pour composer un élément interactif permettant d’afficher 
+    du contenu supplémentaire.
+    <br>
+    Ils sont par conséquents accessibles et se dégradent gracieusement sur les navigateurs ne les supportant pas.
+  </p>
+  
+  
+  
+    <details>
+      <summary>Panneau №1</summary>
+      <div>
+        <h3>Contenu №1</h3>
+        <p>
+          Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+          <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+          Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+          et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+        </p>
+      </div>
+    </details>
+  
+    <details>
+      <summary>Panneau №2</summary>
+      <div>
+        <h3>Contenu №2</h3>
+        <p>
+          Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+          <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+          Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+          et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+        </p>
+      </div>
+    </details>
+  
+    <details>
+      <summary>Panneau №3</summary>
+      <div>
+        <h3>Contenu №3</h3>
+        <p>
+          Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+          <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+          Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+          et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+        </p>
+      </div>
+    </details>
+  
+    <details>
+      <summary>Panneau №4</summary>
+      <div>
+        <h3>Contenu №4</h3>
+        <p>
+          Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+          <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+          Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+          et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+        </p>
+      </div>
+    </details>
+  
+  
+  <h3>Panneaux verticaux</h3>
+  
+  <p>
+    Les panneaux verticaux sont une version enrichie des panneaux ordinaires.
+    Ils s’appuient sur <code>flexbox</code> et un bout de JavaScript, pour s’assurer qu’un seul panneau soit déplié à la fois.
+    L’orientation verticale du texte dépend du support de la propriété CSS <code>writing-mode</code>.
+  </p>
+  
+  <div class="vertical">
+    
+      <details open>
+        <summary>Panneau №1</summary>
+        <div>
+          <h3>Contenu №1</h3>
+          <p>
+            Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+            <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+            Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+            et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+          </p>
+        </div>
+      </details>
+    
+      <details>
+        <summary>Panneau №2</summary>
+        <div>
+          <h3>Contenu №2</h3>
+          <p>
+            Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+            <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+            Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+            et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+          </p>
+        </div>
+      </details>
+    
+      <details>
+        <summary>Panneau №3</summary>
+        <div>
+          <h3>Contenu №3</h3>
+          <p>
+            Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+            <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+            Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+            et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+          </p>
+        </div>
+      </details>
+    
+      <details>
+        <summary>Panneau №4</summary>
+        <div>
+          <h3>Contenu №4</h3>
+          <p>
+            Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+            <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+            Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+            et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+          </p>
+        </div>
+      </details>
+    
+  </div>
+
+  <h2 id="fly-out">Menu déroulant</h2>
+  
+  <p>
+    Là, ça devient rigolo.
+    <br>
+    Ces menus déroulants <strong>fonctionnent sans JavaScript</strong> et sont parfaitement <strong>accessibles</strong>. Ils sont cependant
+    limités à un seul niveau. Si vous avez besoin de plusieurs niveaux imbriqués, préférez une solution basée sur JavaScript.
+    <br>
+    Ce composant requiert le support de&nbsp;:
+  </p>
+  
+  <ul>
+    <li><code>clip-path</code> pour le masquage du sous-menu et ses effets d’apparition&nbsp;;</li>
+    <li><code>:focus-within</code> pour maintenir le menu ouvert tant qu’un élément enfant a le <em lang="en">focus</em>.</li>
+  </ul>
+  
+  <p>
+    On pourrait tout à fait bricoler une version dégradée de <code>clip-path</code> en utilisant <code>clip</code>, cependant
+    le support de <code>:focus-within</code> nécessite un <em lang="en">polyfill</em> en JavaScript (qui n’est pas inclus pour le moment).
+    Un délai de 300&nbsp;<abbr title="Milliseconde">ms</abbr> est laissé avant de refermer le menu, pour éviter les fermetures intempestives et non désirées.
+  </p>
+
+  <ul class="fly-out">
+    <li>
+      <a href="./">Niveau 1</a>
+      <ul>
+        <li><a href="./">Niveau 2</a></li>
+        <li><a href="./">Niveau 2</a></li>
+        <li><a href="./">Niveau 2</a></li>
+      </ul>
+    </li>
+    <li><a href="./">Niveau 1</a></li>
+    <li>
+      <a href="./">Niveau 1</a>
+      <ul>
+        <li><a href="./">Niveau 2</a></li>
+        <li><a href="./">Niveau 2</a></li>
+        <li><a href="./">Niveau 2</a></li>
+      </ul>
+    </li>
+  </ul>
+  
+  <h2 id="codeblocks">Blocs de code</h2>
+  
+  <p>
+    Les blocs de code ont un habillage personnalisé, imitant sommairement une fenêtre système.
+    <strong>PrismJS</strong>, un script de coloration syntaxique supportant plusieurs langages, est présent
+    —&nbsp;avec un thème personnalisé aux couleurs de WAF.
+  </p>
+  
+  <pre><code class="language-css">.open-space {
+  display: grid;
+  grid-template: repeat(16, minmax(3rem, 1fr)) / repeat(44, minmax(calc(3rem * 4 / 3), 1fr));
+  height: 100vh;
+  position: fixed;
+  width: 100vw; 
+}</code></pre>
+
+      </main>
+
+      <aside role="complementary">
+      </aside>
+
+      <footer role="contentinfo">
+      </footer>
+
+      <script src="js/script.min.js" async></script>
+      <script src="js/prism.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sseeeedd</title>
+        <script>
+          document.documentElement.classList.remove('no-js');
+          document.documentElement.classList.add('js');
+        </script>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/styles.min.css" media="screen">
+        <link rel="stylesheet" href="css/print.min.css" media="print">
+    </head>
+    <body itemscope="" itemtype="http://schema.org/WebPage">
+      <header role="banner">
+        
+          <div>
+            <a href="#nav" class="sr-only sr-only-focusable">Aller à la navigation</a>
+            <a href="#main" class="sr-only sr-only-focusable">Aller au contenu</a>
+          </div>
+        
+
+        <nav role="navigation" id="nav" aria-label="Navigation principale">
+          
+  <ul class="fly-out">
+    <li><a href="./index.html">Accueil</a></li>
+    <li><a href="./elements.html">Éléments</a></li>
+    <li>
+      <a href="./groupes.html">Groupes</a>
+      <ul>
+        <li><a href="./groupes.html#messages">Messages</a></li>
+        <li><a href="./groupes.html#cards">Cartes</a></li>
+        <li><a href="./groupes.html#panels">Panneaux</a></li>
+        <li><a href="./groupes.html#fly-out">Menu déroulant</a></li>
+        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>
+      </ul>
+    </li>
+    <li><a aria-current="page">Graphiques</a></li>
+  </ul>
+
+        </nav>
+      </header>
+
+      <main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">
+        
+  <h1>Graphiques</h1>
+
+  <p>
+    Les deux versions de graphiques présentées pour le moment reposent uniquement sur un balisage sémantique
+    —&nbsp;<code>dl</code>, <code>dt</code> et <code>dd</code>&nbsp;— et une tartine de <strong>variables CSS portées par les balises</strong>.
+  </p>
+
+  <p>
+    Là encore, le balisage est parfaitement accessible&nbsp;! Aucun JavaScript n’est requis, et les styles proposent une 
+    <strong>amélioration progressive</strong> selon les capacités de votre navigateur.
+  </p>
+
+  <h2>Graphique en barre</h2>
+
+  <p>
+    Ce type de graphique sert à représenter <strong>des données à une dimension</strong> (dans notre exemple, une ligne de temps).
+    Il repose sur les <strong>grilles et les variables CSS</strong>.
+    Pour vous en servir, c’est simple&nbsp;:
+  </p>
+
+  <ol>
+    <li>
+      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi 
+      qu’une légende balisée avec <code>figcaption</code>.
+    </li>
+    <li>
+      Sur la <strong>liste de définitions</strong> <code>dl</code>, une variable <code>--scale</code> permet de définir la valeur maximale du graphique,
+      afin d’en déterminer l’échelle. Concrètement, une grille va être générée avec&nbsp;:
+      <ul>
+        <li>la première colonne pour les termes <code>dt</code> arbitrairement fixée à <code>12.5em</code>&nbsp;;</li>
+        <li>puis la fonction CSS <code>repeat()</code> crée une colonne par unité de l’échelle —&nbsp;dans l’exemple, 3000 colonnes&nbsp;;</li>
+        <li>enfin une dernière colonne mesurant <code>6ch</code>, soit l’espace suffisant pour six lettres.</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Sur chaque définition</strong> <code>dd</code>, une variable <code>--value</code> permet de la placer sur la grille, 
+      appliquée à <code>grid-column-end</code>.
+      De plus grâce à de savants calculs reposant sur cette valeur, le dégradé en arrière-plan est dimensionné et positionné de façon à
+      refléter la proportion représentée par cette valeur sur l’échelle donnée (du vert pour presque rien au rouge pour presque tout).
+    </li>
+    <li>
+      <strong>Dans chaque définition</strong>, le contenu doit reprendre la valeur dans un élément <code>span</code> et une unité, éventuellement 
+      balisée avec <code>abbr</code> si un intitulé peut être explicité pour l’unité. Cette valeur est poussée à droite de la grille, et son texte 
+      sert de masque pour le dégradé en arrière-plan —&nbsp;lui permettant d’être de la couleur correspondante à la fin du dégradé pour la position donnée.
+    </li>
+  </ol>
+
+  
+
+  <figure role="group">
+    <dl class="charts-bar" style="--scale: 3000">
+      
+  <dt>Temps : backend</dt>
+  <dd style="--value: 4">
+    <span>4&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Temps : Frontend</dt>
+  <dd style="--value: 96">
+    <span>96&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Délai : premier octet</dt>
+  <dd style="--value: 102">
+    <span>102&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Délai : dernier octet</dt>
+  <dd style="--value: 129">
+    <span>129&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Délai : première image</dt>
+  <dd style="--value: 188">
+    <span>188&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Délai : premier CSS</dt>
+  <dd style="--value: 194">
+    <span>194&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Délai : premier JS</dt>
+  <dd style="--value: 326">
+    <span>326&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>DOM Interactif</dt>
+  <dd style="--value: 836">
+    <span>836&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Chargement du DOM</dt>
+  <dd style="--value: 836">
+    <span>836&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>DOM complet</dt>
+  <dd style="--value: 2561">
+    <span>2561&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Trafic HTTP terminé</dt>
+  <dd style="--value: 2980">
+    <span>2980&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+    </dl>
+    <figcaption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption> 
+  </figure>
+
+  <h2>Graphique en tarte</h2>
+
+  <p>
+    Le graphique en tarte sert pour <strong>les représentations de proportions</strong>, généralement en pourcentage.
+    Il utilise principalement les variables CSS, <code>flexbox</code>, <code>clip-path</code>, <code>transform</code> et un tantinet de 
+    <abbr lang="en" title="Scalable Vectors Graphics">SVG</abbr> pour distinguer chaque zone. Oui, je sais rigoler. Comment qu’on s’en sert&nbsp;?
+  </p>
+
+  <ol>
+    <li>
+      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi 
+      qu’une légende balisée avec <code>figcaption</code>.
+    </li>
+    <li>
+      Sur la <strong>liste de définitions</strong> <code>dl</code>, une variable <code>--offset</code> permet de déterminer la dimension du trou du <em lang="en">donut</em>.
+      Si, si, on en avait besoin&nbsp;!
+    </li>
+    <li>
+      <strong>Sur chaque terme</strong> <code>dt</code>, une variable <code>--color</code> permet d’attribuer, et bien… une couleur.
+    </li>
+    <li>
+      <strong>Pour chaque terme</strong> <code>dt</code>, deux définitions <code>dd</code> doivent suivre&nbsp;:
+      <ol>
+        <li>la première doit contenir la valeur et son unité, et porter la même variable <code>--color</code> que son terme&nbsp;;</li>
+        <li>
+          la seconde est là où la magie opère&nbsp;:
+          <ul>
+            <li>Avant tout, comme il s’agit d’un élément purement visuel on lui affuble un rôle <code>presentation</code>.</li>
+            <li>
+              Puis <strong>trois variables</strong> permettent de le placer et le colorer fidèlement à la définition fournie&nbsp;: <code>--value</code>, <code>--start</code> et <code>--color</code>.
+              <code>--value</code> correspond à la valeur en pourcentage, utile pour déterminer <strong>l’angle de rotation</strong> de l’arc correspondant.
+              <code>--start</code> permet de définir le <strong>point de départ</strong> de l’arc sur le cercle. Il s’agit de la somme des précédentes définitions, celle-ci incluse.
+              Et <code>--color</code>… Ne me faites pas répéter&nbsp;!
+          </li></ul>
+        </li>
+      </ol>
+    </li>
+    <li>Et finalement un motif est appliqué sur l’arrière-plan, afin de mieux l’associer visuellement avec la légende correspondante.</li>
+  </ol>
+
+  
+
+  <figure role="group">
+    <dl class="charts-pie" style="--offset: 8rem">
+      
+  <dt style="--color: #444">HTML</dt>
+  <dd style="--color: #444">2&nbsp;%</dd>
+  <dd style="--value: 2; --start: 0; --color: #444" role="presentation"></dd>
+
+      
+  <dt style="--color: firebrick">CSS</dt>
+  <dd style="--color: firebrick">2&nbsp;%</dd>
+  <dd style="--value: 2; --start: 2; --color: firebrick" role="presentation"></dd>
+
+      
+  <dt style="--color: crimson">JS</dt>
+  <dd style="--color: crimson">32&nbsp;%</dd>
+  <dd style="--value: 32; --start: 4; --color: crimson" role="presentation"></dd>
+
+      
+  <dt style="--color: mediumblue">Json</dt>
+  <dd style="--color: mediumblue">1&nbsp;%</dd>
+  <dd style="--value: 1; --start: 36; --color: mediumblue" role="presentation"></dd>
+
+      
+  <dt style="--color: darkblue">Images</dt>
+  <dd style="--color: darkblue">44&nbsp;%</dd>
+  <dd style="--value: 44; --start: 37; --color: darkblue" role="presentation"></dd>
+
+      
+  <dt style="--color: rebeccapurple">Webfonts</dt>
+  <dd style="--color: rebeccapurple">17&nbsp;%</dd>
+  <dd style="--value: 17; --start: 81; --color: rebeccapurple" role="presentation"></dd>
+
+      
+  <dt style="--color: indigo">Autres</dt>
+  <dd style="--color: indigo">2&nbsp;%</dd>
+  <dd style="--value: 2; --start: 98; --color: indigo" role="presentation"></dd>
+
+    </dl>
+    <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
+  </figure>
+
+      </main>
+
+      <aside role="complementary">
+      </aside>
+
+      <footer role="contentinfo">
+      </footer>
+
+      <script src="js/script.min.js" async></script>
+      <script src="js/prism.min.js"></script>
+    </body>
+</html>

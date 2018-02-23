@@ -1,0 +1,207 @@
+{% extends "index.html" %}
+
+{% block navigation %}
+  <ul class="fly-out">
+    <li><a href="./index.html">Accueil</a></li>
+    <li><a aria-current="page">Éléments</a></li>
+    <li>
+      <a href="./groupes.html">Groupes</a>
+      <ul>
+        <li><a href="./groupes.html#messages">Messages</a></li>
+        <li><a href="./groupes.html#cards">Cartes</a></li>
+        <li><a href="./groupes.html#panels">Panneaux</a></li>
+        <li><a href="./groupes.html#fly-out">Menu déroulant</a></li>
+        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>
+      </ul>
+    </li>
+    <li><a href="./graphiques.html">Graphiques</a></li>
+  </ul>
+{% endblock %}
+
+{% block main %}
+  <h1>Le Quatuor Concertant déconcerté</h1>
+
+  <p>
+    Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
+    et leur vitesse atteint de quinze à <a href="https://www.ffoodd.fr" target="_blank">dix-huit</a> <a href="#footnote-1" id="footnote-ref-1" aria-describedby="footnotes-label" rev="footnote">kilomètres</a>.
+  </p>
+
+  <figure role="group">
+    <img src="http://placehold.it/700x263" width="700" height="263"
+         alt="Aperçu du permis de conduire. L'emplacement du numéro de permis est détaillé dans la légende ci-après.">
+    <figcaption>
+      Le numéro de permis est composé de 12 chiffres.
+      Sur les anciens permis (papier rose, plié en trois), il se trouve à gauche de votre photo.
+      Sur les nouveaux permis (carte plastifiée), il se trouve juste au-dessus de votre signature.
+      <a href="http://placehold.it/700x263">Afficher lʼimage en grand</a>
+    </figcaption>
+  </figure>
+
+  <h2>Puissance d’une sonate cacophonique</h2>
+
+  <blockquote>
+    On voit que les cours d’eau sont peu abondants dans le pays&nbsp;!
+    <footer><cite>Pinchinat</cite></footer>
+  </blockquote>
+
+  <h3>Un loquace cicérone</h3>
+
+  <ul>
+    <li>L’archipel des Sandwich</li>
+    <li>Îles Marquises</li>
+    <li>Trois semaines aux Pomotou</li>
+    <li>Relâche à Taïti</li>
+  </ul>
+
+  <h4>Le Quatuor Concertant déconcerté</h4>
+
+  <ol>
+    <li>Aux îles de Cook</li>
+    <li>D’îles en îles</li>
+    <li>Concert à la cour</li>
+    <li>Ultimatum britannique</li>
+  </ol>
+
+  <h5>Standard-Island et Milliard-City</h5>
+
+  <p>
+    Ces cars sont traînés par une locomotive <em>électrique</em>, avec accumulateurs d’une capacité de deux cents <abbr title="ampères-ohms">AO</abbr>,
+    et leur vitesse atteint de quinze à dix-huit kilomètres.
+  </p>
+
+  <img src="httpplacehold.it/400x200" width="400" height="200" alt="alternative value <3">
+
+  <h6>Cap à l’ouest</h6>
+
+  <p>
+    Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+    <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+    Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
+    et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
+  </p>
+
+  <h2>Tableaux</h2>
+
+  <table>
+    <caption>Exemple de tableaux</caption>
+    <thead>
+      <tr>
+        <th scope="col">Entête №1</th>
+        <th scope="col">Entête №2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Cellule №1-1</td>
+        <td>Cellule №2-1</td>
+      </tr>
+      <tr>
+        <td>Cellule №1-2</td>
+        <td>Cellule №2-2</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Formulaires</h2>
+
+  <form action="/">
+    <p class="fieldset">
+      <label for="texte">Texte</label>
+      <input type="text" id="texte" name="texte" />
+    </p>
+    <fieldset>
+      <legend>Genre</legend>
+      <input type="radio" name="genre" id="F" value="F">
+      <label for="F">Féminin</label>
+      <input type="radio" name="genre" id="M" value="M">
+      <label for="M">Masculin</label>
+     </fieldset>
+    <p class="fieldset">
+      <label for="options">Option</label>
+      <select id="options" name="options">
+        <option value="1">Option №1</option>
+        <option value="2">Option №2</option>
+        <option value="3">Option №3</option>
+      </select>
+    </p>
+    <fieldset>
+      <legend>Choix</legend>
+      <input type="checkbox" name="choix" id="C" value="C">
+      <label for="C">Choix №1</label>
+      <input type="checkbox" name="choix" id="D" value="D">
+      <label for="D">Choix №2</label>
+      <input type="checkbox" name="choix" id="E" value="E">
+      <label for="E">Choix №3</label>
+    </fieldset>
+    <p class="fieldset">
+      <label for="zone">Zone de texte</label>
+      <textarea id="zone" name="zone"></textarea>
+    </p>
+    <div class="fieldset">
+      <div>
+        <div class="toggle-field">
+            <input id="toggle" class="toggle-input" type="checkbox">
+            <label for="toggle" class="toggle-label">Spammez-moi, sʼil-vous-plaît</label>
+        </div>
+        <span class="label">Commutateur</span>
+      </div>
+    </div>
+    <p class="fieldset">
+      <label for="fichier">Envoi de fichier</label>
+      <input type="file" id="fichier" name="fichier" />
+    </p>
+    <p class="fieldset">
+      <label for="texte-2">Texte en lecture seule</label>
+      <input type="text" id="texte-2" name="texte-2" readonly />
+    </p>
+    <p class="fieldset">
+      <label for="texte-3">Texte désactivé</label>
+      <input type="text" id="texte-3" name="texte-3" disabled />
+    </p>
+    <p class="fieldset">
+      <label for="texte-2">
+        Champ avec description
+        <span class="label-msg-help">Description du champ</span>
+      </label>
+      <input type="text" id="texte-2" name="texte-2" />
+
+    </p>
+    <p class="fieldset">
+      <label for="texte-3">Champ obligatoire</label>
+      <input type="text" id="texte-3" name="texte-3" required aria-required="true" />
+    </p>
+    <p class="fieldset">
+      <label for="texte-4">
+        Champ erroné
+        <span class="label-msg-error">Message dʼerreur</span>
+      </label>
+      <input type="text" id="texte-4" name="texte-4" required aria-required="true" aria-invalid="true"/>
+    </p>
+    <p class="fieldset">
+      <input type="reset" />
+      <button>Bouton</button>
+    </p>
+  </form>
+
+  <h2>Composants</h2>
+
+  <h3>Infobulle</h3>
+
+  <div class="tooltip">
+    <button type="button">Afficher</button>
+    <p role="tooltip">Et hop&nbsp;!</p>
+  </div>
+
+  <h3 id="footnotes-label">Notes de bas-de-page</h3>
+  
+  <footer>    
+    <ol>
+      <li id="footnote-1" role="note">
+        Ceci est un exemple de note de bas-de-page.
+        <a href="#footnote-ref-1" aria-label="Rerprendre la lecture" rev="footnote">
+          <span aria-hidden="true">↩</span>
+        </a>
+      </li>
+    </ol>
+  </footer>
+{% endblock %}
