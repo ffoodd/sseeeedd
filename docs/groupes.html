@@ -34,7 +34,8 @@
         <li><a href="./groupes.html#cards">Cartes</a></li>
         <li><a href="./groupes.html#panels">Panneaux</a></li>
         <li><a href="./groupes.html#fly-out">Menu déroulant</a></li>
-        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>        
+        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>
+        <li><a href="./groupes.html#navigation">Navigation</a></li>
       </ul>
     </li>
     <li><a href="./graphiques.html">Graphiques</a></li>
@@ -473,7 +474,9 @@
     
   </div>
 
-  <h2 id="fly-out">Menu déroulant</h2>
+  <h2 id="navigation">Navigation</h2>
+  
+  <h3>Menu déroulant</h3>
   
   <p>
     Là, ça devient rigolo.
@@ -492,6 +495,7 @@
   <p>
     On pourrait tout à fait bricoler une version dégradée de <code>clip-path</code> en utilisant <code>clip</code>, cependant
     le support de <code>:focus-within</code> nécessite un <em lang="en">polyfill</em> en JavaScript (qui n’est pas inclus pour le moment).
+    <br>
     Un délai de 300&nbsp;<abbr title="Milliseconde">ms</abbr> est laissé avant de refermer le menu, pour éviter les fermetures intempestives et non désirées.
   </p>
 
@@ -514,6 +518,30 @@
       </ul>
     </li>
   </ul>
+
+  <h3>Pagination</h3>
+  
+  <nav role="navigation" aria-label="Pagination">
+    <ul id="pagination">
+      <li><a href="#!" tabindex="-1">Précédent</a></li>
+      <li><a href="/" aria-current="page">
+        <span class="sr-only">Page </span>1
+        <span class="sr-only">(page actuelle)</span>
+      </a></li>
+      <li><a href="#!"><span class="sr-only">Page </span>2</a></li>
+      <li><a href="#!"><span class="sr-only">Page </span>3</a></li>
+      <li><a href="#!">Suivant</a></li>
+    </ul>
+  </nav>
+
+  <h3>Fil d’Ariane</h3>
+
+  <nav role="navigation" aria-label="Vous êtes ici :">
+    <ul id="breadcrumb">
+      <li><a href="./index.html">Accueil</a></li>
+      <li aria-current="page">Groupes</li>
+    </ul>
+  </nav>
   
   <h2 id="codeblocks">Blocs de code</h2>
   

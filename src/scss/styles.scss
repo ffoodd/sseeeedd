@@ -904,6 +904,54 @@ nav a {
   padding: em( 8 ) em( 16 );
 }
 
+[id="pagination"] {
+  li {
+    &:first-child a::before {
+      content: "← ";
+      speak: none;
+    }
+    
+    &:last-child a::after {
+      content: " →";
+      speak: none;
+    }
+    
+    + li {
+      margin-left: $gutter;
+    }
+  }
+  
+  a {    
+    text-decoration: none;
+    
+    &:hover,
+    &:focus {
+      background: palette( default, contrast );
+    }
+  }
+  
+  [tabindex="-1"] {
+    color: palette( muted );
+    pointer-events: none;
+  }
+  
+  [aria-current] {
+    background: palette( accent );
+    color: palette( accent, contrast );
+  }
+}
+
+[id="breadcrumb"] {
+  li[aria-current] {
+    padding-left: $gutter;
+  }
+  
+  li:not(:last-child)::after {
+    content: "→";
+    speak: none;
+  }
+}
+
 /* ----------------------------- */
 /* -- Header
 /* ----------------------------- */
