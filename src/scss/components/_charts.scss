@@ -191,6 +191,11 @@
         }
       }
       
+      dd:hover + dd[role="presentation"],
+      dt:hover + dd + dd[role="presentation"] {
+        transform: rotate(var(--position)) scale(1.05);
+      }
+      
       @each $name, $pattern in $patterns {
         $i: index($patterns, ($name $pattern));
         
