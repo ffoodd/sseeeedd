@@ -88,6 +88,10 @@
       text-align: right;
     }
   }
+  
+  @media screen and (-ms-high-contrast: active) {
+    // Could be useful at some pointy, when a11y nerds will get onto testing :)
+  }
 }
 
 .charts-pie {
@@ -175,6 +179,7 @@
         top: 0;
         transform: rotate(var(--position));
         transform-origin: left center;
+        transition: transform .2s ease-in-out;
         width: calc(#{$width / 4} - #{$gutter * 2});
         
         &::before {
@@ -206,5 +211,9 @@
         }
       }
     }
+  }
+  
+  @media screen and (-ms-high-contrast: active) and (min-width: em(480)) {
+    // Could be useful at some pointy, when a11y nerds will get onto testing :)
   }
 }
