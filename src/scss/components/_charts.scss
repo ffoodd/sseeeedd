@@ -236,3 +236,45 @@
     // Could be useful at some pointy, when a11y nerds will get onto testing :)
   }
 }
+
+.charts-line {
+  display: grid;
+  grid-template-columns: repeat(var(--x), minmax(min-content, 1fr));
+  grid-template-rows: 1fr 1fr;
+  padding-top: calc(#{$width / 2} - #{$gutter * 2});
+  position: relative;
+  
+  &::before {
+    background: linear-gradient(to top, blue, red);
+    bottom: $gutter * 3;
+    clip-path: polygon(
+      0% calc(100% - (var(--1) * 100% / var(--y))),
+      calc(100% / var(--x) * 1) calc(100% - (var(--2) * 100% / var(--y))),
+      calc(100% / var(--x) * 2) calc(100% - (var(--3) * 100% / var(--y))),
+      calc(100% / var(--x) * 3) calc(100% - (var(--4) * 100% / var(--y))),
+      calc(100% / var(--x) * 4) calc(100% - (var(--5) * 100% / var(--y))),
+      calc(100% / var(--x) * 5) calc(100% - (var(--6) * 100% / var(--y))),
+      calc(100% / var(--x) * 6) calc(100% - (var(--7) * 100% / var(--y))),
+      calc(100% / var(--x) * 7) calc(100% - (var(--8) * 100% / var(--y))),
+      calc(100% / var(--x) * 8) calc(100% - (var(--9) * 100% / var(--y))),
+      calc(100% / var(--x) * 9) calc(100% - (var(--10) * 100% / var(--y))),
+      calc(100% / var(--x) * 10) calc(100% - (var(--11) * 100% / var(--y))),
+      100% calc(100% - (var(--12) * 100% / var(--y))),
+      100% 100%, 
+      0% 100%
+    );
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  
+  dt {
+    grid-row: 1 / 1;
+  }
+  
+  dd {
+    grid-row: 2 / 2;
+  }
+}
+

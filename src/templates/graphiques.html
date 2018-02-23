@@ -174,5 +174,27 @@
         <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
       </figure>
     </div>
-  </div>  
+  </div> 
+  
+  <h2>Autre graphique</h2>
+  
+  {% import 'macros/_bar.html' as charts %}
+  
+  <figure role="group">
+    <dl class="charts-line" style="--y: 30; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+      {{ charts.bar('Janvier', '8', '°C', 'Degré Celsius') }}
+      {{ charts.bar('Février', '6', '°C', 'Degré Celsius') }}
+      {{ charts.bar('Mars', '9', '°C', 'Degré Celsius') }}
+      {{ charts.bar('Avril', '12', '°C', 'Degré Celsius') }}
+      {{ charts.bar('Mai', '15', '°C', 'Degré Celsius') }}
+      {{ charts.bar('Juin', '21', '°C', 'Degré Celsius') }}
+      {{ charts.bar('Juillet', '24', '°C', 'Degré Celsius') }}
+      {{ charts.bar('Août', '25', '°C', 'Degré Celsius') }}
+      {{ charts.bar('Septembre', '22', '°C', 'Degré Celsius') }}
+      {{ charts.bar('Octobre', '19', '°C', 'Degré Celsius') }}
+      {{ charts.bar('Novembre', '14', '°C', 'Degré Celsius') }}
+      {{ charts.bar('Décembre', '9', '°C', 'Degré Celsius') }}
+    </dl>
+    <figcaption>Température mensuelle moyenne en 2017</figcaption> 
+  </figure> 
 {% endblock %}
