@@ -810,7 +810,7 @@ details {
 /* -------------------- */
 [class*="grid"] > *,
 [class*="columns"] > * {
-  display: inline-block;
+  display: block;
   margin-bottom: $gutter;
 }
 
