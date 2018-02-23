@@ -38,6 +38,7 @@
     
   dd abbr[title] {
     border-bottom: 0;
+    font-size: small;
     font-weight: normal;
     text-transform: none;
   }
@@ -119,7 +120,8 @@
     
     + dd {
       color: var(--color, currentColor);
-      padding: 0 $gutter * 1.5 0 $gutter / 2;
+      font-size: small;
+      padding: 0 $gutter 0 $gutter / 4;
       position: relative;
       z-index: 2;
     }
@@ -137,7 +139,7 @@
 @supports (--position: calc(var(--start, 0) * .01turn)) {
   @media screen and (min-width: em(480)) {
     .charts-pie {
-      height: calc(#{$width / 2} - #{$gutter * 2});
+      padding-top: calc(#{$width / 2} - #{$gutter * 2});
       
       &::after {
         content: "";
@@ -156,7 +158,7 @@
         text-align: center;
       }
       
-      dt + dd {        
+      dt + dd {    
         &::before {
           content: " (";
           speak: none;
@@ -209,6 +211,23 @@
           background-image: url($pattern); /* 3 */
           background-blend-mode: soft-light;
         }
+      }
+    }
+    
+    .charts-pie.no-donut::after {
+      display: none;
+    }
+    
+    .charts-pie.polar {
+      dd[role="presentation"] {
+        --scale: calc(var(--value) / 50);
+        transform: rotate(var(--position)) scale(var(--scale));
+      }
+      
+      dd:hover + dd[role="presentation"],
+      dt:hover + dd + dd[role="presentation"] {
+        --scale: calc(var(--value) / 50 * (1 + (50 - var(--value)) / 100));
+        transform: rotate(var(--position)) scale(var(--scale));
       }
     }
   }

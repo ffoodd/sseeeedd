@@ -139,4 +139,39 @@
     </dl>
     <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
   </figure>
+  
+  <h3>Variantes</h3>
+  
+  <div class="grid-2">
+    <div>
+      <h4>Graphique sans <i lang="en">donut</i></h4>
+      
+      <figure role="group">
+        <dl class="charts-pie no-donut">
+          {{ charts.pie('HTML', '2', '%', '', '0', '#444') }}
+          {{ charts.pie('CSS', '2', '%', '', '2', 'firebrick') }}
+          {{ charts.pie('JS', '32', '%', '', '4', 'crimson') }}
+          {{ charts.pie('Json', '1', '%', '', '36', 'mediumblue') }}
+          {{ charts.pie('Images', '44', '%', '', '37', 'darkblue') }}
+          {{ charts.pie('Webfonts', '17', '%', '', '81', 'rebeccapurple') }}
+          {{ charts.pie('Autres', '2', '%', '', '98', 'indigo') }}
+        </dl>
+        <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
+      </figure>
+    </div>
+    <div>
+      <h4>Graphique polaire</h4>
+      
+      <figure role="group">
+        <dl class="charts-pie no-donut polar">
+          {{ charts.pie('HTML', '2', '%', '', '0', 'firebrick') }}
+          {{ charts.pie('JS', '32', '%', '', '2', 'crimson') }}
+          {{ charts.pie('Images', '44', '%', '', '34', 'rebeccapurple') }}
+          {{ charts.pie('Webfonts', '17', '%', '', '78', 'mediumblue') }}
+          {{ charts.pie('Autres', '4', '%', '', '96', 'indigo') }}
+        </dl>
+        <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
+      </figure>
+    </div>
+  </div>  
 {% endblock %}
