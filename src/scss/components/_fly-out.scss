@@ -76,6 +76,11 @@
         position: relative;
         z-index: 1;
         
+        &:hover,
+        &:focus-within {
+          z-index: 2;
+        }
+        
         + li {
           margin-left: $gutter;
         }
