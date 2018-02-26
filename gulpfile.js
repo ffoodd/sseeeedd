@@ -9,6 +9,8 @@ const uglify   = require('gulp-uglify');
 const rename   = require('gulp-rename');
 const imgmin   = require('gulp-imagemin');
 const svg      = require('gulp-inject-svg');
+const symbol   = require('gulp-svgstore');
+const inject   = require('gulp-inject');
 const browser  = require('browser-sync').create();
 const axe      = require('gulp-axe-webdriver');
 const louis    = require('gulp-louis');
@@ -26,8 +28,12 @@ let paths = {
 
 let test = {
     home: paths.dest + '/index.html',
-    styles: paths.dest + '/kitchen-sink.html'
+    styles: paths.dest + '/elements.html'
 };
+
+function fileContents (filePath, file) {
+  return file.contents.toString();
+}
 
 
 /**
@@ -88,6 +94,30 @@ gulp.task('img', function () {
 
 /**
  * @section Build
+ * SVG spriting
+ */
+gulp.task('symbol', function () {
+   var svgs =  gulp
+    .src(paths.dev + '/img/svg/*.svg')
+    .pipe(imgmin(imgmin.svgo({
+  		plugins: [
+  			{removeUnknownsAndDefaults: false}
+  		]
+  	})))
+    .pipe(symbol({ inlineSvg: true }));
+    
+    return gulp
+      .src(paths.dev + '/templates/includes/_symbols.html')
+      .pipe(inject(svgs, { 
+        transform: fileContents
+      }))
+      .pipe(gulp.dest(paths.dev + '/templates/includes/'))
+      .pipe(browser.stream());
+});
+
+
+/**
+ * @section Build
  * Nunjucks templating
  */
 gulp.task('nunjucks', function() {
@@ -111,9 +141,29 @@ gulp.task('clean', function () {
 
 /**
  * @section Build
+ * Move favicon
+ */
+gulp.task('favicon', function () {
+    gulp.src(paths.dev + '/favicon.ico')
+      .pipe(gulp.dest(paths.dest))
+});
+
+
+/**
+ * @section Build
+ * Move fonts
+ */
+gulp.task('fonts', function () {
+    gulp.src(paths.dev + '/fonts/*.{woff,woff2}')
+      .pipe(gulp.dest(paths.dest + '/fonts/'))
+});
+
+
+/**
+ * @section Build
  * Watch Sass and JavaScript files
  */
-gulp.task('build', ['clean', 'sass', 'js', 'img', 'nunjucks']);
+gulp.task('build', ['clean', 'sass', 'js', 'img', 'symbol', 'nunjucks', 'favicon', 'fonts']);
 
 
 /**
@@ -148,7 +198,7 @@ gulp.task('watch', function () {
  * @section Sync
  * BrowserSync
  */
-gulp.task('sync', ['sass', 'js', 'nunjucks', 'img'], function() {
+gulp.task('sync', ['sass', 'js', 'nunjucks', 'img', 'symbol'], function() {
     browser.init({
         server: {
            baseDir: "./docs/"
@@ -158,6 +208,7 @@ gulp.task('sync', ['sass', 'js', 'nunjucks', 'img'], function() {
     gulp.watch(paths.dev + '/scss/**/*.scss', ['sass']);
     gulp.watch(paths.dev + '/js/**/*.js', ['js']);
     gulp.watch(paths.dev + '/img/**/*.*', ['img']);
+    gulp.watch(paths.dev + '/img/svg/*.svg', ['symbol', 'nunjucks']);
     gulp.watch(paths.dev + '/templates/**/*.html', ['nunjucks']);
 });
 
