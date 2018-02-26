@@ -1,0 +1,6 @@
+{% macro line(term='', definition='', unit='', title='') %}
+  <dt>{{ term }}</dt>
+  <dd>
+    <span>{{ definition }}{% if unit != '' %}&nbsp;{% if title != '' %}<abbr title="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}{% endif %}</span>
+  </dd>
+{% endmacro %}

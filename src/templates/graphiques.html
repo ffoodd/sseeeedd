@@ -89,7 +89,7 @@
   <h2>Graphique en tarte</h2>
 
   <p>
-    Le graphique en tarte sert pour <strong>les représentations de proportions</strong>, généralement en pourcentage.
+    Le graphique en tarte sert pour <strong>les représentations de proportions en pourcentage</strong>.
     Il utilise principalement les variables CSS, <code>flexbox</code>, <code>clip-path</code>, <code>transform</code> et un tantinet de 
     <abbr lang="en" title="Scalable Vectors Graphics">SVG</abbr> pour distinguer chaque zone. Oui, je sais rigoler. Comment qu’on s’en sert&nbsp;?
   </p>
@@ -123,7 +123,7 @@
         </li>
       </ol>
     </li>
-    <li>Et finalement un motif est appliqué sur l’arrière-plan, afin de mieux l’associer visuellement avec la légende correspondante.</li>
+    <li>Et finalement <strong>un motif</strong> est appliqué sur l’arrière-plan, afin de mieux l’associer visuellement avec la légende correspondante.</li>
   </ol>
 
   {% import 'macros/_pie.html' as charts %}
@@ -178,22 +178,53 @@
   
   <h2>Autre graphique</h2>
   
-  {% import 'macros/_bar.html' as charts %}
+  <p>
+    Ce graphique repose sur <strong>les variables CSS, les grilles</strong> et <code>clip-path</code>. 
+    Cette dernière propriété est la plus importante.
+    <br>
+    <strong>Note</strong>&nbsp;: le principal écueil de ce graphique est qu’<strong>il nécessite de connaître le nombre de points</strong> par avance.
+  </p>
+  
+  <ol>
+    <li>
+      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi 
+      qu’une légende balisée avec <code>figcaption</code>.
+    </li>
+    <li>
+      Sur la <strong>liste de définitions</strong> <code>dl</code>, toutes les données importantes sont présentes&nbsp;:
+      <ul>
+        <li>
+          <code>--y</code> définit l’échelle des <strong>ordonnées</strong>, utilisée pour indiquer l’échelle en arrière-plan mais aussi placer
+          les points sur la courbe&nbsp;;
+        </li>
+        <li><code>--x</code> correspond à l’échelle des <strong>abscisses</strong>&nbsp;;</li>
+        <li>puis <code>--1</code>, <code>--2</code>… correspondent à chaque point, avec leur valeur.</li>
+      </ul>
+    </li>
+  </ol>
+  
+  <p>
+    Pour chaque point placé sur <code>dl</code>, une position est définieau sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
+    Étant donné que cette fonction accepte deux valeurs en pourcentage pour chaque point, la méthode est relativement simple.
+    Tout le reste n’est que décoration&nbsp;!
+  </p>
+  
+  {% import 'macros/_line.html' as charts %}
   
   <figure role="group">
-    <dl class="charts-line" style="--y: 30; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-      {{ charts.bar('Janvier', '8', '°C', 'Degré Celsius') }}
-      {{ charts.bar('Février', '6', '°C', 'Degré Celsius') }}
-      {{ charts.bar('Mars', '9', '°C', 'Degré Celsius') }}
-      {{ charts.bar('Avril', '12', '°C', 'Degré Celsius') }}
-      {{ charts.bar('Mai', '15', '°C', 'Degré Celsius') }}
-      {{ charts.bar('Juin', '21', '°C', 'Degré Celsius') }}
-      {{ charts.bar('Juillet', '24', '°C', 'Degré Celsius') }}
-      {{ charts.bar('Août', '25', '°C', 'Degré Celsius') }}
-      {{ charts.bar('Septembre', '22', '°C', 'Degré Celsius') }}
-      {{ charts.bar('Octobre', '19', '°C', 'Degré Celsius') }}
-      {{ charts.bar('Novembre', '14', '°C', 'Degré Celsius') }}
-      {{ charts.bar('Décembre', '9', '°C', 'Degré Celsius') }}
+    <dl class="charts-line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+      {{ charts.line('Jan.', '8', '°C', 'Degré Celsius') }}
+      {{ charts.line('Fév.', '6', '°C', 'Degré Celsius') }}
+      {{ charts.line('Mars', '9', '°C', 'Degré Celsius') }}
+      {{ charts.line('Avr.', '12', '°C', 'Degré Celsius') }}
+      {{ charts.line('Mai', '15', '°C', 'Degré Celsius') }}
+      {{ charts.line('Juin', '21', '°C', 'Degré Celsius') }}
+      {{ charts.line('Juil.', '24', '°C', 'Degré Celsius') }}
+      {{ charts.line('Août', '25', '°C', 'Degré Celsius') }}
+      {{ charts.line('Sep.', '22', '°C', 'Degré Celsius') }}
+      {{ charts.line('Oct.', '19', '°C', 'Degré Celsius') }}
+      {{ charts.line('Nov.', '14', '°C', 'Degré Celsius') }}
+      {{ charts.line('Déc.', '9', '°C', 'Degré Celsius') }}
     </dl>
     <figcaption>Température mensuelle moyenne en 2017</figcaption> 
   </figure> 
