@@ -192,6 +192,17 @@ main {
   }
 }
 
+/* Backgrounds */
+@each $color in alert, success, accent, dominant, secondary {
+	.bg-#{$color} {
+		background-color: palette( #{$color} );		
+		color: palette( #{$color}, contrast );
+    
+    a, strong {
+      color: inherit;
+    }
+  }
+}
 
 /* ----------------------------- */
 /* -- Improved sr-only

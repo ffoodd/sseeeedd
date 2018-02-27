@@ -9,13 +9,8 @@
 }
 
 @each $alert in alert, success, accent, dominant, secondary {
-	.bg-#{$alert} {
-		background-color: palette( #{$alert} );		
-		color: palette( #{$alert}, contrast );
-		
-		&[role="alert"] {
-			border: 1px solid palette( #{$alert}, dark );
-			box-shadow: em( 4 ) em( 4 ) 0 0 palette( #{$alert}, dark );
-		}
+	.bg-#{$alert}[role="alert"] {
+		border: 1px solid palette( #{$alert}, dark );
+		box-shadow: em( 4 ) em( 4 ) 0 0 palette( #{$alert}, dark );
 	}
 }
