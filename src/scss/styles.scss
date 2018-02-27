@@ -198,8 +198,15 @@ main {
 		background-color: palette( #{$color} );		
 		color: palette( #{$color}, contrast );
     
-    a, strong {
+    a, 
+    strong {
       color: inherit;
+    }
+    
+    a:hover,
+    a:focus {
+      color: inherit;
+      text-decoration: underline;
     }
   }
 }
