@@ -24,22 +24,30 @@
     margin: 0;
   }
   
-  a {
+  a,
+  button {
     background: palette( default, contrast );
+    border: 0;
+    color: palette( dominant );
     display: block;
+    margin: 0;
     padding: $gutter / 2 $gutter;
     text-decoration: none;
     
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
       background: palette( default, secondary );
+      border: 0;
       color: palette( dominant, dark );
     }       
   }
   
-  > li > a {
+  > * > a,
+  > * > button {
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
       background: none;
     }   
   }
@@ -55,7 +63,8 @@
       min-width: inherit;
     }
     
-    a {
+    a,
+    button {
       padding: $gutter / 2 $gutter;
     }
   }
@@ -69,11 +78,12 @@
       padding: 0;
     }
     
-    a {
+    a,
+    button {
       white-space: nowrap;  
     }
     
-    > li {
+    > * {
       background: palette( default, contrast );
       position: relative;
       z-index: 1;
@@ -83,11 +93,11 @@
         z-index: 2;
       }
       
-      > a:last-child {
+      > button {
         padding-right: $gutter;
       }
         
-      > a:not(:last-child)::after {
+      > button::after {
         content: "↓";
         display: inline-block;
         padding-left: $gutter / 2;
@@ -107,25 +117,28 @@
       will-change: clip;
       z-index: -1;
       
-      a {
+      a,
+      button {
         pointer-events: auto;
       }
-    }
+    }    
     
-    > li > a:hover + ul,
-    > li > a:focus + ul,
-    > li:hover > ul,
-    > li.focus-within > ul {
+    > *:hover > ul,
+    > * > button:hover + ul,
+    > * > button:focus + ul,
+    > * > button:active + ul,
+    > *.focus-within > ul {
       box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
       clip: auto;  /* 1 */
       outline: 1px solid palette( muted, light );
       transition: clip .3s ease-out;
     }
     
-    > li > a:not(:last-child):hover::after,
-    > li > a:not(:last-child):focus::after,
-    > li:hover > a:not(:last-child)::after,
-    > li.focus-within > a:not(:last-child)::after {
+    > * > button:hover::after,
+    > * > button:focus::after,
+    > * > button:active::after,
+    > *:hover > button::after,
+    > *.focus-within > button::after {
       transform: rotateX( .5turn );
       transition: transform .3s ease-out;
     }
@@ -135,7 +148,7 @@
 @supports (clip-path: circle(150% at top right)) {
   @media screen and (min-width: em(480)) {
     .fly-out {      
-      > li:focus-within {
+      > *:focus-within {
         z-index: 2;
       }
       
@@ -146,17 +159,18 @@
         will-change: clip-path;
       }
       
-      > li > a:hover + ul,
-      > li > a:focus + ul,
-      > li:hover > ul,
-      > li:focus-within > ul {
+      > *:hover > ul,
+      > * > button:hover + ul,
+      > * > button:focus + ul,
+      > * > button:active + ul,
+      > *:focus-within > ul {
         box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
         clip-path: circle(150% at top right);
         outline: 1px solid palette( muted, light );
         transition: clip-path .3s ease-out;
       }
 
-      > li:focus-within > a:not(:last-child)::after {
+      > *:focus-within > button::after {
         transform: rotateX( .5turn );
         transition: transform .3s ease-out;
       }
