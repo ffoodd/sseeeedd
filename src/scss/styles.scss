@@ -77,7 +77,6 @@ body {
 /**
  * @note Selection
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::selection
- * 1. Shadow is required for fake underlines
  */
 ::selection {
   background-color: palette( secondary );
@@ -111,7 +110,7 @@ a {
   }
 }
 
-main address {
+address {
   font-size: em( 22 );
   font-style: normal;
   padding: 0 0 0 2em;
@@ -158,6 +157,10 @@ main {
 
 .no-border {
   border: 0 !important;
+}
+
+.no-background {
+  background: none !important;
 }
 
 .no-list {
