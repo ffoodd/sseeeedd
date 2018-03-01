@@ -1,0 +1,15 @@
+/* ==================== */
+/* == Notes
+/* ==================== */
+
+.note {
+  background: palette( default, contrast );
+  border-left: $gutter solid;
+  color: palette( default );
+  margin: $gutter 0;
+  padding: $gutter / 2 $gutter $gutter / 4;
+  
+  * {
+    color: inherit;
+  }
+}
