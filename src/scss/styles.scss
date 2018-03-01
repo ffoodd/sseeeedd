@@ -966,6 +966,7 @@ nav {
   [aria-current] {
     background: palette( accent );
     color: palette( accent, contrast );
+    pointer-events: none;
   }
 }
 
