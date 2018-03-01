@@ -37,9 +37,8 @@
         <li><a href="./groupes.html#messages">Messages</a></li>
         <li><a href="./groupes.html#cards">Cartes</a></li>
         <li><a href="./groupes.html#panels">Panneaux</a></li>
-        <li><a href="./groupes.html#fly-out">Menu déroulant</a></li>
-        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>
-        <li><a href="./groupes.html#navigation">Navigation</a></li>
+        <li><a href="./groupes.html#navigation">Navigation</a></li> 
+        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>  
       </ul>
     </li>
     <li><a href="./graphiques.html">Graphiques</a></li>
@@ -492,20 +491,23 @@
   </p>
   
   <ul>
-    <li><code>clip-path</code> pour le masquage du sous-menu et ses effets d’apparition&nbsp;;</li>
-    <li><code>:focus-within</code> pour maintenir le menu ouvert tant qu’un élément enfant a le <em lang="en">focus</em>.</li>
+    <li><code>clip</code> ou <code>clip-path</code> pour le masquage du sous-menu et ses effets d’apparition&nbsp;;</li>
+    <li>
+      <code>:focus-within</code> pour maintenir le menu ouvert tant qu’un élément enfant a le 
+      <em lang="en">focus</em>&nbsp;: le <em lang="en">polyfill</em> crée par 
+      <a href="https://github.com/aFarkas" target="_blank" rel="noopener noreferrer">Alexandre Zarkas <span class="sr-only">(compte personnel sur Github, nouvel onglet)</span></a> 
+      est utilisé pour les navigateurs le nécessitant.
+    </li>
   </ul>
   
   <p>
-    On pourrait tout à fait bricoler une version dégradée de <code>clip-path</code> en utilisant <code>clip</code>, cependant
-    le support de <code>:focus-within</code> nécessite un <em lang="en">polyfill</em> en JavaScript (qui n’est pas inclus pour le moment).
-    <br>
-    Un délai de 300&nbsp;<abbr title="Milliseconde">ms</abbr> est laissé avant de refermer le menu, pour éviter les fermetures intempestives et non désirées.
+    Un délai de 300&nbsp;<abbr title="Milliseconde">ms</abbr> est laissé avant de refermer le menu, 
+    pour éviter les fermetures intempestives et non désirées.
   </p>
 
   <ul class="fly-out">
     <li>
-      <a href="./">Niveau 1</a>
+      <button type="button">Niveau 1</button>
       <ul>
         <li><a href="./">Niveau 2</a></li>
         <li><a href="./">Niveau 2</a></li>
@@ -514,7 +516,7 @@
     </li>
     <li><a href="./">Niveau 1</a></li>
     <li>
-      <a href="./">Niveau 1</a>
+      <button type="button">Niveau 1</button>
       <ul>
         <li><a href="./">Niveau 2</a></li>
         <li><a href="./">Niveau 2</a></li>
@@ -522,6 +524,14 @@
       </ul>
     </li>
   </ul>
+  
+  <div class="note">
+    <h4>Note technique</h4>
+    <p>
+      L’ouverture du second niveau se déclenchant lors de l’interaction en CSS, il est <strong>fortement recommandé</strong>
+      d’utiliser un <code>button</code> comme déclencheur.
+    </p>
+  </div>
 
   <h3>Pagination</h3>
   

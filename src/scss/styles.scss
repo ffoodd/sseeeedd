@@ -198,8 +198,7 @@ main {
 		background-color: palette( #{$color} );		
 		color: palette( #{$color}, contrast );
     
-    a, 
-    strong {
+    * {
       color: inherit;
     }
     
@@ -301,6 +300,10 @@ caption {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
+  
+  &:first-child {
+    margin-top: 0;
+  }
 }
 
 h1,
@@ -995,6 +998,7 @@ footer[role="contentinfo"] {
 /* == Components
 /* ==================== */
 
+@import "components/notes";
 @import "components/footnotes";
 @import "components/tooltips";
 @import "components/alerts";
