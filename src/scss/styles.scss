@@ -502,11 +502,6 @@ img[alt] {
   position: relative;
   vertical-align: middle;
 
-  &:not([src$=".svg"]) {
-    min-height: em( 64 );
-    height: auto;
-  }
-
   /* 1 */
   &::after {
     background: white;
