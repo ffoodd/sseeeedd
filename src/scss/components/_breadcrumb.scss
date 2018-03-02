@@ -1,0 +1,14 @@
+/* ==================== */
+/* == Breadcrumb
+/* ==================== */
+
+[id="breadcrumb"] {
+  li[aria-current] {
+    padding-left: $gutter;
+  }
+  
+  li:not(:last-child)::after {
+    content: "→";
+    speak: none;
+  }
+}

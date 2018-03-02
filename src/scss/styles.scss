@@ -1,7 +1,8 @@
 @charset "UTF-8";
 
+
 /* ==================== */
-/* == Imports
+/* == Utilities
 /* ==================== */
 
 @import "utilities/mixins";
@@ -9,27 +10,49 @@
 @import "utilities/variables";
 @import "utilities/helpers";
 
+
+/* ==================== */
+/* == Dependencies
+/* ==================== */
+
 @import "dependencies/normalize";
 @import "dependencies/formage-variables";
 @import "dependencies/formage-dependencies";
 @import "dependencies/formage";
 @import "dependencies/prism";
 
-@import "base/general";
+
+/* ==================== */
+/* == Base
+/* ==================== */
+
+@import "base/base";
 @import "base/typography";
 @import "base/contents";
-@import "base/img";
+@import "base/images";
 @import "base/tables";
-@import "base/buttons";
 @import "base/details";
 @import "base/forms";
+@import "base/buttons";
+
+
+/* ==================== */
+/* == Layout
+/* ==================== */
 
 @import "layout/base";
 @import "layout/grid";
-@import "layout/navigations";
 @import "layout/header";
 @import "layout/footer";
+@import "layout/navigation";
 
+
+/* ==================== */
+/* == Components
+/* ==================== */
+
+@import "components/breadcrumb";
+@import "components/pagination";
 @import "components/notes";
 @import "components/footnotes";
 @import "components/tooltips";

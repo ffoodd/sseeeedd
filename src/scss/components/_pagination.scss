@@ -1,24 +1,6 @@
-/* ----------------------------- */
-/* -- Navigation
-/* ----------------------------- */
-
-nav {
-  ul {
-    align-items: center;
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  
-  a {
-    padding: em( 8 ) em( 16 );
-  }
-
-  > ul > li + li {
-    margin-left: $gutter;
-  }
-}
+/* ==================== */
+/* == Pagination
+/* ==================== */
 
 [id="pagination"] {
   li {
@@ -51,16 +33,5 @@ nav {
     background: palette( accent );
     color: palette( accent, contrast );
     pointer-events: none;
-  }
-}
-
-[id="breadcrumb"] {
-  li[aria-current] {
-    padding-left: $gutter;
-  }
-  
-  li:not(:last-child)::after {
-    content: "→";
-    speak: none;
   }
 }
