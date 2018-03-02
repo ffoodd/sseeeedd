@@ -1,0 +1,103 @@
+/* ==================== */
+/* == Typography
+/* ==================== */
+
+p,
+ul,
+ol,
+dl,
+pre,
+td,
+th,
+caption {
+  font-size: em( 16 );
+  line-height: 1.5;
+  margin: em( 24 ) 0;
+}
+
+.hn {
+  color: palette( dominant, dark );
+  font-weight: 700;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
+h1,
+.h1 {
+  color: palette( secondary );
+  font-size: em( 46 );
+  line-height: 1.0434;
+  margin:  em( 48, 46 ) 0 em( 24, 46 );
+  @extend .hn;
+
+  strong {
+    color: palette( dominant );
+  }
+}
+
+h2,
+.h2 {
+  color: palette( accent );
+  font-size: em( 40 );
+  line-height: 1.2;
+  margin: em( 48, 40 ) 0 em( 24, 40 );
+  @extend .hn;
+}
+
+h3,
+.h3 {
+  color: palette( dominant );
+  font-size: em( 36 );
+  line-height: 1.3334;
+  margin: em( 48, 36 ) 0 em( 24, 36 );
+  @extend .hn;
+}
+
+h4,
+.h4 {
+  font-size: em( 30 );
+  line-height: 1.6;
+  margin: em( 48, 30 ) 0 em( 24, 30 );
+  @extend .hn;
+}
+
+h5,
+.h5 {
+  font-size: em( 26 );
+  line-height: 1.8462;
+  margin: em( 48, 26 ) 0 em( 24, 26 );
+  @extend .hn;
+}
+
+h6,
+th,
+.h6 {
+  font-size: em( 22 );
+  line-height: 1.0909;
+  margin: em( 48, 22 ) 0 em( 24, 22 );
+  @extend .hn;
+}
+
+textarea,
+table,
+td,
+th,
+div,
+p {
+  word-wrap: break-word;
+  hyphens: auto;
+}
+
+li {
+  p,
+  ul,
+  ol {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+}

@@ -1,0 +1,133 @@
+/* ==================== */
+/* == Tables
+/* ==================== */
+
+/**
+ * 1. @note Scrollable tables
+ * @author David Bushell
+ * @see http://dbushell.com/2016/03/04/css-only-responsive-tables/
+ * @see http://codepen.io/dbushell/full/8e6a1ee85418f3c5abe839647dbcdec5/
+ */
+table {
+  border-collapse: collapse;
+  caption-side: top;
+  display: inline-block; /* 1 */
+  margin-bottom: em( 24 );
+  max-width: 100%;
+  overflow-x: auto;      /* 1 */
+  vertical-align: top;
+  white-space: nowrap;   /* 1 */
+
+  > caption:first-child {
+    font-style: italic;
+    margin: 0;
+    padding: em( 40 ) em( 16 );
+  }
+}
+
+th,
+td {
+  padding: em( 8 ) em( 12 );
+  text-align: left;
+
+  thead &,
+  tbody & {
+    border-bottom: 1px solid palette( default, secondary );
+  }
+}
+
+td {
+  line-height: 1.25;
+  max-width: 100%;
+}
+
+tbody {
+  border: 1px solid palette( default, secondary );
+
+  tr > * + * {
+    border-left: 1px solid palette( default, secondary );
+  }
+}
+
+/**
+ * @note Scrollable tables's shadows on scroll
+ * @author David Bushell
+ * @see http://dbushell.com/2016/03/04/css-only-responsive-tables/
+ * @see http://codepen.io/dbushell/full/8e6a1ee85418f3c5abe839647dbcdec5/
+ */
+@media only screen and (max-width: em( 768 )) {
+  table {
+    background:
+      radial-gradient(
+          ellipse at left,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0) 75%) 0 center,
+      radial-gradient(
+          ellipse at right,
+          rgba(0, 0, 0, 0.2) 0%,
+          rgba(0, 0, 0, 0) 75%) 100% center;
+    background-attachment: scroll, scroll;
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: em( 10 ) 100%, em( 10 ) 100%;
+    border: 1px solid palette( default, secondary );
+    max-width: 100% !important;        /* 1 */
+    -webkit-overflow-scrolling: touch; /* 1 */
+
+    > caption:first-child {
+      background-image:
+        linear-gradient(
+            to left,
+            #fff 50%,
+            rgba(255, 255, 255, 0) 100%
+        ),
+        linear-gradient(
+            to right,
+            #fff 50%,
+            rgba(255, 255, 255, 0) 100%
+        );
+      background-repeat: no-repeat;
+      background-position: 100% 0, 0 0;
+      background-size: em( 20 ) 100%, em( 20 ) 100%;
+      border-bottom: 1px solid palette( default, secondary );
+    }
+  }
+
+  td:first-child,
+  th:first-child {
+    background-image: linear-gradient( to right, #fff 50%, rgba(255, 255, 255, 0) 100% );
+    background-repeat: no-repeat;
+    background-size: em( 20 ) 100%;
+  }
+
+  td:last-child,
+  th:last-child {
+    background-image: linear-gradient( to left, #fff 50%, rgba(255, 255, 255, 0) 100% );
+    background-repeat: no-repeat;
+    background-position: 100% 0;
+    background-size: em( 20 ) 100%;
+  }
+}
+
+@media only screen and (min-width: em( 768 )) {
+  table {
+    caption-side: bottom;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+
+  th,
+  td {
+    padding: .75em em( 22 );
+  }
+
+  tbody th,
+  tbody td {
+    background: rgba( 255, 255, 255, .5 );
+  }
+
+  tbody tr:nth-child(odd) {
+    background: palette( default, secondary );
+  }
+}

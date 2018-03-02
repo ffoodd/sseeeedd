@@ -1,0 +1,13 @@
+/* ==================== */
+/* == Layout base
+/* ==================== */
+
+body > * {
+  background: transparentize( palette( default, secondary ), .25 );
+  margin: 0 auto;
+  padding: $gutter;
+  
+  @if $full-width == false {
+    max-width: $width;
+  }
+}

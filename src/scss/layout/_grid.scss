@@ -1,0 +1,62 @@
+/* ==================== */
+/* == Grid
+/* ==================== */
+
+/* -------------------- */
+/* -- Columns
+ *
+ * @note Avoiding break inside children isn't so well supported
+ * @see https://caniuse.com/#search=break-inside
+/* -------------------- */
+[class*="grid"] > *,
+[class*="columns"] > * {
+  display: block;
+  margin-bottom: $gutter;
+}
+
+@media screen and (min-width: em(480)) {
+  [class*="grid"],
+  [class*="columns"] {
+    column-gap: $gutter;
+    
+    > * {
+      page-break-inside: avoid; /* 1 */
+      break-inside: avoid;      /* 1 */
+    }
+  }
+
+  @each $number in 2, 3, 4 {
+    .grid-#{$number},
+    .columns-#{$number} {
+      columns: $number;
+    }
+  }
+  
+  /* -------------------- */
+  /* -- Fixed grid
+  /* -------------------- */
+  @supports (display: grid) {
+    [class*="grid"] {
+      display: grid;
+      grid-gap: $gutter;
+      
+      > * {
+        margin: 0;
+      }
+    }
+
+    @each $number in 2, 3, 4 {
+      .grid-#{$number} {
+        grid-template-columns: repeat(#{$number}, [col] 1fr);
+      }
+    }
+
+    .grid-1-2 {
+      grid-template-columns: 1fr 2fr;
+    }
+
+    .grid-1-3 {
+      grid-template-columns: 1fr 3fr;
+    }
+  }
+}

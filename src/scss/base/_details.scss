@@ -1,0 +1,91 @@
+/* ==================== */
+/* == Details
+/* ==================== */
+
+details {
+  border: em( 4 ) solid palette( dominant, dark );
+  padding: 1rem;
+  
+  & + & {
+    border-top-width: 0;
+  }
+  
+  &[open] summary ~ * {
+    animation: slide-down .5s ease-in-out;
+  }
+  
+  summary {
+    background: palette( dominant );
+    color: palette( dominant, contrast );
+    cursor: pointer;
+    margin: -1rem;
+    padding: inherit;
+    transition: background .2s ease-in-out;
+    
+    &:hover,
+    &:focus {
+      background: palette( dominant, dark );
+    }
+  }
+}
+
+@keyframes slide-down {
+  0%, 50% {
+    opacity: 0;
+    transform: translateY(em( 24 ));
+  }
+}
+
+@media screen and (min-width: em(480)) {
+  /**
+   * @note Writing-mode
+   ** 1. For everyone except Firefox
+   ** 2. Firefox is the only one supporting the nicer value
+   * @link https://developer.mozilla.org/fr/docs/Web/CSS/writing-mode#Compatibilité_des_navigateurs
+   */
+   @supports (--foo: bar, baz) {
+    .vertical {
+      display: flex;
+      
+      details {
+        flex: 0;
+        min-width: em( 56 );
+        overflow: hidden;
+        
+        &[open] {
+          flex: 1;
+          
+          summary ~ * {
+            animation: slide-in .5s ease-in-out;
+          }
+        }
+        
+        & + details {
+          border-width: em( 4 ) em( 4 ) em( 4 ) 0;
+        }
+        
+        summary {
+          float: left;
+          min-height: em( 320 );
+          writing-mode: vertical-lr; /* 1 */
+          writing-mode: sideways-lr; /* 2 */
+          
+          ~ * {        
+            padding-left: em( 56 );
+            
+            > *:first-child {
+              margin-top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slide-in {
+  0%, 50% {
+    opacity: 0;
+    transform: translateX(em( -24 ));
+  }
+}

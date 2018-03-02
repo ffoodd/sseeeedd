@@ -1,0 +1,51 @@
+/* ==================== */
+/* == Buttons
+/* ==================== */
+
+/**
+ * 1. High contrast mode helper
+ ** @see http://fr.slideshare.net/TheZero1/webexpo-highcontrast (slide 11)
+ */
+button[type] {
+  background-color: palette( accent );
+  border: 1px solid palette( accent );
+  border-radius: $form-border-radius;
+  color: $form-button-color;
+  font-family: inherit; // Fix typo inputs
+  font-size: 1em; // Fix typo inputs
+  line-height: $form-line-height;
+  margin: .5em 0;
+  padding: $form-input-padding;
+  vertical-align: middle;
+  transition: all 300ms;
+  width: auto;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &[aria-expanded="true"] {
+    border: 1px solid rgba( palette( accent ), .75 );
+    background-color: rgba( palette( accent ), .75 );
+  }
+
+  &:active,
+  &[aria-expanded="true"] {
+    box-shadow:
+      inset 0 2px rgba( 255, 255, 255, .2 ),
+      0 .125em 0 -.1em rgba( 0, 0, 0, .15 );
+    top: em( 2 );
+  }
+
+  &[disabled] {
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: palette( default );
+      color: palette( default, secondary );
+      cursor: not-allowed;
+    }
+  }
+}
