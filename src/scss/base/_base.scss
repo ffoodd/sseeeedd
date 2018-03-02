@@ -42,19 +42,19 @@ body {
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::selection
  */
 ::selection {
-  background-color: palette( secondary );
+  background-color: palette( accent );
   color: palette( default, secondary );
   text-shadow: none;
 }
 
 a {
-  color: palette( accent );
+  color: palette( secondary );
   text-decoration-style: dotted;
   text-decoration-skip-ink: auto;
 
   &:hover,
   &:focus {
-    color: palette( accent, dark );
+    color: palette( secondary, dark );
   }
 
   &:active,

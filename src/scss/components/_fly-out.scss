@@ -26,9 +26,9 @@
   
   a,
   button {
-    background: palette( default, contrast );
+    background: palette( secondary, contrast );
     border: 0;
-    color: palette( dominant );
+    color: palette( secondary );
     display: block;
     margin: 0;
     padding: $gutter / 2 $gutter;
@@ -39,7 +39,7 @@
     &:active {
       background: palette( default, secondary );
       border: 0;
-      color: palette( dominant, dark );
+      color: palette( secondary, dark );
     }       
   }
   
