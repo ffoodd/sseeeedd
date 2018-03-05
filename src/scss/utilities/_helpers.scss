@@ -23,6 +23,23 @@
   padding: 0;
 }
 
+.d-flex {
+  display: flex !important;
+  align-items: center;
+}
+
+.align-top {
+  align-items: flex-start !important;
+}
+
+.fw-400 {
+  font-weight: normal !important;
+}
+
+.fw-700 {
+  font-weight: bold !important;
+}
+
 /* Sizing */
 [class*="--s"] {
   font-size: em( 14 );
@@ -47,6 +64,12 @@
   em,
   strong {
     color: palette( default, secondary );
+  }
+}
+
+@each $color in alert, success, accent, dominant, secondary {
+	.clr-#{$color} {
+		color: palette( #{$color} );
   }
 }
 
