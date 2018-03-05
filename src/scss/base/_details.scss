@@ -26,6 +26,10 @@ details {
     &:focus {
       background: palette( dominant, dark );
     }
+    
+    ~ * {
+      margin-top: rem( 32 );
+    }
   }
 }
 
