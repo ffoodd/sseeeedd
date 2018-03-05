@@ -53,7 +53,7 @@
   
   // A single vertical <details> opened at the same time
   document.addEventListener("DOMContentLoaded", function () {
-    var details = document.querySelectorAll('.vertical details');
+    var details = document.querySelectorAll('.details-group > details');
 
     details.forEach(function (target) {
       target.addEventListener("click", function () {
