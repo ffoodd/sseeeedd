@@ -14,22 +14,48 @@
   border: 0 !important;
 }
 
-.no-background {
-  background: none !important;
-}
-
 .no-list {
   list-style: none !important;
   padding: 0;
 }
 
+.ml-auto {
+  margin-left: auto !important;
+}
+
+.no-background {
+  background: none !important;
+}
+
+.mr-1 {
+  margin-right: $gutter !important;
+}
+
+.p-relative {
+  position: relative !important;
+}
+
 .d-flex {
-  display: flex !important;
   align-items: center;
+  display: flex !important;
+  flex-wrap: wrap;  
+}
+
+.d-block {
+  display: block !important;
 }
 
 .align-top {
   align-items: flex-start !important;
+}
+
+.align-end {
+  align-self: flex-end !important;
+  justify-self: flex-end !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
 }
 
 .fw-400 {
@@ -42,19 +68,19 @@
 
 /* Sizing */
 [class*="--s"] {
-  font-size: em( 14 );
+  font-size: rem( 14 );
   line-height: 1.5;
 }
 
 [class*="--l"] {
-  font-size: em( 20 );
-  line-height: 1.2;
+  font-size: rem( 20 );
+  line-height: 1.05;
 }
 
 [class*="--xl"] {
-  font-size: em( 30 );
-  line-height: 1.6;
-  margin: em( 36, 30 ) 0;
+  font-size: rem( 24 );
+  line-height: 1.75;
+  margin: em( 48, 24 ) 0;
 }
 
 /* Colors */
@@ -67,9 +93,9 @@
   }
 }
 
-@each $color in alert, success, accent, dominant, secondary {
+@each $color in default, alert, success, accent, dominant, secondary {
 	.clr-#{$color} {
-		color: palette( #{$color} );
+		color: palette( #{$color} ) !important;
   }
 }
 
@@ -78,7 +104,7 @@
 	.bg-#{$color} {
 		background-color: palette( #{$color} );		
 		color: palette( #{$color}, contrast );
-    
+
     * {
       color: inherit;
     }
@@ -86,11 +112,15 @@
     a:hover,
     a:focus {
       color: inherit;
-      text-decoration: underline;
+      opacity: .75;
     }
   }
 }
 
+/* Others */
+.rounded {
+  border-radius: 50%;
+}
 
 /* ----------------------------- */
 /* -- Improved sr-only
