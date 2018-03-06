@@ -52,11 +52,35 @@
     }
 
     .grid-1-2 {
-      grid-template-columns: 1fr 2fr;
+      @extend .grid-3;
+      
+      > *:nth-child(even) {
+        grid-column: 1 / span 2;
+      }
     }
 
     .grid-1-3 {
-      grid-template-columns: 1fr 3fr;
+      @extend .grid-4;
+      
+      > *:nth-child(even) {
+        grid-column: 2 / span 3;
+      }
+    }
+    
+    .grid-2-1 {
+      @extend .grid-3;
+      
+      > *:nth-child(odd) {
+        grid-column: 1 / span 2;
+      }
+    }
+
+    .grid-3-1 {
+      @extend .grid-4;
+      
+      > *:nth-child(odd) {
+        grid-column: 1 / span 3;
+      }
     }
   }
 }
