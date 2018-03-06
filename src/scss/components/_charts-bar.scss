@@ -32,6 +32,10 @@
     grid-row-gap: $gutter / 2;
     grid-template-columns: minmax(min-content, em( 200 )) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch; /* 1 */
     
+    * {
+      transition: opacity .2s ease-in-out;
+    }
+    
     dt {
       grid-column: 1 / 1;
     }
@@ -59,6 +63,18 @@
         position: absolute;
       }
     }
+    
+    &:hover {
+      dt, dd {
+        opacity: .75;
+      }
+      
+      dt:hover,
+      dd:hover,
+      dt:hover + dd {
+        opacity: 1;
+      }
+    } 
   }
   
   @media screen and (min-width: em(480)) {
