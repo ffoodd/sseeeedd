@@ -10,7 +10,7 @@
 /* -------------------- */
 [class*="grid"] > *,
 [class*="columns"] > * {
-  display: block;
+  display: inline-block;
   margin-bottom: $gutter * 2;
 }
 
