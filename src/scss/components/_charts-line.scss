@@ -6,80 +6,82 @@
  * @author Miriam Suzanne
 /* ==================== */
 
-.charts-line {
-  display: grid;
-  grid-template-columns: repeat(var(--x), minmax(min-content, 1fr));
-  grid-template-rows: 1fr 1fr;
-  padding-top: calc(#{$width / 2} - #{$gutter * 2});
-  position: relative;
-  
-  &::after,
-  &::before {
-    bottom: $gutter * 4;
-    content: "";
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
-  
-  &::before {
-    background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
-    clip-path: polygon(
-      0% calc(100% - (var(--1) * 100% / var(--y))),
-      calc(100% / var(--x) * 1) calc(100% - (var(--2) * 100% / var(--y))),
-      calc(100% / var(--x) * 2) calc(100% - (var(--3) * 100% / var(--y))),
-      calc(100% / var(--x) * 3) calc(100% - (var(--4) * 100% / var(--y))),
-      calc(100% / var(--x) * 4) calc(100% - (var(--5) * 100% / var(--y))),
-      calc(100% / var(--x) * 5) calc(100% - (var(--6) * 100% / var(--y))),
-      calc(100% / var(--x) * 6) calc(100% - (var(--7) * 100% / var(--y))),
-      calc(100% / var(--x) * 7) calc(100% - (var(--8) * 100% / var(--y))),
-      calc(100% / var(--x) * 8) calc(100% - (var(--9) * 100% / var(--y))),
-      calc(100% / var(--x) * 9) calc(100% - (var(--10) * 100% / var(--y))),
-      calc(100% / var(--x) * 10) calc(100% - (var(--11) * 100% / var(--y))),
-      100% calc(100% - (var(--12) * 100% / var(--y))),
-      100% 100%, 
-      0% 100%
-    );
-    z-index: 2;
-  }
-  
-  &::after {
-    --scale: calc(100% / var(--y));
-    background: repeating-linear-gradient(to bottom, white 0%, white var(--scale), rgba(0, 0, 0, .25) calc(var(--scale) + 2px));
-    z-index: 1;
-  }
-  
-  dt {
-    grid-row: 1 / 1;
-    transition: color .2s linear;
+@media screen and (min-width: em(480)) {
+  .charts-line {
+    display: grid;
+    grid-template-columns: repeat(var(--x), minmax(min-content, 1fr));
+    grid-template-rows: 1fr 1fr;
+    padding-top: calc(#{$width / 2} - #{$gutter * 2});
+    position: relative;
+    
+    &::after,
+    &::before {
+      bottom: $gutter * 4;
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
     
     &::before {
-      background: rgba(255, 255, 255, .25);
-      content: "";
-      height: 100%;
-      position: absolute;
-      transition: background .2s linear;
-      top: 0;
-      width: 1px;
-      z-index: 3;
+      background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
+      clip-path: polygon(
+        0% calc(100% - (var(--1) * 100% / var(--y))),
+        calc(100% / var(--x) * 1) calc(100% - (var(--2) * 100% / var(--y))),
+        calc(100% / var(--x) * 2) calc(100% - (var(--3) * 100% / var(--y))),
+        calc(100% / var(--x) * 3) calc(100% - (var(--4) * 100% / var(--y))),
+        calc(100% / var(--x) * 4) calc(100% - (var(--5) * 100% / var(--y))),
+        calc(100% / var(--x) * 5) calc(100% - (var(--6) * 100% / var(--y))),
+        calc(100% / var(--x) * 6) calc(100% - (var(--7) * 100% / var(--y))),
+        calc(100% / var(--x) * 7) calc(100% - (var(--8) * 100% / var(--y))),
+        calc(100% / var(--x) * 8) calc(100% - (var(--9) * 100% / var(--y))),
+        calc(100% / var(--x) * 9) calc(100% - (var(--10) * 100% / var(--y))),
+        calc(100% / var(--x) * 10) calc(100% - (var(--11) * 100% / var(--y))),
+        100% calc(100% - (var(--12) * 100% / var(--y))),
+        100% 100%, 
+        0% 100%
+      );
+      z-index: 2;
     }
     
-    &:hover::before {
-      background: rgba(255, 255, 255, 1);
+    &::after {
+      --scale: calc(100% / var(--y));
+      background: repeating-linear-gradient(to bottom, white 0%, white var(--scale), rgba(0, 0, 0, .25) calc(var(--scale) + 2px));
+      z-index: 1;
     }
     
-    &:hover,
-    &:hover + dd {
-      color: palette( secondary );
+    dt {
+      grid-row: 1 / 1;
+      transition: color .2s linear;
+      
+      &::before {
+        background: rgba(255, 255, 255, .25);
+        content: "";
+        height: 100%;
+        position: absolute;
+        transition: background .2s linear;
+        top: 0;
+        width: 1px;
+        z-index: 3;
+      }
+      
+      &:hover::before {
+        background: rgba(255, 255, 255, 1);
+      }
+      
+      &:hover,
+      &:hover + dd {
+        color: palette( secondary );
+      }
     }
-  }
-  
-  dd {
-    grid-row: 2 / 2;
-    transition: color .2s linear;
-  }
-  
-  + figcaption {
-    text-align: center;
+    
+    dd {
+      grid-row: 2 / 2;
+      transition: color .2s linear;
+    }
+    
+    + figcaption {
+      text-align: center;
+    }
   }
 }

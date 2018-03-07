@@ -15,30 +15,30 @@
   margin: 0 auto;
   position: relative;
 
-  dt {
+  dt, 
+  dd {
     color: var(--color, currentColor);  
     position: relative;
     z-index: 2; 
-    
-    &::before {
-      background: currentColor;
-      content: "";
-      display: inline-block;
-      height: 1rem;
-      transform: translate3d(-.2rem, .1rem, 0);
-      width: 1rem;
-    }
-    
-    + dd {
-      color: var(--color, currentColor);
-      padding: 0 $gutter 0 $gutter / 4;
-      position: relative;
-      z-index: 2;
-    }
+  }
+  
+  dt + dd {
+    padding: 0 $gutter 0 $gutter / 4;
   }
   
   dd[role="presentation"] {
     display: none;
+  }
+}
+
+@supports (--color: currentColor) {
+  .charts-pie dt::before {
+    background: currentColor;
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    transform: translate3d(-.2rem, .1rem, 0);
+    width: 1rem;
   }
 }
 
@@ -62,18 +62,6 @@
       
       + figcaption {
         text-align: center;
-      }
-      
-      dt + dd {    
-        &::before {
-          content: " (";
-          speak: none;
-        }
-        
-        &::after {
-          content: ")";
-          speak: none;
-        }
       }
       
       dd[role="presentation"] {
