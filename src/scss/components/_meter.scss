@@ -1,0 +1,42 @@
+/* ==================== */
+/* == Meter
+/* ==================== */
+
+meter {
+  --size: calc(var(--scale, 100) * 100%);
+  --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+  --background: linear-gradient(to right, 
+    palette( alert ),
+    palette( alert )    calc(var(--low) * 1%),
+    palette( dominant ) calc(var(--low) * 1%),
+    palette( dominant ) calc(var(--optimum) * 1%),
+    palette( success, dark ) calc(var(--optimum) * 1%),
+    palette( success, dark )
+  ) var(--position) 0% / var(--size) 100%;
+  
+  background: rgba(palette( muted, light ), .25);
+  min-width: rem( 300 );
+  
+  &::after {
+    background: var(--background);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    content: attr(value) "\A" attr(title);
+    font-size: em( 46 );
+    font-weight: bold;
+  }
+  
+  &::-moz-meter-bar {
+    background:var(--background);
+  }
+  
+  &::-webkit-meter-bar {
+    background: rgba(palette( muted, light ), .25);
+  }
+  
+  &::-webkit-meter-optimum-value,
+  &::-webkit-meter-suboptimum-value,
+  &::-webkit-meter-even-less-good-value {
+    background:var(--background);
+  }
+}
