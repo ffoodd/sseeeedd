@@ -32,53 +32,13 @@
     }
   }
   
-  /* 1. Unequal grid for IE11 */
-  .grid-2-1,
-  .grid-1-2,
-  .grid-3-1,
-  .grid-1-3 {
-    columns: 1; /* 1 */
-    display: flex; /* 1 */
-  }
-
-  .grid-1-2 > *:nth-child(odd),
-  .grid-1-3 > *:nth-child(odd),
-  .grid-2-1 > *:nth-child(even),    
-  .grid-3-1 > *:nth-child(even) {
-    flex: 1; /* 1 */
-  }
-  
-  .grid-2-1 > *:nth-child(odd),
-  .grid-1-2 > *:nth-child(even) {
-    flex: 2; /* 1 */
-  }
-  
-  .grid-3-1 > *:nth-child(odd),
-  .grid-1-3 > *:nth-child(even) {
-    flex: 3; /* 1 */
-  }
-  
-  .grid-1-2 > *:nth-child(even),
-  .grid-1-3 > *:nth-child(even) {
-    margin-left: $gutter * 2; /* 1 */
-  }
-  
-  .grid-2-1 > *:nth-child(odd),
-  .grid-3-1 > *:nth-child(odd) {
-    margin-right: $gutter * 2; /* 1 */
-  }
-  
   /* -------------------- */
   /* -- Fixed grid
-  /* -------------------- */
+  /* -------------------- */  
   @supports (display: grid) {
     [class*="grid"] {
       display: grid;
       grid-gap: $gutter * 2;
-      
-      > * {
-        margin: 0; /* 1 */
-      }
     }
 
     @each $number in 2, 3, 4 {
@@ -86,40 +46,22 @@
         grid-template-columns: repeat(#{$number}, [col] 1fr);
       }
     }
-
-    .grid-1-2 {
-      @extend .grid-3;
-      
-      > *:nth-child(even) {
-        grid-column: 2 / span 2;
-        margin-left: 0; /* 1 */
-      }
-    }
-
-    .grid-1-3 {
-      @extend .grid-4;
-      
-      > *:nth-child(even) {
-        grid-column: 2 / span 3;
-        margin-left: 0; /* 1 */
-      }
-    }
     
-    .grid-2-1 {
-      @extend .grid-3;
-      
-      > *:nth-child(odd) {
-        grid-column: 1 / span 2;
-        margin-right: 0; /* 1 */
+    @each $number in 2, 3 {
+      .grid-1-#{$number} {
+        @extend .grid-#{$number + 1};
+        
+        > *:nth-child(even) {
+          grid-column: 2 / span $number;
+        }
       }
-    }
-
-    .grid-3-1 {
-      @extend .grid-4;
       
-      > *:nth-child(odd) {
-        grid-column: 1 / span 3;
-        margin-right: 0; /* 1 */
+      .grid-#{$number}-1 {
+        @extend .grid-#{$number + 1};
+        
+        > *:nth-child(odd) {
+          grid-column: 1 / span $number;
+        }
       }
     }
   }
