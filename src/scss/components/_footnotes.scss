@@ -1,13 +1,13 @@
 /* ==================== */
 /* == Footnotes
+ *
+ * @note
+ * 1. Incrementing counter
 /* ==================== */
-/**
- * Footnotes
- ** 1. Incrementing counter
 
- */
 a[id^="footnote-"][aria-describedby] {
   counter-increment: footnotes; /* 1 */
+  text-decoration: none;
 
   &::after {
     content: "[" counter(footnotes) "]";
@@ -29,12 +29,10 @@ footer[id="footnotes"] {
  */
 @keyframes footnotes {
   from {
-    color: palette( success );
-  } to {
-    color: palette( dominant );
+    color: palette( secondary );
   }
 }
 
 [role="note"]:target {
-  animation: footnotes 1600ms ease-in;
+  animation: footnotes .5s ease-in;
 }
