@@ -65,4 +65,14 @@
       });
     });
   });
+  
+  // Toggle switch component
+  var switches = document.querySelectorAll('[role="switch"]');
+  
+  Array.prototype.forEach.call(switches, function(el, i) {
+    el.addEventListener('click', function() {
+      var checked = this.getAttribute('aria-checked') === 'true' || false;
+      this.setAttribute('aria-checked', !checked);
+    });
+  });
 })(document);

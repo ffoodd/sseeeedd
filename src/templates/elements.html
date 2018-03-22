@@ -137,14 +137,17 @@
       <label for="zone">Zone de texte</label>
       <textarea id="zone" name="zone"></textarea>
     </p>
-    <div class="fieldset">
-      <div>
-        <div class="toggle-field">
-            <input id="toggle" class="toggle-input" type="checkbox">
-            <label for="toggle" class="toggle-label">Spammez-moi, sʼil-vous-plaît</label>
-        </div>
-        <span class="label">Commutateur</span>
-      </div>
+    <div class="fieldset d-flex">
+      <p class="label no-margin">
+        <strong id="label-1">Commutateur</strong><br>
+        <span id="description-1">Pour commuter des trucs.</span>
+      </p>
+      <button type="button" class="ml-auto fw-400 no-border p-relative"
+              role="switch" aria-checked="false"
+              aria-labelledby="label-1" aria-describedby="description-1">
+        <span>Activé</span>
+        <span>Désactivé</span>
+      </button>
     </div>
     <p class="fieldset">
       <label for="fichier">Envoi de fichier</label>

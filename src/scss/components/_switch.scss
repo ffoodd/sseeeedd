@@ -1,0 +1,57 @@
+/* ==================== */
+/* == Switch
+/* ==================== */
+
+button[role="switch"] {
+  background-color: rgba( palette( dominant, light ), .1 );
+  border-radius: rem( 22 ) !important;
+  box-sizing: content-box;
+  color: palette( dominant );
+  height: rem( 44 );
+  line-height: rem( 44 );
+  padding: 0 $gutter * 3;
+  transition: all .3s ease-in;
+  width: rem( 76 );
+  will-change: background-color;
+  
+  &::before {
+    background: palette( default, contrast );
+    border-radius: rem( 22 );
+    content: "";
+    position: absolute;
+    height: rem( 38 );    
+    left: rem( 4 );
+    top: rem( 4 );
+    transform: none;
+    transition: transform .3s ease-in 0s;
+    width: rem( 38 );
+    will-change: transform;
+  }
+  
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: rgba( palette( dominant, light ), .075 );
+    color: palette( dominant, dark );
+    top: 0;
+  }
+  
+  &[aria-checked="true"] {
+    background-color: rgba( palette( success, light ), .3 );
+    color: palette( success, dark );
+    
+    &::before {
+      background: palette( success, dark );
+      transform: translateX(#{rem( 78 ) + $gutter * 3});
+    }
+  }
+  
+  > *:first-child,
+  &[aria-checked="true"] > *:last-child {
+    display: none;
+  }
+  
+  &[aria-checked="true"] > *:first-child {
+    display: block;
+  }
+}
