@@ -4,7 +4,11 @@
 
 /* -------------------- */
 /* -- Columns
- *
+ * 1.
+ * @bugfix avoiding weird gaps in Chrome
+ * @affected Chrome
+ * @see https://github.com/twbs/bootstrap/issues/20925
+ * 2.
  * @note Avoiding break inside children isn't so well supported
  * @see https://caniuse.com/#search=break-inside
 /* -------------------- */
@@ -18,10 +22,12 @@
   [class*="grid"],
   [class*="columns"] {
     column-gap: $gutter * 2;
+    orphans: 1; /* 1 */
+    widows:1;   /* 1 */
     
     > * {
-      page-break-inside: avoid; /* 1 */
-      break-inside: avoid;      /* 1 */
+      page-break-inside: avoid; /* 2 */
+      break-inside: avoid;      /* 2 */
     }
   }
 
