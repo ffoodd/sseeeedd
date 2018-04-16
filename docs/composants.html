@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>sseeeedd</title>
+        <script>
+          document.documentElement.classList.remove('no-js');
+          document.documentElement.classList.add('js');
+        </script>
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+        <link rel="stylesheet" href="css/styles.min.css" media="screen">
+        <link rel="stylesheet" href="css/print.min.css" media="print">
+    </head>
+    <body itemscope="" itemtype="http://schema.org/WebPage">
+      <div class="sr-only">
+  <!-- inject:svg --><svg xmlns="http://www.w3.org/2000/svg"><symbol id="close" viewBox="0 0 16 16"><title>close</title><path d="M10.19 7.95l5.237 5.237a1.481 1.481 0 0 1-2.095 2.094l-5.236-5.236-5.237 5.236a1.481 1.481 0 0 1-2.094-2.094L6 7.95.765 2.714A1.481 1.481 0 0 1 2.859.619l5.237 5.236L13.332.62a1.481 1.481 0 0 1 2.095 2.095L10.19 7.95z" fill="currentColor" fill-opacity="1" fill-rule="evenodd"/></symbol></svg><!-- endinject -->
+</div>
+      
+      <header role="banner">
+        
+          <div>
+            <a href="#nav" class="sr-only sr-only-focusable">Aller à la navigation</a>
+            <a href="#main" class="sr-only sr-only-focusable">Aller au contenu</a>
+          </div>
+        
+
+        <nav role="navigation" id="nav" aria-label="Navigation principale">
+          
+  <ul class="fly-out">
+    <li><a href="./index.html">Accueil</a></li>
+    <li><a href="./elements.html">Éléments</a></li>
+    <li>
+      <button type="button">Groupes</button>
+      <ul>
+        <li><a href="./groupes.html#messages">Messages</a></li>
+        <li><a href="./groupes.html#cards">Cartes</a></li>
+        <li><a href="./groupes.html#panels">Panneaux</a></li>
+        <li><a href="./groupes.html#navigation">Navigation</a></li>
+        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>  
+      </ul>
+    </li>
+    <li><a aria-current="page">Composants</a></li>
+    <li><a href="./graphiques.html">Graphiques</a></li>
+  </ul>
+
+        </nav>
+      </header>
+
+      <main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">
+        
+  <h1>Composants</h1>
+  
+  <h2>Fenêtre de dialogue</h2>
+  
+  <p>Les composants riches n’ont pas besoin d’être ré-inventés&nbsp;!</p>
+  <p>Pour les fenêtres de dialogues, nous utilisons <a href="https://github.com/edenspiekermann/a11y-dialog" hreflang="en" lang="en">a11y-dialog</a>.
+  
+  <button type="button" data-a11y-dialog-show="dialog">Afficher la fenêtre de dialogue</button>
+
+      </p></main>
+
+      
+  <script src="js/script.min.js" async></script>
+  <script src="js/a11y-dialog.min.js"></script>
+  <script src="js/prism.min.js"></script>
+
+      
+      
+  <div class="dialog" aria-hidden="true" id="dialog">
+  <div tabindex="-1" class="dialog-overlay" data-a11y-dialog-hide=""></div>
+  <div class="dialog-content" aria-labelledby="dialog-title" role="dialog">
+    <div role="document">
+      <div class="d-flex">        
+        <h1 id="dialog-title" class="h4 no-margin">Fenêtre de dialogue</h1>
+        <button data-a11y-dialog-hide="" class="dialog-close no-background no-padding no-border clr-dominant ml-auto" aria-label="Fermer cette fenêtre modale">
+          <svg width="16" height="16" aria-hidden="true" focusable="false">
+            <use xlink:href="#close"/>
+          </svg>
+        </button>
+      </div>
+      
+      <p>N’êtes-vous pas d’accord&nbsp;?</p>
+      <button type="button" data-a11y-dialog-hide="">Oh, si&nbsp;!</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    document.addEventListener('DOMContentLoaded', function () {
+      var dialogEl   = document.getElementById('dialog');
+      var containers = document.querySelectorAll('[role="banner"], [role="banner"] + div, [role="main"], [role="contentinfo"]');
+      var dialog = new window.A11yDialog(dialogEl, containers);
+    });
+  }());
+</script>
+
+    </body>
+</html>

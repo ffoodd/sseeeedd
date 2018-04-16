@@ -39,6 +39,7 @@
                   <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>     
                 </ul>
               </li>
+              <li><a href="./composants.html">Composants</a></li>
               <li><a href="./graphiques.html">Graphiques</a></li>
             </ul>
           {% endblock %}
@@ -76,13 +77,12 @@
         {% endblock %}
       </main>
 
-      <aside role="complementary">
-      </aside>
-
-      <footer role="contentinfo">
-      </footer>
-
-      <script src="js/script.min.js" async></script>
-      <script src="js/prism.min.js"></script>
+      {% block scripts %}
+        <script src="js/script.min.js" async></script>
+        <script src="js/prism.min.js"></script>
+      {% endblock %}
+      
+      {% block modal %}
+      {% endblock %}
     </body>
 </html>

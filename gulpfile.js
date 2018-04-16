@@ -32,7 +32,7 @@ let test = {
 };
 
 let dependencies = [
-  
+  paths.node + 'a11y-dialog/a11y-dialog.min.js'
 ]
 
 function fileContents (filePath, file) {
