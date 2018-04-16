@@ -110,3 +110,12 @@ ol code {
   padding: .1em;
   white-space: nowrap;
 }
+
+dl,
+dd {
+  margin: 0;
+}
+
+dd + dt {
+  margin: $gutter 0 0;
+}
