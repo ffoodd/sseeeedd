@@ -31,6 +31,10 @@ let test = {
     styles: paths.dest + '/elements.html'
 };
 
+let dependencies = [
+  
+]
+
 function fileContents (filePath, file) {
   return file.contents.toString();
 }
@@ -62,6 +66,16 @@ gulp.task('sass', function () {
       .pipe(maps.write())
       .pipe(gulp.dest(paths.dest + '/css'))
       .pipe(browser.stream());
+});
+
+
+/**
+ * @section Build
+ * Move JavaScript dependencies
+ */
+gulp.task('js-deps', function() {
+  return gulp.src(dependencies)
+    .pipe(gulp.dest(paths.dest + '/js'));
 });
 
 
