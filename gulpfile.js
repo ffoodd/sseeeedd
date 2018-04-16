@@ -87,7 +87,10 @@ gulp.task('js-deps', function() {
 gulp.task('js', function () {
     return gulp.src(paths.dev + '/js/*.js')
       .pipe(newer(paths.dest + '/js'))
-      .pipe(uglify())
+      .pipe(uglify().on('error', function(err) {
+        console.error(`${err.cause.message} in ${err.cause.filename} at line ${err.cause.line}`);
+        this.emit('end');
+      }))
       .pipe(rename({suffix: '.min'}))
       .pipe(gulp.dest(paths.dest + '/js'))
       .pipe(browser.stream());
