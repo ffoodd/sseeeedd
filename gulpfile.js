@@ -32,7 +32,8 @@ let test = {
 };
 
 let dependencies = [
-  paths.node + 'a11y-dialog/a11y-dialog.min.js'
+  paths.node + 'a11y-dialog/a11y-dialog.min.js',
+  paths.node + 'van11y-accessible-tab-panel-aria/dist/van11y-accessible-tab-panel-aria.min.js'
 ]
 
 function fileContents (filePath, file) {

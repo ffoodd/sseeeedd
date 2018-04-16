@@ -19,8 +19,18 @@
   padding: 0;
 }
 
+.list-inline {
+  > li {
+    display: inline;
+  }
+}
+
 .ml-auto {
   margin-left: auto !important;
+}
+
+.mt-auto {
+  margin-top: auto !important;
 }
 
 .no-background {
@@ -29,6 +39,18 @@
 
 .mr-1 {
   margin-right: $gutter !important;
+}
+
+.mt-0 {
+  margin-top: 0 !important;
+}
+
+.ml-1 {
+    margin-left: $gutter !important;
+}
+
+.mb-1 {
+    margin-bottom: $gutter !important;
 }
 
 .p-relative {
@@ -64,6 +86,10 @@
 
 .fw-700 {
   font-weight: bold !important;
+}
+
+.f-left {
+  float: left;
 }
 
 /* Sizing */

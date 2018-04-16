@@ -61,13 +61,44 @@
   <p>
     <button type="button" data-a11y-dialog-show="dialog">Afficher la fenêtre de dialogue</button>
   </p>
+  <h2>Boîtes à onglets</h2>
 
-      </main>
+  <p>Les boîtes à onglets reposent sur <a href="https://van11y.net/accessible-tab-panel/" hreflang="en">Van11y</a> par l’excellent <a href="https://www.nicolas-hoffmann.net/">Nicolas Hoffmann</a>.
+
+  <div class="js-tabs">
+    <ul class="js-tablist list-inline no-padding" data-existing-hx="h3">
+       <li class="js-tablist__item">
+         <a href="#tab-1" class="js-tablist__link">Onglet №1</a>
+       </li>
+       <li class="js-tablist__item">
+         <a href="#tab-2" class="js-tablist__link">Onglet №2</a>
+       </li>
+    </ul>
+    <div id="tab-1" class="js-tabcontent">
+      <h3>Un loquace cicérone</h3>
+      <p>
+        Ces cars sont traînés par une locomotive électrique, avec accumulateurs d’une capacité de deux cents ampères-ohms,
+        et leur vitesse atteint de quinze à dix-huit kilomètres.
+      </p>
+    </div>
+    <div id="tab-2" class="js-tabcontent">
+      <h3>Le Quatuor Concertant déconcerté</h3>
+      <ol>
+        <li>Aux îles de Cook</li>
+        <li>D’îles en îles</li>
+        <li>Concert à la cour</li>
+        <li>Ultimatum britannique</li>
+      </ol>
+    </div>
+  </div>
+
+      </p></main>
 
       
-  <script src="js/script.min.js" async></script>
-  <script src="js/a11y-dialog.min.js"></script>
-  <script src="js/prism.min.js"></script>
+<script src="js/script.min.js" async></script>
+<script src="js/a11y-dialog.min.js"></script>
+<script src="js/van11y-accessible-tab-panel-aria.min.js"></script>
+<script src="js/prism.min.js"></script>
 
       
       
