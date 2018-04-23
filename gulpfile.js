@@ -285,6 +285,13 @@ gulp.task('css', function() {
   })
 });
 
+
+/**
+ * @section Test
+ * Validator meta task
+ */
+gulp.task('validator', ['html', 'css']);
+
  
 /**
  * @section Test
@@ -342,7 +349,7 @@ gulp.task('louis', function() {
  * @section Test
  * All
  */
-gulp.task('test', ['html', 'louis', 'axe']);
+gulp.task('test', ['validator', 'louis', 'axe']);
 
 
 /**
