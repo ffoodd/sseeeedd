@@ -53,6 +53,7 @@
       
       dt {
         grid-row: 1 / 1;
+        margin-top: $gutter;
         transition: color .2s linear;
         
         &::before {
