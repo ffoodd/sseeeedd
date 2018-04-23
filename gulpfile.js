@@ -23,7 +23,8 @@ const newer    = require('gulp-newer');
 let paths = {
     dev: './src/',
     dest: './docs/',
-    node: './node_modules/'
+    node: './node_modules/',
+    live: 'http://localhost:3000/'
 };
 
 let test = {
@@ -260,8 +261,28 @@ gulp.task('axe', function(done) {
  */
 gulp.task('louis', function() {
   louis({
-    url: test.styles,
-    outputFileName: 'reports/louis.json'
+    url: paths.live + '/groupes.html',
+    outputFileName: 'reports/louis.json',
+    performanceBudget: {
+      httpTrafficCompleted: 2000,
+      domInteractive: 1000,
+      domContentLoaded: 1500,
+      timeToFirstByte: 500,
+      DOMelementMaxDepth: 8,
+      requests: 5,
+      webfontSize: 300,
+      webfontCount: 5,
+      notFound: 0,
+      consoleMessages: 0,
+      iframesCount: 0,
+      windowPrompts: 0,
+      windowConfirms: 0,
+      windowAlerts: 0,
+      consoleMessages: 0,
+      imagesWithoutDimensions: 0,
+      DOMidDuplicated: 0,
+      nodesWithInlineCSS: 0,
+    }
   });
 });
 
