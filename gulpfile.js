@@ -1,5 +1,5 @@
 'use strict';
-
+const fs       = require('fs');
 const gulp     = require('gulp');
 const sass     = require('gulp-sass');
 const maps     = require('gulp-sourcemaps');
@@ -12,13 +12,16 @@ const svg      = require('gulp-inject-svg');
 const symbol   = require('gulp-svgstore');
 const inject   = require('gulp-inject');
 const browser  = require('browser-sync').create();
-const axe      = require('gulp-axe-webdriver');
-const louis    = require('gulp-louis');
 const nunjucks = require('gulp-nunjucks');
 const zip      = require('gulp-zip');
 const del      = require('del');
 const critical = require('critical').stream;
 const newer    = require('gulp-newer');
+// Tests 
+const html     = require('html-validator');
+const chromedriver = require('chromedriver');
+const axe      = require('gulp-axe-webdriver');
+const louis    = require('gulp-louis');
 
 let paths = {
     dev: './src/',
@@ -32,7 +35,8 @@ let test = {
     elms: paths.dest + '/elements.html',
     grps: paths.dest + '/groupes.html',
     cmps: paths.dest + '/composants.html',
-    gphs: paths.dest + '/graphiques.html'
+    gphs: paths.dest + '/graphiques.html',
+    live: paths.live + 'groupes.html'
 };
 
 let dependencies = [
@@ -237,21 +241,41 @@ gulp.task('sync', ['sass', 'js', 'nunjucks', 'img', 'symbol'], function() {
 
 /**
  * @section Test
+ * HTML Validation
+ */
+gulp.task('html', function() {
+  fs.readFile(test.grps, 'utf8', (error, response) => {
+  if (error) {
+    throw error;
+  }
+
+  html({data: response, format: 'text'})
+    .then((data) => {
+      console.log(data)
+    })
+    .catch((error) => {
+      console.error(error)
+    })
+  })
+});
+ 
+/**
+ * @section Test
  * aXe
  */
 gulp.task('axe', function(done) {
-    var options = {
-        saveOutputIn: 'axe.json',
-        folderOutputReport: 'reports',
-        urls: [
-          test.home,
-          test.elms,
-          test.grps,
-          test.cmps,
-          test.gphs
-        ]
-    };
-    return axe(options, done);
+  var options = {
+    saveOutputIn: 'axe.json',
+    folderOutputReport: 'reports',
+    urls: [
+      test.home,
+      test.elms,
+      test.grps,
+      test.cmps,
+      test.gphs
+    ]
+  };
+  return axe(options, done);
 });
 
 
@@ -261,7 +285,7 @@ gulp.task('axe', function(done) {
  */
 gulp.task('louis', function() {
   louis({
-    url: paths.live + '/groupes.html',
+    url: test.live,
     outputFileName: 'reports/louis.json',
     performanceBudget: {
       httpTrafficCompleted: 2000,
@@ -291,7 +315,7 @@ gulp.task('louis', function() {
  * @section Test
  * All
  */
-gulp.task('test', ['louis', 'axe']);
+gulp.task('test', ['html', 'louis', 'axe']);
 
 
 /**
