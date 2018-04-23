@@ -28,7 +28,10 @@ let paths = {
 
 let test = {
     home: paths.dest + '/index.html',
-    styles: paths.dest + '/elements.html'
+    elms: paths.dest + '/elements.html',
+    grps: paths.dest + '/groupes.html',
+    cmps: paths.dest + '/composants.html',
+    gphs: paths.dest + '/graphiques.html'
 };
 
 let dependencies = [
@@ -240,8 +243,11 @@ gulp.task('axe', function(done) {
         saveOutputIn: 'axe.json',
         folderOutputReport: 'reports',
         urls: [
-            test.home,
-            test.styles
+          test.home,
+          test.elms,
+          test.grps,
+          test.cmps,
+          test.gphs
         ]
     };
     return axe(options, done);
