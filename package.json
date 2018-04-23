@@ -40,7 +40,8 @@
     "gulp-svgstore": "^6.1.1",
     "gulp-uglify": "^3.0.0",
     "gulp-uncss": "^1.0.6",
-    "gulp-zip": "^4.1.0"
+    "gulp-zip": "^4.1.0",
+    "w3c-css": "^2.0.1"
   },
   "dependencies": {
     "a11y-dialog": "^5.0.0",

@@ -19,6 +19,7 @@ const critical = require('critical').stream;
 const newer    = require('gulp-newer');
 // Tests 
 const html     = require('html-validator');
+const css      = require('w3c-css');
 const chromedriver = require('chromedriver');
 const axe      = require('gulp-axe-webdriver');
 const louis    = require('gulp-louis');
@@ -36,6 +37,7 @@ let test = {
     grps: paths.dest + '/groupes.html',
     cmps: paths.dest + '/composants.html',
     gphs: paths.dest + '/graphiques.html',
+    css: paths.dest + '/css/styles.min.css',
     live: paths.live + 'groupes.html'
 };
 
@@ -258,6 +260,31 @@ gulp.task('html', function() {
     })
   })
 });
+ 
+ 
+/**
+ * @section Test
+ * CSS Validation
+ */
+gulp.task('css', function() {
+  fs.readFile(test.css, 'utf8', (error, response) => {
+    if (error) {
+      throw error;
+    }
+
+    css.validate({text: response}, function(error, data) {
+      if(error) {
+        console.error(error);
+      } else {
+        var errors = data.errors;        
+        for (let message in errors) {
+          console.log(`${errors[message].message} at line ${errors[message].line}`)
+        }
+      }
+    })
+  })
+});
+
  
 /**
  * @section Test
