@@ -20,7 +20,6 @@ const newer    = require('gulp-newer');
 // Tests 
 const html     = require('html-validator');
 const css      = require('w3c-css');
-const chromedriver = require('chromedriver');
 const axe      = require('gulp-axe-webdriver');
 const louis    = require('gulp-louis');
 
