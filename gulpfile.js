@@ -20,6 +20,7 @@ const newer    = require('gulp-newer');
 // Tests 
 const html     = require('html-validator');
 const css      = require('w3c-css');
+const doiuse   = require('doiuse/stream');
 const axe      = require('gulp-axe-webdriver');
 const louis    = require('gulp-louis');
 
@@ -44,7 +45,9 @@ let test = {
 let dependencies = [
   paths.node + 'a11y-dialog/a11y-dialog.min.js',
   paths.node + 'van11y-accessible-tab-panel-aria/dist/van11y-accessible-tab-panel-aria.min.js'
-]
+];
+
+let browsers = ['last 1 versions', 'not dead'];
 
 function fileContents (filePath, file) {
   return file.contents.toString();
@@ -70,9 +73,7 @@ gulp.task('sass', function () {
       .pipe(newer(paths.dest + '/css'))
       .pipe(maps.init())
       .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-      .pipe(prefix({
-          browsers: ['last 1 versions']
-      }))
+      .pipe(prefix({browsers}))
       .pipe(rename({suffix: '.min'}))
       .pipe(maps.write())
       .pipe(gulp.dest(paths.dest + '/css'))
@@ -283,6 +284,19 @@ gulp.task('css', function() {
       }
     })
   })
+});
+
+
+/**
+ * @section Test
+ * Compatibility
+ */
+gulp.task('compat', function() {
+  fs.createReadStream(test.css)
+    .pipe(doiuse(browsers))
+    .on('data', function(usageInfo) {
+       console.log(`${usageInfo.featureData.title} not supported by ${usageInfo.featureData.missing}`)
+     })
 });
 
 

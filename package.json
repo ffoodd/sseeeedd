@@ -25,6 +25,7 @@
     "browser-sync": "^2.23.7",
     "critical": "^1.2.2",
     "del": "^3.0.0",
+    "doiuse": "^4.1.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-axe-webdriver": "^2.1.0",
