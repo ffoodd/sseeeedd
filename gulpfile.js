@@ -31,6 +31,7 @@ let paths = {
 };
 
 let test = {
+    all: paths.dest + '/*.html',
     home: paths.dest + '/index.html',
     elms: paths.dest + '/elements.html',
     grps: paths.dest + '/groupes.html',
@@ -300,13 +301,7 @@ gulp.task('axe', function(done) {
   var options = {
     saveOutputIn: 'axe.json',
     folderOutputReport: 'reports',
-    urls: [
-      test.home,
-      test.elms,
-      test.grps,
-      test.cmps,
-      test.gphs
-    ]
+    urls: [test.all]
   };
   return axe(options, done);
 });
