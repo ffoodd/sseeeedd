@@ -32,13 +32,13 @@ let paths = {
 
 let test = {
     all: paths.dest + '/*.html',
+    css: paths.dest + '/css/styles.min.css',
+    live: paths.live + 'groupes.html',
     home: paths.dest + '/index.html',
     elms: paths.dest + '/elements.html',
     grps: paths.dest + '/groupes.html',
     cmps: paths.dest + '/composants.html',
-    gphs: paths.dest + '/graphiques.html',
-    css: paths.dest + '/css/styles.min.css',
-    live: paths.live + 'groupes.html'
+    gphs: paths.dest + '/graphiques.html'    
 };
 
 let dependencies = [
