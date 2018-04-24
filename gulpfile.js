@@ -357,7 +357,7 @@ gulp.task('louis', function() {
  * @section Test
  * All
  */
-gulp.task('test', ['validator', 'louis', 'axe']);
+gulp.task('test', ['validator', 'louis', 'axe', 'compat']);
 
 
 /**
