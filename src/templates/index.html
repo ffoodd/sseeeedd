@@ -13,10 +13,9 @@
         <link rel="stylesheet" href="css/styles.min.css" media="screen">
         <link rel="stylesheet" href="css/print.min.css" media="print">
     </head>
-    <body itemscope itemtype="http://schema.org/WebPage">
-      {% include 'includes/_symbols.html' %}
-      
+    <body itemscope itemtype="http://schema.org/WebPage">     
       <header role="banner">
+        {% include 'includes/_symbols.html' %}
         {% block skiplinks %}
           <div>
             <a href="#nav" class="sr-only sr-only-focusable">Aller à la navigation</a>

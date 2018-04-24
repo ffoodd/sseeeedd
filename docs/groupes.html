@@ -13,12 +13,11 @@
         <link rel="stylesheet" href="css/styles.min.css" media="screen">
         <link rel="stylesheet" href="css/print.min.css" media="print">
     </head>
-    <body itemscope="" itemtype="http://schema.org/WebPage">
-      <div class="sr-only">
-  <!-- inject:svg --><svg xmlns="http://www.w3.org/2000/svg"><symbol id="close" viewBox="0 0 16 16"><title>close</title><path d="M10.19 7.95l5.237 5.237a1.481 1.481 0 0 1-2.095 2.094l-5.236-5.236-5.237 5.236a1.481 1.481 0 0 1-2.094-2.094L6 7.95.765 2.714A1.481 1.481 0 0 1 2.859.619l5.237 5.236L13.332.62a1.481 1.481 0 0 1 2.095 2.095L10.19 7.95z" fill="currentColor" fill-opacity="1" fill-rule="evenodd"/></symbol></svg><!-- endinject -->
-</div>
-      
+    <body itemscope="" itemtype="http://schema.org/WebPage">     
       <header role="banner">
+        <div class="sr-only" role="presentation">
+  <!-- inject:svg --><svg xmlns="http://www.w3.org/2000/svg"><symbol id="close"><path d="M10.19 7.95l5.237 5.237a1.481 1.481 0 0 1-2.095 2.094l-5.236-5.236-5.237 5.236a1.481 1.481 0 0 1-2.094-2.094L6 7.95.765 2.714A1.481 1.481 0 0 1 2.859.619l5.237 5.236L13.332.62a1.481 1.481 0 0 1 2.095 2.095L10.19 7.95z" fill="currentColor" fill-opacity="1" fill-rule="evenodd"/></symbol></svg><!-- endinject -->
+</div>
         
           <div>
             <a href="#nav" class="sr-only sr-only-focusable">Aller à la navigation</a>
@@ -546,14 +545,14 @@
   
   <nav role="navigation" aria-label="Pagination">
     <ul id="pagination">
-      <li><a href="#!" tabindex="-1">Précédent</a></li>
+      <li><a tabindex="-1">Précédent</a></li>
       <li><a href="/" aria-current="page">
         <span class="sr-only">Page </span>1
         <span class="sr-only">(page actuelle)</span>
       </a></li>
-      <li><a href="#!"><span class="sr-only">Page </span>2</a></li>
-      <li><a href="#!"><span class="sr-only">Page </span>3</a></li>
-      <li><a href="#!">Suivant</a></li>
+      <li><a href="./?page=2"><span class="sr-only">Page </span>2</a></li>
+      <li><a href="./?page=3"><span class="sr-only">Page </span>3</a></li>
+      <li><a href="./?page=2">Suivant</a></li>
     </ul>
   </nav>
 

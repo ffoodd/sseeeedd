@@ -13,12 +13,11 @@
         <link rel="stylesheet" href="css/styles.min.css" media="screen">
         <link rel="stylesheet" href="css/print.min.css" media="print">
     </head>
-    <body itemscope="" itemtype="http://schema.org/WebPage">
-      <div class="sr-only">
-  <!-- inject:svg --><svg xmlns="http://www.w3.org/2000/svg"><symbol id="close" viewBox="0 0 16 16"><title>close</title><path d="M10.19 7.95l5.237 5.237a1.481 1.481 0 0 1-2.095 2.094l-5.236-5.236-5.237 5.236a1.481 1.481 0 0 1-2.094-2.094L6 7.95.765 2.714A1.481 1.481 0 0 1 2.859.619l5.237 5.236L13.332.62a1.481 1.481 0 0 1 2.095 2.095L10.19 7.95z" fill="currentColor" fill-opacity="1" fill-rule="evenodd"/></symbol></svg><!-- endinject -->
-</div>
-      
+    <body itemscope="" itemtype="http://schema.org/WebPage">     
       <header role="banner">
+        <div class="sr-only" role="presentation">
+  <!-- inject:svg --><svg xmlns="http://www.w3.org/2000/svg"><symbol id="close"><path d="M10.19 7.95l5.237 5.237a1.481 1.481 0 0 1-2.095 2.094l-5.236-5.236-5.237 5.236a1.481 1.481 0 0 1-2.094-2.094L6 7.95.765 2.714A1.481 1.481 0 0 1 2.859.619l5.237 5.236L13.332.62a1.481 1.481 0 0 1 2.095 2.095L10.19 7.95z" fill="currentColor" fill-opacity="1" fill-rule="evenodd"/></symbol></svg><!-- endinject -->
+</div>
         
           <div>
             <a href="#nav" class="sr-only sr-only-focusable">Aller à la navigation</a>
@@ -190,23 +189,23 @@
       <input type="text" id="texte-3" name="texte-3" disabled>
     </p>
     <p class="fieldset">
-      <label for="texte-2">
+      <label for="texte-4">
         Champ avec description
         <span class="label-msg-help">Description du champ</span>
       </label>
-      <input type="text" id="texte-2" name="texte-2">
+      <input type="text" id="texte-4" name="texte-4">
 
     </p>
     <p class="fieldset">
-      <label for="texte-3">Champ obligatoire</label>
-      <input type="text" id="texte-3" name="texte-3" required aria-required="true">
+      <label for="texte-5">Champ obligatoire</label>
+      <input type="text" id="texte-5" name="texte-5" required aria-required="true">
     </p>
     <p class="fieldset">
-      <label for="texte-4">
+      <label for="texte-6">
         Champ erroné
         <span class="label-msg-error">Message dʼerreur</span>
       </label>
-      <input type="text" id="texte-4" name="texte-4" required aria-required="true" aria-invalid="true">
+      <input type="text" id="texte-6" name="texte-6" required aria-required="true" aria-invalid="true">
     </p>
     <p class="fieldset">
       <input type="reset">

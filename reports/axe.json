@@ -681,6 +681,24 @@
                 "relatedNodes": []
               }
             ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              ".sr-only[role=\"presentation\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-attr",
+                "impact": "critical",
+                "message": "All required ARIA attributes are present",
+                "relatedNodes": []
+              }
+            ],
             "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
@@ -717,11 +735,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__list59v60rm11m\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listrsscu5glab\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__list59v60rm11m"
+              "#tabs__listrsscu5glab"
             ]
           },
           {
@@ -735,11 +753,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item59v60rm11m-1"
+              "#tabs__itemrsscu5glab-1"
             ]
           },
           {
@@ -771,11 +789,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item59v60rm11m-2"
+              "#tabs__itemrsscu5glab-2"
             ]
           },
           {
@@ -858,6 +876,24 @@
                 "relatedNodes": []
               }
             ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              ".sr-only[role=\"presentation\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-children",
+                "impact": "critical",
+                "message": "Required ARIA children are present",
+                "relatedNodes": []
+              }
+            ],
             "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
@@ -894,11 +930,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__list59v60rm11m\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listrsscu5glab\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__list59v60rm11m"
+              "#tabs__listrsscu5glab"
             ]
           },
           {
@@ -912,11 +948,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item59v60rm11m-1"
+              "#tabs__itemrsscu5glab-1"
             ]
           },
           {
@@ -948,11 +984,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item59v60rm11m-2"
+              "#tabs__itemrsscu5glab-2"
             ]
           },
           {
@@ -1034,6 +1070,24 @@
                 "relatedNodes": []
               }
             ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              ".sr-only[role=\"presentation\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-parent",
+                "impact": "critical",
+                "message": "Required ARIA parent role present",
+                "relatedNodes": []
+              }
+            ],
             "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
@@ -1070,11 +1124,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__list59v60rm11m\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listrsscu5glab\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__list59v60rm11m"
+              "#tabs__listrsscu5glab"
             ]
           },
           {
@@ -1088,11 +1142,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item59v60rm11m-1"
+              "#tabs__itemrsscu5glab-1"
             ]
           },
           {
@@ -1124,11 +1178,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item59v60rm11m-2"
+              "#tabs__itemrsscu5glab-2"
             ]
           },
           {
@@ -1209,6 +1263,31 @@
           {
             "all": [],
             "any": [],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [
+              {
+                "data": null,
+                "id": "invalidrole",
+                "impact": "critical",
+                "message": "ARIA role is valid",
+                "relatedNodes": []
+              },
+              {
+                "data": null,
+                "id": "abstractrole",
+                "impact": "serious",
+                "message": "Abstract roles are not used",
+                "relatedNodes": []
+              }
+            ],
+            "target": [
+              ".sr-only[role=\"presentation\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [],
             "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [
@@ -1259,7 +1338,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__list59v60rm11m\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listrsscu5glab\">",
             "impact": null,
             "none": [
               {
@@ -1278,13 +1357,13 @@
               }
             ],
             "target": [
-              "#tabs__list59v60rm11m"
+              "#tabs__listrsscu5glab"
             ]
           },
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -1303,7 +1382,7 @@
               }
             ],
             "target": [
-              "#tabs__item59v60rm11m-1"
+              "#tabs__itemrsscu5glab-1"
             ]
           },
           {
@@ -1334,7 +1413,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -1353,7 +1432,7 @@
               }
             ],
             "target": [
-              "#tabs__item59v60rm11m-2"
+              "#tabs__itemrsscu5glab-2"
             ]
           },
           {
@@ -1839,15 +1918,15 @@
               {
                 "data": {
                   "bgColor": "#ffffff",
-                  "contrastRatio": 11.33,
+                  "contrastRatio": 11.21,
                   "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#0000ca",
+                  "fgColor": "#0000cc",
                   "fontSize": "12.0pt",
                   "fontWeight": "normal"
                 },
                 "id": "color-contrast",
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 11.33",
+                "message": "Element has sufficient color contrast of 11.21",
                 "relatedNodes": []
               }
             ],
@@ -2038,16 +2117,16 @@
             "any": [
               {
                 "data": {
-                  "bgColor": "#68359a",
-                  "contrastRatio": 7.98,
+                  "bgColor": "#663499",
+                  "contrastRatio": 8.27,
                   "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#fcfcfc",
+                  "fgColor": "#fefefe",
                   "fontSize": "12.0pt",
                   "fontWeight": "normal"
                 },
                 "id": "color-contrast",
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 7.98",
+                "message": "Element has sufficient color contrast of 8.27",
                 "relatedNodes": []
               }
             ],
@@ -2315,7 +2394,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<symbol id=\"close\" viewBox=\"0 0 16 16\">",
+            "html": "<symbol id=\"close\">",
             "impact": null,
             "none": [],
             "target": [
@@ -2362,54 +2441,54 @@
             "all": [],
             "any": [
               {
-                "data": "tabs59v60rm11m",
+                "data": "tabsrsscu5glab",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<div class=\"js-tabs tabs\" id=\"tabs59v60rm11m\">",
+            "html": "<div class=\"js-tabs tabs\" id=\"tabsrsscu5glab\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs59v60rm11m"
+              "#tabsrsscu5glab"
             ]
           },
           {
             "all": [],
             "any": [
               {
-                "data": "tabs__list59v60rm11m",
+                "data": "tabs__listrsscu5glab",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__list59v60rm11m\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listrsscu5glab\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__list59v60rm11m"
+              "#tabs__listrsscu5glab"
             ]
           },
           {
             "all": [],
             "any": [
               {
-                "data": "tabs__item59v60rm11m-1",
+                "data": "tabs__itemrsscu5glab-1",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item59v60rm11m-1"
+              "#tabs__itemrsscu5glab-1"
             ]
           },
           {
@@ -2434,18 +2513,18 @@
             "all": [],
             "any": [
               {
-                "data": "tabs__item59v60rm11m-2",
+                "data": "tabs__itemrsscu5glab-2",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item59v60rm11m-2"
+              "#tabs__itemrsscu5glab-2"
             ]
           },
           {
@@ -3311,7 +3390,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -3323,13 +3402,13 @@
               }
             ],
             "target": [
-              "#tabs__item59v60rm11m-1"
+              "#tabs__itemrsscu5glab-1"
             ]
           },
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item59v60rm11m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -3341,7 +3420,7 @@
               }
             ],
             "target": [
-              "#tabs__item59v60rm11m-2"
+              "#tabs__itemrsscu5glab-2"
             ]
           },
           {
@@ -4281,6 +4360,37 @@
         ]
       },
       {
+        "description": "Ensures all content is contained within a landmark region",
+        "help": "Content should be contained in a landmark region",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/region?application=webdriverjs",
+        "id": "region",
+        "impact": null,
+        "nodes": [
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "region",
+                "impact": "moderate",
+                "message": "Content contained by ARIA landmark",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<html lang=\"fr\" class=\"js\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "html"
+            ]
+          }
+        ],
+        "tags": [
+          "cat.keyboard",
+          "best-practice"
+        ]
+      },
+      {
         "description": "Ensure all skip links have a focusable target",
         "help": "The skip-link target should exist and be focusable",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/skip-link?application=webdriverjs",
@@ -4429,50 +4539,10 @@
         ]
       }
     ],
-    "timestamp": 1524556164176,
+    "timestamp": 1524557322933,
     "url": "./docs/composants.html",
-    "violations": [
-      {
-        "description": "Ensures all content is contained within a landmark region",
-        "help": "Content should be contained in a landmark region",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/region?application=webdriverjs",
-        "id": "region",
-        "impact": "moderate",
-        "nodes": [
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "region",
-                "impact": "moderate",
-                "message": "Content not contained by an ARIA landmark",
-                "relatedNodes": [
-                  {
-                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\">",
-                    "target": [
-                      ":root"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  Content not contained by an ARIA landmark",
-            "html": "<html lang=\"fr\" class=\"js\">",
-            "impact": "moderate",
-            "none": [],
-            "target": [
-              "html"
-            ]
-          }
-        ],
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ]
-      }
-    ],
-    "time": 485
+    "violations": [],
+    "time": 508
   },
   {
     "inapplicable": [
@@ -4997,11 +5067,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<input type=\"text\" id=\"texte-3\" name=\"texte-3\" required=\"\" aria-required=\"true\">",
+            "html": "<input type=\"text\" id=\"texte-5\" name=\"texte-5\" required=\"\" aria-required=\"true\">",
             "impact": null,
             "none": [],
             "target": [
-              "input[name=\"texte-3\"][required=\"\"][aria-required=\"true\"]"
+              "#texte-5"
             ]
           },
           {
@@ -5015,11 +5085,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<input type=\"text\" id=\"texte-4\" name=\"texte-4\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
+            "html": "<input type=\"text\" id=\"texte-6\" name=\"texte-6\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
             "impact": null,
             "none": [],
             "target": [
-              "#texte-4"
+              "#texte-6"
             ]
           },
           {
@@ -5103,6 +5173,24 @@
             "none": [],
             "target": [
               "header"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-attr",
+                "impact": "critical",
+                "message": "All required ARIA attributes are present",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "div[role=\"presentation\"]"
             ]
           },
           {
@@ -5239,6 +5327,24 @@
                 "relatedNodes": []
               }
             ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "div[role=\"presentation\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-children",
+                "impact": "critical",
+                "message": "Required ARIA children are present",
+                "relatedNodes": []
+              }
+            ],
             "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
@@ -5348,6 +5454,24 @@
             "none": [],
             "target": [
               "header"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-parent",
+                "impact": "critical",
+                "message": "Required ARIA parent role present",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "div[role=\"presentation\"]"
             ]
           },
           {
@@ -5477,6 +5601,31 @@
             ],
             "target": [
               "header"
+            ]
+          },
+          {
+            "all": [],
+            "any": [],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [
+              {
+                "data": null,
+                "id": "invalidrole",
+                "impact": "critical",
+                "message": "ARIA role is valid",
+                "relatedNodes": []
+              },
+              {
+                "data": null,
+                "id": "abstractrole",
+                "impact": "serious",
+                "message": "Abstract roles are not used",
+                "relatedNodes": []
+              }
+            ],
+            "target": [
+              "div[role=\"presentation\"]"
             ]
           },
           {
@@ -5738,11 +5887,11 @@
               }
             ],
             "any": [],
-            "html": "<input type=\"text\" id=\"texte-3\" name=\"texte-3\" required=\"\" aria-required=\"true\">",
+            "html": "<input type=\"text\" id=\"texte-5\" name=\"texte-5\" required=\"\" aria-required=\"true\">",
             "impact": null,
             "none": [],
             "target": [
-              "input[name=\"texte-3\"][required=\"\"][aria-required=\"true\"]"
+              "#texte-5"
             ]
           },
           {
@@ -5763,11 +5912,11 @@
               }
             ],
             "any": [],
-            "html": "<input type=\"text\" id=\"texte-4\" name=\"texte-4\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
+            "html": "<input type=\"text\" id=\"texte-6\" name=\"texte-6\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
             "impact": null,
             "none": [],
             "target": [
-              "#texte-4"
+              "#texte-6"
             ]
           },
           {
@@ -5894,11 +6043,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<input type=\"text\" id=\"texte-3\" name=\"texte-3\" required=\"\" aria-required=\"true\">",
+            "html": "<input type=\"text\" id=\"texte-5\" name=\"texte-5\" required=\"\" aria-required=\"true\">",
             "impact": null,
             "none": [],
             "target": [
-              "input[name=\"texte-3\"][required=\"\"][aria-required=\"true\"]"
+              "#texte-5"
             ]
           },
           {
@@ -5912,11 +6061,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<input type=\"text\" id=\"texte-4\" name=\"texte-4\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
+            "html": "<input type=\"text\" id=\"texte-6\" name=\"texte-6\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
             "impact": null,
             "none": [],
             "target": [
-              "#texte-4"
+              "#texte-6"
             ]
           },
           {
@@ -7825,7 +7974,7 @@
             "impact": null,
             "none": [],
             "target": [
-              ".fieldset:nth-child(8) > label[for=\"texte-2\"]"
+              "label[for=\"texte-2\"]"
             ]
           },
           {
@@ -7850,7 +7999,7 @@
             "impact": null,
             "none": [],
             "target": [
-              "input[readonly=\"\"]"
+              "#texte-2"
             ]
           },
           {
@@ -7871,86 +8020,111 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<label for=\"texte-2\">\n        Champ avec description\n        <span class=\"label-msg-help\">Description du champ</span>\n      </label>",
-            "impact": null,
-            "none": [],
-            "target": [
-              ".fieldset:nth-child(10) > label[for=\"texte-2\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": {
-                  "bgColor": "#f5f5f5",
-                  "contrastRatio": 19.26,
-                  "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#000000",
-                  "fontSize": "12.0pt",
-                  "fontWeight": "normal"
-                },
-                "id": "color-contrast",
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 19.26",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<input type=\"text\" id=\"texte-2\" name=\"texte-2\">",
-            "impact": null,
-            "none": [],
-            "target": [
-              ".fieldset:nth-child(10) > input[name=\"texte-2\"][type=\"text\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": {
-                  "bgColor": "#f5f5f5",
-                  "contrastRatio": 19.26,
-                  "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#000000",
-                  "fontSize": "12.0pt",
-                  "fontWeight": "normal"
-                },
-                "id": "color-contrast",
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 19.26",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<input type=\"text\" id=\"texte-3\" name=\"texte-3\" required=\"\" aria-required=\"true\">",
-            "impact": null,
-            "none": [],
-            "target": [
-              "input[name=\"texte-3\"][required=\"\"][aria-required=\"true\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": {
-                  "bgColor": "#f5f5f5",
-                  "contrastRatio": 8.93,
-                  "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#444444",
-                  "fontSize": "12.0pt",
-                  "fontWeight": "normal"
-                },
-                "id": "color-contrast",
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 8.93",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<label for=\"texte-4\">\n        Champ erroné\n        <span class=\"label-msg-error\">Message dʼerreur</span>\n      </label>",
+            "html": "<label for=\"texte-4\">\n        Champ avec description\n        <span class=\"label-msg-help\">Description du champ</span>\n      </label>",
             "impact": null,
             "none": [],
             "target": [
               "label[for=\"texte-4\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": {
+                  "bgColor": "#f5f5f5",
+                  "contrastRatio": 19.26,
+                  "expectedContrastRatio": "4.5:1",
+                  "fgColor": "#000000",
+                  "fontSize": "12.0pt",
+                  "fontWeight": "normal"
+                },
+                "id": "color-contrast",
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 19.26",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<input type=\"text\" id=\"texte-4\" name=\"texte-4\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "#texte-4"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": {
+                  "bgColor": "#f5f5f5",
+                  "contrastRatio": 8.93,
+                  "expectedContrastRatio": "4.5:1",
+                  "fgColor": "#444444",
+                  "fontSize": "12.0pt",
+                  "fontWeight": "normal"
+                },
+                "id": "color-contrast",
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 8.93",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<label for=\"texte-5\">Champ obligatoire</label>",
+            "impact": null,
+            "none": [],
+            "target": [
+              "label[for=\"texte-5\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": {
+                  "bgColor": "#f5f5f5",
+                  "contrastRatio": 19.26,
+                  "expectedContrastRatio": "4.5:1",
+                  "fgColor": "#000000",
+                  "fontSize": "12.0pt",
+                  "fontWeight": "normal"
+                },
+                "id": "color-contrast",
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 19.26",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<input type=\"text\" id=\"texte-5\" name=\"texte-5\" required=\"\" aria-required=\"true\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "#texte-5"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": {
+                  "bgColor": "#f5f5f5",
+                  "contrastRatio": 8.93,
+                  "expectedContrastRatio": "4.5:1",
+                  "fgColor": "#444444",
+                  "fontSize": "12.0pt",
+                  "fontWeight": "normal"
+                },
+                "id": "color-contrast",
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 8.93",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<label for=\"texte-6\">\n        Champ erroné\n        <span class=\"label-msg-error\">Message dʼerreur</span>\n      </label>",
+            "impact": null,
+            "none": [],
+            "target": [
+              "label[for=\"texte-6\"]"
             ]
           },
           {
@@ -7996,11 +8170,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<input type=\"text\" id=\"texte-4\" name=\"texte-4\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
+            "html": "<input type=\"text\" id=\"texte-6\" name=\"texte-6\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
             "impact": null,
             "none": [],
             "target": [
-              "#texte-4"
+              "#texte-6"
             ]
           },
           {
@@ -8272,7 +8446,7 @@
         "help": "id attribute value must be unique",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/duplicate-id?application=webdriverjs",
         "id": "duplicate-id",
-        "impact": "moderate",
+        "impact": null,
         "nodes": [
           {
             "all": [],
@@ -8285,7 +8459,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<symbol id=\"close\" viewBox=\"0 0 16 16\">",
+            "html": "<symbol id=\"close\">",
             "impact": null,
             "none": [],
             "target": [
@@ -8548,6 +8722,42 @@
             "all": [],
             "any": [
               {
+                "data": "texte-2",
+                "id": "duplicate-id",
+                "impact": "moderate",
+                "message": "Document has no elements that share the same id attribute",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<input type=\"text\" id=\"texte-2\" name=\"texte-2\" readonly=\"\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "#texte-2"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": "texte-3",
+                "id": "duplicate-id",
+                "impact": "moderate",
+                "message": "Document has no elements that share the same id attribute",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<input type=\"text\" id=\"texte-3\" name=\"texte-3\" disabled=\"\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "#texte-3"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
                 "data": "texte-4",
                 "id": "duplicate-id",
                 "impact": "moderate",
@@ -8555,11 +8765,47 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<input type=\"text\" id=\"texte-4\" name=\"texte-4\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
+            "html": "<input type=\"text\" id=\"texte-4\" name=\"texte-4\">",
             "impact": null,
             "none": [],
             "target": [
               "#texte-4"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": "texte-5",
+                "id": "duplicate-id",
+                "impact": "moderate",
+                "message": "Document has no elements that share the same id attribute",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<input type=\"text\" id=\"texte-5\" name=\"texte-5\" required=\"\" aria-required=\"true\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "#texte-5"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": "texte-6",
+                "id": "duplicate-id",
+                "impact": "moderate",
+                "message": "Document has no elements that share the same id attribute",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<input type=\"text\" id=\"texte-6\" name=\"texte-6\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "#texte-6"
             ]
           },
           {
@@ -10089,7 +10335,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<p class=\"fieldset\">\n      <label for=\"texte-2\">\n        Champ avec description\n        <span class=\"label-msg-help\">Description du champ</span>\n      </label>\n      <input type=\"text\" id=\"texte-2\" name=\"texte-2\">\n\n    </p>",
+            "html": "<p class=\"fieldset\">\n      <label for=\"texte-4\">\n        Champ avec description\n        <span class=\"label-msg-help\">Description du champ</span>\n      </label>\n      <input type=\"text\" id=\"texte-4\" name=\"texte-4\">\n\n    </p>",
             "impact": null,
             "none": [
               {
@@ -10107,7 +10353,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<p class=\"fieldset\">\n      <label for=\"texte-3\">Champ obligatoire</label>\n      <input type=\"text\" id=\"texte-3\" name=\"texte-3\" required=\"\" aria-required=\"true\">\n    </p>",
+            "html": "<p class=\"fieldset\">\n      <label for=\"texte-5\">Champ obligatoire</label>\n      <input type=\"text\" id=\"texte-5\" name=\"texte-5\" required=\"\" aria-required=\"true\">\n    </p>",
             "impact": null,
             "none": [
               {
@@ -10125,7 +10371,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<p class=\"fieldset\">\n      <label for=\"texte-4\">\n        Champ erroné\n        <span class=\"label-msg-error\">Message dʼerreur</span>\n      </label>\n      <input type=\"text\" id=\"texte-4\" name=\"texte-4\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">\n    </p>",
+            "html": "<p class=\"fieldset\">\n      <label for=\"texte-6\">\n        Champ erroné\n        <span class=\"label-msg-error\">Message dʼerreur</span>\n      </label>\n      <input type=\"text\" id=\"texte-6\" name=\"texte-6\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">\n    </p>",
             "impact": null,
             "none": [
               {
@@ -10438,7 +10684,7 @@
               }
             ],
             "target": [
-              "input[readonly=\"\"]"
+              "#texte-2"
             ]
           },
           {
@@ -10456,49 +10702,13 @@
               }
             ],
             "target": [
-              ".fieldset:nth-child(9) > input[name=\"texte-3\"][type=\"text\"]"
+              "#texte-3"
             ]
           },
           {
             "all": [],
             "any": [],
-            "html": "<input type=\"text\" id=\"texte-2\" name=\"texte-2\">",
-            "impact": null,
-            "none": [
-              {
-                "data": null,
-                "id": "title-only",
-                "impact": "serious",
-                "message": "Form element does not solely use title attribute for its label",
-                "relatedNodes": []
-              }
-            ],
-            "target": [
-              ".fieldset:nth-child(10) > input[name=\"texte-2\"][type=\"text\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [],
-            "html": "<input type=\"text\" id=\"texte-3\" name=\"texte-3\" required=\"\" aria-required=\"true\">",
-            "impact": null,
-            "none": [
-              {
-                "data": null,
-                "id": "title-only",
-                "impact": "serious",
-                "message": "Form element does not solely use title attribute for its label",
-                "relatedNodes": []
-              }
-            ],
-            "target": [
-              "input[name=\"texte-3\"][required=\"\"][aria-required=\"true\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [],
-            "html": "<input type=\"text\" id=\"texte-4\" name=\"texte-4\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
+            "html": "<input type=\"text\" id=\"texte-4\" name=\"texte-4\">",
             "impact": null,
             "none": [
               {
@@ -10512,6 +10722,42 @@
             "target": [
               "#texte-4"
             ]
+          },
+          {
+            "all": [],
+            "any": [],
+            "html": "<input type=\"text\" id=\"texte-5\" name=\"texte-5\" required=\"\" aria-required=\"true\">",
+            "impact": null,
+            "none": [
+              {
+                "data": null,
+                "id": "title-only",
+                "impact": "serious",
+                "message": "Form element does not solely use title attribute for its label",
+                "relatedNodes": []
+              }
+            ],
+            "target": [
+              "#texte-5"
+            ]
+          },
+          {
+            "all": [],
+            "any": [],
+            "html": "<input type=\"text\" id=\"texte-6\" name=\"texte-6\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
+            "impact": null,
+            "none": [
+              {
+                "data": null,
+                "id": "title-only",
+                "impact": "serious",
+                "message": "Form element does not solely use title attribute for its label",
+                "relatedNodes": []
+              }
+            ],
+            "target": [
+              "#texte-6"
+            ]
           }
         ],
         "tags": [
@@ -10524,7 +10770,7 @@
         "help": "Form elements must have labels",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/label?application=webdriverjs",
         "id": "label",
-        "impact": "serious",
+        "impact": null,
         "nodes": [
           {
             "all": [],
@@ -10834,7 +11080,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<input type=\"text\" id=\"texte-4\" name=\"texte-4\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
+            "html": "<input type=\"text\" id=\"texte-2\" name=\"texte-2\" readonly=\"\">",
             "impact": null,
             "none": [
               {
@@ -10844,7 +11090,73 @@
                 "message": "Form element does not have multiple <label> elements",
                 "relatedNodes": [
                   {
-                    "html": "<label for=\"texte-4\">\n        Champ erroné\n        <span class=\"label-msg-error\">Message dʼerreur</span>\n      </label>",
+                    "html": "<label for=\"texte-2\">Texte en lecture seule</label>",
+                    "target": [
+                      "label[for=\"texte-2\"]"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "target": [
+              "#texte-2"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "explicit-label",
+                "impact": "critical",
+                "message": "Form element has an explicit <label>",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<input type=\"text\" id=\"texte-3\" name=\"texte-3\" disabled=\"\">",
+            "impact": null,
+            "none": [
+              {
+                "data": null,
+                "id": "multiple-label",
+                "impact": "serious",
+                "message": "Form element does not have multiple <label> elements",
+                "relatedNodes": [
+                  {
+                    "html": "<label for=\"texte-3\">Texte désactivé</label>",
+                    "target": [
+                      "label[for=\"texte-3\"]"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "target": [
+              "#texte-3"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "explicit-label",
+                "impact": "critical",
+                "message": "Form element has an explicit <label>",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<input type=\"text\" id=\"texte-4\" name=\"texte-4\">",
+            "impact": null,
+            "none": [
+              {
+                "data": null,
+                "id": "multiple-label",
+                "impact": "serious",
+                "message": "Form element does not have multiple <label> elements",
+                "relatedNodes": [
+                  {
+                    "html": "<label for=\"texte-4\">\n        Champ avec description\n        <span class=\"label-msg-help\">Description du champ</span>\n      </label>",
                     "target": [
                       "label[for=\"texte-4\"]"
                     ]
@@ -10854,6 +11166,72 @@
             ],
             "target": [
               "#texte-4"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "explicit-label",
+                "impact": "critical",
+                "message": "Form element has an explicit <label>",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<input type=\"text\" id=\"texte-5\" name=\"texte-5\" required=\"\" aria-required=\"true\">",
+            "impact": null,
+            "none": [
+              {
+                "data": null,
+                "id": "multiple-label",
+                "impact": "serious",
+                "message": "Form element does not have multiple <label> elements",
+                "relatedNodes": [
+                  {
+                    "html": "<label for=\"texte-5\">Champ obligatoire</label>",
+                    "target": [
+                      "label[for=\"texte-5\"]"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "target": [
+              "#texte-5"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "explicit-label",
+                "impact": "critical",
+                "message": "Form element has an explicit <label>",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<input type=\"text\" id=\"texte-6\" name=\"texte-6\" required=\"\" aria-required=\"true\" aria-invalid=\"true\">",
+            "impact": null,
+            "none": [
+              {
+                "data": null,
+                "id": "multiple-label",
+                "impact": "serious",
+                "message": "Form element does not have multiple <label> elements",
+                "relatedNodes": [
+                  {
+                    "html": "<label for=\"texte-6\">\n        Champ erroné\n        <span class=\"label-msg-error\">Message dʼerreur</span>\n      </label>",
+                    "target": [
+                      "label[for=\"texte-6\"]"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "target": [
+              "#texte-6"
             ]
           }
         ],
@@ -12067,6 +12445,37 @@
         ]
       },
       {
+        "description": "Ensures all content is contained within a landmark region",
+        "help": "Content should be contained in a landmark region",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/region?application=webdriverjs",
+        "id": "region",
+        "impact": null,
+        "nodes": [
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "region",
+                "impact": "moderate",
+                "message": "Content contained by ARIA landmark",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<html lang=\"fr\" class=\"js\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "html"
+            ]
+          }
+        ],
+        "tags": [
+          "cat.keyboard",
+          "best-practice"
+        ]
+      },
+      {
         "description": "Ensures the scope attribute is used correctly on tables",
         "help": "scope attribute should be used correctly",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/scope-attr-valid?application=webdriverjs",
@@ -12345,7 +12754,7 @@
         ]
       }
     ],
-    "timestamp": 1524556165974,
+    "timestamp": 1524557323746,
     "url": "./docs/elements.html",
     "violations": [
       {
@@ -12400,259 +12809,9 @@
           "wcag2aa",
           "wcag143"
         ]
-      },
-      {
-        "description": "Ensures every id attribute value is unique",
-        "help": "id attribute value must be unique",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/duplicate-id?application=webdriverjs",
-        "id": "duplicate-id",
-        "impact": "moderate",
-        "nodes": [
-          {
-            "all": [],
-            "any": [
-              {
-                "data": "texte-2",
-                "id": "duplicate-id",
-                "impact": "moderate",
-                "message": "Document has multiple elements with the same id attribute: texte-2",
-                "relatedNodes": [
-                  {
-                    "html": "<input type=\"text\" id=\"texte-2\" name=\"texte-2\">",
-                    "target": [
-                      ".fieldset:nth-child(10) > input[name=\"texte-2\"][type=\"text\"]"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  Document has multiple elements with the same id attribute: texte-2",
-            "html": "<input type=\"text\" id=\"texte-2\" name=\"texte-2\" readonly=\"\">",
-            "impact": "moderate",
-            "none": [],
-            "target": [
-              "input[readonly=\"\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": "texte-3",
-                "id": "duplicate-id",
-                "impact": "moderate",
-                "message": "Document has multiple elements with the same id attribute: texte-3",
-                "relatedNodes": [
-                  {
-                    "html": "<input type=\"text\" id=\"texte-3\" name=\"texte-3\" required=\"\" aria-required=\"true\">",
-                    "target": [
-                      "input[name=\"texte-3\"][required=\"\"][aria-required=\"true\"]"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  Document has multiple elements with the same id attribute: texte-3",
-            "html": "<input type=\"text\" id=\"texte-3\" name=\"texte-3\" disabled=\"\">",
-            "impact": "moderate",
-            "none": [],
-            "target": [
-              ".fieldset:nth-child(9) > input[name=\"texte-3\"][type=\"text\"]"
-            ]
-          }
-        ],
-        "tags": [
-          "cat.parsing",
-          "wcag2a",
-          "wcag411"
-        ]
-      },
-      {
-        "description": "Ensures every form element has a label",
-        "help": "Form elements must have labels",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/label?application=webdriverjs",
-        "id": "label",
-        "impact": "serious",
-        "nodes": [
-          {
-            "all": [],
-            "any": [],
-            "failureSummary": "Fix all of the following:\n  Form element has multiple <label> elements",
-            "html": "<input type=\"text\" id=\"texte-2\" name=\"texte-2\" readonly=\"\">",
-            "impact": "serious",
-            "none": [
-              {
-                "data": null,
-                "id": "multiple-label",
-                "impact": "serious",
-                "message": "Form element has multiple <label> elements",
-                "relatedNodes": [
-                  {
-                    "html": "<label for=\"texte-2\">Texte en lecture seule</label>",
-                    "target": [
-                      ".fieldset:nth-child(8) > label[for=\"texte-2\"]"
-                    ]
-                  },
-                  {
-                    "html": "<label for=\"texte-2\">\n        Champ avec description\n        <span class=\"label-msg-help\">Description du champ</span>\n      </label>",
-                    "target": [
-                      ".fieldset:nth-child(10) > label[for=\"texte-2\"]"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "target": [
-              "input[readonly=\"\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [],
-            "failureSummary": "Fix all of the following:\n  Form element has multiple <label> elements",
-            "html": "<input type=\"text\" id=\"texte-3\" name=\"texte-3\" disabled=\"\">",
-            "impact": "serious",
-            "none": [
-              {
-                "data": null,
-                "id": "multiple-label",
-                "impact": "serious",
-                "message": "Form element has multiple <label> elements",
-                "relatedNodes": [
-                  {
-                    "html": "<label for=\"texte-3\">Texte désactivé</label>",
-                    "target": [
-                      ".fieldset:nth-child(9) > label[for=\"texte-3\"]"
-                    ]
-                  },
-                  {
-                    "html": "<label for=\"texte-3\">Champ obligatoire</label>",
-                    "target": [
-                      ".fieldset:nth-child(11) > label[for=\"texte-3\"]"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "target": [
-              ".fieldset:nth-child(9) > input[name=\"texte-3\"][type=\"text\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [],
-            "failureSummary": "Fix all of the following:\n  Form element has multiple <label> elements",
-            "html": "<input type=\"text\" id=\"texte-2\" name=\"texte-2\">",
-            "impact": "serious",
-            "none": [
-              {
-                "data": null,
-                "id": "multiple-label",
-                "impact": "serious",
-                "message": "Form element has multiple <label> elements",
-                "relatedNodes": [
-                  {
-                    "html": "<label for=\"texte-2\">Texte en lecture seule</label>",
-                    "target": [
-                      ".fieldset:nth-child(8) > label[for=\"texte-2\"]"
-                    ]
-                  },
-                  {
-                    "html": "<label for=\"texte-2\">\n        Champ avec description\n        <span class=\"label-msg-help\">Description du champ</span>\n      </label>",
-                    "target": [
-                      ".fieldset:nth-child(10) > label[for=\"texte-2\"]"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "target": [
-              ".fieldset:nth-child(10) > input[name=\"texte-2\"][type=\"text\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [],
-            "failureSummary": "Fix all of the following:\n  Form element has multiple <label> elements",
-            "html": "<input type=\"text\" id=\"texte-3\" name=\"texte-3\" required=\"\" aria-required=\"true\">",
-            "impact": "serious",
-            "none": [
-              {
-                "data": null,
-                "id": "multiple-label",
-                "impact": "serious",
-                "message": "Form element has multiple <label> elements",
-                "relatedNodes": [
-                  {
-                    "html": "<label for=\"texte-3\">Texte désactivé</label>",
-                    "target": [
-                      ".fieldset:nth-child(9) > label[for=\"texte-3\"]"
-                    ]
-                  },
-                  {
-                    "html": "<label for=\"texte-3\">Champ obligatoire</label>",
-                    "target": [
-                      ".fieldset:nth-child(11) > label[for=\"texte-3\"]"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "target": [
-              "input[name=\"texte-3\"][required=\"\"][aria-required=\"true\"]"
-            ]
-          }
-        ],
-        "tags": [
-          "cat.forms",
-          "wcag2a",
-          "wcag332",
-          "wcag131",
-          "section508",
-          "section508.22.n"
-        ]
-      },
-      {
-        "description": "Ensures all content is contained within a landmark region",
-        "help": "Content should be contained in a landmark region",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/region?application=webdriverjs",
-        "id": "region",
-        "impact": "moderate",
-        "nodes": [
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "region",
-                "impact": "moderate",
-                "message": "Content not contained by an ARIA landmark",
-                "relatedNodes": [
-                  {
-                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\">",
-                    "target": [
-                      "svg"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  Content not contained by an ARIA landmark",
-            "html": "<html lang=\"fr\" class=\"js\">",
-            "impact": "moderate",
-            "none": [],
-            "target": [
-              "html"
-            ]
-          }
-        ],
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ]
       }
     ],
-    "time": 412
+    "time": 398
   },
   {
     "inapplicable": [
@@ -13960,6 +14119,24 @@
                 "relatedNodes": []
               }
             ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "header > .sr-only"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-attr",
+                "impact": "critical",
+                "message": "All required ARIA attributes are present",
+                "relatedNodes": []
+              }
+            ],
             "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
@@ -14448,6 +14625,24 @@
             "none": [],
             "target": [
               "header"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-children",
+                "impact": "critical",
+                "message": "Required ARIA children are present",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "header > .sr-only"
             ]
           },
           {
@@ -14961,6 +15156,24 @@
                 "relatedNodes": []
               }
             ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "header > .sr-only"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-parent",
+                "impact": "critical",
+                "message": "Required ARIA parent role present",
+                "relatedNodes": []
+              }
+            ],
             "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
@@ -15455,6 +15668,31 @@
             ],
             "target": [
               "header"
+            ]
+          },
+          {
+            "all": [],
+            "any": [],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [
+              {
+                "data": null,
+                "id": "invalidrole",
+                "impact": "critical",
+                "message": "ARIA role is valid",
+                "relatedNodes": []
+              },
+              {
+                "data": null,
+                "id": "abstractrole",
+                "impact": "serious",
+                "message": "Abstract roles are not used",
+                "relatedNodes": []
+              }
+            ],
+            "target": [
+              "header > .sr-only"
             ]
           },
           {
@@ -23276,7 +23514,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<symbol id=\"close\" viewBox=\"0 0 16 16\">",
+            "html": "<symbol id=\"close\">",
             "impact": null,
             "none": [],
             "target": [
@@ -26036,6 +26274,37 @@
         ]
       },
       {
+        "description": "Ensures all content is contained within a landmark region",
+        "help": "Content should be contained in a landmark region",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/region?application=webdriverjs",
+        "id": "region",
+        "impact": null,
+        "nodes": [
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "region",
+                "impact": "moderate",
+                "message": "Content contained by ARIA landmark",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<html lang=\"fr\" class=\"js\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "html"
+            ]
+          }
+        ],
+        "tags": [
+          "cat.keyboard",
+          "best-practice"
+        ]
+      },
+      {
         "description": "Ensure all skip links have a focusable target",
         "help": "The skip-link target should exist and be focusable",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/skip-link?application=webdriverjs",
@@ -26184,49 +26453,9 @@
         ]
       }
     ],
-    "timestamp": 1524556166591,
+    "timestamp": 1524557324362,
     "url": "./docs/graphiques.html",
-    "violations": [
-      {
-        "description": "Ensures all content is contained within a landmark region",
-        "help": "Content should be contained in a landmark region",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/region?application=webdriverjs",
-        "id": "region",
-        "impact": "moderate",
-        "nodes": [
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "region",
-                "impact": "moderate",
-                "message": "Content not contained by an ARIA landmark",
-                "relatedNodes": [
-                  {
-                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\">",
-                    "target": [
-                      "svg"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  Content not contained by an ARIA landmark",
-            "html": "<html lang=\"fr\" class=\"js\">",
-            "impact": "moderate",
-            "none": [],
-            "target": [
-              "html"
-            ]
-          }
-        ],
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ]
-      }
-    ],
+    "violations": [],
     "time": 501
   },
   {
@@ -26893,11 +27122,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#!\" tabindex=\"-1\">Précédent</a>",
+            "html": "<a tabindex=\"-1\">Précédent</a>",
             "impact": "serious",
             "none": [],
             "target": [
-              "li:nth-child(1) > a[href=\"#!\"]"
+              "#pagination > li:nth-child(1) > a"
             ]
           },
           {
@@ -27239,6 +27468,24 @@
                 "relatedNodes": []
               }
             ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "div[role=\"presentation\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-attr",
+                "impact": "critical",
+                "message": "All required ARIA attributes are present",
+                "relatedNodes": []
+              }
+            ],
             "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
@@ -27421,6 +27668,24 @@
             "none": [],
             "target": [
               "header"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-children",
+                "impact": "critical",
+                "message": "Required ARIA children are present",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "div[role=\"presentation\"]"
             ]
           },
           {
@@ -27628,6 +27893,24 @@
                 "relatedNodes": []
               }
             ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "div[role=\"presentation\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-parent",
+                "impact": "critical",
+                "message": "Required ARIA parent role present",
+                "relatedNodes": []
+              }
+            ],
             "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
@@ -27816,6 +28099,31 @@
             ],
             "target": [
               "header"
+            ]
+          },
+          {
+            "all": [],
+            "any": [],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [
+              {
+                "data": null,
+                "id": "invalidrole",
+                "impact": "critical",
+                "message": "ARIA role is valid",
+                "relatedNodes": []
+              },
+              {
+                "data": null,
+                "id": "abstractrole",
+                "impact": "serious",
+                "message": "Abstract roles are not used",
+                "relatedNodes": []
+              }
+            ],
+            "target": [
+              "div[role=\"presentation\"]"
             ]
           },
           {
@@ -31747,11 +32055,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#!\"><span class=\"sr-only\">Page </span>2</a>",
+            "html": "<a href=\"./?page=2\"><span class=\"sr-only\">Page </span>2</a>",
             "impact": null,
             "none": [],
             "target": [
-              "li:nth-child(3) > a[href=\"#!\"]"
+              "li:nth-child(3) > a[href=\"./?page=2\"]"
             ]
           },
           {
@@ -31772,11 +32080,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#!\"><span class=\"sr-only\">Page </span>3</a>",
+            "html": "<a href=\"./?page=3\"><span class=\"sr-only\">Page </span>3</a>",
             "impact": null,
             "none": [],
             "target": [
-              "li:nth-child(4) > a[href=\"#!\"]"
+              "a[href=\"./?page=3\"]"
             ]
           },
           {
@@ -31797,11 +32105,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#!\">Suivant</a>",
+            "html": "<a href=\"./?page=2\">Suivant</a>",
             "impact": null,
             "none": [],
             "target": [
-              "li:nth-child(5) > a[href=\"#!\"]"
+              "li:nth-child(5) > a[href=\"./?page=2\"]"
             ]
           },
           {
@@ -33161,7 +33469,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<symbol id=\"close\" viewBox=\"0 0 16 16\">",
+            "html": "<symbol id=\"close\">",
             "impact": null,
             "none": [],
             "target": [
@@ -36675,7 +36983,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li><a href=\"#!\" tabindex=\"-1\">Précédent</a></li>",
+            "html": "<li><a tabindex=\"-1\">Précédent</a></li>",
             "impact": null,
             "none": [
               {
@@ -36688,24 +36996,6 @@
             ],
             "target": [
               "#pagination > li:nth-child(1)"
-            ]
-          },
-          {
-            "all": [],
-            "any": [],
-            "html": "<a href=\"#!\" tabindex=\"-1\">Précédent</a>",
-            "impact": null,
-            "none": [
-              {
-                "data": null,
-                "id": "duplicate-img-label",
-                "impact": "minor",
-                "message": "Element does not duplicate existing text in <img> alt text",
-                "relatedNodes": []
-              }
-            ],
-            "target": [
-              "li:nth-child(1) > a[href=\"#!\"]"
             ]
           },
           {
@@ -36747,7 +37037,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li><a href=\"#!\"><span class=\"sr-only\">Page </span>2</a></li>",
+            "html": "<li><a href=\"./?page=2\"><span class=\"sr-only\">Page </span>2</a></li>",
             "impact": null,
             "none": [
               {
@@ -36765,7 +37055,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<a href=\"#!\"><span class=\"sr-only\">Page </span>2</a>",
+            "html": "<a href=\"./?page=2\"><span class=\"sr-only\">Page </span>2</a>",
             "impact": null,
             "none": [
               {
@@ -36777,13 +37067,13 @@
               }
             ],
             "target": [
-              "li:nth-child(3) > a[href=\"#!\"]"
+              "li:nth-child(3) > a[href=\"./?page=2\"]"
             ]
           },
           {
             "all": [],
             "any": [],
-            "html": "<li><a href=\"#!\"><span class=\"sr-only\">Page </span>3</a></li>",
+            "html": "<li><a href=\"./?page=3\"><span class=\"sr-only\">Page </span>3</a></li>",
             "impact": null,
             "none": [
               {
@@ -36801,7 +37091,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<a href=\"#!\"><span class=\"sr-only\">Page </span>3</a>",
+            "html": "<a href=\"./?page=3\"><span class=\"sr-only\">Page </span>3</a>",
             "impact": null,
             "none": [
               {
@@ -36813,13 +37103,13 @@
               }
             ],
             "target": [
-              "li:nth-child(4) > a[href=\"#!\"]"
+              "a[href=\"./?page=3\"]"
             ]
           },
           {
             "all": [],
             "any": [],
-            "html": "<li><a href=\"#!\">Suivant</a></li>",
+            "html": "<li><a href=\"./?page=2\">Suivant</a></li>",
             "impact": null,
             "none": [
               {
@@ -36837,7 +37127,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<a href=\"#!\">Suivant</a>",
+            "html": "<a href=\"./?page=2\">Suivant</a>",
             "impact": null,
             "none": [
               {
@@ -36849,7 +37139,7 @@
               }
             ],
             "target": [
-              "li:nth-child(5) > a[href=\"#!\"]"
+              "li:nth-child(5) > a[href=\"./?page=2\"]"
             ]
           },
           {
@@ -37855,32 +38145,6 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#!\" tabindex=\"-1\">Précédent</a>",
-            "impact": null,
-            "none": [
-              {
-                "data": null,
-                "id": "focusable-no-name",
-                "impact": "serious",
-                "message": "Element is not in tab order or has accessible text",
-                "relatedNodes": []
-              }
-            ],
-            "target": [
-              "li:nth-child(1) > a[href=\"#!\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "has-visible-text",
-                "impact": "minor",
-                "message": "Element has text that is visible to screen readers",
-                "relatedNodes": []
-              }
-            ],
             "html": "<a href=\"/\" aria-current=\"page\">\n        <span class=\"sr-only\">Page </span>1\n        <span class=\"sr-only\">(page actuelle)</span>\n      </a>",
             "impact": null,
             "none": [
@@ -37907,7 +38171,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#!\"><span class=\"sr-only\">Page </span>2</a>",
+            "html": "<a href=\"./?page=2\"><span class=\"sr-only\">Page </span>2</a>",
             "impact": null,
             "none": [
               {
@@ -37919,7 +38183,7 @@
               }
             ],
             "target": [
-              "li:nth-child(3) > a[href=\"#!\"]"
+              "li:nth-child(3) > a[href=\"./?page=2\"]"
             ]
           },
           {
@@ -37933,7 +38197,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#!\"><span class=\"sr-only\">Page </span>3</a>",
+            "html": "<a href=\"./?page=3\"><span class=\"sr-only\">Page </span>3</a>",
             "impact": null,
             "none": [
               {
@@ -37945,7 +38209,7 @@
               }
             ],
             "target": [
-              "li:nth-child(4) > a[href=\"#!\"]"
+              "a[href=\"./?page=3\"]"
             ]
           },
           {
@@ -37959,7 +38223,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#!\">Suivant</a>",
+            "html": "<a href=\"./?page=2\">Suivant</a>",
             "impact": null,
             "none": [
               {
@@ -37971,7 +38235,7 @@
               }
             ],
             "target": [
-              "li:nth-child(5) > a[href=\"#!\"]"
+              "li:nth-child(5) > a[href=\"./?page=2\"]"
             ]
           },
           {
@@ -38619,7 +38883,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li><a href=\"#!\" tabindex=\"-1\">Précédent</a></li>",
+            "html": "<li><a tabindex=\"-1\">Précédent</a></li>",
             "impact": null,
             "none": [],
             "target": [
@@ -38655,7 +38919,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li><a href=\"#!\"><span class=\"sr-only\">Page </span>2</a></li>",
+            "html": "<li><a href=\"./?page=2\"><span class=\"sr-only\">Page </span>2</a></li>",
             "impact": null,
             "none": [],
             "target": [
@@ -38673,7 +38937,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li><a href=\"#!\"><span class=\"sr-only\">Page </span>3</a></li>",
+            "html": "<li><a href=\"./?page=3\"><span class=\"sr-only\">Page </span>3</a></li>",
             "impact": null,
             "none": [],
             "target": [
@@ -38691,7 +38955,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li><a href=\"#!\">Suivant</a></li>",
+            "html": "<li><a href=\"./?page=2\">Suivant</a></li>",
             "impact": null,
             "none": [],
             "target": [
@@ -38843,11 +39107,42 @@
         ]
       },
       {
+        "description": "Ensures all content is contained within a landmark region",
+        "help": "Content should be contained in a landmark region",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/region?application=webdriverjs",
+        "id": "region",
+        "impact": null,
+        "nodes": [
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "region",
+                "impact": "moderate",
+                "message": "Content contained by ARIA landmark",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<html lang=\"fr\" class=\"js\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "html"
+            ]
+          }
+        ],
+        "tags": [
+          "cat.keyboard",
+          "best-practice"
+        ]
+      },
+      {
         "description": "Ensure all skip links have a focusable target",
         "help": "The skip-link target should exist and be focusable",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/skip-link?application=webdriverjs",
         "id": "skip-link",
-        "impact": "moderate",
+        "impact": null,
         "nodes": [
           {
             "all": [],
@@ -38927,11 +39222,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#!\" tabindex=\"-1\">Précédent</a>",
+            "html": "<a tabindex=\"-1\">Précédent</a>",
             "impact": null,
             "none": [],
             "target": [
-              "li:nth-child(1) > a[href=\"#!\"]"
+              "#pagination > li:nth-child(1) > a"
             ]
           }
         ],
@@ -39063,139 +39358,10 @@
         ]
       }
     ],
-    "timestamp": 1524556167978,
+    "timestamp": 1524557325452,
     "url": "./docs/groupes.html",
-    "violations": [
-      {
-        "description": "Ensures all content is contained within a landmark region",
-        "help": "Content should be contained in a landmark region",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/region?application=webdriverjs",
-        "id": "region",
-        "impact": "moderate",
-        "nodes": [
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "region",
-                "impact": "moderate",
-                "message": "Content not contained by an ARIA landmark",
-                "relatedNodes": [
-                  {
-                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\">",
-                    "target": [
-                      "svg"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  Content not contained by an ARIA landmark",
-            "html": "<html lang=\"fr\" class=\"js\">",
-            "impact": "moderate",
-            "none": [],
-            "target": [
-              "html"
-            ]
-          }
-        ],
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ]
-      },
-      {
-        "description": "Ensure all skip links have a focusable target",
-        "help": "The skip-link target should exist and be focusable",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/skip-link?application=webdriverjs",
-        "id": "skip-link",
-        "impact": "moderate",
-        "nodes": [
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "skip-link",
-                "impact": "moderate",
-                "message": "No skip link target",
-                "relatedNodes": []
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  No skip link target",
-            "html": "<a href=\"#!\" tabindex=\"-1\">Précédent</a>",
-            "impact": "moderate",
-            "none": [],
-            "target": [
-              "li:nth-child(1) > a[href=\"#!\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "skip-link",
-                "impact": "moderate",
-                "message": "No skip link target",
-                "relatedNodes": []
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  No skip link target",
-            "html": "<a href=\"#!\"><span class=\"sr-only\">Page </span>2</a>",
-            "impact": "moderate",
-            "none": [],
-            "target": [
-              "li:nth-child(3) > a[href=\"#!\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "skip-link",
-                "impact": "moderate",
-                "message": "No skip link target",
-                "relatedNodes": []
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  No skip link target",
-            "html": "<a href=\"#!\"><span class=\"sr-only\">Page </span>3</a>",
-            "impact": "moderate",
-            "none": [],
-            "target": [
-              "li:nth-child(4) > a[href=\"#!\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "skip-link",
-                "impact": "moderate",
-                "message": "No skip link target",
-                "relatedNodes": []
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  No skip link target",
-            "html": "<a href=\"#!\">Suivant</a>",
-            "impact": "moderate",
-            "none": [],
-            "target": [
-              "li:nth-child(5) > a[href=\"#!\"]"
-            ]
-          }
-        ],
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ]
-      }
-    ],
-    "time": 569
+    "violations": [],
+    "time": 536
   },
   {
     "inapplicable": [
@@ -39825,6 +39991,24 @@
                 "relatedNodes": []
               }
             ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "div[role=\"presentation\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-attr",
+                "impact": "critical",
+                "message": "All required ARIA attributes are present",
+                "relatedNodes": []
+              }
+            ],
             "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
@@ -39881,6 +40065,24 @@
             "none": [],
             "target": [
               "header"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-children",
+                "impact": "critical",
+                "message": "Required ARIA children are present",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "div[role=\"presentation\"]"
             ]
           },
           {
@@ -39962,6 +40164,24 @@
                 "relatedNodes": []
               }
             ],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "div[role=\"presentation\"]"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "aria-required-parent",
+                "impact": "critical",
+                "message": "Required ARIA parent role present",
+                "relatedNodes": []
+              }
+            ],
             "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
@@ -40024,6 +40244,31 @@
             ],
             "target": [
               "header"
+            ]
+          },
+          {
+            "all": [],
+            "any": [],
+            "html": "<div class=\"sr-only\" role=\"presentation\">",
+            "impact": null,
+            "none": [
+              {
+                "data": null,
+                "id": "invalidrole",
+                "impact": "critical",
+                "message": "ARIA role is valid",
+                "relatedNodes": []
+              },
+              {
+                "data": null,
+                "id": "abstractrole",
+                "impact": "serious",
+                "message": "Abstract roles are not used",
+                "relatedNodes": []
+              }
+            ],
+            "target": [
+              "div[role=\"presentation\"]"
             ]
           },
           {
@@ -40755,7 +41000,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<symbol id=\"close\" viewBox=\"0 0 16 16\">",
+            "html": "<symbol id=\"close\">",
             "impact": null,
             "none": [],
             "target": [
@@ -42259,6 +42504,37 @@
         ]
       },
       {
+        "description": "Ensures all content is contained within a landmark region",
+        "help": "Content should be contained in a landmark region",
+        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/region?application=webdriverjs",
+        "id": "region",
+        "impact": null,
+        "nodes": [
+          {
+            "all": [],
+            "any": [
+              {
+                "data": null,
+                "id": "region",
+                "impact": "moderate",
+                "message": "Content contained by ARIA landmark",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<html lang=\"fr\" class=\"js\">",
+            "impact": null,
+            "none": [],
+            "target": [
+              "html"
+            ]
+          }
+        ],
+        "tags": [
+          "cat.keyboard",
+          "best-practice"
+        ]
+      },
+      {
         "description": "Ensure all skip links have a focusable target",
         "help": "The skip-link target should exist and be focusable",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/skip-link?application=webdriverjs",
@@ -42371,49 +42647,9 @@
         ]
       }
     ],
-    "timestamp": 1524556168264,
+    "timestamp": 1524557325747,
     "url": "./docs/index.html",
-    "violations": [
-      {
-        "description": "Ensures all content is contained within a landmark region",
-        "help": "Content should be contained in a landmark region",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/region?application=webdriverjs",
-        "id": "region",
-        "impact": "moderate",
-        "nodes": [
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "region",
-                "impact": "moderate",
-                "message": "Content not contained by an ARIA landmark",
-                "relatedNodes": [
-                  {
-                    "html": "<svg xmlns=\"http://www.w3.org/2000/svg\">",
-                    "target": [
-                      "svg"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  Content not contained by an ARIA landmark",
-            "html": "<html lang=\"fr\" class=\"js\">",
-            "impact": "moderate",
-            "none": [],
-            "target": [
-              "html"
-            ]
-          }
-        ],
-        "tags": [
-          "cat.keyboard",
-          "best-practice"
-        ]
-      }
-    ],
-    "time": 250
+    "violations": [],
+    "time": 260
   }
 ]
