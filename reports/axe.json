@@ -735,11 +735,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listrsscu5glab\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listjul9q1h68m\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__listrsscu5glab"
+              "#tabs__listjul9q1h68m"
             ]
           },
           {
@@ -753,11 +753,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itemrsscu5glab-1"
+              "#tabs__itemjul9q1h68m-1"
             ]
           },
           {
@@ -789,11 +789,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itemrsscu5glab-2"
+              "#tabs__itemjul9q1h68m-2"
             ]
           },
           {
@@ -930,11 +930,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listrsscu5glab\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listjul9q1h68m\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__listrsscu5glab"
+              "#tabs__listjul9q1h68m"
             ]
           },
           {
@@ -948,11 +948,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itemrsscu5glab-1"
+              "#tabs__itemjul9q1h68m-1"
             ]
           },
           {
@@ -984,11 +984,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itemrsscu5glab-2"
+              "#tabs__itemjul9q1h68m-2"
             ]
           },
           {
@@ -1124,11 +1124,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listrsscu5glab\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listjul9q1h68m\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__listrsscu5glab"
+              "#tabs__listjul9q1h68m"
             ]
           },
           {
@@ -1142,11 +1142,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itemrsscu5glab-1"
+              "#tabs__itemjul9q1h68m-1"
             ]
           },
           {
@@ -1178,11 +1178,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itemrsscu5glab-2"
+              "#tabs__itemjul9q1h68m-2"
             ]
           },
           {
@@ -1338,7 +1338,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listrsscu5glab\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listjul9q1h68m\">",
             "impact": null,
             "none": [
               {
@@ -1357,13 +1357,13 @@
               }
             ],
             "target": [
-              "#tabs__listrsscu5glab"
+              "#tabs__listjul9q1h68m"
             ]
           },
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -1382,7 +1382,7 @@
               }
             ],
             "target": [
-              "#tabs__itemrsscu5glab-1"
+              "#tabs__itemjul9q1h68m-1"
             ]
           },
           {
@@ -1413,7 +1413,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -1432,7 +1432,7 @@
               }
             ],
             "target": [
-              "#tabs__itemrsscu5glab-2"
+              "#tabs__itemjul9q1h68m-2"
             ]
           },
           {
@@ -1918,15 +1918,15 @@
               {
                 "data": {
                   "bgColor": "#ffffff",
-                  "contrastRatio": 11.21,
+                  "contrastRatio": 11.16,
                   "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#0000cc",
+                  "fgColor": "#0000cd",
                   "fontSize": "12.0pt",
                   "fontWeight": "normal"
                 },
                 "id": "color-contrast",
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 11.21",
+                "message": "Element has sufficient color contrast of 11.16",
                 "relatedNodes": []
               }
             ],
@@ -2117,16 +2117,16 @@
             "any": [
               {
                 "data": {
-                  "bgColor": "#663499",
-                  "contrastRatio": 8.27,
+                  "bgColor": "#663399",
+                  "contrastRatio": 8.4,
                   "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#fefefe",
+                  "fgColor": "#ffffff",
                   "fontSize": "12.0pt",
                   "fontWeight": "normal"
                 },
                 "id": "color-contrast",
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 8.27",
+                "message": "Element has sufficient color contrast of 8.4",
                 "relatedNodes": []
               }
             ],
@@ -2441,54 +2441,54 @@
             "all": [],
             "any": [
               {
-                "data": "tabsrsscu5glab",
+                "data": "tabsjul9q1h68m",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<div class=\"js-tabs tabs\" id=\"tabsrsscu5glab\">",
+            "html": "<div class=\"js-tabs tabs\" id=\"tabsjul9q1h68m\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabsrsscu5glab"
+              "#tabsjul9q1h68m"
             ]
           },
           {
             "all": [],
             "any": [
               {
-                "data": "tabs__listrsscu5glab",
+                "data": "tabs__listjul9q1h68m",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listrsscu5glab\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listjul9q1h68m\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__listrsscu5glab"
+              "#tabs__listjul9q1h68m"
             ]
           },
           {
             "all": [],
             "any": [
               {
-                "data": "tabs__itemrsscu5glab-1",
+                "data": "tabs__itemjul9q1h68m-1",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itemrsscu5glab-1"
+              "#tabs__itemjul9q1h68m-1"
             ]
           },
           {
@@ -2513,18 +2513,18 @@
             "all": [],
             "any": [
               {
-                "data": "tabs__itemrsscu5glab-2",
+                "data": "tabs__itemjul9q1h68m-2",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itemrsscu5glab-2"
+              "#tabs__itemjul9q1h68m-2"
             ]
           },
           {
@@ -3390,7 +3390,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -3402,13 +3402,13 @@
               }
             ],
             "target": [
-              "#tabs__itemrsscu5glab-1"
+              "#tabs__itemjul9q1h68m-1"
             ]
           },
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemrsscu5glab-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemjul9q1h68m-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -3420,7 +3420,7 @@
               }
             ],
             "target": [
-              "#tabs__itemrsscu5glab-2"
+              "#tabs__itemjul9q1h68m-2"
             ]
           },
           {
@@ -4539,10 +4539,10 @@
         ]
       }
     ],
-    "timestamp": 1524557322933,
+    "timestamp": 1524581606725,
     "url": "./docs/composants.html",
     "violations": [],
-    "time": 508
+    "time": 506
   },
   {
     "inapplicable": [
@@ -12754,7 +12754,7 @@
         ]
       }
     ],
-    "timestamp": 1524557323746,
+    "timestamp": 1524581607449,
     "url": "./docs/elements.html",
     "violations": [
       {
@@ -12811,7 +12811,7 @@
         ]
       }
     ],
-    "time": 398
+    "time": 358
   },
   {
     "inapplicable": [
@@ -26453,10 +26453,10 @@
         ]
       }
     ],
-    "timestamp": 1524557324362,
+    "timestamp": 1524581608042,
     "url": "./docs/graphiques.html",
     "violations": [],
-    "time": 501
+    "time": 464
   },
   {
     "inapplicable": [
@@ -39358,10 +39358,10 @@
         ]
       }
     ],
-    "timestamp": 1524557325452,
+    "timestamp": 1524581609119,
     "url": "./docs/groupes.html",
     "violations": [],
-    "time": 536
+    "time": 520
   },
   {
     "inapplicable": [
@@ -42647,9 +42647,9 @@
         ]
       }
     ],
-    "timestamp": 1524557325747,
+    "timestamp": 1524581609398,
     "url": "./docs/index.html",
     "violations": [],
-    "time": 260
+    "time": 241
   }
 ]

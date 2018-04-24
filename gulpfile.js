@@ -295,7 +295,12 @@ gulp.task('compat', function() {
   fs.createReadStream(test.css)
     .pipe(doiuse(browsers))
     .on('data', function(usageInfo) {
-       console.log(`${usageInfo.featureData.title} not supported by ${usageInfo.featureData.missing}`)
+      if(undefined !== usageInfo.featureData.missing 
+        && 'Opera Mini (all)' !== usageInfo.featureData.missing
+        && 'Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing
+        && 'Opera Mini (all), Opera Mobile (12.1), IE Mobile (11)' !== usageInfo.featureData.missing) {
+         console.log(`${usageInfo.featureData.title} not supported by ${usageInfo.featureData.missing}`)
+       }
      })
 });
 
