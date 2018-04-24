@@ -19,7 +19,8 @@
   "main": "dist/js/script.min.js",
   "scripts": {
     "test": "gulp test",
-    "start": "gulp"
+    "start": "gulp",
+    "prepublishOnly": "gulp zip"
   },
   "ignore": [
     "node_modules"
