@@ -187,7 +187,7 @@ gulp.task('fonts', function () {
       .pipe(gulp.dest(paths.dest + '/fonts/'))
 });
 
-
+7
 /**
  * @section Build
  * Watch Sass and JavaScript files
@@ -298,7 +298,8 @@ gulp.task('compat', function() {
       if(undefined !== usageInfo.featureData.missing 
         && 'Opera Mini (all)' !== usageInfo.featureData.missing
         && 'Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing
-        && 'Opera Mini (all), Opera Mobile (12.1), IE Mobile (11)' !== usageInfo.featureData.missing) {
+        && 'Opera Mini (all), Opera Mobile (12.1), IE Mobile (11)' !== usageInfo.featureData.missing
+        && 'IE (11), Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing) {
          console.log(`${usageInfo.featureData.title} not supported by ${usageInfo.featureData.missing}`)
        }
      })
@@ -332,7 +333,7 @@ gulp.task('axe', function(done) {
  */
 gulp.task('louis', function() {
   louis({
-    url: test.live,
+    url: test.grps,
     outputFileName: 'reports/louis.json',
     performanceBudget: {
       httpTrafficCompleted: 2000,
@@ -362,7 +363,7 @@ gulp.task('louis', function() {
  * @section Test
  * All
  */
-gulp.task('test', ['validator', 'louis', 'axe', 'compat']);
+gulp.task('test', ['validator', 'louis', 'axe']);
 
 
 /**

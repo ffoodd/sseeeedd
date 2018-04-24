@@ -17,6 +17,10 @@
   "style": "dist/css/styles.min.css",
   "sass": "src/scss/styles.scss",
   "main": "dist/js/script.min.js",
+  "scripts": {
+    "test": "gulp test",
+    "start": "gulp"
+  },
   "ignore": [
     "node_modules"
   ],
