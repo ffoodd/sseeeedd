@@ -113,7 +113,7 @@ gulp.task('js', function () {
  * Images optimization
  */
 gulp.task('img', function () {
-    return gulp.src(paths.dev + '/img/**/*')
+    return gulp.src(paths.dev + '/img/*')
       .pipe(newer(paths.dest + '/img'))
       .pipe(imgmin())
       .pipe(gulp.dest(paths.dest + '/img'))
@@ -192,7 +192,7 @@ gulp.task('fonts', function () {
  * @section Build
  * Watch Sass and JavaScript files
  */
-gulp.task('build', ['clean', 'sass', 'js', 'img', 'symbol', 'nunjucks', 'favicon', 'fonts']);
+gulp.task('build', ['clean', 'sass', 'js-deps', 'js', 'img', 'symbol', 'nunjucks', 'favicon', 'fonts']);
 
 
 /**
