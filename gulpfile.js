@@ -3,7 +3,6 @@ const fs       = require('fs');
 const gulp     = require('gulp');
 const sass     = require('gulp-sass');
 const maps     = require('gulp-sourcemaps');
-const uncss    = require('gulp-uncss');
 const prefix   = require('gulp-autoprefixer');
 const uglify   = require('gulp-uglify');
 const rename   = require('gulp-rename');
@@ -15,9 +14,8 @@ const browser  = require('browser-sync').create();
 const nunjucks = require('gulp-nunjucks');
 const zip      = require('gulp-zip');
 const del      = require('del');
-const critical = require('critical').stream;
 const newer    = require('gulp-newer');
-// Tests 
+// Tests
 const html     = require('html-validator');
 const css      = require('w3c-css');
 const doiuse   = require('doiuse/stream');
@@ -39,7 +37,7 @@ let test = {
     elms: paths.dest + '/elements.html',
     grps: paths.dest + '/groupes.html',
     cmps: paths.dest + '/composants.html',
-    gphs: paths.dest + '/graphiques.html'    
+    gphs: paths.dest + '/graphiques.html'
 };
 
 let dependencies = [
@@ -134,10 +132,10 @@ gulp.task('symbol', function () {
   		]
   	})))
     .pipe(symbol({ inlineSvg: true }));
-    
+
     return gulp
       .src(paths.dev + '/templates/includes/_symbols.html')
-      .pipe(inject(svgs, { 
+      .pipe(inject(svgs, {
         transform: fileContents
       }))
       .pipe(gulp.dest(paths.dev + '/templates/includes/'))
@@ -196,25 +194,6 @@ gulp.task('build', ['clean', 'sass', 'js-deps', 'js', 'img', 'symbol', 'nunjucks
 
 
 /**
- * @section Build
- * Inline critical CSS
- */
- gulp.task('critical', ['build'], function () {
-   return gulp.src(paths.dest + '*.html')
-      .pipe(critical({
-         base: paths.dest,
-         inline: true,
-         minify: true,
-         css: paths.dest + 'css/styles.min.css'
-      }))
-      .on('error', function(err) {
-         console.error(err.message);
-      })
-      .pipe(gulp.dest(paths.dest));
-});
-
-
-/**
  * @section Watch
  * Watch Sass and JavaScript files
  */
@@ -261,8 +240,8 @@ gulp.task('html', function() {
     })
   })
 });
- 
- 
+
+
 /**
  * @section Test
  * CSS Validation
@@ -277,7 +256,7 @@ gulp.task('css', function() {
       if(error) {
         console.error(error);
       } else {
-        var errors = data.errors;        
+        var errors = data.errors;
         for (let message in errors) {
           console.log(`${errors[message].message} at line ${errors[message].line}`)
         }
@@ -295,7 +274,7 @@ gulp.task('compat', function() {
   fs.createReadStream(test.css)
     .pipe(doiuse(browsers))
     .on('data', function(usageInfo) {
-      if(undefined !== usageInfo.featureData.missing 
+      if(undefined !== usageInfo.featureData.missing
         && 'Opera Mini (all)' !== usageInfo.featureData.missing
         && 'Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing
         && 'Opera Mini (all), Opera Mobile (12.1), IE Mobile (11)' !== usageInfo.featureData.missing
@@ -312,7 +291,7 @@ gulp.task('compat', function() {
  */
 gulp.task('validator', ['html', 'css']);
 
- 
+
 /**
  * @section Test
  * aXe
@@ -397,9 +376,9 @@ gulp.task('travis', function() {
       .then((data) => {
         let messages = JSON.parse(data);
         let errors = [];
-        let results  = messages.messages.reduce((results, value, key) => { 
-          results[key] = value; 
-          return results; 
+        let results  = messages.messages.reduce((results, value, key) => {
+          results[key] = value;
+          return results;
         }, {});
         for (let result in results) {
           if (results[result].type == "error") {
