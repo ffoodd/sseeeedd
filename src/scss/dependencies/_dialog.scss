@@ -5,11 +5,25 @@
  * @link https://github.com/edenspiekermann/a11y-dialog
 /* ==================== */
 
-.dialog[aria-hidden="true"] {
+.dialog[aria-hidden="true"],
+[data-a11y-dialog-native] > :first-child {
   display: none;
 }
 
-.dialog-overlay {
+dialog {
+  border-radius: rem( 6 );
+  max-width: 90%;
+  position: fixed;
+  top: 50%;
+  transform: translate3d(0, -50%, 0);
+  z-index: 13;
+  
+  &[open] {
+    display: block;
+  }
+}
+
+.dialog > :first-child {
   background: rgba(palette( default ), .5);
   bottom: 0;
   left: 0;
@@ -17,15 +31,4 @@
   right: 0;
   top: 0;
   z-index: 12;
-}
-
-.dialog-content {
-  background: palette( default, contrast );
-  border-radius: rem( 6 );
-  left: 50%;
-  padding: $gutter * 2;
-  position: fixed;
-  top: 50%;
-  transform: translate3d(-50%, -50%, 0);
-  z-index: 13;
 }
