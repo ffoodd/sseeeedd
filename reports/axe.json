@@ -734,11 +734,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__list7cn9gfljp1\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listmtb7fketh5\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__list7cn9gfljp1"
+              "#tabs__listmtb7fketh5"
             ]
           },
           {
@@ -752,11 +752,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item7cn9gfljp1-1"
+              "#tabs__itemmtb7fketh5-1"
             ]
           },
           {
@@ -788,11 +788,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item7cn9gfljp1-2"
+              "#tabs__itemmtb7fketh5-2"
             ]
           },
           {
@@ -929,11 +929,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__list7cn9gfljp1\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listmtb7fketh5\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__list7cn9gfljp1"
+              "#tabs__listmtb7fketh5"
             ]
           },
           {
@@ -947,11 +947,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item7cn9gfljp1-1"
+              "#tabs__itemmtb7fketh5-1"
             ]
           },
           {
@@ -983,11 +983,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item7cn9gfljp1-2"
+              "#tabs__itemmtb7fketh5-2"
             ]
           },
           {
@@ -1123,11 +1123,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__list7cn9gfljp1\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listmtb7fketh5\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__list7cn9gfljp1"
+              "#tabs__listmtb7fketh5"
             ]
           },
           {
@@ -1141,11 +1141,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item7cn9gfljp1-1"
+              "#tabs__itemmtb7fketh5-1"
             ]
           },
           {
@@ -1177,11 +1177,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item7cn9gfljp1-2"
+              "#tabs__itemmtb7fketh5-2"
             ]
           },
           {
@@ -1337,7 +1337,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__list7cn9gfljp1\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listmtb7fketh5\">",
             "impact": null,
             "none": [
               {
@@ -1356,13 +1356,13 @@
               }
             ],
             "target": [
-              "#tabs__list7cn9gfljp1"
+              "#tabs__listmtb7fketh5"
             ]
           },
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -1381,7 +1381,7 @@
               }
             ],
             "target": [
-              "#tabs__item7cn9gfljp1-1"
+              "#tabs__itemmtb7fketh5-1"
             ]
           },
           {
@@ -1412,7 +1412,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -1431,7 +1431,7 @@
               }
             ],
             "target": [
-              "#tabs__item7cn9gfljp1-2"
+              "#tabs__itemmtb7fketh5-2"
             ]
           },
           {
@@ -1917,15 +1917,15 @@
               {
                 "data": {
                   "bgColor": "#ffffff",
-                  "contrastRatio": 11.21,
+                  "contrastRatio": 11.16,
                   "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#0000cc",
+                  "fgColor": "#0000cd",
                   "fontSize": "12.0pt",
                   "fontWeight": "normal"
                 },
                 "id": "color-contrast",
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 11.21",
+                "message": "Element has sufficient color contrast of 11.16",
                 "relatedNodes": []
               }
             ],
@@ -2116,16 +2116,16 @@
             "any": [
               {
                 "data": {
-                  "bgColor": "#673499",
-                  "contrastRatio": 8.23,
+                  "bgColor": "#663399",
+                  "contrastRatio": 8.4,
                   "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#fefefe",
+                  "fgColor": "#ffffff",
                   "fontSize": "12.0pt",
                   "fontWeight": "normal"
                 },
                 "id": "color-contrast",
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 8.23",
+                "message": "Element has sufficient color contrast of 8.4",
                 "relatedNodes": []
               }
             ],
@@ -2179,7 +2179,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<p>\n    Les boîtes à onglets reposent sur <a href=\"https://van11y.net/accessible-tab-panel/\" hreflang=\"en\">Van11y</a> \n    par l’excellent <a href=\"https://www.nicolas-hoffmann.net/\">Nicolas Hoffmann</a>.\n  </p>",
+            "html": "<p>\n    Les boîtes à onglets reposent sur <a href=\"https://van11y.net/accessible-tab-panel/\" hreflang=\"en\">Van11y</a>\n    par l’excellent <a href=\"https://www.nicolas-hoffmann.net/\">Nicolas Hoffmann</a>.\n  </p>",
             "impact": null,
             "none": [],
             "target": [
@@ -2440,54 +2440,54 @@
             "all": [],
             "any": [
               {
-                "data": "tabs7cn9gfljp1",
+                "data": "tabsmtb7fketh5",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<div class=\"js-tabs tabs\" id=\"tabs7cn9gfljp1\">",
+            "html": "<div class=\"js-tabs tabs\" id=\"tabsmtb7fketh5\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs7cn9gfljp1"
+              "#tabsmtb7fketh5"
             ]
           },
           {
             "all": [],
             "any": [
               {
-                "data": "tabs__list7cn9gfljp1",
+                "data": "tabs__listmtb7fketh5",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__list7cn9gfljp1\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listmtb7fketh5\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__list7cn9gfljp1"
+              "#tabs__listmtb7fketh5"
             ]
           },
           {
             "all": [],
             "any": [
               {
-                "data": "tabs__item7cn9gfljp1-1",
+                "data": "tabs__itemmtb7fketh5-1",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item7cn9gfljp1-1"
+              "#tabs__itemmtb7fketh5-1"
             ]
           },
           {
@@ -2512,18 +2512,18 @@
             "all": [],
             "any": [
               {
-                "data": "tabs__item7cn9gfljp1-2",
+                "data": "tabs__itemmtb7fketh5-2",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__item7cn9gfljp1-2"
+              "#tabs__itemmtb7fketh5-2"
             ]
           },
           {
@@ -3335,7 +3335,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<p>\n    Les boîtes à onglets reposent sur <a href=\"https://van11y.net/accessible-tab-panel/\" hreflang=\"en\">Van11y</a> \n    par l’excellent <a href=\"https://www.nicolas-hoffmann.net/\">Nicolas Hoffmann</a>.\n  </p>",
+            "html": "<p>\n    Les boîtes à onglets reposent sur <a href=\"https://van11y.net/accessible-tab-panel/\" hreflang=\"en\">Van11y</a>\n    par l’excellent <a href=\"https://www.nicolas-hoffmann.net/\">Nicolas Hoffmann</a>.\n  </p>",
             "impact": null,
             "none": [
               {
@@ -3389,7 +3389,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -3401,13 +3401,13 @@
               }
             ],
             "target": [
-              "#tabs__item7cn9gfljp1-1"
+              "#tabs__itemmtb7fketh5-1"
             ]
           },
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__item7cn9gfljp1-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemmtb7fketh5-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -3419,7 +3419,7 @@
               }
             ],
             "target": [
-              "#tabs__item7cn9gfljp1-2"
+              "#tabs__itemmtb7fketh5-2"
             ]
           },
           {
@@ -4520,10 +4520,10 @@
         ]
       }
     ],
-    "timestamp": 1524652571125,
+    "timestamp": 1524684115773,
     "url": "./docs/composants.html",
     "violations": [],
-    "time": 484
+    "time": 895
   },
   {
     "inapplicable": [
@@ -12759,10 +12759,10 @@
         ]
       }
     ],
-    "timestamp": 1524652573490,
+    "timestamp": 1524684118312,
     "url": "./docs/elements.html",
     "violations": [],
-    "time": 418
+    "time": 631
   },
   {
     "inapplicable": [
@@ -16810,7 +16810,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<p>\n    Là encore, le balisage est parfaitement accessible&nbsp;! Aucun JavaScript n’est requis, et les styles proposent une \n    <strong>amélioration progressive</strong> selon les capacités de votre navigateur.\n  </p>",
+            "html": "<p>\n    Là encore, le balisage est parfaitement accessible&nbsp;! Aucun JavaScript n’est requis, et les styles proposent une\n    <strong>amélioration progressive</strong> selon les capacités de votre navigateur.\n  </p>",
             "impact": null,
             "none": [],
             "target": [
@@ -16960,7 +16960,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li>\n      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi \n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
+            "html": "<li>\n      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi\n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -18085,7 +18085,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li>\n      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi \n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
+            "html": "<li>\n      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi\n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -20310,7 +20310,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li>\n      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi \n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
+            "html": "<li>\n      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi\n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -24262,7 +24262,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<p>\n    Là encore, le balisage est parfaitement accessible&nbsp;! Aucun JavaScript n’est requis, et les styles proposent une \n    <strong>amélioration progressive</strong> selon les capacités de votre navigateur.\n  </p>",
+            "html": "<p>\n    Là encore, le balisage est parfaitement accessible&nbsp;! Aucun JavaScript n’est requis, et les styles proposent une\n    <strong>amélioration progressive</strong> selon les capacités de votre navigateur.\n  </p>",
             "impact": null,
             "none": [
               {
@@ -24298,7 +24298,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li>\n      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi \n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
+            "html": "<li>\n      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi\n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
             "impact": null,
             "none": [
               {
@@ -24460,7 +24460,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li>\n      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi \n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
+            "html": "<li>\n      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi\n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
             "impact": null,
             "none": [
               {
@@ -24694,7 +24694,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li>\n      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi \n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
+            "html": "<li>\n      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi\n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
             "impact": null,
             "none": [
               {
@@ -25748,7 +25748,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li>\n      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi \n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
+            "html": "<li>\n      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi\n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -25874,7 +25874,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li>\n      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi \n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
+            "html": "<li>\n      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi\n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -26036,7 +26036,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li>\n      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi \n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
+            "html": "<li>\n      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi\n      qu’une légende balisée avec <code>figcaption</code>.\n    </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -26403,10 +26403,10 @@
         ]
       }
     ],
-    "timestamp": 1524652574150,
+    "timestamp": 1524684119564,
     "url": "./docs/graphiques.html",
     "violations": [],
-    "time": 548
+    "time": 1006
   },
   {
     "inapplicable": [
@@ -29179,7 +29179,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<p>\n    Les boîtes de message respectent le motif de conception <abbr lang=\"en\" title=\"Accessible Rich Internet Application\">aria</abbr> \n    associé. Pour vous en servir correctement, deux conditions&nbsp;:\n  </p>",
+            "html": "<p>\n    Les boîtes de message respectent le motif de conception <abbr lang=\"en\" title=\"Accessible Rich Internet Application\">aria</abbr>\n    associé. Pour vous en servir correctement, deux conditions&nbsp;:\n  </p>",
             "impact": null,
             "none": [],
             "target": [
@@ -29229,7 +29229,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li>\n      la <code>div role=\"alert\" aria-live=\"assertive\"</code> doit être présente mais vide dans le code source \n      dès le chargement de la page&nbsp;;\n    </li>",
+            "html": "<li>\n      la <code>div role=\"alert\" aria-live=\"assertive\"</code> doit être présente mais vide dans le code source\n      dès le chargement de la page&nbsp;;\n    </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -29279,7 +29279,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li>\n      lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang=\"en\" title=\"HyperText Markup Language\">html</abbr>, \n      de préférence avec la méthode JavaScript <code>.innerHTML()</code>.\n    </li>",
+            "html": "<li>\n      lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang=\"en\" title=\"HyperText Markup Language\">html</abbr>,\n      de préférence avec la méthode JavaScript <code>.innerHTML()</code>.\n    </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -31754,7 +31754,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<p>\n    Un délai de 300&nbsp;<abbr title=\"Milliseconde\">ms</abbr> est laissé avant de refermer le menu, \n    pour éviter les fermetures intempestives et non désirées.\n  </p>",
+            "html": "<p>\n    Un délai de 300&nbsp;<abbr title=\"Milliseconde\">ms</abbr> est laissé avant de refermer le menu,\n    pour éviter les fermetures intempestives et non désirées.\n  </p>",
             "impact": null,
             "none": [],
             "target": [
@@ -35597,7 +35597,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<p>\n    Les boîtes de message respectent le motif de conception <abbr lang=\"en\" title=\"Accessible Rich Internet Application\">aria</abbr> \n    associé. Pour vous en servir correctement, deux conditions&nbsp;:\n  </p>",
+            "html": "<p>\n    Les boîtes de message respectent le motif de conception <abbr lang=\"en\" title=\"Accessible Rich Internet Application\">aria</abbr>\n    associé. Pour vous en servir correctement, deux conditions&nbsp;:\n  </p>",
             "impact": null,
             "none": [
               {
@@ -35615,7 +35615,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li>\n      la <code>div role=\"alert\" aria-live=\"assertive\"</code> doit être présente mais vide dans le code source \n      dès le chargement de la page&nbsp;;\n    </li>",
+            "html": "<li>\n      la <code>div role=\"alert\" aria-live=\"assertive\"</code> doit être présente mais vide dans le code source\n      dès le chargement de la page&nbsp;;\n    </li>",
             "impact": null,
             "none": [
               {
@@ -35633,7 +35633,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li>\n      lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang=\"en\" title=\"HyperText Markup Language\">html</abbr>, \n      de préférence avec la méthode JavaScript <code>.innerHTML()</code>.\n    </li>",
+            "html": "<li>\n      lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang=\"en\" title=\"HyperText Markup Language\">html</abbr>,\n      de préférence avec la méthode JavaScript <code>.innerHTML()</code>.\n    </li>",
             "impact": null,
             "none": [
               {
@@ -36443,7 +36443,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<p>\n    Un délai de 300&nbsp;<abbr title=\"Milliseconde\">ms</abbr> est laissé avant de refermer le menu, \n    pour éviter les fermetures intempestives et non désirées.\n  </p>",
+            "html": "<p>\n    Un délai de 300&nbsp;<abbr title=\"Milliseconde\">ms</abbr> est laissé avant de refermer le menu,\n    pour éviter les fermetures intempestives et non désirées.\n  </p>",
             "impact": null,
             "none": [
               {
@@ -38451,7 +38451,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li>\n      la <code>div role=\"alert\" aria-live=\"assertive\"</code> doit être présente mais vide dans le code source \n      dès le chargement de la page&nbsp;;\n    </li>",
+            "html": "<li>\n      la <code>div role=\"alert\" aria-live=\"assertive\"</code> doit être présente mais vide dans le code source\n      dès le chargement de la page&nbsp;;\n    </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -38469,7 +38469,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li>\n      lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang=\"en\" title=\"HyperText Markup Language\">html</abbr>, \n      de préférence avec la méthode JavaScript <code>.innerHTML()</code>.\n    </li>",
+            "html": "<li>\n      lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang=\"en\" title=\"HyperText Markup Language\">html</abbr>,\n      de préférence avec la méthode JavaScript <code>.innerHTML()</code>.\n    </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -39160,10 +39160,10 @@
         ]
       }
     ],
-    "timestamp": 1524652575284,
+    "timestamp": 1524684121053,
     "url": "./docs/groupes.html",
     "violations": [],
-    "time": 571
+    "time": 866
   },
   {
     "inapplicable": [
@@ -42448,9 +42448,9 @@
         ]
       }
     ],
-    "timestamp": 1524652575582,
+    "timestamp": 1524684121586,
     "url": "./docs/index.html",
     "violations": [],
-    "time": 251
+    "time": 446
   }
 ]
