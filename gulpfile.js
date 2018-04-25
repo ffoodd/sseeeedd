@@ -410,7 +410,7 @@ gulp.task('travis', function() {
           errors.forEach(function(error) {
             console.error(`${error.message} from line ${error.firstLine}, column ${error.firstColumn}; to line ${error.lastLine}, column ${error.lastColumn}`)
           });
-           process.exit(1);
+          process.exit(1);
         } else {
           console.log('The HTML document validates according to the W3C')
         }
