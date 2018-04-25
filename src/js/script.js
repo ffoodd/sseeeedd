@@ -3,7 +3,7 @@
   
   // Generic function to test selector support
   // Modernizr style
-  const supports = function supports() {
+  var supports = function supports() {
     try {
       document.querySelector(":focus-within")
     } catch (error) {
