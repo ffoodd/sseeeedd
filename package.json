@@ -28,7 +28,7 @@
     "node_modules"
   ],
   "devDependencies": {
-    "axe-core": "^3.0.1",
+    "axe-core": "^3.0.2",
     "browser-sync": "^2.23.7",
     "critical": "^1.2.2",
     "del": "^3.0.0",
@@ -53,7 +53,7 @@
     "w3c-css": "^2.0.1"
   },
   "dependencies": {
-    "a11y-dialog": "^5.0.0",
+    "a11y-dialog": "^5.0.1",
     "normalize.css": "^8.0.0",
     "van11y-accessible-tab-panel-aria": "^2.0.4"
   }

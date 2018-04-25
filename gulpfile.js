@@ -208,7 +208,7 @@ gulp.task('build', ['clean', 'sass', 'js-deps', 'js', 'img', 'symbol', 'nunjucks
          css: paths.dest + 'css/styles.min.css'
       }))
       .on('error', function(err) {
-         gutil.log(gutil.colors.red(err.message));
+         console.error(err.message);
       })
       .pipe(gulp.dest(paths.dest));
 });
