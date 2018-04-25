@@ -18,8 +18,10 @@
   "sass": "src/scss/styles.scss",
   "main": "dist/js/script.min.js",
   "scripts": {
+    "pretest": "gulp build",
     "test": "gulp test",
     "start": "gulp",
+    "prepublish": "gulp build",
     "prepublishOnly": "gulp zip"
   },
   "ignore": [
