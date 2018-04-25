@@ -187,7 +187,7 @@ gulp.task('fonts', function () {
       .pipe(gulp.dest(paths.dest + '/fonts/'))
 });
 
-7
+
 /**
  * @section Build
  * Watch Sass and JavaScript files
