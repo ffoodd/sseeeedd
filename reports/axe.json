@@ -73,7 +73,7 @@
         ]
       },
       {
-        "description": "Ensures related <input type=\"checkbox\"> elements have a group and that that group designation is consistent",
+        "description": "Ensures related <input type=\"checkbox\"> elements have a group and that the group designation is consistent",
         "help": "Checkbox inputs with the same name attribute value must be part of a group",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/checkboxgroup?application=webdriverjs",
         "id": "checkboxgroup",
@@ -368,7 +368,6 @@
           "cat.text-alternatives",
           "wcag2a",
           "wcag122",
-          "wcag123",
           "section508",
           "section508.22.a"
         ]
@@ -735,11 +734,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listbdmks28c48\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listurnme2c1po\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__listbdmks28c48"
+              "#tabs__listurnme2c1po"
             ]
           },
           {
@@ -753,11 +752,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itembdmks28c48-1"
+              "#tabs__itemurnme2c1po-1"
             ]
           },
           {
@@ -789,11 +788,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itembdmks28c48-2"
+              "#tabs__itemurnme2c1po-2"
             ]
           },
           {
@@ -930,11 +929,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listbdmks28c48\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listurnme2c1po\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__listbdmks28c48"
+              "#tabs__listurnme2c1po"
             ]
           },
           {
@@ -948,11 +947,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itembdmks28c48-1"
+              "#tabs__itemurnme2c1po-1"
             ]
           },
           {
@@ -984,11 +983,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itembdmks28c48-2"
+              "#tabs__itemurnme2c1po-2"
             ]
           },
           {
@@ -1124,11 +1123,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listbdmks28c48\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listurnme2c1po\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__listbdmks28c48"
+              "#tabs__listurnme2c1po"
             ]
           },
           {
@@ -1142,11 +1141,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itembdmks28c48-1"
+              "#tabs__itemurnme2c1po-1"
             ]
           },
           {
@@ -1178,11 +1177,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itembdmks28c48-2"
+              "#tabs__itemurnme2c1po-2"
             ]
           },
           {
@@ -1338,7 +1337,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listbdmks28c48\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listurnme2c1po\">",
             "impact": null,
             "none": [
               {
@@ -1357,13 +1356,13 @@
               }
             ],
             "target": [
-              "#tabs__listbdmks28c48"
+              "#tabs__listurnme2c1po"
             ]
           },
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -1382,7 +1381,7 @@
               }
             ],
             "target": [
-              "#tabs__itembdmks28c48-1"
+              "#tabs__itemurnme2c1po-1"
             ]
           },
           {
@@ -1413,7 +1412,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -1432,7 +1431,7 @@
               }
             ],
             "target": [
-              "#tabs__itembdmks28c48-2"
+              "#tabs__itemurnme2c1po-2"
             ]
           },
           {
@@ -1918,15 +1917,15 @@
               {
                 "data": {
                   "bgColor": "#ffffff",
-                  "contrastRatio": 11.16,
+                  "contrastRatio": 11.21,
                   "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#0000cd",
+                  "fgColor": "#0000cc",
                   "fontSize": "12.0pt",
                   "fontWeight": "normal"
                 },
                 "id": "color-contrast",
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 11.16",
+                "message": "Element has sufficient color contrast of 11.21",
                 "relatedNodes": []
               }
             ],
@@ -2117,16 +2116,16 @@
             "any": [
               {
                 "data": {
-                  "bgColor": "#663399",
-                  "contrastRatio": 8.4,
+                  "bgColor": "#663499",
+                  "contrastRatio": 8.27,
                   "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#ffffff",
+                  "fgColor": "#fefefe",
                   "fontSize": "12.0pt",
                   "fontWeight": "normal"
                 },
                 "id": "color-contrast",
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 8.4",
+                "message": "Element has sufficient color contrast of 8.27",
                 "relatedNodes": []
               }
             ],
@@ -2180,7 +2179,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<p>Les boîtes à onglets reposent sur <a href=\"https://van11y.net/accessible-tab-panel/\" hreflang=\"en\">Van11y</a> par l’excellent <a href=\"https://www.nicolas-hoffmann.net/\">Nicolas Hoffmann</a>.\n\n  </p>",
+            "html": "<p>\n    Les boîtes à onglets reposent sur <a href=\"https://van11y.net/accessible-tab-panel/\" hreflang=\"en\">Van11y</a> \n    par l’excellent <a href=\"https://www.nicolas-hoffmann.net/\">Nicolas Hoffmann</a>.\n  </p>",
             "impact": null,
             "none": [],
             "target": [
@@ -2441,54 +2440,54 @@
             "all": [],
             "any": [
               {
-                "data": "tabsbdmks28c48",
+                "data": "tabsurnme2c1po",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<div class=\"js-tabs tabs\" id=\"tabsbdmks28c48\">",
+            "html": "<div class=\"js-tabs tabs\" id=\"tabsurnme2c1po\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabsbdmks28c48"
+              "#tabsurnme2c1po"
             ]
           },
           {
             "all": [],
             "any": [
               {
-                "data": "tabs__listbdmks28c48",
+                "data": "tabs__listurnme2c1po",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listbdmks28c48\">",
+            "html": "<ul class=\"js-tablist list-inline no-padding tabs__list\" data-existing-hx=\"h3\" role=\"tablist\" id=\"tabs__listurnme2c1po\">",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__listbdmks28c48"
+              "#tabs__listurnme2c1po"
             ]
           },
           {
             "all": [],
             "any": [
               {
-                "data": "tabs__itembdmks28c48-1",
+                "data": "tabs__itemurnme2c1po-1",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itembdmks28c48-1"
+              "#tabs__itemurnme2c1po-1"
             ]
           },
           {
@@ -2513,18 +2512,18 @@
             "all": [],
             "any": [
               {
-                "data": "tabs__itembdmks28c48-2",
+                "data": "tabs__itemurnme2c1po-2",
                 "id": "duplicate-id",
                 "impact": "moderate",
                 "message": "Document has no elements that share the same id attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [],
             "target": [
-              "#tabs__itembdmks28c48-2"
+              "#tabs__itemurnme2c1po-2"
             ]
           },
           {
@@ -2592,7 +2591,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<div class=\"dialog\" aria-hidden=\"true\" id=\"dialog\">",
+            "html": "<div class=\"dialog\" id=\"dialog\" data-a11y-dialog-native=\"\">",
             "impact": null,
             "none": [],
             "target": [
@@ -3336,7 +3335,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<p>Les boîtes à onglets reposent sur <a href=\"https://van11y.net/accessible-tab-panel/\" hreflang=\"en\">Van11y</a> par l’excellent <a href=\"https://www.nicolas-hoffmann.net/\">Nicolas Hoffmann</a>.\n\n  </p>",
+            "html": "<p>\n    Les boîtes à onglets reposent sur <a href=\"https://van11y.net/accessible-tab-panel/\" hreflang=\"en\">Van11y</a> \n    par l’excellent <a href=\"https://www.nicolas-hoffmann.net/\">Nicolas Hoffmann</a>.\n  </p>",
             "impact": null,
             "none": [
               {
@@ -3390,7 +3389,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-1\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-1\" role=\"tab\" aria-controls=\"tab-1\" tabindex=\"0\" aria-selected=\"true\">Onglet №1</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -3402,13 +3401,13 @@
               }
             ],
             "target": [
-              "#tabs__itembdmks28c48-1"
+              "#tabs__itemurnme2c1po-1"
             ]
           },
           {
             "all": [],
             "any": [],
-            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itembdmks28c48-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
+            "html": "<li class=\"js-tablist__item tabs__item\" role=\"presentation\" id=\"tabs__itemurnme2c1po-2\">\n         <a class=\"js-tablist__link tabs__link\" id=\"label_tab-2\" role=\"tab\" aria-controls=\"tab-2\" tabindex=\"-1\" aria-selected=\"false\">Onglet №2</a>\n       </li>",
             "impact": null,
             "none": [
               {
@@ -3420,7 +3419,7 @@
               }
             ],
             "target": [
-              "#tabs__itembdmks28c48-2"
+              "#tabs__itemurnme2c1po-2"
             ]
           },
           {
@@ -3439,24 +3438,6 @@
             ],
             "target": [
               "#tab-1 > p"
-            ]
-          },
-          {
-            "all": [],
-            "any": [],
-            "html": "<p></p>",
-            "impact": null,
-            "none": [
-              {
-                "data": null,
-                "id": "duplicate-img-label",
-                "impact": "minor",
-                "message": "Element does not duplicate existing text in <img> alt text",
-                "relatedNodes": []
-              }
-            ],
-            "target": [
-              "p:nth-child(9)"
             ]
           }
         ],
@@ -4539,10 +4520,10 @@
         ]
       }
     ],
-    "timestamp": 1524583017537,
+    "timestamp": 1524649218697,
     "url": "./docs/composants.html",
     "violations": [],
-    "time": 363
+    "time": 517
   },
   {
     "inapplicable": [
@@ -4805,7 +4786,6 @@
           "cat.text-alternatives",
           "wcag2a",
           "wcag122",
-          "wcag123",
           "section508",
           "section508.22.a"
         ]
@@ -5031,7 +5011,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\" rev=\"footnote\">kilomètres</a>",
+            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\">kilomètres</a>",
             "impact": null,
             "none": [],
             "target": [
@@ -5103,7 +5083,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
+            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
             "impact": null,
             "none": [],
             "target": [
@@ -5276,7 +5256,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
+            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -5417,7 +5397,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
+            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -5557,7 +5537,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
+            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -5731,7 +5711,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
+            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
             "impact": null,
             "none": [
               {
@@ -5837,7 +5817,7 @@
               }
             ],
             "any": [],
-            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\" rev=\"footnote\">kilomètres</a>",
+            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\">kilomètres</a>",
             "impact": null,
             "none": [],
             "target": [
@@ -5937,7 +5917,7 @@
               }
             ],
             "any": [],
-            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
+            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
             "impact": null,
             "none": [],
             "target": [
@@ -6007,7 +5987,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\" rev=\"footnote\">kilomètres</a>",
+            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\">kilomètres</a>",
             "impact": null,
             "none": [],
             "target": [
@@ -6079,7 +6059,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
+            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
             "impact": null,
             "none": [],
             "target": [
@@ -6164,13 +6144,13 @@
             "any": [
               {
                 "data": null,
-                "id": "non-empty-if-present",
+                "id": "non-empty-value",
                 "impact": "critical",
-                "message": "Element does not have a value attribute",
+                "message": "Element has a non-empty value attribute",
                 "relatedNodes": []
               }
             ],
-            "html": "<input type=\"reset\">",
+            "html": "<input type=\"reset\" value=\"Effacer\">",
             "impact": null,
             "none": [
               {
@@ -6196,7 +6176,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<button>Bouton</button>",
+            "html": "<button type=\"submit\">Bouton</button>",
             "impact": null,
             "none": [
               {
@@ -6208,7 +6188,7 @@
               }
             ],
             "target": [
-              ".fieldset:nth-child(13) > button"
+              "button[type=\"submit\"]"
             ]
           },
           {
@@ -6295,7 +6275,7 @@
         ]
       },
       {
-        "description": "Ensures related <input type=\"checkbox\"> elements have a group and that that group designation is consistent",
+        "description": "Ensures related <input type=\"checkbox\"> elements have a group and that the group designation is consistent",
         "help": "Checkbox inputs with the same name attribute value must be part of a group",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/checkboxgroup?application=webdriverjs",
         "id": "checkboxgroup",
@@ -6570,7 +6550,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"https://www.ffoodd.fr\" target=\"_blank\">dix-huit</a>",
+            "html": "<a href=\"https://www.ffoodd.fr\" target=\"_blank\" rel=\"noopener noreferrer\">dix-huit</a>",
             "impact": null,
             "none": [],
             "target": [
@@ -6595,7 +6575,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\" rev=\"footnote\">kilomètres</a>",
+            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\">kilomètres</a>",
             "impact": null,
             "none": [],
             "target": [
@@ -6645,11 +6625,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"http://placehold.it/700x263\">Afficher lʼimage en grand</a>",
+            "html": "<a href=\"https://placehold.it/700x263\">Afficher lʼimage en grand</a>",
             "impact": null,
             "none": [],
             "target": [
-              "a[href=\"http://placehold.it/700x263\"]"
+              "a[href=\"https://placehold.it/700x263\"]"
             ]
           },
           {
@@ -8033,6 +8013,31 @@
               {
                 "data": {
                   "bgColor": "#f5f5f5",
+                  "contrastRatio": 5.03,
+                  "expectedContrastRatio": "4.5:1",
+                  "fgColor": "#696969",
+                  "fontSize": "10.8pt",
+                  "fontWeight": "normal"
+                },
+                "id": "color-contrast",
+                "impact": "serious",
+                "message": "Element has sufficient color contrast of 5.03",
+                "relatedNodes": []
+              }
+            ],
+            "html": "<span class=\"label-msg-help\">Description du champ</span>",
+            "impact": null,
+            "none": [],
+            "target": [
+              ".label-msg-help"
+            ]
+          },
+          {
+            "all": [],
+            "any": [
+              {
+                "data": {
+                  "bgColor": "#f5f5f5",
                   "contrastRatio": 19.26,
                   "expectedContrastRatio": "4.5:1",
                   "fgColor": "#000000",
@@ -8195,7 +8200,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<input type=\"reset\">",
+            "html": "<input type=\"reset\" value=\"Effacer\">",
             "impact": null,
             "none": [],
             "target": [
@@ -8207,8 +8212,8 @@
             "any": [
               {
                 "data": {
-                  "bgColor": "#000000",
-                  "contrastRatio": 21,
+                  "bgColor": "#663399",
+                  "contrastRatio": 8.4,
                   "expectedContrastRatio": "4.5:1",
                   "fgColor": "#ffffff",
                   "fontSize": "12.0pt",
@@ -8216,15 +8221,15 @@
                 },
                 "id": "color-contrast",
                 "impact": "serious",
-                "message": "Element has sufficient color contrast of 21",
+                "message": "Element has sufficient color contrast of 8.4",
                 "relatedNodes": []
               }
             ],
-            "html": "<button>Bouton</button>",
+            "html": "<button type=\"submit\">Bouton</button>",
             "impact": null,
             "none": [],
             "target": [
-              ".fieldset:nth-child(13) > button"
+              "button[type=\"submit\"]"
             ]
           },
           {
@@ -8345,7 +8350,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
+            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -8513,7 +8518,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\" rev=\"footnote\">kilomètres</a>",
+            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\">kilomètres</a>",
             "impact": null,
             "none": [],
             "target": [
@@ -8837,7 +8842,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
+            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
             "impact": null,
             "none": [],
             "target": [
@@ -9391,11 +9396,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<img src=\"http://placehold.it/700x263\" width=\"700\" height=\"263\" alt=\"Aperçu du permis de conduire. L'emplacement du numéro de permis est détaillé dans la légende ci-après.\">",
+            "html": "<img src=\"https://placehold.it/700x263\" width=\"700\" height=\"263\" alt=\"Aperçu du permis de conduire. L'emplacement du numéro de permis est détaillé dans la légende ci-après.\">",
             "impact": null,
             "none": [],
             "target": [
-              "img[src=\"http://placehold.it/700x263\"]"
+              "img[src=\"https://placehold.it/700x263\"]"
             ]
           },
           {
@@ -9831,7 +9836,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<a href=\"https://www.ffoodd.fr\" target=\"_blank\">dix-huit</a>",
+            "html": "<a href=\"https://www.ffoodd.fr\" target=\"_blank\" rel=\"noopener noreferrer\">dix-huit</a>",
             "impact": null,
             "none": [
               {
@@ -9849,7 +9854,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\" rev=\"footnote\">kilomètres</a>",
+            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\">kilomètres</a>",
             "impact": null,
             "none": [
               {
@@ -9867,7 +9872,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<a href=\"http://placehold.it/700x263\">Afficher lʼimage en grand</a>",
+            "html": "<a href=\"https://placehold.it/700x263\">Afficher lʼimage en grand</a>",
             "impact": null,
             "none": [
               {
@@ -9879,7 +9884,7 @@
               }
             ],
             "target": [
-              "a[href=\"http://placehold.it/700x263\"]"
+              "a[href=\"https://placehold.it/700x263\"]"
             ]
           },
           {
@@ -10335,7 +10340,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<p class=\"fieldset\">\n      <label for=\"texte-4\">\n        Champ avec description\n        <span class=\"label-msg-help\">Description du champ</span>\n      </label>\n      <input type=\"text\" id=\"texte-4\" name=\"texte-4\">\n\n    </p>",
+            "html": "<p class=\"fieldset\">\n      <label for=\"texte-4\">\n        Champ avec description\n        <span class=\"label-msg-help\">Description du champ</span>\n      </label>\n      <input type=\"text\" id=\"texte-4\" name=\"texte-4\">\n    </p>",
             "impact": null,
             "none": [
               {
@@ -10389,7 +10394,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<p class=\"fieldset\">\n      <input type=\"reset\">\n      <button>Bouton</button>\n    </p>",
+            "html": "<p class=\"fieldset\">\n      <input type=\"reset\" value=\"Effacer\">\n      <button type=\"submit\">Bouton</button>\n    </p>",
             "impact": null,
             "none": [
               {
@@ -10407,7 +10412,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<button>Bouton</button>",
+            "html": "<button type=\"submit\">Bouton</button>",
             "impact": null,
             "none": [
               {
@@ -10419,7 +10424,7 @@
               }
             ],
             "target": [
-              ".fieldset:nth-child(13) > button"
+              "button[type=\"submit\"]"
             ]
           },
           {
@@ -10443,7 +10448,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
+            "html": "<li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>",
             "impact": null,
             "none": [
               {
@@ -10461,7 +10466,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
+            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
             "impact": null,
             "none": [
               {
@@ -11709,7 +11714,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"https://www.ffoodd.fr\" target=\"_blank\">dix-huit</a>",
+            "html": "<a href=\"https://www.ffoodd.fr\" target=\"_blank\" rel=\"noopener noreferrer\">dix-huit</a>",
             "impact": null,
             "none": [
               {
@@ -11735,7 +11740,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\" rev=\"footnote\">kilomètres</a>",
+            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\">kilomètres</a>",
             "impact": null,
             "none": [
               {
@@ -11761,7 +11766,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"http://placehold.it/700x263\">Afficher lʼimage en grand</a>",
+            "html": "<a href=\"https://placehold.it/700x263\">Afficher lʼimage en grand</a>",
             "impact": null,
             "none": [
               {
@@ -11773,7 +11778,7 @@
               }
             ],
             "target": [
-              "a[href=\"http://placehold.it/700x263\"]"
+              "a[href=\"https://placehold.it/700x263\"]"
             ]
           },
           {
@@ -11820,7 +11825,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
+            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
             "impact": null,
             "none": [
               {
@@ -11928,7 +11933,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<ol>\n      <li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>\n    </ol>",
+            "html": "<ol>\n      <li id=\"footnote-1\" role=\"note\">\n        Ceci est un exemple de note de bas-de-page.\n        <a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>\n      </li>\n    </ol>",
             "impact": null,
             "none": [
               {
@@ -12592,7 +12597,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\" rev=\"footnote\">kilomètres</a>",
+            "html": "<a href=\"#footnote-1\" id=\"footnote-ref-1\" aria-describedby=\"footnotes-label\">kilomètres</a>",
             "impact": null,
             "none": [],
             "target": [
@@ -12610,7 +12615,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\" rev=\"footnote\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
+            "html": "<a href=\"#footnote-ref-1\" aria-label=\"Rerprendre la lecture\">\n          <span aria-hidden=\"true\">↩</span>\n        </a>",
             "impact": null,
             "none": [],
             "target": [
@@ -12754,64 +12759,10 @@
         ]
       }
     ],
-    "timestamp": 1524583018669,
+    "timestamp": 1524649220348,
     "url": "./docs/elements.html",
-    "violations": [
-      {
-        "description": "Ensures the contrast between foreground and background colors meets WCAG 2 AA contrast ratio thresholds",
-        "help": "Elements must have sufficient color contrast",
-        "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/color-contrast?application=webdriverjs",
-        "id": "color-contrast",
-        "impact": "serious",
-        "nodes": [
-          {
-            "all": [],
-            "any": [
-              {
-                "data": {
-                  "bgColor": "#f5f5f5",
-                  "contrastRatio": 3.62,
-                  "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#808080",
-                  "fontSize": "10.8pt",
-                  "fontWeight": "normal"
-                },
-                "id": "color-contrast",
-                "impact": "serious",
-                "message": "Element has insufficient color contrast of 3.62 (foreground color: #808080, background color: #f5f5f5, font size: 10.8pt, font weight: normal). Expected contrast ratio of 4.5:1",
-                "relatedNodes": [
-                  {
-                    "html": "<main role=\"main\" id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
-                    "target": [
-                      "#main"
-                    ]
-                  },
-                  {
-                    "html": "<body itemscope=\"\" itemtype=\"http://schema.org/WebPage\">",
-                    "target": [
-                      "body"
-                    ]
-                  }
-                ]
-              }
-            ],
-            "failureSummary": "Fix any of the following:\n  Element has insufficient color contrast of 3.62 (foreground color: #808080, background color: #f5f5f5, font size: 10.8pt, font weight: normal). Expected contrast ratio of 4.5:1",
-            "html": "<span class=\"label-msg-help\">Description du champ</span>",
-            "impact": "serious",
-            "none": [],
-            "target": [
-              ".label-msg-help"
-            ]
-          }
-        ],
-        "tags": [
-          "cat.color",
-          "wcag2aa",
-          "wcag143"
-        ]
-      }
-    ],
-    "time": 430
+    "violations": [],
+    "time": 452
   },
   {
     "inapplicable": [
@@ -12887,7 +12838,7 @@
         ]
       },
       {
-        "description": "Ensures related <input type=\"checkbox\"> elements have a group and that that group designation is consistent",
+        "description": "Ensures related <input type=\"checkbox\"> elements have a group and that the group designation is consistent",
         "help": "Checkbox inputs with the same name attribute value must be part of a group",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/checkboxgroup?application=webdriverjs",
         "id": "checkboxgroup",
@@ -13156,7 +13107,6 @@
           "cat.text-alternatives",
           "wcag2a",
           "wcag122",
-          "wcag123",
           "section508",
           "section508.22.a"
         ]
@@ -26453,10 +26403,10 @@
         ]
       }
     ],
-    "timestamp": 1524583019304,
+    "timestamp": 1524649221044,
     "url": "./docs/graphiques.html",
     "violations": [],
-    "time": 511
+    "time": 578
   },
   {
     "inapplicable": [
@@ -26532,7 +26482,7 @@
         ]
       },
       {
-        "description": "Ensures related <input type=\"checkbox\"> elements have a group and that that group designation is consistent",
+        "description": "Ensures related <input type=\"checkbox\"> elements have a group and that the group designation is consistent",
         "help": "Checkbox inputs with the same name attribute value must be part of a group",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/checkboxgroup?application=webdriverjs",
         "id": "checkboxgroup",
@@ -26812,7 +26762,6 @@
           "cat.text-alternatives",
           "wcag2a",
           "wcag122",
-          "wcag123",
           "section508",
           "section508.22.a"
         ]
@@ -27205,7 +27154,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
+            "html": "<nav id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
             "target": [
@@ -27450,65 +27399,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<header role=\"banner\">",
-            "impact": null,
-            "none": [],
-            "target": [
-              "header"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "aria-required-attr",
-                "impact": "critical",
-                "message": "All required ARIA attributes are present",
-                "relatedNodes": []
-              }
-            ],
             "html": "<div class=\"sr-only\" role=\"presentation\">",
             "impact": null,
             "none": [],
             "target": [
               "div[role=\"presentation\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "aria-required-attr",
-                "impact": "critical",
-                "message": "All required ARIA attributes are present",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
-            "impact": null,
-            "none": [],
-            "target": [
-              "#nav"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "aria-required-attr",
-                "impact": "critical",
-                "message": "All required ARIA attributes are present",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<main role=\"main\" id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
-            "impact": null,
-            "none": [],
-            "target": [
-              "#main"
             ]
           },
           {
@@ -27663,65 +27558,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<header role=\"banner\">",
-            "impact": null,
-            "none": [],
-            "target": [
-              "header"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "aria-required-children",
-                "impact": "critical",
-                "message": "Required ARIA children are present",
-                "relatedNodes": []
-              }
-            ],
             "html": "<div class=\"sr-only\" role=\"presentation\">",
             "impact": null,
             "none": [],
             "target": [
               "div[role=\"presentation\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "aria-required-children",
-                "impact": "critical",
-                "message": "Required ARIA children are present",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
-            "impact": null,
-            "none": [],
-            "target": [
-              "#nav"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "aria-required-children",
-                "impact": "critical",
-                "message": "Required ARIA children are present",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<main role=\"main\" id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
-            "impact": null,
-            "none": [],
-            "target": [
-              "#main"
             ]
           },
           {
@@ -27875,65 +27716,11 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<header role=\"banner\">",
-            "impact": null,
-            "none": [],
-            "target": [
-              "header"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "aria-required-parent",
-                "impact": "critical",
-                "message": "Required ARIA parent role present",
-                "relatedNodes": []
-              }
-            ],
             "html": "<div class=\"sr-only\" role=\"presentation\">",
             "impact": null,
             "none": [],
             "target": [
               "div[role=\"presentation\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "aria-required-parent",
-                "impact": "critical",
-                "message": "Required ARIA parent role present",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
-            "impact": null,
-            "none": [],
-            "target": [
-              "#nav"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "aria-required-parent",
-                "impact": "critical",
-                "message": "Required ARIA parent role present",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<main role=\"main\" id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
-            "impact": null,
-            "none": [],
-            "target": [
-              "#main"
             ]
           },
           {
@@ -28079,31 +27866,6 @@
           {
             "all": [],
             "any": [],
-            "html": "<header role=\"banner\">",
-            "impact": null,
-            "none": [
-              {
-                "data": null,
-                "id": "invalidrole",
-                "impact": "critical",
-                "message": "ARIA role is valid",
-                "relatedNodes": []
-              },
-              {
-                "data": null,
-                "id": "abstractrole",
-                "impact": "serious",
-                "message": "Abstract roles are not used",
-                "relatedNodes": []
-              }
-            ],
-            "target": [
-              "header"
-            ]
-          },
-          {
-            "all": [],
-            "any": [],
             "html": "<div class=\"sr-only\" role=\"presentation\">",
             "impact": null,
             "none": [
@@ -28124,56 +27886,6 @@
             ],
             "target": [
               "div[role=\"presentation\"]"
-            ]
-          },
-          {
-            "all": [],
-            "any": [],
-            "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
-            "impact": null,
-            "none": [
-              {
-                "data": null,
-                "id": "invalidrole",
-                "impact": "critical",
-                "message": "ARIA role is valid",
-                "relatedNodes": []
-              },
-              {
-                "data": null,
-                "id": "abstractrole",
-                "impact": "serious",
-                "message": "Abstract roles are not used",
-                "relatedNodes": []
-              }
-            ],
-            "target": [
-              "#nav"
-            ]
-          },
-          {
-            "all": [],
-            "any": [],
-            "html": "<main role=\"main\" id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
-            "impact": null,
-            "none": [
-              {
-                "data": null,
-                "id": "invalidrole",
-                "impact": "critical",
-                "message": "ARIA role is valid",
-                "relatedNodes": []
-              },
-              {
-                "data": null,
-                "id": "abstractrole",
-                "impact": "serious",
-                "message": "Abstract roles are not used",
-                "relatedNodes": []
-              }
-            ],
-            "target": [
-              "#main"
             ]
           },
           {
@@ -28385,7 +28097,7 @@
               }
             ],
             "any": [],
-            "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
+            "html": "<nav id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
             "target": [
@@ -28669,7 +28381,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
+            "html": "<nav id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
             "target": [
@@ -29155,7 +28867,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<h1>Molécules</h1>",
+            "html": "<h1>Groupes</h1>",
             "impact": null,
             "none": [],
             "target": [
@@ -29180,7 +28892,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<p>Les molécules sont les éléments d’interface de complexité intermédiare.</p>",
+            "html": "<p>Les groupes sont les éléments d’interface de complexité intermédiaire.</p>",
             "impact": null,
             "none": [],
             "target": [
@@ -33336,81 +33048,6 @@
             "target": [
               ".punctuation.token:nth-child(43)"
             ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": {
-                  "bgColor": "#f5f5f5",
-                  "contrastRatio": 7.7,
-                  "expectedContrastRatio": "3:1",
-                  "fgColor": "#663399",
-                  "fontSize": "30.0pt",
-                  "fontWeight": "bold"
-                },
-                "id": "color-contrast",
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 7.7",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<h2 id=\"measures\">Mesures</h2>",
-            "impact": null,
-            "none": [],
-            "target": [
-              "#measures"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": {
-                  "bgColor": "#f5f5f5",
-                  "contrastRatio": 8.93,
-                  "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#444444",
-                  "fontSize": "12.0pt",
-                  "fontWeight": "normal"
-                },
-                "id": "color-contrast",
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 8.93",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<p>On essaie avec <code>meter</code>…</p>",
-            "impact": null,
-            "none": [],
-            "target": [
-              "p:nth-child(42)"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": {
-                  "bgColor": "#f5f5f5",
-                  "contrastRatio": 10.23,
-                  "expectedContrastRatio": "4.5:1",
-                  "fgColor": "#0000cd",
-                  "fontSize": "12.0pt",
-                  "fontWeight": "normal"
-                },
-                "id": "color-contrast",
-                "impact": "serious",
-                "message": "Element has sufficient color contrast of 10.23",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<code>meter</code>",
-            "impact": null,
-            "none": [],
-            "target": [
-              "p:nth-child(42) > code"
-            ]
           }
         ],
         "tags": [
@@ -33487,7 +33124,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<nav role=\"navigation\" id=\"nav\" aria-label=\"Navigation principale\">",
+            "html": "<nav id=\"nav\" aria-label=\"Navigation principale\">",
             "impact": null,
             "none": [],
             "target": [
@@ -33505,7 +33142,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<main role=\"main\" id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
+            "html": "<main id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
             "impact": null,
             "none": [],
             "target": [
@@ -33637,24 +33274,6 @@
             "target": [
               "#codeblocks"
             ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": "measures",
-                "id": "duplicate-id",
-                "impact": "moderate",
-                "message": "Document has no elements that share the same id attribute",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<h2 id=\"measures\">Mesures</h2>",
-            "impact": null,
-            "none": [],
-            "target": [
-              "#measures"
-            ]
           }
         ],
         "tags": [
@@ -33681,7 +33300,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<h1>Molécules</h1>",
+            "html": "<h1>Groupes</h1>",
             "impact": null,
             "none": [],
             "target": [
@@ -34335,24 +33954,6 @@
             "target": [
               "#codeblocks"
             ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": null,
-                "id": "has-visible-text",
-                "impact": "minor",
-                "message": "Element has text that is visible to screen readers",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<h2 id=\"measures\">Mesures</h2>",
-            "impact": null,
-            "none": [],
-            "target": [
-              "#measures"
-            ]
           }
         ],
         "tags": [
@@ -34378,7 +33979,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<h1>Molécules</h1>",
+            "html": "<h1>Groupes</h1>",
             "impact": null,
             "none": [],
             "target": [
@@ -35031,24 +34632,6 @@
             "none": [],
             "target": [
               "#codeblocks"
-            ]
-          },
-          {
-            "all": [],
-            "any": [
-              {
-                "data": 2,
-                "id": "heading-order",
-                "impact": "moderate",
-                "message": "Heading order valid",
-                "relatedNodes": []
-              }
-            ],
-            "html": "<h2 id=\"measures\">Mesures</h2>",
-            "impact": null,
-            "none": [],
-            "target": [
-              "#measures"
             ]
           }
         ],
@@ -35759,7 +35342,7 @@
           {
             "all": [],
             "any": [],
-            "html": "<p>Les molécules sont les éléments d’interface de complexité intermédiare.</p>",
+            "html": "<p>Les groupes sont les éléments d’interface de complexité intermédiaire.</p>",
             "impact": null,
             "none": [
               {
@@ -37213,24 +36796,6 @@
             "target": [
               "p:nth-child(39)"
             ]
-          },
-          {
-            "all": [],
-            "any": [],
-            "html": "<p>On essaie avec <code>meter</code>…</p>",
-            "impact": null,
-            "none": [
-              {
-                "data": null,
-                "id": "duplicate-img-label",
-                "impact": "minor",
-                "message": "Element does not duplicate existing text in <img> alt text",
-                "relatedNodes": []
-              }
-            ],
-            "target": [
-              "p:nth-child(42)"
-            ]
           }
         ],
         "tags": [
@@ -37258,7 +36823,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<header role=\"banner\">",
+            "html": "<header>",
             "impact": null,
             "none": [],
             "target": [
@@ -37291,7 +36856,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<main role=\"main\" id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
+            "html": "<main id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
             "impact": null,
             "none": [],
             "target": [
@@ -37321,7 +36886,7 @@
                 "message": "Document has no more than one banner landmark",
                 "relatedNodes": [
                   {
-                    "html": "<header role=\"banner\">",
+                    "html": "<header>",
                     "target": [
                       "header"
                     ]
@@ -37389,7 +36954,7 @@
                 "message": "Page has at least one main landmark",
                 "relatedNodes": [
                   {
-                    "html": "<main role=\"main\" id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
+                    "html": "<main id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
                     "target": [
                       "#main"
                     ]
@@ -37403,7 +36968,7 @@
                 "message": "Document has no more than one main landmark",
                 "relatedNodes": [
                   {
-                    "html": "<main role=\"main\" id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
+                    "html": "<main id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
                     "target": [
                       "#main"
                     ]
@@ -39084,7 +38649,7 @@
                 "message": "Page has at least one level-one heading",
                 "relatedNodes": [
                   {
-                    "html": "<h1>Molécules</h1>",
+                    "html": "<h1>Groupes</h1>",
                     "target": [
                       "h1"
                     ]
@@ -39204,7 +38769,7 @@
                 "relatedNodes": []
               }
             ],
-            "html": "<main role=\"main\" id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
+            "html": "<main id=\"main\" tabindex=\"-1\" itemprop=\"mainContentOfPage\">",
             "impact": null,
             "none": [],
             "target": [
@@ -39358,10 +38923,10 @@
         ]
       }
     ],
-    "timestamp": 1524583020430,
+    "timestamp": 1524649222109,
     "url": "./docs/groupes.html",
     "violations": [],
-    "time": 573
+    "time": 514
   },
   {
     "inapplicable": [
@@ -39437,7 +39002,7 @@
         ]
       },
       {
-        "description": "Ensures related <input type=\"checkbox\"> elements have a group and that that group designation is consistent",
+        "description": "Ensures related <input type=\"checkbox\"> elements have a group and that the group designation is consistent",
         "help": "Checkbox inputs with the same name attribute value must be part of a group",
         "helpUrl": "https://dequeuniversity.com/rules/axe/3.0/checkboxgroup?application=webdriverjs",
         "id": "checkboxgroup",
@@ -39732,7 +39297,6 @@
           "cat.text-alternatives",
           "wcag2a",
           "wcag122",
-          "wcag123",
           "section508",
           "section508.22.a"
         ]
@@ -42647,9 +42211,9 @@
         ]
       }
     ],
-    "timestamp": 1524583020724,
+    "timestamp": 1524649222402,
     "url": "./docs/index.html",
     "violations": [],
-    "time": 259
+    "time": 256
   }
 ]
