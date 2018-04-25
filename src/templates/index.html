@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="css/styles.min.css" media="screen">
         <link rel="stylesheet" href="css/print.min.css" media="print">
     </head>
-    <body itemscope itemtype="http://schema.org/WebPage">     
+    <body itemscope itemtype="http://schema.org/WebPage">
       <header role="banner">
         {% include 'includes/_symbols.html' %}
         {% block skiplinks %}
@@ -34,8 +34,8 @@
                   <li><a href="./groupes.html#messages">Messages</a></li>
                   <li><a href="./groupes.html#cards">Cartes</a></li>
                   <li><a href="./groupes.html#panels">Panneaux</a></li>
-                  <li><a href="./groupes.html#navigation">Navigation</a></li> 
-                  <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>     
+                  <li><a href="./groupes.html#navigation">Navigation</a></li>
+                  <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>
                 </ul>
               </li>
               <li><a href="./composants.html">Composants</a></li>
@@ -48,16 +48,16 @@
       <main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">
         {% block main %}
           <h1>sseeeedd</h1>
-          
+
           <p>
             sseeeedd est à la fois <strong>un socle de travail</strong> pour l’intégration statique — qui peut servir d’environnement de travail —
             et un <strong>espace d’expérimentations</strong>.
           </p>
-          
+
           <div class="grid-2">
             <div>
               <h2>Personnalisation</h2>
-              
+
               <p>
                 Vous pouvez le personnaliser facilement à l’aide de quelques variables dans <code>src/scss/utilities/_variables.scss</code>
                 et l’alléger en supprimant quelques imports dans le fichier principal.
@@ -65,7 +65,7 @@
             </div>
             <div>
               <h2>Utilisation</h2>
-              
+
               <p>
                 Si vous êtes familiers de npm et Gulp, vous vous y retrouverez sans mal.
                 La tâche <code>gulp</code> par défaut lancer une instance de <span lang="en">BrowserSync</span>,
@@ -80,7 +80,7 @@
         <script src="js/script.min.js" async></script>
         <script src="js/prism.min.js"></script>
       {% endblock %}
-      
+
       {% block modal %}
       {% endblock %}
     </body>

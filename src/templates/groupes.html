@@ -10,8 +10,8 @@
         <li><a href="./groupes.html#messages">Messages</a></li>
         <li><a href="./groupes.html#cards">Cartes</a></li>
         <li><a href="./groupes.html#panels">Panneaux</a></li>
-        <li><a href="./groupes.html#navigation">Navigation</a></li> 
-        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>  
+        <li><a href="./groupes.html#navigation">Navigation</a></li>
+        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>
       </ul>
     </li>
     <li><a href="./composants.html">Composants</a></li>
@@ -21,81 +21,81 @@
 
 {% block main %}
   <h1>Groupes</h1>
-  
+
   <p>Les groupes sont les éléments d’interface de complexité intermédiaire.</p>
-  
+
   <h2 id="messages">Messages</h2>
-  
+
   <p>
-    Les boîtes de message respectent le motif de conception <abbr lang="en" title="Accessible Rich Internet Application">aria</abbr> 
+    Les boîtes de message respectent le motif de conception <abbr lang="en" title="Accessible Rich Internet Application">aria</abbr>
     associé. Pour vous en servir correctement, deux conditions&nbsp;:
   </p>
-  
+
   <ol>
     <li>
-      la <code>div role="alert" aria-live="assertive"</code> doit être présente mais vide dans le code source 
+      la <code>div role="alert" aria-live="assertive"</code> doit être présente mais vide dans le code source
       dès le chargement de la page&nbsp;;
     </li>
     <li>
-      lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang="en" title="HyperText Markup Language">html</abbr>, 
+      lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang="en" title="HyperText Markup Language">html</abbr>,
       de préférence avec la méthode JavaScript <code>.innerHTML()</code>.
     </li>
   </ol>
-  
+
   {% set messages = ['alert','success','accent','dominant','secondary'] %}
   {% for message in messages %}
    <div role="alert" aria-live="assertive" class="alert bg-{{ message }}">
      <p>Oh, le joli message&nbsp;!</p>
    </div>
   {% endfor %}
-  
+
   <h2 id="cards">Cartes</h2>
-  
+
   <p>
     Un système de grille basique mais efficace est disponible.
-    La version de base repose sur les <strong>colonnes</strong> <abbr lang="en" title="Cascading StyleSheet">css</abbr> 
+    La version de base repose sur les <strong>colonnes</strong> <abbr lang="en" title="Cascading StyleSheet">css</abbr>
     —&nbsp;supportées depuis <abbr lang="en" title="Internet Explorer">ie</abbr>10&nbsp;— et la grille fixe
     s’appuie sur les <strong>grilles</strong> CSS (sans préfixes Microsoft, mais avec une bascule sur les colonnes pour les navigateurs intermédiaires).
   </p>
-  
+
   {% import 'macros/_cards.html' as cards %}
-  
+
   <h3>En colonnes</h3>
 
   <div class="columns-3">
     {{ cards.card() }}
     {{ cards.card('-dominant', 'true', '', '') }}
-    {{ cards.card('-success', '', 'true', '') }}    
+    {{ cards.card('-success', '', 'true', '') }}
     {{ cards.card('-accent') }}
     {{ cards.card('', '', 'true', 'true') }}
     {{ cards.card('-alert', '', 'true', '') }}
     {{ cards.card('', '', 'true', 'true') }}
     {{ cards.card('-secondary') }}
   </div>
-  
+
   <h3>En grille fixe</h3>
-  
+
   <div class="grid-3">
     {{ cards.card() }}
     {{ cards.card('-dominant') }}
-    {{ cards.card('-success') }}    
+    {{ cards.card('-success') }}
     {{ cards.card('-accent') }}
     {{ cards.card() }}
     {{ cards.card('-alert') }}
     {{ cards.card() }}
     {{ cards.card('-secondary') }}
   </div>
-  
+
   <h2 id="panels">Panneaux</h2>
-  
+
   <p>
     Les panneaux sont les éléments HTML5 natifs <code>details</code> et <code>summary</code>.
-    Ces éléments travaillent conjointement pour composer un élément interactif permettant d’afficher 
+    Ces éléments travaillent conjointement pour composer un élément interactif permettant d’afficher
     du contenu supplémentaire.
     <br>
     Ils sont par conséquents accessibles et se dégradent gracieusement sur les navigateurs ne les supportant pas.
   </p>
-  
+
   {% set panneaux = [1,2,3,4] %}
   {% for panneau in panneaux %}
     <details>
@@ -111,7 +111,7 @@
       </div>
     </details>
   {% endfor %}
-  
+
   <div class="note">
     <h3 class="h4">Un seul panneau ouvert</h3>
     <p>
@@ -119,15 +119,15 @@
       portant la classe <code>.details-group</code>, et un petit script s’occupera du reste.
     </p>
   </div>
-  
+
   <h3>Panneaux verticaux</h3>
-  
+
   <p>
     Les panneaux verticaux sont une version enrichie des panneaux ordinaires.
     Ils s’appuient sur <code>flexbox</code> et un bout de JavaScript, pour s’assurer qu’un seul panneau soit déplié à la fois.
     L’orientation verticale du texte dépend du support de la propriété CSS <code>writing-mode</code>.
   </p>
-  
+
   <div class="details-group vertical">
     {% for panneau in panneaux %}
       <details {% if loop.index == 1%}open{% endif %}>
@@ -146,9 +146,9 @@
   </div>
 
   <h2 id="navigation">Navigation</h2>
-  
+
   <h3>Menu déroulant</h3>
-  
+
   <p>
     Là, ça devient rigolo.
     <br>
@@ -157,19 +157,19 @@
     <br>
     Ce composant requiert le support de&nbsp;:
   </p>
-  
+
   <ul>
     <li><code>clip</code> ou <code>clip-path</code> pour le masquage du sous-menu et ses effets d’apparition&nbsp;;</li>
     <li>
-      <code>:focus-within</code> pour maintenir le menu ouvert tant qu’un élément enfant a le 
-      <em lang="en">focus</em>&nbsp;: le <em lang="en">polyfill</em> crée par 
-      <a href="https://github.com/aFarkas" target="_blank" rel="noopener noreferrer">Alexandre Zarkas <span class="sr-only">(compte personnel sur Github, nouvel onglet)</span></a> 
+      <code>:focus-within</code> pour maintenir le menu ouvert tant qu’un élément enfant a le
+      <em lang="en">focus</em>&nbsp;: le <em lang="en">polyfill</em> crée par
+      <a href="https://github.com/aFarkas" target="_blank" rel="noopener noreferrer">Alexandre Zarkas <span class="sr-only">(compte personnel sur Github, nouvel onglet)</span></a>
       est utilisé pour les navigateurs le nécessitant.
     </li>
   </ul>
-  
+
   <p>
-    Un délai de 300&nbsp;<abbr title="Milliseconde">ms</abbr> est laissé avant de refermer le menu, 
+    Un délai de 300&nbsp;<abbr title="Milliseconde">ms</abbr> est laissé avant de refermer le menu,
     pour éviter les fermetures intempestives et non désirées.
   </p>
 
@@ -192,7 +192,7 @@
       </ul>
     </li>
   </ul>
-  
+
   <div class="note">
     <h4>Note technique</h4>
     <p>
@@ -202,7 +202,7 @@
   </div>
 
   <h3>Pagination</h3>
-  
+
   <nav role="navigation" aria-label="Pagination">
     <ul id="pagination">
       <li><a tabindex="-1">Précédent</a></li>
@@ -224,20 +224,20 @@
       <li aria-current="page">Groupes</li>
     </ul>
   </nav>
-  
+
   <h2 id="codeblocks">Blocs de code</h2>
-  
+
   <p>
     Les blocs de code ont un habillage personnalisé, imitant sommairement une fenêtre système.
     <strong>PrismJS</strong>, un script de coloration syntaxique supportant plusieurs langages, est présent
     —&nbsp;avec un thème personnalisé aux couleurs de WAF.
   </p>
-  
+
   <pre><code class="language-css">.open-space {
   display: grid;
   grid-template: repeat(16, minmax(3rem, 1fr)) / repeat(44, minmax(calc(3rem * 4 / 3), 1fr));
   height: 100vh;
   position: fixed;
-  width: 100vw; 
+  width: 100vw;
 }</code></pre>
 {% endblock %}

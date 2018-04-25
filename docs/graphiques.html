@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="css/styles.min.css" media="screen">
         <link rel="stylesheet" href="css/print.min.css" media="print">
     </head>
-    <body itemscope="" itemtype="http://schema.org/WebPage">     
+    <body itemscope="" itemtype="http://schema.org/WebPage">
       <header role="banner">
         <div class="sr-only" role="presentation">
   <!-- inject:svg --><svg xmlns="http://www.w3.org/2000/svg"><symbol id="close"><path d="M10.19 7.95l5.237 5.237a1.481 1.481 0 0 1-2.095 2.094l-5.236-5.236-5.237 5.236a1.481 1.481 0 0 1-2.094-2.094L6 7.95.765 2.714A1.481 1.481 0 0 1 2.859.619l5.237 5.236L13.332.62a1.481 1.481 0 0 1 2.095 2.095L10.19 7.95z" fill="currentColor" fill-opacity="1" fill-rule="evenodd"/></symbol></svg><!-- endinject -->
@@ -36,8 +36,8 @@
         <li><a href="./groupes.html#messages">Messages</a></li>
         <li><a href="./groupes.html#cards">Cartes</a></li>
         <li><a href="./groupes.html#panels">Panneaux</a></li>
-        <li><a href="./groupes.html#navigation">Navigation</a></li> 
-        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>  
+        <li><a href="./groupes.html#navigation">Navigation</a></li>
+        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>
       </ul>
     </li>
     <li><a href="./composants.html">Composants</a></li>
@@ -57,7 +57,7 @@
   </p>
 
   <p>
-    Là encore, le balisage est parfaitement accessible&nbsp;! Aucun JavaScript n’est requis, et les styles proposent une 
+    Là encore, le balisage est parfaitement accessible&nbsp;! Aucun JavaScript n’est requis, et les styles proposent une
     <strong>amélioration progressive</strong> selon les capacités de votre navigateur.
   </p>
 
@@ -71,7 +71,7 @@
 
   <ol>
     <li>
-      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi 
+      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi
       qu’une légende balisée avec <code>figcaption</code>.
     </li>
     <li>
@@ -84,14 +84,14 @@
       </ul>
     </li>
     <li>
-      <strong>Sur chaque définition</strong> <code>dd</code>, une variable <code>--value</code> permet de la placer sur la grille, 
+      <strong>Sur chaque définition</strong> <code>dd</code>, une variable <code>--value</code> permet de la placer sur la grille,
       appliquée à <code>grid-column-end</code>.
       De plus grâce à de savants calculs reposant sur cette valeur, le dégradé en arrière-plan est dimensionné et positionné de façon à
       refléter la proportion représentée par cette valeur sur l’échelle donnée (du vert pour presque rien au rouge pour presque tout).
     </li>
     <li>
-      <strong>Dans chaque définition</strong>, le contenu doit reprendre la valeur dans un élément <code>span</code> et une unité, éventuellement 
-      balisée avec <code>abbr</code> si un intitulé peut être explicité pour l’unité. Cette valeur est poussée à droite de la grille, et son texte 
+      <strong>Dans chaque définition</strong>, le contenu doit reprendre la valeur dans un élément <code>span</code> et une unité, éventuellement
+      balisée avec <code>abbr</code> si un intitulé peut être explicité pour l’unité. Cette valeur est poussée à droite de la grille, et son texte
       sert de masque pour le dégradé en arrière-plan —&nbsp;lui permettant d’être de la couleur correspondante à la fin du dégradé pour la position donnée.
     </li>
   </ol>
@@ -167,20 +167,20 @@
   </dd>
 
     </dl>
-    <figcaption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption> 
+    <figcaption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
   </figure>
 
   <h2>Graphique en tarte</h2>
 
   <p>
     Le graphique en tarte sert pour <strong>les représentations de proportions en pourcentage</strong>.
-    Il utilise principalement les variables CSS, <code>flexbox</code>, <code>clip-path</code>, <code>transform</code> et un tantinet de 
+    Il utilise principalement les variables CSS, <code>flexbox</code>, <code>clip-path</code>, <code>transform</code> et un tantinet de
     <abbr lang="en" title="Scalable Vectors Graphics">SVG</abbr> pour distinguer chaque zone. Oui, je sais rigoler. Comment qu’on s’en sert&nbsp;?
   </p>
 
   <ol>
     <li>
-      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi 
+      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi
       qu’une légende balisée avec <code>figcaption</code>.
     </li>
     <li>
@@ -252,13 +252,13 @@
     </dl>
     <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
   </figure>
-  
+
   <h3>Variantes</h3>
-  
+
   <div class="grid-2">
     <div>
       <h4>Graphique sans <i lang="en">donut</i></h4>
-      
+
       <figure role="group">
         <dl class="charts-pie no-donut">
           
@@ -302,7 +302,7 @@
     </div>
     <div>
       <h4>Graphique polaire</h4>
-      
+
       <figure role="group">
         <dl class="charts-pie no-donut polar">
           
@@ -334,20 +334,20 @@
         <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
       </figure>
     </div>
-  </div> 
-  
+  </div>
+
   <h2>Autre graphique</h2>
-  
+
   <p>
-    Ce graphique repose sur <strong>les variables CSS, les grilles</strong> et <code>clip-path</code>. 
+    Ce graphique repose sur <strong>les variables CSS, les grilles</strong> et <code>clip-path</code>.
     Cette dernière propriété est la plus importante.
     <br>
     <strong>Note</strong>&nbsp;: le principal écueil de ce graphique est qu’<strong>il nécessite de connaître le nombre de points</strong> par avance.
   </p>
-  
+
   <ol>
     <li>
-      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi 
+      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi
       qu’une légende balisée avec <code>figcaption</code>.
     </li>
     <li>
@@ -362,15 +362,15 @@
       </ul>
     </li>
   </ol>
-  
+
   <p>
     Pour chaque point placé sur <code>dl</code>, une position est définie au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
     Étant donné que cette fonction accepte deux valeurs en pourcentage pour chaque point, la méthode est relativement simple.
     Tout le reste n’est que décoration&nbsp;!
   </p>
+
   
-  
-  
+
   <figure role="group">
     <dl class="charts-line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
       
@@ -446,8 +446,8 @@
   </dd>
 
     </dl>
-    <figcaption>Température mensuelle moyenne en 2017</figcaption> 
-  </figure> 
+    <figcaption>Température mensuelle moyenne en 2017</figcaption>
+  </figure>
 
       </main>
 
@@ -455,7 +455,7 @@
         <script src="js/script.min.js" async></script>
         <script src="js/prism.min.js"></script>
       
-      
+
       
       
     </body>
