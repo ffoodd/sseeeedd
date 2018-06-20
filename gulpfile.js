@@ -11,10 +11,11 @@ const svg      = require('gulp-inject-svg');
 const symbol   = require('gulp-svgstore');
 const inject   = require('gulp-inject');
 const browser  = require('browser-sync').create();
-const nunjucks = require('gulp-nunjucks');
+const nunjucks = require('gulp-nunjucks-render');
 const zip      = require('gulp-zip');
 const del      = require('del');
 const newer    = require('gulp-newer');
+const data     = require('gulp-data');
 // Tests
 const html     = require('html-validator');
 const css      = require('w3c-css');
@@ -50,6 +51,12 @@ let browsers = ['last 1 versions', 'not dead'];
 function fileContents (filePath, file) {
   return file.contents.toString();
 }
+
+function getDatas(file) {
+  return {
+    people: JSON.parse(fs.readFileSync('./src/datas/datas.json'))
+  };
+};
 
 
 /**
@@ -149,8 +156,11 @@ gulp.task('symbol', function () {
  */
 gulp.task('nunjucks', function() {
     gulp.src(paths.dev + '/templates/*.html')
+      .pipe(data(getDatas))
       .pipe(newer(paths.dest))
-      .pipe(nunjucks.compile())
+      .pipe(nunjucks({
+        path: paths.dev + '/templates/'
+      }))
       .pipe(svg())
       .pipe(gulp.dest(paths.dest))
       .pipe(browser.stream())
@@ -218,6 +228,7 @@ gulp.task('sync', ['sass', 'js', 'nunjucks', 'img', 'symbol'], function() {
     gulp.watch(paths.dev + '/img/**/*.*', ['img']);
     gulp.watch(paths.dev + '/img/svg/*.svg', ['symbol', 'nunjucks']);
     gulp.watch(paths.dev + '/templates/**/*.html', ['nunjucks']);
+    gulp.watch(paths.dev + '/datas/**/*.json', ['nunjucks']);
 });
 
 
