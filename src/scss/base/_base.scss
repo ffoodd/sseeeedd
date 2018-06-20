@@ -11,12 +11,20 @@
  *    scrollbars naturally.
  * 2. For some Firefox.
  *    css-tricks.com/snippets/css/force-vertical-scrollbar/
+ * 3. Smooth scroll 
+ *    @see https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations
+ *    @see https://codepen.io/benfrain/pen/VxeLPb
  */
 html[lang] {
   box-sizing: border-box;
-  overflow-y: scroll;                 /* 1 */
-  overflow: -moz-scrollbars-vertical; /* 2 */
+  
+  @if $full-width == false {
+    overflow-y: scroll;                 /* 1 */
+    overflow: -moz-scrollbars-vertical; /* 2 */
+  }
+  
   position: relative;
+  scroll-behavior: smooth;            /* 3 */
 }
 
 *,
