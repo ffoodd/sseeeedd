@@ -47,6 +47,14 @@ body {
   text-shadow: none;
 }
 
+/**
+ * @note Ensure focus outline contrast
+ * @see https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html#user-interface-components
+ */
+:focus {
+  outline-color: currentColor !important;
+}
+
 a {
   color: palette( secondary );
   text-decoration-style: dotted;
