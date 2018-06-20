@@ -4,14 +4,22 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>sseeeedd</title>
+        {% block meta %}
+          <title>sseeeedd</title>
+          <meta property="og:url" content="https://ffoodd.github.io/sseeeedd/">
+          <meta property="og:title" content="sseeeedd">
+          <meta property="og:type" content="article">
+          <meta property="og:description" 
+                name="description" content="Une graîne pour cultiver son front-end">
+          <meta name="twitter:card" content="summary">
+        {% endblock %}
         <script>
           document.documentElement.classList.remove('no-js');
           document.documentElement.classList.add('js');
         </script>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="css/styles.min.css" media="screen">
-        <link rel="stylesheet" href="css/print.min.css" media="print">
+        <link rel="stylesheet" href="css/print.min.css" media="print">        
     </head>
     <body itemscope itemtype="http://schema.org/WebPage">
       <header role="banner">
