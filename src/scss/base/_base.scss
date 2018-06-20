@@ -91,6 +91,11 @@ svg {
   display: none;
 }
 
+a svg,
+button svg {
+  pointer-events: none;
+}
+
 main {
   margin: 0 auto;
   outline: none;

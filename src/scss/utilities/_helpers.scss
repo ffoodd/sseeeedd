@@ -19,6 +19,10 @@
   padding: 0;
 }
 
+.no-event {
+  pointer-events: none !important;
+}
+
 .list-inline {
   > li {
     display: inline;
