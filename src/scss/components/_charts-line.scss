@@ -14,7 +14,7 @@
       grid-template-rows: 1fr 1fr;
       padding-top: calc(#{$width / 2} - #{$gutter * 2});
       position: relative;
-      
+
       &::after,
       &::before {
         bottom: $gutter * 4;
@@ -23,7 +23,7 @@
         top: 0;
         width: 100%;
       }
-      
+
       &::before {
         background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
         clip-path: polygon(
@@ -39,23 +39,23 @@
           calc(100% / var(--x) * 9) calc(100% - (var(--10) * 100% / var(--y))),
           calc(100% / var(--x) * 10) calc(100% - (var(--11) * 100% / var(--y))),
           100% calc(100% - (var(--12) * 100% / var(--y))),
-          100% 100%, 
+          100% 100%,
           0% 100%
         );
         z-index: 2;
       }
-      
+
       &::after {
         --scale: calc(100% / var(--y));
         background: repeating-linear-gradient(to bottom, white 0%, white var(--scale), rgba(0, 0, 0, .25) calc(var(--scale) + 2px));
         z-index: 1;
       }
-      
+
       dt {
         grid-row: 1 / 1;
         margin-top: $gutter;
         transition: color .2s linear;
-        
+
         &::before {
           background: rgba(255, 255, 255, .25);
           content: "";
@@ -66,24 +66,32 @@
           width: 1px;
           z-index: 3;
         }
-        
+
         &:hover::before {
           background: rgba(255, 255, 255, 1);
         }
-        
+
         &:hover,
         &:hover + dd {
           color: palette( secondary );
         }
       }
-      
+
       dd {
         grid-row: 2 / 2;
         transition: color .2s linear;
       }
-      
+
       + figcaption {
         text-align: center;
+      }
+    }
+  }
+
+  @media screen and (-ms-high-contrast: active) and (min-width: em(480)) {
+    .charts-line {
+      &::before {
+        background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
       }
     }
   }

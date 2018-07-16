@@ -14,7 +14,7 @@ img[alt] {
   max-width: 100%;
   position: relative;
   vertical-align: middle;
-  
+
   &:not([src$=".svg"]) {
     height: auto;
   }
@@ -49,5 +49,17 @@ figure[role="group"] {
     display: block;
     font-size: em( 14 );
     padding: 1em 0;
+  }
+}
+
+@media (inverted-colors) {
+  img {
+    filter: invert(100%);
+  }
+}
+
+@media screen and (-ms-high-contrast: active) {
+  img {
+    filter: brightness(1) contrast(1) saturate(1.5);
   }
 }
