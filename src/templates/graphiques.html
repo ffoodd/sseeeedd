@@ -5,7 +5,7 @@
   <meta property="og:url" content="https://ffoodd.github.io/sseeeedd/graphiques.html">
   <meta property="og:title" content="sseeeedd — Graphiques">
   <meta property="og:type" content="article">
-  <meta property="og:description" 
+  <meta property="og:description"
         name="description" content="Une graîne pour cultiver son front-end">
   <meta name="twitter:card" content="summary">
 {% endblock %}
@@ -139,7 +139,7 @@
   {% import 'macros/_pie.html' as charts %}
 
   <figure role="group">
-    <dl class="charts-pie" style="--offset: 8rem">
+    <dl class="charts-pie donut" style="--offset: 8rem">
       {{ charts.pie('HTML', '2', '%', '', '0', '#444') }}
       {{ charts.pie('CSS', '2', '%', '', '2', 'firebrick') }}
       {{ charts.pie('JS', '32', '%', '', '4', 'crimson') }}
@@ -158,7 +158,7 @@
       <h4>Graphique sans <i lang="en">donut</i></h4>
 
       <figure role="group">
-        <dl class="charts-pie no-donut">
+        <dl class="charts-pie">
           {{ charts.pie('HTML', '2', '%', '', '0', '#444') }}
           {{ charts.pie('CSS', '2', '%', '', '2', 'firebrick') }}
           {{ charts.pie('JS', '32', '%', '', '4', 'crimson') }}

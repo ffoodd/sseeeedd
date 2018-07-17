@@ -43,90 +43,116 @@
 }
 
 @supports (--position: calc(var(--start, 0) * .01turn)) {
-  @media screen and (min-width: em(480)) {
-    .charts-pie {
-      padding-top: calc(#{$width / 2} - #{$gutter * 2});
+  .charts-pie {
+    padding-top: calc(#{$width / 2} - #{$gutter * 2});
 
-      &::after {
+    + figcaption {
+      text-align: center;
+    }
+
+    dd[role="presentation"] {
+      --position: calc(var(--start, 0) * .01turn);
+      --zoom: .6;
+      clip-path: circle(50% at 0% 50%);
+      display: block;
+      height: 100%;
+      left: 50%;
+      overflow: hidden;
+      position: absolute;
+      top: 0;
+      transform: rotate(var(--position)) scale(var(--zoom));
+      transform-origin: left center;
+      transition: transform .2s ease-in-out;
+      width: $width / 4;
+
+      &::before {
+        --position: calc(var(--value, 0) * .01turn + 1deg);
+        background-color: var(--color, currentColor);
         content: "";
-        background: inherit;
-        clip-path: circle(var(--offset, 5rem));
-        height: calc(#{$width / 2} - #{$gutter * 2});
-        left: 50%;
-        margin: auto;
-        position: absolute;
-        top: 50%;
-        transform: translate3d(-50%, -50%, 0);
-        width: calc(#{$width / 2} - #{$gutter * 2});
-      }
-
-      + figcaption {
-        text-align: center;
-      }
-
-      dd[role="presentation"] {
-        --position: calc(var(--start, 0) * .01turn);
-        clip-path: circle(50% at 0% 50%);
-        display: block;
-        height: 100%;
-        left: 50%;
-        overflow: hidden;
-        position: absolute;
+        height: inherit;
+        left: -100%;
+        position: inherit;
         top: 0;
         transform: rotate(var(--position));
-        transform-origin: left center;
-        transition: transform .2s ease-in-out;
-        width: calc(#{$width / 4} - #{$gutter * 2});
-
-        &::before {
-          --position: calc(var(--value, 0) * .01turn + 1deg);
-          background-color: var(--color, currentColor);
-          content: "";
-          height: inherit;
-          left: -100%;
-          position: inherit;
-          top: 0;
-          transform: rotate(var(--position));
-          transform-origin: right center;
-          width: 100%;
-        }
-      }
-
-      dd:hover + dd[role="presentation"],
-      dt:hover + dd + dd[role="presentation"] {
-        transform: rotate(var(--position)) scale(1.05);
-      }
-
-      @each $name, $pattern in $patterns {
-        $i: index($patterns, ($name $pattern));
-
-        dt:nth-of-type(#{$i})::before,
-        dt:nth-of-type(#{$i}) + * + dd[role="presentation"]::before  {
-          background-image: url($pattern); /* 1 */
-          background-blend-mode: soft-light;
-        }
+        transform-origin: right center;
+        width: 100%;
       }
     }
 
-    .charts-pie.no-donut::after {
-      display: none;
+    dd:hover + dd[role="presentation"],
+    dt:hover + dd + dd[role="presentation"] {
+      --zoom: .65;
     }
 
-    .charts-pie.polar {
-      dd[role="presentation"] {
-        --scale: calc(var(--value) / 50);
-        transform: rotate(var(--position)) scale(var(--scale));
-      }
+    @each $name, $pattern in $patterns {
+      $i: index($patterns, ($name $pattern));
 
-      dd:hover + dd[role="presentation"],
-      dt:hover + dd + dd[role="presentation"] {
-        --scale: calc(var(--value) / 50 * (1 + (50 - var(--value)) / 100));
-        transform: rotate(var(--position)) scale(var(--scale));
+      dt:nth-of-type(#{$i})::before,
+      dt:nth-of-type(#{$i}) + * + dd[role="presentation"]::before  {
+        background-image: url($pattern); /* 1 */
+        background-blend-mode: soft-light;
       }
     }
   }
 
-  @media screen and (-ms-high-contrast: active) and (min-width: em(480)) {
+  .charts-pie.donut::after {
+    content: "";
+    background: inherit;
+    clip-path: circle(calc(var(--offset, 5rem) / 2));
+    height: calc(#{$width / 2} - #{$gutter * 2});
+    left: 50%;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    transform: translate3d(-50%, -50%, 0);
+    width: calc(#{$width / 2} - #{$gutter * 2});
+    z-index: 2;
+  }
+
+  .charts-pie.polar {
+    dd[role="presentation"] {
+      --scale: calc(var(--value) / 75);
+      transform: rotate(var(--position)) scale(var(--scale));
+    }
+
+    dd:hover + dd[role="presentation"],
+    dt:hover + dd + dd[role="presentation"] {
+      --scale: calc(var(--value) / 75 * (1 + (75 - var(--value)) / 100));
+      transform: rotate(var(--position)) scale(var(--scale));
+    }
+  }
+
+  @media screen and (min-width: em(480)) {
+    .charts-pie {
+      &.donut::after {
+        clip-path: circle(var(--offset, 5rem));
+      }
+
+      dd[role="presentation"] {
+        --zoom: 1;
+        width: calc(#{$width / 4} - #{$gutter * 2});
+      }
+
+      dd:hover + dd[role="presentation"],
+      dt:hover + dd + dd[role="presentation"] {
+        --zoom: 1.05;
+      }
+
+      &.polar {
+        dd[role="presentation"] {
+          --scale: calc(var(--value) / 50);
+        }
+
+        dd:hover + dd[role="presentation"],
+        dt:hover + dd + dd[role="presentation"] {
+          --scale: calc(var(--value) / 50 * (1 + (50 - var(--value)) / 100));
+        }
+      }
+    }
+  }
+
+
+  @media screen and (-ms-high-contrast: active) {
     .charts-pie {
       dt::before,
       dt + * + dd[role="presentation"]::before {
