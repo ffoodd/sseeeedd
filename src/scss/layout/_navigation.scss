@@ -10,9 +10,18 @@ nav {
     margin: 0;
     padding: 0;
   }
-  
+
   a {
     padding: em( 8 ) em( 16 );
+  }
+
+  a[aria-current] {
+    border-bottom: em( 4 ) solid;
+    color: palette( accent );
+  }
+
+  button[aria-current] {
+    color: palette( accent );
   }
 
   > ul > li + li {
