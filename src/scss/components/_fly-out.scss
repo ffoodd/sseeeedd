@@ -16,149 +16,136 @@
 /* ==================== */
 
 .fly-out {
-  padding: 0;
-  
   &,
   & ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     list-style: none;
     margin: 0;
+    padding: 0;
   }
-  
+
   a,
   button {
     background: palette( secondary, contrast );
     border: 0;
+    border-radius: 0;
     color: palette( secondary );
     display: block;
     margin: 0;
     padding: $gutter / 2 $gutter;
     text-decoration: none;
-    
+    white-space: nowrap;
+
     &:hover,
     &:focus,
     &:active {
       background: palette( default, secondary );
       border: 0;
       color: palette( secondary, dark );
-    }       
+    }
   }
-  
-  > * > a,
-  > * > button {
+
+  > * {
+    background: palette( default, contrast );
+    margin: $gutter / 2;
+    position: relative;
+    z-index: 1;
+
     &:hover,
-    &:focus,
-    &:active {
-      background: none;
-    }   
+    &.focus-within {
+      z-index: 2;
+    }
+
+    > a,
+    > button {
+      &:hover,
+      &:focus,
+      &:active {
+        background: none;
+      }
+    }
+
+    > button {
+      padding-right: $gutter;
+    }
+
+    > button::after {
+      content: "↓";
+      display: inline-block;
+      padding-left: $gutter / 2;
+      transition: transform .3s ease-in .5s;
+      will-change: transform;
+    }
   }
-  
+
   ul {
     align-items: flex-start;
     background: inherit;
+    clip: rect(0, 2rem, 2rem, 0); /* 1 */
     flex-direction: column;
-    font-size: small;
+    font-size: inherit;
     min-width: 100%;
-    
+    padding-top: em( 40 );
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: clip .3s ease-in .5s;
+    will-change: clip;
+    z-index: -1;
+
     li {
       min-width: inherit;
     }
-    
+
     a,
     button {
       padding: $gutter / 2 $gutter;
+      pointer-events: auto;
     }
   }
-}
 
-@media screen and (min-width: em(480)) {
-  .fly-out {
-    &,
-    & ul {
-      display: flex;
-      padding: 0;
-    }
-    
-    a,
-    button {
-      white-space: nowrap;  
-    }
-    
-    > * {
-      background: palette( default, contrast );
-      position: relative;
-      z-index: 1;
-      
-      &:hover,
-      &.focus-within {
-        z-index: 2;
-      }
-      
-      > button {
-        padding-right: $gutter;
-      }
-        
-      > button::after {
-        content: "↓";
-        display: inline-block;
-        padding-left: $gutter / 2;
-        transition: transform .3s ease-in .5s;
-        will-change: transform;
-      }  
-    }
-    
-    ul {
-      clip: rect(0, 2rem, 2rem, 0); /* 1 */
-      font-size: inherit;
-      padding-top: em( 40 );
-      pointer-events: none;
-      position: absolute;
-      top: 0;
-      transition: clip .3s ease-in .5s;
-      will-change: clip;
-      z-index: -1;
-      
-      a,
-      button {
-        pointer-events: auto;
-      }
-    }    
-    
-    > *:hover > ul,
-    > * > button:hover + ul,
-    > * > button:focus + ul,
-    > * > button:active + ul,
-    > *.focus-within > ul {
-      box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
-      clip: auto;  /* 1 */
-      outline: 1px solid palette( muted, light );
-      transition: clip .3s ease-out;
-    }
-    
-    > * > button:hover::after,
-    > * > button:focus::after,
-    > * > button:active::after,
-    > *:hover > button::after,
-    > *.focus-within > button::after {
-      transform: rotateX( .5turn );
-      transition: transform .3s ease-out;
-    }
+  > *:hover > ul,
+  > * > button:hover + ul,
+  > * > button:focus + ul,
+  > * > button:active + ul,
+  > *.focus-within > ul {
+    box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
+    clip: auto;  /* 1 */
+    outline: 1px solid palette( muted, light );
+    transition: clip .3s ease-out;
+  }
+
+  > * > button:hover::after,
+  > * > button:focus::after,
+  > * > button:active::after,
+  > *:hover > button::after,
+  > *.focus-within > button::after {
+    transform: rotateX( .5turn );
+    transition: transform .3s ease-out;
   }
 }
 
 @supports (clip-path: circle(150% at top right)) {
   @media screen and (min-width: em(480)) {
-    .fly-out {      
+    .fly-out {
+      &,
+      & ul {
+        justify-content: initial;
+      }
+
       > *:focus-within {
         z-index: 2;
       }
-      
+
       ul {
         clip: auto;
         clip-path: circle(em( 18 ) at left top); /* 1 */
         transition: clip-path .3s ease-in .5s; /* 2 */
         will-change: clip-path;
       }
-      
+
       > *:hover > ul,
       > * > button:hover + ul,
       > * > button:focus + ul,
