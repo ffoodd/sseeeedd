@@ -49,9 +49,12 @@
 }
 
 @media screen and (-ms-high-contrast: active) {
+  [role="tab"][aria-selected="true"] {
+    border-bottom-color: buttonFace;
+  }
+
   [role="tab"][aria-selected="false"] {
-    background-color: buttonFace;
     border-color: buttonFace;
-    color: buttonText;
+    margin-top: -1px;
   }
 }
