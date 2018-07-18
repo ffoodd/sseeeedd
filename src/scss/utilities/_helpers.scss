@@ -64,7 +64,7 @@
 .d-flex {
   align-items: center;
   display: flex !important;
-  flex-wrap: wrap;  
+  flex-wrap: wrap;
 }
 
 .d-block {
@@ -132,18 +132,60 @@
 /* Backgrounds */
 @each $color in alert, success, accent, dominant, secondary {
 	.bg-#{$color} {
-		background-color: palette( #{$color} );		
+		background-color: palette( #{$color} );
 		color: palette( #{$color}, contrast );
 
     * {
       color: inherit;
     }
-    
+
     a:hover,
     a:focus {
       color: inherit;
       opacity: .75;
     }
+  }
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .clr-alert,
+  .clr-accent {
+		color: highlight !important;
+  }
+
+  .clr-success,
+  .clr-dominant {
+		color: buttonFace !important;
+  }
+
+  .clr-secondary {
+    color: window !important;
+  }
+
+  .muted {
+    color: grayText !important;
+
+    em,
+    strong {
+      color: windowText;
+    }
+  }
+
+  .bg-alert,
+  .bg-accent {
+		background-color: highlight;
+		color: highlightText;
+  }
+
+  .bg-success,
+  .bg-dominant {
+		background-color: buttonFace;
+		color: buttonText;
+  }
+
+  .bg-secondary {
+		background-color: window;
+		color: windowText;
   }
 }
 
