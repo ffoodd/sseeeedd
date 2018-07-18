@@ -19,14 +19,14 @@
   display: inline-block;
   padding: $gutter;
   transform: translateY(1px);
-  
+
   &[aria-selected="true"] {
     background: palette( default, contrast );
     border: 1px solid rgba(palette( dominant, light ), .25);
     border-bottom-color: palette( default, contrast );
     color: palette( secondary );
   }
-  
+
   &:active,
   &:focus {
     outline: none;
@@ -38,12 +38,19 @@
   border: 1px solid rgba(palette( dominant, light ), .25);
   border-radius: rem( 4 );
   padding: $gutter;
-  
+
   &:first-of-type {
     border-radius: 0 rem( 4 ) rem( 4 ) rem( 4 );
   }
-  
+
   &[aria-hidden="true"] {
     display: none;
+  }
+}
+
+@media screen and (-ms-high-contrast: active) {
+  [role="tab"][aria-selected="false"] {
+    background: buttonFace;
+    color: buttonText;
   }
 }
