@@ -62,7 +62,7 @@ button[role="switch"] {
     color: buttonText;
 
     &::before {
-      background: window;
+      background: currentColor;
     }
 
     &[aria-checked="true"] {
