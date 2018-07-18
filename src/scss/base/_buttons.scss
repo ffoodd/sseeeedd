@@ -21,6 +21,7 @@ button[type] {
   width: auto;
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 
   &:hover,
   &:focus,
@@ -46,6 +47,22 @@ button[type] {
       background-color: palette( default );
       color: palette( default, secondary );
       cursor: not-allowed;
+    }
+  }
+}
+
+@media screen and (-ms-high-contrast: active) {
+  button[type] {
+    background: Highlight;
+    color: highlightText;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &[aria-expanded="true"] {
+      background: buttonFace;
+      border-color: buttonFace;
+      color:  buttonText;
     }
   }
 }
