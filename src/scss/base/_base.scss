@@ -118,8 +118,8 @@ main {
 }
 
 mark {
-  background-color: buttonText;
-  color: buttonFace;
+  background-color: windowText;
+  color: window;
 }
 
 @supports (--css: var(--iables)) {
