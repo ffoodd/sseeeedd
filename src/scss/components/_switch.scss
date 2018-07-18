@@ -59,7 +59,7 @@ button[role="switch"] {
 @media screen and (-ms-high-contrast: active) {
   button[role="switch"] {
     background-color: buttonFace;
-    border: 1px solid;
+    border: 1px solid currentColor !important;
     color: buttonText;
 
     > span {
