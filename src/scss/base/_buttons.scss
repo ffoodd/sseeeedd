@@ -53,14 +53,14 @@ button[type] {
 
 @media screen and (-ms-high-contrast: active) {
   button[type] {
-    background: buttonText;
+    background-color: buttonText;
     color: buttonFace;
 
     &:hover,
     &:focus,
     &:active,
     &[aria-expanded="true"] {
-      background: buttonFace;
+      background-color: buttonFace;
       border-color: buttonFace;
       color:  buttonText;
     }
