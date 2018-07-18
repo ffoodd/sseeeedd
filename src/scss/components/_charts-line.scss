@@ -6,40 +6,6 @@
  * @author Miriam Suzanne
 /* ==================== */
 
-@media screen and (max-width: em(480)) {
-  .charts-line {
-    dd {
-      margin: 0 0 $gutter;
-      position: relative;
-      text-align: right;
-      z-index: 1;
-
-      span {
-        background: palette( default, contrast );
-        padding-left: $gutter / 2;
-      }
-
-      &::before {
-        border-top: 1px dotted;
-        content: "";
-        display: block;
-        transform: translateY( $gutter );
-        z-index: -1;
-      }
-    }
-
-    dt {
-      background: palette( default, contrast );
-      clear: left;
-      float: left;
-      margin: 0 0 $gutter;
-      padding-right: $gutter / 2;
-      position: relative;
-      z-index: 2;
-    }
-  }
-}
-
 @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
   @media screen and (min-width: em(480)) {
     .charts-line {

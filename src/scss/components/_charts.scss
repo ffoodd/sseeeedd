@@ -6,16 +6,54 @@
   dd {
     margin: 0;
   }
-     
+
   dd span {
     font-weight: bold;
   }
-    
+
   dd abbr[title] {
     border-bottom: 0;
     font-size: small;
     font-weight: normal;
     text-transform: none;
+  }
+}
+
+/**
+ * @note Little thinggy to check for CSS custom properties support
+ * @see https://twitter.com/AmeliasBrain/status/977218129817317376
+ */
+@supports not (--css: var(--iables)) {
+  [class*="charts"] {
+    dd {
+      margin: 0 0 $gutter;
+      position: relative;
+      text-align: right;
+      z-index: 1;
+
+      span {
+        background: palette( default, contrast );
+        padding-left: $gutter / 2;
+      }
+
+      &::before {
+        border-top: 1px dotted;
+        content: "";
+        display: block;
+        transform: translateY( $gutter );
+        z-index: -1;
+      }
+    }
+
+    dt {
+      background: palette( default, contrast );
+      clear: left;
+      float: left;
+      margin: 0 0 $gutter;
+      padding-right: $gutter / 2;
+      position: relative;
+      z-index: 2;
+    }
   }
 }
 
