@@ -50,7 +50,8 @@
 
 @media screen and (-ms-high-contrast: active) {
   [role="tab"][aria-selected="false"] {
-    background: buttonFace;
+    background-color: buttonFace;
+    border-color: buttonFace;
     color: buttonText;
   }
 }

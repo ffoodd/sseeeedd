@@ -148,11 +148,6 @@
 }
 
 @media screen and (-ms-high-contrast: active) {
-  .clr-alert,
-  .clr-accent {
-		color: highlight !important;
-  }
-
   .clr-success,
   .clr-dominant {
 		color: buttonFace !important;
@@ -171,12 +166,6 @@
     }
   }
 
-  .bg-alert,
-  .bg-accent {
-		background-color: highlight;
-		color: highlightText;
-  }
-
   .bg-success,
   .bg-dominant {
 		background-color: buttonFace;
@@ -186,6 +175,19 @@
   .bg-secondary {
 		background-color: window;
 		color: windowText;
+  }
+
+  @supports (--css: var(--iables)) {
+    .clr-alert,
+    .clr-accent {
+  		color: highlight !important;
+    }
+
+    .bg-alert,
+    .bg-accent {
+  		background-color: highlight;
+  		color: highlightText;
+    }
   }
 }
 

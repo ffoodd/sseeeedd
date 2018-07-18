@@ -69,5 +69,12 @@ button[role="switch"] {
     &::before {
       background: currentColor;
     }
+
+    @supports (--css: var(--iables)) {
+      button[role="switch"][aria-checked="true"] {
+        background-color: highlight;
+        color: highlightText;
+      }
+    }
   }
 }
