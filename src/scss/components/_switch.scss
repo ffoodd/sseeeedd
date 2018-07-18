@@ -61,6 +61,10 @@ button[role="switch"] {
     background-color: buttonFace;
     color: buttonText;
 
+    > span {
+      background-color: inherit;
+    }
+
     &::before {
       background: currentColor;
     }

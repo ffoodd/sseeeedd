@@ -53,8 +53,8 @@ button[type] {
 
 @media screen and (-ms-high-contrast: active) {
   button[type] {
-    background: Highlight;
-    color: highlightText;
+    background: buttonText;
+    color: buttonFace;
 
     &:hover,
     &:focus,
