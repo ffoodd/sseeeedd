@@ -50,19 +50,3 @@ button[type] {
     }
   }
 }
-
-@media screen and (-ms-high-contrast: active) {
-  button[type] {
-    background-color: buttonText;
-    color: buttonFace;
-
-    &:hover,
-    &:focus,
-    &:active,
-    &[aria-expanded="true"] {
-      background-color: buttonFace;
-      border-color: buttonFace;
-      color:  buttonText;
-    }
-  }
-}
