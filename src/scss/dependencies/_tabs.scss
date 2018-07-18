@@ -49,7 +49,7 @@
 }
 
 @media screen and (-ms-high-contrast: active) {
-  [role="tab"][aria-selected="false"] {
+  [role="tab"][aria-selected="true"] {
     border-color: buttonText buttonText buttonFace;
   }
 }
