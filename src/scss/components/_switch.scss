@@ -59,6 +59,7 @@ button[role="switch"] {
 @media screen and (-ms-high-contrast: active) {
   button[role="switch"] {
     background-color: buttonFace;
+    border: 1px solid;
     color: buttonText;
 
     > span {
@@ -67,11 +68,6 @@ button[role="switch"] {
 
     &::before {
       background: currentColor;
-    }
-
-    &[aria-checked="true"] {
-      background-color: highlight;
-      color: highlightText;
     }
   }
 }
