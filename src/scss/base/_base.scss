@@ -117,11 +117,6 @@ main {
   outline: none;
 }
 
-mark {
-  background-color: highlight;
-  color: highlightText;
-}
-
 @media screen and (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
@@ -129,11 +124,20 @@ mark {
   }
 }
 
+/**
+ * Handle high contrast mode in Windows
+ * @link http://adrianroselli.com/2017/12/tweaking-text-level-styles.html
+ */
 @media screen and (-ms-high-contrast: active) {
   a svg,
   button svg {
     background: none;
     border-color: buttonText;
     fill: buttonText;
+  }
+
+  mark {
+    background-color: highlight;
+    color: highlightText;
   }
 }

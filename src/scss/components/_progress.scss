@@ -1,7 +1,7 @@
 /* ==================== */
 /* == Progress
  *
- * @note 
+ * @note
  * 1. Clipped value coming from:
  ** @see https://www.ffoodd.fr/le-web-en-kit/
  ** @see http://dabblet.com/gist/08fddf3666c39ebc62ca
@@ -12,7 +12,7 @@
   animation: progression 2s linear infinite;
   background-image: linear-gradient(
     to right,
-    palette( accent, light ) 20%, 
+    palette( accent, light ) 20%,
     palette( accent, dark )  40%,
     palette( accent, light ) 60%,
     palette( accent, dark )  80%,
@@ -28,5 +28,11 @@
 @keyframes progression {
   to {
     background-position: 200% center;
+  }
+}
+
+@media screen and (-ms-high-contrast: active) {
+  .progress {
+    background-color: windowText;
   }
 }
