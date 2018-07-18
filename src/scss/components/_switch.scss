@@ -66,8 +66,8 @@ button[role="switch"] {
     }
 
     &[aria-checked="true"] {
-      background-color: highlight;
-      color: highlightText;
+      background-color: buttonText;
+      color: buttonFace;
     }
   }
 }
