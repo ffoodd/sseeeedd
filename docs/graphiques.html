@@ -191,10 +191,6 @@
       qu’une légende balisée avec <code>figcaption</code>.
     </li>
     <li>
-      Sur la <strong>liste de définitions</strong> <code>dl</code>, une variable <code>--offset</code> permet de déterminer la dimension du trou du <em lang="en">donut</em>.
-      Si, si, on en avait besoin&nbsp;!
-    </li>
-    <li>
       <strong>Sur chaque terme</strong> <code>dt</code>, une variable <code>--color</code> permet d’attribuer, et bien… une couleur.
     </li>
     <li>
@@ -220,7 +216,7 @@
   
 
   <figure role="group">
-    <dl class="charts-pie donut" style="--offset: 8rem">
+    <dl class="charts-pie">
       
   <dt style="--color: #444">HTML</dt>
   <dd style="--color: #444">2&nbsp;%</dd>
@@ -264,10 +260,15 @@
 
   <div class="grid-2">
     <div>
-      <h4>Graphique sans <i lang="en">donut</i></h4>
+      <h4><i lang="en">Donut</i></h4>
+
+      <p>
+        Sur la <strong>liste de définitions</strong> <code>dl</code>, on ajoute une variable <code>--offset</code> permet de déterminer la dimension du trou du <em lang="en">donut</em>.
+        Si, si, on en avait besoin&nbsp;!
+      </p>
 
       <figure role="group">
-        <dl class="charts-pie">
+        <dl class="charts-pie donut" style="--offset: 8rem">
           
   <dt style="--color: #444">HTML</dt>
   <dd style="--color: #444">2&nbsp;%</dd>
