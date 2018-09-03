@@ -67,6 +67,18 @@
           z-index: 3;
         }
 
+        @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+          &:nth-of-type(#{$number})::after {
+            --height: calc( 100% - #{rem(80)});
+            content: "+";
+            line-height: 1;
+            position: absolute;
+            left: calc((100% / var(--x) * #{$number - 1}));
+            top: calc(var(--height) - (var(--#{$number}) / var(--y) * var(--height)));
+            z-index: 4;
+          }
+        }
+
         &:hover::before {
           background: rgba(255, 255, 255, 1);
         }
