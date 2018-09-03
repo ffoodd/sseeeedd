@@ -38,6 +38,7 @@
           calc(100% / var(--x) * 8) calc(100% - (var(--9) / var(--y) * 100%)),
           calc(100% / var(--x) * 9) calc(100% - (var(--10) / var(--y) * 100%)),
           calc(100% / var(--x) * 10) calc(100% - (var(--11) / var(--y) * 100%)),
+          calc(100% / var(--x) * 11) calc(100% - (var(--12) / var(--y) * 100%)),
           100% calc(100% - (var(--12) / var(--y) * 100%)),
           100% 100%,
           0% 100%
@@ -67,22 +68,6 @@
           z-index: 3;
         }
 
-        @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
-          &:nth-of-type(#{$number})::after {
-            --height: calc(100% - 4rem);
-            --size: #{$gutter};
-            background: red;
-            border-radius: 50%;
-            content: "";
-            height: var(--size);
-            left: calc((100% / var(--x) * #{$number - 1}) - (var(--size) / 2));
-            position: absolute;
-            top: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))) - (var(--size) / 2));
-            width: var(--size);
-            z-index: 4;
-          }
-        }
-
         &:hover::before {
           background: rgba(255, 255, 255, 1);
         }
@@ -100,6 +85,68 @@
 
       + figcaption {
         text-align: center;
+      }
+    }
+
+    .charts-line.points {
+      &::before {
+        clip-path: polygon(
+          0% calc(100% - (var(--1) / var(--y) * 100%)),
+          calc(100% / var(--x) * 1) calc(100% - (var(--2) / var(--y) * 100%)),
+          calc(100% / var(--x) * 2) calc(100% - (var(--3) / var(--y) * 100%)),
+          calc(100% / var(--x) * 3) calc(100% - (var(--4) / var(--y) * 100%)),
+          calc(100% / var(--x) * 4) calc(100% - (var(--5) / var(--y) * 100%)),
+          calc(100% / var(--x) * 5) calc(100% - (var(--6) / var(--y) * 100%)),
+          calc(100% / var(--x) * 6) calc(100% - (var(--7) / var(--y) * 100%)),
+          calc(100% / var(--x) * 7) calc(100% - (var(--8) / var(--y) * 100%)),
+          calc(100% / var(--x) * 8) calc(100% - (var(--9) / var(--y) * 100%)),
+          calc(100% / var(--x) * 9) calc(100% - (var(--10) / var(--y) * 100%)),
+          calc(100% / var(--x) * 10) calc(100% - (var(--11) / var(--y) * 100%)),
+          calc(100% / var(--x) * 11) calc(100% - (var(--12) / var(--y) * 100%)),
+          100% calc(100% - (var(--12) / var(--y) * 100%)),
+          100% calc((100% + #{$gutter / 4}) - (var(--12) / var(--y) * 100%)),
+          calc(100% / var(--x) * 11) calc((100% + #{$gutter / 4}) - (var(--12) / var(--y) * 100%)),
+          calc(100% / var(--x) * 10) calc((100% + #{$gutter / 4}) - (var(--11) / var(--y) * 100%)),
+          calc(100% / var(--x) * 9) calc((100% + #{$gutter / 4}) - (var(--10) / var(--y) * 100%)),
+          calc(100% / var(--x) * 8) calc((100% + #{$gutter / 4}) - (var(--9) / var(--y) * 100%)),
+          calc(100% / var(--x) * 7) calc((100% + #{$gutter / 4}) - (var(--8) / var(--y) * 100%)),
+          calc(100% / var(--x) * 6) calc((100% + #{$gutter / 4}) - (var(--7) / var(--y) * 100%)),
+          calc(100% / var(--x) * 5) calc((100% + #{$gutter / 4}) - (var(--6) / var(--y) * 100%)),
+          calc(100% / var(--x) * 4) calc((100% + #{$gutter / 4}) - (var(--5) / var(--y) * 100%)),
+          calc(100% / var(--x) * 3) calc((100% + #{$gutter / 4}) - (var(--4) / var(--y) * 100%)),
+          calc(100% / var(--x) * 2) calc((100% + #{$gutter / 4}) - (var(--3) / var(--y) * 100%)),
+          calc(100% / var(--x) * 1) calc((100% + #{$gutter / 4}) - (var(--2) / var(--y) * 100%)),
+          0% calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%)),
+        );
+        z-index: 2;
+      }
+
+      dt {
+        @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+          &:nth-of-type(#{$number})::before {
+            --height: calc(100% - 4rem);
+            --size: #{$gutter};
+            background:
+              linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%)
+              0 calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))))
+              / 100% calc(var(--y) * 100%);
+            border: 2px solid palette( default, contrast );
+            border-radius: 50%;
+            box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
+            content: "";
+            height: var(--size);
+            position: absolute;
+            top: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))) - (var(--size) / 2));
+            transform: translate3d(calc(var(--size) / -2), 0, 0);
+            transition: transform .3s ease-in-out;
+            width: var(--size);
+            z-index: 4;
+          }
+        }
+
+        &:hover::before {
+          transform: translate3d(calc(var(--size) / -2), 0, 0) scale(1.25);
+        }
       }
     }
   }

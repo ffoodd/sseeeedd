@@ -187,7 +187,9 @@
     </div>
   </div>
 
-  <h2>Autre graphique</h2>
+  <h2>Graphique linéaire</h2>
+
+  <h3>Graphique de surface</h3>
 
   <p>
     Ce graphique repose sur <strong>les variables CSS, les grilles</strong> et <code>clip-path</code>.
@@ -224,6 +226,28 @@
 
   <figure role="group">
     <dl class="charts-line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+      {{ charts.line('Jan.', '8', '°C', 'Degré Celsius') }}
+      {{ charts.line('Fév.', '6', '°C', 'Degré Celsius') }}
+      {{ charts.line('Mars', '9', '°C', 'Degré Celsius') }}
+      {{ charts.line('Avr.', '12', '°C', 'Degré Celsius') }}
+      {{ charts.line('Mai', '15', '°C', 'Degré Celsius') }}
+      {{ charts.line('Juin', '21', '°C', 'Degré Celsius') }}
+      {{ charts.line('Juil.', '24', '°C', 'Degré Celsius') }}
+      {{ charts.line('Août', '25', '°C', 'Degré Celsius') }}
+      {{ charts.line('Sep.', '22', '°C', 'Degré Celsius') }}
+      {{ charts.line('Oct.', '19', '°C', 'Degré Celsius') }}
+      {{ charts.line('Nov.', '14', '°C', 'Degré Celsius') }}
+      {{ charts.line('Déc.', '9', '°C', 'Degré Celsius') }}
+    </dl>
+    <figcaption>Température mensuelle moyenne en 2017</figcaption>
+  </figure>
+
+  <h3>Variantes</h3>
+
+  <h4>Graphique à point</h4>
+
+  <figure role="group">
+    <dl class="charts-line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
       {{ charts.line('Jan.', '8', '°C', 'Degré Celsius') }}
       {{ charts.line('Fév.', '6', '°C', 'Degré Celsius') }}
       {{ charts.line('Mars', '9', '°C', 'Degré Celsius') }}
