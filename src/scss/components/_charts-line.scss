@@ -27,18 +27,18 @@
       &::before {
         background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
         clip-path: polygon(
-          0% calc(100% - (var(--1) * 100% / var(--y))),
-          calc(100% / var(--x) * 1) calc(100% - (var(--2) * 100% / var(--y))),
-          calc(100% / var(--x) * 2) calc(100% - (var(--3) * 100% / var(--y))),
-          calc(100% / var(--x) * 3) calc(100% - (var(--4) * 100% / var(--y))),
-          calc(100% / var(--x) * 4) calc(100% - (var(--5) * 100% / var(--y))),
-          calc(100% / var(--x) * 5) calc(100% - (var(--6) * 100% / var(--y))),
-          calc(100% / var(--x) * 6) calc(100% - (var(--7) * 100% / var(--y))),
-          calc(100% / var(--x) * 7) calc(100% - (var(--8) * 100% / var(--y))),
-          calc(100% / var(--x) * 8) calc(100% - (var(--9) * 100% / var(--y))),
-          calc(100% / var(--x) * 9) calc(100% - (var(--10) * 100% / var(--y))),
-          calc(100% / var(--x) * 10) calc(100% - (var(--11) * 100% / var(--y))),
-          100% calc(100% - (var(--12) * 100% / var(--y))),
+          0% calc(100% - (var(--1) / var(--y) * 100%)),
+          calc(100% / var(--x) * 1) calc(100% - (var(--2) / var(--y) * 100%)),
+          calc(100% / var(--x) * 2) calc(100% - (var(--3) / var(--y) * 100%)),
+          calc(100% / var(--x) * 3) calc(100% - (var(--4) / var(--y) * 100%)),
+          calc(100% / var(--x) * 4) calc(100% - (var(--5) / var(--y) * 100%)),
+          calc(100% / var(--x) * 5) calc(100% - (var(--6) / var(--y) * 100%)),
+          calc(100% / var(--x) * 6) calc(100% - (var(--7) / var(--y) * 100%)),
+          calc(100% / var(--x) * 7) calc(100% - (var(--8) / var(--y) * 100%)),
+          calc(100% / var(--x) * 8) calc(100% - (var(--9) / var(--y) * 100%)),
+          calc(100% / var(--x) * 9) calc(100% - (var(--10) / var(--y) * 100%)),
+          calc(100% / var(--x) * 10) calc(100% - (var(--11) / var(--y) * 100%)),
+          100% calc(100% - (var(--12) / var(--y) * 100%)),
           100% 100%,
           0% 100%
         );
