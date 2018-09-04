@@ -9,6 +9,8 @@
 @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
   @media screen and (min-width: em(480)) {
     .charts-line {
+      --offset: calc((100% / var(--x)) / 2);
+
       display: grid;
       grid-template-columns: repeat(var(--x), minmax(min-content, 1fr));
       grid-template-rows: 1fr 1fr;
@@ -26,7 +28,6 @@
       }
 
       &::before {
-        --offset: calc((100% / var(--x)) / 2);
         background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
         clip-path: polygon(
           0% calc(100% - (var(--1) / var(--y) * 100%)),
@@ -140,9 +141,11 @@
             box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
             content: "";
             height: var(--size);
+            left: calc((100% / var(--x) * #{$number - 1}) + var(--offset));
             position: absolute;
             top: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))) - (var(--size) / 2));
-            transform: translate3d(calc(var(--size) / 2), 0, 0);
+            transform: translate3d(calc(var(--size) / -2), 0, 0);
+            transform-origin: center;
             transition: transform .3s ease-in-out;
             width: var(--size);
             z-index: 4;
