@@ -95,19 +95,21 @@
     }
   }
 
-  .charts-pie.donut::after {
-    content: "";
-    background: inherit;
-    clip-path: circle(calc(var(--offset, 5rem) / 2));
-    height: calc(#{$width / 2} - #{$gutter * 2});
-    left: 50%;
-    margin: auto;
-    position: absolute;
-    top: 50%;
-    transform: translate3d(-50%, calc(-50% - #{$gutter * 2}), 0);
-    width: calc(#{$width / 2} - #{$gutter * 2});
-    z-index: 2;
-  }
+  /**
+   * @note Mask support:
+   * @link https://caniuse.com/#search=mask
+   */
+   @supports (mask: var(--mask)) {
+     .charts-pie.donut {
+       mask-image: radial-gradient(
+         circle at 50% calc(50% - #{$gutter * 2}),
+         transparent 0%,
+         transparent var(--offset),
+         palette( default, contrast) calc(var(--offset) + 1px),
+         palette( default, contrast) 100%
+       );
+     }
+   }
 
   .charts-pie.polar {
     dd[role="presentation"] {
