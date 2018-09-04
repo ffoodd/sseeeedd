@@ -145,7 +145,6 @@
             position: absolute;
             top: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))) - (var(--size) / 2));
             transform: translate3d(calc(var(--size) / -2), 0, 0);
-            transform-origin: center;
             transition: transform .3s ease-in-out;
             width: var(--size);
             z-index: 4;
@@ -153,7 +152,7 @@
         }
 
         &:hover::before {
-          transform: translate3d(calc(var(--size) / 2), 0, 0) scale(1.5);
+          transform: translate3d(calc(var(--size) / -2), 0, 0) scale(1.5);
         }
       }
     }
