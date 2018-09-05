@@ -17,6 +17,7 @@
       padding-top: calc(#{$width / 2} - #{$gutter * 2});
       position: relative;
       text-align: center;
+      transition: background .3s ease-in-out, color .3s ease-in-out;
 
       &::after,
       &::before {
@@ -59,7 +60,7 @@
       dt {
         grid-row: 1 / 1;
         margin-top: $gutter;
-        transition: background .3s ease-in-out, color .3s ease-in-out;
+        transition: inherit;
 
         &::after {
           background: palette( default, contrast );
@@ -93,7 +94,7 @@
 
       dd {
         grid-row: 2 / 2;
-        transition: background .3s ease-in-out, color .3s ease-in-out;
+        transition: inherit;
       }
 
       + figcaption {

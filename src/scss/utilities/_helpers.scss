@@ -50,11 +50,11 @@
 }
 
 .ml-1 {
-    margin-left: $gutter !important;
+  margin-left: $gutter !important;
 }
 
 .mb-1 {
-    margin-bottom: $gutter !important;
+  margin-bottom: $gutter !important;
 }
 
 .p-relative {
@@ -76,8 +76,7 @@
 }
 
 .align-end {
-  align-self: flex-end !important;
-  justify-self: flex-end !important;
+  place-self: flex-end !important;
 }
 
 .flex-column {
