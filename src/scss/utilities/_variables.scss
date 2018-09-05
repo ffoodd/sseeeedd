@@ -5,6 +5,7 @@
 /*
   == Paths
   == Colors
+  == Timing functions
   == Spacings
   == Patterns
   == Formage
@@ -67,6 +68,20 @@ $colors: (
 $blank: str-replace(to-string(palette( accent )), "#", "%23");
 $blank-focus: str-replace(to-string(palette( accent, dark )), "#", "%23");
 
+
+/* ==================== */
+/* == Timing functions
+ *
+ * @note Simple cubic-bezier curves for timing functions
+ * @author David K. Piano
+ * @link https://twitter.com/DavidKPiano/status/965704092545900544
+/* ==================== */
+
+$timing-functions: (
+  enter: cubic-bezier(0, .5, .5, 1),
+  exit: cubic-bezier(.5, 0, 1, .5),
+  move: cubic-bezier(.5, 0, .5, 1)
+);
 
 /* ==================== */
 /* == Spacings

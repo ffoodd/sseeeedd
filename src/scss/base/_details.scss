@@ -5,28 +5,28 @@
 details {
   border: em( 4 ) solid palette( dominant, dark );
   padding: 1rem;
-  
+
   & + & {
     border-top-width: 0;
   }
-  
+
   &[open] summary ~ * {
-    animation: slide-down .5s ease-in-out;
+    animation: slide-down .5s map-get( $timing-functions, 'enter' )
   }
-  
+
   summary {
     background: palette( dominant );
     color: palette( dominant, contrast );
     cursor: pointer;
     margin: -1rem;
     padding: inherit;
-    transition: background .2s ease-in-out;
-    
+    transition: background .2s map-get( $timing-functions, 'enter' )
+
     &:hover,
     &:focus {
       background: palette( dominant, dark );
     }
-    
+
     ~ * {
       margin-top: rem( 32 );
     }
@@ -47,36 +47,36 @@ details {
    ** 2. Firefox is the only one supporting the nicer value
    * @link https://developer.mozilla.org/fr/docs/Web/CSS/writing-mode#Compatibilité_des_navigateurs
    */
-   @supports (--foo: bar, baz) {
+   @supports (--css: var(--iables)) {
     .vertical {
       display: flex;
-      
+
       details {
         flex: 0;
         min-width: em( 56 );
         overflow: hidden;
-        
+
         &[open] {
           flex: 1;
-          
+
           summary ~ * {
-            animation: slide-in .5s ease-in-out;
+            animation: slide-in .5s map-get( $timing-functions, 'enter' )
           }
         }
-        
+
         & + details {
           border-width: em( 4 ) em( 4 ) em( 4 ) 0;
         }
-        
+
         summary {
           float: left;
           min-height: em( 320 );
           writing-mode: vertical-lr; /* 1 */
           writing-mode: sideways-lr; /* 2 */
-          
-          ~ * {        
+
+          ~ * {
             padding-left: em( 56 );
-            
+
             > *:first-child {
               margin-top: 0;
             }

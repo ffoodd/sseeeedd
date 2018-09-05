@@ -10,7 +10,7 @@ button[role="switch"] {
   height: rem( 44 );
   line-height: rem( 44 );
   padding: 0 $gutter * 3;
-  transition: all .3s ease-in;
+  transition: all .3s map-get( $timing-functions, 'enter' );
   width: rem( 76 );
   will-change: background-color;
 
@@ -23,7 +23,7 @@ button[role="switch"] {
     left: rem( 4 );
     top: rem( 4 );
     transform: none;
-    transition: transform .3s ease-in 0s;
+    transition: transform .3s map-get( $timing-functions, 'enter' ) 0s;
     width: rem( 38 );
     will-change: transform;
   }

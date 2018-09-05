@@ -62,7 +62,7 @@
       top: 0;
       transform: rotate(var(--position)) scale(var(--zoom));
       transform-origin: left center;
-      transition: transform .2s ease-in-out;
+      transition: transform .2s map-get( $timing-functions, 'move' );
       width: $width / 4;
 
       &::before {

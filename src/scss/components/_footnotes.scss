@@ -34,5 +34,5 @@ footer[id="footnotes"] {
 }
 
 [role="note"]:target {
-  animation: footnotes .5s ease-in;
+  animation: footnotes .5s map-get( $timing-functions, 'enter' );
 }

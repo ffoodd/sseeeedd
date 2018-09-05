@@ -9,7 +9,7 @@
 /* ==================== */
 
 .progress {
-  animation: progression 2s linear infinite;
+  animation: progression 2s map-get( $timing-functions, 'move' ) infinite;
   background-image: linear-gradient(
     to right,
     palette( accent, light ) 20%,

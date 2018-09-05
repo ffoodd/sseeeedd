@@ -33,7 +33,7 @@
     grid-template-columns: minmax(min-content, em( 200 )) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch; /* 1 */
 
     * {
-      transition: opacity .2s ease-in-out;
+      transition: opacity .2s map-get( $timing-functions, 'move' );
     }
 
     dt {
