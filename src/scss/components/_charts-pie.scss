@@ -124,6 +124,43 @@
     }
   }
 
+  /**
+   * @note Conic gradient support:
+   * @link https://caniuse.com/#search=conic-gradient
+   */
+  @supports(background: conic-gradient(black, white)) {
+    .charts-pie.conic {
+      background-image:
+        radial-gradient(
+          circle at 50%,
+          palette( default, contrast ) 0%,
+          palette( default, contrast ) var(--offset),
+          transparent calc(var(--offset) + 1px),
+          transparent calc(#{$width / 3} - var(--offset)),
+          palette( default, contrast ) calc(#{$width / 3} - var(--offset) + 1px),
+          palette( default, contrast ) 100%
+        ),
+        conic-gradient(
+          var(--c1) calc(var(--v1) * 1%),
+          var(--c2) 0deg calc((var(--v1) + var(--v2)) * 1%),
+          var(--c3) 0deg calc((var(--v1) + var(--v2) + var(--v3)) * 1%),
+          var(--c4) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4)) * 1%),
+          var(--c5) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4) + var(--v5)) * 1%),
+          var(--c6) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4) + var(--v5) + var(--v6)) * 1%),
+          var(--c7) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4) + var(--v5) + var(--v6) + var(--v7)) * 1%)
+        );
+      mask-image: none;
+
+      dt::before {
+        background-image: none;
+      }
+
+      dd[role="presentation"] {
+        display: none;
+      }
+    }
+  }
+
   @media screen and (min-width: em(480)) {
     .charts-pie {
       &.donut::after {

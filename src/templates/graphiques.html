@@ -193,6 +193,59 @@
     </div>
   </div>
 
+  <h4>Dégradé conique</h4>
+
+  <p>
+    L’utilisation de <code>conic-gradient()</code> est prometteuse pour ce cas précis.
+    Vous en trouverez des exemples réalisés par Ana Ttudor ou Léa Verou, par exemple.
+    Cependant le <strong>support limité à Chrome</strong> est déprimant, et pose tout de même quelques questions
+    en matière d’accessibilité.
+  </p>
+
+  <figure role="group">
+    <dl class="charts-pie conic donut"
+        style="--v1: 2; --v2: 2; --v3: 32; --v4: 1; --v5: 44; --v6: 17; --v7: 2;
+               --c1: #444; --c2: firebrick; --c3: crimson; --c4: mediumblue; --c5: darkblue; --c6: rebeccapurple; --c7: indigo;
+              --offset: 8rem">
+      {{ charts.pie('HTML', '2', '%', '', '0', '#444') }}
+      {{ charts.pie('CSS', '2', '%', '', '2', 'firebrick') }}
+      {{ charts.pie('JS', '32', '%', '', '4', 'crimson') }}
+      {{ charts.pie('Json', '1', '%', '', '36', 'mediumblue') }}
+      {{ charts.pie('Images', '44', '%', '', '37', 'darkblue') }}
+      {{ charts.pie('Webfonts', '17', '%', '', '81', 'rebeccapurple') }}
+      {{ charts.pie('Autres', '2', '%', '', '98', 'indigo') }}
+    </dl>
+    <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
+  </figure>
+
+  <div class="note">
+    <h5>Note technique</h5>
+    <p>
+      Ce type de dégradé permet effectivement d’obtenir un rendu visuel correct,
+      cependant de nombreux détails facheux me font dire qu’il n’est pas adapté à un l’usage démontré ici&nbsp;:
+    </p>
+    <ul>
+      <li>
+        il faut connaître le nombre de valeurs à l’avance, et toutes les variables doivent être posées sur le parent <code>&lt;dl&gt;</code>
+        (ce qui peut devenir problèmatique pour les performances)&nbsp;;</li>
+      <li>
+        les positions dans le dégradé sont extrêmement verbeuses,
+        puisqu’il faut manuellement additionner les différentes valeurs pour les obtenir&nbsp
+      </li>
+      <li>
+        puis comme chaque valeur n’est qu’une position dans le dégradé&nbsp;:
+        <ol>
+          <li>
+            il est impossible de les distinguer autrement que par la couleur —&nbsp;contrairement
+            à mes précédents essais nécessitant un élément <code>&lt;dd&gt;</code> de décoration&nbsp;;
+          </li>
+          <li>il est par conséquent impossible d’animer chaque partie.</li>
+        </ol>
+      </li>
+    </ul>
+
+  </div>
+
   <h2>Graphique linéaire</h2>
 
   <h3>Graphique de surface</h3>
