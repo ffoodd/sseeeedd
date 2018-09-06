@@ -18,6 +18,12 @@ nav {
   a[aria-current] {
     border-bottom: em( 4 ) solid;
     color: palette( accent );
+
+    &:hover,
+    &:focus,
+    &:active {
+      border-bottom: em( 4 ) solid;
+    }
   }
 
   button[aria-current] {
