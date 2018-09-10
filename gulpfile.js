@@ -52,9 +52,9 @@ function fileContents (filePath, file) {
   return file.contents.toString();
 }
 
-function getDatas(file) {
+function getCards(file) {
   return {
-    people: JSON.parse(fs.readFileSync('./src/datas/datas.json'))
+    deck: JSON.parse(fs.readFileSync('./src/datas/deck.json'))
   };
 };
 
@@ -156,7 +156,7 @@ gulp.task('symbol', function () {
  */
 gulp.task('nunjucks', function() {
     gulp.src(paths.dev + '/templates/*.html')
-      .pipe(data(getDatas))
+      .pipe(data(getCards))
       .pipe(newer(paths.dest))
       .pipe(nunjucks({
         path: paths.dev + '/templates/'
