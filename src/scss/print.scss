@@ -1,8 +1,8 @@
 @media print {
-  *::after,
-  *::before,
   body > :not(main),
-  main > :not(.deck) {
+  main > :not(.deck),
+  *:not(.card)::after,
+  *:not(.card)::before, {
     display: none !important;
   }
 

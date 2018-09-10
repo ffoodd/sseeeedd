@@ -44,17 +44,20 @@
       width: $gutter * 2;
       z-index: 2;
     }
+
+    &::after {
+      content: "";
+      display: flex;
+      height: $gutter * 2.5;
+      width: $gutter * 2.5;
+    }
   }
 
   @supports(background: -moz-element(var(--card, 1))) {
     [class*="card"]::after {
       background: -moz-element(var(--card, 1)) no-repeat bottom right;
-      content: "";
-      display: flex;
-      height: $gutter * 2.5;
       margin-left: auto;
       position: relative;
-      width: $gutter * 2.5;
       z-index: 2;
     }
   }
