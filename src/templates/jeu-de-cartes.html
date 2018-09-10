@@ -35,8 +35,8 @@
 
   <div class="deck" id="cards">
     {% for item in deck %}
-      <article class="card clr-{{ item.color }}" role="group" style="--card: #card-{{ loop.index }}">
-        <p class="--l d-flex rounded bg-{{ item.color }}" id="card-{{ loop.index }}">{{ item.value }}</p>
+      <article class="card p-relative no-margin d-flex clr-{{ item.color }}" role="group" style="--card: #card-{{ loop.index }}">
+        <p class="--l d-flex no-padding p-relative rounded bg-{{ item.color }}" id="card-{{ loop.index }}">{{ item.value }}</p>
         <figure role="group" class="no-margin no-padding no-background">
           <svg width="64" height="64" role="img" aria-label="{{ item.label }}">
             <use xlink:href="#{{ item.icon }}"></use>
