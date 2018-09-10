@@ -57,7 +57,7 @@
     {% for item in deck %}
       <figure class="card p-relative no-margin d-flex clr-{{ item.color }}" role="group" style="--card: #card-{{ loop.index }}">
         <p class="--l d-flex no-padding p-relative rounded bg-{{ item.color }}" id="card-{{ loop.index }}">{{ item.value }}</p>
-        <svg width="56" height="64" role="img" aria-label="{{ item.label }}">
+        <svg width="56" height="64" role="img" aria-label="{{ item.label }}" class="no-margin no-padding">
           <use xlink:href="#{{ item.icon }}"></use>
         </svg>
         <figcaption class="no-margin no-padding">
