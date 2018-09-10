@@ -17,7 +17,7 @@
       padding-top: calc(#{$width / 2} - #{$gutter * 2});
       position: relative;
       text-align: center;
-      transition: 
+      transition:
         background .3s map-get( $timing-functions, 'move' ),
         color .3s map-get( $timing-functions, 'move' );
 
@@ -55,7 +55,7 @@
 
       &::after {
         --scale: calc(100% / var(--y));
-        background: repeating-linear-gradient(to bottom, white 0%, white var(--scale), rgba(0, 0, 0, .25) calc(var(--scale) + 2px));
+        background: repeating-linear-gradient(to bottom, white, white var(--scale), rgba(0, 0, 0, .25) calc(var(--scale) + #{$gutter / 8}));
         z-index: 1;
       }
 

@@ -349,4 +349,25 @@
     </dl>
     <figcaption>Température mensuelle moyenne en 2017</figcaption>
   </figure>
+
+  <h2>Graphique radar</h2>
+
+  <p>
+    Chantier en cours…
+  </p>
+
+  {% import 'macros/_radar.html' as charts %}
+
+  <figure role="group">
+    <dl class="charts-radar" style="--scale: 20; --step: 5;">
+      {{ charts.radar('Accessibilité', '14') }}
+      {{ charts.radar('Référencement', '11') }}
+      {{ charts.radar('Performance', '13') }}
+      {{ charts.radar('Compatibilité', '16') }}
+      {{ charts.radar('Sécurité', '10') }}
+      {{ charts.radar('Qualité de code', '12') }}
+      {{ charts.radar('Test', '8') }}
+    </dl>
+    <figcaption>Niveau d’intérêt par domaine, sur 20</figcaption>
+  </figure>
 {% endblock %}
