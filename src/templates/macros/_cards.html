@@ -1,7 +1,7 @@
 {% macro card(variant='', image='true', text='true', time='true') %}
   <article class="card{{ variant }}">
     {% if image == 'true' %}
-      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150" />
+      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150" class="no-margin no-padding" />
     {% endif %}
     {% if text == 'true' %}
       <h3>Intitulé de la carte</h3>

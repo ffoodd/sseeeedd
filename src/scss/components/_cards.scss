@@ -10,13 +10,13 @@
   display: block;
   overflow: hidden;
 
-  > img {
-    border-radius: em( 3 ) em( 3 ) 0 0;
-  }
-
-  > *:not(img):not([role="img"]) {
+  > * {
     margin: 0 0 $gutter;
     padding: 0 $gutter;
+  }
+
+  > img {
+    border-radius: em( 3 ) em( 3 ) 0 0;
   }
 
   > h3 {
