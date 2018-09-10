@@ -129,7 +129,7 @@
 }
 
 /* Backgrounds */
-@each $color in alert, success, accent, dominant, secondary {
+@each $color in alert, success, accent, dominant, secondary, default {
 	.bg-#{$color} {
 		background-color: palette( #{$color} );
 		color: palette( #{$color}, contrast );
