@@ -17,7 +17,7 @@
           document.documentElement.classList.add('js');
         </script>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="css/styles.min.css" media="screen">
+        <link rel="stylesheet" href="css/styles.min.css" media="all">
         <link rel="stylesheet" href="css/print.min.css" media="print">
     </head>
     <body itemscope="" itemtype="http://schema.org/WebPage">
@@ -63,13 +63,17 @@
     Ce composant est principalement intéressant parce qu’il est <strong>généré</strong> depuis un fichier <code>.json</code>.
     Chaque carte correspond à une entrée comprenant&nbsp;:
   </p>
+
   <ul>
     <li>un label,</li>
     <li>une valeur,</li>
-    <li>une couleur&nbsp;: qui doit être présente dans la palette du projet,</li>
     <li>
-      et une icône&nbsp; l’identifiant d’un symbôle dans le <em lang="en">sprite</em>
-      <abbr lang="en" title="Scalable Vector Graphics">SVG</abbr>.
+      une couleur&nbsp;: qui doit être présente dans la <code>palette()</code> du projet
+      —&nbsp;jetez un œil à <code>./src/scss/utilities/variables.scss</code>,
+    </li>
+    <li>
+      et une icône&nbsp; le nom d’un fichier <abbr lang="en" title="Scalable Vector Graphics">SVG</abbr>
+      dans le répertoire <code>./src/img/svg/</code>.
     </li>
   </ul>
 
