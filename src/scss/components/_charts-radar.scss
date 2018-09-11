@@ -23,7 +23,32 @@
   border-radius: 50%;
   height: $width / 2;
   margin: 0 auto;
+  position: relative;
   width: $width / 2;
+
+  /**
+   * Placing items around a circle
+   * @author Ana Tudor
+   * @link https://stackoverflow.com/questions/12813573/position-icons-into-circle
+   * @link http://dabblet.com/gist/3866686
+   */
+  dt {
+    --angle: calc(360 / var(--items));
+    --index: 1;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform:
+      rotate( calc(var(--angle) * var(--index) * 1deg) )
+      translate( #{$width / 4} )
+      rotate( calc(var(--angle) * var(--index) * -1deg) );
+
+    @each $number in 1, 2, 3, 4, 5, 6, 7 {
+      &:nth-of-type(#{$number}) {
+        --index: #{$number};
+      }
+    }
+  }
 
   + figcaption {
     text-align: center;
