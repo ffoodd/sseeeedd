@@ -36,9 +36,11 @@
     --angle: calc(360 / var(--items));
     --index: 1;
     left: 50%;
+    margin: 0;
     position: absolute;
     top: 50%;
     transform:
+      translate3d(-50%, -50%, 0)
       rotate( calc(var(--angle) * var(--index) * 1deg) )
       translate( #{$width / 4} )
       rotate( calc(var(--angle) * var(--index) * -1deg) );
