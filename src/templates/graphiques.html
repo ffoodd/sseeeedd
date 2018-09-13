@@ -359,14 +359,14 @@
   {% import 'macros/_radar.html' as charts %}
 
   <figure role="group">
-    <dl class="charts-radar" style="--scale: 20; --step: 5; --items: 7;">
+    <dl class="charts-radar" style="--scale: 20; --step: 5; --items: 7; --1: 14; --2: 11; --3: 13; --4: 16; --5: 10; --6: 12; --7: 4; --8: var(--1);">
       {{ charts.radar('Accessibilité', '14') }}
       {{ charts.radar('Référencement', '11') }}
       {{ charts.radar('Performance', '13') }}
       {{ charts.radar('Compatibilité', '16') }}
       {{ charts.radar('Sécurité', '10') }}
       {{ charts.radar('Qualité de code', '12') }}
-      {{ charts.radar('Test', '8') }}
+      {{ charts.radar('Test', '4') }}
     </dl>
     <figcaption>Niveau d’intérêt par domaine, sur 20</figcaption>
   </figure>
