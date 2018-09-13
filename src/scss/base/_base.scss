@@ -115,6 +115,7 @@ button svg {
 main {
   margin: 0 auto;
   outline: none;
+  overflow: hidden;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

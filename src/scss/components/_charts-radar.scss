@@ -105,19 +105,17 @@
     --hypo: calc( #{$base / 4} / var(--sin) );
     // get the ratio: skewed / initial width
     --ratio: calc( var(--hypo) / #{$base / 4} );
+    background: linear-gradient( to top left, palette( accent, light ) 10%, palette( secondary, dark ) 75%);
+    height: 50%;
     left: 0;
     margin: 0;
     position: absolute;
     top: 0;
-    transform-origin: 100% 100%;
     transform:
       rotate( calc(var(--part) * var(--index, 1)) )
       skew( var(--skew) );
+    transform-origin: 100% 100%;
     width: 50%;
-    height: 50%;
-
-      background: blue;
-
 
     @each $number in 1, 2, 3, 4, 5, 6, 7 {
       &:nth-of-type(#{$number}) {
@@ -129,6 +127,16 @@
           100% 100%
         );
       }
+    }
+
+    span {
+      bottom: .5rem;
+      color: palette( accent, contrast );
+      position: absolute;
+      right: .5rem;
+      transform:
+        skew( calc(var(--skew) * -1) )
+        rotate( calc(var(--part) * var(--index, 1) * -1) );
     }
   }
 
