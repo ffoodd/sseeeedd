@@ -8,13 +8,12 @@
  * @note Massively using clip-path
  * @see Bennett Feely's clippy to understand polygon() syntax
  * @link http://bennettfeely.com/clippy/
-/* ==================== */
+ */
 
 @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
   @media screen and (min-width: em(480)) {
     .charts-line {
       --offset: calc((100% / var(--x)) / 2);
-
       display: grid;
       grid-template-columns: repeat(var(--x), minmax(min-content, 1fr));
       grid-template-rows: 1fr 1fr;
@@ -99,12 +98,9 @@
       }
 
       dd {
+        display: initial;
         grid-row: 2 / 2;
         transition: inherit;
-      }
-
-      + figcaption {
-        text-align: center;
       }
     }
 

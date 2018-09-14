@@ -45,10 +45,6 @@
   .charts-pie {
     padding-top: calc(#{$width / 2} - #{$gutter * 2});
 
-    + figcaption {
-      text-align: center;
-    }
-
     /**
      * @note Pie chart based on:
      * @link https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/
@@ -73,8 +69,10 @@
         --position: calc(var(--value, 0) * .01turn + 1deg);
         background-color: var(--color, currentColor);
         content: "";
+        display: initial;
         height: 100%;
         left: -100%;
+        margin: initial;
         position: inherit;
         top: 0;
         transform: rotate(var(--position));
