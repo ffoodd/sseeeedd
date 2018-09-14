@@ -100,24 +100,18 @@ pre {
   }
 }
 
-p var,
-ul var,
-ol var,
-p code,
-ul code,
-ol code {
+:not(pre) > var,
+:not(pre) > code {
   border: 1px solid;
   border-radius: .2em;
-  color: palette( secondary );
+  color: palette( accent );
   display: inline-block;
   font-family: inherit;
   padding: .1em;
   white-space: nowrap;
 }
 
-p var,
-ul var,
-ol var {
+:not(pre) > var {
   background: palette( accent, contrast );
   color: palette( accent );
 }

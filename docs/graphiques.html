@@ -61,8 +61,8 @@
   <h1>Graphiques</h1>
 
   <p>
-    Les deux versions de graphiques présentées pour le moment reposent uniquement sur un balisage sémantique
-    —&nbsp;<code>dl</code>, <code>dt</code> et <code>dd</code>&nbsp;— et une tartine de <strong>variables CSS portées par les balises</strong>.
+    Les différentes versions de graphiques présentées pour le moment reposent uniquement sur un balisage sémantique
+    —&nbsp;<code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code> et <code>&lt;dd&gt;</code>&nbsp;— et une tartine de <strong>variables CSS portées par les balises</strong>.
   </p>
 
   <p>
@@ -80,27 +80,27 @@
 
   <ol>
     <li>
-      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi
-      qu’une légende balisée avec <code>figcaption</code>.
+      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>&lt;figure&gt;</code> avec le role <code>group</code> ainsi
+      qu’une légende balisée avec <code>&lt;figcaption&gt;</code>.
     </li>
     <li>
-      Sur la <strong>liste de définitions</strong> <code>dl</code>, une variable <var>--scale</var> permet de définir la valeur maximale du graphique,
+      Sur la <strong>liste de définitions</strong> <code>&lt;dl&gt;</code>, une variable <var>--scale</var> permet de définir la valeur maximale du graphique,
       afin d’en déterminer l’échelle. Concrètement, une grille va être générée avec&nbsp;:
       <ul>
-        <li>la première colonne pour les termes <code>dt</code> arbitrairement fixée à <code>12.5em</code>&nbsp;;</li>
+        <li>la première colonne pour les termes <code>&lt;dt&gt;</code> arbitrairement fixée à <code>12.5em</code>&nbsp;;</li>
         <li>puis la fonction CSS <code>repeat()</code> crée une colonne par unité de l’échelle —&nbsp;dans l’exemple, 3000 colonnes&nbsp;;</li>
         <li>enfin une dernière colonne mesurant <code>6ch</code>, soit l’espace suffisant pour six lettres.</li>
       </ul>
     </li>
     <li>
-      <strong>Sur chaque définition</strong> <code>dd</code>, une variable <var>--value</var> permet de la placer sur la grille,
+      <strong>Sur chaque définition</strong> <code>&lt;dd&gt;</code>, une variable <var>--value</var> permet de la placer sur la grille,
       appliquée à <code>grid-column-end</code>.
       De plus grâce à de savants calculs reposant sur cette valeur, le dégradé en arrière-plan est dimensionné et positionné de façon à
       refléter la proportion représentée par cette valeur sur l’échelle donnée (du vert pour presque rien au rouge pour presque tout).
     </li>
     <li>
-      <strong>Dans chaque définition</strong>, le contenu doit reprendre la valeur dans un élément <code>span</code> et une unité, éventuellement
-      balisée avec <code>abbr</code> si un intitulé peut être explicité pour l’unité. Cette valeur est poussée à droite de la grille, et son texte
+      <strong>Dans chaque définition</strong>, le contenu doit reprendre la valeur dans un élément <code>&lt;span&gt;</code> et une unité, éventuellement
+      balisée avec <code>&lt;abbr&gt;</code> si un intitulé peut être explicité pour l’unité. Cette valeur est poussée à droite de la grille, et son texte
       sert de masque pour le dégradé en arrière-plan —&nbsp;lui permettant d’être de la couleur correspondante à la fin du dégradé pour la position donnée.
     </li>
   </ol>
@@ -269,14 +269,14 @@
 
   <ol>
     <li>
-      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi
-      qu’une légende balisée avec <code>figcaption</code>.
+      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>&lt;figure&gt;</code> avec le role <code>group</code> ainsi
+      qu’une légende balisée avec <code>&lt;figcaption&gt;</code>.
     </li>
     <li>
-      <strong>Sur chaque terme</strong> <code>dt</code>, une variable <var>--color</var> permet d’attribuer, et bien… une couleur.
+      <strong>Sur chaque terme</strong> <code>&lt;dt&gt;</code>, une variable <var>--color</var> permet d’attribuer, et bien… une couleur.
     </li>
     <li>
-      <strong>Pour chaque terme</strong> <code>dt</code>, deux définitions <code>dd</code> doivent suivre&nbsp;:
+      <strong>Pour chaque terme</strong> <code>&lt;dt&gt;</code>, deux définitions <code>&lt;dd&gt;</code> doivent suivre&nbsp;:
       <ol>
         <li>la première doit contenir la valeur et son unité, et porter la même variable <var>--color</var> que son terme&nbsp;;</li>
         <li>
@@ -345,9 +345,8 @@
       <h4><i lang="en">Donut</i></h4>
 
       <p>
-        Sur la <strong>liste de définitions</strong> <code>dl</code>,
-        on ajoute une variable <var>--offset</var>
-        permet de déterminer la dimension du trou du <em lang="en">donut</em>,
+        Sur la <strong>liste de définitions</strong> <code>&lt;dl&gt;</code>, on ajoute une variable <var>--offset</var>
+        qui permet de déterminer la dimension du trou du <em lang="en">donut</em>,
         généré à l’aide de <code>mask-image</code> et <code>radial-gradient()</code>.
         Si, si, on en avait besoin&nbsp;!
       </p>
@@ -443,10 +442,11 @@
 
   <p>
     L’utilisation de <code>conic-gradient()</code> est prometteuse pour ce cas précis.
-    Vous en trouverez des exemples réalisés par Ana Tudor ou <a href="https://leaverou.github.io/conic-gradient/" hreflang="en">Léa Verou</a>, par exemple.
-    Cependant le <a href="https://caniuse.com/#search=conic-gradient" hreflang="en">support limité aux navigateurs basés sur WebKit est déprimant, et pose tout de même quelques questions
+    Vous en trouverez des exemples réalisés par <cite>Ana Tudor</cite> ou <cite>Léa Verou</cite> —&nbsp;qui a carrément rédigé la spécification,
+    et conçu <a href="https://leaverou.github.io/conic-gradient/" hreflang="en">un <em lang="en">polyfill</em></a>.
+    Cependant le <a href="https://caniuse.com/#search=conic-gradient" hreflang="en">support limité aux navigateurs basés sur WebKit</a> est déprimant, et pose tout de même quelques questions
     en matière d’accessibilité.
-  </a></p>
+  </p>
 
   <figure role="group">
     <dl class="charts-pie conic donut" style="--v1: 2; --v2: 2; --v3: 32; --v4: 1; --v5: 44; --v6: 17; --v7: 2;
@@ -511,11 +511,11 @@
 
   <ol>
     <li>
-      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>figure</code> avec le role <code>group</code> ainsi
-      qu’une légende balisée avec <code>figcaption</code>.
+      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>&lt;figure&gt;</code> avec le role <code>group</code> ainsi
+      qu’une légende balisée avec <code>&lts;figcaption&gt;</code>.
     </li>
     <li>
-      Sur la <strong>liste de définitions</strong> <code>dl</code>, toutes les données importantes sont présentes&nbsp;:
+      Sur la <strong>liste de définitions</strong> <code>&lt;dl&gt;</code>, toutes les données importantes sont présentes&nbsp;:
       <ul>
         <li>
           <var>--y</var> définit l’échelle des <strong>ordonnées</strong>, utilisée pour indiquer l’échelle en arrière-plan mais aussi placer
@@ -527,7 +527,7 @@
     </li>
     <li>La variable <var>--x</var> sert —&nbsp;à l’instar du graphique en barre&nbsp;— à générer les colonnes de la grille automatiquement.</li>
     <li>
-      Pour chaque point placé sur <code>dl</code>, une position est définie au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
+      Pour chaque point placé sur <code>&lt;dl&gt;</code>, une position est définie au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
       Étant donné que cette fonction accepte <strong>deux valeurs en pourcentage pour chaque point</strong>, la méthode est relativement simple.
     </li>
     <li>
@@ -743,15 +743,15 @@
     </li>
     <li>
       Chaque élément <code>&lt;dt&gt;</code> est déplacé à l’extérieur du cercle, grâce à une technique
-      empruntée à <a href="https://stackoverflow.com/questions/12813573/position-icons-into-circle" hreflang="en">Ana Tudor, qui l’explique sur StackOverflow</a>&nbsp;;
+      empruntée à <a href="https://stackoverflow.com/questions/12813573/position-icons-into-circle" hreflang="en"><cite>Ana Tudor<cite>, qui l’explique sur StackOverflow</cite></cite></a>&nbsp;;
     </li>
     <li>
       Puis la magie opère sur les éléments <code>&lt;dd&gt;</code>&nbsp;:
       <ol>
         <li>chacun est ajusté pour former un carré dont le côté est égal au rayon du cercle en arrière-plan&nbsp;</li>
         <li>
-            puis transformé de façon à représenter une portion du cercle en fonction du nombre d’éléments —&nbsp;précisé avec <var>--items</var>, grâce à
-          <a href="https://tympanus.net/codrops/2013/08/09/building-a-circular-navigation-with-css-transforms/" hreflang="en">une technique partagée par Sara Soueidan sur Codrops</a>,
+          puis transformé de façon à représenter une portion du cercle en fonction du nombre d’éléments —&nbsp;précisé avec <var>--items</var>, grâce à
+          <a href="https://tympanus.net/codrops/2013/08/09/building-a-circular-navigation-with-css-transforms/" hreflang="en">une technique partagée par <cite>Sara Soueidan</cite> sur Codrops</a>,
         </li>
         <li>
           puis on utilise de nouveau <code>clip-path</code> et la fonction <code>polygon()</code> sur chaque élément pour former un triangle,
@@ -765,7 +765,7 @@
             <li>nous connaissons un côté du triangle rectangle obtenu après la déformation, ainsi que deux angles (le droit, bien entendu, et nous déduisons le deuxième de l’angle utilisé pour déformer l’élément)&nbsp;;</li>
             <li>
               nous pouvons donc <a href="https://fr.wikihow.com/calculer-la-longueur-de-l%27hypot%C3%A9nuse">calculer l’hypothénuse en utilisant la loi des sinus</a>, ce qui implique de calculer le sinus…
-              —&nbsp;fort heureusement, <a href="https://gist.github.com/stereokai/7666bfe93929b14c2dced148c79e0e97" hreflang="en">Stereokai a implémenté pour  nous la représentation polynomiale de Taylor/Maclaurin en CSS</a>&nbsp;;
+              —&nbsp;fort heureusement, <a href="https://gist.github.com/stereokai/7666bfe93929b14c2dced148c79e0e97" hreflang="en"><cite>Stereokai</cite> a implémenté pour nous la représentation polynomiale de Taylor/Maclaurin en CSS</a>&nbsp;;
             </li>
             <li>
               et finalement, il ne nous reste qu’à calculer le ratio entre la dimension initiale (le côté) et la dimension finale (l’hypothénuse) et appliquer ce ratio
