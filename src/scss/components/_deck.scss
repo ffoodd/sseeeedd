@@ -53,6 +53,13 @@
     }
   }
 
+  /**
+   * @note Using element() function
+   *
+   * @note Based on Vincent De Oliveira's work:
+   * @link http://iamvdo.me/blog/la-fonction-element-en-css
+   * @author Vincent De Oliveira
+   */
   @supports(background: -moz-element(var(--card, 1))) {
     [class*="card"]::after {
       background: -moz-element(var(--card, 1)) no-repeat bottom right;

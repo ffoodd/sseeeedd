@@ -4,16 +4,16 @@
  * @note The whole thing needs :focus-within support
  * @link https://caniuse.com/#search=%3Afocus-within
  * @note A polyfill is used for unsupporting browsers, adding .focus-within on matching elements
- **
+ *
  * 1. clip-path is used to visually hide subnav
  * @link https://developer.mozilla.org/fr/docs/Web/CSS/clip-path
  * @note clip is obsolete version, limited to rect() shapes
  * @link https://codepen.io/ffoodd/pen/Eolkb
- **
+ *
  * 2. Using a delay to improve unprecise mouse navigation
  * @link https://www.w3.org/WAI/tutorials/menus/flyout/#mouse-users
  * @link https://developer.mozilla.org/fr/docs/Web/CSS/transition-delay
-/* ==================== */
+ */
 
 .fly-out {
   &,

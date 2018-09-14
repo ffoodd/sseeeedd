@@ -29,10 +29,10 @@
   width: calc( var(--radius) * 2 );
 
   /**
-   * Placing items around a circle
-   * @author Ana Tudor
+   * Placing items around a circle based on:
    * @link https://stackoverflow.com/questions/12813573/position-icons-into-circle
    * @link http://dabblet.com/gist/3866686
+   * @author Ana Tudor
    *
    * @note Negative values for radius helps to start at the top left corner
    */
@@ -71,8 +71,11 @@
   }
 
 /**
- * @author Sara Soueidan
+ * This is quite sophisticated, we're mixing multiple techniques
+ *
+ * @note Placing items around a circle:
  * @link https://tympanus.net/codrops/2013/08/09/building-a-circular-navigation-with-css-transforms/
+ * @author Sara Soueidan
  *
  * @note Because we skew items, clip-path() needs to take skew angle into account
  * @note To do so, we need to know skewed width (which is hypothenuse of the resulting triangle)
@@ -80,8 +83,9 @@
  * @note So we need to compute the sinus of the opposite angle to get hypothenuse
  * @note Thanks god, Stereokai made trigonometry functions in pure CSS:
  *
- * @author Stereokai
+ * @note Trigonometry functions based on:
  * @link https://gist.github.com/stereokai/7666bfe93929b14c2dced148c79e0e97
+ * @author Stereokai
  */
   dd {
     --skew: calc( 90deg - var(--part) );

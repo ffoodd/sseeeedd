@@ -1,9 +1,8 @@
 /* ==================== */
 /* == Pie Charts
  **
- * @note
- * 1. SVG patterns inline coming from:
- ** @see http://www.heropatterns.com/
+ * @note SVG patterns inline coming from:
+ * @link http://www.heropatterns.com/
 /* ==================== */
 
 .charts-pie {
@@ -50,6 +49,11 @@
       text-align: center;
     }
 
+    /**
+     * @note Pie chart based on:
+     * @link https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/
+     * @author Lea Verou
+     */
     dd[role="presentation"] {
       --position: calc(var(--start, 0) * .01turn);
       --zoom: .6;
@@ -96,6 +100,12 @@
   }
 
   /**
+   * Using mask-image to make a Donut
+   *
+   * @note Based on Ana Tudor's work
+   * @link https://css-tricks.com/1-html-element-5-css-properties-magic/
+   * @author Ana Tudor
+   *
    * @note Mask support:
    * @link https://caniuse.com/#search=mask
    */
@@ -125,6 +135,12 @@
   }
 
   /**
+   * @note Using conic-gradient()
+   *
+   * @note Based on Lea Verou's work, again
+   * @author Lea Verou
+   * @link https://leaverou.github.io/conic-gradient/
+   *
    * @note Conic gradient support:
    * @link https://caniuse.com/#search=conic-gradient
    */
@@ -189,7 +205,6 @@
       }
     }
   }
-
 
   @media screen and (-ms-high-contrast: active) {
     .charts-pie {

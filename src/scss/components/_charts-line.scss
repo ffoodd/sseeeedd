@@ -1,9 +1,13 @@
 /* ==================== */
 /* == Line Charts
  *
- * @note Grid charts based on:
+ * @note Grid charts based on
  * @see https://css-tricks.com/css-charts-grid-custom-properties/
  * @author Miriam Suzanne
+ *
+ * @note Massively using clip-path
+ * @see Bennett Feely's clippy to understand polygon() syntax
+ * @link http://bennettfeely.com/clippy/
 /* ==================== */
 
 @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
