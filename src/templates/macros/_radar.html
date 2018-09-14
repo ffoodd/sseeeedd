@@ -1,4 +1,4 @@
 {% macro radar(term='', value='') %}
-  <dt>{{ term }}</dt>
+  <dt data-value="{{ value }}">{{ term }}</dt>
   <dd><span>{{ value }}</span></dd>
 {% endmacro %}

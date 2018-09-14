@@ -24,9 +24,13 @@
   border: 2px solid;
   border-radius: 50%;
   height: calc( var(--radius) * 2 );
-  margin: $gutter * 2 auto $gutter * 4;
+  margin: $gutter * 4 auto $gutter * 6;
   position: relative;
   width: calc( var(--radius) * 2 );
+
+  + figcaption {
+    text-align: center;
+  }
 
   /**
    * Placing items around a circle based on:
@@ -40,9 +44,9 @@
     --away: calc( (var(--radius) * -1) - 50% );
     left: 50%;
     margin: 0;
+    padding: 0 $gutter;
     position: absolute;
     top: 50%;
-
     transform:
       translate3d(-50%, -50%, 0)
       rotate( calc(var(--part) * var(--index, 1) * -1) )
@@ -53,20 +57,14 @@
     @each $number in 1, 2, 3, 4, 5, 6, 7 {
       &:nth-of-type(#{$number}) {
         --index: #{$number - 2};
-      }
-    }
 
-    &::before {
-      content: "";
-      background: red;
-      height: 1px;
-      bottom: 0;
-      left: 0;
-      position: absolute;
-      transform:
-        rotate( calc(var(--part) * var(--index, 1) * -1) );
-      transform-origin: 0% 0%;
-      width: var(--radius);
+        &::after {
+          content: "→ " attr(data-value) "%";
+          color: palette( default );
+          display: block;
+          font-weight: 400;
+        }
+      }
     }
   }
 
@@ -103,7 +101,11 @@
     --hypo: calc( #{$base / 4} / var(--sin) );
     // get the ratio: skewed / initial width
     --ratio: calc( var(--hypo) / #{$base / 4} );
-    background: linear-gradient( to top left, palette( accent, light ) 10%, palette( secondary, dark ) 75%);
+    background: linear-gradient(
+      to top left,
+      palette( accent, light ) 10%,
+      palette( secondary, dark ) 75%
+    );
     height: 50%;
     left: 0;
     margin: 0;
@@ -136,9 +138,5 @@
         skew( calc(var(--skew) * -1) )
         rotate( calc(var(--part) * var(--index, 1) * -1) );
     }
-  }
-
-  + figcaption {
-    text-align: center;
   }
 }
