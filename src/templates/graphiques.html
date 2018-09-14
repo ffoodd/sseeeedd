@@ -356,15 +356,60 @@
     Celui-ci est plutôt amusant. Côté <abbr lang="en" title="HyperText Markup Language">HTML</abbr>,
     peu de différence&nbsp;: on définit les variables <abbr lang="en" title="Cascading StyleSheet">CSS</abbr>
     sur la liste de définitions —&nbsp;l’échelle (et les paliers), le nombre d’élément, et les valeurs.
+    On a aussi besoin d’un attribut <code>data-value</code> sur le terme pour afficher la valeur une nouvelle fois.
   </p>
 
   <p>
     Côté <abbr lang="en" title="Cascading StyleSheet">CSS</abbr>, ça se complique&nbsp;:
   </p>
 
+  <ul>
+    <li>
+      Sur l’élément <code>&lt;dl&gt;</code>, on crée l’échelle circulaire à l’aide de deux <code>repeating-radial-gradient()</code>
+      successifs —&nbsp;en fonction des variables <code>--scale</code> et <code>--step</code>&nbsp;;
+    </li>
+    <li>
+      Chaque élément <code>&lt;dt&gt;</code> est déplacé à l’extérieur du cercle, grâce à une technique
+      empruntée à <a href="https://stackoverflow.com/questions/12813573/position-icons-into-circle" hreflang="en">Ana Tudor, qui l’explique sur StackOverflow</a>&nbsp;;
+    </li>
+    <li>
+      Puis la magie opère sur les éléments <code>&lt;dd&gt;</code>&nbsp;:
+      <ol>
+        <li>chacun est ajusté pour former un carré dont le côté est égal au rayon du cercle en arrière-plan&nbsp;</li>
+        <li>
+            puis transformé de façon à représenter une portion du cercle en fonction du nombre d’éléments —&nbsp;précisé avec <code>--items</code>, grâce à
+          <a href="https://tympanus.net/codrops/2013/08/09/building-a-circular-navigation-with-css-transforms/" hreflang="en">une technique partagée par Sara Soueidan sur Codrops</a>,
+        </li>
+        <li>
+          puis on utilise de nouveau <code>clip-path</code> et la fonction <code>polygon()</code> sur chaque élément pour former un triangle,
+          basé pour un côté sur le ratio valeur de l’élément courant / échelle, et sur un autre côté un ratio
+          basé sur la valeur de l’élément suivant (miam les <code>calc()</code>) mais sur une autre échelle…
+        </li>
+        <li>
+          car pour compenser la distorsion due à la propriété <code>transform</code>, nous devons corriger l’échelle sur laquelle
+          est calculée le second ratio à l’aide d’un peu de trigonométrie&nbsp;:
+          <ul>
+            <li>nous connaissons un côté du triangle rectangle obtenu après la déformation, ainsi que deux angles (le droit, bien entendu, et nous déduisons le deuxième de l’angle utilisé pour déformer l’élément)&nbsp;;</li>
+            <li>
+              nous pouvons donc <a href="https://fr.wikihow.com/calculer-la-longueur-de-l%27hypot%C3%A9nuse">calculer l’hypothénuse en utilisant la loi des sinus</a>, ce qui implique de calculer le sinus…
+              —&nbsp;fort heureusement, <a href="https://gist.github.com/stereokai/7666bfe93929b14c2dced148c79e0e97" hreflang="en">Stereokai a implémenté pour  nous la représentation polynomiale de Taylor/Maclaurin en CSS</a>&nbsp;;
+            </li>
+            <li>
+              et finalement, il ne nous reste qu’à calculer le ratio entre la dimension initiale (le côté) et la dimension finale (l’hypothénuse) et appliquer ce ratio
+              à l’échelle sur laquelle est placée le deuxième point du polygône.
+            </li>
+          </ul>
+        </li>
+        <li>le troisième point du polygône est l’angle en bas à droite, dont les coordonnées sont <code>100% 100%</code>.</li>
+      </ol>
+    </li>
+  </ul>
+
+  <p>Et voilà, c’est tout&nbsp;!</p>
+
   {% import 'macros/_radar.html' as charts %}
 
-  <figure role="group"
+  <figure role="group">
     <dl class="charts-radar" style="--scale: 20; --step: 5; --items: 7; --1: 14; --2: 11; --3: 13; --4: 16; --5: 10; --6: 12; --7: 4; --8: var(--1);">
       {{ charts.radar('Accessibilité', '14') }}
       {{ charts.radar('Référencement', '11') }}

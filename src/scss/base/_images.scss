@@ -43,6 +43,7 @@ svg {
 figure[role="group"] {
   background: white;
   margin: em( 24 ) auto;
+  overflow: hidden;
   padding: em( 16 );
 
   figcaption {
