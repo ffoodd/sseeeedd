@@ -58,7 +58,7 @@ cite {
 
 hr {
   border-bottom: 1px solid white;
-  border-top: 1px solid transparentize( palette( muted, light ), .5 ); 
+  border-top: 1px solid transparentize( palette( muted, light ), .5 );
   height: 0;
 }
 
@@ -85,7 +85,7 @@ pre {
   word-break: normal;
   word-spacing: normal;
   word-wrap: normal;
-  
+
   &::before {
     background: palette( alert );
     border-radius: 50%;
@@ -118,4 +118,29 @@ dd {
 
 dd + dt {
   margin: $gutter 0 0;
+}
+
+figure {
+  dt {
+    clear: left;
+    float: left;
+    margin: 0 0 $gutter;
+  }
+
+  dd {
+    display: flex;
+    margin: 0 0 $gutter;
+
+    &::before {
+      border-top: 1px dotted;
+      content: "";
+      flex: 1;
+      margin: 0 $gutter / 2;
+      transform: translateY( $gutter * .9 );
+    }
+  }
+
+  dl + figcaption {
+    text-align: center;
+  }
 }
