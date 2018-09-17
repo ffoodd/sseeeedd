@@ -49,6 +49,14 @@
       justify-content: center;
       margin: 0 auto;
       padding-top: calc(#{$width / 2} - #{$gutter * 2});
+
+      dt + dd {
+        flex: initial;
+
+        &::before {
+          display: none;
+        }
+      }
     }
 
     /**
