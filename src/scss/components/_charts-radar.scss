@@ -62,17 +62,17 @@
           translate( var(--away) )
           rotate( calc(var(--part) * var(--index, 1) * -1) );
 
-        // @note Using `$number - 2` allow to rotate terms clockwise, to start from top left corner
+        &::after {
+          content: attr(data-value) "\A0/\A0" attr(data-scale);
+          color: palette( accent );
+          display: block;
+          font-size: small;
+          font-weight: 400;
+        }
+
         @each $number in 1, 2, 3, 4, 5, 6, 7 {
           &:nth-of-type(#{$number}) {
             --index: #{$number};
-
-            &::after {
-              content: "→\A0" attr(data-value) "\A0%";
-              color: palette( default );
-              display: block;
-              font-weight: 400;
-            }
           }
         }
       }
@@ -96,25 +96,7 @@
        */
       dd {
         --skew: calc( 90deg - var(--part) );
-        --opposite: calc( 180 - (90 + (90 - (360 / var(--items)))) );
-        // get opposite angle in radians
-        --angle: calc( var(--opposite) * 0.01745329251 );
-        // calc() sin, dark wizardry!
-        --sin-term1: var(--angle);
-        --sin-term2: calc((var(--angle) * var(--angle) * var(--angle)) / 6);
-        --sin-term3: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 120);
-        --sin-term4: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 5040);
-        --sin-term5: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 362880);
-        --sin: calc(var(--sin-term1) - var(--sin-term2) + var(--sin-term3) - var(--sin-term4) + var(--sin-term5));
-        // calc() hypothenuse
-        --hypo: calc( #{$base / 4} / var(--sin) );
-        // get the ratio: skewed / initial width
-        --ratio: calc( var(--hypo) / #{$base / 4} );
-        background: linear-gradient(
-          to top left,
-          palette( accent, light ) 10%,
-          palette( secondary, dark ) 75%
-        );
+        border-bottom: 1px solid palette( accent, light );
         height: 50%;
         left: 0;
         margin: initial;
@@ -126,15 +108,44 @@
         transform-origin: 100% 100%;
         width: 50%;
 
+        span {
+          --opposite: calc( 180 - (90 + (90 - (360 / var(--items)))) );
+          // get opposite angle in radians
+          --angle: calc( var(--opposite) * 0.01745329251 );
+          // calc() sin, dark wizardry!
+          --sin-term1: var(--angle);
+          --sin-term2: calc((var(--angle) * var(--angle) * var(--angle)) / 6);
+          --sin-term3: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 120);
+          --sin-term4: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 5040);
+          --sin-term5: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 362880);
+          --sin: calc(var(--sin-term1) - var(--sin-term2) + var(--sin-term3) - var(--sin-term4) + var(--sin-term5));
+          // calc() hypothenuse
+          --hypo: calc( #{$base / 4} / var(--sin) );
+          // get the ratio: skewed / initial width
+          --ratio: calc( var(--hypo) / #{$base / 4} );
+          background: linear-gradient(
+            to top left,
+            palette( accent, light ) 10%,
+            palette( secondary, dark ) 75%
+          );
+          filter: drop-shadow( 0 0 $gutter palette( accent, dark ) );
+          height: 100%;
+          position: absolute;
+          width: 100%;
+        }
+
         @each $number in 1, 2, 3, 4, 5, 6, 7 {
           &:nth-of-type(#{$number}) {
             --index: #{$number};
-            --pos: calc( 100% - (var(--#{$number + 1}) * 100% / (var(--scale) * var(--ratio) ) ) );
-            clip-path: polygon(
-              100% var(--pos),
-              calc( 100% - ( var(--#{$number}) * 100% / var(--scale) ) ) 100%,
-              100% 100%
-            );
+
+            span {
+              --pos: calc( 100% - (var(--#{$number + 1}) * 100% / (var(--scale) * var(--ratio) ) ) );
+              clip-path: polygon(
+                100% var(--pos),
+                calc( 100% - ( var(--#{$number}) * 100% / var(--scale) ) ) 100%,
+                100% 100%
+              );
+            }
           }
         }
 
