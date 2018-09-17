@@ -100,6 +100,7 @@
 
   @media screen and (min-width: em(480)) {
     .charts-bar + figcaption {
+      text-align: initial;
       text-indent: rem( 200 );
     }
   }

@@ -113,7 +113,8 @@ pre {
 
 :not(pre) > var {
   background: palette( accent, contrast );
-  color: palette( accent );
+  border-style: dashed;
+  color: palette( accent, dark );
 }
 
 dl,

@@ -73,8 +73,11 @@
   <h2>Graphique en barre</h2>
 
   <p>
-    Ce type de graphique sert à représenter <strong>des données à une dimension</strong> (dans notre exemple, une ligne de temps).
-    Il repose sur les <strong>grilles et les variables CSS</strong>.
+    Ce type de graphique sert à représenter <strong>des données à une dimension</strong>
+    (dans notre exemple, une ligne de temps).
+    Il repose sur les <strong>grilles et les variables CSS</strong>,
+    technique inspirée d’<a href="https://css-tricks.com/css-charts-grid-custom-properties/" hreflang="en">un article de <cite>Miriam Suzanne</cite> sur <abbr lang="en" title="Cascading StyleSheet">CSS</abbr> Tricks</a>
+    légèrement agrémentée.
     Pour vous en servir, c’est simple&nbsp;:
   </p>
 
@@ -352,8 +355,8 @@
       </p>
 
       <p>
-        <a href="https://codepen.io/thebabydino/pens/tags/?selected_tag=mask#" hreflang="en">Ana Tudor a réalisé de très nombreux exemples
-          d’utilisation des <code>mask-*</code> sur CodePen</a>, jetez-y un œil&nbsp;!
+        <cite>Ana Tudor</cite> a réalisé <a href="https://codepen.io/thebabydino/pens/tags/?selected_tag=mask" hreflang="en">de très nombreux exemples
+        d’utilisation des <code>mask-*</code> sur CodePen</a>, jetez-y un œil&nbsp;!
       </p>
 
       <figure role="group">
@@ -406,7 +409,7 @@
       </p>
 
       <figure role="group">
-        <dl class="charts-pie no-donut polar">
+        <dl class="charts-pie polar">
           
   <dt style="--color: firebrick">HTML</dt>
   <dd style="--color: firebrick">2&nbsp;%</dd>
@@ -436,6 +439,16 @@
         <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
       </figure>
     </div>
+  </div>
+
+  <div class="note">
+    <h4>Motifs</h4>
+    <p>
+      Pour distinguer les différentes zones autrement que par la couleur,
+      un motif <abbr lang="en" title="Scalable Vector Graphics">svg</abbr>
+      est appliqué en <abbr lang="en" title="cascading StyleSheet">css</abbr>.
+      Vous en trouverez quelques-uns sur le site <a href="http://www.heropatterns.com/" hreflang="en" lang="en">Hero Patterns</a>.
+    </p>
   </div>
 
   <h4>Dégradé conique</h4>
@@ -512,7 +525,7 @@
   <ol>
     <li>
       Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>&lt;figure&gt;</code> avec le role <code>group</code> ainsi
-      qu’une légende balisée avec <code>&lts;figcaption&gt;</code>.
+      qu’une légende balisée avec <code>&lt;figcaption&gt;</code>.
     </li>
     <li>
       Sur la <strong>liste de définitions</strong> <code>&lt;dl&gt;</code>, toutes les données importantes sont présentes&nbsp;:
@@ -627,7 +640,10 @@
   <div class="note">
     <h4>Note</h4>
     <p>
-      Le principal écueil de ce graphique est qu’<strong>il nécessite de connaître le nombre de points</strong> par avance.
+      Le principal écueil de ce graphique est
+      qu’<strong>il nécessite de connaître le nombre de points</strong> par avance.
+      Pour jouer d’avantage et vous familiariser avec <code>clip-path</code>,
+      <cite>Bennett Feely</cite> a créé <a href="http://bennettfeely.com/clippy/" hreflang="en">clippy</a>.
     </p>
   </div>
 
@@ -743,7 +759,7 @@
     </li>
     <li>
       Chaque élément <code>&lt;dt&gt;</code> est déplacé à l’extérieur du cercle, grâce à une technique
-      empruntée à <a href="https://stackoverflow.com/questions/12813573/position-icons-into-circle" hreflang="en"><cite>Ana Tudor<cite>, qui l’explique sur StackOverflow</cite></cite></a>&nbsp;;
+      empruntée à <a href="https://stackoverflow.com/questions/12813573/position-icons-into-circle" hreflang="en"><cite>Ana Tudor</cite>, qui l’explique sur StackOverflow</a>&nbsp;;
     </li>
     <li>
       Puis la magie opère sur les éléments <code>&lt;dd&gt;</code>&nbsp;:
