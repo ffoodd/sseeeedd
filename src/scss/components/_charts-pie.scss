@@ -5,45 +5,54 @@
  * @link http://www.heropatterns.com/
 /* ==================== */
 
-.charts-pie {
-  align-items: flex-end;
-  background-color: inherit;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 auto;
-  position: relative;
-
-  dt,
-  dd {
-    color: var(--color, currentColor);
-    position: relative;
-    z-index: 2;
-  }
-
-  dt + dd {
-    padding: 0 $gutter 0 $gutter / 4;
-  }
-
-  dd[role="presentation"] {
-    display: none;
-  }
-}
-
-@supports (--color: currentColor) {
-  .charts-pie dt::before {
-    background: currentColor;
-    content: "";
-    display: inline-block;
-    height: 1rem;
-    transform: translate3d(-.2rem, .1rem, 0);
-    width: 1rem;
-  }
-}
-
 @supports (--position: calc(var(--start, 0) * .01turn)) {
   .charts-pie {
+    align-items: flex-end;
+    background-color: inherit;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
     padding-top: calc(#{$width / 2} - #{$gutter * 2});
+    position: relative;
+
+    dt,
+    dd {
+      color: var(--color, currentColor);
+      margin: initial;
+      position: relative;
+      z-index: 2;
+    }
+
+    dt + dd {
+      padding: 0 $gutter 0 $gutter / 4;
+    }
+
+    dt::before {
+      background: currentColor;
+      content: "";
+      display: inline-block;
+      height: 1rem;
+      transform: translate3d(-.2rem, .1rem, 0);
+      width: 1rem;
+    }
+
+    dd {
+      &::before {
+        display: none;
+      }
+
+      span {
+        font-weight: bold;
+      }
+
+      abbr[title] {
+        border-bottom: 0;
+        font-size: small;
+        font-weight: normal;
+        text-transform: none;
+      }
+    }
 
     /**
      * @note Pie chart based on:

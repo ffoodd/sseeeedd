@@ -64,7 +64,7 @@
 
       dt {
         grid-row: 1 / 1;
-        margin-top: $gutter;
+        margin: $gutter 0 0;
         transition: inherit;
 
         &::after {
@@ -100,7 +100,23 @@
       dd {
         display: initial;
         grid-row: 2 / 2;
+        margin: 0;
         transition: inherit;
+
+        &::before {
+          display: none;
+        }
+
+        span {
+          font-weight: bold;
+        }
+
+        abbr[title] {
+          border-bottom: 0;
+          font-size: small;
+          font-weight: normal;
+          text-transform: none;
+        }
       }
     }
 

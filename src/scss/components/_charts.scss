@@ -3,27 +3,8 @@
 /* ==================== */
 
 [class*="charts"] {
-  dt {
-    margin: initial;
-  }
-
-  dd {
-    margin: initial;
-
-    &::before {
-      display: none;
-    }
-
-    span {
-      font-weight: bold;
-    }
-
-    abbr[title] {
-      border-bottom: 0;
-      font-size: small;
-      font-weight: normal;
-      text-transform: none;
-    }
+  dd[role="presentation"] {
+    display: none;
   }
 }
 

@@ -37,7 +37,7 @@
 
     dt {
       grid-column: 1 / 1;
-      margin: 0;
+      margin: initial;
       text-align: right;
     }
 
@@ -54,14 +54,20 @@
       background-position: var(--position) 0%;
       background-size:  var(--size) 100%;
       grid-column: 2 / var(--value, 0);
+      margin: initial;
       position: relative;
 
       span {
         background: inherit;                  /* 2 */
         -webkit-text-fill-color: transparent; /* 2 */
         -webkit-background-clip: text;        /* 2 */
+        font-weight: bold;
         left: 100%;
         position: absolute;
+      }
+
+      &::before {
+        display: none;
       }
     }
 
@@ -75,6 +81,13 @@
       dt:hover + dd {
         opacity: 1;
       }
+    }
+
+    abbr[title] {
+      border-bottom: 0;
+      font-size: small;
+      font-weight: normal;
+      text-transform: none;
     }
   }
 
