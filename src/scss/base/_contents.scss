@@ -57,11 +57,12 @@ cite {
 }
 
 hr {
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid palette( default, contrast );
   border-top: 1px solid transparentize( palette( muted, light ), .5 );
   height: 0;
 }
 
+var,
 code {
   font: inherit;
   line-height: 1;
@@ -99,6 +100,9 @@ pre {
   }
 }
 
+p var,
+ul var,
+ol var,
 p code,
 ul code,
 ol code {
@@ -109,6 +113,13 @@ ol code {
   font-family: inherit;
   padding: .1em;
   white-space: nowrap;
+}
+
+p var,
+ul var,
+ol var {
+  background: palette( accent, contrast );
+  color: palette( accent );
 }
 
 dl,

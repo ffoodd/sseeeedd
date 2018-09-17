@@ -58,7 +58,7 @@
       qu’une légende balisée avec <code>figcaption</code>.
     </li>
     <li>
-      Sur la <strong>liste de définitions</strong> <code>dl</code>, une variable <code>--scale</code> permet de définir la valeur maximale du graphique,
+      Sur la <strong>liste de définitions</strong> <code>dl</code>, une variable <var>--scale</var> permet de définir la valeur maximale du graphique,
       afin d’en déterminer l’échelle. Concrètement, une grille va être générée avec&nbsp;:
       <ul>
         <li>la première colonne pour les termes <code>dt</code> arbitrairement fixée à <code>12.5em</code>&nbsp;;</li>
@@ -67,7 +67,7 @@
       </ul>
     </li>
     <li>
-      <strong>Sur chaque définition</strong> <code>dd</code>, une variable <code>--value</code> permet de la placer sur la grille,
+      <strong>Sur chaque définition</strong> <code>dd</code>, une variable <var>--value</var> permet de la placer sur la grille,
       appliquée à <code>grid-column-end</code>.
       De plus grâce à de savants calculs reposant sur cette valeur, le dégradé en arrière-plan est dimensionné et positionné de façon à
       refléter la proportion représentée par cette valeur sur l’échelle donnée (du vert pour presque rien au rouge pour presque tout).
@@ -112,21 +112,21 @@
       qu’une légende balisée avec <code>figcaption</code>.
     </li>
     <li>
-      <strong>Sur chaque terme</strong> <code>dt</code>, une variable <code>--color</code> permet d’attribuer, et bien… une couleur.
+      <strong>Sur chaque terme</strong> <code>dt</code>, une variable <var>--color</var> permet d’attribuer, et bien… une couleur.
     </li>
     <li>
       <strong>Pour chaque terme</strong> <code>dt</code>, deux définitions <code>dd</code> doivent suivre&nbsp;:
       <ol>
-        <li>la première doit contenir la valeur et son unité, et porter la même variable <code>--color</code> que son terme&nbsp;;</li>
+        <li>la première doit contenir la valeur et son unité, et porter la même variable <var>--color</var> que son terme&nbsp;;</li>
         <li>
           la seconde est là où la magie opère&nbsp;:
           <ul>
             <li>Avant tout, comme il s’agit d’un élément purement visuel on lui affuble un rôle <code>presentation</code>.</li>
             <li>
-              Puis <strong>trois variables</strong> permettent de le placer et le colorer fidèlement à la définition fournie&nbsp;: <code>--value</code>, <code>--start</code> et <code>--color</code>.
-              <code>--value</code> correspond à la valeur en pourcentage, utile pour déterminer <strong>l’angle de rotation</strong> de l’arc correspondant.
-              <code>--start</code> permet de définir le <strong>point de départ</strong> de l’arc sur le cercle. Il s’agit de la somme des précédentes définitions, celle-ci incluse.
-              Et <code>--color</code>… Ne me faites pas répéter&nbsp;!
+              Puis <strong>trois variables</strong> permettent de le placer et le colorer fidèlement à la définition fournie&nbsp;: <var>--value</var>, <var>--start</var> et <var>--color</var>.
+              <var>--value</var> correspond à la valeur en pourcentage, utile pour déterminer <strong>l’angle de rotation</strong> de l’arc correspondant.
+              <var>--start</var> permet de définir le <strong>point de départ</strong> de l’arc sur le cercle. Il s’agit de la somme des précédentes définitions, celle-ci incluse.
+              Et <var>--color</var>… Ne me faites pas répéter&nbsp;!
           </ul>
         </li>
       </ol>
@@ -156,7 +156,7 @@
       <h4><i lang="en">Donut</i></h4>
 
       <p>
-        Sur la <strong>liste de définitions</strong> <code>dl</code>, on ajoute une variable <code>--offset</code> permet de déterminer la dimension du trou du <em lang="en">donut</em>,
+        Sur la <strong>liste de définitions</strong> <code>dl</code>, on ajoute une variable <var>--offset</var> permet de déterminer la dimension du trou du <em lang="en">donut</em>,
         généré à l’aide de <code>mask-image</code> et <code>radial-gradient()</code>.
         Si, si, on en avait besoin&nbsp;!
       </p>
@@ -266,14 +266,14 @@
       Sur la <strong>liste de définitions</strong> <code>dl</code>, toutes les données importantes sont présentes&nbsp;:
       <ul>
         <li>
-          <code>--y</code> définit l’échelle des <strong>ordonnées</strong>, utilisée pour indiquer l’échelle en arrière-plan mais aussi placer
+          <var>--y</var> définit l’échelle des <strong>ordonnées</strong>, utilisée pour indiquer l’échelle en arrière-plan mais aussi placer
           les points sur la courbe&nbsp;;
         </li>
-        <li><code>--x</code> correspond à l’échelle des <strong>abscisses</strong>&nbsp;;</li>
-        <li>puis <code>--1</code>, <code>--2</code>… correspondent à chaque point, avec leur valeur.</li>
+        <li><var>--x</var> correspond à l’échelle des <strong>abscisses</strong>&nbsp;;</li>
+        <li>puis <var>--1</var>, <var>--2</var>… correspondent à chaque point, avec leur valeur.</li>
       </ul>
     </li>
-    <li>La variable <code>--x</code> sert —&nbsp;à l’instar du graphique en barre&nbsp;— à générer les colonnes de la grille automatiquement.</li>
+    <li>La variable <var>--x</var> sert —&nbsp;à l’instar du graphique en barre&nbsp;— à générer les colonnes de la grille automatiquement.</li>
     <li>
       Pour chaque point placé sur <code>dl</code>, une position est définie au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
       Étant donné que cette fonction accepte <strong>deux valeurs en pourcentage pour chaque point</strong>, la méthode est relativement simple.
@@ -367,7 +367,7 @@
   <ul>
     <li>
       Sur l’élément <code>&lt;dl&gt;</code>, on crée l’échelle circulaire à l’aide de deux <code>repeating-radial-gradient()</code>
-      successifs —&nbsp;en fonction des variables <code>--scale</code> et <code>--step</code>&nbsp;;
+      successifs —&nbsp;en fonction des variables <var>--scale</var> et <var>--step</var>&nbsp;;
     </li>
     <li>
       Chaque élément <code>&lt;dt&gt;</code> est déplacé à l’extérieur du cercle, grâce à une technique
@@ -378,7 +378,7 @@
       <ol>
         <li>chacun est ajusté pour former un carré dont le côté est égal au rayon du cercle en arrière-plan&nbsp;</li>
         <li>
-            puis transformé de façon à représenter une portion du cercle en fonction du nombre d’éléments —&nbsp;précisé avec <code>--items</code>, grâce à
+            puis transformé de façon à représenter une portion du cercle en fonction du nombre d’éléments —&nbsp;précisé avec <var>--items</var>, grâce à
           <a href="https://tympanus.net/codrops/2013/08/09/building-a-circular-navigation-with-css-transforms/" hreflang="en">une technique partagée par Sara Soueidan sur Codrops</a>,
         </li>
         <li>
