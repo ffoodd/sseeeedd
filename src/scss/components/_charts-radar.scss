@@ -58,14 +58,14 @@
         top: 50%;
         transform:
           translate3d(-50%, -50%, 0)
-          rotate( calc(var(--part) * var(--index, 1) * -1) )
+          rotate( calc(var(--part) * var(--index, 1)) )
           translate( var(--away) )
-          rotate( calc(var(--part) * var(--index, 1)) );
+          rotate( calc(var(--part) * var(--index, 1) * -1) );
 
         // @note Using `$number - 2` allow to rotate terms clockwise, to start from top left corner
         @each $number in 1, 2, 3, 4, 5, 6, 7 {
           &:nth-of-type(#{$number}) {
-            --index: #{$number - 2};
+            --index: #{$number};
 
             &::after {
               content: "→\A0" attr(data-value) "\A0%";
