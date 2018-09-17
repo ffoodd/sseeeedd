@@ -7,13 +7,9 @@
 
 @supports (--position: calc(var(--start, 0) * .01turn)) {
   .charts-pie {
-    align-items: flex-end;
     background-color: inherit;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    padding-top: calc(#{$width / 2} - #{$gutter * 2});
+    margin: #{$gutter * -6} auto 0;
+    padding-top: calc(100% + #{$gutter * 2});
     position: relative;
 
     dt,
@@ -25,6 +21,8 @@
     }
 
     dt + dd {
+      flex: 1;
+      justify-content: flex-end;
       padding: 0 $gutter 0 $gutter / 4;
     }
 
@@ -37,14 +35,20 @@
       width: 1rem;
     }
 
-    dd {
-      &::before {
-        display: none;
+    @media screen and (max-width: em(480)) {
+      dt:first-of-type,
+      dd:first-of-type {
+        margin-top: #{$gutter * 6};
       }
+    }
 
-      span {
-        font-weight: bold;
-      }
+    @media screen and (min-width: em(480)) {
+      align-items: flex-end;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 0 auto;
+      padding-top: calc(#{$width / 2} - #{$gutter * 2});
     }
 
     /**
@@ -114,10 +118,22 @@
        mask-image: radial-gradient(
          circle at 50% calc(50% - #{$gutter * 2}),
          transparent 0%,
-         transparent var(--offset),
-         palette( default, contrast) calc(var(--offset) + 1px),
+         transparent calc(var(--offset) / 2),
+         palette( default, contrast) calc(var(--offset) / 2 + 1px),
          palette( default, contrast) 100%
        );
+     }
+
+     @media screen and (min-width: em(480)) {
+       .charts-pie.donut {
+         mask-image: radial-gradient(
+           circle at 50% calc(50% - #{$gutter * 2}),
+           transparent 0%,
+           transparent var(--offset),
+           palette( default, contrast) calc(var(--offset) + 1px),
+           palette( default, contrast) 100%
+         );
+       }
      }
    }
 

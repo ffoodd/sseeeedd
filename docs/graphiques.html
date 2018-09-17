@@ -265,9 +265,16 @@
       <h4><i lang="en">Donut</i></h4>
 
       <p>
-        Sur la <strong>liste de définitions</strong> <code>dl</code>, on ajoute une variable <var>--offset</var> permet de déterminer la dimension du trou du <em lang="en">donut</em>,
+        Sur la <strong>liste de définitions</strong> <code>dl</code>,
+        on ajoute une variable <var>--offset</var>
+        permet de déterminer la dimension du trou du <em lang="en">donut</em>,
         généré à l’aide de <code>mask-image</code> et <code>radial-gradient()</code>.
         Si, si, on en avait besoin&nbsp;!
+      </p>
+
+      <p>
+        <a href="https://codepen.io/thebabydino/pens/tags/?selected_tag=mask#" hreflang="en">Ana Tudor a réalisé de très nombreux exemples
+          d’utilisation des <code>mask-*</code> sur CodePen</a>, jetez-y un œil&nbsp;!
       </p>
 
       <figure role="group">
@@ -315,8 +322,8 @@
       <h4>Graphique polaire</h4>
 
       <p>
-        Sur cette variante, on calcule simplement une valeur d’échelle de transformation à passer à <code>scale()</code>,
-        en fonction de la valeur de chaque élément.
+        Sur cette variante, on calcule simplement une valeur d’échelle de transformation à passer à
+        <code>scale()</code>, en fonction de la valeur de chaque élément.
       </p>
 
       <figure role="group">
@@ -356,10 +363,10 @@
 
   <p>
     L’utilisation de <code>conic-gradient()</code> est prometteuse pour ce cas précis.
-    Vous en trouverez des exemples réalisés par Ana Ttudor ou Léa Verou, par exemple.
-    Cependant le <strong>support limité aux navigateurs basés sur WebKit</strong> est déprimant, et pose tout de même quelques questions
+    Vous en trouverez des exemples réalisés par Ana Tudor ou <a href="https://leaverou.github.io/conic-gradient/" hreflang="en">Léa Verou</a>, par exemple.
+    Cependant le <a href="https://caniuse.com/#search=conic-gradient" hreflang="en">support limité aux navigateurs basés sur WebKit est déprimant, et pose tout de même quelques questions
     en matière d’accessibilité.
-  </p>
+  </a></p>
 
   <figure role="group">
     <dl class="charts-pie conic donut" style="--v1: 2; --v2: 2; --v3: 32; --v4: 1; --v5: 44; --v6: 17; --v7: 2;
@@ -408,27 +415,8 @@
     <h5>Note technique</h5>
     <p>
       Ce type de dégradé permet effectivement d’obtenir un rendu visuel correct,
-      cependant de nombreux détails facheux me font dire qu’il n’est pas adapté à l’usage démontré ici&nbsp;:
+      cependant de nombreux détails facheux me font dire qu’il n’est pas adapté à l’usage démontré ici…
     </p>
-    <ul>
-      <li>
-        il faut connaître le nombre de valeurs à l’avance, et toutes les variables doivent être posées sur le parent <code>&lt;dl&gt;</code>
-        (ce qui peut devenir problèmatique pour les performances)&nbsp;;</li>
-      <li>
-        les positions dans le dégradé sont extrêmement verbeuses,
-        puisqu’il faut manuellement additionner les différentes valeurs pour les obtenir&nbsp;;
-      </li>
-      <li>
-        puis comme chaque valeur n’est qu’une position dans le dégradé&nbsp;:
-        <ol>
-          <li>
-            il est impossible de les distinguer autrement que par la couleur —&nbsp;contrairement
-            à mes précédents essais nécessitant un élément <code>&lt;dd&gt;</code> de décoration&nbsp;;
-          </li>
-          <li>il est par conséquent impossible d’animer chaque partie.</li>
-        </ol>
-      </li>
-    </ul>
     <p>En revanche, ce dégradé me paraît opportun pour l’affichage d’une mesure unique —&nbsp;par exemple, un score sur <a href="https://www.dareboost.com/fr">Dareboost</a>.</p>
   </div>
 
