@@ -6,6 +6,13 @@
   dd[role="presentation"] {
     display: none;
   }
+
+  abbr[title] {
+    border-bottom: 0;
+    font-size: small;
+    font-weight: normal;
+    text-transform: none;
+  }
 }
 
 @import "charts-bar";

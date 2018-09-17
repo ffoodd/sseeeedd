@@ -82,13 +82,6 @@
         opacity: 1;
       }
     }
-
-    abbr[title] {
-      border-bottom: 0;
-      font-size: small;
-      font-weight: normal;
-      text-transform: none;
-    }
   }
 
   @media screen and (max-width: em(480)) {

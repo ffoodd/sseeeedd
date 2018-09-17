@@ -144,13 +144,6 @@
           skew( calc(var(--skew) * -1) )
           rotate( calc(var(--part) * var(--index, 1) * -1) );
       }
-
-      abbr[title] {
-        border-bottom: 0;
-        font-size: small;
-        font-weight: normal;
-        text-transform: none;
-      }
     }
   }
 }
