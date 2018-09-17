@@ -142,17 +142,6 @@
         &::before {
           display: none;
         }
-
-        span {
-          bottom: .5rem;
-          color: palette( accent, contrast );
-          font-weight: bold;
-          position: absolute;
-          right: .5rem;
-          transform:
-            skew( calc(var(--skew) * -1) )
-            rotate( calc(var(--part) * var(--index, 1) * -1) );
-        }
       }
     }
   }
