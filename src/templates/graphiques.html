@@ -98,6 +98,31 @@
     <figcaption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
   </figure>
 
+  <h2>Graphique en chute d’eau</h2>
+
+  <p>
+    Le principe est le même pour cette variante, à un détail près&nbsp;: on gère également <strong>le point départ</strong> pour chaque mesure
+    —&nbsp;qui est, très simplement, la valeur du point précédent…
+    Il faut cependant passer toutes les valeurs en tant que variables sur le parent <code>&lt;dl&gt;</code>.
+  </p>
+
+  <figure role="group">
+    <dl class="charts-bar waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
+      {{ charts.bar('Temps : backend', '4', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Temps : Frontend', '96', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Délai : premier octet', '102', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Délai : dernier octet', '129', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Délai : première image', '188', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Délai : premier CSS', '194', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Délai : premier JS', '326', 'ms', 'Milliseconde') }}
+      {{ charts.bar('DOM Interactif', '836', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Chargement du DOM', '836', 'ms', 'Milliseconde') }}
+      {{ charts.bar('DOM complet', '2561', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Trafic HTTP terminé', '2980', 'ms', 'Milliseconde') }}
+    </dl>
+    <figcaption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
+  </figure>
+
   <h2>Graphique en tarte</h2>
 
   <p>

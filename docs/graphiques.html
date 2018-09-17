@@ -179,6 +179,86 @@
     <figcaption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
   </figure>
 
+  <h2>Graphique en chute d’eau</h2>
+
+  <p>
+    Le principe est le même pour cette variante, à un détail près&nbsp;: on gère également <strong>le point départ</strong> pour chaque mesure
+    —&nbsp;qui est, très simplement, la valeur du point précédent…
+    Il faut cependant passer toutes les valeurs en tant que variables sur le parent <code>&lt;dl&gt;</code>.
+  </p>
+
+  <figure role="group">
+    <dl class="charts-bar waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
+      
+  <dt>Temps : backend</dt>
+  <dd style="--value: 4">
+    <span>4&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Temps : Frontend</dt>
+  <dd style="--value: 96">
+    <span>96&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Délai : premier octet</dt>
+  <dd style="--value: 102">
+    <span>102&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Délai : dernier octet</dt>
+  <dd style="--value: 129">
+    <span>129&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Délai : première image</dt>
+  <dd style="--value: 188">
+    <span>188&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Délai : premier CSS</dt>
+  <dd style="--value: 194">
+    <span>194&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Délai : premier JS</dt>
+  <dd style="--value: 326">
+    <span>326&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>DOM Interactif</dt>
+  <dd style="--value: 836">
+    <span>836&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Chargement du DOM</dt>
+  <dd style="--value: 836">
+    <span>836&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>DOM complet</dt>
+  <dd style="--value: 2561">
+    <span>2561&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+      
+  <dt>Trafic HTTP terminé</dt>
+  <dd style="--value: 2980">
+    <span>2980&nbsp;<abbr title="Milliseconde">ms</abbr></span>
+  </dd>
+
+    </dl>
+    <figcaption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
+  </figure>
+
   <h2>Graphique en tarte</h2>
 
   <p>
