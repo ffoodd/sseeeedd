@@ -769,9 +769,11 @@
           puis transformé de façon à représenter une portion du cercle en fonction du nombre d’éléments —&nbsp;précisé avec <var>--items</var>, grâce à
           <a href="https://tympanus.net/codrops/2013/08/09/building-a-circular-navigation-with-css-transforms/" hreflang="en">une technique partagée par <cite>Sara Soueidan</cite> sur Codrops</a>,
         </li>
+        <li>chacun se voit décoré d’une bordure, en bas&nbsp;;</li>
         <li>
-          puis on utilise de nouveau <code>clip-path</code> et la fonction <code>polygon()</code> sur chaque élément pour former un triangle,
-          basé pour un côté sur le ratio valeur de l’élément courant / échelle, et sur un autre côté un ratio
+          puis on utilise de nouveau <code>clip-path</code> et la fonction <code>polygon()</code> sur chaque enfant direct
+          <code>&lt;span&gt;</code> —&nbsp;étendu pour occuper toute la surface de son <code>&lt;dd&gt;</code>de parent&nbsp;—
+          afin de former un triangle, basé pour un côté sur le ratio valeur de l’élément courant / échelle, et sur un autre côté un ratio
           basé sur la valeur de l’élément suivant (miam les <code>calc()</code>) mais sur une autre échelle…
         </li>
         <li>
