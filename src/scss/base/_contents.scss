@@ -126,6 +126,10 @@ dd + dt {
   margin: $gutter 0 0;
 }
 
+dt dfn {
+  font-style: normal;
+}
+
 figure {
   dt {
     clear: left;
