@@ -2,6 +2,6 @@
   {% set id = term | lower | replace(":", "") | replace(" ", "") | replace(" ", "-") | replace("é", "e") | replace("û", "u") | replace(".", "") %}
   <dt id="def_{{ id }}_{{ variant }}">{{ term }}</dt>
   <dd aria-describedby="def_{{ id }}_{{ variant }}" style="--value: {{ definition }}">
-    <span>{{ definition }}{% if unit != '' %}&nbsp;{% if title != '' %}<abbr title="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}{% endif %}</span>
+    <span>{{ definition }}{% if unit != '' %}&nbsp;{% if title != '' %}<abbr title="{{ title | e }}" aria-label="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}{% endif %}</span>
   </dd>
 {% endmacro %}
