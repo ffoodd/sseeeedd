@@ -1,5 +1,5 @@
 {% macro pie(term='', definition='', unit='', title='', start='0', color='', variant='') %}
-  {% set id = term | lower | replace(":", "") | replace(" ", "") | replace(" ", "-") | replace("é", "e") | replace("û", "u") %}
+  {% set id = term | lower | replace(":", "") | replace(" ", "") | replace(" ", "-") | replace("é", "e") | replace("û", "u") | replace(".", "") %}
   <dt aria-describedby="def_{{ id }}_{{ variant }}" style="--color: {{ color }}">{{ term }}</dt>
   <dd id="def_{{ id }}_{{ variant }}" style="--color: {{ color }}">{{ definition }}{% if unit != '' %}&nbsp;{% if title != '' %}<abbr title="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}{% endif %}</dd>
   <dd style="--value: {{ definition }}; --start: {{ start }}; --color: {{ color }}" role="presentation"></dd>
