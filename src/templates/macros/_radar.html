@@ -1,4 +1,5 @@
 {% macro radar(term='', value='', scale='') %}
-  <dt data-value="{{ value }}" data-scale="{{ scale }}">{{ term }}</dt>
-  <dd data-scale="{{ scale }}"><span>{{ value }}</span></dd>
+  {% set id = term | lower | replace(":", "") | replace(" ", "") | replace(" ", "-") | replace("é", "e") | replace("û", "u") %}
+  <dt aria-describedby="def_{{ id }}" data-value="{{ value }}" data-scale="{{ scale }}">{{ term }}</dt>
+  <dd id="def_{{ id }}" data-scale="{{ scale }}"><span>{{ value }}</span></dd>
 {% endmacro %}

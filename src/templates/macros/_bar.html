@@ -1,6 +1,7 @@
 {% macro bar(term='', definition='', unit='', title='') %}
-  <dt>{{ term }}</dt>
-  <dd style="--value: {{ definition }}">
+  {% set id = term | lower | replace(":", "") | replace(" ", "") | replace(" ", "-") | replace("é", "e") | replace("û", "u") %}
+  <dt aria-describedby="def_{{ id }}">{{ term }}</dt>
+  <dd id="def_{{ id }}" style="--value: {{ definition }}">
     <span>{{ definition }}{% if unit != '' %}&nbsp;{% if title != '' %}<abbr title="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}{% endif %}</span>
   </dd>
 {% endmacro %}
