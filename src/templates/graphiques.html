@@ -111,17 +111,17 @@
 
   <figure role="group">
     <dl class="charts-bar waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
-      {{ charts.bar('Temps : backend', '4', 'ms', 'Milliseconde') }}
-      {{ charts.bar('Temps : Frontend', '96', 'ms', 'Milliseconde') }}
-      {{ charts.bar('Délai : premier octet', '102', 'ms', 'Milliseconde') }}
-      {{ charts.bar('Délai : dernier octet', '129', 'ms', 'Milliseconde') }}
-      {{ charts.bar('Délai : première image', '188', 'ms', 'Milliseconde') }}
-      {{ charts.bar('Délai : premier CSS', '194', 'ms', 'Milliseconde') }}
-      {{ charts.bar('Délai : premier JS', '326', 'ms', 'Milliseconde') }}
-      {{ charts.bar('DOM Interactif', '836', 'ms', 'Milliseconde') }}
-      {{ charts.bar('Chargement du DOM', '836', 'ms', 'Milliseconde') }}
-      {{ charts.bar('DOM complet', '2561', 'ms', 'Milliseconde') }}
-      {{ charts.bar('Trafic HTTP terminé', '2980', 'ms', 'Milliseconde') }}
+      {{ charts.bar('Temps : backend', '4', 'ms', 'Milliseconde', 'waterfall') }}
+      {{ charts.bar('Temps : Frontend', '96', 'ms', 'Milliseconde', 'waterfall') }}
+      {{ charts.bar('Délai : premier octet', '102', 'ms', 'Milliseconde', 'waterfall') }}
+      {{ charts.bar('Délai : dernier octet', '129', 'ms', 'Milliseconde', 'waterfall') }}
+      {{ charts.bar('Délai : première image', '188', 'ms', 'Milliseconde', 'waterfall') }}
+      {{ charts.bar('Délai : premier CSS', '194', 'ms', 'Milliseconde', 'waterfall') }}
+      {{ charts.bar('Délai : premier JS', '326', 'ms', 'Milliseconde', 'waterfall') }}
+      {{ charts.bar('DOM Interactif', '836', 'ms', 'Milliseconde', 'waterfall') }}
+      {{ charts.bar('Chargement du DOM', '836', 'ms', 'Milliseconde', 'waterfall') }}
+      {{ charts.bar('DOM complet', '2561', 'ms', 'Milliseconde', 'waterfall') }}
+      {{ charts.bar('Trafic HTTP terminé', '2980', 'ms', 'Milliseconde', 'waterfall') }}
     </dl>
     <figcaption>Temps de chargement successifs pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
   </figure>
@@ -207,13 +207,13 @@
 
       <figure role="group">
         <dl class="charts-pie donut" style="--offset: 8rem">
-          {{ charts.pie('HTML', '2', '%', '', '0', '#444') }}
-          {{ charts.pie('CSS', '2', '%', '', '2', 'firebrick') }}
-          {{ charts.pie('JS', '32', '%', '', '4', 'crimson') }}
-          {{ charts.pie('Json', '1', '%', '', '36', 'mediumblue') }}
-          {{ charts.pie('Images', '44', '%', '', '37', 'darkblue') }}
-          {{ charts.pie('Webfonts', '17', '%', '', '81', 'rebeccapurple') }}
-          {{ charts.pie('Autres', '2', '%', '', '98', 'indigo') }}
+          {{ charts.pie('HTML', '2', '%', '', '0', '#444', 'donut') }}
+          {{ charts.pie('CSS', '2', '%', '', '2', 'firebrick', 'donut') }}
+          {{ charts.pie('JS', '32', '%', '', '4', 'crimson', 'donut') }}
+          {{ charts.pie('Json', '1', '%', '', '36', 'mediumblue', 'donut') }}
+          {{ charts.pie('Images', '44', '%', '', '37', 'darkblue', 'donut') }}
+          {{ charts.pie('Webfonts', '17', '%', '', '81', 'rebeccapurple', 'donut') }}
+          {{ charts.pie('Autres', '2', '%', '', '98', 'indigo', 'donut') }}
         </dl>
         <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
       </figure>
@@ -228,11 +228,11 @@
 
       <figure role="group">
         <dl class="charts-pie polar">
-          {{ charts.pie('HTML', '2', '%', '', '0', 'firebrick') }}
-          {{ charts.pie('JS', '32', '%', '', '2', 'crimson') }}
-          {{ charts.pie('Images', '44', '%', '', '34', 'rebeccapurple') }}
-          {{ charts.pie('Webfonts', '17', '%', '', '78', 'mediumblue') }}
-          {{ charts.pie('Autres', '4', '%', '', '96', 'indigo') }}
+          {{ charts.pie('HTML', '2', '%', '', '0', 'firebrick', 'polar') }}
+          {{ charts.pie('JS', '32', '%', '', '2', 'crimson', 'polar') }}
+          {{ charts.pie('Images', '44', '%', '', '34', 'rebeccapurple', 'polar') }}
+          {{ charts.pie('Webfonts', '17', '%', '', '78', 'mediumblue', 'polar') }}
+          {{ charts.pie('Autres', '4', '%', '', '96', 'indigo', 'polar') }}
         </dl>
         <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
       </figure>
@@ -264,13 +264,13 @@
         style="--v1: 2; --v2: 2; --v3: 32; --v4: 1; --v5: 44; --v6: 17; --v7: 2;
                --c1: #444; --c2: firebrick; --c3: crimson; --c4: mediumblue; --c5: darkblue; --c6: rebeccapurple; --c7: indigo;
               --offset: 8rem">
-      {{ charts.pie('HTML', '2', '%', '', '0', '#444') }}
-      {{ charts.pie('CSS', '2', '%', '', '2', 'firebrick') }}
-      {{ charts.pie('JS', '32', '%', '', '4', 'crimson') }}
-      {{ charts.pie('Json', '1', '%', '', '36', 'mediumblue') }}
-      {{ charts.pie('Images', '44', '%', '', '37', 'darkblue') }}
-      {{ charts.pie('Webfonts', '17', '%', '', '81', 'rebeccapurple') }}
-      {{ charts.pie('Autres', '2', '%', '', '98', 'indigo') }}
+      {{ charts.pie('HTML', '2', '%', '', '0', '#444', 'conic') }}
+      {{ charts.pie('CSS', '2', '%', '', '2', 'firebrick', 'conic') }}
+      {{ charts.pie('JS', '32', '%', '', '4', 'crimson', 'conic') }}
+      {{ charts.pie('Json', '1', '%', '', '36', 'mediumblue', 'conic') }}
+      {{ charts.pie('Images', '44', '%', '', '37', 'darkblue', 'conic') }}
+      {{ charts.pie('Webfonts', '17', '%', '', '81', 'rebeccapurple', 'conic') }}
+      {{ charts.pie('Autres', '2', '%', '', '98', 'indigo', 'conic') }}
     </dl>
     <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
   </figure>
@@ -374,18 +374,18 @@
 
   <figure role="group">
     <dl class="charts-line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-      {{ charts.line('Jan.', '8', '°C', 'Degré Celsius') }}
-      {{ charts.line('Fév.', '6', '°C', 'Degré Celsius') }}
-      {{ charts.line('Mars', '9', '°C', 'Degré Celsius') }}
-      {{ charts.line('Avr.', '12', '°C', 'Degré Celsius') }}
-      {{ charts.line('Mai', '15', '°C', 'Degré Celsius') }}
-      {{ charts.line('Juin', '21', '°C', 'Degré Celsius') }}
-      {{ charts.line('Juil.', '24', '°C', 'Degré Celsius') }}
-      {{ charts.line('Août', '25', '°C', 'Degré Celsius') }}
-      {{ charts.line('Sep.', '22', '°C', 'Degré Celsius') }}
-      {{ charts.line('Oct.', '19', '°C', 'Degré Celsius') }}
-      {{ charts.line('Nov.', '14', '°C', 'Degré Celsius') }}
-      {{ charts.line('Déc.', '9', '°C', 'Degré Celsius') }}
+      {{ charts.line('Jan.', '8', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Fév.', '6', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Mars', '9', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Avr.', '12', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Mai', '15', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Juin', '21', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Juil.', '24', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Août', '25', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Sep.', '22', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Oct.', '19', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Nov.', '14', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Déc.', '9', '°C', 'Degré Celsius', 'points') }}
     </dl>
     <figcaption>Température mensuelle moyenne en 2017</figcaption>
   </figure>

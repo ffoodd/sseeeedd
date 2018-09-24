@@ -1,7 +1,7 @@
-{% macro line(term='', definition='', unit='', title='') %}
+{% macro line(term='', definition='', unit='', title='', variant='') %}
   {% set id = term | lower | replace(":", "") | replace(" ", "") | replace(" ", "-") | replace("é", "e") | replace("û", "u") %}
-  <dt aria-describedby="def_{{ id }}">{{ term }}</dt>
-  <dd id="def_{{ id }}">
+  <dt aria-describedby="def_{{ id }}_{{ variant }}">{{ term }}</dt>
+  <dd id="def_{{ id }}_{{ variant }}">
     <span>{{ definition }}{% if unit != '' %}&nbsp;{% if title != '' %}<abbr title="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}{% endif %}</span>
   </dd>
 {% endmacro %}
