@@ -21,7 +21,7 @@ caption {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizelegibility;
-  
+
   &:first-child {
     margin-top: 0;
   }
@@ -75,7 +75,6 @@ h5,
 }
 
 h6,
-th,
 .h6 {
   font-size: em( 22 );
   line-height: 1.0909;

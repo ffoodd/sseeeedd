@@ -110,6 +110,33 @@
     <figcaption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
   </figure>
 
+  <h3>Avec <code>&lt;table&gt;</code></h3>
+
+  {% import 'macros/_table-bar.html' as table %}
+
+  <table role="table" class="table-charts bar" style="--scale: 3000">
+    <caption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+    <thead role="rowgroup" class="sr-only">
+      <tr role="row">
+        <td></td>
+        <th role="columnheader" scope="col">Temps de chargement</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      {{ table.bar('Temps : backend', '4', 'ms', 'Milliseconde', 'table') }}
+      {{ table.bar('Temps : Frontend', '96', 'ms', 'Milliseconde', 'table') }}
+      {{ table.bar('Délai : premier octet', '102', 'ms', 'Milliseconde', 'table') }}
+      {{ table.bar('Délai : dernier octet', '129', 'ms', 'Milliseconde', 'table') }}
+      {{ table.bar('Délai : première image', '188', 'ms', 'Milliseconde', 'table') }}
+      {{ table.bar('Délai : premier CSS', '194', 'ms', 'Milliseconde', 'table') }}
+      {{ table.bar('Délai : premier JS', '326', 'ms', 'Milliseconde', 'table') }}
+      {{ table.bar('DOM Interactif', '836', 'ms', 'Milliseconde', 'table') }}
+      {{ table.bar('Chargement du DOM', '836', 'ms', 'Milliseconde', 'table') }}
+      {{ table.bar('DOM complet', '2561', 'ms', 'Milliseconde', 'table') }}
+      {{ table.bar('Trafic HTTP terminé', '2980', 'ms', 'Milliseconde', 'table') }}
+    </tbody>
+  </table>
+
   <h3>Variante&nbsp;: graphique en chute d’eau</h3>
 
   <p>

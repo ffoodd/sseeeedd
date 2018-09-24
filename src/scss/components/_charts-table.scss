@@ -1,0 +1,90 @@
+/* ==================== */
+/* == Table based Charts
+/* ==================== */
+
+.table-charts {
+  background: palette( default, contrast );
+  caption-side: bottom;
+  empty-cells: hide;
+  margin: 1.5em auto;
+  overflow: hidden;
+  padding: 1em;
+
+  > caption:first-child {
+    background: inherit;
+    font-style: normal;
+    padding: $gutter 0;
+  }
+
+  th,
+  td {
+    border: 0;
+    padding: 0;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  @supports (grid-template-columns: repeat(var(--scale, 100), minmax(0, 1fr))) {
+    &.bar {
+      tr {
+        display: grid;
+        grid-auto-rows: 1fr;
+        grid-row-gap: $gutter / 2;
+        grid-template-columns: minmax(min-content, em( 200 )) repeat(var(--scale, 100), minmax(0, 1fr)) 10ch;
+        transition: opacity .2s map-get( $timing-functions, 'move' );
+
+        th {
+          grid-column: 1 / 1;
+          margin: $gutter / 2 0 0;
+          padding: 0 $gutter 0 0;
+          text-align: right;
+        }
+
+        td {
+          --size: calc(var(--scale, 100) * 100%);
+          --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+          background-image: linear-gradient(to right,
+            palette( success, dark ),
+            palette( dominant ),
+            palette( secondary ),
+            palette( accent ),
+            palette( alert )
+          );
+          background-position: var(--position) 0%;
+          background-size:  var(--size) 100%;
+          grid-column: 2 / var(--value, 0);
+          margin: $gutter / 2 0 0;
+          position: relative;
+
+          span {
+            background: inherit;
+            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text;
+            font-weight: bold;
+            left: 100%;
+            position: absolute;
+          }
+        }
+      }
+
+      &:hover {
+        tr {
+          opacity: .75;
+        }
+
+        tr:hover {
+          opacity: 1;
+        }
+      }
+    }
+
+    @media screen and (min-width: em(480)) {
+      &.bar caption {
+        text-align: initial;
+        text-indent: rem( 200 );
+      }
+    }
+  }
+}
