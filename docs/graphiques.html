@@ -63,6 +63,8 @@
   <p>
     Les différentes versions de graphiques présentées pour le moment reposent uniquement sur un balisage sémantique
     —&nbsp;<code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code> et <code>&lt;dd&gt;</code>&nbsp;— et une tartine de <strong>variables CSS portées par les balises</strong>.
+    Aucun JavaScript n’est requis, et les styles proposent une
+    <strong>amélioration progressive</strong> selon les capacités de votre navigateur.
   </p>
 
   <p>
@@ -70,11 +72,10 @@
     le rôle <code>definition</code> est utilisé conjointement à <code>aria-labelledby</code> pour associer
     chaque définition à son terme. De plus l’élément <code>&lt;dfn&gt;</code> supplée celle de l’élément <code>&lt;dt&gt;</code>
     pour le terme, ainsi que le rôle <code>term</code>.
-  </p>
-
-  <p>
-    Là encore, le balisage est parfaitement accessible&nbsp;! Aucun JavaScript n’est requis, et les styles proposent une
-    <strong>amélioration progressive</strong> selon les capacités de votre navigateur.
+    <a href="http://adrianroselli.com/2018/05/functions-to-add-aria-to-tables-and-lists.html" hreflang="en">
+      <cite>Adrian Roselli</cite> explique que le changement de <code>display</code>
+      a un impact négatif sur la sémantique des listes (et tableaux)
+    </a>.
   </p>
 
   <h2>Graphique en barre</h2>
@@ -118,81 +119,81 @@
   
 
   <figure role="group">
-    <dl class="charts-bar" style="--scale: 3000">
+    <dl role="list" class="charts-bar" style="--scale: 3000">
       
   
-  <dt role="term" id="def_temps-backend_"><dfn>Temps : backend</dfn></dt>
-  <dd role="definition" aria-labelledby="def_temps-backend_" style="--value: 4">
+  <dt role="term listitem" id="def_temps-backend_"><dfn>Temps : backend</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_temps-backend_" style="--value: 4">
     <span>4&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_temps-frontend_"><dfn>Temps : Frontend</dfn></dt>
-  <dd role="definition" aria-labelledby="def_temps-frontend_" style="--value: 96">
+  <dt role="term listitem" id="def_temps-frontend_"><dfn>Temps : Frontend</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_temps-frontend_" style="--value: 96">
     <span>96&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_delai-premier-octet_"><dfn>Délai : premier octet</dfn></dt>
-  <dd role="definition" aria-labelledby="def_delai-premier-octet_" style="--value: 102">
+  <dt role="term listitem" id="def_delai-premier-octet_"><dfn>Délai : premier octet</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_delai-premier-octet_" style="--value: 102">
     <span>102&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_delai-dernier-octet_"><dfn>Délai : dernier octet</dfn></dt>
-  <dd role="definition" aria-labelledby="def_delai-dernier-octet_" style="--value: 129">
+  <dt role="term listitem" id="def_delai-dernier-octet_"><dfn>Délai : dernier octet</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_delai-dernier-octet_" style="--value: 129">
     <span>129&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_delai-première-image_"><dfn>Délai : première image</dfn></dt>
-  <dd role="definition" aria-labelledby="def_delai-première-image_" style="--value: 188">
+  <dt role="term listitem" id="def_delai-première-image_"><dfn>Délai : première image</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_delai-première-image_" style="--value: 188">
     <span>188&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_delai-premier-css_"><dfn>Délai : premier CSS</dfn></dt>
-  <dd role="definition" aria-labelledby="def_delai-premier-css_" style="--value: 194">
+  <dt role="term listitem" id="def_delai-premier-css_"><dfn>Délai : premier CSS</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_delai-premier-css_" style="--value: 194">
     <span>194&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_delai-premier-js_"><dfn>Délai : premier JS</dfn></dt>
-  <dd role="definition" aria-labelledby="def_delai-premier-js_" style="--value: 326">
+  <dt role="term listitem" id="def_delai-premier-js_"><dfn>Délai : premier JS</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_delai-premier-js_" style="--value: 326">
     <span>326&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_dom-interactif_"><dfn>DOM Interactif</dfn></dt>
-  <dd role="definition" aria-labelledby="def_dom-interactif_" style="--value: 836">
+  <dt role="term listitem" id="def_dom-interactif_"><dfn>DOM Interactif</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_dom-interactif_" style="--value: 836">
     <span>836&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_chargement-du-dom_"><dfn>Chargement du DOM</dfn></dt>
-  <dd role="definition" aria-labelledby="def_chargement-du-dom_" style="--value: 836">
+  <dt role="term listitem" id="def_chargement-du-dom_"><dfn>Chargement du DOM</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_chargement-du-dom_" style="--value: 836">
     <span>836&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_dom-complet_"><dfn>DOM complet</dfn></dt>
-  <dd role="definition" aria-labelledby="def_dom-complet_" style="--value: 2561">
+  <dt role="term listitem" id="def_dom-complet_"><dfn>DOM complet</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_dom-complet_" style="--value: 2561">
     <span>2561&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_trafic-http-termine_"><dfn>Trafic HTTP terminé</dfn></dt>
-  <dd role="definition" aria-labelledby="def_trafic-http-termine_" style="--value: 2980">
+  <dt role="term listitem" id="def_trafic-http-termine_"><dfn>Trafic HTTP terminé</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_trafic-http-termine_" style="--value: 2980">
     <span>2980&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
@@ -209,81 +210,81 @@
   </p>
 
   <figure role="group">
-    <dl class="charts-bar waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
+    <dl role="list" class="charts-bar waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
       
   
-  <dt role="term" id="def_temps-backend_waterfall"><dfn>Temps : backend</dfn></dt>
-  <dd role="definition" aria-labelledby="def_temps-backend_waterfall" style="--value: 4">
+  <dt role="term listitem" id="def_temps-backend_waterfall"><dfn>Temps : backend</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_temps-backend_waterfall" style="--value: 4">
     <span>4&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_temps-frontend_waterfall"><dfn>Temps : Frontend</dfn></dt>
-  <dd role="definition" aria-labelledby="def_temps-frontend_waterfall" style="--value: 96">
+  <dt role="term listitem" id="def_temps-frontend_waterfall"><dfn>Temps : Frontend</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_temps-frontend_waterfall" style="--value: 96">
     <span>96&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_delai-premier-octet_waterfall"><dfn>Délai : premier octet</dfn></dt>
-  <dd role="definition" aria-labelledby="def_delai-premier-octet_waterfall" style="--value: 102">
+  <dt role="term listitem" id="def_delai-premier-octet_waterfall"><dfn>Délai : premier octet</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_delai-premier-octet_waterfall" style="--value: 102">
     <span>102&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_delai-dernier-octet_waterfall"><dfn>Délai : dernier octet</dfn></dt>
-  <dd role="definition" aria-labelledby="def_delai-dernier-octet_waterfall" style="--value: 129">
+  <dt role="term listitem" id="def_delai-dernier-octet_waterfall"><dfn>Délai : dernier octet</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_delai-dernier-octet_waterfall" style="--value: 129">
     <span>129&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_delai-première-image_waterfall"><dfn>Délai : première image</dfn></dt>
-  <dd role="definition" aria-labelledby="def_delai-première-image_waterfall" style="--value: 188">
+  <dt role="term listitem" id="def_delai-première-image_waterfall"><dfn>Délai : première image</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_delai-première-image_waterfall" style="--value: 188">
     <span>188&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_delai-premier-css_waterfall"><dfn>Délai : premier CSS</dfn></dt>
-  <dd role="definition" aria-labelledby="def_delai-premier-css_waterfall" style="--value: 194">
+  <dt role="term listitem" id="def_delai-premier-css_waterfall"><dfn>Délai : premier CSS</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_delai-premier-css_waterfall" style="--value: 194">
     <span>194&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_delai-premier-js_waterfall"><dfn>Délai : premier JS</dfn></dt>
-  <dd role="definition" aria-labelledby="def_delai-premier-js_waterfall" style="--value: 326">
+  <dt role="term listitem" id="def_delai-premier-js_waterfall"><dfn>Délai : premier JS</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_delai-premier-js_waterfall" style="--value: 326">
     <span>326&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_dom-interactif_waterfall"><dfn>DOM Interactif</dfn></dt>
-  <dd role="definition" aria-labelledby="def_dom-interactif_waterfall" style="--value: 836">
+  <dt role="term listitem" id="def_dom-interactif_waterfall"><dfn>DOM Interactif</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_dom-interactif_waterfall" style="--value: 836">
     <span>836&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_chargement-du-dom_waterfall"><dfn>Chargement du DOM</dfn></dt>
-  <dd role="definition" aria-labelledby="def_chargement-du-dom_waterfall" style="--value: 836">
+  <dt role="term listitem" id="def_chargement-du-dom_waterfall"><dfn>Chargement du DOM</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_chargement-du-dom_waterfall" style="--value: 836">
     <span>836&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_dom-complet_waterfall"><dfn>DOM complet</dfn></dt>
-  <dd role="definition" aria-labelledby="def_dom-complet_waterfall" style="--value: 2561">
+  <dt role="term listitem" id="def_dom-complet_waterfall"><dfn>DOM complet</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_dom-complet_waterfall" style="--value: 2561">
     <span>2561&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_trafic-http-termine_waterfall"><dfn>Trafic HTTP terminé</dfn></dt>
-  <dd role="definition" aria-labelledby="def_trafic-http-termine_waterfall" style="--value: 2980">
+  <dt role="term listitem" id="def_trafic-http-termine_waterfall"><dfn>Trafic HTTP terminé</dfn></dt>
+  <dd role="definition listitem" aria-labelledby="def_trafic-http-termine_waterfall" style="--value: 2980">
     <span>2980&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
   </dd>
 
@@ -340,61 +341,61 @@
   
 
   <figure role="group">
-    <dl class="charts-pie">
+    <dl role="list" class="charts-pie">
       
   
-  <dt role="term" id="def_html_" style="--color: #444">
+  <dt role="term listitem" id="def_html_" style="--color: #444">
     <dfn>HTML</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_html_" style="--color: #444">2&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_html_" style="--color: #444">2&nbsp;%</dd>
   <dd style="--value: 2; --start: 0; --color: #444" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_css_" style="--color: firebrick">
+  <dt role="term listitem" id="def_css_" style="--color: firebrick">
     <dfn>CSS</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_css_" style="--color: firebrick">2&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_css_" style="--color: firebrick">2&nbsp;%</dd>
   <dd style="--value: 2; --start: 2; --color: firebrick" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_js_" style="--color: crimson">
+  <dt role="term listitem" id="def_js_" style="--color: crimson">
     <dfn>JS</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_js_" style="--color: crimson">32&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_js_" style="--color: crimson">32&nbsp;%</dd>
   <dd style="--value: 32; --start: 4; --color: crimson" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_json_" style="--color: mediumblue">
+  <dt role="term listitem" id="def_json_" style="--color: mediumblue">
     <dfn>Json</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_json_" style="--color: mediumblue">1&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_json_" style="--color: mediumblue">1&nbsp;%</dd>
   <dd style="--value: 1; --start: 36; --color: mediumblue" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_images_" style="--color: darkblue">
+  <dt role="term listitem" id="def_images_" style="--color: darkblue">
     <dfn>Images</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_images_" style="--color: darkblue">44&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_images_" style="--color: darkblue">44&nbsp;%</dd>
   <dd style="--value: 44; --start: 37; --color: darkblue" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_webfonts_" style="--color: rebeccapurple">
+  <dt role="term listitem" id="def_webfonts_" style="--color: rebeccapurple">
     <dfn>Webfonts</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_webfonts_" style="--color: rebeccapurple">17&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_webfonts_" style="--color: rebeccapurple">17&nbsp;%</dd>
   <dd style="--value: 17; --start: 81; --color: rebeccapurple" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_autres_" style="--color: indigo">
+  <dt role="term listitem" id="def_autres_" style="--color: indigo">
     <dfn>Autres</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_autres_" style="--color: indigo">2&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_autres_" style="--color: indigo">2&nbsp;%</dd>
   <dd style="--value: 2; --start: 98; --color: indigo" role="presentation"></dd>
 
     </dl>
@@ -420,61 +421,61 @@
       </p>
 
       <figure role="group">
-        <dl class="charts-pie donut" style="--offset: 8rem">
+        <dl role="list" class="charts-pie donut" style="--offset: 8rem">
           
   
-  <dt role="term" id="def_html_donut" style="--color: #444">
+  <dt role="term listitem" id="def_html_donut" style="--color: #444">
     <dfn>HTML</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_html_donut" style="--color: #444">2&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_html_donut" style="--color: #444">2&nbsp;%</dd>
   <dd style="--value: 2; --start: 0; --color: #444" role="presentation"></dd>
 
           
   
-  <dt role="term" id="def_css_donut" style="--color: firebrick">
+  <dt role="term listitem" id="def_css_donut" style="--color: firebrick">
     <dfn>CSS</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_css_donut" style="--color: firebrick">2&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_css_donut" style="--color: firebrick">2&nbsp;%</dd>
   <dd style="--value: 2; --start: 2; --color: firebrick" role="presentation"></dd>
 
           
   
-  <dt role="term" id="def_js_donut" style="--color: crimson">
+  <dt role="term listitem" id="def_js_donut" style="--color: crimson">
     <dfn>JS</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_js_donut" style="--color: crimson">32&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_js_donut" style="--color: crimson">32&nbsp;%</dd>
   <dd style="--value: 32; --start: 4; --color: crimson" role="presentation"></dd>
 
           
   
-  <dt role="term" id="def_json_donut" style="--color: mediumblue">
+  <dt role="term listitem" id="def_json_donut" style="--color: mediumblue">
     <dfn>Json</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_json_donut" style="--color: mediumblue">1&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_json_donut" style="--color: mediumblue">1&nbsp;%</dd>
   <dd style="--value: 1; --start: 36; --color: mediumblue" role="presentation"></dd>
 
           
   
-  <dt role="term" id="def_images_donut" style="--color: darkblue">
+  <dt role="term listitem" id="def_images_donut" style="--color: darkblue">
     <dfn>Images</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_images_donut" style="--color: darkblue">44&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_images_donut" style="--color: darkblue">44&nbsp;%</dd>
   <dd style="--value: 44; --start: 37; --color: darkblue" role="presentation"></dd>
 
           
   
-  <dt role="term" id="def_webfonts_donut" style="--color: rebeccapurple">
+  <dt role="term listitem" id="def_webfonts_donut" style="--color: rebeccapurple">
     <dfn>Webfonts</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_webfonts_donut" style="--color: rebeccapurple">17&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_webfonts_donut" style="--color: rebeccapurple">17&nbsp;%</dd>
   <dd style="--value: 17; --start: 81; --color: rebeccapurple" role="presentation"></dd>
 
           
   
-  <dt role="term" id="def_autres_donut" style="--color: indigo">
+  <dt role="term listitem" id="def_autres_donut" style="--color: indigo">
     <dfn>Autres</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_autres_donut" style="--color: indigo">2&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_autres_donut" style="--color: indigo">2&nbsp;%</dd>
   <dd style="--value: 2; --start: 98; --color: indigo" role="presentation"></dd>
 
         </dl>
@@ -490,45 +491,45 @@
       </p>
 
       <figure role="group">
-        <dl class="charts-pie polar">
+        <dl role="list" class="charts-pie polar">
           
   
-  <dt role="term" id="def_html_polar" style="--color: firebrick">
+  <dt role="term listitem" id="def_html_polar" style="--color: firebrick">
     <dfn>HTML</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_html_polar" style="--color: firebrick">2&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_html_polar" style="--color: firebrick">2&nbsp;%</dd>
   <dd style="--value: 2; --start: 0; --color: firebrick" role="presentation"></dd>
 
           
   
-  <dt role="term" id="def_js_polar" style="--color: crimson">
+  <dt role="term listitem" id="def_js_polar" style="--color: crimson">
     <dfn>JS</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_js_polar" style="--color: crimson">32&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_js_polar" style="--color: crimson">32&nbsp;%</dd>
   <dd style="--value: 32; --start: 2; --color: crimson" role="presentation"></dd>
 
           
   
-  <dt role="term" id="def_images_polar" style="--color: rebeccapurple">
+  <dt role="term listitem" id="def_images_polar" style="--color: rebeccapurple">
     <dfn>Images</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_images_polar" style="--color: rebeccapurple">44&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_images_polar" style="--color: rebeccapurple">44&nbsp;%</dd>
   <dd style="--value: 44; --start: 34; --color: rebeccapurple" role="presentation"></dd>
 
           
   
-  <dt role="term" id="def_webfonts_polar" style="--color: mediumblue">
+  <dt role="term listitem" id="def_webfonts_polar" style="--color: mediumblue">
     <dfn>Webfonts</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_webfonts_polar" style="--color: mediumblue">17&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_webfonts_polar" style="--color: mediumblue">17&nbsp;%</dd>
   <dd style="--value: 17; --start: 78; --color: mediumblue" role="presentation"></dd>
 
           
   
-  <dt role="term" id="def_autres_polar" style="--color: indigo">
+  <dt role="term listitem" id="def_autres_polar" style="--color: indigo">
     <dfn>Autres</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_autres_polar" style="--color: indigo">4&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_autres_polar" style="--color: indigo">4&nbsp;%</dd>
   <dd style="--value: 4; --start: 96; --color: indigo" role="presentation"></dd>
 
         </dl>
@@ -558,63 +559,63 @@
   </p>
 
   <figure role="group">
-    <dl class="charts-pie conic donut" style="--v1: 2; --v2: 2; --v3: 32; --v4: 1; --v5: 44; --v6: 17; --v7: 2;
+    <dl role="list" class="charts-pie conic donut" style="--v1: 2; --v2: 2; --v3: 32; --v4: 1; --v5: 44; --v6: 17; --v7: 2;
                --c1: #444; --c2: firebrick; --c3: crimson; --c4: mediumblue; --c5: darkblue; --c6: rebeccapurple; --c7: indigo;
               --offset: 8rem">
       
   
-  <dt role="term" id="def_html_conic" style="--color: #444">
+  <dt role="term listitem" id="def_html_conic" style="--color: #444">
     <dfn>HTML</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_html_conic" style="--color: #444">2&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_html_conic" style="--color: #444">2&nbsp;%</dd>
   <dd style="--value: 2; --start: 0; --color: #444" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_css_conic" style="--color: firebrick">
+  <dt role="term listitem" id="def_css_conic" style="--color: firebrick">
     <dfn>CSS</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_css_conic" style="--color: firebrick">2&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_css_conic" style="--color: firebrick">2&nbsp;%</dd>
   <dd style="--value: 2; --start: 2; --color: firebrick" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_js_conic" style="--color: crimson">
+  <dt role="term listitem" id="def_js_conic" style="--color: crimson">
     <dfn>JS</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_js_conic" style="--color: crimson">32&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_js_conic" style="--color: crimson">32&nbsp;%</dd>
   <dd style="--value: 32; --start: 4; --color: crimson" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_json_conic" style="--color: mediumblue">
+  <dt role="term listitem" id="def_json_conic" style="--color: mediumblue">
     <dfn>Json</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_json_conic" style="--color: mediumblue">1&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_json_conic" style="--color: mediumblue">1&nbsp;%</dd>
   <dd style="--value: 1; --start: 36; --color: mediumblue" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_images_conic" style="--color: darkblue">
+  <dt role="term listitem" id="def_images_conic" style="--color: darkblue">
     <dfn>Images</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_images_conic" style="--color: darkblue">44&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_images_conic" style="--color: darkblue">44&nbsp;%</dd>
   <dd style="--value: 44; --start: 37; --color: darkblue" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_webfonts_conic" style="--color: rebeccapurple">
+  <dt role="term listitem" id="def_webfonts_conic" style="--color: rebeccapurple">
     <dfn>Webfonts</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_webfonts_conic" style="--color: rebeccapurple">17&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_webfonts_conic" style="--color: rebeccapurple">17&nbsp;%</dd>
   <dd style="--value: 17; --start: 81; --color: rebeccapurple" role="presentation"></dd>
 
       
   
-  <dt role="term" id="def_autres_conic" style="--color: indigo">
+  <dt role="term listitem" id="def_autres_conic" style="--color: indigo">
     <dfn>Autres</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_autres_conic" style="--color: indigo">2&nbsp;%</dd>
+  <dd role="definition listitem" aria-labelledby="def_autres_conic" style="--color: indigo">2&nbsp;%</dd>
   <dd style="--value: 2; --start: 98; --color: indigo" role="presentation"></dd>
 
     </dl>
@@ -677,112 +678,112 @@
   
 
   <figure role="group">
-    <dl class="charts-line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+    <dl role="list" class="charts-line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
       
   
-  <dt role="term" id="def_jan_">
+  <dt role="term listitem" id="def_jan_">
     <dfn>Jan.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_jan_">
+  <dd role="definition listitem" aria-labelledby="def_jan_">
     <span>8&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_fev_">
+  <dt role="term listitem" id="def_fev_">
     <dfn>Fév.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_fev_">
+  <dd role="definition listitem" aria-labelledby="def_fev_">
     <span>6&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_mars_">
+  <dt role="term listitem" id="def_mars_">
     <dfn>Mars</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_mars_">
+  <dd role="definition listitem" aria-labelledby="def_mars_">
     <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_avr_">
+  <dt role="term listitem" id="def_avr_">
     <dfn>Avr.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_avr_">
+  <dd role="definition listitem" aria-labelledby="def_avr_">
     <span>12&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_mai_">
+  <dt role="term listitem" id="def_mai_">
     <dfn>Mai</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_mai_">
+  <dd role="definition listitem" aria-labelledby="def_mai_">
     <span>15&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_juin_">
+  <dt role="term listitem" id="def_juin_">
     <dfn>Juin</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_juin_">
+  <dd role="definition listitem" aria-labelledby="def_juin_">
     <span>21&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_juil_">
+  <dt role="term listitem" id="def_juil_">
     <dfn>Juil.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_juil_">
+  <dd role="definition listitem" aria-labelledby="def_juil_">
     <span>24&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_aout_">
+  <dt role="term listitem" id="def_aout_">
     <dfn>Août</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_aout_">
+  <dd role="definition listitem" aria-labelledby="def_aout_">
     <span>25&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_sep_">
+  <dt role="term listitem" id="def_sep_">
     <dfn>Sep.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_sep_">
+  <dd role="definition listitem" aria-labelledby="def_sep_">
     <span>22&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_oct_">
+  <dt role="term listitem" id="def_oct_">
     <dfn>Oct.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_oct_">
+  <dd role="definition listitem" aria-labelledby="def_oct_">
     <span>19&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_nov_">
+  <dt role="term listitem" id="def_nov_">
     <dfn>Nov.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_nov_">
+  <dd role="definition listitem" aria-labelledby="def_nov_">
     <span>14&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_dec_">
+  <dt role="term listitem" id="def_dec_">
     <dfn>Déc.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_dec_">
+  <dd role="definition listitem" aria-labelledby="def_dec_">
     <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
@@ -815,112 +816,112 @@
   </ol>
 
   <figure role="group">
-    <dl class="charts-line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+    <dl role="list" class="charts-line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
       
   
-  <dt role="term" id="def_jan_points">
+  <dt role="term listitem" id="def_jan_points">
     <dfn>Jan.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_jan_points">
+  <dd role="definition listitem" aria-labelledby="def_jan_points">
     <span>8&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_fev_points">
+  <dt role="term listitem" id="def_fev_points">
     <dfn>Fév.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_fev_points">
+  <dd role="definition listitem" aria-labelledby="def_fev_points">
     <span>6&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_mars_points">
+  <dt role="term listitem" id="def_mars_points">
     <dfn>Mars</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_mars_points">
+  <dd role="definition listitem" aria-labelledby="def_mars_points">
     <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_avr_points">
+  <dt role="term listitem" id="def_avr_points">
     <dfn>Avr.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_avr_points">
+  <dd role="definition listitem" aria-labelledby="def_avr_points">
     <span>12&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_mai_points">
+  <dt role="term listitem" id="def_mai_points">
     <dfn>Mai</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_mai_points">
+  <dd role="definition listitem" aria-labelledby="def_mai_points">
     <span>15&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_juin_points">
+  <dt role="term listitem" id="def_juin_points">
     <dfn>Juin</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_juin_points">
+  <dd role="definition listitem" aria-labelledby="def_juin_points">
     <span>21&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_juil_points">
+  <dt role="term listitem" id="def_juil_points">
     <dfn>Juil.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_juil_points">
+  <dd role="definition listitem" aria-labelledby="def_juil_points">
     <span>24&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_aout_points">
+  <dt role="term listitem" id="def_aout_points">
     <dfn>Août</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_aout_points">
+  <dd role="definition listitem" aria-labelledby="def_aout_points">
     <span>25&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_sep_points">
+  <dt role="term listitem" id="def_sep_points">
     <dfn>Sep.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_sep_points">
+  <dd role="definition listitem" aria-labelledby="def_sep_points">
     <span>22&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_oct_points">
+  <dt role="term listitem" id="def_oct_points">
     <dfn>Oct.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_oct_points">
+  <dd role="definition listitem" aria-labelledby="def_oct_points">
     <span>19&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_nov_points">
+  <dt role="term listitem" id="def_nov_points">
     <dfn>Nov.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_nov_points">
+  <dd role="definition listitem" aria-labelledby="def_nov_points">
     <span>14&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
       
   
-  <dt role="term" id="def_dec_points">
+  <dt role="term listitem" id="def_dec_points">
     <dfn>Déc.</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_dec_points">
+  <dd role="definition listitem" aria-labelledby="def_dec_points">
     <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </dd>
 
@@ -990,55 +991,55 @@
   
 
   <figure role="group">
-    <dl class="charts-radar" style="--scale: 20; --step: 5; --items: 7; --1: 14; --2: 11; --3: 13; --4: 16; --5: 10; --6: 12; --7: 4; --8: var(--1);">
+    <dl role="list" class="charts-radar" style="--scale: 20; --step: 5; --items: 7; --1: 14; --2: 11; --3: 13; --4: 16; --5: 10; --6: 12; --7: 4; --8: var(--1);">
       
   
-  <dt role="term" id="def_accessibilite" data-value="14" data-scale="20">
+  <dt role="term listitem" id="def_accessibilite" data-value="14" data-scale="20">
     <dfn>Accessibilité</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_accessibilite" data-scale="20"><span>14</span></dd>
+  <dd role="definition listitem" aria-labelledby="def_accessibilite" data-scale="20"><span>14</span></dd>
 
       
   
-  <dt role="term" id="def_referencement" data-value="11" data-scale="20">
+  <dt role="term listitem" id="def_referencement" data-value="11" data-scale="20">
     <dfn>Référencement</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_referencement" data-scale="20"><span>11</span></dd>
+  <dd role="definition listitem" aria-labelledby="def_referencement" data-scale="20"><span>11</span></dd>
 
       
   
-  <dt role="term" id="def_performance" data-value="13" data-scale="20">
+  <dt role="term listitem" id="def_performance" data-value="13" data-scale="20">
     <dfn>Performance</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_performance" data-scale="20"><span>13</span></dd>
+  <dd role="definition listitem" aria-labelledby="def_performance" data-scale="20"><span>13</span></dd>
 
       
   
-  <dt role="term" id="def_compatibilite" data-value="16" data-scale="20">
+  <dt role="term listitem" id="def_compatibilite" data-value="16" data-scale="20">
     <dfn>Compatibilité</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_compatibilite" data-scale="20"><span>16</span></dd>
+  <dd role="definition listitem" aria-labelledby="def_compatibilite" data-scale="20"><span>16</span></dd>
 
       
   
-  <dt role="term" id="def_securite" data-value="10" data-scale="20">
+  <dt role="term listitem" id="def_securite" data-value="10" data-scale="20">
     <dfn>Sécurité</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_securite" data-scale="20"><span>10</span></dd>
+  <dd role="definition listitem" aria-labelledby="def_securite" data-scale="20"><span>10</span></dd>
 
       
   
-  <dt role="term" id="def_qualite-de-code" data-value="12" data-scale="20">
+  <dt role="term listitem" id="def_qualite-de-code" data-value="12" data-scale="20">
     <dfn>Qualité de code</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_qualite-de-code" data-scale="20"><span>12</span></dd>
+  <dd role="definition listitem" aria-labelledby="def_qualite-de-code" data-scale="20"><span>12</span></dd>
 
       
   
-  <dt role="term" id="def_test" data-value="4" data-scale="20">
+  <dt role="term listitem" id="def_test" data-value="4" data-scale="20">
     <dfn>Test</dfn>
   </dt>
-  <dd role="definition" aria-labelledby="def_test" data-scale="20"><span>4</span></dd>
+  <dd role="definition listitem" aria-labelledby="def_test" data-scale="20"><span>4</span></dd>
 
     </dl>
     <figcaption>Niveau d’intérêt par domaine, sur 20</figcaption>
