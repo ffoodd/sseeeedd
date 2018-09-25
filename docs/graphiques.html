@@ -202,7 +202,16 @@
     <figcaption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
   </figure>
 
-  <h3>Avec <code>&lt;table&gt;</code></h3>
+  <h3>Variantes</h3>
+
+  <h4>Avec <code>&lt;table&gt;</code></h4>
+
+  <p>
+    Les styles appliqués à un tableau sont quasiment identiques, seule l’imbrication des éléments varie.
+    À noter&nbsp;: comme évoqué plus haut, jouer avec le <code>display</code> d’un élément <code>&lt;table&gt;</code>
+    met en péril sa sémantique. Cette dernière est donc «&nbsp;verrouillée&nbsp;» à l’aide des rôles
+    <abbr lang="en" title="Accessible Rich Internet Application">aria</abbr> dédiés —&nbsp;ce qui respire la mauvaise idée, je le concède.
+  </p>
 
   
 
@@ -211,7 +220,7 @@
     <thead role="rowgroup" class="sr-only">
       <tr role="row">
         <td></td>
-        <th role="columnheader" scope="col">Temps de chargement</th>
+        <th role="columnheader" scope="col">Temps de chargement cumulé</th>
       </tr>
     </thead>
     <tbody role="rowgroup">
@@ -317,106 +326,124 @@
     </tbody>
   </table>
 
-  <h3>Variante&nbsp;: graphique en chute d’eau</h3>
+  <h4>Graphique en chute d’eau</h4>
 
   <p>
     Le principe est le même pour cette variante, à un détail près&nbsp;: on gère également <strong>le point départ</strong> pour chaque mesure
     —&nbsp;qui est, très simplement, la valeur du point précédent…
-    Il faut cependant passer toutes les valeurs en tant que variables sur le parent <code>&lt;dl&gt;</code>.
+    Il faut cependant passer toutes les valeurs en tant que variables sur le parent <code>&lt;table&gt;</code>.
   </p>
 
-  <figure role="group">
-    <dl role="list" class="charts-bar waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
+  <table role="table" class="table-charts bar waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
+    <caption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+    <thead role="rowgroup" class="sr-only">
+      <tr role="row">
+        <td></td>
+        <th role="columnheader" scope="col">Temps de chargement cumulé</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
       
   
-  <dt role="term listitem" id="def_temps-backend_waterfall"><dfn>Temps : backend</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_temps-backend_waterfall" style="--value: 4">
-    <span>4&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_temps-frontend_waterfall"><dfn>Temps : Frontend</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_temps-frontend_waterfall" style="--value: 96">
-    <span>96&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_delai-premier-octet_waterfall"><dfn>Délai : premier octet</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_delai-premier-octet_waterfall" style="--value: 102">
-    <span>102&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
+  <tr role="row">
+    <th role="rowheader" scope="row">Temps : backend</th>
+    <td role="cell" style="--value: 4">
+      <span>4&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
+    </td>
+  </tr>
 
       
   
-  <dt role="term listitem" id="def_delai-dernier-octet_waterfall"><dfn>Délai : dernier octet</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_delai-dernier-octet_waterfall" style="--value: 129">
-    <span>129&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
+  <tr role="row">
+    <th role="rowheader" scope="row">Temps : Frontend</th>
+    <td role="cell" style="--value: 96">
+      <span>96&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
+    </td>
+  </tr>
 
       
   
-  <dt role="term listitem" id="def_delai-première-image_waterfall"><dfn>Délai : première image</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_delai-première-image_waterfall" style="--value: 188">
-    <span>188&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
+  <tr role="row">
+    <th role="rowheader" scope="row">Délai : premier octet</th>
+    <td role="cell" style="--value: 102">
+      <span>102&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
+    </td>
+  </tr>
 
       
   
-  <dt role="term listitem" id="def_delai-premier-css_waterfall"><dfn>Délai : premier CSS</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_delai-premier-css_waterfall" style="--value: 194">
-    <span>194&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
+  <tr role="row">
+    <th role="rowheader" scope="row">Délai : dernier octet</th>
+    <td role="cell" style="--value: 129">
+      <span>129&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
+    </td>
+  </tr>
 
       
   
-  <dt role="term listitem" id="def_delai-premier-js_waterfall"><dfn>Délai : premier JS</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_delai-premier-js_waterfall" style="--value: 326">
-    <span>326&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
+  <tr role="row">
+    <th role="rowheader" scope="row">Délai : première image</th>
+    <td role="cell" style="--value: 188">
+      <span>188&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
+    </td>
+  </tr>
 
       
   
-  <dt role="term listitem" id="def_dom-interactif_waterfall"><dfn>DOM Interactif</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_dom-interactif_waterfall" style="--value: 836">
-    <span>836&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
+  <tr role="row">
+    <th role="rowheader" scope="row">Délai : premier CSS</th>
+    <td role="cell" style="--value: 194">
+      <span>194&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
+    </td>
+  </tr>
 
       
   
-  <dt role="term listitem" id="def_chargement-du-dom_waterfall"><dfn>Chargement du DOM</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_chargement-du-dom_waterfall" style="--value: 836">
-    <span>836&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
+  <tr role="row">
+    <th role="rowheader" scope="row">Délai : premier JS</th>
+    <td role="cell" style="--value: 326">
+      <span>326&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
+    </td>
+  </tr>
 
       
   
-  <dt role="term listitem" id="def_dom-complet_waterfall"><dfn>DOM complet</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_dom-complet_waterfall" style="--value: 2561">
-    <span>2561&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
+  <tr role="row">
+    <th role="rowheader" scope="row">DOM Interactif</th>
+    <td role="cell" style="--value: 836">
+      <span>836&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
+    </td>
+  </tr>
 
       
   
-  <dt role="term listitem" id="def_trafic-http-termine_waterfall"><dfn>Trafic HTTP terminé</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_trafic-http-termine_waterfall" style="--value: 2980">
-    <span>2980&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
+  <tr role="row">
+    <th role="rowheader" scope="row">Chargement du DOM</th>
+    <td role="cell" style="--value: 836">
+      <span>836&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
+    </td>
+  </tr>
 
-    </dl>
-    <figcaption>Temps de chargement successifs pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
-  </figure>
+      
+  
+  <tr role="row">
+    <th role="rowheader" scope="row">DOM complet</th>
+    <td role="cell" style="--value: 2561">
+      <span>2561&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
+    </td>
+  </tr>
 
-  <div class="note">
-    <h5>Diagramme de Gantt</h5>
-    <p>
-      On pourrait se dire qu’il est possible de créer visuellement un diagramme de Gantt, avec cette technique.
-      Visuellement, oui.
-      Mais il manquera une dimension primordiale, l’échelle temporelle.
-      Ce cas précis sera un bon cas pour tester la même mise en forme appliquée à un <code>&lt;table&gt;</code>.
-    </p>
-  </div>
+      
+  
+  <tr role="row">
+    <th role="rowheader" scope="row">Trafic HTTP terminé</th>
+    <td role="cell" style="--value: 2980">
+      <span>2980&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
+    </td>
+  </tr>
+
+    </tbody>
+  </table>
 
   <h2>Graphique en tarte</h2>
 
