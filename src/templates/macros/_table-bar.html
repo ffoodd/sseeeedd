@@ -1,5 +1,4 @@
 {% macro bar(term='', definition='', unit='', title='', variant='') %}
-  {% set id = term | lower | replace(":", "") | replace(" ", "") | replace(" ", "-") | replace("é", "e") | replace("û", "u") | replace(".", "") %}
   <tr role="row">
     <th role="rowheader" scope="row">{{ term }}</th>
     <td role="cell" style="--value: {{ definition }}">
