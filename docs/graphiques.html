@@ -62,22 +62,22 @@
 
   <p>
     Les différentes versions de graphiques présentées pour le moment reposent uniquement sur un balisage sémantique
-    —&nbsp;<code>&lt;dl&gt;</code>, <code>&lt;dt&gt;</code> et <code>&lt;dd&gt;</code>&nbsp;— et une tartine de <strong>variables CSS portées par les balises</strong>.
+    —&nbsp;<code>&lt;table&gt;</code> ou <code>&lt;dl&gt;</code>&nbsp;— et une tartine de <strong>variables CSS portées par les balises</strong>.
     Aucun JavaScript n’est requis, et les styles proposent une
     <strong>amélioration progressive</strong> selon les capacités de votre navigateur.
   </p>
 
-  <p>
-    Pour palier le support disparate des listes de définitions par les technologies d’assistance,
-    le rôle <code>definition</code> est utilisé conjointement à <code>aria-labelledby</code> pour associer
-    chaque définition à son terme. De plus l’élément <code>&lt;dfn&gt;</code> supplée celle de l’élément <code>&lt;dt&gt;</code>
-    pour le terme, ainsi que le rôle <code>term</code>.
-    <cite>Adrian Roselli</cite> explique que le changement de <code>display</code>
-    a un impact négatif sur la sémantique des listes —&nbsp;et tableaux&nbsp;— et
-    <a href="http://adrianroselli.com/2018/05/functions-to-add-aria-to-tables-and-lists.html" hreflang="en">
-      quoi faire pour limiter la casse
-    </a>.
-  </p>
+  <div class="note">
+    <h2 class="h4"><code>display</code> et sémantique</h2>
+    <p>
+      <cite>Adrian Roselli</cite> explique que jouer avec le <code>display</code> d’un élément <code>&lt;table&gt;</code> ou <code>&lt;dl&gt;</code>
+      met en péril sa sémantique. Cette dernière est donc «&nbsp;verrouillée&nbsp;» à l’aide des rôles
+      <abbr lang="en" title="Accessible Rich Internet Application">aria</abbr> dédiés —&nbsp;comme il l’explique
+      <a href="http://adrianroselli.com/2018/05/functions-to-add-aria-to-tables-and-lists.html" hreflang="en">
+        dans un article détaillé
+      </a>.
+    </p>
+  </div>
 
   <h2>Graphique en barre</h2>
 
@@ -86,132 +86,32 @@
     (dans notre exemple, une ligne de temps).
     Il repose sur les <strong>grilles et les variables CSS</strong>,
     technique inspirée d’<a href="https://css-tricks.com/css-charts-grid-custom-properties/" hreflang="en">un article de <cite>Miriam Suzanne</cite> sur <abbr lang="en" title="Cascading StyleSheet">CSS</abbr> Tricks</a>
-    légèrement agrémentée.
-    Pour vous en servir, c’est simple&nbsp;:
+    légèrement agrémentée. Pour vous en servir, c’est simple&nbsp;:
   </p>
 
   <ol>
     <li>
-      Pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>&lt;figure&gt;</code> avec le role <code>group</code> ainsi
-      qu’une légende balisée avec <code>&lt;figcaption&gt;</code>.
-    </li>
-    <li>
-      Sur la <strong>liste de définitions</strong> <code>&lt;dl&gt;</code>, une variable <var>--scale</var> permet de définir la valeur maximale du graphique,
+      Sur le <strong>tableau</strong>, une variable <var>--scale</var> permet de définir la valeur maximale du graphique,
       afin d’en déterminer l’échelle. Concrètement, une grille va être générée avec&nbsp;:
       <ul>
-        <li>la première colonne pour les termes <code>&lt;dt&gt;</code> arbitrairement fixée à <code>12.5em</code>&nbsp;;</li>
+        <li>la première colonne pour les entêtes <code>&lt;th&gt;</code> arbitrairement fixée à <code>12.5em</code>&nbsp;;</li>
         <li>puis la fonction CSS <code>repeat()</code> crée une colonne par unité de l’échelle —&nbsp;dans l’exemple, 3000 colonnes&nbsp;;</li>
-        <li>enfin une dernière colonne mesurant <code>6ch</code>, soit l’espace suffisant pour six lettres.</li>
+        <li>enfin une dernière colonne mesurant <code>10ch</code>, soit l’espace suffisant pour dix lettres.</li>
       </ul>
     </li>
     <li>
-      <strong>Sur chaque définition</strong> <code>&lt;dd&gt;</code>, une variable <var>--value</var> permet de la placer sur la grille,
+      <strong>Sur chaque cellule</strong> <code>&lt;td&gt;</code>, une variable <var>--value</var> permet de la placer sur la grille,
       appliquée à <code>grid-column-end</code>.
       De plus grâce à de savants calculs reposant sur cette valeur, le dégradé en arrière-plan est dimensionné et positionné de façon à
       refléter la proportion représentée par cette valeur sur l’échelle donnée (du vert pour presque rien au rouge pour presque tout).
     </li>
     <li>
-      <strong>Dans chaque définition</strong>, le contenu doit reprendre la valeur dans un élément <code>&lt;span&gt;</code> et une unité, éventuellement
-      balisée avec <code>&lt;abbr&gt;</code> si un intitulé peut être explicité pour l’unité. Cette valeur est poussée à droite de la grille, et son texte
+      <strong>Dans chaque cellule</strong>, le contenu doit reprendre la valeur dans un élément <code>&lt;span&gt;</code> et une unité, éventuellement
+      balisée avec <code>&lt;abbr&gt;</code> (et <code>aria-label</code> pour suppléer <code>title</code>) si un intitulé peut être explicité pour l’unité.
+      Cette valeur est poussée à droite de la grille, et son texte
       sert de masque pour le dégradé en arrière-plan —&nbsp;lui permettant d’être de la couleur correspondante à la fin du dégradé pour la position donnée.
     </li>
   </ol>
-
-  
-
-  <figure role="group">
-    <dl role="list" class="charts-bar" style="--scale: 3000">
-      
-  
-  <dt role="term listitem" id="def_temps-backend_"><dfn>Temps : backend</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_temps-backend_" style="--value: 4">
-    <span>4&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_temps-frontend_"><dfn>Temps : Frontend</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_temps-frontend_" style="--value: 96">
-    <span>96&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_delai-premier-octet_"><dfn>Délai : premier octet</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_delai-premier-octet_" style="--value: 102">
-    <span>102&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_delai-dernier-octet_"><dfn>Délai : dernier octet</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_delai-dernier-octet_" style="--value: 129">
-    <span>129&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_delai-première-image_"><dfn>Délai : première image</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_delai-première-image_" style="--value: 188">
-    <span>188&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_delai-premier-css_"><dfn>Délai : premier CSS</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_delai-premier-css_" style="--value: 194">
-    <span>194&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_delai-premier-js_"><dfn>Délai : premier JS</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_delai-premier-js_" style="--value: 326">
-    <span>326&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_dom-interactif_"><dfn>DOM Interactif</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_dom-interactif_" style="--value: 836">
-    <span>836&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_chargement-du-dom_"><dfn>Chargement du DOM</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_chargement-du-dom_" style="--value: 836">
-    <span>836&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_dom-complet_"><dfn>DOM complet</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_dom-complet_" style="--value: 2561">
-    <span>2561&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_trafic-http-termine_"><dfn>Trafic HTTP terminé</dfn></dt>
-  <dd role="definition listitem" aria-labelledby="def_trafic-http-termine_" style="--value: 2980">
-    <span>2980&nbsp;<abbr title="Milliseconde" aria-label="Milliseconde">ms</abbr></span>
-  </dd>
-
-    </dl>
-    <figcaption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
-  </figure>
-
-  <h3>Variantes</h3>
-
-  <h4>Avec <code>&lt;table&gt;</code></h4>
-
-  <p>
-    Les styles appliqués à un tableau sont quasiment identiques, seule l’imbrication des éléments varie.
-    À noter&nbsp;: comme évoqué plus haut, jouer avec le <code>display</code> d’un élément <code>&lt;table&gt;</code>
-    met en péril sa sémantique. Cette dernière est donc «&nbsp;verrouillée&nbsp;» à l’aide des rôles
-    <abbr lang="en" title="Accessible Rich Internet Application">aria</abbr> dédiés —&nbsp;ce qui respire la mauvaise idée, je le concède.
-  </p>
 
   
 
@@ -434,23 +334,19 @@
 
   <ol>
     <li>
-      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>&lt;figure&gt;</code> avec le role <code>group</code> ainsi
-      qu’une légende balisée avec <code>&lt;figcaption&gt;</code>.
-    </li>
-    <li>
-      Sur la <strong>liste de définitions</strong> <code>&lt;dl&gt;</code>, toutes les données importantes sont présentes&nbsp;:
+      Sur le <strong>tableau</strong>, toutes les données importantes sont présentes&nbsp;:
       <ul>
         <li>
           <var>--y</var> définit l’échelle des <strong>ordonnées</strong>, utilisée pour indiquer l’échelle en arrière-plan mais aussi placer
           les points sur la courbe&nbsp;;
         </li>
         <li><var>--x</var> correspond à l’échelle des <strong>abscisses</strong>&nbsp;;</li>
-        <li>puis <var>--1</var>, <var>--2</var>… correspondent à chaque point, avec leur valeur.</li>
+        <li>puis <var>--1</var>, <var>--2</var>… correspondent à chaque point, avec leur valeur respective.</li>
       </ul>
     </li>
     <li>La variable <var>--x</var> sert —&nbsp;à l’instar du graphique en barre&nbsp;— à générer les colonnes de la grille automatiquement.</li>
     <li>
-      Pour chaque point placé sur <code>&lt;dl&gt;</code>, une position est définie au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
+      Pour chaque point placé sur <code>&lt;table&gt;</code>, une position est définie au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
       Étant donné que cette fonction accepte <strong>deux valeurs en pourcentage pour chaque point</strong>, la méthode est relativement simple.
     </li>
     <li>
@@ -466,136 +362,6 @@
       </ul>
     </li>
   </ol>
-
-  
-
-  <figure role="group">
-    <dl role="list" class="charts-line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-      
-  
-  <dt role="term listitem" id="def_jan_">
-    <dfn>Jan.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_jan_">
-    <span>8&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_fev_">
-    <dfn>Fév.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_fev_">
-    <span>6&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_mars_">
-    <dfn>Mars</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_mars_">
-    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_avr_">
-    <dfn>Avr.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_avr_">
-    <span>12&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_mai_">
-    <dfn>Mai</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_mai_">
-    <span>15&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_juin_">
-    <dfn>Juin</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_juin_">
-    <span>21&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_juil_">
-    <dfn>Juil.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_juil_">
-    <span>24&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_aout_">
-    <dfn>Août</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_aout_">
-    <span>25&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_sep_">
-    <dfn>Sep.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_sep_">
-    <span>22&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_oct_">
-    <dfn>Oct.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_oct_">
-    <span>19&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_nov_">
-    <dfn>Nov.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_nov_">
-    <span>14&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_dec_">
-    <dfn>Déc.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_dec_">
-    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-    </dl>
-    <figcaption>Température mensuelle moyenne en 2017</figcaption>
-  </figure>
-
-  <div class="note">
-    <h4>Note</h4>
-    <p>
-      Le principal écueil de ce graphique est
-      qu’<strong>il nécessite de connaître le nombre de points</strong> par avance.
-      Pour jouer d’avantage et vous familiariser avec <code>clip-path</code>,
-      <cite>Bennett Feely</cite> a créé <a href="http://bennettfeely.com/clippy/" hreflang="en">clippy</a>.
-    </p>
-  </div>
-
-  <h3>Variantes</h3>
-
-  <h4>Avec <code>&lt;table&gt;</code></h4>
 
   <p>
     La seule nuance à apporter dans ce cas est l’ajout de <code>border-collapse: separate;</code> sur le tableau,
@@ -691,15 +457,25 @@
     </tbody>
   </table>
 
+  <div class="note">
+    <h4>Note</h4>
+    <p>
+      Le principal écueil de ce graphique est
+      qu’<strong>il nécessite de connaître le nombre de points</strong> par avance.
+      Pour jouer d’avantage et vous familiariser avec <code>clip-path</code>,
+      <cite>Bennett Feely</cite> a créé <a href="http://bennettfeely.com/clippy/" hreflang="en">clippy</a>.
+    </p>
+  </div>
+
   <h4>Graphique à point</h4>
 
-  <p>Cette variante diffère finalement assez peu de la première mouture&nbsp;:</p>
+  <p>Cette variante diffère finalement assez peu de la précédente mouture&nbsp;:</p>
 
   <ol>
     <li>le <code>polygon()</code> est poursuivi pour former une ligne&nbsp;;</li>
     <li>
       un pseudo-élément supplémentaire permet d’afficher le point pour chaque valeur
-      — positionné à l’aide des mêmes calculs qui servent dans le polygone.
+      —&nbsp;positionné à l’aide des mêmes calculs qui servent dans le polygone.
     </li>
   </ol>
 
@@ -890,6 +666,79 @@
   </figure>
 
   <h3>Variantes</h3>
+
+  <h4>Avec <code>&lt;table&gt;</code></h4>
+
+  
+
+  <table role="table" class="table-charts pie" style="--scale: 3000">
+    <caption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+    <thead role="rowgroup" class="sr-only">
+      <tr role="row">
+        <th role="columnheader" scope="col">Ressource</th>
+        <th role="columnheader" scope="col">Proportion</th>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      
+<tr role="row">
+  <th role="rowheader" scope="row" style="--color: #444">HTML</th>
+  <td role="cell" style="--color: #444">
+    <span>2&nbsp;%</span>
+  </td>
+  <td role="presentation" style="--value: 2; --start: 0; --color: #444"></td>
+
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: firebrick">CSS</th>
+  <td role="cell" style="--color: firebrick">
+    <span>2&nbsp;%</span>
+  </td>
+  <td role="presentation" style="--value: 2; --start: 2; --color: firebrick"></td>
+
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: crimson">JS</th>
+  <td role="cell" style="--color: crimson">
+    <span>32&nbsp;%</span>
+  </td>
+  <td role="presentation" style="--value: 32; --start: 4; --color: crimson"></td>
+
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: mediumblue">Json</th>
+  <td role="cell" style="--color: mediumblue">
+    <span>1&nbsp;%</span>
+  </td>
+  <td role="presentation" style="--value: 1; --start: 36; --color: mediumblue"></td>
+
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: darkblue">Images</th>
+  <td role="cell" style="--color: darkblue">
+    <span>44&nbsp;%</span>
+  </td>
+  <td role="presentation" style="--value: 44; --start: 37; --color: darkblue"></td>
+
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: rebeccapurple">Webfonts</th>
+  <td role="cell" style="--color: rebeccapurple">
+    <span>17&nbsp;%</span>
+  </td>
+  <td role="presentation" style="--value: 17; --start: 81; --color: rebeccapurple"></td>
+
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: indigo">Autres</th>
+  <td role="cell" style="--color: indigo">
+    <span>2&nbsp;%</span>
+  </td>
+  <td role="presentation" style="--value: 2; --start: 98; --color: indigo"></td>
+
+    </tr></tbody>
+  </table>
 
   <div class="grid-2">
     <div>

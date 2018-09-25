@@ -306,3 +306,238 @@
       }
     }
   }
+
+  /** Pie charts */
+  @supports (--position: calc(var(--start, 0) * .01turn)) {
+    &.pie {
+      background-color: inherit;
+      margin: #{$gutter * -6} auto 0;
+      padding-top: calc(100% + #{$gutter * 2});
+      position: relative;
+
+      th,
+      td {
+        color: var(--color, currentColor);
+        margin: initial;
+        position: relative;
+        z-index: 2;
+      }
+
+      th + td {
+        flex: 1;
+        justify-content: flex-end;
+        padding: 0 $gutter 0 $gutter / 4;
+      }
+
+      td::before {
+        background: currentColor;
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        transform: translate3d(-.2rem, .1rem, 0);
+        width: 1rem;
+      }
+
+      @media screen and (min-width: em(480)) {
+        align-items: flex-end;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+        padding-top: calc(#{$width / 2} - #{$gutter * 2});
+
+        th + td {
+          flex: initial;
+
+          &::before {
+            display: none;
+          }
+        }
+      }
+
+      /**
+       * @note Pie chart based on:
+       * @link https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/
+       * @author Lea Verou
+       */
+      td[role="presentation"] {
+        --position: calc(var(--start, 0) * .01turn);
+        --zoom: .6;
+        clip-path: circle(50% at 0% 50%);
+        display: block;
+        height: calc(100% - #{$gutter * 4 });
+        left: 50%;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        transform: rotate(var(--position)) scale(var(--zoom));
+        transform-origin: left center;
+        transition: transform .2s map-get( $timing-functions, 'move' );
+        width: $width / 4;
+
+        &::before {
+          --position: calc(var(--value, 0) * .01turn + 1deg);
+          background-color: var(--color, currentColor);
+          content: "";
+          display: initial;
+          height: 100%;
+          left: -100%;
+          margin: initial;
+          position: inherit;
+          top: 0;
+          transform: rotate(var(--position));
+          transform-origin: right center;
+          width: 100%;
+        }
+      }
+
+      tr:hover td[role="presentation"] {
+        --zoom: .65;
+      }
+
+      @each $name, $pattern in $patterns {
+        $i: index($patterns, ($name $pattern));
+
+        tr:nth-child(#{$i}) th::before,
+        tr:nth-child(#{$i}) td[role="presentation"]::before  {
+          background-image: url($pattern); /* 1 */
+          background-blend-mode: soft-light;
+        }
+      }
+    }
+
+    /**
+     * Using mask-image to make a Donut
+     *
+     * @note Based on Ana Tudor's work
+     * @link https://css-tricks.com/1-html-element-5-css-properties-magic/
+     * @author Ana Tudor
+     *
+     * @note Mask support:
+     * @link https://caniuse.com/#search=mask
+     */
+    /* @supports (mask: var(--mask)) {
+       &.donut {
+         mask-image: radial-gradient(
+           circle at 50% calc(50% - #{$gutter * 2}),
+           transparent 0%,
+           transparent calc(var(--offset) / 2),
+           palette( default, contrast) calc(var(--offset) / 2 + 1px),
+           palette( default, contrast) 100%
+         );
+       }
+
+       @media screen and (min-width: em(480)) {
+         &.donut {
+           mask-image: radial-gradient(
+             circle at 50% calc(50% - #{$gutter * 2}),
+             transparent 0%,
+             transparent var(--offset),
+             palette( default, contrast) calc(var(--offset) + 1px),
+             palette( default, contrast) 100%
+           );
+         }
+       }
+     }
+
+    &.polar {
+      td[role="presentation"] {
+        --scale: calc(var(--value) / 75);
+        transform: rotate(var(--position)) scale(var(--scale));
+      }
+
+      tr:hover td[role="presentation"] {
+        --scale: calc(var(--value) / 75 * (1 + (75 - var(--value)) / 100));
+        transform: rotate(var(--position)) scale(var(--scale));
+      }
+    }
+
+    /**
+     * @note Using conic-gradient()
+     *
+     * @note Based on Lea Verou's work, again
+     * @author Lea Verou
+     * @link https://leaverou.github.io/conic-gradient/
+     *
+     * @note Conic gradient support:
+     * @link https://caniuse.com/#search=conic-gradient
+     */
+    /*@supports(background: conic-gradient(black, white)) {
+      &.conic {
+        background-image:
+          radial-gradient(
+            circle at 50%,
+            palette( default, contrast ) 0%,
+            palette( default, contrast ) var(--offset),
+            transparent calc(var(--offset) + 1px),
+            transparent calc(#{$width / 3} - var(--offset)),
+            palette( default, contrast ) calc(#{$width / 3} - var(--offset) + 1px),
+            palette( default, contrast ) 100%
+          ),
+          conic-gradient(
+            var(--c1) calc(var(--v1) * 1%),
+            var(--c2) 0deg calc((var(--v1) + var(--v2)) * 1%),
+            var(--c3) 0deg calc((var(--v1) + var(--v2) + var(--v3)) * 1%),
+            var(--c4) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4)) * 1%),
+            var(--c5) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4) + var(--v5)) * 1%),
+            var(--c6) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4) + var(--v5) + var(--v6)) * 1%),
+            var(--c7) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4) + var(--v5) + var(--v6) + var(--v7)) * 1%)
+          );
+        mask-image: none;
+
+        th::before {
+          background-image: none;
+        }
+
+        td[role="presentation"] {
+          display: none;
+        }
+      }
+    }
+
+    @media screen and (min-width: em(480)) {
+      &.pie {
+        &.donut::after {
+          clip-path: circle(var(--offset, 5rem));
+        }
+
+        td[role="presentation"] {
+          --zoom: 1;
+          width: calc(#{$width / 4} - #{$gutter * 2});
+        }
+
+        tr:hover td[role="presentation"] {
+          --zoom: 1.05;
+        }
+
+        &.polar {
+          td[role="presentation"] {
+            --scale: calc(var(--value) / 50);
+          }
+
+          tr:hover td[role="presentation"] {
+            --scale: calc(var(--value) / 50 * (1 + (50 - var(--value)) / 100));
+          }
+        }
+      }
+    }
+
+    /**
+     * @note Custom color palette for WHCM
+     * @note Inspired by Greg Whitworth's post
+     * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
+     */
+    /*@media screen and (-ms-high-contrast: active) {
+      &.pie {
+        th::before,
+        th + * + td[role="presentation"]::before {
+          background-color: Window;
+        }
+
+        th::before,
+        td[role="presentation"]::before {
+          background-color: WindowText;
+        }
+      }
+    }*/
+  }
