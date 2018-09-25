@@ -313,23 +313,43 @@
     </li>
   </ol>
 
-  <figure role="group">
-    <dl role="list" class="charts-line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-      {{ charts.line('Jan.', '8', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Fév.', '6', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Mars', '9', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Avr.', '12', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Mai', '15', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Juin', '21', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Juil.', '24', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Août', '25', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Sep.', '22', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Oct.', '19', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Nov.', '14', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Déc.', '9', '°C', 'Degré Celsius', 'points') }}
-    </dl>
-    <figcaption>Température mensuelle moyenne en 2017</figcaption>
-  </figure>
+  <table role="table" class="table-charts line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+    <caption>Température mensuelle moyenne en 2017</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="rowheader" scope="row" class="sr-only">Mois</th>
+        <th role="columnheader" scope="col">Jan.</th>
+        <th role="columnheader" scope="col">Fév.</th>
+        <th role="columnheader" scope="col">Mars</th>
+        <th role="columnheader" scope="col">Avr.</th>
+        <th role="columnheader" scope="col">Mai</th>
+        <th role="columnheader" scope="col">Juin</th>
+        <th role="columnheader" scope="col">Juil.</th>
+        <th role="columnheader" scope="col">Août</th>
+        <th role="columnheader" scope="col">Sep.</th>
+        <th role="columnheader" scope="col">Oct.</th>
+        <th role="columnheader" scope="col">Nov.</th>
+        <th role="columnheader" scope="col">Déc.</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <th role="rowheader" scope="row" class="sr-only">Température</th>
+        {{ table.line('8', '°C', 'Degré Celsius') }}
+        {{ table.line('6', '°C', 'Degré Celsius') }}
+        {{ table.line('9', '°C', 'Degré Celsius') }}
+        {{ table.line('12', '°C', 'Degré Celsius') }}
+        {{ table.line('15', '°C', 'Degré Celsius') }}
+        {{ table.line('21', '°C', 'Degré Celsius') }}
+        {{ table.line('24', '°C', 'Degré Celsius') }}
+        {{ table.line('25', '°C', 'Degré Celsius') }}
+        {{ table.line('22', '°C', 'Degré Celsius') }}
+        {{ table.line('19', '°C', 'Degré Celsius') }}
+        {{ table.line('14', '°C', 'Degré Celsius') }}
+        {{ table.line('9', '°C', 'Degré Celsius') }}
+      </tr>
+    </tbody>
+  </table>
 
   <h2>Graphique en tarte</h2>
 

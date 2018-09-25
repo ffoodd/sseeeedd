@@ -175,9 +175,12 @@
           width: 8.3%; /* 1 */
 
           &:hover {
-            background: palette( default, secondary );
             color: palette( secondary );
           }
+        }
+
+        th {
+          color: palette( dominant, dark );
 
           &::after {
             background: palette( default, contrast );
@@ -203,10 +206,6 @@
           }
         }
 
-        th {
-          color: palette( dominant, dark );
-        }
-
         td {
           line-height: 1.5;
 
@@ -214,7 +213,85 @@
             font-weight: normal;
           }
         }
+
+        &.points {
+            &::before {
+              clip-path: polygon(
+                0% calc(100% - (var(--1) / var(--y) * 100%)),
+                var(--offset) calc(100% - (var(--1) / var(--y) * 100%)),
+                calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--y) * 100%)),
+                calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--y) * 100%)),
+                calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--y) * 100%)),
+                calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--y) * 100%)),
+                calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--y) * 100%)),
+                calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--y) * 100%)),
+                calc((100% / var(--x) * 7) + var(--offset)) calc(100% - (var(--8) / var(--y) * 100%)),
+                calc((100% / var(--x) * 8) + var(--offset)) calc(100% - (var(--9) / var(--y) * 100%)),
+                calc((100% / var(--x) * 9) + var(--offset)) calc(100% - (var(--10) / var(--y) * 100%)),
+                calc((100% / var(--x) * 10) + var(--offset)) calc(100% - (var(--11) / var(--y) * 100%)),
+                calc((100% / var(--x) * 11) + var(--offset)) calc(100% - (var(--12) / var(--y) * 100%)),
+                100% calc(100% - (var(--12) / var(--y) * 100%)),
+                100% calc((100% + #{$gutter / 4}) - (var(--12) / var(--y) * 100%)),
+                calc((100% / var(--x) * 11) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--12) / var(--y) * 100%)),
+                calc((100% / var(--x) * 10) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--11) / var(--y) * 100%)),
+                calc((100% / var(--x) * 9) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--10) / var(--y) * 100%)),
+                calc((100% / var(--x) * 8) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--9) / var(--y) * 100%)),
+                calc((100% / var(--x) * 7) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--8) / var(--y) * 100%)),
+                calc((100% / var(--x) * 6) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--7) / var(--y) * 100%)),
+                calc((100% / var(--x) * 5) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--6) / var(--y) * 100%)),
+                calc((100% / var(--x) * 4) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--5) / var(--y) * 100%)),
+                calc((100% / var(--x) * 3) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--4) / var(--y) * 100%)),
+                calc((100% / var(--x) * 2) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--3) / var(--y) * 100%)),
+                calc((100% / var(--x) * 1) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--2) / var(--y) * 100%)),
+                var(--offset) calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%)),
+                0% calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%))
+              );
+              z-index: 2;
+            }
+
+            th {
+              &::before {
+                --height: calc(100% - 8rem);
+                --size: #{$gutter};
+                background-image: linear-gradient(to top, palette( secondary, light ), palette( alert ) 50%);
+                background-position-x: 0;
+                background-size: 100% calc(var(--y) * 200%);
+                border: 2px solid palette( default, contrast );
+                border-radius: 50%;
+                box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
+                content: "";
+                height: var(--size);
+                position: absolute;
+                transform: translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0);
+                transition: transform .3s map-get( $timing-functions, 'move' );
+                width: var(--size);
+                z-index: 4;
+              }
+
+              @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+                &:nth-of-type(#{$number + 1})::before {
+                  background-position-y: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))));
+                  left: calc((100% / var(--x) * #{$number - 1}) + var(--offset));
+                  top: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))));
+                }
+              }
+
+              &::after {
+                mix-blend-mode: difference;
+              }
+
+              &:hover {
+                &::before {
+                  transform: translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0) scale(1.5);
+                }
+
+                &::after {
+                  opacity: .05;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
-}
