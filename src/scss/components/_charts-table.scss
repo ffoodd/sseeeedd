@@ -184,7 +184,7 @@
 
           &::after {
             background: palette( default, contrast );
-            bottom: $gutter * 8;
+            bottom: $gutter * 4;
             content: "";
             height: calc(100% - #{$gutter * 4});
             mix-blend-mode: soft-light;
