@@ -575,16 +575,12 @@
 
   <ol>
     <li>
-      Comme pour le précédent exemple&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>&lt;figure&gt;</code> avec le role <code>group</code> ainsi
-      qu’une légende balisée avec <code>&lt;figcaption&gt;</code>.
+      <strong>Sur chaque entête</strong> <code>&lt;th&gt;</code>, une variable <var>--color</var> permet d’attribuer, et bien… une couleur.
     </li>
     <li>
-      <strong>Sur chaque terme</strong> <code>&lt;dt&gt;</code>, une variable <var>--color</var> permet d’attribuer, et bien… une couleur.
-    </li>
-    <li>
-      <strong>Pour chaque terme</strong> <code>&lt;dt&gt;</code>, deux définitions <code>&lt;dd&gt;</code> doivent suivre&nbsp;:
+      <strong>Pour chaque entête</strong> <code>&lt;th&gt;</code>, deux cellules <code>&lt;td&gt;</code> doivent suivre&nbsp;:
       <ol>
-        <li>la première doit contenir la valeur et son unité, et porter la même variable <var>--color</var> que son terme&nbsp;;</li>
+        <li>la première doit contenir la valeur et son unité&nbsp;;</li>
         <li>
           la seconde est là où la magie opère&nbsp;:
           <ul>
@@ -603,74 +599,6 @@
 
   
 
-  <figure role="group">
-    <dl role="list" class="charts-pie">
-      
-  
-  <dt role="term listitem" id="def_html_" style="--color: #444">
-    <dfn>HTML</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_html_" style="--color: #444">2&nbsp;%</dd>
-  <dd style="--value: 2; --start: 0; --color: #444" role="presentation"></dd>
-
-      
-  
-  <dt role="term listitem" id="def_css_" style="--color: firebrick">
-    <dfn>CSS</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_css_" style="--color: firebrick">2&nbsp;%</dd>
-  <dd style="--value: 2; --start: 2; --color: firebrick" role="presentation"></dd>
-
-      
-  
-  <dt role="term listitem" id="def_js_" style="--color: crimson">
-    <dfn>JS</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_js_" style="--color: crimson">32&nbsp;%</dd>
-  <dd style="--value: 32; --start: 4; --color: crimson" role="presentation"></dd>
-
-      
-  
-  <dt role="term listitem" id="def_json_" style="--color: mediumblue">
-    <dfn>Json</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_json_" style="--color: mediumblue">1&nbsp;%</dd>
-  <dd style="--value: 1; --start: 36; --color: mediumblue" role="presentation"></dd>
-
-      
-  
-  <dt role="term listitem" id="def_images_" style="--color: darkblue">
-    <dfn>Images</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_images_" style="--color: darkblue">44&nbsp;%</dd>
-  <dd style="--value: 44; --start: 37; --color: darkblue" role="presentation"></dd>
-
-      
-  
-  <dt role="term listitem" id="def_webfonts_" style="--color: rebeccapurple">
-    <dfn>Webfonts</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_webfonts_" style="--color: rebeccapurple">17&nbsp;%</dd>
-  <dd style="--value: 17; --start: 81; --color: rebeccapurple" role="presentation"></dd>
-
-      
-  
-  <dt role="term listitem" id="def_autres_" style="--color: indigo">
-    <dfn>Autres</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_autres_" style="--color: indigo">2&nbsp;%</dd>
-  <dd style="--value: 2; --start: 98; --color: indigo" role="presentation"></dd>
-
-    </dl>
-    <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
-  </figure>
-
-  <h3>Variantes</h3>
-
-  <h4>Avec <code>&lt;table&gt;</code></h4>
-
-  
-
   <table role="table" class="table-charts pie" style="--scale: 3000">
     <caption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
     <thead role="rowgroup" class="sr-only">
@@ -684,195 +612,142 @@
       
 <tr role="row">
   <th role="rowheader" scope="row" style="--color: #444">HTML</th>
-  <td role="cell" style="--color: #444">
-    <span>2&nbsp;%</span>
+  <td role="cell">
+    2&nbsp;%
   </td>
   <td role="presentation" style="--value: 2; --start: 0; --color: #444"></td>
 
       
 </tr><tr role="row">
   <th role="rowheader" scope="row" style="--color: firebrick">CSS</th>
-  <td role="cell" style="--color: firebrick">
-    <span>2&nbsp;%</span>
+  <td role="cell">
+    2&nbsp;%
   </td>
   <td role="presentation" style="--value: 2; --start: 2; --color: firebrick"></td>
 
       
 </tr><tr role="row">
   <th role="rowheader" scope="row" style="--color: crimson">JS</th>
-  <td role="cell" style="--color: crimson">
-    <span>32&nbsp;%</span>
+  <td role="cell">
+    32&nbsp;%
   </td>
   <td role="presentation" style="--value: 32; --start: 4; --color: crimson"></td>
 
       
 </tr><tr role="row">
   <th role="rowheader" scope="row" style="--color: mediumblue">Json</th>
-  <td role="cell" style="--color: mediumblue">
-    <span>1&nbsp;%</span>
+  <td role="cell">
+    1&nbsp;%
   </td>
   <td role="presentation" style="--value: 1; --start: 36; --color: mediumblue"></td>
 
       
 </tr><tr role="row">
   <th role="rowheader" scope="row" style="--color: darkblue">Images</th>
-  <td role="cell" style="--color: darkblue">
-    <span>44&nbsp;%</span>
+  <td role="cell">
+    44&nbsp;%
   </td>
   <td role="presentation" style="--value: 44; --start: 37; --color: darkblue"></td>
 
       
 </tr><tr role="row">
   <th role="rowheader" scope="row" style="--color: rebeccapurple">Webfonts</th>
-  <td role="cell" style="--color: rebeccapurple">
-    <span>17&nbsp;%</span>
+  <td role="cell">
+    17&nbsp;%
   </td>
   <td role="presentation" style="--value: 17; --start: 81; --color: rebeccapurple"></td>
 
       
 </tr><tr role="row">
   <th role="rowheader" scope="row" style="--color: indigo">Autres</th>
-  <td role="cell" style="--color: indigo">
-    <span>2&nbsp;%</span>
+  <td role="cell">
+    2&nbsp;%
   </td>
   <td role="presentation" style="--value: 2; --start: 98; --color: indigo"></td>
 
     </tr></tbody>
   </table>
 
-  <div class="grid-2">
-    <div>
-      <h4><i lang="en">Donut</i></h4>
+  <h3>Variantes</h3>
 
-      <p>
-        Sur la <strong>liste de définitions</strong> <code>&lt;dl&gt;</code>, on ajoute une variable <var>--offset</var>
-        qui permet de déterminer la dimension du trou du <em lang="en">donut</em>,
-        généré à l’aide de <code>mask-image</code> et <code>radial-gradient()</code>.
-        Si, si, on en avait besoin&nbsp;!
-      </p>
+  <h4><i lang="en">Donut</i></h4>
 
-      <p>
-        <cite>Ana Tudor</cite> a réalisé <a href="https://codepen.io/thebabydino/pens/tags/?selected_tag=mask" hreflang="en">de très nombreux exemples
-        d’utilisation des <code>mask-*</code> sur CodePen</a>, jetez-y un œil&nbsp;!
-      </p>
+  <p>
+    Sur l’élément <code>&lt;table&gt;</code>, on ajoute une variable <var>--offset</var>
+    qui permet de déterminer la dimension du trou du <em lang="en">donut</em>,
+    généré à l’aide de <code>mask-image</code> et <code>radial-gradient()</code>.
+    <cite>Ana Tudor</cite> a réalisé <a href="https://codepen.io/thebabydino/pens/tags/?selected_tag=mask" hreflang="en">de très nombreux exemples
+    d’utilisation des <code>mask-*</code> sur CodePen</a>, jetez-y un œil&nbsp;!
+  </p>
 
-      <figure role="group">
-        <dl role="list" class="charts-pie donut" style="--offset: 8rem">
-          
-  
-  <dt role="term listitem" id="def_html_donut" style="--color: #444">
-    <dfn>HTML</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_html_donut" style="--color: #444">2&nbsp;%</dd>
-  <dd style="--value: 2; --start: 0; --color: #444" role="presentation"></dd>
+  <table role="table" class="table-charts pie donut" style="--scale: 3000; --offset: 8rem;">
+    <caption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+    <thead role="rowgroup" class="sr-only">
+      <tr role="row">
+        <th role="columnheader" scope="col">Ressource</th>
+        <th role="columnheader" scope="col">Proportion</th>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      
+<tr role="row">
+  <th role="rowheader" scope="row" style="--color: #444">HTML</th>
+  <td role="cell">
+    2&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 2; --start: 0; --color: #444"></td>
 
-          
-  
-  <dt role="term listitem" id="def_css_donut" style="--color: firebrick">
-    <dfn>CSS</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_css_donut" style="--color: firebrick">2&nbsp;%</dd>
-  <dd style="--value: 2; --start: 2; --color: firebrick" role="presentation"></dd>
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: firebrick">CSS</th>
+  <td role="cell">
+    2&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 2; --start: 2; --color: firebrick"></td>
 
-          
-  
-  <dt role="term listitem" id="def_js_donut" style="--color: crimson">
-    <dfn>JS</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_js_donut" style="--color: crimson">32&nbsp;%</dd>
-  <dd style="--value: 32; --start: 4; --color: crimson" role="presentation"></dd>
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: crimson">JS</th>
+  <td role="cell">
+    32&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 32; --start: 4; --color: crimson"></td>
 
-          
-  
-  <dt role="term listitem" id="def_json_donut" style="--color: mediumblue">
-    <dfn>Json</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_json_donut" style="--color: mediumblue">1&nbsp;%</dd>
-  <dd style="--value: 1; --start: 36; --color: mediumblue" role="presentation"></dd>
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: mediumblue">Json</th>
+  <td role="cell">
+    1&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 1; --start: 36; --color: mediumblue"></td>
 
-          
-  
-  <dt role="term listitem" id="def_images_donut" style="--color: darkblue">
-    <dfn>Images</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_images_donut" style="--color: darkblue">44&nbsp;%</dd>
-  <dd style="--value: 44; --start: 37; --color: darkblue" role="presentation"></dd>
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: darkblue">Images</th>
+  <td role="cell">
+    44&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 44; --start: 37; --color: darkblue"></td>
 
-          
-  
-  <dt role="term listitem" id="def_webfonts_donut" style="--color: rebeccapurple">
-    <dfn>Webfonts</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_webfonts_donut" style="--color: rebeccapurple">17&nbsp;%</dd>
-  <dd style="--value: 17; --start: 81; --color: rebeccapurple" role="presentation"></dd>
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: rebeccapurple">Webfonts</th>
+  <td role="cell">
+    17&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 17; --start: 81; --color: rebeccapurple"></td>
 
-          
-  
-  <dt role="term listitem" id="def_autres_donut" style="--color: indigo">
-    <dfn>Autres</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_autres_donut" style="--color: indigo">2&nbsp;%</dd>
-  <dd style="--value: 2; --start: 98; --color: indigo" role="presentation"></dd>
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: indigo">Autres</th>
+  <td role="cell">
+    2&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 2; --start: 98; --color: indigo"></td>
 
-        </dl>
-        <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
-      </figure>
-    </div>
-    <div>
-      <h4>Graphique polaire</h4>
-
-      <p>
-        Sur cette variante, on calcule simplement une valeur d’échelle de transformation à passer à
-        <code>scale()</code>, en fonction de la valeur de chaque élément.
-      </p>
-
-      <figure role="group">
-        <dl role="list" class="charts-pie polar">
-          
-  
-  <dt role="term listitem" id="def_html_polar" style="--color: firebrick">
-    <dfn>HTML</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_html_polar" style="--color: firebrick">2&nbsp;%</dd>
-  <dd style="--value: 2; --start: 0; --color: firebrick" role="presentation"></dd>
-
-          
-  
-  <dt role="term listitem" id="def_js_polar" style="--color: crimson">
-    <dfn>JS</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_js_polar" style="--color: crimson">32&nbsp;%</dd>
-  <dd style="--value: 32; --start: 2; --color: crimson" role="presentation"></dd>
-
-          
-  
-  <dt role="term listitem" id="def_images_polar" style="--color: rebeccapurple">
-    <dfn>Images</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_images_polar" style="--color: rebeccapurple">44&nbsp;%</dd>
-  <dd style="--value: 44; --start: 34; --color: rebeccapurple" role="presentation"></dd>
-
-          
-  
-  <dt role="term listitem" id="def_webfonts_polar" style="--color: mediumblue">
-    <dfn>Webfonts</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_webfonts_polar" style="--color: mediumblue">17&nbsp;%</dd>
-  <dd style="--value: 17; --start: 78; --color: mediumblue" role="presentation"></dd>
-
-          
-  
-  <dt role="term listitem" id="def_autres_polar" style="--color: indigo">
-    <dfn>Autres</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_autres_polar" style="--color: indigo">4&nbsp;%</dd>
-  <dd style="--value: 4; --start: 96; --color: indigo" role="presentation"></dd>
-
-        </dl>
-        <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
-      </figure>
-    </div>
-  </div>
+    </tr></tbody>
+  </table>
 
   <div class="note">
     <h4>Motifs</h4>
@@ -894,78 +769,74 @@
     en matière d’accessibilité.
   </p>
 
-  <figure role="group">
-    <dl role="list" class="charts-pie conic donut" style="--v1: 2; --v2: 2; --v3: 32; --v4: 1; --v5: 44; --v6: 17; --v7: 2;
-               --c1: #444; --c2: firebrick; --c3: crimson; --c4: mediumblue; --c5: darkblue; --c6: rebeccapurple; --c7: indigo;
-              --offset: 8rem">
+  <table role="table" class="table-charts pie conic" style="--scale: 3000; --offset: 8rem;">
+    <caption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+    <thead role="rowgroup" class="sr-only">
+      <tr role="row">
+        <th role="columnheader" scope="col">Ressource</th>
+        <th role="columnheader" scope="col">Proportion</th>
+        <td></td>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
       
-  
-  <dt role="term listitem" id="def_html_conic" style="--color: #444">
-    <dfn>HTML</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_html_conic" style="--color: #444">2&nbsp;%</dd>
-  <dd style="--value: 2; --start: 0; --color: #444" role="presentation"></dd>
-
-      
-  
-  <dt role="term listitem" id="def_css_conic" style="--color: firebrick">
-    <dfn>CSS</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_css_conic" style="--color: firebrick">2&nbsp;%</dd>
-  <dd style="--value: 2; --start: 2; --color: firebrick" role="presentation"></dd>
+<tr role="row">
+  <th role="rowheader" scope="row" style="--color: #444">HTML</th>
+  <td role="cell">
+    2&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 2; --start: 0; --color: #444"></td>
 
       
-  
-  <dt role="term listitem" id="def_js_conic" style="--color: crimson">
-    <dfn>JS</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_js_conic" style="--color: crimson">32&nbsp;%</dd>
-  <dd style="--value: 32; --start: 4; --color: crimson" role="presentation"></dd>
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: firebrick">CSS</th>
+  <td role="cell">
+    2&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 2; --start: 2; --color: firebrick"></td>
 
       
-  
-  <dt role="term listitem" id="def_json_conic" style="--color: mediumblue">
-    <dfn>Json</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_json_conic" style="--color: mediumblue">1&nbsp;%</dd>
-  <dd style="--value: 1; --start: 36; --color: mediumblue" role="presentation"></dd>
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: crimson">JS</th>
+  <td role="cell">
+    32&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 32; --start: 4; --color: crimson"></td>
 
       
-  
-  <dt role="term listitem" id="def_images_conic" style="--color: darkblue">
-    <dfn>Images</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_images_conic" style="--color: darkblue">44&nbsp;%</dd>
-  <dd style="--value: 44; --start: 37; --color: darkblue" role="presentation"></dd>
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: mediumblue">Json</th>
+  <td role="cell">
+    1&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 1; --start: 36; --color: mediumblue"></td>
 
       
-  
-  <dt role="term listitem" id="def_webfonts_conic" style="--color: rebeccapurple">
-    <dfn>Webfonts</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_webfonts_conic" style="--color: rebeccapurple">17&nbsp;%</dd>
-  <dd style="--value: 17; --start: 81; --color: rebeccapurple" role="presentation"></dd>
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: darkblue">Images</th>
+  <td role="cell">
+    44&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 44; --start: 37; --color: darkblue"></td>
 
       
-  
-  <dt role="term listitem" id="def_autres_conic" style="--color: indigo">
-    <dfn>Autres</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_autres_conic" style="--color: indigo">2&nbsp;%</dd>
-  <dd style="--value: 2; --start: 98; --color: indigo" role="presentation"></dd>
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: rebeccapurple">Webfonts</th>
+  <td role="cell">
+    17&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 17; --start: 81; --color: rebeccapurple"></td>
 
-    </dl>
-    <figcaption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></figcaption>
-  </figure>
+      
+</tr><tr role="row">
+  <th role="rowheader" scope="row" style="--color: indigo">Autres</th>
+  <td role="cell">
+    2&nbsp;%
+  </td>
+  <td role="presentation" style="--value: 2; --start: 98; --color: indigo"></td>
 
-  <div class="note">
-    <h5>Note technique</h5>
-    <p>
-      Ce type de dégradé permet effectivement d’obtenir un rendu visuel correct,
-      cependant de nombreux détails facheux me font dire qu’il n’est pas adapté à l’usage démontré ici…
-    </p>
-    <p>En revanche, ce dégradé me paraît opportun pour l’affichage d’une mesure unique —&nbsp;par exemple, un score sur <a href="https://www.dareboost.com/fr">Dareboost</a>.</p>
-  </div>
+    </tr></tbody>
+  </table>
 
   <h2>Graphique radar</h2>
 
