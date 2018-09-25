@@ -445,6 +445,400 @@
     </tbody>
   </table>
 
+  <h2>Graphique linéaire</h2>
+
+  <h3>Graphique de surface</h3>
+
+  <p>
+    Ce graphique repose sur <strong>les variables CSS, les grilles</strong> et <code>clip-path</code>.
+    Cette dernière propriété est la plus importante.
+  </p>
+
+  <ol>
+    <li>
+      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>&lt;figure&gt;</code> avec le role <code>group</code> ainsi
+      qu’une légende balisée avec <code>&lt;figcaption&gt;</code>.
+    </li>
+    <li>
+      Sur la <strong>liste de définitions</strong> <code>&lt;dl&gt;</code>, toutes les données importantes sont présentes&nbsp;:
+      <ul>
+        <li>
+          <var>--y</var> définit l’échelle des <strong>ordonnées</strong>, utilisée pour indiquer l’échelle en arrière-plan mais aussi placer
+          les points sur la courbe&nbsp;;
+        </li>
+        <li><var>--x</var> correspond à l’échelle des <strong>abscisses</strong>&nbsp;;</li>
+        <li>puis <var>--1</var>, <var>--2</var>… correspondent à chaque point, avec leur valeur.</li>
+      </ul>
+    </li>
+    <li>La variable <var>--x</var> sert —&nbsp;à l’instar du graphique en barre&nbsp;— à générer les colonnes de la grille automatiquement.</li>
+    <li>
+      Pour chaque point placé sur <code>&lt;dl&gt;</code>, une position est définie au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
+      Étant donné que cette fonction accepte <strong>deux valeurs en pourcentage pour chaque point</strong>, la méthode est relativement simple.
+    </li>
+    <li>
+      Tout le reste n’est que décoration&nbsp;:
+      <ul>
+        <li>un arrière-plan dégradé pour représenter la surface pleine&nbsp;;</li>
+        <li>un <code>repeating-linear-gradient()</code> pour représenter l’échelle verticale&nbsp;;</li>
+        <li>
+          et des interactions au survol pour mettre en exergue la valeur survolée&nbsp;:
+          sa colonne à l’aide d’un pseudo-élément —&nbsp;positionné à l’aide de de savants calculs&nbsp;—
+          et <code>mix-blend-mode</code> pour un effet waouh.
+        </li>
+      </ul>
+    </li>
+  </ol>
+
+  
+
+  <figure role="group">
+    <dl role="list" class="charts-line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+      
+  
+  <dt role="term listitem" id="def_jan_">
+    <dfn>Jan.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_jan_">
+    <span>8&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_fev_">
+    <dfn>Fév.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_fev_">
+    <span>6&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_mars_">
+    <dfn>Mars</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_mars_">
+    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_avr_">
+    <dfn>Avr.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_avr_">
+    <span>12&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_mai_">
+    <dfn>Mai</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_mai_">
+    <span>15&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_juin_">
+    <dfn>Juin</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_juin_">
+    <span>21&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_juil_">
+    <dfn>Juil.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_juil_">
+    <span>24&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_aout_">
+    <dfn>Août</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_aout_">
+    <span>25&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_sep_">
+    <dfn>Sep.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_sep_">
+    <span>22&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_oct_">
+    <dfn>Oct.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_oct_">
+    <span>19&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_nov_">
+    <dfn>Nov.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_nov_">
+    <span>14&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_dec_">
+    <dfn>Déc.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_dec_">
+    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+    </dl>
+    <figcaption>Température mensuelle moyenne en 2017</figcaption>
+  </figure>
+
+  <div class="note">
+    <h4>Note</h4>
+    <p>
+      Le principal écueil de ce graphique est
+      qu’<strong>il nécessite de connaître le nombre de points</strong> par avance.
+      Pour jouer d’avantage et vous familiariser avec <code>clip-path</code>,
+      <cite>Bennett Feely</cite> a créé <a href="http://bennettfeely.com/clippy/" hreflang="en">clippy</a>.
+    </p>
+  </div>
+
+  <h3>Variantes</h3>
+
+  <h4>Avec <code>&lt;table&gt;</code></h4>
+
+  <p>
+    La seule nuance à apporter dans ce cas est l’ajout de <code>border-collapse: separate;</code> sur le tableau,
+    sans quoi il nous est impossible de lui appliquer un <code>padding-top</code> —&nbsp;qui sert d’espace réservé
+    pour le graphique.
+  </p>
+
+  
+
+  <table role="table" class="table-charts line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+    <caption>Température mensuelle moyenne en 2017</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="rowheader" scope="row" class="sr-only">Mois</th>
+        <th role="columnheader" scope="col">Jan.</th>
+        <th role="columnheader" scope="col">Fév.</th>
+        <th role="columnheader" scope="col">Mars</th>
+        <th role="columnheader" scope="col">Avr.</th>
+        <th role="columnheader" scope="col">Mai</th>
+        <th role="columnheader" scope="col">Juin</th>
+        <th role="columnheader" scope="col">Juil.</th>
+        <th role="columnheader" scope="col">Août</th>
+        <th role="columnheader" scope="col">Sep.</th>
+        <th role="columnheader" scope="col">Oct.</th>
+        <th role="columnheader" scope="col">Nov.</th>
+        <th role="columnheader" scope="col">Déc.</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <th role="rowheader" scope="row" class="sr-only">Température</th>
+        
+  <td role="cell" style="--value: 8">
+    <span>8&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+        
+  <td role="cell" style="--value: 6">
+    <span>6&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+        
+  <td role="cell" style="--value: 9">
+    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+        
+  <td role="cell" style="--value: 12">
+    <span>12&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+        
+  <td role="cell" style="--value: 15">
+    <span>15&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+        
+  <td role="cell" style="--value: 21">
+    <span>21&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+        
+  <td role="cell" style="--value: 24">
+    <span>24&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+        
+  <td role="cell" style="--value: 25">
+    <span>25&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+        
+  <td role="cell" style="--value: 22">
+    <span>22&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+        
+  <td role="cell" style="--value: 19">
+    <span>19&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+        
+  <td role="cell" style="--value: 14">
+    <span>14&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+        
+  <td role="cell" style="--value: 9">
+    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </td>
+
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Graphique à point</h4>
+
+  <p>Cette variante diffère finalement assez peu de la première mouture&nbsp;:</p>
+
+  <ol>
+    <li>le <code>polygon()</code> est poursuivi pour former une ligne&nbsp;;</li>
+    <li>
+      un pseudo-élément supplémentaire permet d’afficher le point pour chaque valeur
+      — positionné à l’aide des mêmes calculs qui servent dans le polygone.
+    </li>
+  </ol>
+
+  <figure role="group">
+    <dl role="list" class="charts-line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+      
+  
+  <dt role="term listitem" id="def_jan_points">
+    <dfn>Jan.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_jan_points">
+    <span>8&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_fev_points">
+    <dfn>Fév.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_fev_points">
+    <span>6&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_mars_points">
+    <dfn>Mars</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_mars_points">
+    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_avr_points">
+    <dfn>Avr.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_avr_points">
+    <span>12&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_mai_points">
+    <dfn>Mai</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_mai_points">
+    <span>15&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_juin_points">
+    <dfn>Juin</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_juin_points">
+    <span>21&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_juil_points">
+    <dfn>Juil.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_juil_points">
+    <span>24&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_aout_points">
+    <dfn>Août</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_aout_points">
+    <span>25&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_sep_points">
+    <dfn>Sep.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_sep_points">
+    <span>22&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_oct_points">
+    <dfn>Oct.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_oct_points">
+    <span>19&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_nov_points">
+    <dfn>Nov.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_nov_points">
+    <span>14&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+      
+  
+  <dt role="term listitem" id="def_dec_points">
+    <dfn>Déc.</dfn>
+  </dt>
+  <dd role="definition listitem" aria-labelledby="def_dec_points">
+    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
+  </dd>
+
+    </dl>
+    <figcaption>Température mensuelle moyenne en 2017</figcaption>
+  </figure>
+
   <h2>Graphique en tarte</h2>
 
   <p>
@@ -773,304 +1167,6 @@
     </p>
     <p>En revanche, ce dégradé me paraît opportun pour l’affichage d’une mesure unique —&nbsp;par exemple, un score sur <a href="https://www.dareboost.com/fr">Dareboost</a>.</p>
   </div>
-
-  <h2>Graphique linéaire</h2>
-
-  <h3>Graphique de surface</h3>
-
-  <p>
-    Ce graphique repose sur <strong>les variables CSS, les grilles</strong> et <code>clip-path</code>.
-    Cette dernière propriété est la plus importante.
-  </p>
-
-  <ol>
-    <li>
-      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>&lt;figure&gt;</code> avec le role <code>group</code> ainsi
-      qu’une légende balisée avec <code>&lt;figcaption&gt;</code>.
-    </li>
-    <li>
-      Sur la <strong>liste de définitions</strong> <code>&lt;dl&gt;</code>, toutes les données importantes sont présentes&nbsp;:
-      <ul>
-        <li>
-          <var>--y</var> définit l’échelle des <strong>ordonnées</strong>, utilisée pour indiquer l’échelle en arrière-plan mais aussi placer
-          les points sur la courbe&nbsp;;
-        </li>
-        <li><var>--x</var> correspond à l’échelle des <strong>abscisses</strong>&nbsp;;</li>
-        <li>puis <var>--1</var>, <var>--2</var>… correspondent à chaque point, avec leur valeur.</li>
-      </ul>
-    </li>
-    <li>La variable <var>--x</var> sert —&nbsp;à l’instar du graphique en barre&nbsp;— à générer les colonnes de la grille automatiquement.</li>
-    <li>
-      Pour chaque point placé sur <code>&lt;dl&gt;</code>, une position est définie au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
-      Étant donné que cette fonction accepte <strong>deux valeurs en pourcentage pour chaque point</strong>, la méthode est relativement simple.
-    </li>
-    <li>
-      Tout le reste n’est que décoration&nbsp;:
-      <ul>
-        <li>un arrière-plan dégradé pour représenter la surface pleine&nbsp;;</li>
-        <li>un <code>repeating-linear-gradient()</code> pour représenter l’échelle verticale&nbsp;;</li>
-        <li>
-          et des interactions au survol pour mettre en exergue la valeur survolée&nbsp;:
-          sa colonne à l’aide d’un pseudo-élément —&nbsp;positionné à l’aide de de savants calculs&nbsp;—
-          et <code>mix-blend-mode</code> pour un effet waouh.
-        </li>
-      </ul>
-    </li>
-  </ol>
-
-  
-
-  <figure role="group">
-    <dl role="list" class="charts-line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-      
-  
-  <dt role="term listitem" id="def_jan_">
-    <dfn>Jan.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_jan_">
-    <span>8&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_fev_">
-    <dfn>Fév.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_fev_">
-    <span>6&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_mars_">
-    <dfn>Mars</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_mars_">
-    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_avr_">
-    <dfn>Avr.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_avr_">
-    <span>12&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_mai_">
-    <dfn>Mai</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_mai_">
-    <span>15&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_juin_">
-    <dfn>Juin</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_juin_">
-    <span>21&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_juil_">
-    <dfn>Juil.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_juil_">
-    <span>24&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_aout_">
-    <dfn>Août</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_aout_">
-    <span>25&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_sep_">
-    <dfn>Sep.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_sep_">
-    <span>22&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_oct_">
-    <dfn>Oct.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_oct_">
-    <span>19&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_nov_">
-    <dfn>Nov.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_nov_">
-    <span>14&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_dec_">
-    <dfn>Déc.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_dec_">
-    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-    </dl>
-    <figcaption>Température mensuelle moyenne en 2017</figcaption>
-  </figure>
-
-  <div class="note">
-    <h4>Note</h4>
-    <p>
-      Le principal écueil de ce graphique est
-      qu’<strong>il nécessite de connaître le nombre de points</strong> par avance.
-      Pour jouer d’avantage et vous familiariser avec <code>clip-path</code>,
-      <cite>Bennett Feely</cite> a créé <a href="http://bennettfeely.com/clippy/" hreflang="en">clippy</a>.
-    </p>
-  </div>
-
-  <h3>Variantes</h3>
-
-  <h4>Graphique à point</h4>
-
-  <p>Cette variante diffère finalement assez peu de la première mouture&nbsp;:</p>
-
-  <ol>
-    <li>le <code>polygon()</code> est poursuivi pour former une ligne&nbsp;;</li>
-    <li>
-      un pseudo-élément supplémentaire permet d’afficher le point pour chaque valeur
-      — positionné à l’aide des mêmes calculs qui servent dans le polygone.
-    </li>
-  </ol>
-
-  <figure role="group">
-    <dl role="list" class="charts-line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-      
-  
-  <dt role="term listitem" id="def_jan_points">
-    <dfn>Jan.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_jan_points">
-    <span>8&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_fev_points">
-    <dfn>Fév.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_fev_points">
-    <span>6&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_mars_points">
-    <dfn>Mars</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_mars_points">
-    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_avr_points">
-    <dfn>Avr.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_avr_points">
-    <span>12&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_mai_points">
-    <dfn>Mai</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_mai_points">
-    <span>15&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_juin_points">
-    <dfn>Juin</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_juin_points">
-    <span>21&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_juil_points">
-    <dfn>Juil.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_juil_points">
-    <span>24&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_aout_points">
-    <dfn>Août</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_aout_points">
-    <span>25&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_sep_points">
-    <dfn>Sep.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_sep_points">
-    <span>22&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_oct_points">
-    <dfn>Oct.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_oct_points">
-    <span>19&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_nov_points">
-    <dfn>Nov.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_nov_points">
-    <span>14&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-      
-  
-  <dt role="term listitem" id="def_dec_points">
-    <dfn>Déc.</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_dec_points">
-    <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
-  </dd>
-
-    </dl>
-    <figcaption>Température mensuelle moyenne en 2017</figcaption>
-  </figure>
 
   <h2>Graphique radar</h2>
 

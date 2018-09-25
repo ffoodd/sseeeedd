@@ -4,6 +4,8 @@
 
 .table-charts {
   background: palette( default, contrast );
+  border-collapse: separate;
+  border-spacing: 0;
   caption-side: bottom;
   empty-cells: hide;
   margin: 1.5em auto;
@@ -26,6 +28,7 @@
     }
   }
 
+  /** Bar charts */
   @supports (grid-template-columns: repeat(var(--scale, 100), minmax(0, 1fr))) {
     &.bar {
       tr {
@@ -107,6 +110,108 @@
         @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 {
           tr:nth-of-type(#{$number}) td {
             grid-column: var(--#{$number - 1}, 0) / var(--value, 0);
+          }
+        }
+      }
+    }
+  }
+
+  /** Line charts
+   * @note 1. calc() in width doesn't work in Firefox…
+   */
+  @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
+    @media screen and (min-width: em(480)) {
+      &.line {
+        --offset: calc((100% / var(--x)) / 2);
+        padding: calc(#{$width / 2} - #{$gutter * 2}) 0 $gutter;
+        position: relative;
+        transition:
+          background .3s map-get( $timing-functions, 'move' ),
+          color .3s map-get( $timing-functions, 'move' );
+
+        &::after,
+        &::before {
+          bottom: $gutter * 8;
+          content: "";
+          position: absolute;
+          top: 0;
+          width: 100%;
+        }
+
+        &::before {
+          background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
+          clip-path: polygon(
+            0% calc(100% - (var(--1) / var(--y) * 100%)),
+            var(--offset) calc(100% - (var(--1) / var(--y) * 100%)),
+            calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--y) * 100%)),
+            calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--y) * 100%)),
+            calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--y) * 100%)),
+            calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--y) * 100%)),
+            calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--y) * 100%)),
+            calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--y) * 100%)),
+            calc((100% / var(--x) * 7) + var(--offset)) calc(100% - (var(--8) / var(--y) * 100%)),
+            calc((100% / var(--x) * 8) + var(--offset)) calc(100% - (var(--9) / var(--y) * 100%)),
+            calc((100% / var(--x) * 9) + var(--offset)) calc(100% - (var(--10) / var(--y) * 100%)),
+            calc((100% / var(--x) * 10) + var(--offset)) calc(100% - (var(--11) / var(--y) * 100%)),
+            calc((100% / var(--x) * 11) + var(--offset)) calc(100% - (var(--12) / var(--y) * 100%)),
+            100% calc(100% - (var(--12) / var(--y) * 100%)),
+            100% 100%,
+            0% 100%
+          );
+          z-index: 2;
+        }
+
+        &::after {
+          --scale: calc(100% / var(--y));
+          background: repeating-linear-gradient(to bottom, white, white var(--scale), rgba(0, 0, 0, .25) calc(var(--scale) + #{$gutter / 8}));
+          z-index: 1;
+        }
+
+        th,
+        td {
+          font-weight: bold;
+          text-align: center;
+          width: calc( 100% / var(--x) );
+          width: 8.3%; /* 1 */
+
+          &:hover {
+            background: palette( default, secondary );
+            color: palette( secondary );
+          }
+
+          &::after {
+            background: palette( default, contrast );
+            bottom: $gutter * 8;
+            content: "";
+            height: calc(100% - #{$gutter * 4});
+            mix-blend-mode: soft-light;
+            opacity: 0;
+            position: absolute;
+            transition: opacity .3s map-get( $timing-functions, 'move' );
+            width: inherit;
+            z-index: 3;
+          }
+
+          @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+            &:nth-child(#{$number + 1})::after {
+              left: calc(100% / var(--x) * #{$number - 1});
+            }
+          }
+
+          &:hover::after {
+            opacity: .5;
+          }
+        }
+
+        th {
+          color: palette( dominant, dark );
+        }
+
+        td {
+          line-height: 1.5;
+
+          abbr[title] {
+            font-weight: normal;
           }
         }
       }

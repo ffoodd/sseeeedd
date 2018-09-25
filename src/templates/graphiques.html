@@ -177,6 +177,160 @@
     </tbody>
   </table>
 
+  <h2>Graphique linéaire</h2>
+
+  <h3>Graphique de surface</h3>
+
+  <p>
+    Ce graphique repose sur <strong>les variables CSS, les grilles</strong> et <code>clip-path</code>.
+    Cette dernière propriété est la plus importante.
+  </p>
+
+  <ol>
+    <li>
+      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>&lt;figure&gt;</code> avec le role <code>group</code> ainsi
+      qu’une légende balisée avec <code>&lt;figcaption&gt;</code>.
+    </li>
+    <li>
+      Sur la <strong>liste de définitions</strong> <code>&lt;dl&gt;</code>, toutes les données importantes sont présentes&nbsp;:
+      <ul>
+        <li>
+          <var>--y</var> définit l’échelle des <strong>ordonnées</strong>, utilisée pour indiquer l’échelle en arrière-plan mais aussi placer
+          les points sur la courbe&nbsp;;
+        </li>
+        <li><var>--x</var> correspond à l’échelle des <strong>abscisses</strong>&nbsp;;</li>
+        <li>puis <var>--1</var>, <var>--2</var>… correspondent à chaque point, avec leur valeur.</li>
+      </ul>
+    </li>
+    <li>La variable <var>--x</var> sert —&nbsp;à l’instar du graphique en barre&nbsp;— à générer les colonnes de la grille automatiquement.</li>
+    <li>
+      Pour chaque point placé sur <code>&lt;dl&gt;</code>, une position est définie au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
+      Étant donné que cette fonction accepte <strong>deux valeurs en pourcentage pour chaque point</strong>, la méthode est relativement simple.
+    </li>
+    <li>
+      Tout le reste n’est que décoration&nbsp;:
+      <ul>
+        <li>un arrière-plan dégradé pour représenter la surface pleine&nbsp;;</li>
+        <li>un <code>repeating-linear-gradient()</code> pour représenter l’échelle verticale&nbsp;;</li>
+        <li>
+          et des interactions au survol pour mettre en exergue la valeur survolée&nbsp;:
+          sa colonne à l’aide d’un pseudo-élément —&nbsp;positionné à l’aide de de savants calculs&nbsp;—
+          et <code>mix-blend-mode</code> pour un effet waouh.
+        </li>
+      </ul>
+    </li>
+  </ol>
+
+  {% import 'macros/_line.html' as charts %}
+
+  <figure role="group">
+    <dl role="list" class="charts-line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+      {{ charts.line('Jan.', '8', '°C', 'Degré Celsius') }}
+      {{ charts.line('Fév.', '6', '°C', 'Degré Celsius') }}
+      {{ charts.line('Mars', '9', '°C', 'Degré Celsius') }}
+      {{ charts.line('Avr.', '12', '°C', 'Degré Celsius') }}
+      {{ charts.line('Mai', '15', '°C', 'Degré Celsius') }}
+      {{ charts.line('Juin', '21', '°C', 'Degré Celsius') }}
+      {{ charts.line('Juil.', '24', '°C', 'Degré Celsius') }}
+      {{ charts.line('Août', '25', '°C', 'Degré Celsius') }}
+      {{ charts.line('Sep.', '22', '°C', 'Degré Celsius') }}
+      {{ charts.line('Oct.', '19', '°C', 'Degré Celsius') }}
+      {{ charts.line('Nov.', '14', '°C', 'Degré Celsius') }}
+      {{ charts.line('Déc.', '9', '°C', 'Degré Celsius') }}
+    </dl>
+    <figcaption>Température mensuelle moyenne en 2017</figcaption>
+  </figure>
+
+  <div class="note">
+    <h4>Note</h4>
+    <p>
+      Le principal écueil de ce graphique est
+      qu’<strong>il nécessite de connaître le nombre de points</strong> par avance.
+      Pour jouer d’avantage et vous familiariser avec <code>clip-path</code>,
+      <cite>Bennett Feely</cite> a créé <a href="http://bennettfeely.com/clippy/" hreflang="en">clippy</a>.
+    </p>
+  </div>
+
+  <h3>Variantes</h3>
+
+  <h4>Avec <code>&lt;table&gt;</code></h4>
+
+  <p>
+    La seule nuance à apporter dans ce cas est l’ajout de <code>border-collapse: separate;</code> sur le tableau,
+    sans quoi il nous est impossible de lui appliquer un <code>padding-top</code> —&nbsp;qui sert d’espace réservé
+    pour le graphique.
+  </p>
+
+  {% import 'macros/_table-line.html' as table %}
+
+  <table role="table" class="table-charts line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+    <caption>Température mensuelle moyenne en 2017</caption>
+    <thead role="rowgroup">
+      <tr role="row">
+        <th role="rowheader" scope="row" class="sr-only">Mois</th>
+        <th role="columnheader" scope="col">Jan.</th>
+        <th role="columnheader" scope="col">Fév.</th>
+        <th role="columnheader" scope="col">Mars</th>
+        <th role="columnheader" scope="col">Avr.</th>
+        <th role="columnheader" scope="col">Mai</th>
+        <th role="columnheader" scope="col">Juin</th>
+        <th role="columnheader" scope="col">Juil.</th>
+        <th role="columnheader" scope="col">Août</th>
+        <th role="columnheader" scope="col">Sep.</th>
+        <th role="columnheader" scope="col">Oct.</th>
+        <th role="columnheader" scope="col">Nov.</th>
+        <th role="columnheader" scope="col">Déc.</th>
+      </tr>
+    </thead>
+    <tbody role="rowgroup">
+      <tr role="row">
+        <th role="rowheader" scope="row" class="sr-only">Température</th>
+        {{ table.line('8', '°C', 'Degré Celsius') }}
+        {{ table.line('6', '°C', 'Degré Celsius') }}
+        {{ table.line('9', '°C', 'Degré Celsius') }}
+        {{ table.line('12', '°C', 'Degré Celsius') }}
+        {{ table.line('15', '°C', 'Degré Celsius') }}
+        {{ table.line('21', '°C', 'Degré Celsius') }}
+        {{ table.line('24', '°C', 'Degré Celsius') }}
+        {{ table.line('25', '°C', 'Degré Celsius') }}
+        {{ table.line('22', '°C', 'Degré Celsius') }}
+        {{ table.line('19', '°C', 'Degré Celsius') }}
+        {{ table.line('14', '°C', 'Degré Celsius') }}
+        {{ table.line('9', '°C', 'Degré Celsius') }}
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Graphique à point</h4>
+
+  <p>Cette variante diffère finalement assez peu de la première mouture&nbsp;:</p>
+
+  <ol>
+    <li>le <code>polygon()</code> est poursuivi pour former une ligne&nbsp;;</li>
+    <li>
+      un pseudo-élément supplémentaire permet d’afficher le point pour chaque valeur
+      — positionné à l’aide des mêmes calculs qui servent dans le polygone.
+    </li>
+  </ol>
+
+  <figure role="group">
+    <dl role="list" class="charts-line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+      {{ charts.line('Jan.', '8', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Fév.', '6', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Mars', '9', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Avr.', '12', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Mai', '15', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Juin', '21', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Juil.', '24', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Août', '25', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Sep.', '22', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Oct.', '19', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Nov.', '14', '°C', 'Degré Celsius', 'points') }}
+      {{ charts.line('Déc.', '9', '°C', 'Degré Celsius', 'points') }}
+    </dl>
+    <figcaption>Température mensuelle moyenne en 2017</figcaption>
+  </figure>
+
   <h2>Graphique en tarte</h2>
 
   <p>
@@ -324,112 +478,6 @@
     </p>
     <p>En revanche, ce dégradé me paraît opportun pour l’affichage d’une mesure unique —&nbsp;par exemple, un score sur <a href="https://www.dareboost.com/fr">Dareboost</a>.</p>
   </div>
-
-  <h2>Graphique linéaire</h2>
-
-  <h3>Graphique de surface</h3>
-
-  <p>
-    Ce graphique repose sur <strong>les variables CSS, les grilles</strong> et <code>clip-path</code>.
-    Cette dernière propriété est la plus importante.
-  </p>
-
-  <ol>
-    <li>
-      Comme pour les précédents exemples&nbsp;: pour améliorer la compréhension globale, utiliser un <strong>conteneur</strong> <code>&lt;figure&gt;</code> avec le role <code>group</code> ainsi
-      qu’une légende balisée avec <code>&lt;figcaption&gt;</code>.
-    </li>
-    <li>
-      Sur la <strong>liste de définitions</strong> <code>&lt;dl&gt;</code>, toutes les données importantes sont présentes&nbsp;:
-      <ul>
-        <li>
-          <var>--y</var> définit l’échelle des <strong>ordonnées</strong>, utilisée pour indiquer l’échelle en arrière-plan mais aussi placer
-          les points sur la courbe&nbsp;;
-        </li>
-        <li><var>--x</var> correspond à l’échelle des <strong>abscisses</strong>&nbsp;;</li>
-        <li>puis <var>--1</var>, <var>--2</var>… correspondent à chaque point, avec leur valeur.</li>
-      </ul>
-    </li>
-    <li>La variable <var>--x</var> sert —&nbsp;à l’instar du graphique en barre&nbsp;— à générer les colonnes de la grille automatiquement.</li>
-    <li>
-      Pour chaque point placé sur <code>&lt;dl&gt;</code>, une position est définie au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
-      Étant donné que cette fonction accepte <strong>deux valeurs en pourcentage pour chaque point</strong>, la méthode est relativement simple.
-    </li>
-    <li>
-      Tout le reste n’est que décoration&nbsp;:
-      <ul>
-        <li>un arrière-plan dégradé pour représenter la surface pleine&nbsp;;</li>
-        <li>un <code>repeating-linear-gradient()</code> pour représenter l’échelle verticale&nbsp;;</li>
-        <li>
-          et des interactions au survol pour mettre en exergue la valeur survolée&nbsp;:
-          sa colonne à l’aide d’un pseudo-élément —&nbsp;positionné à l’aide de de savants calculs&nbsp;—
-          et <code>mix-blend-mode</code> pour un effet waouh.
-        </li>
-      </ul>
-    </li>
-  </ol>
-
-  {% import 'macros/_line.html' as charts %}
-
-  <figure role="group">
-    <dl role="list" class="charts-line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-      {{ charts.line('Jan.', '8', '°C', 'Degré Celsius') }}
-      {{ charts.line('Fév.', '6', '°C', 'Degré Celsius') }}
-      {{ charts.line('Mars', '9', '°C', 'Degré Celsius') }}
-      {{ charts.line('Avr.', '12', '°C', 'Degré Celsius') }}
-      {{ charts.line('Mai', '15', '°C', 'Degré Celsius') }}
-      {{ charts.line('Juin', '21', '°C', 'Degré Celsius') }}
-      {{ charts.line('Juil.', '24', '°C', 'Degré Celsius') }}
-      {{ charts.line('Août', '25', '°C', 'Degré Celsius') }}
-      {{ charts.line('Sep.', '22', '°C', 'Degré Celsius') }}
-      {{ charts.line('Oct.', '19', '°C', 'Degré Celsius') }}
-      {{ charts.line('Nov.', '14', '°C', 'Degré Celsius') }}
-      {{ charts.line('Déc.', '9', '°C', 'Degré Celsius') }}
-    </dl>
-    <figcaption>Température mensuelle moyenne en 2017</figcaption>
-  </figure>
-
-  <div class="note">
-    <h4>Note</h4>
-    <p>
-      Le principal écueil de ce graphique est
-      qu’<strong>il nécessite de connaître le nombre de points</strong> par avance.
-      Pour jouer d’avantage et vous familiariser avec <code>clip-path</code>,
-      <cite>Bennett Feely</cite> a créé <a href="http://bennettfeely.com/clippy/" hreflang="en">clippy</a>.
-    </p>
-  </div>
-
-  <h3>Variantes</h3>
-
-  <h4>Graphique à point</h4>
-
-  <p>Cette variante diffère finalement assez peu de la première mouture&nbsp;:</p>
-
-  <ol>
-    <li>le <code>polygon()</code> est poursuivi pour former une ligne&nbsp;;</li>
-    <li>
-      un pseudo-élément supplémentaire permet d’afficher le point pour chaque valeur
-      — positionné à l’aide des mêmes calculs qui servent dans le polygone.
-    </li>
-  </ol>
-
-  <figure role="group">
-    <dl role="list" class="charts-line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-      {{ charts.line('Jan.', '8', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Fév.', '6', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Mars', '9', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Avr.', '12', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Mai', '15', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Juin', '21', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Juil.', '24', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Août', '25', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Sep.', '22', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Oct.', '19', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Nov.', '14', '°C', 'Degré Celsius', 'points') }}
-      {{ charts.line('Déc.', '9', '°C', 'Degré Celsius', 'points') }}
-    </dl>
-    <figcaption>Température mensuelle moyenne en 2017</figcaption>
-  </figure>
 
   <h2>Graphique radar</h2>
 
