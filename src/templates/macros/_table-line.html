@@ -1,5 +1,5 @@
 {% macro line(definition='', unit='', title='') %}
-  <td role="cell" style="--value: {{ definition }}">
+  <td style="--value: {{ definition }}">
     <span>{{ definition }}{% if unit != '' %}&nbsp;{% if title != '' %}<abbr title="{{ title | e }}" aria-label="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}{% endif %}</span>
   </td>
 {% endmacro %}
