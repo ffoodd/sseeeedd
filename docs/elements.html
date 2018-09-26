@@ -100,17 +100,36 @@
     <li>Ultimatum britannique</li>
   </ol>
 
-  <h5>Standard-Island et Milliard-City</h5>
+  <h5>Listes de définitions</h5>
 
-  <dl>
-    <dt role="term" id="term-1"><dfn>Terme</dfn></dt>
-    <dd role="definition" aria-labelledby="term-1">Définition</dd>
-    <dt role="term" id="term-2"><dfn>Clé</dfn></dt>
-    <dd role="definition" aria-labelledby="term-1">Valeur</dd>
-  </dl>
+  <div class="grid-1-3">
+    <div>
+      <dl>
+        <dt role="term" id="term-1"><dfn>Terme</dfn></dt>
+        <dd role="definition" aria-labelledby="term-1">Définition</dd>
+        <dt role="term" id="term-2"><dfn>Clé</dfn></dt>
+        <dd role="definition" aria-labelledby="term-1">Valeur</dd>
+      </dl>
+    </div>
+    <div>
+      <div class="note">
+        <h6>Accessibilité des listes de définitions</h6>
+        <p>
+          Le support par les technologies d'assistance est plus que disparate&nbsp;:
+          il faut doubler <code>&lt;dt&gt;</code> avec <code>&lt;dfn&gt;</code>,
+          utiliser <code>aria-labelledby</code> pour associer la définition au terme,
+          et —&nbsp;au cas où ça puisse aider&nbsp;— expliciter la sémantique des éléments
+          avec les rôles <code>term</code> et <code>definition</code> ajoutés dans
+          <abbr lang="en" title="Accessible Rich Internet Application" aria-label="Accessible Rich Internet Application">ARIA</abbr> 1.1.
+        </p>
+      </div>
+    </div>
+  </div>
 
   <p>
-    Ces <dfn>cars</dfn> sont traînés par une locomotive <em>électrique</em>, avec accumulateurs d’une capacité de deux cents <abbr title="ampères-ohms">AO</abbr>,
+    Ces <dfn>cars</dfn> sont traînés par une locomotive <em>électrique</em>,
+    avec accumulateurs d’une capacité de deux cents
+    <abbr title="ampères-ohms" aria-label="ampères-ohms">AO</abbr>,
     et leur vitesse atteint de quinze à dix-huit kilomètres.
   </p>
 

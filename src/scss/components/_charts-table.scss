@@ -180,8 +180,6 @@
         }
 
         th {
-          color: palette( dominant, dark );
-
           &::after {
             background: palette( default, contrast );
             bottom: $gutter * 4;
@@ -323,7 +321,6 @@
       }
 
       tbody th {
-        color: palette( dominant, dark );
         padding-right: $gutter / 2;
 
         &::before {
