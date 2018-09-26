@@ -375,6 +375,7 @@
         height: 100%;
         left: 50%;
         overflow: hidden;
+       	pointer-events: none;
         position: absolute;
         top: $gutter * -4;
         transform:
@@ -392,6 +393,7 @@
           height: 100%;
           left: -100%;
           margin: initial;
+          pointer-events: auto;
           position: inherit;
           top: 0;
           transform: rotate(var(--position));
