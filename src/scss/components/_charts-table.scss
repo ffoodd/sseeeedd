@@ -31,7 +31,7 @@
   /** Bar charts */
   @supports (grid-template-columns: repeat(var(--scale, 100), minmax(0, 1fr))) {
     &.bar {
-      tr {
+      tbody tr {
         display: grid;
         grid-auto-rows: 1fr;
         grid-row-gap: $gutter / 2;
