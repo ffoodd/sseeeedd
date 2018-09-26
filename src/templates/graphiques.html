@@ -331,15 +331,15 @@
 
   {% import 'macros/_table-pie.html' as table %}
 
-  <table role="table" class="table-charts pie" style="--scale: 3000">
+  <table class="table-charts pie" style="--scale: 3000">
     <caption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
-    <thead role="rowgroup" class="sr-only">
-      <tr role="row">
+    <thead class="sr-only">
+      <tr>
         <th scope="col">Ressource</th>
-        <th role="columnheader" scope="col">Proportion</th>
+        <th scope="col">Proportion</th>
       </tr>
     </thead>
-    <tbody role="rowgroup">
+    <tbody>
       {{ table.pie('HTML', '2', '%', '', '0', '#444') }}
       {{ table.pie('CSS', '2', '%', '', '2', 'firebrick') }}
       {{ table.pie('JS', '32', '%', '', '4', 'crimson') }}
@@ -360,16 +360,15 @@
     d’utilisation des <code>mask-*</code> sur CodePen</a>, jetez-y un œil&nbsp;!
   </p>
 
-  <table role="table" class="table-charts pie donut" style="--scale: 3000; --offset: 8rem;">
+  <table class="table-charts pie donut" style="--scale: 3000; --offset: 8rem;">
     <caption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
-    <thead role="rowgroup" class="sr-only">
-      <tr role="row">
-        <th role="columnheader" scope="col">Ressource</th>
-        <th role="columnheader" scope="col">Proportion</th>
-        <td></td>
+    <thead class="sr-only">
+      <tr>
+        <th scope="col">Ressource</th>
+        <th scope="col">Proportion</th>
       </tr>
     </thead>
-    <tbody role="rowgroup">
+    <tbody>
       {{ table.pie('HTML', '2', '%', '', '0', '#444') }}
       {{ table.pie('CSS', '2', '%', '', '2', 'firebrick') }}
       {{ table.pie('JS', '32', '%', '', '4', 'crimson') }}

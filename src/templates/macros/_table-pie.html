@@ -1,7 +1,7 @@
 {% macro pie(term='', definition='', unit='', title='', start='0', color='') %}
-<tr role="row">
-  <th role="rowheader" scope="row" style="--color: {{ color }}">{{ term }}</th>
-  <td role="cell">
+<tr>
+  <th scope="row" style="--color: {{ color }}">{{ term }}</th>
+  <td>
     {{ definition }}{% if unit != '' %}&nbsp;{% if title != '' %}<abbr title="{{ title | e }}" aria-label="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}{% endif %}
     <span role="presentation" style="--value: {{ definition }}; --start: {{ start }}; --color: {{ color }}"></span>
   </td>
