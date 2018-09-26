@@ -68,7 +68,7 @@
         @each $name, $pattern in $patterns {
           $i: index($patterns, ($name $pattern));
 
-          &:nth-child(#{$i}n + #{$i}) td {
+          &:nth-child(#{$i}n + #{$i}n + #{$i}n + #{$i}) td {
             background-image:
               linear-gradient(to right,
                 palette( success, dark ),
@@ -108,7 +108,7 @@
         @each $name, $pattern in $patterns {
           $i: index($patterns, ($name $pattern));
 
-          &:nth-child(#{$i}n + #{$i}) td {
+          &:nth-child(#{$i}n + #{$i}n + #{$i}n + #{$i}) td {
             background-image:
               linear-gradient(to right,
                 Window,
@@ -285,8 +285,8 @@
               @each $name, $pattern in $patterns {
                 $i: index($patterns, ($name $pattern));
 
-                tr:nth-child(#{$i}) th::before,
-                tr:nth-child(#{$i}) td [role="presentation"]::before  {
+                tr:nth-child(#{$i}n + #{$i}) th::before,
+                tr:nth-child(#{$i}n + #{$i}) td [role="presentation"]::before  {
                   background-image: url($pattern); /* 1 */
                 }
               }
@@ -407,8 +407,8 @@
       @each $name, $pattern in $patterns {
         $i: index($patterns, ($name $pattern));
 
-        tr:nth-child(#{$i}) th::before,
-        tr:nth-child(#{$i}) td [role="presentation"]::before  {
+        tr:nth-child(#{$i}n + #{$i}) th::before,
+        tr:nth-child(#{$i}n + #{$i}) td [role="presentation"]::before  {
           background-image: url($pattern); /* 1 */
         }
       }
