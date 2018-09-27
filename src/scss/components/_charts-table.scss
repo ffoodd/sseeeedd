@@ -2,10 +2,12 @@
 /* == Table based Charts
 /* ==================== */
 
+[role="region"] {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 .table-charts {
-  background: palette( default, contrast );
-  border-collapse: separate;
-  border-spacing: 0;
   caption-side: bottom;
   empty-cells: hide;
   margin: 1.5em auto;
@@ -17,126 +19,131 @@
     font-style: normal;
     padding: $gutter 0;
   }
+}
 
-  th,
-  td {
-    border: 0;
-    padding: 0;
+@media screen and (min-width: em(480)) {
+  .table-charts {
+    border-collapse: separate;
+    border-spacing: 0;
 
-    &:empty {
-      display: none;
-    }
-  }
+    th,
+    td {
+      border: 0;
+      padding: 0;
 
-  /** Bar charts */
-  @supports (grid-template-columns: repeat(var(--scale, 100), minmax(0, 1fr))) {
-    &.bar {
-      tbody tr {
-        display: grid;
-        grid-auto-rows: 1fr;
-        grid-row-gap: $gutter / 2;
-        grid-template-columns: minmax(min-content, em( 200 )) repeat(var(--scale, 100), minmax(0, 1fr)) 10ch;
-        transition: opacity .2s map-get( $timing-functions, 'move' );
-
-        th {
-          grid-column: 1 / 1;
-          margin: $gutter / 2 0 0;
-          padding: 0 $gutter 0 0;
-          text-align: right;
-        }
-
-        td {
-          --size: calc(var(--scale, 100) * 100%);
-          --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
-          background-blend-mode: hard-light;
-          background-position: var(--position) 0%, center;
-          background-size:  var(--size) 100%, contain;
-          grid-column: 2 / var(--value, 0);
-          margin: $gutter / 2 0 0;
-          position: relative;
-
-          span {
-            background: inherit;
-            -webkit-text-fill-color: transparent;
-            -webkit-background-clip: text;
-            font-weight: bold;
-            left: 100%;
-            position: absolute;
-          }
-        }
-
-        @each $name, $pattern in $patterns {
-          $i: index($patterns, ($name $pattern));
-
-          &:nth-child(#{$i}n + #{$i}) td {
-            background-image:
-              linear-gradient(to right,
-                palette( success, dark ),
-                palette( dominant ),
-                palette( secondary ),
-                palette( accent ),
-                palette( alert )
-              ),
-              url($pattern); /* 1 */
-          }
-        }
-      }
-
-      &:hover {
-        tr {
-          opacity: .5;
-        }
-
-        tr:hover {
-          opacity: 1;
-        }
-      }
-
-      @media screen and (min-width: em(480)) {
-        caption {
-          text-align: initial;
-          text-indent: rem( 200 );
-        }
-      }
-
-      /**
-       * @note Custom color palette for WHCM
-       * @note Inspired by Greg Whitworth's post
-       * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
-       */
-      @media screen and (-ms-high-contrast: active) {
-        @each $name, $pattern in $patterns {
-          $i: index($patterns, ($name $pattern));
-
-          &:nth-child(#{$i}n + #{$i}) td {
-            background-image:
-              linear-gradient(to right,
-                Window,
-                ButtonFace,
-                ButtonShadow,
-                ButtonText,
-                highlight
-              ),
-              url($pattern);
-          }
-        }
-      }
-
-      &.waterfall {
-        @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 {
-          tr:nth-of-type(#{$number}) td {
-            grid-column: var(--#{$number - 1}, 0) / var(--value, 0);
-          }
-        }
+      &:empty {
+        display: none;
       }
     }
-  }
 
-  /** Line charts
-   * @note 1. calc() in width doesn't work in Firefox…
-   */
-  @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
-    @media screen and (min-width: em(480)) {
+    /** Bar charts */
+    @supports (grid-template-columns: repeat(var(--scale, 100), minmax(0, 1fr))) {
+      &.bar {
+        tbody tr {
+          display: grid;
+          grid-auto-rows: 1fr;
+          grid-row-gap: $gutter / 2;
+          grid-template-columns: minmax(min-content, em( 200 )) repeat(var(--scale, 100), minmax(0, 1fr)) 10ch;
+          transition: opacity .2s map-get( $timing-functions, 'move' );
+
+          th {
+            grid-column: 1 / 1;
+            margin: $gutter / 2 0 0;
+            padding: 0 $gutter 0 0;
+            text-align: right;
+          }
+
+          td {
+            --size: calc(var(--scale, 100) * 100%);
+            --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+            background-blend-mode: hard-light;
+            background-position: var(--position) 0%, center;
+            background-size:  var(--size) 100%, contain;
+            grid-column: 2 / var(--value, 0);
+            margin: $gutter / 2 0 0;
+            position: relative;
+
+            span {
+              background: inherit;
+              -webkit-text-fill-color: transparent;
+              -webkit-background-clip: text;
+              font-weight: bold;
+              left: 100%;
+              position: absolute;
+            }
+          }
+
+          @each $name, $pattern in $patterns {
+            $i: index($patterns, ($name $pattern));
+
+            &:nth-child(#{$i}n + #{$i}) td {
+              background-image:
+                linear-gradient(to right,
+                  palette( success, dark ),
+                  palette( dominant ),
+                  palette( secondary ),
+                  palette( accent ),
+                  palette( alert )
+                ),
+                url($pattern); /* 1 */
+            }
+          }
+        }
+
+        &:hover {
+          tr {
+            opacity: .5;
+          }
+
+          tr:hover {
+            opacity: 1;
+          }
+        }
+
+        @media screen and (min-width: em(480)) {
+          caption {
+            text-align: initial;
+            text-indent: rem( 200 );
+          }
+        }
+
+        /**
+         * @note Custom color palette for WHCM
+         * @note Inspired by Greg Whitworth's post
+         * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
+         */
+        @media screen and (-ms-high-contrast: active) {
+          @each $name, $pattern in $patterns {
+            $i: index($patterns, ($name $pattern));
+
+            &:nth-child(#{$i}n + #{$i}) td {
+              background-image:
+                linear-gradient(to right,
+                  Window,
+                  ButtonFace,
+                  ButtonShadow,
+                  ButtonText,
+                  highlight
+                ),
+                url($pattern);
+            }
+          }
+        }
+
+        &.waterfall {
+          @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 {
+            tr:nth-of-type(#{$number}) td {
+              grid-column: var(--#{$number - 1}, 0) / var(--value, 0);
+            }
+          }
+        }
+      }
+    }
+
+    /** Line charts
+     * @note 1. calc() in width doesn't work in Firefox…
+     */
+    @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
       &.line {
         --offset: calc((100% / var(--x)) / 2);
         padding: calc(#{$width / 2} - #{$gutter * 2}) 0 $gutter;
@@ -222,10 +229,10 @@
 
         td {
           line-height: 1.5;
+        }
 
-          abbr[title] {
-            font-weight: normal;
-          }
+        abbr[title] {
+          font-weight: normal;
         }
 
         &.points {
@@ -286,7 +293,7 @@
                 $i: index($patterns, ($name $pattern));
 
                 tr:nth-child(#{$i}n + #{$i}) th::before,
-                tr:nth-child(#{$i}n + #{$i}) td [role="presentation"]::before  {
+                tr:nth-child(#{$i}n + #{$i}) [role="presentation"]::before  {
                   background-image: url($pattern); /* 1 */
                 }
               }
@@ -322,150 +329,150 @@
        * @note Inspired by Greg Whitworth's post
        * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
        */
-      @media screen and (-ms-high-contrast: active) and (min-width: em(480)) {
+      @media screen and (-ms-high-contrast: active) {
         &.line::before {
           background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
         }
       }
     }
-  }
 
-  /** Pie charts */
-  @supports (--position: calc(var(--start, 0) * .01turn)) {
-    &.pie {
-      margin: 0 auto;
-      padding-top: calc(100% + #{$gutter * 2});
-      position: relative;
+    /** Pie charts */
+    @supports (--position: calc(var(--start, 0) * .01turn)) {
+      &.pie {
+        margin: 0 auto;
+        padding-top: calc(100% + #{$gutter * 2});
+        position: relative;
 
-      tbody {
-        display: table-row;
+        tbody {
+          display: table-row;
+        }
 
-        tr {
+        tbody tr {
           display: table-cell;
         }
-      }
 
-      tbody th {
-        padding-right: $gutter / 2;
+        tbody th {
+          padding-right: $gutter / 2;
 
-        &::before {
-          background: var(--color, currentColor);
-          content: "";
-          display: inline-block;
-          height: 1rem;
-          transform: translate3d(-.2rem, .1rem, 0);
-          width: 1rem;
+          &::before {
+            background: var(--color, currentColor);
+            content: "";
+            display: inline-block;
+            height: 1rem;
+            transform: translate3d(-.2rem, .1rem, 0);
+            width: 1rem;
+          }
         }
-      }
 
-      @media screen and (min-width: em(480)) {
-        padding-top: calc(#{$width / 2} - #{$gutter * 2});
+        @media screen and (min-width: em(480)) {
+          padding-top: calc(#{$width / 2} - #{$gutter * 2});
+        }
+
+        /**
+         * @note Pie chart based on:
+         * @link https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/
+         * @author Lea Verou
+         */
+        [role="presentation"] {
+          --position: calc(var(--start, 0) * .01turn);
+          --zoom: .75;
+          clip-path: circle(50% at 0% 50%);
+          display: block;
+          height: 100%;
+          left: 50%;
+          overflow: hidden;
+         	pointer-events: none;
+          position: absolute;
+          top: $gutter * -4;
+          transform:
+            rotate(var(--position))
+            scale(var(--zoom));
+          transform-origin: left center;
+          transition: transform .2s map-get( $timing-functions, 'move' );
+          width: $width / 2;
+
+          &::before {
+            --position: calc(var(--value, 0) * .01turn + 1deg);
+            background-color: var(--color, currentColor);
+            content: "";
+            display: initial;
+            height: 100%;
+            left: -100%;
+            margin: initial;
+            pointer-events: auto;
+            position: inherit;
+            top: 0;
+            transform: rotate(var(--position));
+            transform-origin: right center;
+            width: 100%;
+          }
+        }
+
+        tr:hover [role="presentation"] {
+          --zoom: .8;
+        }
+
+        @each $name, $pattern in $patterns {
+          $i: index($patterns, ($name $pattern));
+
+          tr:nth-child(#{$i}n + #{$i}) th::before,
+          tr:nth-child(#{$i}n + #{$i}) [role="presentation"]::before  {
+            background-image: url($pattern); /* 1 */
+          }
+        }
       }
 
       /**
-       * @note Pie chart based on:
-       * @link https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/
-       * @author Lea Verou
+       * Using mask-image to make a Donut
+       *
+       * @note Based on Ana Tudor's work
+       * @link https://css-tricks.com/1-html-element-5-css-properties-magic/
+       * @author Ana Tudor
+       *
+       * @note Mask support:
+       * @link https://caniuse.com/#search=mask
        */
-      td [role="presentation"] {
-        --position: calc(var(--start, 0) * .01turn);
-        --zoom: .75;
-        clip-path: circle(50% at 0% 50%);
-        display: block;
-        height: 100%;
-        left: 50%;
-        overflow: hidden;
-       	pointer-events: none;
-        position: absolute;
-        top: $gutter * -4;
-        transform:
-          rotate(var(--position))
-          scale(var(--zoom));
-        transform-origin: left center;
-        transition: transform .2s map-get( $timing-functions, 'move' );
-        width: $width / 2;
-
-        &::before {
-          --position: calc(var(--value, 0) * .01turn + 1deg);
-          background-color: var(--color, currentColor);
-          content: "";
-          display: initial;
-          height: 100%;
-          left: -100%;
-          margin: initial;
-          pointer-events: auto;
-          position: inherit;
-          top: 0;
-          transform: rotate(var(--position));
-          transform-origin: right center;
-          width: 100%;
-        }
-      }
-
-      tr:hover td [role="presentation"] {
-        --zoom: .8;
-      }
-
-      @each $name, $pattern in $patterns {
-        $i: index($patterns, ($name $pattern));
-
-        tr:nth-child(#{$i}n + #{$i}) th::before,
-        tr:nth-child(#{$i}n + #{$i}) td [role="presentation"]::before  {
-          background-image: url($pattern); /* 1 */
-        }
-      }
-    }
-
-    /**
-     * Using mask-image to make a Donut
-     *
-     * @note Based on Ana Tudor's work
-     * @link https://css-tricks.com/1-html-element-5-css-properties-magic/
-     * @author Ana Tudor
-     *
-     * @note Mask support:
-     * @link https://caniuse.com/#search=mask
-     */
-    @supports (mask: var(--mask)) {
-       &.donut {
-         mask-image: radial-gradient(
-           circle at 50% calc(50% - #{$gutter * 2}),
-           transparent 0%,
-           transparent calc(var(--offset) / 2),
-           palette( default, contrast) calc(var(--offset) / 2 + 1px),
-           palette( default, contrast) 100%
-         );
-       }
-
-       @media screen and (min-width: em(480)) {
+      @supports (mask: var(--mask)) {
          &.donut {
            mask-image: radial-gradient(
-             circle at 50% calc(50% - #{$gutter * 2.5}),
+             circle at 50% calc(50% - #{$gutter * 2}),
              transparent 0%,
-             transparent var(--offset),
-             palette( default, contrast) calc(var(--offset) + 1px),
+             transparent calc(var(--offset) / 2),
+             palette( default, contrast) calc(var(--offset) / 2 + 1px),
              palette( default, contrast) 100%
            );
          }
+
+         @media screen and (min-width: em(480)) {
+           &.donut {
+             mask-image: radial-gradient(
+               circle at 50% calc(50% - #{$gutter * 2.5}),
+               transparent 0%,
+               transparent var(--offset),
+               palette( default, contrast) calc(var(--offset) + 1px),
+               palette( default, contrast) 100%
+             );
+           }
+         }
        }
-     }
 
-    /**
-     * @note Custom color palette for WHCM
-     * @note Inspired by Greg Whitworth's post
-     * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
-     */
-    @media screen and (-ms-high-contrast: active) {
-      &.pie {
-        th::before,
-        th + * + td [role="presentation"]::before {
-          background-color: Window;
-        }
+      /**
+       * @note Custom color palette for WHCM
+       * @note Inspired by Greg Whitworth's post
+       * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
+       */
+      @media screen and (-ms-high-contrast: active) {
+        &.pie {
+          th::before,
+          [role="presentation"]::before {
+            background-color: Window;
+          }
 
-        tr:nth-of-type(odd) th::before,
-        tr:nth-of-type(odd) td [role="presentation"]::before {
-          background-color: WindowText;
+          tr:nth-of-type(odd) th::before,
+          tr:nth-of-type(odd) [role="presentation"]::before {
+            background-color: WindowText;
+          }
         }
       }
     }
-  }
+}
