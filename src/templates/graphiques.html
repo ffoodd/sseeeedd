@@ -310,11 +310,11 @@
       <strong>Sur chaque entête</strong> <code>&lt;th&gt;</code>, une variable <var>--color</var> permet d’attribuer, et bien… une couleur.
     </li>
     <li>
-      <strong>Pour chaque entête</strong> <code>&lt;th&gt;</code>, deux cellules <code>&lt;td&gt;</code> doivent suivre&nbsp;:
+      <strong>Puis chaque cellule <code>&lt;td&gt;</code>&nbsp;:
       <ol>
-        <li>la première doit contenir la valeur et son unité&nbsp;;</li>
+        <li>doit contenir la valeur et son unité&nbsp;;</li>
         <li>
-          la seconde est là où la magie opère&nbsp;:
+          et un <code>&lt;span&gt;</code> sur lequel la magie opère&nbsp;:
           <ul>
             <li>Avant tout, comme il s’agit d’un élément purement visuel on lui affuble un rôle <code>presentation</code>.</li>
             <li>
@@ -394,7 +394,8 @@
 
   <p>
     Celui-ci est plutôt amusant. Côté <abbr lang="en" title="HyperText Markup Language">HTML</abbr>,
-    peu de différence&nbsp;: on définit les variables <abbr lang="en" title="Cascading StyleSheet">CSS</abbr>
+    on utilise une liste de définitions. Sinon, peu de différence&nbsp;: 
+    on définit les variables <abbr lang="en" title="Cascading StyleSheet">CSS</abbr>
     sur la liste de définitions —&nbsp;l’échelle (et les paliers), le nombre d’élément, et les valeurs.
     On a aussi besoin d’un attribut <code>data-value</code> sur le terme pour afficher la valeur une nouvelle fois.
   </p>
