@@ -186,7 +186,12 @@
 
         &::after {
           --scale: calc(100% / var(--y));
-          background: repeating-linear-gradient(to bottom, white, white var(--scale), rgba(0, 0, 0, .25) calc(var(--scale) + #{$gutter / 8}));
+          background:
+            repeating-linear-gradient(
+              to bottom,
+              white, white var(--scale),
+              rgba(0, 0, 0, .25) calc(var(--scale) + #{$gutter / 8})
+            );
           z-index: 1;
         }
 
@@ -204,7 +209,9 @@
 
         th {
           &::after {
-            background: palette( default, contrast );
+            background-color: palette( default, contrast );
+            background-image: url( map-get( $patterns, 'stripes' ) );
+            background-blend-mode: exclusion;
             bottom: $gutter * 4;
             content: "";
             height: calc(100% - #{$gutter * 4});
@@ -223,7 +230,7 @@
           }
 
           &:hover::after {
-            opacity: .5;
+            opacity: .75;
           }
         }
 
@@ -307,7 +314,7 @@
               }
 
               &::after {
-                mix-blend-mode: difference;
+                mix-blend-mode: multiply;
               }
 
               &:hover {
@@ -316,7 +323,7 @@
                 }
 
                 &::after {
-                  opacity: .05;
+                  opacity: .5;
                 }
               }
             }
