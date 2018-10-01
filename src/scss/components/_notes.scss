@@ -8,8 +8,8 @@
   color: palette( default );
   margin: $gutter 0;
   padding: $gutter / 2 $gutter $gutter / 4;
-  
-  * {
+
+  *:not(pre) {
     color: inherit;
   }
 }

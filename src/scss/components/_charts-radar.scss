@@ -13,7 +13,7 @@
   @media screen and (min-width: em(480)) {
     .charts-radar {
       --radius: #{$width / 4};
-      --unitless-radius: calc( 1024 / 16 / 4 ); 
+      --unitless-radius: calc( 1024 / 16 / 4 );
       --size: calc( var(--radius) / var(--scale) );
       --part: calc( 360deg / var(--items) );
       background-image:

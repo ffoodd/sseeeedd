@@ -75,6 +75,23 @@
       <abbr lang="en" title="Accessible Rich Internet Application">aria</abbr> dédiés —&nbsp;comme il l’explique
       <a href="http://adrianroselli.com/2018/05/functions-to-add-aria-to-tables-and-lists.html" hreflang="en">dans un article détaillé</a>.
     </p>
+    <p>
+      C’est pourquoi chaque tableau est précédé d’une case à cocher, dont le seul et unique rôle
+      est de désactiver les styles supplémentaires&nbsp;:
+    </p>
+    <pre>
+      <code class="language-javascript">
+document.addEventListener("DOMContentLoaded", function () {
+  var switches = document.querySelectorAll('.disable-css');
+
+  Array.prototype.forEach.call(switches, function(el) {
+    el.addEventListener('click', function() {
+      var chart = this.nextElementSibling.nextElementSibling;
+      chart.classList.toggle('table-charts');
+    });
+  });
+});</code>
+    </pre>
   </div>
 
   <h2>Graphique en barre</h2>
@@ -112,6 +129,9 @@
   </ol>
 
   
+
+  <input type="checkbox" name="disable-css" id="disable-chart-1" class="disable-css">
+  <label for="disable-chart-1">Afficher le tableau sans froufrous</label>
 
   <table class="table-charts bar" style="--scale: 3000">
     <caption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
@@ -230,6 +250,9 @@
     —&nbsp;qui est, très simplement, la valeur du point précédent…
     Il faut cependant passer toutes les valeurs en tant que variables sur le parent <code>&lt;table&gt;</code>.
   </p>
+
+  <input type="checkbox" name="disable-css" id="disable-chart-2" class="disable-css">
+  <label for="disable-chart-2">Afficher le tableau sans froufrous</label>
 
   <table class="table-charts bar waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
     <caption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
@@ -379,6 +402,9 @@
 
   
 
+  <input type="checkbox" name="disable-css" id="disable-chart-3" class="disable-css">
+  <label for="disable-chart-3">Afficher le tableau sans froufrous</label>
+
   <table class="table-charts line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
     <caption>Température mensuelle moyenne en 2017</caption>
     <thead>
@@ -486,6 +512,9 @@
       —&nbsp;positionné à l’aide des mêmes calculs qui servent dans le polygone.
     </li>
   </ol>
+
+  <input type="checkbox" name="disable-css" id="disable-chart-4" class="disable-css">
+  <label for="disable-chart-4">Afficher le tableau sans froufrous</label>
 
   <table class="table-charts line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
     <caption>Température mensuelle moyenne en 2017</caption>
@@ -606,6 +635,9 @@
 
   
 
+  <input type="checkbox" name="disable-css" id="disable-chart-5" class="disable-css">
+  <label for="disable-chart-5">Afficher le tableau sans froufrous</label>
+
   <table class="table-charts pie">
     <caption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
     <thead class="sr-only">
@@ -683,6 +715,9 @@
     <cite>Ana Tudor</cite> a réalisé <a href="https://codepen.io/thebabydino/pens/tags/?selected_tag=mask" hreflang="en">de très nombreux exemples
     d’utilisation des <code>mask-*</code> sur CodePen</a>, jetez-y un œil&nbsp;!
   </p>
+
+  <input type="checkbox" name="disable-css" id="disable-chart-6" class="disable-css">
+  <label for="disable-chart-6">Afficher le tableau sans froufrous</label>
 
   <table class="table-charts pie donut" style="--offset: 8rem;">
     <caption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
@@ -883,9 +918,21 @@
       </main>
 
       
-        <script src="js/script.min.js" async></script>
-        <script src="js/prism.min.js"></script>
-      
+  <script src="js/script.min.js" async></script>
+  <script src="js/prism.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var switches = document.querySelectorAll('.disable-css');
+
+      Array.prototype.forEach.call(switches, function(el) {
+        el.addEventListener('click', function() {
+          var chart = this.nextElementSibling.nextElementSibling;
+          chart.classList.toggle('table-charts');
+        });
+      });
+    });
+  </script>
+
 
       
       
