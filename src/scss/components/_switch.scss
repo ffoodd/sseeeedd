@@ -38,10 +38,9 @@ button[role="switch"] {
 
   &[aria-checked="true"] {
     background-color: rgba( palette( success, light ), .3 );
-    color: palette( success, dark );
 
     &::before {
-      background: currentColor;
+      background: palette( success, dark );
       transform: translateX(#{rem( 78 ) + $gutter * 3});
     }
   }
