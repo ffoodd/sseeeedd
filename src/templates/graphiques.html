@@ -50,18 +50,21 @@
       <a href="http://adrianroselli.com/2018/02/tables-css-display-properties-and-aria.html" hreflang="en">dans un article détaillé</a>.
     </p>
     <p>
-      C’est pourquoi chaque tableau est précédé d’un commutateur, dont le seul et unique rôle
+      C’est pourquoi chaque tableau est précédé d’un commutateur —&nbsp;basé sur <a hreflang="en" href="https://inclusive-components.design/toggle-button/">le composant inclusif conçu par <cite>Heydon Pickering</cite></a>&nbsp;— dont le seul et unique rôle
       est de désactiver les styles supplémentaires&nbsp;:
     </p>
     <pre>
       <code class="language-javascript">
-document.addEventListener("DOMContentLoaded", function () {
-  var switches = document.querySelectorAll('[role="switch"].disable-css');
+document.addEventListener( "DOMContentLoaded", function () {
+  var switches = document.querySelectorAll( '[role="switch"]' );
 
-  Array.prototype.forEach.call(switches, function(el, i) {
-    el.addEventListener('click', function() {
+  Array.prototype.forEach.call( switches, function( el, i ) {
+    el.addEventListener( 'click', function() {
+      var checked = this.getAttribute( 'aria-checked' ) === 'true' || false;
+      this.setAttribute( 'aria-checked', !checked );
+      
       var chart = this.parentNode.nextElementSibling;
-      chart.classList.toggle('table-charts');
+      chart.classList.toggle( 'table-charts' );
     });
   });
 });</code>

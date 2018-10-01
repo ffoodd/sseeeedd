@@ -341,7 +341,8 @@
           background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
         }
       }
-    }
+    
+    
 
     /** Pie charts */
     @supports (--position: calc(var(--start, 0) * .01turn)) {
@@ -440,17 +441,6 @@
        * @link https://caniuse.com/#search=mask
        */
       @supports (mask: var(--mask)) {
-         &.donut {
-           mask-image: radial-gradient(
-             circle at 50% calc(50% - #{$gutter * 2}),
-             transparent 0%,
-             transparent calc(var(--offset) / 2),
-             palette( default, contrast) calc(var(--offset) / 2 + 1px),
-             palette( default, contrast) 100%
-           );
-         }
-
-         @media screen and (min-width: em(480)) {
            &.donut {
              mask-image: radial-gradient(
                circle at 50% calc(50% - #{$gutter * 2.5}),
@@ -460,7 +450,6 @@
                palette( default, contrast) 100%
              );
            }
-         }
        }
 
       /**
@@ -482,4 +471,5 @@
         }
       }
     }
+}
 }
