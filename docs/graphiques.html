@@ -133,27 +133,28 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   
 
-  <div class="fieldset d-flex">
-    <p class="label no-margin">
-      <strong id="label-1">Commutateur</strong><br>
-      <span id="description-1">Permet de désactiver les styles sur le tableau suivant.</span>
-    </p>
-    <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-1" aria-describedby="description-1">
-      <span>Guilleret</span>
-      <span>Sobre</span>
-    </button>
-  </div>
+     <div class="table-container" tabindex="0" role="group" aria-labelledby="caption-1">
+      <div class="fieldset d-flex">
+        <p class="label no-margin">
+          <strong id="label-1">Commutateur</strong><br>
+          <span id="description-1">Permet de désactiver les styles sur le tableau suivant.</span>
+        </p>
+        <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-1" aria-describedby="description-1">
+          <span>Guilleret</span>
+          <span>Sobre</span>
+        </button>
+      </div>
 
-  <table class="table-charts bar" style="--scale: 3000">
-    <caption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
-    <thead class="sr-only">
-      <tr>
-        <td></td>
-        <th scope="col">Temps de chargement cumulé</th>
-      </tr>
-    </thead>
-    <tbody>
-      
+      <table class="table-charts bar" style="--scale: 3000">
+        <caption id="caption-1">Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+        <thead class="sr-only">
+          <tr>
+            <td></td>
+            <th scope="col">Temps de chargement cumulé</th>
+          </tr>
+        </thead>
+        <tbody>
+          
   <tr>
     <th scope="row">Temps : backend</th>
     <td style="--value: 4">
@@ -161,7 +162,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Temps : Frontend</th>
     <td style="--value: 96">
@@ -169,7 +170,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Délai : premier octet</th>
     <td style="--value: 102">
@@ -177,7 +178,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Délai : dernier octet</th>
     <td style="--value: 129">
@@ -185,7 +186,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Délai : première image</th>
     <td style="--value: 188">
@@ -193,7 +194,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Délai : premier CSS</th>
     <td style="--value: 194">
@@ -201,7 +202,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Délai : premier JS</th>
     <td style="--value: 326">
@@ -209,7 +210,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">DOM Interactif</th>
     <td style="--value: 836">
@@ -217,7 +218,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Chargement du DOM</th>
     <td style="--value: 836">
@@ -225,7 +226,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">DOM complet</th>
     <td style="--value: 2561">
@@ -233,7 +234,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Trafic HTTP terminé</th>
     <td style="--value: 2980">
@@ -241,8 +242,9 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+    </div>
 
   <div class="note">
     <h3 class="h4">Motifs</h3>
@@ -262,27 +264,28 @@ document.addEventListener( "DOMContentLoaded", function () {
     Il faut cependant passer toutes les valeurs en tant que variables sur le parent <code>&lt;table&gt;</code>.
   </p>
 
-  <div class="fieldset d-flex">
-    <p class="label no-margin">
-      <strong id="label-2">Commutateur</strong><br>
-      <span id="description-2">Permet de désactiver les styles sur le tableau suivant.</span>
-    </p>
-    <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-2" aria-describedby="description-2">
-      <span>Guilleret</span>
-      <span>Sobre</span>
-    </button>
-  </div>
+     <div class="table-container" tabindex="0" role="group" aria-labelledby="caption-2">
+      <div class="fieldset d-flex">
+        <p class="label no-margin">
+          <strong id="label-2">Commutateur</strong><br>
+          <span id="description-2">Permet de désactiver les styles sur le tableau suivant.</span>
+        </p>
+        <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-2" aria-describedby="description-2">
+          <span>Guilleret</span>
+          <span>Sobre</span>
+        </button>
+      </div>
 
-  <table class="table-charts bar waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
-    <caption>Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
-    <thead class="sr-only">
-      <tr>
-        <td></td>
-        <th scope="col">Temps de chargement cumulé</th>
-      </tr>
-    </thead>
-    <tbody>
-      
+      <table class="table-charts bar waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
+        <caption id="caption-2">Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+        <thead class="sr-only">
+          <tr>
+            <td></td>
+            <th scope="col">Temps de chargement cumulé</th>
+          </tr>
+        </thead>
+        <tbody>
+          
   <tr>
     <th scope="row">Temps : backend</th>
     <td style="--value: 4">
@@ -290,7 +293,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Temps : Frontend</th>
     <td style="--value: 96">
@@ -298,7 +301,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Délai : premier octet</th>
     <td style="--value: 102">
@@ -306,7 +309,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Délai : dernier octet</th>
     <td style="--value: 129">
@@ -314,7 +317,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Délai : première image</th>
     <td style="--value: 188">
@@ -322,7 +325,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Délai : premier CSS</th>
     <td style="--value: 194">
@@ -330,7 +333,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Délai : premier JS</th>
     <td style="--value: 326">
@@ -338,7 +341,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">DOM Interactif</th>
     <td style="--value: 836">
@@ -346,7 +349,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Chargement du DOM</th>
     <td style="--value: 836">
@@ -354,7 +357,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">DOM complet</th>
     <td style="--value: 2561">
@@ -362,7 +365,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-      
+          
   <tr>
     <th scope="row">Trafic HTTP terminé</th>
     <td style="--value: 2980">
@@ -370,8 +373,9 @@ document.addEventListener( "DOMContentLoaded", function () {
     </td>
   </tr>
 
-    </tbody>
-  </table>
+        </tbody>
+      </table>
+    </div>
 
   <h2>Graphique linéaire</h2>
 
@@ -421,102 +425,104 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   
 
-  <div class="fieldset d-flex">
-    <p class="label no-margin">
-      <strong id="label-3">Commutateur</strong><br>
-      <span id="description-3">Permet de désactiver les styles sur le tableau suivant.</span>
-    </p>
-    <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-3" aria-describedby="description-3">
-      <span>Guilleret</span>
-      <span>Sobre</span>
-    </button>
-  </div>
+     <div class="table-container" tabindex="0" role="group" aria-labelledby="caption-3">
+      <div class="fieldset d-flex">
+        <p class="label no-margin">
+          <strong id="label-3">Commutateur</strong><br>
+          <span id="description-3">Permet de désactiver les styles sur le tableau suivant.</span>
+        </p>
+        <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-3" aria-describedby="description-3">
+          <span>Guilleret</span>
+          <span>Sobre</span>
+        </button>
+      </div>
 
-  <table class="table-charts line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-    <caption>Température mensuelle moyenne en 2017</caption>
-    <thead>
-      <tr>
-        <th scope="row" class="sr-only">Mois</th>
-        <th scope="col">Jan.</th>
-        <th scope="col">Fév.</th>
-        <th scope="col">Mars</th>
-        <th scope="col">Avr.</th>
-        <th scope="col">Mai</th>
-        <th scope="col">Juin</th>
-        <th scope="col">Juil.</th>
-        <th scope="col">Août</th>
-        <th scope="col">Sep.</th>
-        <th scope="col">Oct.</th>
-        <th scope="col">Nov.</th>
-        <th scope="col">Déc.</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row" class="sr-only">Température</th>
-        
+      <table class="table-charts line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+        <caption id="="caption-3"">Température mensuelle moyenne en 2017</caption>
+        <thead>
+          <tr>
+            <th scope="row" class="sr-only">Mois</th>
+            <th scope="col">Jan.</th>
+            <th scope="col">Fév.</th>
+            <th scope="col">Mars</th>
+            <th scope="col">Avr.</th>
+            <th scope="col">Mai</th>
+            <th scope="col">Juin</th>
+            <th scope="col">Juil.</th>
+            <th scope="col">Août</th>
+            <th scope="col">Sep.</th>
+            <th scope="col">Oct.</th>
+            <th scope="col">Nov.</th>
+            <th scope="col">Déc.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="sr-only">Température</th>
+            
   <td style="--value: 8">
     <span>8&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 6">
     <span>6&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 9">
     <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 12">
     <span>12&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 15">
     <span>15&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 21">
     <span>21&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 24">
     <span>24&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 25">
     <span>25&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 22">
     <span>22&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 19">
     <span>19&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 14">
     <span>14&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 9">
     <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-      </tr>
-    </tbody>
-  </table>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   <div class="note">
     <h4>Note</h4>
@@ -540,102 +546,104 @@ document.addEventListener( "DOMContentLoaded", function () {
     </li>
   </ol>
 
-  <div class="fieldset d-flex">
-    <p class="label no-margin">
-      <strong id="label-4">Commutateur</strong><br>
-      <span id="description-4">Permet de désactiver les styles sur le tableau suivant.</span>
-    </p>
-    <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-4" aria-describedby="description-4">
-      <span>Guilleret</span>
-      <span>Sobre</span>
-    </button>
-  </div>
+     <div class="table-container" tabindex="0" role="group" aria-labelledby="caption-4">
+      <div class="fieldset d-flex">
+        <p class="label no-margin">
+          <strong id="label-4">Commutateur</strong><br>
+          <span id="description-4">Permet de désactiver les styles sur le tableau suivant.</span>
+        </p>
+        <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-4" aria-describedby="description-4">
+          <span>Guilleret</span>
+          <span>Sobre</span>
+        </button>
+      </div>
 
-  <table class="table-charts line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-    <caption>Température mensuelle moyenne en 2017</caption>
-    <thead>
-      <tr>
-        <th scope="row" class="sr-only">Mois</th>
-        <th scope="col">Jan.</th>
-        <th scope="col">Fév.</th>
-        <th scope="col">Mars</th>
-        <th scope="col">Avr.</th>
-        <th scope="col">Mai</th>
-        <th scope="col">Juin</th>
-        <th scope="col">Juil.</th>
-        <th scope="col">Août</th>
-        <th scope="col">Sep.</th>
-        <th scope="col">Oct.</th>
-        <th scope="col">Nov.</th>
-        <th scope="col">Déc.</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row" class="sr-only">Température</th>
-        
+      <table class="table-charts line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+        <caption id="caption-4">Température mensuelle moyenne en 2017</caption>
+        <thead>
+          <tr>
+            <th scope="row" class="sr-only">Mois</th>
+            <th scope="col">Jan.</th>
+            <th scope="col">Fév.</th>
+            <th scope="col">Mars</th>
+            <th scope="col">Avr.</th>
+            <th scope="col">Mai</th>
+            <th scope="col">Juin</th>
+            <th scope="col">Juil.</th>
+            <th scope="col">Août</th>
+            <th scope="col">Sep.</th>
+            <th scope="col">Oct.</th>
+            <th scope="col">Nov.</th>
+            <th scope="col">Déc.</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="sr-only">Température</th>
+            
   <td style="--value: 8">
     <span>8&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 6">
     <span>6&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 9">
     <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 12">
     <span>12&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 15">
     <span>15&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 21">
     <span>21&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 24">
     <span>24&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 25">
     <span>25&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 22">
     <span>22&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 19">
     <span>19&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 14">
     <span>14&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-        
+            
   <td style="--value: 9">
     <span>9&nbsp;<abbr title="Degré Celsius" aria-label="Degré Celsius">°C</abbr></span>
   </td>
 
-      </tr>
-    </tbody>
-  </table>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
   <h2>Graphique en tarte</h2>
 
@@ -670,27 +678,28 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   
 
-  <div class="fieldset d-flex">
-    <p class="label no-margin">
-      <strong id="label-5">Commutateur</strong><br>
-      <span id="description-5">Permet de désactiver les styles sur le tableau suivant.</span>
-    </p>
-    <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-5" aria-describedby="description-5">
-      <span>Guilleret</span>
-      <span>Sobre</span>
-    </button>
-  </div>
+     <div class="table-container" tabindex="0" role="group" aria-labelledby="caption-5">
+      <div class="fieldset d-flex">
+        <p class="label no-margin">
+          <strong id="label-5">Commutateur</strong><br>
+          <span id="description-5">Permet de désactiver les styles sur le tableau suivant.</span>
+        </p>
+        <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-5" aria-describedby="description-5">
+          <span>Guilleret</span>
+          <span>Sobre</span>
+        </button>
+      </div>
 
-  <table class="table-charts pie">
-    <caption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
-    <thead class="sr-only">
-      <tr>
-        <th scope="col">Ressource</th>
-        <th scope="col">Proportion</th>
-      </tr>
-    </thead>
-    <tbody>
-      
+      <table class="table-charts pie">
+        <caption id="caption-5">Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+        <thead class="sr-only">
+          <tr>
+            <th scope="col">Ressource</th>
+            <th scope="col">Proportion</th>
+          </tr>
+        </thead>
+        <tbody>
+          
 <tr style="--color: #734BF9">
   <th scope="row">HTML</th>
   <td>
@@ -698,7 +707,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 2; --start: 0;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #E11A81">
   <th scope="row">CSS</th>
   <td>
@@ -706,7 +715,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 2; --start: 2;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #0172F0">
   <th scope="row">JS</th>
   <td>
@@ -714,7 +723,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 32; --start: 4;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #FDC02F">
   <th scope="row">Json</th>
   <td>
@@ -722,7 +731,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 1; --start: 36;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #39CA74">
   <th scope="row">Images</th>
   <td>
@@ -730,7 +739,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 44; --start: 37;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #FF2D40">
   <th scope="row">Webfonts</th>
   <td>
@@ -738,7 +747,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 17; --start: 81;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #585462">
   <th scope="row">Autres</th>
   <td>
@@ -746,8 +755,9 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 2; --start: 98;"></span>
   </td>
 
-    </tr></tbody>
-  </table>
+        </tr></tbody>
+      </table>
+    </div>
 
   <h3><i lang="en">Donut</i></h3>
 
@@ -759,27 +769,28 @@ document.addEventListener( "DOMContentLoaded", function () {
     d’utilisation des <code>mask-*</code> sur CodePen</a>, jetez-y un œil&nbsp;!
   </p>
 
-  <div class="fieldset d-flex">
-    <p class="label no-margin">
-      <strong id="label-6">Commutateur</strong><br>
-      <span id="description-6">Permet de désactiver les styles sur le tableau suivant.</span>
-    </p>
-    <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-6" aria-describedby="description-6">
-      <span>Guilleret</span>
-      <span>Sobre</span>
-    </button>
-  </div>
+     <div class="table-container" tabindex="0" role="group" aria-labelledby="caption-6">
+      <div class="fieldset d-flex">
+        <p class="label no-margin">
+          <strong id="label-6">Commutateur</strong><br>
+          <span id="description-6">Permet de désactiver les styles sur le tableau suivant.</span>
+        </p>
+        <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-6" aria-describedby="description-6">
+          <span>Guilleret</span>
+          <span>Sobre</span>
+        </button>
+      </div>
 
-  <table class="table-charts pie donut" style="--offset: 8rem;">
-    <caption>Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
-    <thead class="sr-only">
-      <tr>
-        <th scope="col">Ressource</th>
-        <th scope="col">Proportion</th>
-      </tr>
-    </thead>
-    <tbody>
-      
+      <table class="table-charts pie donut" style="--offset: 8rem;">
+        <caption id="caption-6">Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+        <thead class="sr-only">
+          <tr>
+            <th scope="col">Ressource</th>
+            <th scope="col">Proportion</th>
+          </tr>
+        </thead>
+        <tbody>
+          
 <tr style="--color: #734BF9">
   <th scope="row">HTML</th>
   <td>
@@ -787,7 +798,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 2; --start: 0;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #E11A81">
   <th scope="row">CSS</th>
   <td>
@@ -795,7 +806,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 2; --start: 2;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #0172F0">
   <th scope="row">JS</th>
   <td>
@@ -803,7 +814,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 32; --start: 4;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #FDC02F">
   <th scope="row">Json</th>
   <td>
@@ -811,7 +822,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 1; --start: 36;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #39CA74">
   <th scope="row">Images</th>
   <td>
@@ -819,7 +830,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 44; --start: 37;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #FF2D40">
   <th scope="row">Webfonts</th>
   <td>
@@ -827,7 +838,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 17; --start: 81;"></span>
   </td>
 
-      
+          
 </tr><tr style="--color: #585462">
   <th scope="row">Autres</th>
   <td>
@@ -835,8 +846,9 @@ document.addEventListener( "DOMContentLoaded", function () {
     <span role="presentation" style="--value: 2; --start: 98;"></span>
   </td>
 
-    </tr></tbody>
-  </table>
+        </tr></tbody>
+      </table>
+    </div>
 
   <div class="note">
     <h4>Dégradé conique</h4>
