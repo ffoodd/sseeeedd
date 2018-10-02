@@ -88,7 +88,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     el.addEventListener( 'click', function() {
       var checked = this.getAttribute( 'aria-checked' ) === 'true' || false;
       this.setAttribute( 'aria-checked', !checked );
-      
+
       var chart = this.parentNode.nextElementSibling;
       chart.classList.toggle( 'table-charts' );
     });
@@ -981,21 +981,9 @@ document.addEventListener( "DOMContentLoaded", function () {
       </main>
 
       
-  <script src="js/script.min.js" async></script>
-  <script src="js/prism.min.js"></script>
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      var switches = document.querySelectorAll('[role="switch"].disable-css');
-
-      Array.prototype.forEach.call(switches, function(el, i) {
-        el.addEventListener('click', function() {
-          var chart = this.parentNode.nextElementSibling;
-          chart.classList.toggle('table-charts');
-        });
-      });
-    });
-  </script>
-
+        <script src="js/script.min.js" async></script>
+        <script src="js/prism.min.js"></script>
+      
 
       
       
