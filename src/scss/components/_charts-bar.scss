@@ -1,4 +1,4 @@
- ==================== */
+/* ==================== */
 /* == Bar Charts
  *
  * @note Grid charts based on:
@@ -16,109 +16,103 @@
  * @author Gaël Poupard
 /* ==================== */
 
-.charts-bar {
-  dt {
-    color: palette( default );
-    float: left;
-    padding: 0 $gutter 0 0;
-  }
-}
-
 @supports (grid-template-columns: repeat(var(--scale, 100), minmax(0, 1fr))) {
-  .charts-bar {
-    display: grid;
-    grid-auto-rows: 1fr;
-    grid-row-gap: $gutter / 2;
-    grid-template-columns: minmax(min-content, em( 200 )) repeat(var(--scale, 100), minmax(0, 1fr)) 6ch; /* 1 */
+  &.bar {
+    caption {
+      text-align: initial;
+      text-indent: rem( 200 );
+    }
 
-    * {
+    tbody tr {
+      display: grid;
+      grid-auto-rows: 1fr;
+      grid-row-gap: $gutter / 2;
+      grid-template-columns: minmax(min-content, em( 200 )) repeat(var(--scale, 100), minmax(0, 1fr)) 10ch;
       transition: opacity .2s map-get( $timing-functions, 'move' );
-    }
 
-    dt {
-      grid-column: 1 / 1;
-      margin: initial;
-      text-align: right;
-    }
-
-    dd {
-      --size: calc(var(--scale, 100) * 100%);
-      --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
-      background-image: linear-gradient(to right,
-        palette( success, dark ),
-        palette( dominant ),
-        palette( secondary ),
-        palette( accent ),
-        palette( alert )
-      );
-      background-position: var(--position) 0%;
-      background-size:  var(--size) 100%;
-      grid-column: 2 / var(--value, 0);
-      margin: initial;
-      position: relative;
-
-      span {
-        background: inherit;                  /* 2 */
-        -webkit-text-fill-color: transparent; /* 2 */
-        -webkit-background-clip: text;        /* 2 */
-        font-weight: bold;
-        left: 100%;
-        position: absolute;
+      th {
+        grid-column: 1 / 1;
+        margin: $gutter / 2 0 0;
+        padding: 0 $gutter 0 0;
+        text-align: right;
       }
 
-      &::before {
-        display: none;
+      td {
+        --size: calc(var(--scale, 100) * 100%);
+        --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+        background-blend-mode: hard-light;
+        background-position: var(--position) 0%, center;
+        background-size:  var(--size) 100%, contain;
+        grid-column: 2 / var(--value, 0);
+        margin: $gutter / 2 0 0;
+        position: relative;
+
+        span {
+          background: inherit;
+          -webkit-text-fill-color: transparent;
+          -webkit-background-clip: text;
+          font-weight: bold;
+          left: 100%;
+          position: absolute;
+        }
+      }
+
+      @each $name, $pattern in $patterns {
+        $i: index($patterns, ($name $pattern));
+
+        &:nth-child(#{$i}n + #{$i}) td {
+          background-image:
+            linear-gradient(to right,
+              palette( success, dark ),
+              palette( dominant ),
+              palette( secondary ),
+              palette( accent ),
+              palette( alert )
+            ),
+            url($pattern); /* 1 */
+        }
       }
     }
 
     &:hover {
-      dt, dd {
-        opacity: .75;
+      tr {
+        opacity: .5;
       }
 
-      dt:hover,
-      dd:hover,
-      dt:hover + dd {
+      tr:hover {
         opacity: 1;
       }
     }
-  }
 
-  .charts-bar.waterfall {
-    @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 {
-      dd:nth-of-type(#{$number}) {
-        grid-column: var(--#{$number - 1}, 0) / var(--value, 0);
+    /**
+     * @note Custom color palette for WHCM
+     * @note Inspired by Greg Whitworth's post
+     * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
+     */
+    @media screen and (-ms-high-contrast: active) {
+      @each $name, $pattern in $patterns {
+        $i: index($patterns, ($name $pattern));
+
+        &:nth-child(#{$i}n + #{$i}) td {
+          background-image:
+            linear-gradient(to right,
+              Window,
+              ButtonFace,
+              ButtonShadow,
+              ButtonText,
+              highlight
+            ),
+            url($pattern);
+        }
       }
     }
-  }
 
-  @media screen and (max-width: em(480)) {
-    .charts-bar {
-      font-size: .75em;
-    }
-  }
-
-  @media screen and (min-width: em(480)) {
-    .charts-bar + figcaption {
-      text-align: initial;
-      text-indent: rem( 200 );
-    }
-  }
-
-  /**
-   * @note Custom color palette for WHCM
-   * @note Inspired by Greg Whitworth's post
-   * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
-   */
-  @media screen and (-ms-high-contrast: active) {
-    dd {
-      background-image: linear-gradient(to right,
-        Window,
-        ButtonFace,
-        ButtonShadow,
-        ButtonText,
-        highlight
-      );
+    &.waterfall {
+      @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 {
+        tr:nth-of-type(#{$number}) td {
+          grid-column: var(--#{$number - 1}, 0) / var(--value, 0);
+        }
+      }
     }
   }
 }

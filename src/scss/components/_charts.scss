@@ -3,7 +3,7 @@
 /* ==================== */
 
 [class*="charts"] {
-  dd[role="presentation"] {
+  [role="presentation"] {
     display: none;
   }
 
@@ -15,8 +15,40 @@
   }
 }
 
-//@import "charts-bar";
-//@import "charts-pie";
-//@import "charts-line";
-@import "charts-radar";
-@import "charts-table";
+.table-charts {
+  caption-side: bottom;
+  empty-cells: hide;
+  margin: 1.5em auto;
+  overflow: hidden;
+  padding: 1em;
+
+  > caption:first-child {
+    background: inherit;
+    font-style: normal;
+    padding: $gutter 0;
+  }
+}
+
+@media screen and (min-width: em(480)) {
+  .table-charts {
+    border-collapse: separate;
+    border-spacing: 0;
+
+    th,
+    td {
+      border: 0;
+      padding: 0;
+
+      &:empty {
+        display: none;
+      }
+    }
+
+    // <table> based charts
+    @import "charts-bar";
+    @import "charts-pie";
+    @import "charts-line";
+  }
+  // <dl> based charts
+  @import "charts-radar";
+}

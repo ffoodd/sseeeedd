@@ -4,58 +4,31 @@
  * @note SVG patterns inline coming from:
  * @link http://www.heropatterns.com/
 /* ==================== */
-
+/** Pie charts */
 @supports (--position: calc(var(--start, 0) * .01turn)) {
-  .charts-pie {
-    background-color: inherit;
-    margin: #{$gutter * -6} auto 0;
-    padding-top: calc(100% + #{$gutter * 2});
+  &.pie {
+    margin: 0 auto;
+    padding-top: calc(#{$width / 2} - #{$gutter * 2});
     position: relative;
 
-    dt,
-    dd {
-      color: var(--color, currentColor);
-      margin: initial;
-      position: relative;
-      z-index: 2;
+    tbody {
+      display: table-row;
     }
 
-    dt + dd {
-      flex: 1;
-      justify-content: flex-end;
-      padding: 0 $gutter 0 $gutter / 4;
+    tbody tr {
+      display: table-cell;
     }
 
-    dt::before {
-      background: currentColor;
-      content: "";
-      display: inline-block;
-      height: 1rem;
-      transform: translate3d(-.2rem, .1rem, 0);
-      width: 1rem;
-    }
+    tbody th {
+      padding-right: $gutter / 2;
 
-    @media screen and (max-width: em(480)) {
-      dt:first-of-type,
-      dd:first-of-type {
-        margin-top: #{$gutter * 6};
-      }
-    }
-
-    @media screen and (min-width: em(480)) {
-      align-items: flex-end;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 0 auto;
-      padding-top: calc(#{$width / 2} - #{$gutter * 2});
-
-      dt + dd {
-        flex: initial;
-
-        &::before {
-          display: none;
-        }
+      &::before {
+        background: var(--color, currentColor);
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        transform: translate3d(-.2rem, .1rem, 0);
+        width: 1rem;
       }
     }
 
@@ -64,20 +37,23 @@
      * @link https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/
      * @author Lea Verou
      */
-    dd[role="presentation"] {
+    [role="presentation"] {
       --position: calc(var(--start, 0) * .01turn);
-      --zoom: .6;
+      --zoom: .75;
       clip-path: circle(50% at 0% 50%);
       display: block;
-      height: calc(100% - #{$gutter * 4 });
+      height: 100%;
       left: 50%;
       overflow: hidden;
+      pointer-events: none;
       position: absolute;
-      top: 0;
-      transform: rotate(var(--position)) scale(var(--zoom));
+      top: $gutter * -4;
+      transform:
+        rotate(var(--position))
+        scale(var(--zoom));
       transform-origin: left center;
       transition: transform .2s map-get( $timing-functions, 'move' );
-      width: $width / 4;
+      width: $width / 2;
 
       &::before {
         --position: calc(var(--value, 0) * .01turn + 1deg);
@@ -87,6 +63,7 @@
         height: 100%;
         left: -100%;
         margin: initial;
+        pointer-events: auto;
         position: inherit;
         top: 0;
         transform: rotate(var(--position));
@@ -95,18 +72,16 @@
       }
     }
 
-    dd:hover + dd[role="presentation"],
-    dt:hover + dd + dd[role="presentation"] {
-      --zoom: .65;
+    tr:hover [role="presentation"] {
+      --zoom: .8;
     }
 
     @each $name, $pattern in $patterns {
       $i: index($patterns, ($name $pattern));
 
-      dt:nth-of-type(#{$i})::before,
-      dt:nth-of-type(#{$i}) + * + dd[role="presentation"]::before  {
+      tr:nth-child(#{$i}n + #{$i}) th::before,
+      tr:nth-child(#{$i}n + #{$i}) [role="presentation"]::before  {
         background-image: url($pattern); /* 1 */
-        background-blend-mode: soft-light;
       }
     }
   }
@@ -121,114 +96,17 @@
    * @note Mask support:
    * @link https://caniuse.com/#search=mask
    */
-   @supports (mask: var(--mask)) {
-     .charts-pie.donut {
-       mask-image: radial-gradient(
-         circle at 50% calc(50% - #{$gutter * 2}),
-         transparent 0%,
-         transparent calc(var(--offset) / 2),
-         palette( default, contrast) calc(var(--offset) / 2 + 1px),
-         palette( default, contrast) 100%
-       );
-     }
-
-     @media screen and (min-width: em(480)) {
-       .charts-pie.donut {
+  @supports (mask: var(--mask)) {
+       &.donut {
          mask-image: radial-gradient(
-           circle at 50% calc(50% - #{$gutter * 2}),
+           circle at 50% calc(50% - #{$gutter * 2.5}),
            transparent 0%,
            transparent var(--offset),
            palette( default, contrast) calc(var(--offset) + 1px),
            palette( default, contrast) 100%
          );
        }
-     }
    }
-
-  .charts-pie.polar {
-    dd[role="presentation"] {
-      --scale: calc(var(--value) / 75);
-      transform: rotate(var(--position)) scale(var(--scale));
-    }
-
-    dd:hover + dd[role="presentation"],
-    dt:hover + dd + dd[role="presentation"] {
-      --scale: calc(var(--value) / 75 * (1 + (75 - var(--value)) / 100));
-      transform: rotate(var(--position)) scale(var(--scale));
-    }
-  }
-
-  /**
-   * @note Using conic-gradient()
-   *
-   * @note Based on Lea Verou's work, again
-   * @author Lea Verou
-   * @link https://leaverou.github.io/conic-gradient/
-   *
-   * @note Conic gradient support:
-   * @link https://caniuse.com/#search=conic-gradient
-   */
-  @supports(background: conic-gradient(black, white)) {
-    .charts-pie.conic {
-      background-image:
-        radial-gradient(
-          circle at 50%,
-          palette( default, contrast ) 0%,
-          palette( default, contrast ) var(--offset),
-          transparent calc(var(--offset) + 1px),
-          transparent calc(#{$width / 3} - var(--offset)),
-          palette( default, contrast ) calc(#{$width / 3} - var(--offset) + 1px),
-          palette( default, contrast ) 100%
-        ),
-        conic-gradient(
-          var(--c1) calc(var(--v1) * 1%),
-          var(--c2) 0deg calc((var(--v1) + var(--v2)) * 1%),
-          var(--c3) 0deg calc((var(--v1) + var(--v2) + var(--v3)) * 1%),
-          var(--c4) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4)) * 1%),
-          var(--c5) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4) + var(--v5)) * 1%),
-          var(--c6) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4) + var(--v5) + var(--v6)) * 1%),
-          var(--c7) 0deg calc((var(--v1) + var(--v2) + var(--v3) + var(--v4) + var(--v5) + var(--v6) + var(--v7)) * 1%)
-        );
-      mask-image: none;
-
-      dt::before {
-        background-image: none;
-      }
-
-      dd[role="presentation"] {
-        display: none;
-      }
-    }
-  }
-
-  @media screen and (min-width: em(480)) {
-    .charts-pie {
-      &.donut::after {
-        clip-path: circle(var(--offset, 5rem));
-      }
-
-      dd[role="presentation"] {
-        --zoom: 1;
-        width: calc(#{$width / 4} - #{$gutter * 2});
-      }
-
-      dd:hover + dd[role="presentation"],
-      dt:hover + dd + dd[role="presentation"] {
-        --zoom: 1.05;
-      }
-
-      &.polar {
-        dd[role="presentation"] {
-          --scale: calc(var(--value) / 50);
-        }
-
-        dd:hover + dd[role="presentation"],
-        dt:hover + dd + dd[role="presentation"] {
-          --scale: calc(var(--value) / 50 * (1 + (50 - var(--value)) / 100));
-        }
-      }
-    }
-  }
 
   /**
    * @note Custom color palette for WHCM
@@ -236,14 +114,14 @@
    * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
    */
   @media screen and (-ms-high-contrast: active) {
-    .charts-pie {
-      dt::before,
-      dt + * + dd[role="presentation"]::before {
+    &.pie {
+      th::before,
+      [role="presentation"]::before {
         background-color: Window;
       }
 
-      dt:nth-of-type(odd)::before,
-      dt:nth-of-type(odd) + * + dd[role="presentation"]::before {
+      tr:nth-of-type(odd) th::before,
+      tr:nth-of-type(odd) [role="presentation"]::before {
         background-color: WindowText;
       }
     }

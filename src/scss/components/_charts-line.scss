@@ -9,197 +9,204 @@
  * @see Bennett Feely's clippy to understand polygon() syntax
  * @link http://bennettfeely.com/clippy/
  */
+ /** Line charts
+  * @note 1. calc() in width doesn't work in Firefox…
+  */
+ @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
+   &.line {
+     --offset: calc((100% / var(--x)) / 2);
+     padding: calc(#{$width / 2} - #{$gutter * 2}) 0 $gutter;
+     position: relative;
+     transition:
+       background .3s map-get( $timing-functions, 'move' ),
+       color .3s map-get( $timing-functions, 'move' );
 
-@supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
-  @media screen and (min-width: em(480)) {
-    .charts-line {
-      --offset: calc((100% / var(--x)) / 2);
-      display: grid;
-      grid-template-columns: repeat(var(--x), minmax(min-content, 1fr));
-      grid-template-rows: 1fr 1fr;
-      padding-top: calc(#{$width / 2} - #{$gutter * 2});
-      position: relative;
-      text-align: center;
-      transition:
-        background .3s map-get( $timing-functions, 'move' ),
-        color .3s map-get( $timing-functions, 'move' );
+     &::after,
+     &::before {
+       bottom: $gutter * 8;
+       content: "";
+       position: absolute;
+       top: 0;
+       width: 100%;
+     }
 
-      &::after,
-      &::before {
-        bottom: $gutter * 4;
-        content: "";
-        position: absolute;
-        top: 0;
-        width: 100%;
-      }
+     &::before {
+       background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
+       clip-path: polygon(
+         0% calc(100% - (var(--1) / var(--y) * 100%)),
+         var(--offset) calc(100% - (var(--1) / var(--y) * 100%)),
+         calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--y) * 100%)),
+         calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--y) * 100%)),
+         calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--y) * 100%)),
+         calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--y) * 100%)),
+         calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--y) * 100%)),
+         calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--y) * 100%)),
+         calc((100% / var(--x) * 7) + var(--offset)) calc(100% - (var(--8) / var(--y) * 100%)),
+         calc((100% / var(--x) * 8) + var(--offset)) calc(100% - (var(--9) / var(--y) * 100%)),
+         calc((100% / var(--x) * 9) + var(--offset)) calc(100% - (var(--10) / var(--y) * 100%)),
+         calc((100% / var(--x) * 10) + var(--offset)) calc(100% - (var(--11) / var(--y) * 100%)),
+         calc((100% / var(--x) * 11) + var(--offset)) calc(100% - (var(--12) / var(--y) * 100%)),
+         100% calc(100% - (var(--12) / var(--y) * 100%)),
+         100% 100%,
+         0% 100%
+       );
+       z-index: 2;
+     }
 
-      &::before {
-        background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
-        clip-path: polygon(
-          0% calc(100% - (var(--1) / var(--y) * 100%)),
-          var(--offset) calc(100% - (var(--1) / var(--y) * 100%)),
-          calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--y) * 100%)),
-          calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--y) * 100%)),
-          calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--y) * 100%)),
-          calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--y) * 100%)),
-          calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--y) * 100%)),
-          calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--y) * 100%)),
-          calc((100% / var(--x) * 7) + var(--offset)) calc(100% - (var(--8) / var(--y) * 100%)),
-          calc((100% / var(--x) * 8) + var(--offset)) calc(100% - (var(--9) / var(--y) * 100%)),
-          calc((100% / var(--x) * 9) + var(--offset)) calc(100% - (var(--10) / var(--y) * 100%)),
-          calc((100% / var(--x) * 10) + var(--offset)) calc(100% - (var(--11) / var(--y) * 100%)),
-          calc((100% / var(--x) * 11) + var(--offset)) calc(100% - (var(--12) / var(--y) * 100%)),
-          100% calc(100% - (var(--12) / var(--y) * 100%)),
-          100% 100%,
-          0% 100%
-        );
-        z-index: 2;
-      }
+     &::after {
+       --scale: calc(100% / var(--y));
+       background:
+         repeating-linear-gradient(
+           to bottom,
+           white, white var(--scale),
+           rgba(0, 0, 0, .25) calc(var(--scale) + #{$gutter / 8})
+         );
+       z-index: 1;
+     }
 
-      &::after {
-        --scale: calc(100% / var(--y));
-        background: repeating-linear-gradient(to bottom, white, white var(--scale), rgba(0, 0, 0, .25) calc(var(--scale) + #{$gutter / 8}));
-        z-index: 1;
-      }
+     th,
+     td {
+       font-weight: bold;
+       text-align: center;
+       width: calc( 100% / var(--x) );
+       width: 8.3%; /* 1 */
 
-      dt {
-        grid-row: 1 / 1;
-        margin: $gutter 0 0;
-        transition: inherit;
+       &:hover {
+         color: palette( secondary );
+       }
+     }
 
-        &::after {
-          background: palette( default, contrast );
-          bottom: $gutter * 4;
-          content: "";
-          height: calc(100% - #{$gutter * 4});
-          mix-blend-mode: soft-light;
-          opacity: 0;
-          position: absolute;
-          transition: opacity .3s map-get( $timing-functions, 'move' );
-          width: calc(100% / var(--x));
-          z-index: 3;
-        }
+     th {
+       &::after {
+         background-color: palette( default, contrast );
+         background-image: url( map-get( $patterns, 'stripes' ) );
+         background-blend-mode: exclusion;
+         bottom: $gutter * 4;
+         content: "";
+         height: calc(100% - #{$gutter * 4});
+         mix-blend-mode: soft-light;
+         opacity: 0;
+         position: absolute;
+         transition: opacity .3s map-get( $timing-functions, 'move' );
+         width: inherit;
+         z-index: 3;
+       }
 
-        @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
-          &:nth-of-type(#{$number})::after {
-            left: calc(100% / var(--x) * #{$number - 1});
-          }
-        }
+       @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+         &:nth-child(#{$number + 1})::after {
+           left: calc(100% / var(--x) * #{$number - 1});
+         }
+       }
 
-        &:hover::after {
-          opacity: .5;
-        }
+       &:hover::after {
+         opacity: .75;
+       }
+     }
 
-        &:hover,
-        &:hover + dd {
-          background: palette( default, secondary );
-          color: palette( secondary );
-        }
-      }
+     td {
+       line-height: 1.5;
+     }
 
-      dd {
-        display: initial;
-        grid-row: 2 / 2;
-        margin: 0;
-        transition: inherit;
+     abbr[title] {
+       font-weight: normal;
+     }
 
-        &::before {
-          display: none;
-        }
+     &.points {
+         &::before {
+           clip-path: polygon(
+             0% calc(100% - (var(--1) / var(--y) * 100%)),
+             var(--offset) calc(100% - (var(--1) / var(--y) * 100%)),
+             calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--y) * 100%)),
+             calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--y) * 100%)),
+             calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--y) * 100%)),
+             calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--y) * 100%)),
+             calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--y) * 100%)),
+             calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--y) * 100%)),
+             calc((100% / var(--x) * 7) + var(--offset)) calc(100% - (var(--8) / var(--y) * 100%)),
+             calc((100% / var(--x) * 8) + var(--offset)) calc(100% - (var(--9) / var(--y) * 100%)),
+             calc((100% / var(--x) * 9) + var(--offset)) calc(100% - (var(--10) / var(--y) * 100%)),
+             calc((100% / var(--x) * 10) + var(--offset)) calc(100% - (var(--11) / var(--y) * 100%)),
+             calc((100% / var(--x) * 11) + var(--offset)) calc(100% - (var(--12) / var(--y) * 100%)),
+             100% calc(100% - (var(--12) / var(--y) * 100%)),
+             100% calc((100% + #{$gutter / 4}) - (var(--12) / var(--y) * 100%)),
+             calc((100% / var(--x) * 11) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--12) / var(--y) * 100%)),
+             calc((100% / var(--x) * 10) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--11) / var(--y) * 100%)),
+             calc((100% / var(--x) * 9) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--10) / var(--y) * 100%)),
+             calc((100% / var(--x) * 8) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--9) / var(--y) * 100%)),
+             calc((100% / var(--x) * 7) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--8) / var(--y) * 100%)),
+             calc((100% / var(--x) * 6) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--7) / var(--y) * 100%)),
+             calc((100% / var(--x) * 5) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--6) / var(--y) * 100%)),
+             calc((100% / var(--x) * 4) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--5) / var(--y) * 100%)),
+             calc((100% / var(--x) * 3) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--4) / var(--y) * 100%)),
+             calc((100% / var(--x) * 2) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--3) / var(--y) * 100%)),
+             calc((100% / var(--x) * 1) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--2) / var(--y) * 100%)),
+             var(--offset) calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%)),
+             0% calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%))
+           );
+           z-index: 2;
+         }
 
-        span {
-          font-weight: bold;
-        }
-      }
-    }
+         th {
+           &::before {
+             --height: calc(100% - 8rem);
+             --size: #{$gutter};
+             background-image: linear-gradient(to top, palette( secondary, light ), palette( alert ) 50%);
+             background-position-x: 0;
+             background-size: 100% calc(var(--y) * 200%);
+             border: 2px solid palette( default, contrast );
+             border-radius: 50%;
+             box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
+             content: "";
+             height: var(--size);
+             position: absolute;
+             transform: translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0);
+             transition: transform .3s map-get( $timing-functions, 'move' );
+             width: var(--size);
+             z-index: 4;
+           }
 
-    .charts-line.points {
-      &::before {
-        clip-path: polygon(
-          0% calc(100% - (var(--1) / var(--y) * 100%)),
-          var(--offset) calc(100% - (var(--1) / var(--y) * 100%)),
-          calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--y) * 100%)),
-          calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--y) * 100%)),
-          calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--y) * 100%)),
-          calc((100% / var(--x) * 4) + var(--offset)) calc(100% - (var(--5) / var(--y) * 100%)),
-          calc((100% / var(--x) * 5) + var(--offset)) calc(100% - (var(--6) / var(--y) * 100%)),
-          calc((100% / var(--x) * 6) + var(--offset)) calc(100% - (var(--7) / var(--y) * 100%)),
-          calc((100% / var(--x) * 7) + var(--offset)) calc(100% - (var(--8) / var(--y) * 100%)),
-          calc((100% / var(--x) * 8) + var(--offset)) calc(100% - (var(--9) / var(--y) * 100%)),
-          calc((100% / var(--x) * 9) + var(--offset)) calc(100% - (var(--10) / var(--y) * 100%)),
-          calc((100% / var(--x) * 10) + var(--offset)) calc(100% - (var(--11) / var(--y) * 100%)),
-          calc((100% / var(--x) * 11) + var(--offset)) calc(100% - (var(--12) / var(--y) * 100%)),
-          100% calc(100% - (var(--12) / var(--y) * 100%)),
-          100% calc((100% + #{$gutter / 4}) - (var(--12) / var(--y) * 100%)),
-          calc((100% / var(--x) * 11) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--12) / var(--y) * 100%)),
-          calc((100% / var(--x) * 10) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--11) / var(--y) * 100%)),
-          calc((100% / var(--x) * 9) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--10) / var(--y) * 100%)),
-          calc((100% / var(--x) * 8) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--9) / var(--y) * 100%)),
-          calc((100% / var(--x) * 7) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--8) / var(--y) * 100%)),
-          calc((100% / var(--x) * 6) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--7) / var(--y) * 100%)),
-          calc((100% / var(--x) * 5) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--6) / var(--y) * 100%)),
-          calc((100% / var(--x) * 4) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--5) / var(--y) * 100%)),
-          calc((100% / var(--x) * 3) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--4) / var(--y) * 100%)),
-          calc((100% / var(--x) * 2) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--3) / var(--y) * 100%)),
-          calc((100% / var(--x) * 1) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--2) / var(--y) * 100%)),
-          var(--offset) calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%)),
-          0% calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%))
-        );
-        z-index: 2;
-      }
+           @each $name, $pattern in $patterns {
+             $i: index($patterns, ($name $pattern));
 
-      dt {
-        &::before {
-          --height: calc(100% - 4rem);
-          --size: #{$gutter};
-          background-image: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
-          background-position-x: 0;
-          background-size: 100% calc(var(--y) * 100%);
-          border: 2px solid palette( default, contrast );
-          border-radius: 50%;
-          box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
-          content: "";
-          height: var(--size);
-          position: absolute;
-          transform: translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0);
-          transition: transform .3s map-get( $timing-functions, 'move' );
-          width: var(--size);
-          z-index: 4;
-        }
+             tr:nth-child(#{$i}n + #{$i}) th::before,
+             tr:nth-child(#{$i}n + #{$i}) [role="presentation"]::before  {
+               background-image: url($pattern); /* 1 */
+             }
+           }
 
-        @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
-          &:nth-of-type(#{$number})::before {
-            background-position-y: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))));
-            left: calc((100% / var(--x) * #{$number - 1}) + var(--offset));
-            top: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))));
-          }
-        }
+           @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+             &:nth-of-type(#{$number + 1})::before {
+               background-position-y: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))));
+               left: calc((100% / var(--x) * #{$number - 1}) + var(--offset));
+               top: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))));
+             }
+           }
 
-        &::after {
-          mix-blend-mode: difference;
-        }
+           &::after {
+             mix-blend-mode: multiply;
+           }
 
-        &:hover {
-          &::before {
-            transform: translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0) scale(1.5);
-          }
+           &:hover {
+             &::before {
+               transform: translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0) scale(1.5);
+             }
 
-          &::after {
-            opacity: .05;
-          }
-        }
-      }
-    }
-  }
+             &::after {
+               opacity: .5;
+             }
+           }
+         }
+       }
+     }
+   }
 
-  /**
-   * @note Custom color palette for WHCM
-   * @note Inspired by Greg Whitworth's post
-   * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
-   */
-  @media screen and (-ms-high-contrast: active) and (min-width: em(480)) {
-    .charts-line::before {
-      background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
-    }
-  }
-}
+   /**
+    * @note Custom color palette for WHCM
+    * @note Inspired by Greg Whitworth's post
+    * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
+    */
+   @media screen and (-ms-high-contrast: active) {
+     &.line::before {
+       background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
+     }
+   }

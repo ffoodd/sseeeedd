@@ -42,3 +42,8 @@ td {
 tbody {
   border: 1px solid palette( default, secondary );
 }
+
+.table-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
