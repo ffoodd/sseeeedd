@@ -60,7 +60,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   Array.prototype.forEach.call( switches, function( el, i ) {
     el.addEventListener( 'click', function() {
-      var checked = this.getAttribute( 'aria-checked' ) === 'true' || false;
+      var checked = this.getAttribute( 'aria-checked' ) == 'true' || false;
       this.setAttribute( 'aria-checked', !checked );
 
       var chart = this.parentNode.nextElementSibling;
@@ -263,8 +263,8 @@ document.addEventListener( "DOMContentLoaded", function () {
         </button>
       </div>
 
-      <table class="table-charts line" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-        <caption id=="caption-3">Température mensuelle moyenne en 2017</caption>
+      <table class="table-charts line" style="--y: 32; --x: 12;">
+        <caption id="caption-3">Température mensuelle moyenne en 2017</caption>
         <thead>
           <tr>
             <th scope="row" class="sr-only">Mois</th>
@@ -283,7 +283,7 @@ document.addEventListener( "DOMContentLoaded", function () {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr style="--1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
             <th scope="row" class="sr-only">Température</th>
             {{ table.line('8', '°C', 'Degré Celsius') }}
             {{ table.line('6', '°C', 'Degré Celsius') }}
@@ -358,7 +358,7 @@ document.addEventListener( "DOMContentLoaded", function () {
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr style="--1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
             <th scope="row" class="sr-only">Température</th>
             {{ table.line('8', '°C', 'Degré Celsius') }}
             {{ table.line('6', '°C', 'Degré Celsius') }}

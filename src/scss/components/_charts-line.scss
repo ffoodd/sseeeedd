@@ -14,23 +14,33 @@
   */
  @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
    &.line {
-     --offset: calc((100% / var(--x)) / 2);
-     padding: calc(#{$width / 2} - #{$gutter * 2}) 0 $gutter;
+     --offset: calc( ( 100% / var(--x) ) / 2);
+     --height: calc( #{$width / 2} - #{$gutter * 2} );
+     --bottom: calc( 100% - var(--height) );
+     padding: var(--height) 0 $gutter;
      position: relative;
      transition:
        background .3s map-get( $timing-functions, 'move' ),
        color .3s map-get( $timing-functions, 'move' );
 
-     &::after,
-     &::before {
-       bottom: $gutter * 8;
+     &::after {
+       --scale: calc( 100% / var(--y) );
+       background:
+         repeating-linear-gradient(
+           to bottom,
+           white, white var(--scale),
+           rgba(0, 0, 0, .25) calc(var(--scale) + 1px)
+         );
+       bottom: var(--bottom);
        content: "";
        position: absolute;
        top: 0;
        width: 100%;
+       z-index: 1;
      }
 
-     &::before {
+     tr[style]::before {
+       bottom: var(--bottom);
        background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
        clip-path: polygon(
          0% calc(100% - (var(--1) / var(--y) * 100%)),
@@ -50,22 +60,16 @@
          100% 100%,
          0% 100%
        );
+       content: "";
+       position: absolute;
+       top: 0;
+       width: 100%;
        z-index: 2;
-     }
-
-     &::after {
-       --scale: calc(100% / var(--y));
-       background:
-         repeating-linear-gradient(
-           to bottom,
-           white, white var(--scale),
-           rgba(0, 0, 0, .25) calc(var(--scale) + #{$gutter / 8})
-         );
-       z-index: 1;
      }
 
      th,
      td {
+       background: palette( default, contrast );
        font-weight: bold;
        text-align: center;
        width: calc( 100% / var(--x) );
@@ -107,12 +111,8 @@
        line-height: 1.5;
      }
 
-     abbr[title] {
-       font-weight: normal;
-     }
-
      &.points {
-         &::before {
+         tr[style]::before {
            clip-path: polygon(
              0% calc(100% - (var(--1) / var(--y) * 100%)),
              var(--offset) calc(100% - (var(--1) / var(--y) * 100%)),
@@ -143,15 +143,14 @@
              var(--offset) calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%)),
              0% calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%))
            );
-           z-index: 2;
          }
 
          th {
            &::before {
-             --height: calc(100% - 8rem);
              --size: #{$gutter};
-             background-image: linear-gradient(to top, palette( secondary, light ), palette( alert ) 50%);
+             background-image: linear-gradient(to bottom, palette( secondary, light ) 40%, palette( alert ) 90%);
              background-position-x: 0;
+             background-position-y: var(--top, 100);
              background-size: 100% calc(var(--y) * 200%);
              border: 2px solid palette( default, contrast );
              border-radius: 50%;
@@ -159,6 +158,7 @@
              content: "";
              height: var(--size);
              position: absolute;
+             top: var(--top, 100);
              transform: translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0);
              transition: transform .3s map-get( $timing-functions, 'move' );
              width: var(--size);
@@ -176,9 +176,8 @@
 
            @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
              &:nth-of-type(#{$number + 1})::before {
-               background-position-y: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))));
-               left: calc((100% / var(--x) * #{$number - 1}) + var(--offset));
-               top: calc((var(--height) - (var(--#{$number}) / var(--y) * var(--height))));
+               --top: calc( (var(--height) - ( var(--#{$number}) / var(--y) * var(--height) ) ) );
+               left: calc( ( 100% / var(--x) * #{$number - 1} ) + var(--offset) );
              }
            }
 
@@ -206,7 +205,7 @@
     * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
     */
    @media screen and (-ms-high-contrast: active) {
-     &.line::before {
+     &.line tr[style]::before {
        background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
      }
    }
