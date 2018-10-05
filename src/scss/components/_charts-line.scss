@@ -56,7 +56,7 @@
        clip-path: polygon(
          0% 100%,
          calc(var(--offset) * 2) 100%,
-         var(--offset) calc(100% - (var(--1) / var(--y) * 100%)),
+         calc(var(--offset) * 2) calc(100% - (var(--1) / var(--y) * 100%)),
          calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--y) * 100%)),
          calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--y) * 100%)),
          calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--y) * 100%)),
