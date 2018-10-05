@@ -37,7 +37,7 @@
      * @link https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/
      * @author Lea Verou
      */
-    [role="presentation"] {
+    span {
       --position: calc(var(--start, 0) * .01turn);
       --zoom: .75;
       clip-path: circle(50% at 0% 50%);
@@ -72,7 +72,7 @@
       }
     }
 
-    tr:hover [role="presentation"] {
+    tr:hover span {
       --zoom: .8;
     }
 
@@ -80,7 +80,7 @@
       $i: index($patterns, ($name $pattern));
 
       tr:nth-child(#{$i}n + #{$i}) th::before,
-      tr:nth-child(#{$i}n + #{$i}) [role="presentation"]::before  {
+      tr:nth-child(#{$i}n + #{$i}) span::before  {
         background-image: url($pattern); /* 1 */
       }
     }
@@ -116,12 +116,12 @@
   @media screen and (-ms-high-contrast: active) {
     &.pie {
       th::before,
-      [role="presentation"]::before {
+      span::before {
         background-color: Window;
       }
 
       tr:nth-of-type(odd) th::before,
-      tr:nth-of-type(odd) [role="presentation"]::before {
+      tr:nth-of-type(odd) span::before {
         background-color: WindowText;
       }
     }
