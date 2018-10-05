@@ -38,12 +38,24 @@
        width: 100%;
        z-index: 1;
      }
+     
+     tr::before {
+       content: "";
+       position: absolute;
+     }
+     
+     th[scope="row"],
+     thead th:first-child {
+         color: var(--color, currentColor);
+         text-align: left;
+     }
 
      tr[style]::before {
        bottom: var(--bottom);
        background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
        clip-path: polygon(
-         0% calc(100% - (var(--1) / var(--y) * 100%)),
+         0% 100%,
+         calc(var(--offset) * 2) 100%,
          var(--offset) calc(100% - (var(--1) / var(--y) * 100%)),
          calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--y) * 100%)),
          calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--y) * 100%)),
@@ -114,9 +126,8 @@
      &.points {
          tr[style] {
              &::before {
+               background: var(--color, currentColor);
                clip-path: polygon(
-                 0% calc(100% - (var(--1) / var(--y) * 100%)),
-                 var(--offset) calc(100% - (var(--1) / var(--y) * 100%)),
                  calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--2) / var(--y) * 100%)),
                  calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--3) / var(--y) * 100%)),
                  calc((100% / var(--x) * 3) + var(--offset)) calc(100% - (var(--4) / var(--y) * 100%)),
@@ -141,19 +152,24 @@
                  calc((100% / var(--x) * 3) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--4) / var(--y) * 100%)),
                  calc((100% / var(--x) * 2) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--3) / var(--y) * 100%)),
                  calc((100% / var(--x) * 1) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--2) / var(--y) * 100%)),
-                 var(--offset) calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%)),
-                 0% calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%))
+                 var(--offset) calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%))
                );
+             }
+             
+             th::before {
+                background: var(--color, currentColor);
+                content: "";
+                display: inline-block;
+                height: 1rem;
+                transform: translate3d(-.2rem, .1rem, 0);
+                width: 1rem;
              }
 
          
            td {
                &::before {
                  --size: #{$gutter};
-                 background-image: linear-gradient(to bottom, palette( secondary, light ) 40%, palette( alert ) 90%);
-                 background-position-x: 0;
-                 background-position-y: var(--top, 100);
-                 background-size: 100% calc(var(--y) * 200%);
+                 background: var(--color, currentColor);
                  border: 2px solid palette( default, contrast );
                  border-radius: 50%;
                  box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
@@ -162,23 +178,20 @@
                  position: absolute;
                  top: var(--top, 100);
                  transform: translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0);
-                 transition: transform .3s map-get( $timing-functions, 'move' );
                  width: var(--size);
-                   will-change: transform;
                  z-index: 4;
                }
+               
+               &:first-of-type::before {
+                   --top: calc( (var(--height) - ( var(--1) / var(--y) * var(--height) ) ) );
+                   left: calc( var(--offset) * 3 );
+                 }
 
-               @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+               @each $number in 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
                  &:nth-of-type(#{$number})::before {
                    --top: calc( (var(--height) - ( var(--#{$number}) / var(--y) * var(--height) ) ) );
                    left: calc( ( 100% / var(--x) * #{$number - 1} ) + var(--offset) );
                  }
-               }
-
-               &:hover::before {
-                 transform: 
-                     translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0) 
-                     scale(1.5);
                }
              }
          }

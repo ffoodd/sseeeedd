@@ -212,19 +212,17 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   <ol>
     <li>
-      Sur le <strong>tableau</strong>, toutes les données importantes sont présentes&nbsp;:
+      Sur le <strong>tableau</strong>, les échelles sont indiquées&nbsp;:
       <ul>
         <li>
           <var>--y</var> définit l’échelle des <strong>ordonnées</strong>, utilisée pour indiquer l’échelle en arrière-plan mais aussi placer
           les points sur la courbe&nbsp;;
         </li>
         <li><var>--x</var> correspond à l’échelle des <strong>abscisses</strong>&nbsp;;</li>
-        <li>puis <var>--1</var>, <var>--2</var>… correspondent à chaque point, avec leur valeur respective.</li>
       </ul>
     </li>
-    <li>La variable <var>--x</var> sert —&nbsp;à l’instar du graphique en barre&nbsp;— à générer les colonnes de la grille automatiquement.</li>
     <li>
-      Pour chaque point placé sur <code>&lt;table&gt;</code>, une position est définie au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
+      Chaque ligne <code>&lt;tr&gt;</code> dans <code>&lt;tbody&gt;</code> porte une palanquée de variables, correspondant à toutes les valeurs présentes. Dans un pseudo-élément <code>::before</code>, une position est définie pour chaque valeur au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
       Étant donné que cette fonction accepte <strong>deux valeurs en pourcentage pour chaque point</strong>, la méthode est relativement simple.
     </li>
     <li>
@@ -267,7 +265,7 @@ document.addEventListener( "DOMContentLoaded", function () {
         <caption id="caption-3">Température mensuelle moyenne en 2017</caption>
         <thead>
           <tr>
-            <th scope="row" class="sr-only">Mois</th>
+            <th scope="col">Année</th>
             <th scope="col">Jan.</th>
             <th scope="col">Fév.</th>
             <th scope="col">Mars</th>
@@ -284,7 +282,7 @@ document.addEventListener( "DOMContentLoaded", function () {
         </thead>
         <tbody>
           <tr style="--1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-            <th scope="row" class="sr-only">2017</th>
+            <th scope="row">2017</th>
             {{ table.line('8', '°C', 'Degré Celsius') }}
             {{ table.line('6', '°C', 'Degré Celsius') }}
             {{ table.line('9', '°C', 'Degré Celsius') }}
@@ -317,12 +315,20 @@ document.addEventListener( "DOMContentLoaded", function () {
   <p>Cette variante diffère finalement assez peu de la précédente mouture&nbsp;:</p>
 
   <ol>
-    <li>le <code>polygon()</code> est poursuivi pour former une ligne&nbsp;;</li>
+    <li>chaque <code>polygon()</code> est poursuivi pour former une ligne&nbsp;;</li>
     <li>
       un pseudo-élément supplémentaire permet d’afficher le point pour chaque valeur
-      —&nbsp;positionné à l’aide des mêmes calculs qui servent dans le polygone.
+      —&nbsp;positionné à l’aide des mêmes calculs qui servent dans le polygone&nbsp;;
     </li>
+     <li>
+        et surtout, cette variante explique pour <code>clip-path</code> est appliqué sur la ligne&nbsp;: vous pouvez en mettre plusieurs&nbsp;!
+      </li>
   </ol>
+
+<div class="note wip">
+    <h5>Chantier en cours</h5>
+    <p>Je suis actuellement en train d’implémenter ce graphique avec plusieurs lignes de données superposées, mais j’ai encore quelques calculs à peaufiner&nbsp;!</p>
+</div>
 
      <div class="table-container" role="group" aria-labelledby="caption-4">
       <div class="fieldset d-flex">
@@ -338,11 +344,11 @@ document.addEventListener( "DOMContentLoaded", function () {
         </button>
       </div>
 
-      <table class="table-charts line points" style="--y: 32; --x: 12; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+      <table class="table-charts line points" style="--y: 32; --x: 12;">
         <caption id="caption-4">Température mensuelle moyenne par année</caption>
         <thead>
           <tr>
-            <th scope="row" class="sr-only">Mois</th>
+            <th scope="col">Année</th>
             <th scope="col">Jan.</th>
             <th scope="col">Fév.</th>
             <th scope="col">Mars</th>
@@ -358,8 +364,8 @@ document.addEventListener( "DOMContentLoaded", function () {
           </tr>
         </thead>
         <tbody>
-          <tr style="--1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-            <th scope="row" class="sr-only">Température</th>
+          <tr style="--color: #0172f0; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+            <th scope="row">2017</th>
             {{ table.line('8', '°C', 'Degré Celsius') }}
             {{ table.line('6', '°C', 'Degré Celsius') }}
             {{ table.line('9', '°C', 'Degré Celsius') }}
@@ -373,8 +379,8 @@ document.addEventListener( "DOMContentLoaded", function () {
             {{ table.line('14', '°C', 'Degré Celsius') }}
             {{ table.line('9', '°C', 'Degré Celsius') }}
           </tr>
-          <tr style="--1: 10; --2: 4; --3: 7; --4: 13; --5: 17; --6: 20; --7: 22; --8: 23; --9: 26; --10: 17; --11: 14; --12: 10;">
-            <th scope="row" class="sr-only">2018</th>
+          <tr style="--color: #ff2d40; --1: 10; --2: 4; --3: 7; --4: 13; --5: 17; --6: 20; --7: 22; --8: 23; --9: 26; --10: 17; --11: 14; --12: 10;">
+            <th scope="row">2018</th>
             {{ table.line('10', '°C', 'Degré Celsius') }}
             {{ table.line('4', '°C', 'Degré Celsius') }}
             {{ table.line('7', '°C', 'Degré Celsius') }}
