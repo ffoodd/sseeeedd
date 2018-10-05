@@ -92,8 +92,8 @@
        }
      }
 
-     th {
-       &::after {
+     th[scope="col"] {
+       &:not(:first-child)::after {
          background-color: palette( default, contrast );
          background-image: url( map-get( $patterns, 'stripes' ) );
          background-blend-mode: exclusion;
