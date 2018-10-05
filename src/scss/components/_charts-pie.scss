@@ -17,6 +17,7 @@
 
     tbody tr {
       display: table-cell;
+      transition: opacity .3s map-get( $timing-functions, 'move' );
     }
 
     tbody th {
@@ -82,6 +83,14 @@
       tr:nth-child(#{$i}n + #{$i}) th::before,
       tr:nth-child(#{$i}n + #{$i}) span::before  {
         background-image: url($pattern); /* 1 */
+      }
+    }
+    
+    tbody:hover tr { 
+      opacity: .75;
+        
+      &:hover {
+        opacity: 1;
       }
     }
   }
