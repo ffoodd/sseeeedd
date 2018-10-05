@@ -219,7 +219,7 @@
                  scale(1.25);
          }
          
-         th {
+         th[scope="col"] {
            &::after {
              mix-blend-mode: multiply;
            }
