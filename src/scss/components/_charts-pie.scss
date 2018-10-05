@@ -27,9 +27,9 @@
         background: var(--color, currentColor);
         content: "";
         display: inline-block;
-        height: 1rem;
+        height: $gutter;
         transform: translate3d(-.2rem, .1rem, 0);
-        width: 1rem;
+        width: $gutter;
       }
     }
 
