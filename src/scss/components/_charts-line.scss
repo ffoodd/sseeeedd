@@ -127,7 +127,7 @@
      &.points {         
          tr[style] {             
              &::before {
-               background: var(--color, currentColor);
+               background-color: var(--color, currentColor);
                clip-path: polygon(
                  calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--1) / var(--y) * 100%)),
                  calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--2) / var(--y) * 100%)),
@@ -162,7 +162,7 @@
              }
              
              th::before {
-                background: var(--color, currentColor);
+                background-color: var(--color, currentColor);
                 content: "";
                 display: inline-block;
                 height: 1rem;
@@ -173,7 +173,7 @@
              td {
                &::before {
                  --size: #{$gutter};
-                 background: var(--color, currentColor);
+                 background-color: var(--color, currentColor);
                  border: 2px solid palette( default, contrast );
                  border-radius: 50%;
                  box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
@@ -202,6 +202,16 @@
                }
              }
          }
+         
+         @each $name, $pattern in $patterns {
+          $i: index($patterns, ($name $pattern));
+
+          tr[style]:nth-child(#{$i}n + #{$i})::before,
+          tr[style]:nth-child(#{$i}n + #{$i}) th::before,
+          tr[style]:nth-child(#{$i}n + #{$i}) td::before  {
+            background-image: url($pattern); /* 1 */
+          }
+        }
          
          tbody:hover tr[style]::before,
          tbody:hover tr[style] td::before {
