@@ -151,8 +151,7 @@
                  calc((100% / var(--x) * 4) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--5) / var(--y) * 100%)),
                  calc((100% / var(--x) * 3) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--4) / var(--y) * 100%)),
                  calc((100% / var(--x) * 2) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--3) / var(--y) * 100%)),
-                 calc((100% / var(--x) * 1) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--2) / var(--y) * 100%)),
-                 var(--offset) calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%))
+                 calc((100% / var(--x) * 1) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--2) / var(--y) * 100%))
                );
              }
              
