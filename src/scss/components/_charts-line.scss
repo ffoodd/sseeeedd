@@ -125,7 +125,15 @@
      }
 
      &.points {
-         tr[style] {
+         tbody:hover tr[style]::before {
+             opacity: .25;
+         }
+         
+         tbody:hover tr[style]:hover::before {
+             opacity: 1;
+         }
+         
+         tr[style] {             
              &::before {
                background: var(--color, currentColor);
                clip-path: polygon(
@@ -158,6 +166,7 @@
                  calc((100% / var(--x) * 2) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--2) / var(--y) * 100%)),
                  calc((100% / var(--x) * 1) + var(--offset)) calc((100% + #{$gutter / 4}) - (var(--1) / var(--y) * 100%))
                );
+            transition: opacity .3s map-get( $timing-functions, 'move' );
              }
              
              th::before {
@@ -170,7 +179,7 @@
              }
 
          
-           td {
+             td {
                &::before {
                  --size: #{$gutter};
                  background: var(--color, currentColor);
