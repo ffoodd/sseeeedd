@@ -315,20 +315,15 @@ document.addEventListener( "DOMContentLoaded", function () {
   <p>Cette variante diffère finalement assez peu de la précédente mouture&nbsp;:</p>
 
   <ol>
-    <li>chaque <code>polygon()</code> est poursuivi pour former une ligne&nbsp;;</li>
+      <li>le <code>polygon()</code> est <strong>poursuivi pour former une ligne</strong>, en dupliquant chaque point avec un décalage de 4px (l’épaisseur du trait) et dans l’ordre inverse&nbsp;;</li>
     <li>
       un pseudo-élément supplémentaire permet d’afficher le point pour chaque valeur
       —&nbsp;positionné à l’aide des mêmes calculs qui servent dans le polygone&nbsp;;
     </li>
      <li>
-        et surtout, cette variante explique pour <code>clip-path</code> est appliqué sur la ligne&nbsp;: vous pouvez en mettre plusieurs&nbsp;!
+        et surtout, puisque <code>clip-path</code> est appliqué <strong>sur la ligne</strong> <code>&lt;tr&gt;</code>&nbsp;: vous pouvez en mettre plusieurs&nbsp;! Il nous faut donc ajouter une combinaison de couleur et motif pour distinguer chaque ligne et les associer visuellement à leur légende.
       </li>
   </ol>
-
-<div class="note wip">
-    <h5>Chantier en cours</h5>
-    <p>Je suis actuellement en train d’implémenter ce graphique avec plusieurs lignes de données superposées, mais j’ai encore quelques calculs à peaufiner&nbsp;!</p>
-</div>
 
      <div class="table-container" role="group" aria-labelledby="caption-4">
       <div class="fieldset d-flex">
