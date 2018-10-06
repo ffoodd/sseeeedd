@@ -188,6 +188,26 @@ gulp.task('favicon', function () {
 
 /**
  * @section Build
+ * Move .htaccess
+ */
+gulp.task('htaccess', function () {
+    gulp.src(paths.dev + '/.htaccess')
+      .pipe(gulp.dest(paths.dest))
+});
+
+
+/**
+ * @section Build
+ * Move humans.txt
+ */
+gulp.task('humans', function () {
+    gulp.src(paths.dev + '/humans.txt')
+      .pipe(gulp.dest(paths.dest))
+});
+
+
+/**
+ * @section Build
  * Move fonts
  */
 gulp.task('fonts', function () {
@@ -200,7 +220,7 @@ gulp.task('fonts', function () {
  * @section Build
  * Watch Sass and JavaScript files
  */
-gulp.task('build', ['clean', 'sass', 'js-deps', 'js', 'img', 'symbol', 'nunjucks', 'favicon', 'fonts']);
+gulp.task('build', ['clean', 'sass', 'js-deps', 'js', 'img', 'symbol', 'nunjucks', 'favicon', 'fonts', 'humans', 'htaccess']);
 
 
 /**
