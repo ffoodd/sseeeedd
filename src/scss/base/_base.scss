@@ -63,6 +63,15 @@ body {
   outline-color: currentColor !important;
 }
 
+/**
+ * @note Visually hide programmatically given focus when using a hover capable pointer
+ * @see https://twitter.com/heydonworks/status/594115773871824897
+ * @see https://twitter.com/AmeliasBrain/status/1026521723888226304
+ */
+body:hover [tabindex="-1"]:focus {
+    outline-color: transparent;
+}
+
 a {
   color: palette( secondary );
   text-decoration-style: dotted;
