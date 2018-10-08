@@ -84,12 +84,14 @@
   // Scrollable tables
   var regions = document.querySelectorAll('.table-container');
 
-  Array.prototype.forEach.call(regions, function(el, i) {
-      var width = el.offsetWidth;
-      var table = el.querySelector('table');
+  if (window.matchMedia('(min-width: 30em)').matches) {
+    Array.prototype.forEach.call(regions, function(el, i) {
+        var width = el.offsetWidth;
+        var table = el.querySelector('table');
 
-      if ( table.offsetWidth > width ) {
-        el.setAttribute('tabindex', '0');
-      }
-  });
+        if ( table.offsetWidth > width ) {
+          el.setAttribute('tabindex', '0');
+        }
+    });
+  }
 })(document);

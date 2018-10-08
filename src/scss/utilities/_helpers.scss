@@ -95,6 +95,12 @@
   float: left;
 }
 
+@media screen and (max-width: em(479)) {
+  .sm-hidden {
+    display: none !important;
+  }
+}
+
 /* Sizing */
 [class*="--s"] {
   font-size: rem( 14 );
