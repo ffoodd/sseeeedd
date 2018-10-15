@@ -56,6 +56,11 @@
       transition: transform .2s map-get( $timing-functions, 'move' );
       width: $width / 2;
 
+      &.over-50 {
+        background-color: var(--color, currentColor);
+        overflow: visible;
+      }
+
       &::before {
         --position: calc(var(--value, 0) * .01turn);
         background-color: var(--color, currentColor);
@@ -80,6 +85,7 @@
     @each $name, $pattern in $patterns {
       $i: index($patterns, ($name $pattern));
 
+      tr:nth-child(#{$i}n + #{$i}) .over-50,
       tr:nth-child(#{$i}n + #{$i}) th::before,
       tr:nth-child(#{$i}n + #{$i}) span::before  {
         background-image: url($pattern); /* 1 */
