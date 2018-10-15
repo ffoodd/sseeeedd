@@ -841,9 +841,10 @@ document.addEventListener( "DOMContentLoaded", function () {
     <p>
       <cite>Olivier Keul</cite> a découvert un problème de conception avec cette méthode,
       lorsque la valeur est supérieure à 50%. Pour le moment, la seule béquille que je peux
-      proposer est d’<strong>utiliser deux éléments</strong> <code>&lt;span&gt;</code>&nbsp;: le premier avec la valeur <var>50</var>,
-      le second avec le reste —&nbsp;et la valeur <var>--start</var> du second élément ajustée en conséquence.
-      Ça fonctionne, mais ça me chagrine&nbsp;!
+      proposer est d’<strong>ajouter une classe</strong> <code>.over-50</code>
+      sur l’élément <code>&lt;span&gt;</code>.
+      Ça fonctionne, mais ça me chagrine&nbsp; il reste un petit décalage sur le motif,
+      appliqué au parent puis au pseudo-élément&nbsp;!
     </p>
 
     <div class="table-container" role="group" aria-labelledby="caption-7">
