@@ -3,6 +3,11 @@
   <th scope="row">{{ term }}</th>
   <td>
     {{ definition }}{% if unit != '' %}&nbsp;{% if title != '' %}<abbr title="{{ title | e }}" aria-label="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}{% endif %}
-    <span style="--value: {{ definition }}; --start: {{ start }};"></span>
+    {% if definition < 50 %}
+        <span style="--value: {{ definition }}; --start: {{ start }};"></span>
+    {% else %}
+      <span style="--value: 50; --start: {{ start }};"></span>
+      <span style="--value: {{ definition - 50 }}; --start: {{ start | int + 50 }};"></span>
+    {% endif %}
   </td>
 {% endmacro %}
