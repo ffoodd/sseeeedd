@@ -41,53 +41,51 @@
     span {
       --position: calc(var(--start, 0) * .01turn);
       --zoom: .75;
-      clip-path: circle(50% at 0% 50%);
+      --default: calc(50 / 4);
+      //clip-path: circle(50% at 0% 50%);
+      background-color: var(--color, currentColor);
+      clip-path: polygon(
+       0% 0%,
+       calc( var(--lt-25, 1) * 50% ) calc( var(--lt-25, 1) * 50% ),
+       calc( var(--step-1, var(--value) ) * 4%) 0%,
+       calc( var(--step-1, 0 ) * 4%) calc( var(--step-2,  0 ) * 4%),
+       calc( 100% - (var(--step-3,  var(--default) ) * 4% ) ) 100%,
+       calc( var(--gt-75, 0) * 50% ) calc( var(--gt-75, 0) * 50% ),
+       0% 100%,
+       0% calc( 100% - ( var(--step-4,  0 ) * 4% ) ),
+       50% 50%
+      );
+      /*
+      calc( var(--lt-25, 1) * 50% ) calc( var(--lt-25, 1) * 50% ),
+      calc( var(--step-1, var(--value) ) * 4%) 0%,
+      calc( var(--step-1, var(--value) ) * 4%) calc( var(--step-2,  var(--default) ) * 4%),
+      calc( var(--gt-50, 0) * 100% ) calc( var(--gt-50, 0) * 100% ),
+      calc( 100% - (var(--step-3,  var(--default) ) * 4% ) ) 100%,
+      calc( var(--gt-75, 0) * 50% ) calc( var(--gt-75, 0) * 50% ),
+      0% calc( 100% - ( var(--step-4,  0 ) * 4% ) )
+      */
       display: block;
-      height: 100%;
+      height: $width / 2;
       left: 50%;
-      overflow: hidden;
-      pointer-events: none;
       position: absolute;
-      top: $gutter * -4;
+      top: 40%;
       transform:
-        rotate(var(--position))
+        translate3d(-50%, -50%, 0)
+        //rotate(var(--position))
         scale(var(--zoom));
-      transform-origin: left center;
       transition: transform .2s map-get( $timing-functions, 'move' );
       width: $width / 2;
-
-      &.over-50 {
-        background-color: var(--color, currentColor);
-        overflow: visible;
-      }
-
-      &::before {
-        --position: calc(var(--value, 0) * .01turn);
-        background-color: var(--color, currentColor);
-        content: "";
-        display: initial;
-        height: 100%;
-        left: -100%;
-        margin: initial;
-        pointer-events: auto;
-        position: inherit;
-        top: 0;
-        transform: rotate(var(--position));
-        transform-origin: right center;
-        width: 100%;
-      }
     }
 
-    tr:hover span {
+    /*tr:hover span {
       --zoom: .8;
-    }
+    }*/
 
     @each $name, $pattern in $patterns {
       $i: index($patterns, ($name $pattern));
 
-      tr:nth-child(#{$i}n + #{$i}) .over-50,
-      tr:nth-child(#{$i}n + #{$i}) th::before,
-      tr:nth-child(#{$i}n + #{$i}) span::before  {
+      tr:nth-child(#{$i}n + #{$i}) span,
+      tr:nth-child(#{$i}n + #{$i}) th::before {
         background-image: url($pattern); /* 1 */
       }
     }
