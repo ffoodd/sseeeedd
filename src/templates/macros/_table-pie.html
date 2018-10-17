@@ -3,10 +3,15 @@
   <th scope="row">{{ term }}</th>
   <td>
     {{ definition }}{% if unit != '' %}&nbsp;{% if title != '' %}<abbr title="{{ title | e }}" aria-label="{{ title | e }}">{% endif %}{{ unit }}{% if title != '' %}</abbr>{% endif %}{% endif %}
-    {% if definition < 50 %}
-      <span style="--value: {{ definition }}; --start: {{ start }};"></span>
+    {% if definition < 25 %}
+      {% set style = "" %}
+    {% elif definition < 50 %}
+      {% set style = "--lt-25: 0; --gt-25: 2; --lt-50: 1;" %}
+    {% elif definition < 75 %}
+      {% set style = "--lt-25: 0; --gt-25: 2; --lt-50: 1; --gt-50: 2; --lt-75: 1;" %}
     {% else %}
-      <span style="--value: {{ definition }}; --step-1: 25; --step-2: 25; --step-3: 25; --step-4: 7; --lt-25: 0; --gt-50: 1; --gt-75: 1; --start: {{ start }};" class="over-50"></span>
+      {% set style = "--lt-25: 0; --gt-25: 2; --lt-50: 1; --gt-50: 2; --lt-75: 1; --gt-75: 0; --lt-100: 1;" %}
     {% endif %}
+    <span style="--value: {{ definition }}; --start: {{ start }}; {{ style }}"></span>
   </td>
 {% endmacro %}
