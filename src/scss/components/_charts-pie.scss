@@ -12,9 +12,9 @@
     position: relative;
 
     tbody {
-      --pi: 3.14159265358979323846;
+      --π: 3.14159265358979323846;
       --side: calc( #{$width} / 2 );
-      --perimeter: calc( var(--side) * var(--pi) );
+      --perimeter: calc( var(--side) * var(--π) );
 
       display: table-row;
 
