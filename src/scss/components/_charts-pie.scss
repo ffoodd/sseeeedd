@@ -48,19 +48,10 @@
        calc( ( ( ( var(--value) - 25 )  * var(--lt-25, 1 ) ) + 25 ) * 4% ) 0%,
        calc( ( var(--gt-25, 0 ) * 25% ) + 50% ) calc( ( ( ( var(--value) - 50 )  * var(--gt-25, 0 ) ) + 50 ) * 2% / var(--lt-50, 2) ),
        calc( 100% - ( ( ( var(--value) - 75 )  * var(--gt-50, 0 ) ) + 50 ) * 2% / var(--lt-75, 2) ) calc( ( var(--gt-50, 0 ) * 25% ) + 50% ),
-       calc( var(--gt-75, 2 ) * 25% ) 50%,
+       calc( var(--gt-75, 2 ) * 25% ) calc( ( 100% - ( ( var(--value) - 75 ) * var(--lt-100, 0 ) ) * 4% ) / var(--lt-100, 2) ),
        50% 50%,
        0% 0%
        );
-      /*
-      calc( var(--lt-25, 1) * 50% ) calc( var(--lt-25, 1) * 50% ),
-      calc( var(--step-1, var(--value) ) * 4%) 0%,
-      calc( var(--step-1, var(--value) ) * 4%) calc( var(--step-2,  var(--default) ) * 4%),
-      calc( var(--gt-50, 0) * 100% ) calc( var(--gt-50, 0) * 100% ),
-      calc( 100% - (var(--step-3,  var(--default) ) * 4% ) ) 100%,
-      calc( var(--gt-75, 0) * 50% ) calc( var(--gt-75, 0) * 50% ),
-      0% calc( 100% - ( var(--step-4,  0 ) * 4% ) )
-      */
       display: block;
       height: $width / 2;
       left: 50%;
@@ -68,8 +59,7 @@
       top: 40%;
       transform:
         translate3d(-50%, -50%, 0)
-        //rotate(var(--position))
-        scale(var(--zoom));
+        rotate( calc(45deg + var(--position)) );
       transition: transform .2s map-get( $timing-functions, 'move' );
       width: $width / 2;
     }
