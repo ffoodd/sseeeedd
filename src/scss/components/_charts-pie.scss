@@ -12,31 +12,34 @@
     position: relative;
 
     tbody {
+      --pi: 3.14159265358979323846;
+      --side: calc( #{$width} / 2 );
+      --perimeter: calc( var(--side) * var(--pi) );
+
       display: table-row;
-    }
 
-    tbody tr {
-      display: table-cell;
-      transition: opacity .3s map-get( $timing-functions, 'move' );
-    }
+      tr {
+        display: table-cell;
+        transition: opacity .3s map-get( $timing-functions, 'move' );
+      }
 
-    tbody th {
-      padding-right: $gutter / 2;
+      th {
+        padding-right: $gutter / 2;
 
-      &::before {
-        background: var(--color, currentColor);
-        content: "";
-        display: inline-block;
-        height: $gutter;
-        transform: translate3d(-.2rem, .1rem, 0);
-        width: $gutter;
+        &::before {
+          background: var(--color, currentColor);
+          content: "";
+          display: inline-block;
+          height: $gutter;
+          transform: translate3d(-.2rem, .1rem, 0);
+          width: $gutter;
+        }
       }
     }
 
     /**
      * @note Pie chart based on:
-     * @link https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/
-     * @author Lea Verou
+     *
      */
     tbody td::before {
       --position: calc(var(--start, 0) * .01turn);
@@ -52,7 +55,7 @@
        0% 0%
        );
       content: '';
-      height: $width / 2;
+      height: var(--side);
       left: 50%;
       position: absolute;
       top: 40%;
@@ -62,7 +65,7 @@
         scale( var(--zoom) );
       transform-origin: center center;
       transition: transform .2s map-get( $timing-functions, 'move' );
-      width: $width / 2;
+      width: var(--side);
     }
 
     tbody tr:hover td::before {
