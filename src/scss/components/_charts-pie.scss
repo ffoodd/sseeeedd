@@ -38,10 +38,9 @@
      * @link https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/
      * @author Lea Verou
      */
-    span {
+    tbody td::before {
       --position: calc(var(--start, 0) * .01turn);
       --zoom: .75;
-      //clip-path: circle(50% at 0% 50%);
       background-color: var(--color, currentColor);
       clip-path: polygon(
        0% 0%,
@@ -52,27 +51,28 @@
        50% 50%,
        0% 0%
        );
-      display: block;
+      content: '';
       height: $width / 2;
       left: 50%;
       position: absolute;
       top: 40%;
       transform:
         translate3d(-50%, -50%, 0)
-        rotate( calc(45deg + var(--position)) );
+        rotate( calc( 45deg + var(--position, 0) ) )
+        scale( var(--zoom) );
+      transform-origin: center center;
       transition: transform .2s map-get( $timing-functions, 'move' );
       width: $width / 2;
     }
 
-    /*tr:hover span {
+    tbody tr:hover td::before {
       --zoom: .8;
-    }*/
+    }
 
     @each $name, $pattern in $patterns {
       $i: index($patterns, ($name $pattern));
 
-      tr:nth-child(#{$i}n + #{$i}) span,
-      tr:nth-child(#{$i}n + #{$i}) th::before {
+      tr:nth-child(#{$i}n + #{$i}) *::before {
         background-image: url($pattern); /* 1 */
       }
     }
@@ -115,13 +115,11 @@
    */
   @media screen and (-ms-high-contrast: active) {
     &.pie {
-      th::before,
-      span::before {
+      tbody tr *::before {
         background-color: Window;
       }
 
-      tr:nth-of-type(odd) th::before,
-      tr:nth-of-type(odd) span::before {
+      tbody tr:nth-of-type(odd) *::before {
         background-color: WindowText;
       }
     }
