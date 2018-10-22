@@ -12,10 +12,6 @@
     position: relative;
 
     tbody {
-      --π: 3.14159265358979323846;
-      --side: calc( #{$width} / 2 );
-      --perimeter: calc( var(--side) * var(--π) );
-
       display: table-row;
 
       tr {
@@ -44,6 +40,7 @@
     tbody td::before {
       --position: calc(var(--start, 0) * .01turn);
       --zoom: .75;
+      --α: 3.14159265358979323846;
       background-color: var(--color, currentColor);
       clip-path: polygon(
        0% 0%,

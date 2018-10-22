@@ -116,7 +116,7 @@
           // calc() sin, dark wizardry!
           @include sin(angle);
           // calc() hypothenuse
-          --hypo: calc( var(--unitless-radius) / var(--sin) );
+          --hypo: calc( var(--unitless-radius) / var(--sin-angle) );
           // get the ratio: skewed / initial width
           --ratio: calc( var(--hypo) / var(--unitless-radius) );
           background: linear-gradient(
