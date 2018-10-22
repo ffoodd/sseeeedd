@@ -1,0 +1,8 @@
+@mixin sin($angle) {
+  --sin-term1: var(--#{$angle});
+  --sin-term2: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 6);
+  --sin-term3: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 120);
+  --sin-term4: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 5040);
+  --sin-term5: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 362880);
+  --sin: calc(var(--sin-term1) - var(--sin-term2) + var(--sin-term3) - var(--sin-term4) + var(--sin-term5));
+}
