@@ -13,6 +13,7 @@
 
     tbody {
       --side: calc( #{$width} / 2 );
+      --hypo: calc( 1024 / 16 / 2 );
       display: table-row;
 
       tr {
@@ -41,6 +42,14 @@
     tbody td::before {
       --position: calc(var(--start, 0) * .01turn);
       --zoom: .75;
+      --part: calc( var(--value) * 3.6deg );
+      --main-angle: calc( ( 90deg + 90deg * var(--lt-50, 0) + 90deg * var(--lt-75, 0) + 90deg * var(--lt-100, 0) ) - var(--part) );
+      --β: calc( var(--main-angle) * 0.01745329251 );
+      --α: calc( ( 180 - 90 - var(--main-angle) ) * 0.01745329251 );
+      @include sin(β);
+      @include sin(α);
+      --B: calc( var(--hypo) * var(--sin-β) );
+      --A: calc( var(--hypo) * var(--sin-α) );
       background-color: var(--color, currentColor);
       clip-path: polygon(
        0% 0%,
