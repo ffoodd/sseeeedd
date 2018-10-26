@@ -55,7 +55,10 @@
       background-color: var(--color, currentColor);
       clip-path: polygon(
        50% 0%,
-       calc( ( ( var(--pos-B) - 50 ) * var(--lt-25, 1 ) * 1% ) + 50% ) calc( 100% - ( var(--pos-A) * 1% ) * var(--lt-25, 1 ) ),
+       100% 0%,
+       calc( ( ( var(--pos-B) - 50 ) * var(--lt-25, 1 ) * 1% ) + 50% + ( var(--gt-25, 0) * 50% ) ) calc( 100% - ( var(--pos-A) * 1% ) * var(--lt-25, 1 ) ),
+       calc( 50% + ( var(--gt-25, 0) * 50% ) ) calc( 50% + ( var(--gt-25, 0) * 50% ) ),
+       calc( ( ( var(--pos-B) - 50 ) * var(--lt-50, 1 ) * 1% ) + 50% + ( var(--gt-50, 0) * 25% ) ) calc( 50% + ( ( var(--pos-A) * -1% ) * var(--lt-50, 1 ) ) ),
        50% 50%
       );
       /*clip-path: polygon(
