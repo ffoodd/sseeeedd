@@ -43,7 +43,7 @@
       --position: calc(var(--start, 0) * .01turn);
       --zoom: .75;
       --part: calc( var(--value) * 3.6 );
-      --main-angle: calc( var(--part) - ( 90 * ( var(--gt-50, 0) + var(--gt-75, 0) + var(--gt-100, 0) ) ) );
+      --main-angle: calc( var(--part) - ( 90 * ( var(--gt-25, 0) + var(--gt-50, 0) + var(--gt-75, 0) ) ) );
       --β: calc( var(--main-angle) * 0.01745329251 );
       --α: calc( ( 90 - var(--main-angle) ) * 0.01745329251 );
       @include sin(β);
@@ -56,8 +56,10 @@
       clip-path: polygon(
        50% 0%,
        100% 0%,
-       calc( 50% + ( var(--pos-B) * var(--lt-25, 1 ) * 1% ) + ( var(--gt-25, 0) * 50% ) ) calc( ( 50% - var(--pos-A) * 1% ) * var(--lt-25, 1 ) ),
+       calc( 50% + ( var(--pos-B) * var(--lt-25, 1 ) * 1% ) + ( var(--gt-25, 0) * 50% ) ) calc( 50% - ( var(--pos-A) * 1% * var(--lt-25, 1 ) ) ),
        calc( 50% + ( var(--gt-25, 0) * 50% ) ) calc( 50% + ( var(--gt-25, 0) * 50% ) ),
+       calc( 50% + ( var(--pos-A) * 1% * var(--lt-50, 1 ) ) ) calc( 50% + ( var(--pos-B) * 1% * var(--lt-50, 1 ) ) ),
+       calc( 50% - ( var(--gt-50, 0) * 50% ) ) calc( 50% + ( var(--gt-50, 0) * 50% ) ),
        50% 50%
       );
       /*clip-path: polygon(
