@@ -713,7 +713,9 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   <p>
     Le graphique en tarte sert pour <strong>les représentations de proportions en pourcentage</strong>.
-    Il est basé sur un <a hreflang="en" href="https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/">article de <cite>Léa Verou</cite> sur Smashing Magazine</a> —&nbsp;quelque peu enrichi grâce à des variables CSS, <code>display: table-*</code>, <code>clip-path</code>, <code>transform</code> et un tantinet de <abbr lang="en" title="Scalable Vectors Graphics">SVG</abbr> pour distinguer chaque zone. Oui, je sais rigoler. Comment qu’on s’en sert&nbsp;?
+    Il s’appuie sur des variables CSS, un abus outrancier de <code>calc()</code>, <code>display: table-*</code>, <code>clip-path</code>, <code>mask-image</code>, <code>transform</code>
+    et un tantinet de <abbr lang="en" title="Scalable Vectors Graphics">SVG</abbr> pour distinguer chaque zone.
+    Oui, je sais rigoler. Comment qu’on s’en sert&nbsp;?
   </p>
 
   <ol>
@@ -721,18 +723,24 @@ document.addEventListener( "DOMContentLoaded", function () {
       <strong>Sur chaque entête</strong> <code>&lt;th&gt;</code>, une variable <var>--color</var> permet d’attribuer, et bien… une couleur.
     </li>
     <li>
-      <strong>Puis chaque cellule</strong> <code>&lt;td&gt;</code>&nbsp;:
+      <strong>Puis chaque cellule</strong> <code>&lt;td&gt;</code> doit contenir la valeur et son unité,
+      ainsi qu’un attribut <code>&lt;style&gt;</code> pour porter quelques variables&nbsp;:
       <ol>
-        <li>doit contenir la valeur et son unité&nbsp;;</li>
         <li>
-          et un <code>&lt;span&gt;</code> sur lequel la magie opère&nbsp;:
-          <ul>
-            <li>
-              Puis <strong>trois variables</strong> permettent de le placer et le colorer fidèlement à la définition fournie&nbsp;: <var>--value</var>, <var>--start</var> et <var>--color</var>.
-              <var>--value</var> correspond à la valeur en pourcentage, utile pour déterminer <strong>l’angle de rotation</strong> de l’arc correspondant.
-              <var>--start</var> permet de définir le <strong>point de départ</strong> de l’arc sur le cercle. Il s’agit de la somme des précédentes définitions, celle-ci incluse.
-              Et <var>--color</var>… Ne me faites pas répéter&nbsp;!
-          </li></ul>
+          <var>--value</var> correspond à la valeur en pourcentage,
+          utile pour déterminer <strong>l’angle</strong> que doit occuper l’élément sur le cercle. Tous les points
+          du <code>polygon()</code> de <code>clip-path</code> dépendent de cette valeur — lire la note technique après l’exemple pour
+          le détail des calculs.
+        </li>
+        <li>
+          <var>--start</var> permet de définir le <strong>point de départ</strong> de l’arc sur le cercle.
+          Il s’agit de la somme des précédentes définitions, et est appliqué à la fonction <code>rotate()</code>
+          de la propriété <code>transform</code>.
+        </li>
+        <li>
+          Et enfin une série de variables <em>booléennes</em>, selon la valeur : <var>--lt-25</var>, <var>--gt-25</var>, <var>--lt-50</var>… p
+          valant chacune <var>0</var> ou <var>1</var> selon le cas. Elles permettent de faire basculer les points de leur position d’origine (<code>50% 50%</code>)
+          à leur position calculée, en s’additionnant ou se soustrayant à la valeur initiale.
         </li>
       </ol>
     </li>
@@ -741,28 +749,28 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   
 
-     <div class="table-container" role="group" aria-labelledby="caption-5">
-      <div class="fieldset d-flex sm-hidden">
-        <p class="label no-margin">
-          <strong id="label-5">Interrupteur</strong><br>
-          <span id="description-5">Permet de désactiver les styles sur le tableau suivant.</span>
-        </p>
-        <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-5" aria-describedby="description-5">
-          <span>Guilleret</span>
-          <span>Sobre</span>
-        </button>
-      </div>
+   <div class="table-container" role="group" aria-labelledby="caption-5">
+    <div class="fieldset d-flex sm-hidden">
+      <p class="label no-margin">
+        <strong id="label-5">Interrupteur</strong><br>
+        <span id="description-5">Permet de désactiver les styles sur le tableau suivant.</span>
+      </p>
+      <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-5" aria-describedby="description-5">
+        <span>Guilleret</span>
+        <span>Sobre</span>
+      </button>
+    </div>
 
-      <table class="table-charts pie">
-        <caption id="caption-5">Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
-        <thead class="sr-only">
-          <tr>
-            <th scope="col">Ressource</th>
-            <th scope="col">Proportion</th>
-          </tr>
-        </thead>
-        <tbody>
-          
+    <table class="table-charts pie">
+      <caption id="caption-5">Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+      <thead class="sr-only">
+        <tr>
+          <th scope="col">Ressource</th>
+          <th scope="col">Proportion</th>
+        </tr>
+      </thead>
+      <tbody>
+        
 <tr style="--color: #734BF9">
   <th scope="row">HTML</th>
   
@@ -772,7 +780,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     2&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #E11A81">
   <th scope="row">CSS</th>
   
@@ -782,7 +790,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     2&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #0172F0">
   <th scope="row">JS</th>
   
@@ -792,7 +800,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     32&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #FDC02F">
   <th scope="row">Json</th>
   
@@ -802,7 +810,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     1&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #39CA74">
   <th scope="row">Images</th>
   
@@ -812,7 +820,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     44&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #FF2D40">
   <th scope="row">Webfonts</th>
   
@@ -822,7 +830,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     17&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #585462">
   <th scope="row">Autres</th>
   
@@ -832,10 +840,44 @@ document.addEventListener( "DOMContentLoaded", function () {
     2&nbsp;%
   </td>
 
-        </tr></tbody>
-      </table>
-    </div>
+      </tr></tbody>
+    </table>
+  </div>
 
+  <div class="note">
+    <h3>Un peu de trigonométrie</h3>
+    <p>
+      Dans ce graphique, chaque portion représente un arc de cercle basé sur un angle (une partie de 360 degrés).
+      Pour définir la forme de cette portion, il faut donc placer un point <strong>sur le cercle</strong>.
+    </p>
+    <p>
+      Pour ce faire, je divise le cercle en quatre carrés. La position du point sur le cercle peut ainsi
+      être calculée en utilisant les propriétés du triangle rectangle formé par&nbsp;:
+    </p>
+    <ol>
+      <li>le centre du cercle,</li>
+      <li>le point que nous cherchons à positionner,</li>
+      <li>et le point perpendiculaire au rayon et passant par notre point cible.</li>
+    </ol>
+    <p>
+      Nous connaissons <strong>l’hypoténuse</strong> de ce triangle —&nbsp;le rayon du cercle&nbsp;—,
+      et <strong>l’angle formé par l’hypoténuse et partant du centre du cercle</strong>
+      (en ramenant la valeur sur 90 degrés, puisque le cercle est divisé en quatre secteurs carrés&nbsp;:
+      si la valeur est supérieure à 25&nbsp;: moins 90°, etc.)
+      —&nbsp;plus un angle droit, bien entendu.
+    </p>
+    <h4>La loi des sinus</h4>
+    <p>
+      Nous pouvons donc <a href="https://fr.wikihow.com/calculer-la-longueur-de-l%27hypot%C3%A9nuse">utiliser la loi des sinus</a> pour mesurer chaque côté,
+      et ainsi obtenir la position du point sur le cercle.
+      Cela implique de calculer le sinus… —&nbsp;fort heureusement,
+      <a href="https://gist.github.com/stereokai/7666bfe93929b14c2dced148c79e0e97" hreflang="en"><cite>Stereokai</cite> a implémenté pour nous
+      la représentation polynomiale de Taylor/Maclaurin en CSS</a>.
+    </p>
+    <p>
+      Il ne reste plus qu’à utiliser ces dimensions pour placer les points du polygône.
+      <strong>Un vrai jeu d’enfants&nbsp;!</strong>
+  </p></div>
 
   <h3><i lang="en">Donut</i></h3>
 
@@ -847,28 +889,28 @@ document.addEventListener( "DOMContentLoaded", function () {
     d’utilisation des <code>mask-*</code> sur CodePen</a>, jetez-y un œil&nbsp;!
   </p>
 
-    <div class="table-container" role="group" aria-labelledby="caption-6">
-      <div class="fieldset d-flex sm-hidden">
-        <p class="label no-margin">
-          <strong id="label-6">Interrupteur</strong><br>
-          <span id="description-6">Permet de désactiver les styles sur le tableau suivant.</span>
-        </p>
-        <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-6" aria-describedby="description-6">
-          <span>Guilleret</span>
-          <span>Sobre</span>
-        </button>
-      </div>
+  <div class="table-container" role="group" aria-labelledby="caption-6">
+    <div class="fieldset d-flex sm-hidden">
+      <p class="label no-margin">
+        <strong id="label-6">Interrupteur</strong><br>
+        <span id="description-6">Permet de désactiver les styles sur le tableau suivant.</span>
+      </p>
+      <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-6" aria-describedby="description-6">
+        <span>Guilleret</span>
+        <span>Sobre</span>
+      </button>
+    </div>
 
-      <table class="table-charts pie donut" style="--offset: 8rem;">
-        <caption id="caption-6">Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
-        <thead class="sr-only">
-          <tr>
-            <th scope="col">Ressource</th>
-            <th scope="col">Proportion</th>
-          </tr>
-        </thead>
-        <tbody>
-          
+    <table class="table-charts pie donut" style="--offset: 8rem;">
+      <caption id="caption-6">Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+      <thead class="sr-only">
+        <tr>
+          <th scope="col">Ressource</th>
+          <th scope="col">Proportion</th>
+        </tr>
+      </thead>
+      <tbody>
+        
 <tr style="--color: #734BF9">
   <th scope="row">HTML</th>
   
@@ -878,7 +920,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     2&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #E11A81">
   <th scope="row">CSS</th>
   
@@ -888,7 +930,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     2&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #0172F0">
   <th scope="row">JS</th>
   
@@ -898,7 +940,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     32&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #FDC02F">
   <th scope="row">Json</th>
   
@@ -908,7 +950,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     1&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #39CA74">
   <th scope="row">Images</th>
   
@@ -918,7 +960,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     44&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #FF2D40">
   <th scope="row">Webfonts</th>
   
@@ -928,7 +970,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     17&nbsp;%
   </td>
 
-          
+        
 </tr><tr style="--color: #585462">
   <th scope="row">Autres</th>
   
@@ -938,9 +980,9 @@ document.addEventListener( "DOMContentLoaded", function () {
     2&nbsp;%
   </td>
 
-        </tr></tbody>
-      </table>
-    </div>
+      </tr></tbody>
+    </table>
+  </div>
 
   <div class="note">
     <h4>Dégradé conique</h4>
