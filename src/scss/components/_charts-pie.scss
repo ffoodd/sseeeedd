@@ -5,7 +5,7 @@
  * @link http://www.heropatterns.com/
 /* ==================== */
 /** Pie charts */
-@supports (--position: calc(var(--start, 0) * .01turn)) {
+@supports (clip-path: polygon( 50% calc( 50% + ( var(--gt-25, 0) ) ) )) {
   &.pie {
     margin: 0 auto;
     padding-top: calc(#{$width / 2} - #{$gutter * 2});
@@ -36,8 +36,15 @@
     }
 
     /**
-     * @note Pie chart based on:
+     * Using clip-path + calc() + transform + CSS vars
+     * Using mask-image to make a circle
      *
+     * @note Based on Ana Tudor's work
+     * @link https://css-tricks.com/1-html-element-5-css-properties-magic/
+     * @author Ana Tudor
+     *
+     * @note Mask support:
+     * @link https://caniuse.com/#search=mask
      */
     tbody td::before {
       --position: calc(var(--start, 0) * .01turn);
@@ -107,26 +114,14 @@
     }
   }
 
-  /**
-   * Using mask-image to make a Donut
-   *
-   * @note Based on Ana Tudor's work
-   * @link https://css-tricks.com/1-html-element-5-css-properties-magic/
-   * @author Ana Tudor
-   *
-   * @note Mask support:
-   * @link https://caniuse.com/#search=mask
-   */
-  @supports (mask: var(--mask)) {
-       &.donut {
-         mask-image: radial-gradient(
-           circle at 50% calc(50% - #{$gutter * 2}),
-           transparent 0%,
-           transparent var(--offset),
-           palette( default, contrast) calc(var(--offset) + 1px),
-           palette( default, contrast) 100%
-         );
-       }
+   &.donut {
+     mask-image: radial-gradient(
+       circle at 50% calc(50% - #{$gutter * 2}),
+       transparent 0%,
+       transparent var(--offset),
+       palette( default, contrast) calc(var(--offset) + 1px),
+       palette( default, contrast) 100%
+     );
    }
 
   /**
