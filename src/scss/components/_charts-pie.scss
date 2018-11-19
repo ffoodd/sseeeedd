@@ -54,12 +54,16 @@
       --pos-A: calc( ( var(--A) * 100 / var(--hypo) ) / 2 );
       background-color: var(--color, currentColor);
       clip-path: polygon(
+       50% 50%,
        50% 0%,
        100% 0%,
-       calc( 50% + ( var(--pos-B) * var(--lt-25, 1 ) * 1% ) + ( var(--gt-25, 0) * 50% ) ) calc( 50% - ( var(--pos-A) * 1% * var(--lt-25, 1 ) ) ),
-       calc( 50% + ( var(--gt-25, 0) * 50% ) ) calc( 50% + ( var(--gt-25, 0) * 50% ) ),
-       calc( 50% + ( var(--pos-A) * 1% * var(--lt-50, 1 ) ) ) calc( 50% + ( var(--pos-B) * 1% * var(--lt-50, 1 ) ) ),
-       calc( 50% - ( var(--gt-50, 0) * 50% ) ) calc( 50% + ( var(--gt-50, 0) * 50% ) ),
+       calc( 50% + ( var(--pos-B) * var(--lt-25, 1) * 1% ) + ( var(--gt-25, 0) * 50% ) ) calc( 50% - ( var(--pos-A) * 1% * var(--lt-25, 1) ) ),
+       calc( 50% + ( var(--gt-25, 0) * 50% ) )                                           calc( 50% + ( var(--gt-25, 0) * 50% ) ),
+       calc( 50% + ( var(--pos-A) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ) calc( 50% + ( var(--pos-B) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ),
+       calc( 50% - ( var(--gt-50, 0) * 50% ) )                                           calc( 50% + ( var(--gt-50, 0) * 50% ) ),
+       calc( 50% - ( var(--pos-B) * 1% * var(--lt-75, 1) ) - ( var(--gt-75, 0) * 50% ) ) calc( 50% + ( var(--pos-A) * 1% * var(--lt-75, 1) ) ),
+       calc( 50% - ( var(--gt-75, 0) * 50% ) )                                           calc( 50% - ( var(--gt-75, 0) * 50% ) ),
+       calc( 50% - ( var(--pos-A) * 1% * var(--gt-75, 0) ) )                             calc( 50% - ( var(--pos-B) * 1% * var(--gt-75, 0) ) ),
        50% 50%
       );
       /*clip-path: polygon(
