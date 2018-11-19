@@ -5,89 +5,102 @@
  * @link http://www.heropatterns.com/
 /* ==================== */
 /** Pie charts */
-@supports (--position: calc(var(--start, 0) * .01turn)) {
+@supports (clip-path: polygon( 50% calc( 50% + ( var(--gt-25, 0) ) ) )) {
   &.pie {
     margin: 0 auto;
     padding-top: calc(#{$width / 2} - #{$gutter * 2});
     position: relative;
 
     tbody {
+      --side: calc( #{$width} / 2 );
+      --hypo: calc( 1024 / 16 / 2 );
       display: table-row;
-    }
 
-    tbody tr {
-      display: table-cell;
-      transition: opacity .3s map-get( $timing-functions, 'move' );
-    }
+      tr {
+        display: table-cell;
+        transition: opacity .3s map-get( $timing-functions, 'move' );
+      }
 
-    tbody th {
-      padding-right: $gutter / 2;
+      th {
+        padding-right: $gutter / 2;
 
-      &::before {
-        background: var(--color, currentColor);
-        content: "";
-        display: inline-block;
-        height: $gutter;
-        transform: translate3d(-.2rem, .1rem, 0);
-        width: $gutter;
+        &::before {
+          background: var(--color, currentColor);
+          content: "";
+          display: inline-block;
+          height: $gutter;
+          transform: translate3d(-.2rem, .1rem, 0);
+          width: $gutter;
+        }
       }
     }
 
     /**
-     * @note Pie chart based on:
-     * @link https://www.smashingmagazine.com/2015/07/designing-simple-pie-charts-with-css/
-     * @author Lea Verou
+     * Using clip-path + calc() + transform + CSS vars
+     * Using mask-image to make a circle
+     *
+     * @note Based on Ana Tudor's work
+     * @link https://css-tricks.com/1-html-element-5-css-properties-magic/
+     * @author Ana Tudor
+     *
+     * @note Mask support:
+     * @link https://caniuse.com/#search=mask
      */
-    span {
+    tbody td::before {
       --position: calc(var(--start, 0) * .01turn);
       --zoom: .75;
-      clip-path: circle(50% at 0% 50%);
-      display: block;
-      height: 100%;
+      --part: calc( var(--value) * 3.6 );
+      --main-angle: calc( var(--part) - ( 90 * ( var(--gt-25, 0) + var(--gt-50, 0) + var(--gt-75, 0) ) ) );
+      --β: calc( var(--main-angle) * 0.01745329251 );
+      --α: calc( ( 90 - var(--main-angle) ) * 0.01745329251 );
+      @include sin(β);
+      @include sin(α);
+      --B: calc( var(--hypo) * var(--sin-β) );
+      --A: calc( var(--hypo) * var(--sin-α) );
+      --pos-B: calc( ( var(--B) * 100 / var(--hypo) ) / 2 );
+      --pos-A: calc( ( var(--A) * 100 / var(--hypo) ) / 2 );
+      background-color: var(--color, currentColor);
+      clip-path: polygon(
+        50% 50%,
+        50% 0%,
+        100% 0%,
+        calc( 50% + ( var(--pos-B) * var(--lt-25, 1) * 1% ) + ( var(--gt-25, 0) * 50% ) ) calc( 50% - ( var(--pos-A) * 1% * var(--lt-25, 1) ) ),
+        calc( 50% + ( var(--gt-25, 0) * 50% ) )                                           calc( 50% + ( var(--gt-25, 0) * 50% ) ),
+        calc( 50% + ( var(--pos-A) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ) calc( 50% + ( var(--pos-B) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ),
+        calc( 50% - ( var(--gt-50, 0) * 50% ) )                                           calc( 50% + ( var(--gt-50, 0) * 50% ) ),
+        calc( 50% - ( var(--pos-B) * 1% * var(--lt-75, 1) ) - ( var(--gt-75, 0) * 50% ) ) calc( 50% + ( var(--pos-A) * 1% * var(--lt-75, 1) ) ),
+        calc( 50% - ( var(--gt-75, 0) * 50% ) )                                           calc( 50% - ( var(--gt-75, 0) * 50% ) ),
+        calc( 50% - ( var(--pos-A) * 1% * var(--gt-75, 0) ) )                             calc( 50% - ( var(--pos-B) * 1% * var(--gt-75, 0) ) ),
+        50% 50%
+      );
+      content: '';
+      height: var(--side);
       left: 50%;
-      overflow: hidden;
-      pointer-events: none;
+      mask-image: radial-gradient(
+        circle at center,
+        palette( default, contrast) 0%,
+        palette( default, contrast) calc(var(--side) / 2),
+        transparent calc(var(--side) / 2)
+      );
       position: absolute;
-      top: $gutter * -4;
+      top: 40%;
       transform:
-        rotate(var(--position))
-        scale(var(--zoom));
-      transform-origin: left center;
+        translate3d(-50%, -50%, 0)
+        rotate( var(--position) )
+        scale( var(--zoom) );
+      transform-origin: center center;
       transition: transform .2s map-get( $timing-functions, 'move' );
-      width: $width / 2;
-
-      &.over-50 {
-        background-color: var(--color, currentColor);
-        overflow: visible;
-      }
-
-      &::before {
-        --position: calc(var(--value, 0) * .01turn);
-        background-color: var(--color, currentColor);
-        content: "";
-        display: initial;
-        height: 100%;
-        left: -100%;
-        margin: initial;
-        pointer-events: auto;
-        position: inherit;
-        top: 0;
-        transform: rotate(var(--position));
-        transform-origin: right center;
-        width: 100%;
-      }
+      width: var(--side);
     }
 
-    tr:hover span {
+    tbody tr:hover td::before {
       --zoom: .8;
     }
 
     @each $name, $pattern in $patterns {
       $i: index($patterns, ($name $pattern));
 
-      tr:nth-child(#{$i}n + #{$i}) .over-50,
-      tr:nth-child(#{$i}n + #{$i}) th::before,
-      tr:nth-child(#{$i}n + #{$i}) span::before  {
+      tr:nth-child(#{$i}n + #{$i}) *::before {
         background-image: url($pattern); /* 1 */
       }
     }
@@ -101,26 +114,14 @@
     }
   }
 
-  /**
-   * Using mask-image to make a Donut
-   *
-   * @note Based on Ana Tudor's work
-   * @link https://css-tricks.com/1-html-element-5-css-properties-magic/
-   * @author Ana Tudor
-   *
-   * @note Mask support:
-   * @link https://caniuse.com/#search=mask
-   */
-  @supports (mask: var(--mask)) {
-       &.donut {
-         mask-image: radial-gradient(
-           circle at 50% calc(50% - #{$gutter * 2.5}),
-           transparent 0%,
-           transparent var(--offset),
-           palette( default, contrast) calc(var(--offset) + 1px),
-           palette( default, contrast) 100%
-         );
-       }
+   &.donut {
+     mask-image: radial-gradient(
+       circle at 50% calc(50% - #{$gutter * 2}),
+       transparent 0%,
+       transparent var(--offset),
+       palette( default, contrast) calc(var(--offset) + 1px),
+       palette( default, contrast) 100%
+     );
    }
 
   /**
@@ -130,13 +131,11 @@
    */
   @media screen and (-ms-high-contrast: active) {
     &.pie {
-      th::before,
-      span::before {
+      tbody tr *::before {
         background-color: Window;
       }
 
-      tr:nth-of-type(odd) th::before,
-      tr:nth-of-type(odd) span::before {
+      tbody tr:nth-of-type(odd) *::before {
         background-color: WindowText;
       }
     }
