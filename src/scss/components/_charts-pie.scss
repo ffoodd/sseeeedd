@@ -69,10 +69,17 @@
       content: '';
       height: var(--side);
       left: 50%;
+      mask-image: radial-gradient(
+        circle at center,
+        palette( default, contrast) 0%,
+        palette( default, contrast) calc(var(--side) / 2),
+        transparent calc(var(--side) / 2)
+      );
       position: absolute;
       top: 40%;
       transform:
         translate3d(-50%, -50%, 0)
+        rotate( var(--position) )
         scale( var(--zoom) );
       transform-origin: center center;
       transition: transform .2s map-get( $timing-functions, 'move' );
@@ -113,7 +120,7 @@
   @supports (mask: var(--mask)) {
        &.donut {
          mask-image: radial-gradient(
-           circle at 50% calc(50% - #{$gutter * 2.5}),
+           circle at 50% calc(50% - #{$gutter * 2}),
            transparent 0%,
            transparent var(--offset),
            palette( default, contrast) calc(var(--offset) + 1px),
