@@ -61,26 +61,76 @@
   <h1>Graphiques</h1>
 
   <p>
-    Les différentes versions de graphiques présentées pour le moment reposent uniquement sur un balisage sémantique
-    —&nbsp;<code>&lt;table&gt;</code> ou <code>&lt;dl&gt;</code>&nbsp;— et une tartine de <strong>variables CSS portées par les balises</strong>.
-    Aucun JavaScript n’est requis, et les styles proposent une
-    <strong>amélioration progressive</strong> selon les capacités de votre navigateur.
+    Les différentes versions de graphiques présentées pour le moment reposent uniquement
+    sur un balisage sémantique —&nbsp;<code>&lt;table&gt;</code> ou <code>&lt;dl&gt;</code>&nbsp;—
+    et une tartine de <strong>variables CSS portées par les balises</strong>.
+    Aucun JavaScript n’est requis pour l’affichage, et les styles sont
+    <strong>améliorés progressivement</strong> selon les capacités de votre navigateur.
   </p>
 
-  <div class="note">
-    <h2 class="h4"><code>display</code> et sémantique</h2>
-    <p>
-      <cite>Adrian Roselli</cite> explique que jouer avec le <code>display</code> d’un élément <code>&lt;table&gt;</code> ou <code>&lt;dl&gt;</code>
-      met en péril sa sémantique. Cette dernière est donc «&nbsp;verrouillée&nbsp;» à l’aide des rôles
-      <abbr lang="en" title="Accessible Rich Internet Application">aria</abbr> dédiés —&nbsp;comme il l’explique
-      <a href="http://adrianroselli.com/2018/02/tables-css-display-properties-and-aria.html" hreflang="en">dans un article détaillé</a>.
-    </p>
-    <p>
-      C’est pourquoi chaque tableau est précédé d’un Interrupteur —&nbsp;basé sur <a hreflang="en" href="https://inclusive-components.design/toggle-button/">le composant inclusif conçu par <cite>Heydon Pickering</cite></a>&nbsp;— dont le seul et unique rôle
-      est de désactiver les styles supplémentaires&nbsp;:
-    </p>
-    <pre>
-      <code class="language-javascript">
+  <h2>L’accessibilité</h2>
+
+  <p>
+    Me triturer les méninges pour pisser du
+    <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">CSS</abbr>
+    inutilisable ne m’intéressant pas outre-mesure, un effort conséquent a été porté à l’accessibilité.
+    Comme évoqué précédement, <strong>un balisage sémantique et structuré est un pré-requis</strong>
+    —&nbsp;mais ça ne suffit pas.
+  </p>
+
+  <h3>Motifs</h3>
+  <p>
+    Pour <strong>distinguer les différentes zones autrement que par la couleur</strong>, un motif
+    <abbr lang="en" title="Scalable Vector Graphics" aria-label="Scalable Vector Graphics">svg</abbr>
+    est appliqué en
+    <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr>.
+    Vous en trouverez quelques-uns sur le site
+    <a hreflang="en" lang="en" href="https://www.heropatterns.com/">Hero Patterns</a>.
+  </p>
+
+  <h3>Respect des préférences</h3>
+  <p>
+    Afin de respecter autant que possible les préférences des visiteurs,
+    de nombreux éléments ont été adaptés&nbsp;:
+  </p>
+  <ol>
+    <li>
+      les dimensions sont en unités relatives (<code>em</code> ou <code>rem</code> selon les cas),
+      afin de s’ajuster de manière cohérente au corps de texte hérité du navigateur et de pouvoir
+      être agrandi ou réduit sans perte&nbsp;;
+    </li>
+    <li>
+      les couleurs sont adaptées lorsque le <strong>mode de contrastes élevés</strong> de Windows est détecté à l’aide de
+      <code>-ms-high-contrast: active</code>, inspiré par
+      <a hreflang="en" href="https://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast">
+      l’article de <cite>Greg Whitworth</cite></a> sur le sujet. Je vous conseille d’ailleurs
+      <a hreflang="en" href="http://www.iangraham.org/books/xhtml1/appd/update-23feb2000.html">
+      l’increvable page <q lang="en">Test of System Colors Specified in CSS 2</q> rédigée
+      par <cite>Ian Graham</cite></a>, éditée en… 2000&nbsp;!
+    </li>
+    <li>
+      les <strong>animations et transitions sont désactivées</strong> lorsque le système
+      expose cette préférence grâce à <code>prefers-reduced-motion: reduce</code>.
+    </li>
+  </ol>
+
+  <h3><code>display</code> et sémantique</h3>
+  <p>
+    <cite>Adrian Roselli</cite> explique que jouer avec le <code>display</code> d’un élément
+    <code>&lt;table&gt;</code> ou <code>&lt;dl&gt;</code> met en péril sa sémantique.
+    Cette dernière est donc «&nbsp;verrouillée&nbsp;» à l’aide des rôles
+    <abbr lang="en" title="Accessible Rich Internet Application" aria-label="Accessible Rich Internet Application">aria</abbr>
+    dédiés —&nbsp;comme il l’explique
+    <a href="http://adrianroselli.com/2018/02/tables-css-display-properties-and-aria.html" hreflang="en">dans un article détaillé</a>.
+  </p>
+  <p>
+    C’est pourquoi chaque tableau est précédé d’un interrupteur —&nbsp;basé sur
+    <a hreflang="en" href="https://inclusive-components.design/toggle-button/">le composant inclusif
+    conçu par <cite>Heydon Pickering</cite></a>&nbsp;—
+    dont le seul et unique rôle est de désactiver les styles supplémentaires&nbsp;:
+  </p>
+  <pre>
+    <code class="language-javascript">
 document.addEventListener( "DOMContentLoaded", function () {
   var switches = document.querySelectorAll( '[role="switch"]' );
 
@@ -94,8 +144,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     });
   });
 });</code>
-    </pre>
-  </div>
+  </pre>
 
   <h2>Graphique en barre</h2>
 
@@ -104,7 +153,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     (dans notre exemple, une ligne de temps).
     Il repose sur les <strong>grilles et les variables CSS</strong>,
     technique inspirée d’<a href="https://css-tricks.com/css-charts-grid-custom-properties/" hreflang="en">un article de <cite>Miriam Suzanne</cite> sur <abbr lang="en" title="Cascading StyleSheet">CSS</abbr> Tricks</a>
-    légèrement agrémentée. Pour vous en servir, c’est simple&nbsp;:
+    légèrement agrémentée pour en améliorer l’accessibilité. Pour vous en servir, c’est simple&nbsp;:
   </p>
 
   <ol>
@@ -124,7 +173,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       refléter la proportion représentée par cette valeur sur l’échelle donnée (du vert pour presque rien au rouge pour presque tout).
     </li>
     <li>
-      <strong>Dans chaque cellule</strong>, le contenu doit reprendre la valeur dans un élément <code>&lt;span&gt;</code> et une unité, éventuellement
+      <strong>Dans chaque cellule</strong>, le contenu doit reprendre la valeur et son unité dans un élément <code>&lt;span&gt;</code>, éventuellement
       balisée avec <code>&lt;abbr&gt;</code> (et <code>aria-label</code> pour suppléer <code>title</code>) si un intitulé peut être explicité pour l’unité.
       Cette valeur est poussée à droite de la grille, et son texte
       sert de masque pour le dégradé en arrière-plan —&nbsp;lui permettant d’être de la couleur correspondante à la fin du dégradé pour la position donnée.
@@ -245,16 +294,6 @@ document.addEventListener( "DOMContentLoaded", function () {
         </tbody>
       </table>
     </div>
-
-  <div class="note">
-    <h3 class="h4">Motifs</h3>
-    <p>
-      Pour distinguer les différentes zones autrement que par la couleur,
-      un motif <abbr lang="en" title="Scalable Vector Graphics">svg</abbr>
-      est appliqué en <abbr lang="en" title="cascading StyleSheet">css</abbr>.
-      Vous en trouverez quelques-uns sur le site <a href="http://www.heropatterns.com/" hreflang="en" lang="en">Hero Patterns</a>.
-    </p>
-  </div>
 
   <h3>Graphique en chute d’eau</h3>
 

@@ -20,7 +20,7 @@
   &.bar {
     caption {
       text-align: initial;
-      text-indent: rem( 200 );
+      text-indent: #{rem( 200 ) + $gutter};
     }
 
     tbody tr {
@@ -53,6 +53,7 @@
           -webkit-background-clip: text;
           font-weight: bold;
           left: 100%;
+          line-height: 1.5;
           position: absolute;
         }
       }
