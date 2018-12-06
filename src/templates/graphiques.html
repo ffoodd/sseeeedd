@@ -398,21 +398,44 @@ document.addEventListener( "DOMContentLoaded", function () {
       Sur le <strong>tableau</strong>, les échelles sont indiquées&nbsp;:
       <ul>
         <li>
-          <var>--y</var> définit l’échelle des <strong>ordonnées</strong>, utilisée pour indiquer l’échelle en arrière-plan mais aussi placer
+          <var>--y</var> définit l’échelle des <strong>ordonnées</strong>, utilisée
+          pour indiquer l’échelle en arrière-plan mais aussi placer
           les points sur la courbe&nbsp;;
         </li>
         <li><var>--x</var> correspond à l’échelle des <strong>abscisses</strong>&nbsp;;</li>
       </ul>
     </li>
     <li>
-      Chaque ligne <code>&lt;tr&gt;</code> dans <code>&lt;tbody&gt;</code> porte une palanquée de variables, correspondant à toutes les valeurs présentes. Dans un pseudo-élément <code>::before</code>, une position est définie pour chaque valeur au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
-      Étant donné que cette fonction accepte <strong>deux valeurs en pourcentage pour chaque point</strong>, la méthode est relativement simple.
+      Chaque ligne <code>&lt;tr&gt;</code> dans <code>&lt;tbody&gt;</code> porte une palanquée
+      de variables, correspondant à toutes les valeurs qu’elle contient.
+      Dans un pseudo-élément <code>::before</code>, une position est définie pour chaque valeur
+      au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
+      <ul>
+        <li>
+          Étant donné que cette fonction accepte <strong>deux valeurs en pourcentage
+          chaque point</strong>, la méthode est relativement simple.
+        </li>
+        <li>
+          Vous l’aurez peut-être compris, le principal écueil de ce graphique est qu’il
+          nécessite de connaître le nombre de points par avance.
+        </li>
+      </ul>
     </li>
     <li>
       Tout le reste n’est que décoration&nbsp;:
       <ul>
-        <li>un arrière-plan dégradé pour représenter la surface pleine&nbsp;;</li>
-        <li>un <code>repeating-linear-gradient()</code> pour représenter l’échelle verticale&nbsp;;</li>
+        <li>
+          un <code>padding-top</code> important sur le tableau pour
+          réserver l’espace d’affichage des graphiques —&nbsp;<strong>attention</strong>&nbsp;:
+          il est nécessaire d’appliquer <code>border-collapse: separate;</code> sur le tableau
+          afin que le <code>padding</code> ait un impact&nbsp;;
+        </li>
+        <li>le <code>::before</code> de chaque ligne est étiré afin d’occuper tout l’espace réservé&nbsp;;</li>
+        <li>un arrière-plan dégradé pour représenter la surface pleine du même <code>::before</code>&nbsp;;</li>
+        <li>
+          un <code>repeating-linear-gradient()</code> pour représenter l’échelle verticale,
+          en arrière-plan du tableau&nbsp;;
+        </li>
         <li>
           et des interactions au survol pour mettre en exergue la valeur survolée&nbsp;:
           sa colonne à l’aide d’un pseudo-élément —&nbsp;positionné à l’aide de de savants calculs&nbsp;—
@@ -422,74 +445,66 @@ document.addEventListener( "DOMContentLoaded", function () {
     </li>
   </ol>
 
-  <p>
-    La seule nuance à apporter dans ce cas est l’ajout de <code>border-collapse: separate;</code> sur le tableau,
-    sans quoi il nous est impossible de lui appliquer un <code>padding-top</code> —&nbsp;qui sert d’espace réservé
-    pour le graphique.
-  </p>
-
   {% import 'macros/_table-line.html' as table %}
 
-     <div class="table-container" role="group" aria-labelledby="caption-3">
-      <div class="fieldset d-flex sm-hidden">
-        <p class="label no-margin">
-          <strong id="label-3">Interrupteur</strong><br>
-          <span id="description-3">Permet de désactiver les styles sur le tableau suivant.</span>
-        </p>
-        <button type="button" class="ml-auto fw-400 no-border p-relative disable-css"
-                role="switch" aria-checked="true"
-                aria-labelledby="label-3" aria-describedby="description-3">
-          <span>Guilleret</span>
-          <span>Sobre</span>
-        </button>
-      </div>
-
-      <table class="table-charts line" style="--y: 32; --x: 13;">
-        <caption id="caption-3">Température mensuelle moyenne en 2017</caption>
-        <thead>
-          <tr>
-            <th scope="col">Année</th>
-            <th scope="col">Jan.</th>
-            <th scope="col">Fév.</th>
-            <th scope="col">Mars</th>
-            <th scope="col">Avr.</th>
-            <th scope="col">Mai</th>
-            <th scope="col">Juin</th>
-            <th scope="col">Juil.</th>
-            <th scope="col">Août</th>
-            <th scope="col">Sep.</th>
-            <th scope="col">Oct.</th>
-            <th scope="col">Nov.</th>
-            <th scope="col">Déc.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="--1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-            <th scope="row">2017</th>
-            {{ table.line('8', '°C', 'Degré Celsius') }}
-            {{ table.line('6', '°C', 'Degré Celsius') }}
-            {{ table.line('9', '°C', 'Degré Celsius') }}
-            {{ table.line('12', '°C', 'Degré Celsius') }}
-            {{ table.line('15', '°C', 'Degré Celsius') }}
-            {{ table.line('21', '°C', 'Degré Celsius') }}
-            {{ table.line('24', '°C', 'Degré Celsius') }}
-            {{ table.line('25', '°C', 'Degré Celsius') }}
-            {{ table.line('22', '°C', 'Degré Celsius') }}
-            {{ table.line('19', '°C', 'Degré Celsius') }}
-            {{ table.line('14', '°C', 'Degré Celsius') }}
-            {{ table.line('9', '°C', 'Degré Celsius') }}
-          </tr>
-        </tbody>
-      </table>
+   <div class="table-container" role="group" aria-labelledby="caption-3">
+    <div class="fieldset d-flex sm-hidden">
+      <p class="label no-margin">
+        <strong id="label-3">Interrupteur</strong><br>
+        <span id="description-3">Permet de désactiver les styles sur le tableau suivant.</span>
+      </p>
+      <button type="button" class="ml-auto fw-400 no-border p-relative disable-css"
+              role="switch" aria-checked="true"
+              aria-labelledby="label-3" aria-describedby="description-3">
+        <span>Guilleret</span>
+        <span>Sobre</span>
+      </button>
     </div>
+
+    <table class="table-charts line" style="--y: 32; --x: 13;">
+      <caption id="caption-3">Température mensuelle moyenne en 2017</caption>
+      <thead>
+        <tr>
+          <th scope="col">Année</th>
+          <th scope="col">Jan.</th>
+          <th scope="col">Fév.</th>
+          <th scope="col">Mars</th>
+          <th scope="col">Avr.</th>
+          <th scope="col">Mai</th>
+          <th scope="col">Juin</th>
+          <th scope="col">Juil.</th>
+          <th scope="col">Août</th>
+          <th scope="col">Sep.</th>
+          <th scope="col">Oct.</th>
+          <th scope="col">Nov.</th>
+          <th scope="col">Déc.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="--1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+          <th scope="row">2017</th>
+          {{ table.line('8', '°C', 'Degré Celsius') }}
+          {{ table.line('6', '°C', 'Degré Celsius') }}
+          {{ table.line('9', '°C', 'Degré Celsius') }}
+          {{ table.line('12', '°C', 'Degré Celsius') }}
+          {{ table.line('15', '°C', 'Degré Celsius') }}
+          {{ table.line('21', '°C', 'Degré Celsius') }}
+          {{ table.line('24', '°C', 'Degré Celsius') }}
+          {{ table.line('25', '°C', 'Degré Celsius') }}
+          {{ table.line('22', '°C', 'Degré Celsius') }}
+          {{ table.line('19', '°C', 'Degré Celsius') }}
+          {{ table.line('14', '°C', 'Degré Celsius') }}
+          {{ table.line('9', '°C', 'Degré Celsius') }}
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="note">
     <h4>Note</h4>
     <p>
-      Le principal écueil de ce graphique est
-      qu’<strong>il nécessite de connaître le nombre de points</strong> par avance.
       Pour jouer d’avantage et vous familiariser avec <code>clip-path</code>,
-      <cite>Bennett Feely</cite> a créé <a href="http://bennettfeely.com/clippy/" hreflang="en">clippy</a>.
+      <cite>Bennett Feely</cite> a créé <a hreflang="en" href="http://bennettfeely.com/clippy/" hreflang="en">clippy</a>.
     </p>
   </div>
 
