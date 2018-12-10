@@ -90,7 +90,13 @@
     </li>
     <li>
       et vous aurez généralement besoin de distinguer l’entête du corps grâce à
-      <code>&lt;thead&gt;</code> et <code>&lt;tbody&gt;</code>.
+      <code>&lt;thead&gt;</code> et <code>&lt;tbody&gt;</code>&nbsp;;
+    </li>
+    <li>
+      pour les valeurs disposant d’une unité&nbsp;: si vous vous aventurez à utiliser l’élement
+      <code>&lt;abbr&gt;</code> pour utiliser sa version abrégée, pensez à doubler l’attribut
+      <code>title</code> avec l’attribut <code>aria-label</code> —&nbsp;cela en améliorera
+      considérablement l’intérêt pour de nombreux internautes.
     </li>
   </ul>
 
@@ -106,10 +112,42 @@
     Pour <strong>distinguer les différentes zones autrement que par la couleur</strong>, un motif
     <abbr lang="en" title="Scalable Vector Graphics" aria-label="Scalable Vector Graphics">svg</abbr>
     est appliqué en
-    <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr>.
-    Vous en trouverez quelques-uns sur le site
-    <a hreflang="en" lang="en" href="https://www.heropatterns.com/">Hero Patterns</a>.
+    <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr>
+    —&nbsp;vous en trouverez quelques-uns sur le site
+    <a hreflang="en" lang="en" href="https://www.heropatterns.com/">Hero Patterns</a>&nbsp;:
   </p>
+  <ol>
+    <li>
+      afin d’améliorer <strong>le mélange avec les couleurs ou dégradés d’arrière-plan</strong>, la propriété
+      <code>background-blend-mode</code> est utilisée avec la valeur <code>hard-light</code>&nbsp;;
+    </li>
+    <li>
+      les <strong>tailles et positions du motif</strong> dépendent directement de la valeur et de l’échelle du graphique,
+      selon le type de graphique&nbsp;;
+    </li>
+    <li>
+      pour ne pas embarquer trop de fichiers externes, <strong>une liste finie de motifs
+      <abbr lang="en" title="Scalable Vector Graphics" aria-label="Scalable Vector Graphics">svg</abbr>
+      encodés en base64</strong> sont utilisés dans le thème. À ce propos, seuls les chevrons et le
+      caracère «&nbsp;#&nbsp;» ont besoin d’être encodés dans le
+      <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr>.
+      Ne vous fatiguez pas avec les autres caractères, leur encodage nuit sérieusement à la lisibilité.
+    </li>
+  </ol>
+
+  <pre>
+    <code class="language-scss">
+tr:nth-child(2n + 2) td {
+  --size: calc(var(--scale, 100) * 100%);
+  --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+  background-image:
+    linear-gradient( right, Window, ButtonFace, ButtonText, highlight ),
+    url(data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E);
+  background-blend-mode: hard-light;
+  background-position: var(--position) 0%, center;
+  background-size:  var(--size) 100%, contain;
+}</code>
+  </pre>
 
   <h3>Respect des préférences</h3>
   <p>
@@ -326,6 +364,33 @@ document.addEventListener( "DOMContentLoaded", function () {
     </table>
   </div>
 
+  <details>
+    <summary>Le <abbr lang="en" title="HyperText Markup Language" aria-label="HyperText Markup Language">HTML</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-markup">
+&lt;table class="table-charts bar" style="--scale: 3000"&gt;
+  &lt;caption id="caption-1"&gt;Temps de chargement pour ffoodd.fr&lt;/caption&gt;
+  &lt;thead class="sr-only"&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;/td&gt;
+      &lt;th scope="col"&gt;Temps de chargement cumulé&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+  &lt;tr&gt;
+    &lt;th scope="row"&gt;Temps&nbsp;: backend&lt;/th&gt;
+    &lt;td style="--value: 4"&gt;
+      &lt;span&gt;4&nbsp;&lt;abbr title="Milliseconde" aria-label="Milliseconde"&gt;ms&lt;/abbr&gt;&lt;/span&gt;
+    &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;[…]&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+        </code>
+      </pre>
+    </div>
+  </details>
   <details>
     <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
     <div>
@@ -544,6 +609,18 @@ document.addEventListener( "DOMContentLoaded", function () {
     </table>
   </div>
 
+  <details>
+    <summary>Le <abbr lang="en" title="HyperText Markup Language" aria-label="HyperText Markup Language">HTML</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-markup">
+&lt;table class="table-charts bar waterfall"
+       style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;"&gt;
+&lt;/table&gt;
+        </code>
+      </pre>
+    </div>
+  </details>
   <details>
     <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
     <div>
