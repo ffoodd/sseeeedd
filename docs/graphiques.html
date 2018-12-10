@@ -62,7 +62,7 @@
 
   <p>
     Les différentes versions de graphiques présentées pour le moment reposent uniquement
-    sur un balisage sémantique —&nbsp;<code>&lt;table&gt;</code> ou <code>&lt;dl&gt;</code>&nbsp;—
+    sur un balisage sémantique —&nbsp;<code>&lt;table></code> ou <code>&lt;dl></code>&nbsp;—
     et une tartine de <strong>variables CSS portées par les balises</strong>.
     Aucun JavaScript n’est requis pour l’affichage, et les styles sont
     <strong>améliorés progressivement</strong> selon les capacités de votre navigateur.
@@ -83,18 +83,18 @@
   <p>Piqure de rappel&nbsp;:</p>
 
   <ul>
-    <li>un tableau doit démarrer par un <code>&lt;caption&gt;</code>&nbsp;;</li>
+    <li>un tableau doit démarrer par un <code>&lt;caption></code>&nbsp;;</li>
     <li>
-      les cellules d’en-tête <code>&lt;th&gt;</code> doivent porter un attribut <code>scope</code>,
+      les cellules d’en-tête <code>&lt;th></code> doivent porter un attribut <code>scope</code>,
       avec une valeur <var>row</var> ou <var>col</var> selon le cas&nbsp;;
     </li>
     <li>
       et vous aurez généralement besoin de distinguer l’entête du corps grâce à
-      <code>&lt;thead&gt;</code> et <code>&lt;tbody&gt;</code>&nbsp;;
+      <code>&lt;thead></code> et <code>&lt;tbody></code>&nbsp;;
     </li>
     <li>
       pour les valeurs disposant d’une unité&nbsp;: si vous vous aventurez à utiliser l’élement
-      <code>&lt;abbr&gt;</code> pour utiliser sa version abrégée, pensez à doubler l’attribut
+      <code>&lt;abbr></code> pour utiliser sa version abrégée, pensez à doubler l’attribut
       <code>title</code> avec l’attribut <code>aria-label</code> —&nbsp;cela en améliorera
       considérablement l’intérêt pour de nombreux internautes.
     </li>
@@ -138,8 +138,8 @@
   <pre>
     <code class="language-scss">
 tr:nth-child(2n + 2) td {
-  --size: calc(var(--scale, 100) * 100%);
-  --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+  --size: calc( var(--scale, 100) * 100% );
+  --position: calc( var(--value, 0) / var(--scale, 100) * 100% );
   background-image:
     linear-gradient( right, Window, ButtonFace, ButtonText, highlight ),
     url(data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E);
@@ -178,7 +178,7 @@ tr:nth-child(2n + 2) td {
   <h3><code>display</code> et sémantique</h3>
   <p>
     <cite>Adrian Roselli</cite> explique que jouer avec le <code>display</code> d’un élément
-    <code>&lt;table&gt;</code> ou <code>&lt;dl&gt;</code> met en péril sa sémantique.
+    <code>&lt;table></code> ou <code>&lt;dl></code> met en péril sa sémantique.
     Cette dernière est donc «&nbsp;verrouillée&nbsp;» à l’aide des rôles
     <abbr lang="en" title="Accessible Rich Internet Application" aria-label="Accessible Rich Internet Application">aria</abbr>
     dédiés —&nbsp;comme il l’explique
@@ -202,9 +202,9 @@ document.addEventListener( "DOMContentLoaded", function () {
 
       var chart = this.parentNode.nextElementSibling;
       chart.classList.toggle( 'table-charts' );
-    });
-  });
-});</code>
+    } );
+  } );
+} );</code>
   </pre>
 
   <p>
@@ -231,20 +231,20 @@ document.addEventListener( "DOMContentLoaded", function () {
       Sur le <strong>tableau</strong>, une variable <var>--scale</var> permet de définir la valeur maximale du graphique,
       afin d’en déterminer l’échelle. Concrètement, une grille va être générée avec&nbsp;:
       <ul>
-        <li>la première colonne pour les entêtes <code>&lt;th&gt;</code> arbitrairement fixée à <code>12.5em</code>&nbsp;;</li>
+        <li>la première colonne pour les entêtes <code>&lt;th></code> arbitrairement fixée à <code>12.5em</code>&nbsp;;</li>
         <li>puis la fonction CSS <code>repeat()</code> crée une colonne par unité de l’échelle —&nbsp;dans l’exemple, 3000 colonnes&nbsp;;</li>
         <li>enfin une dernière colonne mesurant <code>10ch</code>, soit l’espace suffisant pour dix lettres.</li>
       </ul>
     </li>
     <li>
-      <strong>Sur chaque cellule</strong> <code>&lt;td&gt;</code>, une variable <var>--value</var> permet de la placer sur la grille,
+      <strong>Sur chaque cellule</strong> <code>&lt;td></code>, une variable <var>--value</var> permet de la placer sur la grille,
       appliquée à <code>grid-column-end</code>.
       De plus grâce à de savants calculs reposant sur cette valeur, le dégradé en arrière-plan est dimensionné et positionné de façon à
       refléter la proportion représentée par cette valeur sur l’échelle donnée (du vert pour presque rien au rouge pour presque tout).
     </li>
     <li>
-      <strong>Dans chaque cellule</strong>, le contenu doit reprendre la valeur et son unité dans un élément <code>&lt;span&gt;</code>, éventuellement
-      balisée avec <code>&lt;abbr&gt;</code> (et <code>aria-label</code> pour suppléer <code>title</code>) si un intitulé peut être explicité pour l’unité.
+      <strong>Dans chaque cellule</strong>, le contenu doit reprendre la valeur et son unité dans un élément <code>&lt;span></code>, éventuellement
+      balisée avec <code>&lt;abbr></code> (et <code>aria-label</code> pour suppléer <code>title</code>) si un intitulé peut être explicité pour l’unité.
       Cette valeur est poussée à droite de la grille, et son texte
       sert de masque pour le dégradé en arrière-plan —&nbsp;lui permettant d’être de la couleur correspondante à la fin du dégradé pour la position donnée.
     </li>
@@ -369,24 +369,24 @@ document.addEventListener( "DOMContentLoaded", function () {
     <div>
       <pre>
         <code class="language-markup">
-&lt;table class="table-charts bar" style="--scale: 3000"&gt;
-  &lt;caption id="caption-1"&gt;Temps de chargement pour ffoodd.fr&lt;/caption&gt;
-  &lt;thead class="sr-only"&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;/td&gt;
-      &lt;th scope="col"&gt;Temps de chargement cumulé&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-  &lt;tr&gt;
-    &lt;th scope="row"&gt;Temps&nbsp;: backend&lt;/th&gt;
-    &lt;td style="--value: 4"&gt;
-      &lt;span&gt;4&nbsp;&lt;abbr title="Milliseconde" aria-label="Milliseconde"&gt;ms&lt;/abbr&gt;&lt;/span&gt;
-    &lt;/td&gt;
-  &lt;/tr&gt;
-  &lt;tr&gt;[…]&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+&lt;table class="table-charts bar" style="--scale: 3000">
+  &lt;caption id="caption-1">Temps de chargement pour ffoodd.fr&lt;/caption>
+  &lt;thead class="sr-only">
+    &lt;tr>
+      &lt;td>&lt;/td>
+      &lt;th scope="col">Temps de chargement cumulé&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+  &lt;tr>
+    &lt;th scope="row">Temps&nbsp;: backend&lt;/th>
+    &lt;td style="--value: 4">
+      &lt;span>4&nbsp;&lt;abbr title="Milliseconde" aria-label="Milliseconde">ms&lt;/abbr>&lt;/span>
+    &lt;/td>
+  &lt;/tr>
+  &lt;tr>[…]&lt;/tr>
+&lt;/tbody>
+&lt;/table>
         </code>
       </pre>
     </div>
@@ -394,9 +394,18 @@ document.addEventListener( "DOMContentLoaded", function () {
   <details>
     <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
     <div>
+      <p>
+        Il y a un certains nombres de variables
+        <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr>
+        dans ce code, pour les transitions, les couleurs ou les dimensions par exemples.
+        Elles sont propres à sseeeedd.
+        Je les laisse afin de montrer l’adaptabilité de ces techniques, mais je vous invite
+        <strong>à jeter un œil à votre inspecteur</strong> si vous souhaitez consulter
+        une version statique de ce code.
+      </p>
       <pre>
         <code class="language-scss">
-@supports (grid-template-columns: repeat(var(--scale, 100), minmax(0, 1fr))) {
+@supports (grid-template-columns: repeat( var(--scale, 100), minmax(0, 1fr) )) {
   .bar {
     caption {
       text-align: initial;
@@ -407,7 +416,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       display: grid;
       grid-auto-rows: 1fr;
       grid-row-gap: $gutter / 2;
-      grid-template-columns: minmax(min-content, em( 200 )) repeat(var(--scale, 100), minmax(0, 1fr)) 10ch;
+      grid-template-columns: minmax(min-content, em( 200 ) ) repeat( var(--scale, 100), minmax(0, 1fr) ) 10ch;
       transition: opacity .2s map-get( $timing-functions, 'move' );
 
       th {
@@ -418,8 +427,8 @@ document.addEventListener( "DOMContentLoaded", function () {
       }
 
       td {
-        --size: calc(var(--scale, 100) * 100%);
-        --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+        --size: calc( var(--scale, 100) * 100% );
+        --position: calc( var(--value, 0) / var(--scale, 100) * 100% );
         background-blend-mode: hard-light;
         background-position: var(--position) 0%, center;
         background-size:  var(--size) 100%, contain;
@@ -439,9 +448,9 @@ document.addEventListener( "DOMContentLoaded", function () {
       }
 
       @each $name, $pattern in $patterns {
-        $i: index($patterns, ($name $pattern));
+        $i: index($patterns, ($name $pattern) );
 
-        &:nth-child(#{$i}n + #{$i}) td {
+        &:nth-child(#{$i}n + #{$i} ) td {
           background-image:
             linear-gradient(to right,
               palette( success, dark ),
@@ -465,9 +474,9 @@ document.addEventListener( "DOMContentLoaded", function () {
 
     @media screen and (-ms-high-contrast: active) {
       @each $name, $pattern in $patterns {
-        $i: index($patterns, ($name $pattern));
+        $i: index($patterns, ($name $pattern) );
 
-        &:nth-child(#{$i}n + #{$i}) td {
+        &:nth-child(#{$i}n + #{$i} ) td {
           background-image:
             linear-gradient(to right,
               Window,
@@ -493,7 +502,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     on gère également <strong>le point de départ</strong> pour chaque mesure
     —&nbsp;qui est, très simplement, la valeur du point précédent…
     Il faut cependant passer toutes les valeurs en tant que variables sur
-    le parent <code>&lt;table&gt;</code>.
+    le parent <code>&lt;table></code>.
   </p>
 
    <div class="table-container" role="group" aria-labelledby="caption-2">
@@ -615,8 +624,8 @@ document.addEventListener( "DOMContentLoaded", function () {
       <pre>
         <code class="language-markup">
 &lt;table class="table-charts bar waterfall"
-       style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;"&gt;
-&lt;/table&gt;
+       style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
+&lt;/table>
         </code>
       </pre>
     </div>
@@ -628,7 +637,7 @@ document.addEventListener( "DOMContentLoaded", function () {
         <code class="language-scss">
 &.waterfall {
   @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 {
-    tr:nth-of-type(#{$number}) td {
+    tr:nth-of-type(#{$number} ) td {
       grid-column: var(--#{$number - 1}, 0) / var(--value, 0);
     }
   }
@@ -655,11 +664,14 @@ document.addEventListener( "DOMContentLoaded", function () {
           pour indiquer l’échelle en arrière-plan mais aussi placer
           les points sur la courbe&nbsp;;
         </li>
-        <li><var>--x</var> correspond à l’échelle des <strong>abscisses</strong>&nbsp;;</li>
+        <li>
+          <var>--x</var> correspond à l’échelle des <strong>abscisses</strong>, exprimée
+          simplement comme le nombre de colonnes à afficher&nbsp;;
+        </li>
       </ul>
     </li>
     <li>
-      Chaque ligne <code>&lt;tr&gt;</code> dans <code>&lt;tbody&gt;</code> porte une palanquée
+      Chaque ligne <code>&lt;tr></code> dans <code>&lt;tbody></code> porte une palanquée
       de variables, correspondant à toutes les valeurs qu’elle contient.
       Dans un pseudo-élément <code>::before</code>, une position est définie pour chaque valeur
       au sein de la fonction <code>polygon()</code> de <code>clip-path</code>.
@@ -667,10 +679,16 @@ document.addEventListener( "DOMContentLoaded", function () {
         <li>
           Étant donné que cette fonction accepte <strong>deux valeurs en pourcentage
           chaque point</strong>, la méthode est relativement simple.
+          La position en abscisse est le nombre de colonnes (le décalage depuis la gauche, donc)
+          et la position en ordonnée est le ratio de la valeur sur l’échelle, le tout <strong>formulé ainsi</strong>&nbsp;:
+          <code>calc( ( 100% / var(--x) * 1 ) + var(--offset) ) calc( 100% - ( var(--1) / var(--y) * 100% ) )</code>,
+          où <var>* 1</var> et <var>var(--1)</var> correspondent à l’index de la valeur dans l’ensemble,
+          et <var>var(--offset)</var> est la valeur d’une demi-colonne, pour placer le point au milieu
+          de sa colonne.
         </li>
         <li>
-          Vous l’aurez peut-être compris, le principal écueil de ce graphique est qu’il
-          nécessite de connaître le nombre de points par avance.
+          Vous l’aurez peut-être compris, <strong>le principal écueil de ce graphique est qu’il
+          nécessite de connaître le nombre de points par avance</strong>.
         </li>
       </ul>
     </li>
@@ -799,11 +817,171 @@ document.addEventListener( "DOMContentLoaded", function () {
     </table>
   </div>
 
+  <details>
+    <summary>Le <abbr lang="en" title="HyperText Markup Language" aria-label="HyperText Markup Language">HTML</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-markup">
+&lt;table class="table-charts line" style="--y: 32; --x: 13;">
+  &lt;caption id="caption-3">Température mensuelle moyenne en 2017&lt;/caption>
+  &lt;thead>
+    &lt;tr>
+      &lt;th scope="col">Année&lt;/th>
+      &lt;th scope="col">Jan.&lt;/th>
+      &lt;th scope="col">[…]&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr style="--1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+      &lt;th scope="row">2017&lt;/th>
+      &lt;td>
+        &lt;span>8&nbsp;&lt;abbr title="Degré Celsius" aria-label="Degré Celsius">°C&lt;/abbr>&lt;/span>
+      &lt;/td>
+      &lt;td>[…]&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
+&lt;/table></code>
+      </pre>
+    </div>
+  </details>
+  <details>
+    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <div>
+      <p>
+        Il y a un certains nombres de variables
+        <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr>
+        dans ce code, pour les transitions, les couleurs ou les dimensions par exemples.
+        Elles sont propres à sseeeedd.
+        Je les laisse afin de montrer l’adaptabilité de ces techniques, mais je vous invite
+        <strong>à jeter un œil à votre inspecteur</strong> si vous souhaitez consulter
+        une version statique de ce code.
+      </p>
+      <pre>
+        <code class="language-scss">
+@supports (clip-path: polygon(0% calc( 100% - ( var(--1) * 100% / var(--y) )) )) {
+  .line {
+    --offset: calc( ( 100% / var(--x) ) / 2);
+    --height: calc( #{$width / 2} - #{$gutter * 2} );
+    --bottom: calc( 100% - var(--height) );
+    padding: var(--height) 0 $gutter;
+    position: relative;
+    transition:
+      background .3s map-get( $timing-functions, 'move' ),
+      color .3s map-get( $timing-functions, 'move' );
+
+    &::after {
+      --scale: calc( ( 100% - ( var(--y) * 1px) ) / var(--y) );
+      background:
+        repeating-linear-gradient(
+          to bottom,
+          white, white var(--scale),
+          rgba(0, 0, 0, .25) calc( var(--scale) + 1px)
+        );
+      bottom: var(--bottom);
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 1;
+    }
+
+    tr::before {
+      content: "";
+      position: absolute;
+    }
+
+    th[scope="row"],
+    thead th:first-child {
+        color: var(--color, currentColor);
+        text-align: left;
+    }
+
+    tr[style]::before {
+      bottom: var(--bottom);
+      background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
+      clip-path: polygon(
+        0% 100%,
+        calc( ( 100% / var(--x) * 1) ) 100%,
+        calc( ( 100% / var(--x) * 1) ) calc( 100% - ( var(--1) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 1) + var(--offset) ) calc( 100% - ( var(--1) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 2) + var(--offset) ) calc( 100% - ( var(--2) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 3) + var(--offset) ) calc( 100% - ( var(--3) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 4) + var(--offset) ) calc( 100% - ( var(--4) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 5) + var(--offset) ) calc( 100% - ( var(--5) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 6) + var(--offset) ) calc( 100% - ( var(--6) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 7) + var(--offset) ) calc( 100% - ( var(--7) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 8) + var(--offset) ) calc( 100% - ( var(--8) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 9) + var(--offset) ) calc( 100% - ( var(--9) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 10) + var(--offset) ) calc( 100% - ( var(--10) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 11) + var(--offset) ) calc( 100% - ( var(--11) / var(--y) * 100% ) ),
+        calc( ( 100% / var(--x) * 12) + var(--offset) ) calc( 100% - ( var(--12) / var(--y) * 100% ) ),
+        100% calc( 100% - ( var(--12) / var(--y) * 100% ) ),
+        100% 100%,
+        0% 100%
+      );
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 2;
+    }
+
+    th,
+    td {
+      background: palette( default, contrast );
+      font-weight: bold;
+      text-align: center;
+      width: calc( 100% / var(--x) );
+      width: 7.69%; /* 1 */
+
+      &:hover {
+        color: palette( secondary );
+      }
+    }
+
+    th[scope="col"] {
+      &:not(:first-child)::after {
+        background-color: palette( default, contrast );
+        background-image: url( map-get( $patterns, 'stripes' ) );
+        background-blend-mode: exclusion;
+        bottom: $gutter * 4;
+        content: "";
+        height: calc( 100% - #{$gutter * 4} );
+        mix-blend-mode: soft-light;
+        opacity: 0;
+        position: absolute;
+        transition: opacity .3s map-get( $timing-functions, 'move' );
+        width: inherit;
+        z-index: 3;
+      }
+
+      @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+        &:nth-child(#{$number + 1} )::after {
+          left: calc( 100% / var(--x) * #{$number} );
+        }
+      }
+
+      &:hover::after {
+        opacity: .75;
+      }
+    }
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    &.line tr[style]::before {
+      background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
+    }
+  }</code>
+      </pre>
+    </div>
+  </details>
+
   <div class="note">
     <h4>Note</h4>
     <p>
       Pour jouer d’avantage et vous familiariser avec <code>clip-path</code>,
-      <cite>Bennett Feely</cite> a créé <a hreflang="en" href="http://bennettfeely.com/clippy/">clippy</a>.
+      <cite>Bennett Feely</cite> a créé
+      <a hreflang="en" href="http://bennettfeely.com/clippy/">clippy</a>.
     </p>
   </div>
 
@@ -812,14 +990,21 @@ document.addEventListener( "DOMContentLoaded", function () {
   <p>Cette variante diffère finalement assez peu de la précédente mouture&nbsp;:</p>
 
   <ol>
-      <li>le <code>polygon()</code> est <strong>poursuivi pour former une ligne</strong>, en dupliquant chaque point avec un décalage de 4px (l’épaisseur du trait) et dans l’ordre inverse&nbsp;;</li>
+    <li>
+        le <code>polygon()</code> est <strong>poursuivi pour former une ligne</strong>,
+        en dupliquant chaque point avec un décalage de <var>4px</var> (l’épaisseur du trait)
+        et dans l’ordre inverse&nbsp;;
+    </li>
     <li>
       un pseudo-élément supplémentaire permet d’afficher le point pour chaque valeur
       —&nbsp;positionné à l’aide des mêmes calculs qui servent dans le polygone&nbsp;;
     </li>
-     <li>
-        et surtout, puisque <code>clip-path</code> est appliqué <strong>sur la ligne</strong> <code>&lt;tr&gt;</code>&nbsp;: vous pouvez en mettre plusieurs&nbsp;! Il nous faut donc ajouter une combinaison de couleur et motif pour distinguer chaque ligne et les associer visuellement à leur légende.
-      </li>
+    <li>
+      et surtout, puisque <code>clip-path</code> est appliqué <strong>sur la ligne</strong>
+      <code>&lt;tr></code>&nbsp;: vous pouvez en mettre <strong>plusieurs</strong>&nbsp;!
+      Il nous faut donc ajouter une combinaison de couleur et motif pour distinguer chaque ligne
+      et les associer visuellement à leur légende.
+    </li>
   </ol>
 
      <div class="table-container" role="group" aria-labelledby="caption-4">
@@ -984,6 +1169,129 @@ document.addEventListener( "DOMContentLoaded", function () {
       </table>
     </div>
 
+    <details>
+      <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+      <div>
+        <pre>
+          <code class="language-scss">
+.points {
+    tr[style] {
+        &::before {
+          background-color: var(--color, currentColor);
+          clip-path: polygon(
+            calc( ( 100% / var(--x) * 1 ) + var(--offset) ) calc( 100% - ( var(--1) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 2 ) + var(--offset) ) calc( 100% - ( var(--2) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 3 ) + var(--offset) ) calc( 100% - ( var(--3) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 4 ) + var(--offset) ) calc( 100% - ( var(--4) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 5 ) + var(--offset) ) calc( 100% - ( var(--5) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 6 ) + var(--offset) ) calc( 100% - ( var(--6) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 7 ) + var(--offset) ) calc( 100% - ( var(--7) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 8 ) + var(--offset) ) calc( 100% - ( var(--8) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 9 ) + var(--offset) ) calc( 100% - ( var(--9) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 10 ) + var(--offset) ) calc( 100% - ( var(--10) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 11 ) + var(--offset) ) calc( 100% - ( var(--11) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 12 ) + var(--offset) ) calc( 100% - ( var(--12) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 13 ) + var(--offset) ) calc( 100% - ( var(--12) / var(--y) * 100% ) ),
+            100% calc( 100% - ( var(--12) / var(--y) * 100% ) ),
+            100% calc( ( 100% + #{$gutter / 4} ) - ( var(--12) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 13 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--12) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 12 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--12) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 11 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--11) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 10 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--10) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 9 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--9) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 8 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--8) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 7 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--7) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 6 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--6) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 5 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--5) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 4 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--4) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 3 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--3) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 2 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--2) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 1 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--1) / var(--y) * 100% ) )
+          );
+          transition: opacity .3s map-get( $timing-functions, 'move' );
+        }
+
+        th::before {
+           background-color: var(--color, currentColor);
+           content: "";
+           display: inline-block;
+           height: 1rem;
+           transform: translate3d(-.2rem, .1rem, 0);
+           width: 1rem;
+        }
+
+        td {
+          &::before {
+            --size: #{$gutter};
+            background-color: var(--color, currentColor);
+            border: 2px solid palette( default, contrast );
+            border-radius: 50%;
+            box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
+            content: "";
+            height: var(--size);
+            position: absolute;
+            top: var(--top, 100);
+            transform: translate3d(calc( var(--size) / -2), calc( var(--size) / -2), 0);
+            transition:
+                opacity .3s map-get( $timing-functions, 'move' ),
+                transform .3s map-get( $timing-functions, 'move' );
+            width: var(--size);
+            z-index: 4;
+          }
+
+          &:first-of-type::before {
+            --top: calc( ( var(--height) - ( var(--1) / var(--y) * var(--height) ) ) );
+            left: calc( var(--offset) * 3 );
+          }
+
+          @each $number in 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+            &:nth-of-type(#{$number} )::before {
+              --top: calc( ( var(--height) - ( var(--#{$number} ) / var(--y) * var(--height) ) ) );
+              left: calc( ( 100% / var(--x) * #{$number } ) + var(--offset) );
+            }
+          }
+        }
+    }
+
+    @each $name, $pattern in $patterns {
+     $i: index($patterns, ($name $pattern) );
+
+     tr[style]:nth-child(#{$i}n + #{$i} )::before,
+     tr[style]:nth-child(#{$i}n + #{$i} ) th::before,
+     tr[style]:nth-child(#{$i}n + #{$i} ) td::before  {
+       background-image: url($pattern);
+     }
+   }
+
+    tbody:hover tr[style]::before,
+    tbody:hover tr[style] td::before {
+        opacity: .25;
+    }
+
+    tbody:hover tr[style]:hover::before,
+    tbody:hover tr[style]:hover td::before {
+        opacity: 1;
+    }
+
+    tbody:hover tr[style]:hover td::before {
+        transform:
+            translate3d( calc( var(--size) / -2 ), calc( var(--size ) / -2), 0 )
+            scale( 1.25 );
+    }
+
+    th[scope="col"]::after {
+        mix-blend-mode: multiply;
+    }
+
+    th[scope="col"]:hover::after {
+       opacity: .5;
+    }
+  }
+}</code>
+        </pre>
+      </div>
+    </details>
+
   <h2>Graphique en tarte</h2>
 
   <p>
@@ -995,11 +1303,11 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   <ol>
     <li>
-      <strong>Sur chaque entête</strong> <code>&lt;th&gt;</code>, une variable <var>--color</var> permet d’attribuer, et bien… une couleur.
+      <strong>Sur chaque entête</strong> <code>&lt;th></code>, une variable <var>--color</var> permet d’attribuer, et bien… une couleur.
     </li>
     <li>
-      <strong>Puis chaque cellule</strong> <code>&lt;td&gt;</code> doit contenir la valeur et son unité,
-      ainsi qu’un attribut <code>&lt;style&gt;</code> pour porter quelques variables&nbsp;:
+      <strong>Puis chaque cellule</strong> <code>&lt;td></code> doit contenir la valeur et son unité,
+      ainsi qu’un attribut <code>&lt;style></code> pour porter quelques variables&nbsp;:
       <ol>
         <li>
           <var>--value</var> correspond à la valeur en pourcentage,
@@ -1157,7 +1465,7 @@ document.addEventListener( "DOMContentLoaded", function () {
   <h3><i lang="en">Donut</i></h3>
 
   <p>
-    Sur l’élément <code>&lt;table&gt;</code>, on ajoute une variable <var>--offset</var>
+    Sur l’élément <code>&lt;table></code>, on ajoute une variable <var>--offset</var>
     qui permet de déterminer la dimension du trou du <em lang="en">donut</em>,
     généré à l’aide de <code>mask-image</code> et <code>radial-gradient()</code>.
     <cite>Ana Tudor</cite> a réalisé <a href="https://codepen.io/thebabydino/pens/tags/?selected_tag=mask" hreflang="en">de très nombreux exemples
@@ -1286,15 +1594,15 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   <ul>
     <li>
-      Sur l’élément <code>&lt;dl&gt;</code>, on crée l’échelle circulaire à l’aide de deux <code>repeating-radial-gradient()</code>
+      Sur l’élément <code>&lt;dl></code>, on crée l’échelle circulaire à l’aide de deux <code>repeating-radial-gradient()</code>
       successifs —&nbsp;en fonction des variables <var>--scale</var> et <var>--step</var>&nbsp;;
     </li>
     <li>
-      Chaque élément <code>&lt;dt&gt;</code> est déplacé à l’extérieur du cercle, grâce à une technique
+      Chaque élément <code>&lt;dt></code> est déplacé à l’extérieur du cercle, grâce à une technique
       empruntée à <a href="https://stackoverflow.com/questions/12813573/position-icons-into-circle" hreflang="en"><cite>Ana Tudor</cite>, qui l’explique sur StackOverflow</a>&nbsp;;
     </li>
     <li>
-      Puis la magie opère sur les éléments <code>&lt;dd&gt;</code>&nbsp;:
+      Puis la magie opère sur les éléments <code>&lt;dd></code>&nbsp;:
       <ol>
         <li>chacun est ajusté pour former <strong>un carré dont le côté est égal au rayon du cercle</strong> en arrière-plan&nbsp;</li>
         <li>
@@ -1304,7 +1612,7 @@ document.addEventListener( "DOMContentLoaded", function () {
         <li>chacun se voit décoré d’une bordure, en bas&nbsp;;</li>
         <li>
           puis on utilise de nouveau <code>clip-path</code> et la fonction <code>polygon()</code> sur chaque enfant direct
-          <code>&lt;span&gt;</code> —&nbsp;étendu pour occuper toute la surface de son <code>&lt;dd&gt;</code> de parent&nbsp;—
+          <code>&lt;span></code> —&nbsp;étendu pour occuper toute la surface de son <code>&lt;dd></code> de parent&nbsp;—
           afin de former un triangle, basé pour un côté sur le ratio valeur de l’élément courant / échelle, et sur un autre côté un ratio
           basé sur la valeur de l’élément suivant (miam les <code>calc()</code>) mais sur une autre échelle…
         </li>
