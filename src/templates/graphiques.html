@@ -770,8 +770,8 @@ document.addEventListener( "DOMContentLoaded", function () {
   <ol>
     <li>
         le <code>polygon()</code> est <strong>poursuivi pour former une ligne</strong>,
-        en dupliquant chaque point avec un décalage de <var>4px</var> (l’épaisseur du trait)
-        et dans l’ordre inverse&nbsp;;
+        en dupliquant chaque point avec un décalage de <var>4px</var>
+        —&nbsp;l’épaisseur du trait&nbsp;— et dans l’ordre inverse&nbsp;;
     </li>
     <li>
       un pseudo-élément supplémentaire permet d’afficher le point pour chaque valeur
@@ -904,35 +904,33 @@ document.addEventListener( "DOMContentLoaded", function () {
            width: 1rem;
         }
 
-        td {
-          &::before {
-            --size: #{$gutter};
-            background-color: var(--color, currentColor);
-            border: 2px solid palette( default, contrast );
-            border-radius: 50%;
-            box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
-            content: "";
-            height: var(--size);
-            position: absolute;
-            top: var(--top, 100);
-            transform: translate3d(calc( var(--size) / -2), calc( var(--size) / -2), 0);
-            transition:
-                opacity .3s map-get( $timing-functions, 'move' ),
-                transform .3s map-get( $timing-functions, 'move' );
-            width: var(--size);
-            z-index: 4;
-          }
+        td::before {
+          --size: #{$gutter};
+          background-color: var(--color, currentColor);
+          border: 2px solid palette( default, contrast );
+          border-radius: 50%;
+          box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
+          content: "";
+          height: var(--size);
+          position: absolute;
+          top: var(--top, 100);
+          transform: translate3d(calc( var(--size) / -2), calc( var(--size) / -2), 0);
+          transition:
+              opacity .3s map-get( $timing-functions, 'move' ),
+              transform .3s map-get( $timing-functions, 'move' );
+          width: var(--size);
+          z-index: 4;
+        }
 
-          &:first-of-type::before {
-            --top: calc( ( var(--height) - ( var(--1) / var(--y) * var(--height) ) ) );
-            left: calc( var(--offset) * 3 );
-          }
+        td:first-of-type::before {
+          --top: calc( ( var(--height) - ( var(--1) / var(--y) * var(--height) ) ) );
+          left: calc( var(--offset) * 3 );
+        }
 
-          @each $number in 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
-            &:nth-of-type(#{$number} )::before {
-              --top: calc( ( var(--height) - ( var(--#{$number} ) / var(--y) * var(--height) ) ) );
-              left: calc( ( 100% / var(--x) * #{$number } ) + var(--offset) );
-            }
+        @each $number in 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
+          td:nth-of-type(#{$number} )::before {
+            --top: calc( ( var(--height) - ( var(--#{$number} ) / var(--y) * var(--height) ) ) );
+            left: calc( ( 100% / var(--x) * #{$number } ) + var(--offset) );
           }
         }
     }
@@ -940,9 +938,9 @@ document.addEventListener( "DOMContentLoaded", function () {
     @each $name, $pattern in $patterns {
      $i: index($patterns, ($name $pattern) );
 
-     tr[style]:nth-child(#{$i}n + #{$i} )::before,
-     tr[style]:nth-child(#{$i}n + #{$i} ) th::before,
-     tr[style]:nth-child(#{$i}n + #{$i} ) td::before  {
+     tr[style]:nth-child( #{$i}n + #{$i} )::before,
+     tr[style]:nth-child( #{$i}n + #{$i} ) th::before,
+     tr[style]:nth-child( #{$i}n + #{$i} ) td::before  {
        background-image: url($pattern);
      }
    }
@@ -980,38 +978,52 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   <p>
     Le graphique en tarte sert pour <strong>les représentations de proportions en pourcentage</strong>.
-    Il s’appuie sur des variables CSS, un abus outrancier de <code>calc()</code>, <code>display: table-*</code>, <code>clip-path</code>, <code>mask-image</code>, <code>transform</code>
-    et un tantinet de <abbr lang="en" title="Scalable Vectors Graphics">SVG</abbr> pour distinguer chaque zone.
-    Oui, je sais rigoler. Comment qu’on s’en sert&nbsp;?
+    Il s’appuie sur des variables CSS, un abus outrancier de <code>calc()</code>,
+    <code>display: table-*</code>, <code>clip-path</code>, <code>mask-image</code>,
+    <code>transform</code> et un tantinet de <abbr lang="en" title="Scalable Vectors Graphics">SVG</abbr>
+    pour distinguer chaque zone. Oui, je sais rigoler. Comment qu’on s’en sert&nbsp;?
   </p>
 
   <ol>
     <li>
-      <strong>Sur chaque entête</strong> <code>&lt;th></code>, une variable <var>--color</var> permet d’attribuer, et bien… une couleur.
+      <strong>Sur chaque entête</strong> <code>&lt;th></code>, une variable <var>--color</var>
+      permet d’attribuer, et bien… une couleur.
     </li>
     <li>
       <strong>Puis chaque cellule</strong> <code>&lt;td></code> doit contenir la valeur et son unité,
-      ainsi qu’un attribut <code>&lt;style></code> pour porter quelques variables&nbsp;:
+      ainsi qu’un attribut <code>style</code> pour porter quelques variables&nbsp;:
       <ol>
         <li>
           <var>--value</var> correspond à la valeur en pourcentage,
-          utile pour déterminer <strong>l’angle</strong> que doit occuper l’élément sur le cercle. Tous les points
-          du <code>polygon()</code> de <code>clip-path</code> dépendent de cette valeur — lire la note technique après l’exemple pour
-          le détail des calculs.
+          utile pour déterminer <strong>l’angle</strong> que doit occuper l’élément sur le cercle.
+          Tous les points du <code>polygon()</code> de <code>clip-path</code> dépendent de cette
+          valeur —&nbsp;lire la note technique après l’exemple pour le détail des calculs.
         </li>
         <li>
-          <var>--start</var> permet de définir le <strong>point de départ</strong> de l’arc sur le cercle.
-          Il s’agit de la somme des précédentes définitions, et est appliqué à la fonction <code>rotate()</code>
-          de la propriété <code>transform</code>.
+          <var>--start</var> permet de définir le <strong>point de départ</strong> de l’arc
+          sur le cercle. Il s’agit de la somme des précédentes définitions, et est appliqué
+          à la fonction <code>rotate()</code> de la propriété <code>transform</code>.
         </li>
         <li>
-          Et enfin une série de variables <em>booléennes</em>, selon la valeur : <var>--lt-25</var>, <var>--gt-25</var>, <var>--lt-50</var>… p
-          valant chacune <var>0</var> ou <var>1</var> selon le cas. Elles permettent de faire basculer les points de leur position d’origine (<code>50% 50%</code>)
-          à leur position calculée, en s’additionnant ou se soustrayant à la valeur initiale.
+          Et enfin une série de variables <em>booléennes</em> valant chacune <var>0</var> ou <var>1</var>
+          —&nbsp;d’après une idée de <a hreflang="en" href="https://www.kizu.ru/conditions-for-css-variables/">
+          <cite>Roma Komarov</cite> dans son article <em lang="en">"Conditions for CSS variables"</em></a>&nbsp;—
+          dépendent de la valeur&nbsp;: <var>--lt-25</var>, <var>--gt-25</var>, <var>--lt-50</var>…
+          Elles permettent de <strong>faire basculer les points</strong> de leur position d’origine
+          (<code>50% 50%</code>) à leur position calculée, en s’additionnant ou se soustrayant
+          à la valeur initiale.
         </li>
       </ol>
     </li>
-    <li>Et finalement <strong>un motif</strong> est appliqué sur l’arrière-plan, afin de mieux l’associer visuellement avec la légende correspondante.</li>
+    <li>
+      un <strong>pseudo-élément</strong> sur chaque cellule <code>&lt;td></code> est mis en forme
+      de savante manière en fonction de toutes nos variables, avec notamment <code>transform</code>,
+      <code>clip-path</code> et <code>mask-image</code>.
+    </li>
+    <li>
+      Et finalement <strong>un motif</strong> est appliqué sur l’arrière-plan, afin de mieux
+      l’associer visuellement avec la légende correspondante.
+    </li>
   </ol>
 
   {% import 'macros/_table-pie.html' as table %}
@@ -1050,40 +1062,195 @@ document.addEventListener( "DOMContentLoaded", function () {
     </table>
   </div>
 
-  <div class="note">
-    <h3>Un peu de trigonométrie</h3>
-    <p>
-      Dans ce graphique, chaque portion représente un arc de cercle basé sur un angle (une partie de 360 degrés).
-      Pour définir la forme de cette portion, il faut donc placer un point <strong>sur le cercle</strong>.
-    </p>
-    <p>
-      Pour ce faire, je divise le cercle en quatre carrés. La position du point sur le cercle peut ainsi
-      être calculée en utilisant les propriétés du triangle rectangle formé par&nbsp;:
-    </p>
-    <ol>
-      <li>le centre du cercle,</li>
-      <li>le point que nous cherchons à positionner,</li>
-      <li>et le point perpendiculaire au rayon et passant par notre point cible.</li>
-    </ol>
-    <p>
-      Nous connaissons <strong>l’hypoténuse</strong> de ce triangle —&nbsp;le rayon du cercle&nbsp;—,
-      et <strong>l’angle formé par l’hypoténuse et partant du centre du cercle</strong>
-      (en ramenant la valeur sur 90 degrés, puisque le cercle est divisé en quatre secteurs carrés&nbsp;:
-      si la valeur est supérieure à 25&nbsp;: moins 90°, etc.)
-      —&nbsp;plus un angle droit, bien entendu.
-    </p>
-    <h4>La loi des sinus</h4>
-    <p>
-      Nous pouvons donc <a href="https://fr.wikihow.com/calculer-la-longueur-de-l%27hypot%C3%A9nuse">utiliser la loi des sinus</a> pour mesurer chaque côté,
-      et ainsi obtenir la position du point sur le cercle.
-      Cela implique de calculer le sinus… —&nbsp;fort heureusement,
-      <a href="https://gist.github.com/stereokai/7666bfe93929b14c2dced148c79e0e97" hreflang="en"><cite>Stereokai</cite> a implémenté pour nous
-      la représentation polynomiale de Taylor/Maclaurin en CSS</a>.
-    </p>
-    <p>
-      Il ne reste plus qu’à utiliser ces dimensions pour placer les points du polygône.
-      <strong>Un vrai jeu d’enfants&nbsp;!</strong>
-  </div>
+  <details>
+    <summary>Un peu de trigonométrie</summary>
+    <div>
+      <p>
+        Dans ce graphique, chaque portion représente un arc de cercle basé sur un angle (une partie de 360 degrés).
+        Pour définir la forme de cette portion, il faut donc placer un point <strong>sur le cercle</strong>.
+      </p>
+      <p>
+        Pour ce faire, je divise le cercle en quatre carrés. La position du point sur le cercle peut ainsi
+        être calculée en utilisant les propriétés du triangle rectangle formé par&nbsp;:
+      </p>
+      <ol>
+        <li>le centre du cercle,</li>
+        <li>le point que nous cherchons à positionner,</li>
+        <li>et le point perpendiculaire au rayon et passant par notre point cible.</li>
+      </ol>
+      <p>
+        Nous connaissons <strong>l’hypoténuse</strong> de ce triangle —&nbsp;le rayon du cercle&nbsp;—,
+        et <strong>l’angle formé par l’hypoténuse et partant du centre du cercle</strong>
+        (en ramenant la valeur sur 90 degrés, puisque le cercle est divisé en quatre secteurs carrés&nbsp;:
+        si la valeur est supérieure à 25&nbsp;: moins 90°, etc.)
+        —&nbsp;plus un angle droit, bien entendu.
+      </p>
+      <h4>La loi des sinus</h4>
+      <p>
+        Nous pouvons donc <a href="https://fr.wikihow.com/calculer-la-longueur-de-l%27hypot%C3%A9nuse">utiliser la loi des sinus</a> pour mesurer chaque côté,
+        et ainsi obtenir la position du point sur le cercle.
+        Cela implique de calculer le sinus… Fort heureusement,
+        <a href="https://gist.github.com/stereokai/7666bfe93929b14c2dced148c79e0e97" hreflang="en"><cite>Stereokai</cite> a implémenté pour nous
+        la représentation polynomiale de Taylor/Maclaurin en CSS</a> —&nbsp;que j’ai implémentée sour forme d’un <em lang="en">mixin</em>&nbsp;:
+      </p>
+      <pre>
+        <code class="language-scss">
+  @mixin sin($angle) {
+    --sin-term-#{$angle}-1: var(--#{$angle});
+    --sin-term-#{$angle}-2: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 6);
+    --sin-term-#{$angle}-3: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 120);
+    --sin-term-#{$angle}-4: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 5040);
+    --sin-term-#{$angle}-5: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 362880);
+    --sin-#{$angle}: calc(var(--sin-term-#{$angle}-1) - var(--sin-term-#{$angle}-2) + var(--sin-term-#{$angle}-3) - var(--sin-term-#{$angle}-4) + var(--sin-term-#{$angle}-5));
+  }</code>
+      </pre>
+      <p>
+        Il ne reste plus qu’à utiliser ces dimensions pour placer les points du polygône.
+        <strong>Un vrai jeu d’enfants&nbsp;!</strong>
+    </div>
+  </details>
+  <details>
+    <summary>Le <abbr lang="en" title="HyperText Markup Language" aria-label="HyperText Markup Language">HTML</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-markup">
+&lt;table class="table-charts pie">
+  &lt;caption id="caption-5">Répartition du poids des ressources pour ffoodd.fr&lt;/caption>
+  &lt;thead class="sr-only">
+    &lt;tr>
+      &lt;th scope="col">Ressource&lt;/th>
+      &lt;th scope="col">Proportion&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr style="--color: #734bf9">
+      &lt;th scope="row">HTML</th>
+        &lt;td style="--value: 2; --start: 0; ">
+          2&nbsp;%
+        &lt;/td>
+    &lt;/tr>
+    &lt;tr>[…]&lt;/tr>
+  &lt;/tbody>
+&lt;/table></code>
+      </pre>
+    </div>
+  </details>
+  <details>
+    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-scss">
+@supports (clip-path: polygon( 50% calc( 50% + ( var(--gt-25, 0) ) ) )) {
+  .pie {
+    margin: 0 auto;
+    padding-top: calc(#{$width / 2} - #{$gutter * 2});
+    position: relative;
+
+    tbody {
+      --side: calc( #{$width} / 2 );
+      --hypo: calc( 1024 / 16 / 2 );
+      display: table-row;
+    }
+
+    tbody tr {
+      display: table-cell;
+      transition: opacity .3s map-get( $timing-functions, 'move' );
+    }
+
+    tbody th {
+      padding-right: $gutter / 2;
+    }
+
+    tbody th::before {
+      background: var(--color, currentColor);
+      content: "";
+      display: inline-block;
+      height: $gutter;
+      transform: translate3d(-.2rem, .1rem, 0);
+      width: $gutter;
+    }
+
+    tbody td::before {
+      --position: calc(var(--start, 0) * .01turn);
+      --zoom: .75;
+      --part: calc( var(--value) * 3.6 );
+      --main-angle: calc( var(--part) - ( 90 * ( var(--gt-25, 0) + var(--gt-50, 0) + var(--gt-75, 0) ) ) );
+      --β: calc( var(--main-angle) * 0.01745329251 );
+      --α: calc( ( 90 - var(--main-angle) ) * 0.01745329251 );
+      @include sin(β);
+      @include sin(α);
+      --B: calc( var(--hypo) * var(--sin-β) );
+      --A: calc( var(--hypo) * var(--sin-α) );
+      --pos-B: calc( ( var(--B) * 100 / var(--hypo) ) / 2 );
+      --pos-A: calc( ( var(--A) * 100 / var(--hypo) ) / 2 );
+      background-color: var(--color, currentColor);
+      clip-path: polygon(
+        50% 50%,
+        50% 0%,
+        100% 0%,
+        calc( 50% + ( var(--pos-B) * var(--lt-25, 1) * 1% ) + ( var(--gt-25, 0) * 50% ) ) calc( 50% - ( var(--pos-A) * 1% * var(--lt-25, 1) ) ),
+        calc( 50% + ( var(--gt-25, 0) * 50% ) )                                           calc( 50% + ( var(--gt-25, 0) * 50% ) ),
+        calc( 50% + ( var(--pos-A) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ) calc( 50% + ( var(--pos-B) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ),
+        calc( 50% - ( var(--gt-50, 0) * 50% ) )                                           calc( 50% + ( var(--gt-50, 0) * 50% ) ),
+        calc( 50% - ( var(--pos-B) * 1% * var(--lt-75, 1) ) - ( var(--gt-75, 0) * 50% ) ) calc( 50% + ( var(--pos-A) * 1% * var(--lt-75, 1) ) ),
+        calc( 50% - ( var(--gt-75, 0) * 50% ) )                                           calc( 50% - ( var(--gt-75, 0) * 50% ) ),
+        calc( 50% - ( var(--pos-A) * 1% * var(--gt-75, 0) ) )                             calc( 50% - ( var(--pos-B) * 1% * var(--gt-75, 0) ) ),
+        50% 50%
+      );
+      content: '';
+      height: var(--side);
+      left: 50%;
+      mask-image: radial-gradient(
+        circle at center,
+        palette( default, contrast) 0%,
+        palette( default, contrast) calc(var(--side) / 2),
+        transparent calc(var(--side) / 2)
+      );
+      position: absolute;
+      top: 40%;
+      transform:
+        translate3d(-50%, -50%, 0)
+        rotate( var(--position) )
+        scale( var(--zoom) );
+      transform-origin: center center;
+      transition: transform .2s map-get( $timing-functions, 'move' );
+      width: var(--side);
+    }
+
+    tbody tr:hover td::before {
+      --zoom: .8;
+    }
+
+    @each $name, $pattern in $patterns {
+      $i: index($patterns, ($name $pattern));
+
+      tr:nth-child(#{$i}n + #{$i}) *::before {
+        background-image: url($pattern); /* 1 */
+      }
+    }
+
+    tbody:hover tr {
+      opacity: .75;
+    }
+
+    tbody:hover tr:hover {
+      opacity: 1;
+    }
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .pie tbody tr *::before {
+      background-color: Window;
+    }
+
+    .pie tbody tr:nth-of-type(odd) *::before {
+      background-color: WindowText;
+    }
+  }
+}</code>
+      </pre>
+    </div>
+  </details>
 
   <h3><i lang="en">Donut</i></h3>
 
@@ -1128,6 +1295,24 @@ document.addEventListener( "DOMContentLoaded", function () {
       </tbody>
     </table>
   </div>
+
+  <details>
+    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-scss">
+.donut {
+  mask-image: radial-gradient(
+    circle at 50% calc(50% - #{$gutter * 2}),
+    transparent 0%,
+    transparent var(--offset),
+    palette( default, contrast) calc(var(--offset) + 1px),
+    palette( default, contrast) 100%
+  );
+}</code>
+      </pre>
+    </div>
+  </details>
 
   <div class="note">
     <h4>Dégradé conique</h4>

@@ -29,6 +29,16 @@
   }
 }
 
+table:not(.table-charts) .sr-only {
+  clip: auto !important;
+	clip-path: none !important;
+	height: auto !important;
+	overflow: visible !important;
+  position: static !important;
+	width: auto !important;
+	white-space: normal !important;
+}
+
 @media screen and (min-width: em(480)) {
   .table-charts {
     border-collapse: separate;

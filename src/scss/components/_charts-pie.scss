@@ -4,7 +4,6 @@
  * @note SVG patterns inline coming from:
  * @link http://www.heropatterns.com/
 /* ==================== */
-/** Pie charts */
 @supports (clip-path: polygon( 50% calc( 50% + ( var(--gt-25, 0) ) ) )) {
   &.pie {
     margin: 0 auto;
@@ -42,6 +41,9 @@
      * @note Based on Ana Tudor's work
      * @link https://css-tricks.com/1-html-element-5-css-properties-magic/
      * @author Ana Tudor
+     *
+     * @note Using a Roma Komarov's idea about boolean custom properties
+     * @link https://www.kizu.ru/conditions-for-css-variables/
      *
      * @note Mask support:
      * @link https://caniuse.com/#search=mask
