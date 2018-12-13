@@ -59,6 +59,7 @@ table:not(.table-charts) .sr-only {
     @import "charts-pie";
     @import "charts-line";
   }
-  // <dl> based charts
-  @import "charts-radar";
 }
+
+// <dl> based charts
+@import "charts-radar";
