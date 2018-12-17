@@ -542,7 +542,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   {% import 'macros/_table-line.html' as table %}
 
-   <div class="table-container" role="group" aria-labelledby="caption-3">
+  <div class="table-container" role="group" aria-labelledby="caption-3">
     <div class="fieldset d-flex sm-hidden">
       <p class="label no-margin">
         <strong id="label-3">Interrupteur</strong><br>
@@ -755,11 +755,36 @@ document.addEventListener( "DOMContentLoaded", function () {
   </details>
 
   <div class="note">
-    <h4>Note</h4>
+    <h4>Le tracé du <code>polygon()</code></h4>
     <p>
-      Pour jouer d’avantage et vous familiariser avec <code>clip-path</code>,
-      <cite>Bennett Feely</cite> a créé
-      <a hreflang="en" href="http://bennettfeely.com/clippy/" hreflang="en">clippy</a>.
+      Pour commencer, il faut bien intégrer que <code>clip-path</code> est un tracé,
+      au même titre qu’une forme vectorielle. Il doit donc <strong>être fermé</strong>.
+      Ainsi le tracé démarre à <var>0% 100%</var> —&nbsp;en bas à gauche, fait sa vie
+      de tracé, bascule à <var>100% 100%</var> et revient boucler à <var>0% 100%</var>.
+    </p>
+    <p>Et dans son chemin, chaque point doit être positionné en abscisses et en ordonnées.</p>
+    <h5>La position en abscisse</h5>
+    <p>
+      La première position est simple&nbsp;: on divise <code>100%</code> par l’échelle
+      <var>var(--x)</var>, et on <strong>multiplie par l’index</strong> de l’élément. Par exemple&nbsp;:
+      <code>calc( ( 100% / var(--x) * 1) )</code>.
+      Pour placer chaque point <strong>au milieu de sa colonne</strong>, on le décale d’une demi-colonne
+      —&nbsp;ce que l’on fait en ajoutant au calcul précédent <var>var(--offset)</var>, qui correspond
+      à <code>calc( ( 100% / var(--x) ) / 2 )</code>.<br>
+      La position finale est donc, ici pour le troisième point&nbsp;:<br>
+      <code>calc( ( 100% / var(--x) * 3) + var(--offset) )</code>.
+    </p>
+    <h5>La position en ordonnée</h5>
+    <p>
+      Dans ce graphique, l’ordonnée est l’axe le plus important. Ainsi pour placer le point,
+      on commence par calculer <strong>le ratio de sa valeur sur l’échelle</strong> —&nbsp;formulé
+      ainsi&nbsp;: <code>var(--1) / var(--y)</code>. Et parce que <code>polygon()</code> utilise
+      des valeurs en pourcentage, on rapporte ce calcul sur 100&nbsp;:
+      <code>( var(--1) / var(--y) * 100% )</code>.<br>
+      Et pour finir, les référentiel du polygône partant d’en haut à gauche, <strong>la position
+      doit être définie en fonction du haut de la boîte</strong>. La formule finale ressemble
+      alors à ça —&nbsp;toujours pour le troisième élément&nbsp;:<br>
+      <code>calc( 100% - ( var(--3) / var(--y) * 100% ) )</code>
     </p>
   </div>
 
@@ -785,79 +810,79 @@ document.addEventListener( "DOMContentLoaded", function () {
     </li>
   </ol>
 
-     <div class="table-container" role="group" aria-labelledby="caption-4">
-      <div class="fieldset d-flex sm-hidden">
-        <p class="label no-margin">
-          <strong id="label-4">Interrupteur</strong><br>
-          <span id="description-4">Permet de désactiver les styles sur le tableau suivant.</span>
-        </p>
-        <button type="button" class="ml-auto fw-400 no-border p-relative disable-css"
-                role="switch" aria-checked="true"
-                aria-labelledby="label-4" aria-describedby="description-4">
-          <span>Guilleret</span>
-          <span>Sobre</span>
-        </button>
-      </div>
-
-      <table class="table-charts line points" style="--y: 32; --x: 13;">
-        <caption id="caption-4">Température mensuelle moyenne par année</caption>
-        <thead>
-          <tr>
-            <th scope="col">Année</th>
-            <th scope="col">Jan.</th>
-            <th scope="col">Fév.</th>
-            <th scope="col">Mars</th>
-            <th scope="col">Avr.</th>
-            <th scope="col">Mai</th>
-            <th scope="col">Juin</th>
-            <th scope="col">Juil.</th>
-            <th scope="col">Août</th>
-            <th scope="col">Sep.</th>
-            <th scope="col">Oct.</th>
-            <th scope="col">Nov.</th>
-            <th scope="col">Déc.</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr style="--color: #0172f0; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-            <th scope="row">2017</th>
-            {{ table.line('8', '°C', 'Degré Celsius') }}
-            {{ table.line('6', '°C', 'Degré Celsius') }}
-            {{ table.line('9', '°C', 'Degré Celsius') }}
-            {{ table.line('12', '°C', 'Degré Celsius') }}
-            {{ table.line('15', '°C', 'Degré Celsius') }}
-            {{ table.line('21', '°C', 'Degré Celsius') }}
-            {{ table.line('24', '°C', 'Degré Celsius') }}
-            {{ table.line('25', '°C', 'Degré Celsius') }}
-            {{ table.line('22', '°C', 'Degré Celsius') }}
-            {{ table.line('19', '°C', 'Degré Celsius') }}
-            {{ table.line('14', '°C', 'Degré Celsius') }}
-            {{ table.line('9', '°C', 'Degré Celsius') }}
-          </tr>
-          <tr style="--color: #ff2d40; --1: 10; --2: 4; --3: 7; --4: 13; --5: 17; --6: 20; --7: 22; --8: 23; --9: 26; --10: 17; --11: 14; --12: 10;">
-            <th scope="row">2018</th>
-            {{ table.line('10', '°C', 'Degré Celsius') }}
-            {{ table.line('4', '°C', 'Degré Celsius') }}
-            {{ table.line('7', '°C', 'Degré Celsius') }}
-            {{ table.line('13', '°C', 'Degré Celsius') }}
-            {{ table.line('17', '°C', 'Degré Celsius') }}
-            {{ table.line('20', '°C', 'Degré Celsius') }}
-            {{ table.line('22', '°C', 'Degré Celsius') }}
-            {{ table.line('23', '°C', 'Degré Celsius') }}
-            {{ table.line('26', '°C', 'Degré Celsius') }}
-            {{ table.line('17', '°C', 'Degré Celsius') }}
-            {{ table.line('14', '°C', 'Degré Celsius') }}
-            {{ table.line('10', '°C', 'Degré Celsius') }}
-          </tr>
-        </tbody>
-      </table>
+  <div class="table-container" role="group" aria-labelledby="caption-4">
+    <div class="fieldset d-flex sm-hidden">
+      <p class="label no-margin">
+        <strong id="label-4">Interrupteur</strong><br>
+        <span id="description-4">Permet de désactiver les styles sur le tableau suivant.</span>
+      </p>
+      <button type="button" class="ml-auto fw-400 no-border p-relative disable-css"
+              role="switch" aria-checked="true"
+              aria-labelledby="label-4" aria-describedby="description-4">
+        <span>Guilleret</span>
+        <span>Sobre</span>
+      </button>
     </div>
 
-    <details>
-      <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
-      <div>
-        <pre>
-          <code class="language-scss">
+    <table class="table-charts line points" style="--y: 32; --x: 13;">
+      <caption id="caption-4">Température mensuelle moyenne par année</caption>
+      <thead>
+        <tr>
+          <th scope="col">Année</th>
+          <th scope="col">Jan.</th>
+          <th scope="col">Fév.</th>
+          <th scope="col">Mars</th>
+          <th scope="col">Avr.</th>
+          <th scope="col">Mai</th>
+          <th scope="col">Juin</th>
+          <th scope="col">Juil.</th>
+          <th scope="col">Août</th>
+          <th scope="col">Sep.</th>
+          <th scope="col">Oct.</th>
+          <th scope="col">Nov.</th>
+          <th scope="col">Déc.</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="--color: #0172f0; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+          <th scope="row">2017</th>
+          {{ table.line('8', '°C', 'Degré Celsius') }}
+          {{ table.line('6', '°C', 'Degré Celsius') }}
+          {{ table.line('9', '°C', 'Degré Celsius') }}
+          {{ table.line('12', '°C', 'Degré Celsius') }}
+          {{ table.line('15', '°C', 'Degré Celsius') }}
+          {{ table.line('21', '°C', 'Degré Celsius') }}
+          {{ table.line('24', '°C', 'Degré Celsius') }}
+          {{ table.line('25', '°C', 'Degré Celsius') }}
+          {{ table.line('22', '°C', 'Degré Celsius') }}
+          {{ table.line('19', '°C', 'Degré Celsius') }}
+          {{ table.line('14', '°C', 'Degré Celsius') }}
+          {{ table.line('9', '°C', 'Degré Celsius') }}
+        </tr>
+        <tr style="--color: #ff2d40; --1: 10; --2: 4; --3: 7; --4: 13; --5: 17; --6: 20; --7: 22; --8: 23; --9: 26; --10: 17; --11: 14; --12: 10;">
+          <th scope="row">2018</th>
+          {{ table.line('10', '°C', 'Degré Celsius') }}
+          {{ table.line('4', '°C', 'Degré Celsius') }}
+          {{ table.line('7', '°C', 'Degré Celsius') }}
+          {{ table.line('13', '°C', 'Degré Celsius') }}
+          {{ table.line('17', '°C', 'Degré Celsius') }}
+          {{ table.line('20', '°C', 'Degré Celsius') }}
+          {{ table.line('22', '°C', 'Degré Celsius') }}
+          {{ table.line('23', '°C', 'Degré Celsius') }}
+          {{ table.line('26', '°C', 'Degré Celsius') }}
+          {{ table.line('17', '°C', 'Degré Celsius') }}
+          {{ table.line('14', '°C', 'Degré Celsius') }}
+          {{ table.line('10', '°C', 'Degré Celsius') }}
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <details>
+    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-scss">
 .points {
     tr[style] {
         &::before {
@@ -970,9 +995,18 @@ document.addEventListener( "DOMContentLoaded", function () {
     }
   }
 }</code>
-        </pre>
-      </div>
-    </details>
+      </pre>
+    </div>
+  </details>
+
+  <div class="note">
+    <h4>Note</h4>
+    <p>
+      Pour jouer d’avantage et vous familiariser avec <code>clip-path</code>,
+      <cite>Bennett Feely</cite> a créé
+      <a hreflang="en" href="http://bennettfeely.com/clippy/" hreflang="en">clippy</a>.
+    </p>
+  </div>
 
   <h2>Graphique en tarte</h2>
 
