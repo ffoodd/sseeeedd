@@ -710,7 +710,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       font-weight: bold;
       text-align: center;
       width: calc( 100% / var(--x) );
-      width: 7.69%; /* 1 */
+      width: 7.69%;
 
       &:hover {
         color: palette( secondary );
@@ -746,15 +746,16 @@ document.addEventListener( "DOMContentLoaded", function () {
   }
 
   @media screen and (-ms-high-contrast: active) {
-    &.line tr[style]::before {
+    .line tr[style]::before {
       background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
     }
-  }</code>
+  }
+}</code>
       </pre>
     </div>
   </details>
-
-  <div class="note">
+  <details>
+    <summary>Le calcul tordu</summary>
     <h4>Le tracé du <code>polygon()</code></h4>
     <p>
       Pour commencer, il faut bien intégrer que <code>clip-path</code> est un tracé,
@@ -779,14 +780,14 @@ document.addEventListener( "DOMContentLoaded", function () {
       Dans ce graphique, l’ordonnée est l’axe le plus important. Ainsi pour placer le point,
       on commence par calculer <strong>le ratio de sa valeur sur l’échelle</strong> —&nbsp;formulé
       ainsi&nbsp;: <code>var(--1) / var(--y)</code>. Et parce que <code>polygon()</code> utilise
-      des valeurs en pourcentage, on rapporte ce calcul sur 100&nbsp;:
+      des valeurs en pourcentage, on rapporte ce calcul sur 100%&nbsp;:
       <code>( var(--1) / var(--y) * 100% )</code>.<br>
-      Et pour finir, les référentiel du polygône partant d’en haut à gauche, <strong>la position
+      Et pour finir, les référentiels du polygone partant d’en haut à gauche, <strong>la position
       doit être définie en fonction du haut de la boîte</strong>. La formule finale ressemble
       alors à ça —&nbsp;toujours pour le troisième élément&nbsp;:<br>
-      <code>calc( 100% - ( var(--3) / var(--y) * 100% ) )</code>
+      <code>calc( 100% - ( var(--3) / var(--y) * 100% ) )</code>.
     </p>
-  </div>
+  </details>
 
   <h4>Graphique à point</h4>
 
@@ -1206,16 +1207,28 @@ document.addEventListener( "DOMContentLoaded", function () {
     }
 
     tbody td::before {
+      // L’inclinaison, pour se placer au bon endroit
       --position: calc(var(--start, 0) * .01turn);
       --zoom: .75;
+      // L’angle représenté par la valeur : 3.6 = 360deg / 100
+      // Puisque nous utilisons une valeur en pourcentage
       --part: calc( var(--value) * 3.6 );
+      // L’angle « utile » pour le calcul, nécessairement inférieur à 90deg
+      // On soustrait donc 90deg (= ¼ × 360deg) par tranche de 25% (= ¼ × 100%, oui oui)
       --main-angle: calc( var(--part) - ( 90 * ( var(--gt-25, 0) + var(--gt-50, 0) + var(--gt-75, 0) ) ) );
+      // L’angle principal, exprimé en radian
       --β: calc( var(--main-angle) * 0.01745329251 );
+      // Le dernier angle en radian, par déduction puisque dans un triangle rectangle
       --α: calc( ( 90 - var(--main-angle) ) * 0.01745329251 );
+      // La magie de Stereokai, pour obtenir le sinus de ces angles
       @include sin(β);
       @include sin(α);
+      // La longueur des côtés opposés à chaque angle
+      // L’hypothénuse = le rayon, sans unité ↑
       --B: calc( var(--hypo) * var(--sin-β) );
       --A: calc( var(--hypo) * var(--sin-α) );
+      // Et enfin, la position, exprimée en pourcentage de l’hypothénuse,
+      // puis divisée par deux pour s’inscrire dans un quart du cercle
       --pos-B: calc( ( var(--B) * 100 / var(--hypo) ) / 2 );
       --pos-A: calc( ( var(--A) * 100 / var(--hypo) ) / 2 );
       background-color: var(--color, currentColor);
@@ -1285,6 +1298,72 @@ document.addEventListener( "DOMContentLoaded", function () {
 }</code>
       </pre>
     </div>
+  </details>
+  <details>
+    <summary>Le calcul tordu</summary>
+    <h4>Les positions du polygone</h4>
+    <p>
+      L’utilisation de variables pseudo-booléennes rend ce calcul pseudo-algorithmiques.
+      Démarrons par un pré-requis essentiel&nbsp;: le polygone étant un tracé fermé et CSS
+      n’étant pas magique, <strong>les points doivent pré-exister</strong>.
+      <em lang="en">Spoiler</em>, il nous faut onze points&nbsp;:
+    </p>
+    <ol>
+      <li>
+        <strong>L’axe initial</strong>, du centre vers le milieu en haut&nbsp;: <code>50% 50%</code>
+        et <code>50% 0%</code>.
+      </li>
+      <li>
+        <strong>Un point pour chaque angle</strong> aux extrémités&nbsp;: le premier est fixe, à
+        <code>100% 0%</code> (en haut à droite) —&nbsp;puis chacun des autres angles
+        a <strong>deux états</strong>, atteint ou non. Quelques détails&nbsp;:
+        <ul>
+          <li>
+            Par exemple le point en bas à droite concerne
+            les valeurs entre 25% et 50%&nbsp;: si la valeur est inférieure à 25%, il doit
+            être au centre (pour ne pas gêner le tracé), et dans le cas contraire être
+            dans son coin. ce qui s’exprime ainsi&nbsp;:
+            <code>calc( 50% + ( var(--gt-25, 0) * 50% ) ) calc( 50% + ( var(--gt-25, 0) * 50% ) )</code><br>
+            Ainsi la valeur calculée sera <code>50% 50%</code> si <var>--gt-25</var> vaut 0,
+            et <code>100% 100%</code> si <var>--gt-25</var> vaut 1.
+          </li>
+          <li>
+            De plus, chaque angle a sa coordonnée cible&nbsp;:
+            <code>100% 100%</code> pour en bas à droite, <code>0% 100%</code> pour en bas à gauche,
+            <code>0% 0%</code> pour en en haut à gauche. Il faut donc <strong>tantôt soustraire et
+            tantôt ajouter 50%</strong> à la valeur intitiale <code>50% 50%</code>
+            pour basculer sur le bon point.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Un point pour chaque position possible par quart de cercle</strong>, correspondant à
+        chaque tranche de 25%. À l’instar des points aux angles, ces points doivent être au centre
+        s’ils ne sont pas utilisés. C’est là qu’on rigole le plus&nbsp;:
+        <ul>
+          <li>on part de <code>50%</code>, auxquels on ajoute ou soustrait la suite du calcul&nbsp;;</li>
+          <li>
+            on utilise <em>enfin</em> <strong>la position calculée</strong> —&nbsp;<var>--pos-A</var>
+            ou <var>--pos-B</var> selon le cas&nbsp;— qu’on convertit en pourcentages à l’aide de
+            <code>* 1%</code>, et qu’on rend inerte si la valeur est inférieure à la tranche concernée
+            grâce à <var>* var(--lt-25, 1)</var>, par exemple.<br>
+            <small>
+              Remarquez le seconde valeur dans <code>var()</code>, qui est la valeur par défaut
+              si la variable n’est pas définie. Cool, non&nbsp;?
+            </small>
+          </li>
+          <li>
+            et finalement <strong>lorsque la tranche est dépassée</strong>, le point bascule vers
+            <code>0%</code> ou <code>100%</code> selon le cas.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Et enfin, on <strong>referme le tracé en revenant au centre</strong> du cercle,
+        à <code>50% 50%</code>.
+      </li>
+    </ol>
+    <p>C’est tout&nbsp;!</p>
   </details>
 
   <h3><i lang="en">Donut</i></h3>
