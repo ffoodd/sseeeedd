@@ -308,20 +308,20 @@ document.addEventListener( "DOMContentLoaded", function () {
   .bar {
     caption {
       text-align: initial;
-      text-indent: #{rem( 200 ) + $gutter};
+      text-indent: 13.5rem;
     }
 
     tbody tr {
       display: grid;
       grid-auto-rows: 1fr;
-      grid-row-gap: $gutter / 2;
+      grid-row-gap: .5rem;
       grid-template-columns: minmax(min-content, em( 200 ) ) repeat( var(--scale, 100), minmax(0, 1fr) ) 10ch;
       transition: opacity .2s map-get( $timing-functions, 'move' );
 
       th {
         grid-column: 1 / 1;
-        margin: $gutter / 2 0 0;
-        padding: 0 $gutter 0 0;
+        margin: .5rem 0 0;
+        padding: 0 1rem 0 0;
         text-align: right;
       }
 
@@ -332,7 +332,7 @@ document.addEventListener( "DOMContentLoaded", function () {
         background-position: var(--position) 0%, center;
         background-size:  var(--size) 100%, contain;
         grid-column: 2 / var(--value, 0);
-        margin: $gutter / 2 0 0;
+        margin: .5rem 0 0;
         position: relative;
 
         span {
@@ -352,11 +352,11 @@ document.addEventListener( "DOMContentLoaded", function () {
         &:nth-child(#{$i}n + #{$i} ) td {
           background-image:
             linear-gradient(to right,
-              palette( success, dark ),
-              palette( dominant ),
-              palette( secondary ),
-              palette( accent ),
-              palette( alert )
+              #01ac49,
+              #444,
+              mediumblue,
+              rebeccapurple,
+              crimson
             ),
             url($pattern);
         }
@@ -639,9 +639,9 @@ document.addEventListener( "DOMContentLoaded", function () {
 @supports (clip-path: polygon(0% calc( 100% - ( var(--1) * 100% / var(--y) )) )) {
   .line {
     --offset: calc( ( 100% / var(--x) ) / 2);
-    --height: calc( #{$width / 2} - #{$gutter * 2} );
+    --height: calc( 32em - 2rem );
     --bottom: calc( 100% - var(--height) );
-    padding: var(--height) 0 $gutter;
+    padding: var(--height) 0 1rem;
     position: relative;
     transition:
       background .3s map-get( $timing-functions, 'move' ),
@@ -676,7 +676,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
     tr[style]::before {
       bottom: var(--bottom);
-      background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
+      background: linear-gradient(to top, deepskyblue, crimson 75%);
       clip-path: polygon(
         0% 100%,
         calc( ( 100% / var(--x) * 1) ) 100%,
@@ -706,25 +706,25 @@ document.addEventListener( "DOMContentLoaded", function () {
 
     th,
     td {
-      background: palette( default, contrast );
+      background: white;
       font-weight: bold;
       text-align: center;
       width: calc( 100% / var(--x) );
       width: 7.69%;
 
       &:hover {
-        color: palette( secondary );
+        color: mediumblue;
       }
     }
 
     th[scope="col"] {
       &:not(:first-child)::after {
-        background-color: palette( default, contrast );
+        background-color: white;
         background-image: url( map-get( $patterns, 'stripes' ) );
         background-blend-mode: exclusion;
-        bottom: $gutter * 4;
+        bottom: 4rem;
         content: "";
-        height: calc( 100% - #{$gutter * 4} );
+        height: calc( 100% - 4rem );
         mix-blend-mode: soft-light;
         opacity: 0;
         position: absolute;
@@ -903,20 +903,20 @@ document.addEventListener( "DOMContentLoaded", function () {
             calc( ( 100% / var(--x) * 12 ) + var(--offset) ) calc( 100% - ( var(--12) / var(--y) * 100% ) ),
             calc( ( 100% / var(--x) * 13 ) + var(--offset) ) calc( 100% - ( var(--12) / var(--y) * 100% ) ),
             100% calc( 100% - ( var(--12) / var(--y) * 100% ) ),
-            100% calc( ( 100% + #{$gutter / 4} ) - ( var(--12) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 13 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--12) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 12 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--12) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 11 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--11) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 10 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--10) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 9 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--9) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 8 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--8) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 7 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--7) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 6 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--6) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 5 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--5) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 4 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--4) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 3 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--3) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 2 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--2) / var(--y) * 100% ) ),
-            calc( ( 100% / var(--x) * 1 ) + var(--offset) ) calc( ( 100% + #{$gutter / 4} ) - ( var(--1) / var(--y) * 100% ) )
+            100% calc( ( 100% + 4rem ) - ( var(--12) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 13 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--12) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 12 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--12) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 11 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--11) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 10 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--10) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 9 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--9) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 8 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--8) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 7 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--7) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 6 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--6) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 5 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--5) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 4 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--4) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 3 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--3) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 2 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--2) / var(--y) * 100% ) ),
+            calc( ( 100% / var(--x) * 1 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--1) / var(--y) * 100% ) )
           );
           transition: opacity .3s map-get( $timing-functions, 'move' );
         }
@@ -931,11 +931,11 @@ document.addEventListener( "DOMContentLoaded", function () {
         }
 
         td::before {
-          --size: #{$gutter};
+          --size: 1rem;
           background-color: var(--color, currentColor);
-          border: 2px solid palette( default, contrast );
+          border: 2px solid white;
           border-radius: 50%;
-          box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
+          box-shadow: 0 0 4rem rgba(0, 0, 0, .5);
           content: "";
           height: var(--size);
           position: absolute;
@@ -1179,11 +1179,11 @@ document.addEventListener( "DOMContentLoaded", function () {
 @supports (clip-path: polygon( 50% calc( 50% + ( var(--gt-25, 0) ) ) )) {
   .pie {
     margin: 0 auto;
-    padding-top: calc(#{$width / 2} - #{$gutter * 2});
+    padding-top: calc(32em - 2rem);
     position: relative;
 
     tbody {
-      --side: calc( #{$width} / 2 );
+      --side: calc( 64em / 2 );
       --hypo: calc( 1024 / 16 / 2 );
       display: table-row;
     }
@@ -1194,16 +1194,16 @@ document.addEventListener( "DOMContentLoaded", function () {
     }
 
     tbody th {
-      padding-right: $gutter / 2;
+      padding-right: .5rem;
     }
 
     tbody th::before {
       background: var(--color, currentColor);
       content: "";
       display: inline-block;
-      height: $gutter;
+      height: 1rem;
       transform: translate3d(-.2rem, .1rem, 0);
-      width: $gutter;
+      width: 1rem;
     }
 
     tbody td::before {
@@ -1250,8 +1250,8 @@ document.addEventListener( "DOMContentLoaded", function () {
       left: 50%;
       mask-image: radial-gradient(
         circle at center,
-        palette( default, contrast) 0%,
-        palette( default, contrast) calc(var(--side) / 2),
+        white 0%,
+        white calc(var(--side) / 2),
         transparent calc(var(--side) / 2)
       );
       position: absolute;
@@ -1417,11 +1417,11 @@ document.addEventListener( "DOMContentLoaded", function () {
         <code class="language-scss">
 .donut {
   mask-image: radial-gradient(
-    circle at 50% calc(50% - #{$gutter * 2}),
+    circle at 50% calc(50% - 2rem),
     transparent 0%,
     transparent var(--offset),
-    palette( default, contrast) calc(var(--offset) + 1px),
-    palette( default, contrast) 100%
+    white calc(var(--offset) + 1px),
+    white 100%
   );
 }</code>
       </pre>
@@ -1567,13 +1567,13 @@ document.addEventListener( "DOMContentLoaded", function () {
         <code class="language-scss">
 @supports(clip-path: polygon(calc( 0% 0%, 100% - ( var(--1) * 100% / var(--scale) ) ) 100%, 100% 100%)) {
   .charts-radar dd::after {
-    color: palette( muted, light );
+    color: darkgray;
     content: "\A0/\A0" attr(data-scale);
   }
 
   @media screen and (min-width: em(480)) {
     .charts-radar {
-      --radius: #{$width / 4};
+      --radius: 16em;
       --unitless-radius: calc( 1024 / 16 / 4 );
       --size: calc( var(--radius) / var(--scale) );
       --part: calc( 360deg / var(--items) );
@@ -1595,7 +1595,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       border: 2px solid;
       border-radius: 50%;
       height: calc( var(--radius) * 2 );
-      margin: $gutter * 6 auto;
+      margin: 6rem auto;
       position: relative;
       width: calc( var(--radius) * 2 );
 
@@ -1607,7 +1607,7 @@ document.addEventListener( "DOMContentLoaded", function () {
         --away: calc( (var(--radius) * -1) - 50% );
         left: 50%;
         margin: initial;
-        padding: 0 $gutter;
+        padding: 0 1rem;
         position: absolute;
         top: 50%;
         transform:
@@ -1618,7 +1618,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
         &::after {
           content: attr(data-value) "\A0/\A0" attr(data-scale);
-          color: palette( accent );
+          color: rebeccapurple;
           display: block;
           font-size: small;
           font-weight: 400;
@@ -1633,7 +1633,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
       dd {
         --skew: calc( 90deg - var(--part) );
-        border-bottom: 1px solid palette( accent, light );
+        border-bottom: 1px solid blueviolet;
         height: 50%;
         left: 0;
         margin: initial;
@@ -1653,10 +1653,10 @@ document.addEventListener( "DOMContentLoaded", function () {
           --ratio: calc( var(--hypo) / var(--unitless-radius) );
           background: linear-gradient(
             to top left,
-            palette( accent, light ) 10%,
-            palette( secondary, dark ) 75%
+            blueviolet 10%,
+            darkblue 75%
           );
-          filter: drop-shadow( 0 0 $gutter palette( accent, dark ) );
+          filter: drop-shadow( 0 0 1rem indigo );
           height: 100%;
           position: absolute;
           width: 100%;
