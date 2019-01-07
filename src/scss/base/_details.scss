@@ -4,7 +4,6 @@
 
 details {
   border: em( 4 ) solid palette( dominant, dark );
-  padding: 1rem;
 
   & + & {
     border-top-width: 0;
@@ -18,8 +17,7 @@ details {
     background: palette( dominant );
     color: palette( dominant, contrast );
     cursor: pointer;
-    margin: -1rem;
-    padding: inherit;
+    padding: 1rem;
     transition: background .2s map-get( $timing-functions, 'enter' )
 
     &:hover,
@@ -28,7 +26,7 @@ details {
     }
 
     ~ * {
-      margin-top: rem( 32 );
+      margin: rem( 24 ) 1rem 0;
     }
   }
 }
