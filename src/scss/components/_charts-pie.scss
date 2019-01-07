@@ -18,6 +18,7 @@
       tr {
         display: table-cell;
         transition: opacity .3s map-get( $timing-functions, 'move' );
+        will-change: opacity;
       }
 
       th {
@@ -93,6 +94,7 @@
       transform-origin: center center;
       transition: transform .2s map-get( $timing-functions, 'move' );
       width: var(--side);
+      will-change: transform;
     }
 
     tbody tr:hover td::before {

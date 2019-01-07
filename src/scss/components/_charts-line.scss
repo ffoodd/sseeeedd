@@ -38,12 +38,12 @@
        width: 100%;
        z-index: 1;
      }
-     
+
      tr::before {
        content: "";
        position: absolute;
      }
-     
+
      th[scope="row"],
      thead th:first-child {
          color: var(--color, currentColor);
@@ -124,8 +124,8 @@
        line-height: 1.5;
      }
 
-     &.points {         
-         tr[style] {             
+     &.points {
+         tr[style] {
              &::before {
                background-color: var(--color, currentColor);
                clip-path: polygon(
@@ -160,7 +160,7 @@
                );
                transition: opacity .3s map-get( $timing-functions, 'move' );
              }
-             
+
              th::before {
                 background-color: var(--color, currentColor);
                 content: "";
@@ -169,7 +169,7 @@
                 transform: translate3d(-.2rem, .1rem, 0);
                 width: 1rem;
              }
-         
+
              td {
                &::before {
                  --size: #{$gutter};
@@ -182,13 +182,13 @@
                  position: absolute;
                  top: var(--top, 100);
                  transform: translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0);
-                 transition: 
+                 transition:
                      opacity .3s map-get( $timing-functions, 'move' ),
                      transform .3s map-get( $timing-functions, 'move' );
                  width: var(--size);
                  z-index: 4;
                }
-               
+
                &:first-of-type::before {
                  --top: calc( (var(--height) - ( var(--1) / var(--y) * var(--height) ) ) );
                  left: calc( var(--offset) * 3 );
@@ -202,7 +202,7 @@
                }
              }
          }
-         
+
          @each $name, $pattern in $patterns {
           $i: index($patterns, ($name $pattern));
 
@@ -212,7 +212,7 @@
             background-image: url($pattern); /* 1 */
           }
         }
-         
+
          tbody:hover tr[style]::before,
          tbody:hover tr[style] td::before {
              opacity: .25;
@@ -228,7 +228,7 @@
                  translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0)
                  scale(1.25);
          }
-         
+
          th[scope="col"] {
            &::after {
              mix-blend-mode: multiply;
