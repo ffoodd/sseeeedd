@@ -222,7 +222,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <strong>Faites chauffer votre inspecteur&nbsp;!</strong>
   </p>
 
-  <h2>Graphique en barre</h2>
+  <h2 id="bar-chart">Graphique en barre</h2>
 
   <p>
     Ce type de graphique sert à représenter <strong>des données à une dimension</strong>
@@ -273,7 +273,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       </button>
     </div>
 
-    <table class="table-charts bar" style="--scale: 3000">
+    <table class="table-charts bar" style="--scale: 3000" id="bar">
       <caption id="caption-1">Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
       <thead class="sr-only">
         <tr>
@@ -527,7 +527,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       </button>
     </div>
 
-    <table class="table-charts bar waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
+    <table class="table-charts bar waterfall" id="waterfall" style="--scale: 3000; --1: 4; --2: 96; --3: 102; --4: 129; --5: 188; --6: 194; --7: 326; --8: 836; --9: 836; --10: 2561; --11: 2980;">
       <caption id="caption-2">Temps de chargement pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
       <thead class="sr-only">
         <tr>
@@ -656,7 +656,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </div>
   </details>
 
-  <h2>Graphique linéaire</h2>
+  <h2 id="line-charts">Graphique linéaire</h2>
 
   <h3>Graphique de surface</h3>
 
@@ -740,7 +740,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       </button>
     </div>
 
-    <table class="table-charts line" style="--y: 32; --x: 13;">
+    <table class="table-charts line" id="line" style="--y: 32; --x: 13;">
       <caption id="caption-3">Température mensuelle moyenne en 2017</caption>
       <thead>
         <tr>
@@ -1055,7 +1055,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       </button>
     </div>
 
-    <table class="table-charts line points" style="--y: 32; --x: 13;">
+    <table class="table-charts line points" id="points" style="--y: 32; --x: 13;">
       <caption id="caption-4">Température mensuelle moyenne par année</caption>
       <thead>
         <tr>
@@ -1335,7 +1335,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </p>
   </div>
 
-  <h2>Graphique en tarte</h2>
+  <h2 id="pie-charts">Graphique en tarte</h2>
 
   <p>
     Le graphique en tarte sert pour <strong>les représentations de proportions en pourcentage</strong>.
@@ -1401,7 +1401,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       </button>
     </div>
 
-    <table class="table-charts pie">
+    <table class="table-charts pie" id="pie">
       <caption id="caption-5">Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
       <thead class="sr-only">
         <tr>
@@ -1774,7 +1774,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       </button>
     </div>
 
-    <table class="table-charts pie donut" style="--offset: 8rem;">
+    <table class="table-charts pie donut" id="donut" style="--offset: 8rem;">
       <caption id="caption-6">Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
       <thead class="sr-only">
         <tr>
@@ -1886,7 +1886,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </p>
   </div>
 
-  <h2>Graphique radar</h2>
+  <h2 id="radar-charts">Graphique radar</h2>
 
   <p>
     Celui-ci est plutôt amusant. Côté <abbr lang="en" title="HyperText Markup Language">HTML</abbr>,
@@ -1970,7 +1970,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   
 
-  <figure role="group">
+  <figure role="group" id="radar">
     <dl role="list" class="charts-radar" style="--scale: 20; --step: 5; --items: 7; --1: 14; --2: 11; --3: 13; --4: 16; --5: 10; --6: 12; --7: 4; --8: var(--1);">
       
   
