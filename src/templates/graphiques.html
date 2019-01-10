@@ -1019,6 +1019,83 @@ document.addEventListener( "DOMContentLoaded", function () {
     </p>
   </div>
 
+  <h2 id="column-charts">Histogramme</h2>
+
+  <p>
+    L’histogramme sert pour <strong>les distributions de valeurs</strong>.
+  </p>
+
+  {% import 'macros/_table-line.html' as table %}
+
+  <div class="table-container" role="group" aria-labelledby="caption-7">
+    <div class="fieldset d-flex sm-hidden">
+      <p class="label no-margin">
+        <strong id="label-7">Interrupteur</strong><br>
+        <span id="description-7">Permet de désactiver les styles sur le tableau suivant.</span>
+      </p>
+      <button type="button" class="ml-auto fw-400 no-border p-relative disable-css"
+              role="switch" aria-checked="true"
+              aria-labelledby="label-7" aria-describedby="description-7">
+        <span>Guilleret</span>
+        <span>Sobre</span>
+      </button>
+    </div>
+
+    <table class="table-charts column" id="column">
+      <caption id="caption-7">Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+      <thead>
+        <tr>
+          <th scope="row">Ressource</th>
+          <th scope="col">HTML</th>
+          <th scope="col">CSS</th>
+          <th scope="col">JS</th>
+          <th scope="col">JSON</th>
+          <th scope="col">Images</th>
+          <th scope="col">Webfonts</th>
+          <th scope="col">Autres</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Proportion</th>
+          <td>2&nbsp;%</td>
+          <td>2&nbsp;%</td>
+          <td>32&nbsp;%</td>
+          <td>1&nbsp;%</td>
+          <td>44&nbsp;%</td>
+          <td>17&nbsp;%</td>
+          <td>2&nbsp;%</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <details>
+    <summary>Le <abbr lang="en" title="HyperText Markup Language" aria-label="HyperText Markup Language">HTML</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-markup">
+&lt;table class="table-charts column" style="--y: 32; --x: 13;">
+  &lt;caption id="caption-7">&lt;/caption>
+  &lt;thead>
+  &lt;/thead>
+  &lt;tbody>
+  &lt;/tbody>
+&lt;/table></code>
+      </pre>
+    </div>
+  </details>
+  <details>
+    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-scss">
+@supports () {
+}</code>
+      </pre>
+    </div>
+  </details>
+
   <h2 id="pie-charts">Graphique en tarte</h2>
 
   <p>

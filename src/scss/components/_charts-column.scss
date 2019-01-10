@@ -1,0 +1,23 @@
+/* ==================== */
+/* == Column Charts
+ *
+ * @note Grid charts based on:
+ * @see https://css-tricks.com/css-charts-grid-custom-properties/
+ * @author Miriam Suzanne
+/* ==================== */
+
+@supports (--css: var(--iables)) {
+  &.column {
+    thead {
+      display: table-footer-group;
+    }
+
+    tbody {
+      height: calc( #{$width / 2} - #{$gutter * 2} );
+    }
+
+    tr * + * {
+      text-align: center;
+    }
+  }
+}

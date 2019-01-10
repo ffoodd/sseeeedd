@@ -42,7 +42,7 @@
         --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
         background-blend-mode: hard-light;
         background-position: var(--position) 0%, center;
-        background-size:  var(--size) 100%, contain;
+        background-size: var(--size) 100%, contain;
         grid-column: 2 / var(--value, 0);
         margin: $gutter / 2 0 0;
         position: relative;
