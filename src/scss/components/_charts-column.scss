@@ -6,18 +6,126 @@
  * @author Miriam Suzanne
 /* ==================== */
 
-@supports (--css: var(--iables)) {
+@supports (display: contents) {
   &.column {
-    thead {
-      display: table-footer-group;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-column-gap: $gutter / 2;
+    grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) repeat(2, minmax(min-content, 2rem));
+    max-height: $width;
+
+    td,
+    th {
+      margin: 0;
     }
 
-    tbody {
-      height: calc( #{$width / 2} - #{$gutter * 2} );
-    }
-
-    tr * + * {
+    tr > * + * {
       text-align: center;
+    }
+
+    /**
+     * @link https://hiddedevries.nl/en/blog/2018-04-21-more-accessible-markup-with-display-contents
+     * @link https://bitsofco.de/how-display-contents-works/
+     */
+    tr,
+    tbody,
+    thead {
+      display: contents;
+    }
+
+    tbody th {
+      grid-row: -6 / -3;
+      grid-column: 1;
+      line-height: 1;
+    }
+
+    thead * {
+      grid-row: -2;
+    }
+
+    caption {
+      grid-column: 1 / span var(--y);
+      grid-row: -1;
+    }
+
+    tbody td {
+      --size: calc(var(--scale, 100) * 100%);
+      --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+      background-blend-mode: hard-light;
+      background-position: 0% var(--position), center;
+      background-size: 100% var(--size), 1rem;
+      grid-row: calc( 100 - var(--value) ) / -3;
+      position: relative;
+      transition: opacity .2s map-get( $timing-functions, 'move' );
+
+      span {
+        background: inherit;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        font-weight: bold;
+        bottom: 100%;
+        line-height: 1.5;
+        position: absolute;
+      }
+
+      @each $number in 1, 2, 3, 4, 5, 6, 7, 8 {
+        &:nth-of-type(#{$number}) {
+          grid-column: #{$number + 1};
+        }
+      }
+    }
+
+    thead [scope="col"] {
+      --size: calc(var(--scale, 100) * 100%);
+      --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+      position: relative;
+
+      &::before {
+        background-blend-mode: hard-light;
+        background-position: 0% var(--position), center;
+        background-size: 100% var(--size), 1rem;
+        content: "";
+        display: inline-block;
+        height: 1rem;
+        transform: translate3d(-.2rem, .1rem, 0);
+        width: 1rem;
+      }
+    }
+
+    @each $name, $pattern in $patterns {
+      $i: index($patterns, ($name $pattern));
+
+      tbody td:nth-of-type(#{$i}n + #{$i}),
+      thead [scope="col"]:nth-of-type(#{$i + 1}n + #{$i + 1})::before {
+        background-image:
+          linear-gradient(to top,
+            palette( success, dark ),
+            palette( dominant ),
+            palette( secondary ),
+            palette( accent ),
+            palette( alert )
+          ),
+          url($pattern);
+      }
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+      @each $name, $pattern in $patterns {
+        $i: index($patterns, ($name $pattern));
+
+        tbody td:nth-of-type(#{$i}n + #{$i}),
+        thead [scope="col"]:nth-of-type(#{$i + 1}n + #{$i + 1})::before {
+          background-image:
+            linear-gradient(to top,
+              Window,
+              ButtonFace,
+              ButtonShadow,
+              ButtonText,
+              highlight
+            ),
+            url($pattern);
+        }
+      }
     }
   }
 }
