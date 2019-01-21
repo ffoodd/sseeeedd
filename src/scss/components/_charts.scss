@@ -43,6 +43,11 @@ table:not(.table-charts) .sr-only {
   .table-charts {
     border-collapse: separate;
     border-spacing: 0;
+    /**
+     * @note Trying to improve paint & layout performances
+     * @link https://developer.mozilla.org/fr/docs/Web/CSS/contain
+     */
+    contain: content;
 
     th,
     td {
