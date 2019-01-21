@@ -10,12 +10,11 @@
   &.column {
     --gap: #{$gutter / 2};
     --size: calc(var(--scale, 100) * 100%);
-    //--offset: calc((100% - 2em) / var(--y));
     --width: calc(#{$width} / var(--y) - #{$gutter} + 1px);
     display: grid;
     grid-auto-columns: 1fr;
     grid-column-gap: var(--gap);
-    grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) repeat(2, minmax(min-content, 2rem));
+    grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) minmax(min-content, 2rem);
     max-height: $width;
     position: relative;
 
@@ -29,6 +28,7 @@
     }
 
     /**
+     * @note Use display: contents to place table-cells in table's grid
      * @link https://hiddedevries.nl/en/blog/2018-04-21-more-accessible-markup-with-display-contents
      * @link https://bitsofco.de/how-display-contents-works/
      */
@@ -140,6 +140,11 @@
       }
     }
 
+    /**
+     * @note Custom color palette for WHCM
+     * @note Inspired by Greg Whitworth's post
+     * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
+     */
     @media screen and (-ms-high-contrast: active) {
       @each $name, $pattern in $patterns {
         $i: index($patterns, ($name $pattern));
