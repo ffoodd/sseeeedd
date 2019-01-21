@@ -229,8 +229,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     (dans notre exemple, une ligne de temps).
     Il repose sur les <strong>grilles et les variables CSS</strong>,
     technique inspirée
-    d’<a hreflang="en" href="https://css-tricks.com/css-charts-grid-custom-properties/">
-    un article de <cite>Miriam Suzanne</cite> sur
+    d’<a hreflang="en" href="https://css-tricks.com/css-charts-grid-custom-properties/">un article de <cite>Miriam Suzanne</cite> sur
     <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">CSS</abbr> Tricks</a>
     légèrement agrémentée pour en améliorer l’accessibilité.
     Pour vous en servir, c’est simple&nbsp;:
@@ -1339,9 +1338,32 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   <p>
     L’histogramme sert pour <strong>les distributions de valeurs</strong>.
+    La structure du tableau est tout à fait ordinaire, cependant sa mise en forme repose
+    sur <code>display: grid;</code> et surtout <code>display: contents;</code> pour
+    <strong>faciliter le placement des cellules</strong>.
   </p>
 
-  
+  <p>Le principe de base est le même que <a href="bar-chart">le graphique en barre</a>&nbsp;:</p>
+  <ol>
+    <li>
+      la fonction <code>repeat()</code> appliquée avec la variable <var>--scale</var>
+      permet de gérer une échelle dynamique&nbsp;
+    </li>
+    <li>
+      chaque cellule est placée sur la grille en fonction de <var>--value</var>
+      —&nbsp;sa valeur, donc, sa couleur d’arrière-plan dépendant également de
+      sa valeur.
+    </li>
+    <li>
+      un motif d’arrière-plan, reprit dans l’entête <code>&lt;th&gt;</code>
+      associée, permet de peaufiner l’assortiement visuel&nbsp;;
+    </li>
+    <li>
+      et finalement la valeur textuelle —&nbsp;contenue dans un élément
+      <code>&lt;span&gt;</code>&nbsp;— est positionnée en haut de la colonne
+      à l’aide de la même astuce que dans le graphique en barre.
+    </li>
+  </ol>
 
   <div class="table-container" role="group" aria-labelledby="caption-7">
     <div class="fieldset d-flex sm-hidden">
@@ -1372,7 +1394,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       <tbody>
         <tr>
           <th scope="row">Proportion</th>
-          <td style="--value: 2;"><span>2&nbsp</span></td>
+          <td style="--value: 2;"><span>2&nbsp;%</span></td>
           <td style="--value: 92;"><span>92&nbsp;%</span></td>
           <td style="--value: 32;"><span>32&nbsp;%</span></td>
           <td style="--value: 1;"><span>1&nbsp;%</span></td>
@@ -1389,11 +1411,21 @@ document.addEventListener( "DOMContentLoaded", function () {
     <div>
       <pre>
         <code class="language-markup">
-&lt;table class="table-charts column" style="--y: 32; --x: 13;">
-  &lt;caption id="caption-7">&lt;/caption>
+&lt;table class="table-charts column" id="column" style="--y: 8;">
+  &lt;caption id="caption-7">Répartition du poids des ressources pour ffoodd.fr&lt;/caption>
   &lt;thead>
+    &lt;tr>
+      &lt;th scope="row">Ressource&lt;/th>
+      &lt;th scope="col" style="--value: 2;">HTML&lt;/th>
+      &lt;th scope="col" style="--value: 92;">CSS&lt;/th>
+    &lt;/tr>
   &lt;/thead>
   &lt;tbody>
+    &lt;tr>
+      &lt;th scope="row">Proportion&lt;/th>
+      &lt;td style="--value: 2;">&lt;span>2&nbsp;%&lt;/span>&lt;/td>
+      &lt;td style="--value: 92;">&lt;span>92&nbsp;%&lt;/span>&lt;/td>
+    &lt;/tr>
   &lt;/tbody>
 &lt;/table></code>
       </pre>
@@ -1404,7 +1436,154 @@ document.addEventListener( "DOMContentLoaded", function () {
     <div>
       <pre>
         <code class="language-scss">
-@supports () {
+@supports (display: contents) {
+  .column {
+    --gap: .5rem;
+    --size: calc(var(--scale, 100) * 100%);
+    --width: calc(64em / var(--y) - 1rem + 1px);
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-column-gap: var(--gap);
+    grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) minmax(min-content, 2rem);
+    max-height: 64em;
+    position: relative;
+
+    td,
+    th {
+      margin: 0;
+    }
+
+    tr > * + * {
+      text-align: center;
+    }
+
+    tr,
+    tbody,
+    thead {
+      display: contents;
+    }
+
+    tbody th {
+      grid-row: -6 / -3;
+      grid-column: 1;
+      line-height: 1;
+    }
+
+    thead * {
+      grid-row: -2;
+    }
+
+    caption {
+      grid-column: 1 / span var(--y);
+      grid-row: -1;
+    }
+
+    tbody td {
+      --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+      background-blend-mode: hard-light;
+      background-position: 0% var(--position), center;
+      background-size: 100% var(--size), 1rem;
+      grid-row: calc( 100 - var(--value) ) / -3;
+      pointer-events: none;
+      position: relative;
+      transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
+
+      span {
+        background: inherit;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+        font-weight: bold;
+        bottom: 100%;
+        line-height: 1.5;
+        pointer-events: auto;
+        position: absolute;
+      }
+
+      @each $number in 1, 2, 3, 4, 5, 6, 7, 8 {
+        &:nth-of-type(#{$number}) {
+          grid-column: #{$number + 1};
+        }
+      }
+    }
+
+    thead [scope="col"] {
+      --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+
+      &::before {
+        background-blend-mode: hard-light;
+        background-position: 0% var(--position), center;
+        background-size: 100% var(--size), 1rem;
+        content: "";
+        display: inline-block;
+        height: $gutter;
+        position: relative;
+        transform: translate3d(-.2rem, .1rem, 0);
+        width: $gutter;
+        z-index: 1;
+      }
+
+      &::after {
+        background-color: whitesmoke;
+        background-image: url( map-get( $patterns, 'stripes' ) );
+        background-blend-mode: exclusion;
+        bottom: 4rem;
+        content: "";
+        mix-blend-mode: multiply;
+        opacity: 0;
+        position: absolute;
+        transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
+        top: 1rem;
+        width: var(--width);
+        z-index: 0;
+      }
+
+      &:hover::after {
+        opacity: .5;
+      }
+
+      @each $number in 1, 2, 3, 4, 5, 6, 7 {
+        &:nth-child(#{$number + 1})::after {
+          left: calc(1em + (var(--width) * #{$number}) + (var(--gap) * #{$number}));
+        }
+      }
+    }
+
+    @each $name, $pattern in $patterns {
+      $i: index($patterns, ($name $pattern));
+
+      tbody td:nth-of-type(#{$i}n + #{$i}),
+      thead [scope="col"]:nth-of-type(#{$i + 1}n + #{$i + 1})::before {
+        background-image:
+          linear-gradient(to top,
+            palette( success, dark ),
+            palette( dominant ),
+            palette( secondary ),
+            palette( accent ),
+            palette( alert )
+          ),
+          url($pattern);
+      }
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+      @each $name, $pattern in $patterns {
+        $i: index($patterns, ($name $pattern));
+
+        tbody td:nth-of-type(#{$i}n + #{$i}),
+        thead [scope="col"]:nth-of-type(#{$i + 1}n + #{$i + 1})::before {
+          background-image:
+            linear-gradient(to top,
+              Window,
+              ButtonFace,
+              ButtonShadow,
+              ButtonText,
+              highlight
+            ),
+            url($pattern);
+        }
+      }
+    }
+  }
 }</code>
       </pre>
     </div>
