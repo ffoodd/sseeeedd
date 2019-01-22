@@ -18,10 +18,11 @@
   "sass": "src/scss/styles.scss",
   "main": "dist/js/script.min.js",
   "scripts": {
-    "pretest": "gulp build",
-    "test": "gulp test",
-    "start": "gulp",
-    "prepublishOnly": "gulp zip"
+    "pretest": "npm run gulp build",
+    "test": "npm run gulp test",
+    "start": "npm run gulp",
+    "prepublishOnly": "npm run gulp zip",
+    "gulp": "node node_modules/gulp/bin/gulp.js"
   },
   "ignore": [
     "node_modules"
