@@ -128,8 +128,9 @@ main {
 
 @media screen and (prefers-reduced-motion: reduce) {
   * {
-    animation: none !important;
+    animation-duration: 0s !important;
     transition: none !important;
+    scroll-behavior: auto !important;
   }
 }
 
