@@ -9,11 +9,11 @@ module.exports = {
       all: './docs/*.html',
       css: './docs/css/styles.min.css',
       live: 'http://localhost:3000/groupes.html',
-      home: './docs//index.html',
-      elms: './docs//elements.html',
-      grps: './docs//groupes.html',
-      cmps: './docs//composants.html',
-      gphs: './docs//graphiques.html'
+      home: './docs/index.html',
+      elms: './docs/elements.html',
+      grps: './docs/groupes.html',
+      cmps: './docs/composants.html',
+      gphs: './docs/graphiques.html'
   },
   dependencies: [
     './node_modules/a11y-dialog/a11y-dialog.min.js',

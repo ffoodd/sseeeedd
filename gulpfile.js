@@ -36,7 +36,7 @@ function reload(done) {
 function sync(done) {
     browser.init({
       server: {
-         baseDir: "./docs/"
+         baseDir: options.paths.dest
       }
     });
     done();
