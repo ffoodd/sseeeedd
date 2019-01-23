@@ -19,8 +19,6 @@ const del      = require('del');
 const newer    = require('gulp-newer');
 const data     = require('gulp-data');
 // Tests
-const html     = require('html-validator');
-const w3css    = require('w3c-css');
 const doiuse   = require('doiuse/stream');
 const axe      = require('gulp-axe-webdriver');
 const louis    = require('gulp-louis');
@@ -238,61 +236,6 @@ function watch() {
 exports.watch   = watch;
 exports.default = gulp.series( sync, watch );
 
-/**
- * @section Test
- * HTML Validation
- */
-function markup(done) {
-  fs.readFile(options.test.grps, 'utf8', (error, response) => {
-  if (error) {
-    throw error;
-  }
-
-  html({data: response, format: 'text'})
-    .then((data) => {
-      console.log(data)
-    })
-    .catch((error) => {
-      console.error(error)
-    })
-  });
-
-  done();
-}
-
-
-/**
- * @section Test
- * CSS Validation
- */
-function style(done) {
-  fs.readFile(options.test.css, 'utf8', (error, response) => {
-    if (error) {
-      throw error;
-    }
-
-    w3css.validate({text: response}, function(error, data) {
-      if(error) {
-        console.error(error);
-      } else {
-        var errors = data.errors;
-        for (let message in errors) {
-          console.log(`${errors[message].message} at line ${errors[message].line}`)
-        }
-      }
-    })
-  });
-
-  done();
-}
-
-
-/**
- * @section Test
- * Validator meta task
- */
-exports.validator = gulp.parallel( markup, style );
-
 
 /**
  * @section Test
@@ -302,6 +245,7 @@ function a11y(done) {
   return axe(options.axe, done);
 }
 
+exports.validator = require('./tasks/validator');
 
 /**
  * @section Test
@@ -338,7 +282,7 @@ function compat(done) {
  * @section Test
  * All
  */
-exports.test = gulp.parallel( markup, style, compat, a11y, perf );
+exports.test = gulp.parallel( require('./tasks/validator'), compat, a11y, perf );
 
 
 /**
