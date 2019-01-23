@@ -84,7 +84,6 @@ function css() {
       .pipe(gulp.dest(paths.dest + '/css'));
 }
 
-
 /**
  * @section Build
  * Move JavaScript dependencies
@@ -93,7 +92,6 @@ function jsdeps() {
   return gulp.src(dependencies)
     .pipe(gulp.dest(paths.dest + '/js'));
 }
-
 
 /**
  * @section Build
@@ -180,7 +178,6 @@ function favicon() {
       .pipe(gulp.dest(paths.dest))
 }
 
-
 /**
  * @section Build
  * Move .htaccess
@@ -215,15 +212,24 @@ function fonts() {
  * @section Build
  * Watch Sass and JavaScript files
  */
+exports.css      = css;
+exports.js       = js;
+exports.img      = img;
+exports.sprite   = sprite;
+exports.template = template;
+exports.clean    = clean;
+
 function build(done) {
   gulp.series( clean,
-    gulp.series( favicon, fonts, humans, htaccess,
-      gulp.parallel( css, jsdeps, js, img, sprite, template )
+    gulp.series( favicon, fonts, humans, htaccess, normalize, jsdeps,
+      gulp.parallel( css, js, img, sprite, template )
     )
   );
 
   done();
 }
+
+exports.build = build;
 
 
 /**
@@ -256,7 +262,7 @@ function watch() {
   gulp.watch( paths.dev + '/datas/**/*.json', gulp.series( template, reload ) );
 }
 
-exports.watch = watch;
+exports.watch   = watch;
 exports.default = gulp.series( sync, watch );
 
 /**
@@ -305,25 +311,6 @@ function style(done) {
   });
 
   done();
-}
-
-
-/**
- * @section Test
- * Compatibility
- */
-function compat() {
-  return fs.createReadStream(test.css)
-    .pipe(doiuse(browsers))
-    .on('data', function(usageInfo) {
-      if(undefined !== usageInfo.featureData.missing
-        && 'Opera Mini (all)' !== usageInfo.featureData.missing
-        && 'Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing
-        && 'Opera Mini (all), Opera Mobile (12.1), IE Mobile (11)' !== usageInfo.featureData.missing
-        && 'IE (11), Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing) {
-         console.log(`${usageInfo.featureData.title} not supported by ${usageInfo.featureData.missing}`)
-       }
-     });
 }
 
 
@@ -379,6 +366,25 @@ function perf(done) {
   });
 
   done();
+}
+
+
+/**
+ * @section Test
+ * Compatibility
+ */
+function compat() {
+  return fs.createReadStream(test.css)
+    .pipe(doiuse(browsers))
+    .on('data', function(usageInfo) {
+      if(undefined !== usageInfo.featureData.missing
+        && 'Opera Mini (all)' !== usageInfo.featureData.missing
+        && 'Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing
+        && 'Opera Mini (all), Opera Mobile (12.1), IE Mobile (11)' !== usageInfo.featureData.missing
+        && 'IE (11), Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing) {
+         console.log(`${usageInfo.featureData.title} not supported by ${usageInfo.featureData.missing}`)
+       }
+     });
 }
 
 
