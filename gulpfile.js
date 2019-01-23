@@ -34,16 +34,6 @@ function getCards(file) {
  * @section Build
  * Compile Sass files for theme
  */
-function normalize() {
-  return gulp.src([options.paths.node + '/normalize.css/*.css'])
-    .pipe(newer(options.paths.dev + '/scss/dependencies/_normalize.scss'))
-    .pipe(rename({
-      prefix: '_',
-      extname: '.scss'
-    }))
-    .pipe(gulp.dest(options.paths.dev + '/scss/dependencies'));
-}
-
 function css() {
     return gulp.src(options.paths.dev + '/scss/*.scss')
       .pipe(newer(options.paths.dest + '/css'))
@@ -55,14 +45,6 @@ function css() {
       .pipe(gulp.dest(options.paths.dest + '/css'));
 }
 
-/**
- * @section Build
- * Move JavaScript dependencies
- */
-function jsdeps() {
-  return gulp.src(dependencies)
-    .pipe(gulp.dest(options.paths.dest + '/js'));
-}
 
 /**
  * @section Build
@@ -133,50 +115,8 @@ function clean() {
     return del(options.paths.dest + '/*');
 }
 
+exports.prepare = require('./tasks/prepare');
 
-/**
- * @section Build
- * Move favicon
- */
-function favicon() {
-    return gulp.src(options.paths.dev + '/favicon.ico')
-      .pipe(gulp.dest(options.paths.dest))
-}
-
-/**
- * @section Build
- * Move .htaccess
- */
-function htaccess() {
-    return gulp.src(options.paths.dev + '/.htaccess')
-      .pipe(gulp.dest(options.paths.dest))
-}
-
-
-/**
- * @section Build
- * Move humans.txt
- */
-function humans() {
-    return gulp.src(options.paths.dev + '/humans.txt')
-      .pipe(gulp.dest(options.paths.dest))
-}
-
-
-/**
- * @section Build
- * Move fonts
- */
-function fonts() {
-    return gulp.src(options.paths.dev + '/fonts/*.{woff,woff2}')
-      .pipe(gulp.dest(options.paths.dest + '/fonts/'))
-}
-
-
-/**
- * @section Build
- * Watch Sass and JavaScript files
- */
 exports.css      = css;
 exports.js       = js;
 exports.img      = img;
@@ -186,7 +126,7 @@ exports.clean    = clean;
 
 function build(done) {
   gulp.series( clean,
-    gulp.series( favicon, fonts, humans, htaccess, normalize, jsdeps,
+    gulp.series( require('./tasks/prepare'),
       gulp.parallel( css, js, img, sprite, template )
     )
   );

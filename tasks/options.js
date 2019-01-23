@@ -19,6 +19,12 @@ module.exports = {
     './node_modules/a11y-dialog/a11y-dialog.min.js',
     './node_modules/van11y-accessible-tab-panel-aria/dist/van11y-accessible-tab-panel-aria.min.js'
   ],
+  files: [
+    './src/favicon.ico',
+    './src/.htaccess',
+    './src/humans.txt',
+    './src/fonts/*.{woff,woff2}'
+  ],
   browsers: ['last 1 versions', 'not dead'],
   sass: {
     outputStyle: 'compressed'
