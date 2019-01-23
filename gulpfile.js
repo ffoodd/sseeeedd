@@ -375,8 +375,8 @@ function perf(done) {
  * @section Test
  * Compatibility
  */
-function compat() {
-  return fs.createReadStream(test.css)
+function compat(done) {
+  fs.createReadStream(test.css)
     .pipe(doiuse(browsers))
     .on('data', function(usageInfo) {
       if(undefined !== usageInfo.featureData.missing
@@ -387,6 +387,8 @@ function compat() {
          console.log(`${usageInfo.featureData.title} not supported by ${usageInfo.featureData.missing}`)
        }
      });
+
+  done();
 }
 
 
