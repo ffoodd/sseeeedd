@@ -18,10 +18,6 @@ const zip      = require('gulp-zip');
 const del      = require('del');
 const newer    = require('gulp-newer');
 const data     = require('gulp-data');
-// Tests
-const doiuse   = require('doiuse/stream');
-const axe      = require('gulp-axe-webdriver');
-const louis    = require('gulp-louis');
 
 function fileContents (filePath, file) {
   return file.contents.toString();
@@ -239,50 +235,11 @@ exports.default = gulp.series( sync, watch );
 
 /**
  * @section Test
- * aXe
- */
-function a11y(done) {
-  return axe(options.axe, done);
-}
-
-exports.validator = require('./tasks/validator');
-
-/**
- * @section Test
- * Louis, using Phantomas
- */
-function perf(done) {
-  louis(options.louis);
-  done();
-}
-
-
-/**
- * @section Test
- * Compatibility
- */
-function compat(done) {
-  fs.createReadStream(options.test.css)
-    .pipe(doiuse(options.browsers))
-    .on('data', function(usageInfo) {
-      if(undefined !== usageInfo.featureData.missing
-        && 'Opera Mini (all)' !== usageInfo.featureData.missing
-        && 'Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing
-        && 'Opera Mini (all), Opera Mobile (12.1), IE Mobile (11)' !== usageInfo.featureData.missing
-        && 'IE (11), Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing) {
-         console.log(`${usageInfo.featureData.title} not supported by ${usageInfo.featureData.missing}`)
-       }
-     });
-
-  done();
-}
-
-
-/**
- * @section Test
  * All
  */
-exports.test = gulp.parallel( require('./tasks/validator'), compat, a11y, perf );
+exports.tests     = require('./tasks/tests');
+exports.validator = require('./tasks/validator');
+exports.test      = gulp.parallel( require('./tasks/validator'), require('./tasks/tests') );
 
 
 /**
