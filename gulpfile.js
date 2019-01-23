@@ -243,7 +243,9 @@ function reload(done) {
 
 function sync(done) {
     browser.init({
-        proxy: paths.site
+      server: {
+         baseDir: "./docs/"
+      }
     });
     done();
 }
