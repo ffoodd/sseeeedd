@@ -53,7 +53,7 @@
   },
   "dependencies": {
     "a11y-dialog": "^5.2.0",
-    "normalize.css": "^8.0.0",
+    "normalize.css": "^8.0.1",
     "van11y-accessible-tab-panel-aria": "^2.0.4"
   }
 }
