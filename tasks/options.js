@@ -25,9 +25,12 @@ module.exports = {
     './src/humans.txt',
     './src/fonts/*.{woff,woff2}'
   ],
-  browsers: ['last 1 versions', 'not dead'],
-  sass: {
-    outputStyle: 'compressed'
+  browsers: [
+    'last 1 versions',
+    'not dead'
+  ],
+  csso: {
+    sourceMap: false
   },
   nunjucks: {
     path: './src/templates/'
