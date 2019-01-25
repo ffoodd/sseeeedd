@@ -1,432 +1,76 @@
 'use strict';
+
 const fs       = require('fs');
 const gulp     = require('gulp');
-const sass     = require('gulp-sass');
-const maps     = require('gulp-sourcemaps');
-const prefix   = require('gulp-autoprefixer');
-const uglify   = require('gulp-uglify');
-const rename   = require('gulp-rename');
-const imgmin   = require('gulp-imagemin');
-const svg      = require('gulp-inject-svg');
-const symbol   = require('gulp-svgstore');
-const inject   = require('gulp-inject');
+const options  = require('./tasks/options');
 const browser  = require('browser-sync').create();
-const nunjucks = require('gulp-nunjucks-render');
 const zip      = require('gulp-zip');
 const del      = require('del');
-const newer    = require('gulp-newer');
-const data     = require('gulp-data');
-// Tests
-const html     = require('html-validator');
-const css      = require('w3c-css');
-const doiuse   = require('doiuse/stream');
-const axe      = require('gulp-axe-webdriver');
-const louis    = require('gulp-louis');
 
-let paths = {
-    dev: './src/',
-    dest: './docs/',
-    node: './node_modules/',
-    live: 'http://localhost:3000/'
-};
 
-let test = {
-    all: paths.dest + '/*.html',
-    css: paths.dest + '/css/styles.min.css',
-    live: paths.live + 'groupes.html',
-    home: paths.dest + '/index.html',
-    elms: paths.dest + '/elements.html',
-    grps: paths.dest + '/groupes.html',
-    cmps: paths.dest + '/composants.html',
-    gphs: paths.dest + '/graphiques.html'
-};
-
-let dependencies = [
-  paths.node + 'a11y-dialog/a11y-dialog.min.js',
-  paths.node + 'van11y-accessible-tab-panel-aria/dist/van11y-accessible-tab-panel-aria.min.js'
-];
-
-let browsers = ['last 1 versions', 'not dead'];
-
-function fileContents (filePath, file) {
-  return file.contents.toString();
+/**
+ * @section Build
+ */
+function clean() {
+    return del(options.paths.dest + '/*');
 }
 
-function getCards(file) {
-  return {
-    deck: JSON.parse(fs.readFileSync('./src/datas/deck.json'))
-  };
-};
-
-
-/**
- * @section Build
- * Compile Sass files for theme
- */
-gulp.task('normalize', function () {
-  return gulp.src([paths.node + '/normalize.css/*.css'])
-    .pipe(newer(paths.dev + '/scss/dependencies/_normalize.scss'))
-    .pipe(rename({
-      prefix: '_',
-      extname: '.scss'
-    }))
-    .pipe(gulp.dest(paths.dev + '/scss/dependencies'));
-});
-
-gulp.task('sass', function () {
-    return gulp.src(paths.dev + '/scss/*.scss')
-      .pipe(newer(paths.dest + '/css'))
-      .pipe(maps.init())
-      .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-      .pipe(prefix({browsers}))
-      .pipe(rename({suffix: '.min'}))
-      .pipe(maps.write())
-      .pipe(gulp.dest(paths.dest + '/css'))
-      .pipe(browser.stream());
-});
-
-
-/**
- * @section Build
- * Move JavaScript dependencies
- */
-gulp.task('js-deps', function() {
-  return gulp.src(dependencies)
-    .pipe(gulp.dest(paths.dest + '/js'));
-});
-
-
-/**
- * @section Build
- * Compile JavaScript files for theme
- */
-gulp.task('js', function () {
-    return gulp.src(paths.dev + '/js/*.js')
-      .pipe(newer(paths.dest + '/js'))
-      .pipe(uglify().on('error', function(err) {
-        console.error(`${err.cause.message} in ${err.cause.filename} at line ${err.cause.line}`);
-        this.emit('end');
-      }))
-      .pipe(rename({suffix: '.min'}))
-      .pipe(gulp.dest(paths.dest + '/js'))
-      .pipe(browser.stream());
-});
-
-
-/**
- * @section Build
- * Images optimization
- */
-gulp.task('img', function () {
-    return gulp.src(paths.dev + '/img/*')
-      .pipe(newer(paths.dest + '/img'))
-      .pipe(imgmin())
-      .pipe(gulp.dest(paths.dest + '/img'))
-      .pipe(browser.stream());
-});
-
-
-/**
- * @section Build
- * SVG spriting
- */
-gulp.task('symbol', function () {
-   var svgs =  gulp
-    .src(paths.dev + '/img/svg/*.svg')
-    .pipe(imgmin(imgmin.svgo({
-  		plugins: [
-  			{removeUnknownsAndDefaults: false}
-  		]
-  	})))
-    .pipe(symbol({ inlineSvg: true }));
-
-    return gulp
-      .src(paths.dev + '/templates/includes/_symbols.html')
-      .pipe(inject(svgs, {
-        transform: fileContents
-      }))
-      .pipe(gulp.dest(paths.dev + '/templates/includes/'))
-      .pipe(browser.stream());
-});
-
-
-/**
- * @section Build
- * Nunjucks templating
- */
-gulp.task('nunjucks', function() {
-    gulp.src(paths.dev + '/templates/*.html')
-      .pipe(data(getCards))
-      .pipe(newer(paths.dest))
-      .pipe(nunjucks({
-        path: paths.dev + '/templates/'
-      }))
-      .pipe(svg())
-      .pipe(gulp.dest(paths.dest))
-      .pipe(browser.stream())
-});
-
-
-/**
- * @section Build
- * Clean up `dist` folder
- */
-gulp.task('clean', function () {
-    return del(paths.dest + '/*');
-});
-
-
-/**
- * @section Build
- * Move favicon
- */
-gulp.task('favicon', function () {
-    gulp.src(paths.dev + '/favicon.ico')
-      .pipe(gulp.dest(paths.dest))
-});
-
-
-/**
- * @section Build
- * Move .htaccess
- */
-gulp.task('htaccess', function () {
-    gulp.src(paths.dev + '/.htaccess')
-      .pipe(gulp.dest(paths.dest))
-});
-
-
-/**
- * @section Build
- * Move humans.txt
- */
-gulp.task('humans', function () {
-    gulp.src(paths.dev + '/humans.txt')
-      .pipe(gulp.dest(paths.dest))
-});
-
-
-/**
- * @section Build
- * Move fonts
- */
-gulp.task('fonts', function () {
-    gulp.src(paths.dev + '/fonts/*.{woff,woff2}')
-      .pipe(gulp.dest(paths.dest + '/fonts/'))
-});
-
-
-/**
- * @section Build
- * Watch Sass and JavaScript files
- */
-gulp.task('build', ['clean', 'sass', 'js-deps', 'js', 'img', 'symbol', 'nunjucks', 'favicon', 'fonts', 'humans', 'htaccess']);
-
-
-/**
- * @section Watch
- * Watch Sass and JavaScript files
- */
-gulp.task('watch', function () {
-    gulp.watch(paths.dev, ['sass', 'js', 'img', 'nunjucks']);
-});
+exports.clean = clean;
+gulp.task('prepare', require('./tasks/prepare'));
+gulp.task('sass',    require('./tasks/compile:sass'));
+gulp.task('js',      require('./tasks/compile:js'));
+gulp.task('img',     require('./tasks/compile:img'));
+gulp.task('svg',     require('./tasks/compile:svg'));
+gulp.task('html',    require('./tasks/compile:html'));
+gulp.task('build', gulp.series( clean, 'prepare', gulp.series( 'svg', 'html', gulp.parallel( 'sass', 'js', 'img', 'svg', 'html' ) ) ) );
 
 
 /**
  * @section Sync
- * BrowserSync
  */
-gulp.task('sync', ['sass', 'js', 'nunjucks', 'img', 'symbol'], function() {
+function reload(done) {
+    browser.reload();
+    done();
+}
+
+function sync(done) {
     browser.init({
-        server: {
-           baseDir: "./docs/"
-        }
-    });
-
-    gulp.watch(paths.dev + '/scss/**/*.scss', ['sass']);
-    gulp.watch(paths.dev + '/js/**/*.js', ['js']);
-    gulp.watch(paths.dev + '/img/**/*.*', ['img']);
-    gulp.watch(paths.dev + '/img/svg/*.svg', ['symbol', 'nunjucks']);
-    gulp.watch(paths.dev + '/templates/**/*.html', ['nunjucks']);
-    gulp.watch(paths.dev + '/datas/**/*.json', ['nunjucks']);
-});
-
-
-/**
- * @section Test
- * HTML Validation
- */
-gulp.task('html', function() {
-  fs.readFile(test.grps, 'utf8', (error, response) => {
-  if (error) {
-    throw error;
-  }
-
-  html({data: response, format: 'text'})
-    .then((data) => {
-      console.log(data)
-    })
-    .catch((error) => {
-      console.error(error)
-    })
-  })
-});
-
-
-/**
- * @section Test
- * CSS Validation
- */
-gulp.task('css', function() {
-  fs.readFile(test.css, 'utf8', (error, response) => {
-    if (error) {
-      throw error;
-    }
-
-    css.validate({text: response}, function(error, data) {
-      if(error) {
-        console.error(error);
-      } else {
-        var errors = data.errors;
-        for (let message in errors) {
-          console.log(`${errors[message].message} at line ${errors[message].line}`)
-        }
+      server: {
+         baseDir: options.paths.dest
       }
-    })
-  })
+    });
+    done();
+}
+
+
+/**
+ * @section Watch
+ */
+gulp.task('watch', function() {
+  gulp.watch( options.paths.dev + '/scss/**/*.scss',      gulp.series( 'sass', reload ) );
+  gulp.watch( options.paths.dev + '/js/**/*.js',          gulp.series( 'js', reload ) );
+  gulp.watch( options.paths.dev + '/img/**/*.*',          gulp.series( 'img', reload ) );
+  gulp.watch( options.paths.dev + '/img/svg/*.svg',       gulp.series( 'svg', 'html', reload ) );
+  gulp.watch( options.paths.dev + '/templates/*.html', gulp.series( 'html', reload ) );
+  gulp.watch( options.paths.dev + '/datas/**/*.json',     gulp.series( 'html', reload ) );
 });
+exports.default = gulp.series( sync, 'watch' );
 
 
 /**
  * @section Test
- * Compatibility
  */
-gulp.task('compat', function() {
-  fs.createReadStream(test.css)
-    .pipe(doiuse(browsers))
-    .on('data', function(usageInfo) {
-      if(undefined !== usageInfo.featureData.missing
-        && 'Opera Mini (all)' !== usageInfo.featureData.missing
-        && 'Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing
-        && 'Opera Mini (all), Opera Mobile (12.1), IE Mobile (11)' !== usageInfo.featureData.missing
-        && 'IE (11), Opera Mini (all), Opera Mobile (12.1)' !== usageInfo.featureData.missing) {
-         console.log(`${usageInfo.featureData.title} not supported by ${usageInfo.featureData.missing}`)
-       }
-     })
-});
-
-
-/**
- * @section Test
- * Validator meta task
- */
-gulp.task('validator', ['html', 'css']);
-
-
-/**
- * @section Test
- * aXe
- */
-gulp.task('axe', function(done) {
-  var options = {
-    saveOutputIn: 'axe.json',
-    folderOutputReport: 'reports',
-    urls: [test.all]
-  };
-  return axe(options, done);
-});
-
-
-/**
- * @section Test
- * Louis, using Phantomas
- */
-gulp.task('louis', function() {
-  louis({
-    url: test.grps,
-    outputFileName: 'reports/louis.json',
-    performanceBudget: {
-      httpTrafficCompleted: 2000,
-      domInteractive: 1000,
-      domContentLoaded: 1500,
-      timeToFirstByte: 500,
-      DOMelementMaxDepth: 8,
-      requests: 6,
-      webfontSize: 300,
-      webfontCount: 5,
-      notFound: 0,
-      consoleMessages: 0,
-      iframesCount: 0,
-      windowPrompts: 0,
-      windowConfirms: 0,
-      windowAlerts: 0,
-      consoleMessages: 0,
-      imagesWithoutDimensions: 0,
-      DOMidDuplicated: 0,
-      nodesWithInlineCSS: 0,
-    }
-  });
-});
-
-
-/**
- * @section Test
- * All
- */
-gulp.task('test', ['validator', 'louis', 'axe']);
-
-
-/**
- * @section default: sync
- */
-gulp.task('default', ['sync']);
+gulp.task('tests',     require('./tasks/tests'));
+gulp.task('validator', require('./tasks/validator'));
+gulp.task('travis',    require('./tasks/travis'));
+exports.test = gulp.parallel( 'validator', 'tests' );
 
 
 /**
  * @section Packaging
- * Zip package folder
  */
-gulp.task('zip', ['copy'], function () {
+exports.zip = gulp.series( 'build', function () {
     return gulp.src('./docs/**/*.*')
         .pipe(zip('pkg.zip'))
         .pipe(gulp.dest('./'));
-});
-
-
-/**
- * @section Test
- * Travis
- */
-gulp.task('travis', function() {
-  fs.readFile(test.grps, 'utf8', (error, response) => {
-    if (error) {
-      throw error;
-    }
-
-    html({data: response})
-      .then((data) => {
-        let messages = JSON.parse(data);
-        let errors = [];
-        let results  = messages.messages.reduce((results, value, key) => {
-          results[key] = value;
-          return results;
-        }, {});
-        for (let result in results) {
-          if (results[result].type == "error") {
-            errors.push(results[result]);
-          }
-        }
-        if (errors.length > 0) {
-          errors.forEach(function(error) {
-            console.error(`${error.message} from line ${error.firstLine}, column ${error.firstColumn}; to line ${error.lastLine}, column ${error.lastColumn}`)
-          });
-          process.exit(1);
-        } else {
-          console.log('The HTML document validates according to the W3C')
-        }
-      })
-      .catch((error) => {
-        console.error(error)
-      })
-    })
 });
