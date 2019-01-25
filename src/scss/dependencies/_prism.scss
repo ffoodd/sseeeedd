@@ -1,11 +1,11 @@
-/* PrismJS 1.11.0
+/*! PrismJS 1.11.0
 http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+javascript+bash+css-extras+git+json+markdown+php+php-extras+scss */
 /**
  * prism.js Dark theme for JavaScript, CSS and HTML
  * Based on the slides of the talk “/Reg(exp){2}lained/”
  * @author Lea Verou
  */
-
+/*! purgecss start ignore */
 .token.comment,
 .token.prolog,
 .token.doctype,
@@ -75,3 +75,4 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.deleted {
 	color:  palette( alert, dark );
 }
+/*! purgecss end ignore */

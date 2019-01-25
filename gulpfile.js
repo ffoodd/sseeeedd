@@ -51,7 +51,7 @@ gulp.task('watch', function() {
   gulp.watch( options.paths.dev + '/js/**/*.js',          gulp.series( 'js', reload ) );
   gulp.watch( options.paths.dev + '/img/**/*.*',          gulp.series( 'img', reload ) );
   gulp.watch( options.paths.dev + '/img/svg/*.svg',       gulp.series( 'svg', 'html', reload ) );
-  gulp.watch( options.paths.dev + '/templates/**/*.html', gulp.series( 'html', reload ) );
+  gulp.watch( options.paths.dev + '/templates/*.html', gulp.series( 'html', reload ) );
   gulp.watch( options.paths.dev + '/datas/**/*.json',     gulp.series( 'html', reload ) );
 });
 exports.default = gulp.series( sync, 'watch' );
