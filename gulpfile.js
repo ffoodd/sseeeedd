@@ -22,7 +22,7 @@ gulp.task('js',      require('./tasks/compile:js'));
 gulp.task('img',     require('./tasks/compile:img'));
 gulp.task('svg',     require('./tasks/compile:svg'));
 gulp.task('html',    require('./tasks/compile:html'));
-gulp.task('build', gulp.series( clean, 'prepare', gulp.parallel( 'sass', 'js', 'img', 'svg', 'html' ) ) );
+gulp.task('build', gulp.series( clean, 'prepare', gulp.series( 'svg', 'html', gulp.parallel( 'sass', 'js', 'img', 'svg', 'html' ) ) ) );
 
 
 /**
