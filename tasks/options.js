@@ -38,13 +38,13 @@ module.exports = {
   nunjucks: {
     path: './src/templates/'
   },
-  svgo: {
-    plugins: [
-      {removeUnknownsAndDefaults: false}
-    ]
-  },
   symbol: {
     inlineSvg: true
+  },
+  svgo: {
+    plugins: [{
+      removeUnknownsAndDefaults: false
+    }]
   },
   axe: {
     saveOutputIn: 'axe.json',

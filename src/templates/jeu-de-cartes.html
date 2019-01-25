@@ -48,7 +48,7 @@
     </li>
     <li>
       et une icône&nbsp; le nom d’un fichier <abbr lang="en" title="Scalable Vector Graphics">SVG</abbr>
-      dans le répertoire <code>./src/img/svg/</code>.
+      dans le répertoire <code>./src/img/svg/</code> —&nbsp;le tout combiné dans un <em lang="en">sprite</em>.
     </li>
   </ul>
 
@@ -63,7 +63,7 @@
       <figure class="card p-relative no-margin d-flex clr-{{ item.color }}" role="group" style="--card: #card-{{ loop.index }}">
         <p class="--l d-flex no-padding p-relative rounded bg-{{ item.color }}" id="card-{{ loop.index }}">{{ item.value }}</p>
         <svg width="56" height="64" role="img" aria-label="{{ item.label }}" class="no-margin no-padding">
-          <use xlink:href="#{{ item.icon }}"></use>
+          <use xlink:href="img/symbol.svg#{{ item.icon }}"></use>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">{{ item.label }}</p>
