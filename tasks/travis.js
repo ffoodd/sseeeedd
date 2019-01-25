@@ -39,5 +39,4 @@ function travis(done) {
     done();
 }
 
-
 module.exports = travis;

@@ -22,5 +22,4 @@ function css() {
       .pipe(gulp.dest(options.paths.dest + '/css'));
 }
 
-
 module.exports = css;
