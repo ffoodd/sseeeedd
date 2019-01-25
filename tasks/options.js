@@ -32,6 +32,9 @@ module.exports = {
   csso: {
     sourceMap: false
   },
+  purge: {
+    content: ['./docs/*.html']
+  },
   nunjucks: {
     path: './src/templates/'
   },
