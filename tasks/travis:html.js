@@ -1,9 +1,9 @@
-const fs       = require('fs');
-const gulp     = require('gulp');
-const html     = require('html-validator');
-const options  = require('./options');
+const fs        = require('fs');
+const gulp      = require('gulp');
+const html      = require('html-validator');
+const options   = require('./options');
 
-function travis(done) {
+function travisHTML(done) {
   fs.readFile(options.test.grps, 'utf8', (error, response) => {
     if (error) {
       throw error;
@@ -34,9 +34,9 @@ function travis(done) {
       .catch((error) => {
         console.error(error)
       })
-    })
+    });
 
-    done();
+  done();
 }
 
-module.exports = travis;
+module.exports = travisHTML;

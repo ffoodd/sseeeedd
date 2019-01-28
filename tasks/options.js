@@ -81,5 +81,14 @@ module.exports = {
       formatter: 'string',
       console: true
     }]
+  },
+  travis: {
+    stylelint: {
+      failAfterError: true,
+      reporters: [{
+        formatter: 'string',
+        console: true
+      }]
+    }
   }
 }
