@@ -12,38 +12,38 @@
     return true;
   }
 
-	// :focus-within polyfill
-	// @link https://gist.github.com/aFarkas/a7e0d85450f323d5e164
-	var focusWithin = (function() {
-		var running, last;
-		var action = function() {
-			var element = document.activeElement;
-			running = false;
-			if (last !== element) {
-				last = element;
-				[].slice.call(document.getElementsByClassName('focus-within')).forEach(function(el){
-      		el.classList.remove('focus-within');
-      	});
-				while (element && element.classList) {
-					element.classList.add('focus-within');
-					element = element.parentNode;
-				}
-			}
-		};
-		return function() {
-			if (!running) {
-				requestAnimationFrame(action);
-				running = true;
-			}
-		};
-	})();
+  // :focus-within polyfill
+  // @link https://gist.github.com/aFarkas/a7e0d85450f323d5e164
+  var focusWithin = (function() {
+    var running, last;
+    var action = function() {
+      var element = document.activeElement;
+      running = false;
+      if (last !== element) {
+        last = element;
+        [].slice.call(document.getElementsByClassName('focus-within')).forEach(function(el){
+          el.classList.remove('focus-within');
+        });
+        while (element && element.classList) {
+          element.classList.add('focus-within');
+          element = element.parentNode;
+        }
+      }
+    };
+    return function() {
+      if (!running) {
+        requestAnimationFrame(action);
+        running = true;
+      }
+    };
+  })();
 
-	// Add class on <html> when :focus-within is unsupported
+  // Add class on <html> when :focus-within is unsupported
   var onLoad = function onLoad() {
     if (supports() !== true) {
-			document.addEventListener('focus', focusWithin, true);
-			document.addEventListener('blur', focusWithin, true);
-			focusWithin();
+      document.addEventListener('focus', focusWithin, true);
+      document.addEventListener('blur', focusWithin, true);
+      focusWithin();
     }
 
     document.removeEventListener('DOMContentLoaded', onLoad);
@@ -69,7 +69,7 @@
   // Toggle switch component
   var switches = document.querySelectorAll('[role="switch"]');
 
-  Array.prototype.forEach.call(switches, function(el, i) {
+  Array.prototype.forEach.call(switches, function(el) {
     el.addEventListener('click', function() {
       var checked = this.getAttribute('aria-checked') === 'true' || false;
       this.setAttribute('aria-checked', !checked);
@@ -85,13 +85,13 @@
   var regions = document.querySelectorAll('.table-container');
 
   if (window.matchMedia('(min-width: 30em)').matches) {
-    Array.prototype.forEach.call(regions, function(el, i) {
-        var width = el.offsetWidth;
-        var table = el.querySelector('table');
+    Array.prototype.forEach.call(regions, function(el) {
+      var width = el.offsetWidth;
+      var table = el.querySelector('table');
 
-        if ( table.offsetWidth > width ) {
-          el.setAttribute('tabindex', '0');
-        }
+      if ( table.offsetWidth > width ) {
+        el.setAttribute('tabindex', '0');
+      }
     });
   }
 })(document);
