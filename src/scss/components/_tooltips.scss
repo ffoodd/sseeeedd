@@ -12,6 +12,20 @@
   button {
     margin: 0;
   }
+
+  button:hover + [role="tooltip"],
+  button:focus + [role="tooltip"] {
+    opacity: 1;
+    pointer-events: auto;
+    transform:
+      perspective(1000px)
+      rotate3d(1, 0, 0, 0deg)
+      translateX(-50%);
+    transition:
+      opacity .2s map-get( $timing-functions, 'exit' ),
+      transform .2s map-get( $timing-functions, 'exit' );
+    visibility: visible;
+  }
 }
 
 [role="tooltip"] {
@@ -44,21 +58,5 @@
     content: "";
     left: calc(50% - .25em);
     position: absolute;
-  }
-}
-
-.tooltip {
-  button:hover + [role="tooltip"],
-  button:focus + [role="tooltip"] {
-    opacity: 1;
-    pointer-events: auto;
-    transform:
-      perspective(1000px)
-      rotate3d(1, 0, 0, 0deg)
-      translateX(-50%);
-    transition:
-      opacity .2s map-get( $timing-functions, 'exit' ),
-      transform .2s map-get( $timing-functions, 'exit' );
-    visibility: visible;
   }
 }
