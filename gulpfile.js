@@ -17,11 +17,11 @@ function clean() {
 
 exports.clean = clean;
 gulp.task('prepare', require('./tasks/prepare'));
-gulp.task('sass',    require('./tasks/build/compile:sass'));
-gulp.task('js',      require('./tasks/build/compile:js'));
-gulp.task('img',     require('./tasks/build/compile:img'));
-gulp.task('svg',     require('./tasks/build/compile:svg'));
-gulp.task('html',    require('./tasks/build/compile:html'));
+gulp.task('sass',    require('./tasks/compile:sass'));
+gulp.task('js',      require('./tasks/compile:js'));
+gulp.task('img',     require('./tasks/compile:img'));
+gulp.task('svg',     require('./tasks/compile:svg'));
+gulp.task('html',    require('./tasks/compile:html'));
 gulp.task('build', gulp.series( clean, 'prepare', gulp.series( 'svg', 'html', gulp.parallel( 'sass', 'js', 'img', 'svg', 'html' ) ) ) );
 
 
@@ -47,12 +47,12 @@ function sync(done) {
  * @section Watch
  */
 gulp.task('watch', function() {
-  gulp.watch( options.paths.dev + '/scss/**/*.scss',   gulp.series( 'sass', reload ) );
-  gulp.watch( options.paths.dev + '/js/**/*.js',       gulp.series( 'js', reload ) );
-  gulp.watch( options.paths.dev + '/img/**/*.*',       gulp.series( 'img', reload ) );
-  gulp.watch( options.paths.dev + '/img/svg/*.svg',    gulp.series( 'svg', 'html', reload ) );
+  gulp.watch( options.paths.dev + '/scss/**/*.scss',      gulp.series( 'sass', reload ) );
+  gulp.watch( options.paths.dev + '/js/**/*.js',          gulp.series( 'js', reload ) );
+  gulp.watch( options.paths.dev + '/img/**/*.*',          gulp.series( 'img', reload ) );
+  gulp.watch( options.paths.dev + '/img/svg/*.svg',       gulp.series( 'svg', 'html', reload ) );
   gulp.watch( options.paths.dev + '/templates/*.html', gulp.series( 'html', reload ) );
-  gulp.watch( options.paths.dev + '/datas/**/*.json',  gulp.series( 'html', reload ) );
+  gulp.watch( options.paths.dev + '/datas/**/*.json',     gulp.series( 'html', reload ) );
 });
 exports.default = gulp.series( sync, 'watch' );
 
@@ -68,17 +68,17 @@ exports.test = gulp.parallel( 'validator', 'tests' );
 /**
  * @section Lint
  */
-gulp.task('stylelint', require('./tasks/lint/lint:scss'));
-gulp.task('eslint',    require('./tasks/lint/lint:js'));
+gulp.task('stylelint', require('./tasks/lint:scss'));
+gulp.task('eslint',    require('./tasks/lint:js'));
 exports.lint = gulp.parallel( 'stylelint', 'eslint' );
 
 
 /**
  * @section Travis
  */
-gulp.task('travis:html', require('./tasks/travis/travis:html'));
-gulp.task('travis:scss', require('./tasks/travis/travis:scss'));
-gulp.task('travis:js',   require('./tasks/travis/travis:js'));
+gulp.task('travis:html', require('./tasks/travis:html'));
+gulp.task('travis:scss', require('./tasks/travis:scss'));
+gulp.task('travis:js',   require('./tasks/travis:js'));
 exports.travis = gulp.parallel( 'travis:html', 'travis:scss', 'travis:js' );
 
 
