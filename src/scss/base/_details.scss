@@ -18,7 +18,7 @@ details {
     color: palette( dominant, contrast );
     cursor: pointer;
     padding: 1rem;
-    transition: background .2s map-get( $timing-functions, 'enter' )
+    transition: background .2s map-get( $timing-functions, 'enter' );
 
     &:hover,
     &:focus {

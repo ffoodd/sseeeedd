@@ -1,20 +1,16 @@
 @charset "UTF-8";
 
-
 /* ==================== */
 /* == Utilities
 /* ==================== */
-
 @import "utilities/functions";
 @import "utilities/variables";
 @import "utilities/mixins";
 @import "utilities/helpers";
 
-
 /* ==================== */
 /* == Dependencies
 /* ==================== */
-
 @import "dependencies/normalize";
 @import "dependencies/formage-variables";
 @import "dependencies/formage-dependencies";
@@ -23,11 +19,9 @@
 @import "dependencies/dialog";
 @import "dependencies/tabs";
 
-
 /* ==================== */
 /* == Base
 /* ==================== */
-
 @import "base/base";
 @import "base/typography";
 @import "base/contents";
@@ -37,22 +31,18 @@
 @import "base/forms";
 @import "base/buttons";
 
-
 /* ==================== */
 /* == Layout
 /* ==================== */
-
 @import "layout/base";
 @import "layout/grid";
 @import "layout/header";
 @import "layout/footer";
 @import "layout/navigation";
 
-
 /* ==================== */
 /* == Components
 /* ==================== */
-
 @import "components/breadcrumb";
 @import "components/pagination";
 @import "components/notes";

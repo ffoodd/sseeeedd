@@ -60,10 +60,26 @@ exports.default = gulp.series( sync, 'watch' );
 /**
  * @section Test
  */
-gulp.task('tests',     require('./tasks/tests'));
-gulp.task('validator', require('./tasks/validator'));
-gulp.task('travis',    require('./tasks/travis'));
+gulp.task('tests',       require('./tasks/tests'));
+gulp.task('validator',   require('./tasks/validator'));
 exports.test = gulp.parallel( 'validator', 'tests' );
+
+
+/**
+ * @section Lint
+ */
+gulp.task('stylelint', require('./tasks/lint:scss'));
+gulp.task('eslint',    require('./tasks/lint:js'));
+exports.lint = gulp.parallel( 'stylelint', 'eslint' );
+
+
+/**
+ * @section Travis
+ */
+gulp.task('travis:html', require('./tasks/travis:html'));
+gulp.task('travis:scss', require('./tasks/travis:scss'));
+gulp.task('travis:js',   require('./tasks/travis:js'));
+exports.travis = gulp.parallel( 'travis:html', 'travis:scss', 'travis:js' );
 
 
 /**

@@ -253,6 +253,7 @@
  ** @see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
  ** @note Based on a HTML5 Boilerplate technique, included in Bootstrap
  */
+ /* stylelint-disable */
 .sr-only-focusable:focus,
 .sr-only-focusable:active {
 	clip: auto !important;
@@ -262,6 +263,7 @@
 	width: auto !important;
 	white-space: normal !important;
 }
+/* stylelint-enable */
 
 /**
  * Aliasing .sr-only

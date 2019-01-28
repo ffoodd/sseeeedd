@@ -74,5 +74,21 @@ module.exports = {
       DOMidDuplicated: 0,
       nodesWithInlineCSS: 0,
     }
+  },
+  stylelint: {
+    failAfterError: false,
+    reporters: [{
+      formatter: 'string',
+      console: true
+    }]
+  },
+  travis: {
+    stylelint: {
+      failAfterError: true,
+      reporters: [{
+        formatter: 'string',
+        console: true
+      }]
+    }
   }
 }

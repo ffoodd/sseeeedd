@@ -6,7 +6,9 @@
     display: none !important;
   }
 
-  html, body, body > * {
+  html,
+  body,
+  body > * {
     background: none !important;
   }
 
@@ -22,14 +24,21 @@
   }
 
   /* @note Avoid random page break */
-  ul, ol,
+  ul,
+  ol,
   blockquote,
   .deck .card {
     page-break-inside: avoid;
     break-inside: avoid;
   }
 
-  h1, h2, h3, h4, h5, h6, caption {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  caption {
     page-break-after: avoid;
   }
 
