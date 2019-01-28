@@ -24,6 +24,15 @@
     "start": "npm run gulp",
     "prepublishOnly": "npm run gulp zip"
   },
+  "stylelint": {
+    "extends": "stylelint-config-recommended-scss",
+    "plugins": [
+      "stylelint-scss"
+    ],
+    "rules": {
+      "no-descending-specificity": null
+    }
+  },
   "ignore": [
     "node_modules"
   ],
@@ -46,10 +55,14 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.4",
+    "gulp-stylelint": "^8.0.0",
     "gulp-svgstore": "^7.0.1",
     "gulp-uglify": "^3.0.1",
     "gulp-zip": "^4.2.0",
     "html-validator": "^3.1.3",
+    "stylelint": "^9.10.1",
+    "stylelint-config-recommended-scss": "^3.2.0",
+    "stylelint-scss": "^3.5.1",
     "w3c-css": "^2.0.2"
   },
   "dependencies": {
