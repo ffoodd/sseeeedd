@@ -70,7 +70,8 @@ exports.test = gulp.parallel( 'validator', 'tests' );
  * @section Lint
  */
 gulp.task('stylelint', require('./tasks/lint:scss'));
-exports.lint = gulp.parallel( 'stylelint' );
+gulp.task('eslint',    require('./tasks/lint:js'));
+exports.lint = gulp.parallel( 'stylelint', 'eslint' );
 
 
 /**
