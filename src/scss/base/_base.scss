@@ -87,14 +87,18 @@ a {
     opacity: .75;
   }
 
+  /**
+   * @note Using CSS masks to use colored base64 encoded SVG
+   * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
+   */
   &[target$="blank"]::after {
-    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$blank}' height='10' width='10' viewBox='0 0 100 100'%3E%3Cpath d='M91.875 62H85v23H15V15h23V0H0v100h100V62z'/%3E%3Cpath d='M54 0v.627l17.787 17.85L52.701 38H38v24h24V49.799l20.773-20.337L99.374 46H100V0z'/%3E%3C/svg%3E");
-    padding-left: .25em;
-  }
-
-  &:hover[target$="blank"]::after,
-  &:focus[target$="blank"]::after {
-    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='#{$blank-focus}' height='10' width='10' viewBox='0 0 100 100'%3E%3Cpath d='M91.875 62H85v23H15V15h23V0H0v100h100V62z'/%3E%3Cpath d='M54 0v.627l17.787 17.85L52.701 38H38v24h24V49.799l20.773-20.337L99.374 46H100V0z'/%3E%3C/svg%3E");
+    background: currentColor;
+    content: "";
+    display: inline-block;
+    height: .625em;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='currentColor' height='10' width='10' viewBox='0 0 100 100'%3E%3Cpath d='M91.875 62H85v23H15V15h23V0H0v100h100V62z'/%3E%3Cpath d='M54 0v.627l17.787 17.85L52.701 38H38v24h24V49.799l20.773-20.337L99.374 46H100V0z'/%3E%3C/svg%3E") no-repeat center center;
+    margin-left: .25em;
+    width: .625em;
   }
 }
 
