@@ -3,7 +3,7 @@ const eslint    = require('gulp-eslint');
 const options   = require('./options');
 
 function travisJS() {
-  return gulp.src(options.paths.dev + '/js/script.js')
+  return gulp.src(options.paths.dev + 'js/script.js')
     .pipe(eslint())
     .pipe(eslint.failAfterError());
 }

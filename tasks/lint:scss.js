@@ -4,8 +4,8 @@ const options  = require('./options');
 
 function stylelint() {
     return gulp.src([
-      options.paths.dev + '/scss/**/*.scss',
-      '!' + options.paths.dev + '/scss/dependencies/*.scss'
+      options.paths.dev + 'scss/**/*.scss',
+      '!' + options.paths.dev + 'scss/dependencies/*.scss'
     ])
     .pipe(linter(options.stylelint));
 }

@@ -10,11 +10,11 @@ function fileContents (filePath, file) {
 }
 
 function sprite() {
-   return gulp.src(options.paths.dev + '/img/svg/*.svg')
+   return gulp.src(options.paths.dev + 'img/svg/*.svg')
     .pipe(imgmin(imgmin.svgo(options.svgo)))
     .pipe(symbol(options.symbol))
     .pipe(rename({basename: 'symbol'}))
-    .pipe(gulp.dest(options.paths.dest + '/img/'));
+    .pipe(gulp.dest(options.paths.dest + 'img/'));
 }
 
 module.exports = sprite;

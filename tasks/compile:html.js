@@ -13,7 +13,7 @@ function getCards(file) {
 }
 
 function template() {
-    return gulp.src(options.paths.dev + '/templates/*.html')
+    return gulp.src(options.paths.dev + 'templates/*.html')
       .pipe(data(getCards))
       .pipe(newer(options.paths.dest))
       .pipe(nunjucks(options.nunjucks))

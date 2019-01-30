@@ -10,8 +10,8 @@ const purge    = require('gulp-purgecss');
 const options  = require('./options');
 
 function css() {
-    return gulp.src(options.paths.dev + '/scss/*.scss')
-      .pipe(newer(options.paths.dest + '/css'))
+    return gulp.src(options.paths.dev + 'scss/*.scss')
+      .pipe(newer(options.paths.dest + 'css'))
       .pipe(maps.init())
       .pipe(sass().on('error', sass.logError))
       .pipe(prefix(options.browsers))
@@ -19,7 +19,7 @@ function css() {
       .pipe(purge(options.purge))
       .pipe(rename({suffix: '.min'}))
       .pipe(maps.write())
-      .pipe(gulp.dest(options.paths.dest + '/css'));
+      .pipe(gulp.dest(options.paths.dest + 'css'));
 }
 
 module.exports = css;
