@@ -10,7 +10,7 @@
   &.column {
     --gap: #{$gutter / 2};
     --size: calc(var(--scale, 100) * 100%);
-    --width: calc(#{$width} / var(--y) - #{$gutter} + 1px);
+    --width: calc(#{$width} / var(--y) - #{$gutter});
     display: grid;
     grid-auto-columns: 1fr;
     grid-column-gap: var(--gap);
@@ -74,7 +74,7 @@
         position: absolute;
       }
 
-      @each $number in 1, 2, 3, 4, 5, 6, 7, 8 {
+      @each $number in 1, 2, 3, 4, 5, 6, 7 {
         &:nth-of-type(#{$number}) {
           grid-column: #{$number + 1};
         }
@@ -116,7 +116,7 @@
         opacity: .5;
       }
 
-      @each $number in 1, 2, 3, 4, 5, 6, 7 {
+      @each $number in 1, 2, 3, 4, 5, 6 {
         &:nth-child(#{$number + 1})::after {
           left: calc(1em + (var(--width) * #{$number}) + (var(--gap) * #{$number}));
         }
