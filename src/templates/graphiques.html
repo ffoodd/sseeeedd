@@ -1273,6 +1273,66 @@ document.addEventListener( "DOMContentLoaded", function () {
     </div>
   </details>
 
+  <h3>Colonnes multiples</h3>
+
+  <div class="table-container" role="group" aria-labelledby="caption-8">
+    <div class="fieldset d-flex sm-hidden">
+      <p class="label no-margin">
+        <strong id="label-8">Interrupteur</strong><br>
+        <span id="description-8">Permet de désactiver les styles sur le tableau suivant.</span>
+      </p>
+      <button type="button" class="ml-auto fw-400 no-border p-relative disable-css"
+              role="switch" aria-checked="true"
+              aria-labelledby="label-8" aria-describedby="description-8">
+        <span>Guilleret</span>
+        <span>Sobre</span>
+      </button>
+    </div>
+
+    <table class="table-charts multi-column" id="column" style="--y: 7;">
+      <caption id="caption-8">Parts de marché navigateurs en France en janvier 2019</caption>
+      <thead>
+        <tr>
+          <th scope="row">Navigateur</th>
+          <th scope="col" colspan="2">Chrome</th>
+          <th scope="col" colspan="2">Firefox</th>
+          <th scope="col" colspan="2">Safari</th>
+          <th scope="col" colspan="2">Edge</th>
+          <th scope="col" colspan="2">IE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Année</th>
+          <th scope="col">2018</th>
+          <th scope="col">2019</th>
+          <th scope="col">2018</th>
+          <th scope="col">2019</th>
+          <th scope="col">2018</th>
+          <th scope="col">2019</th>
+          <th scope="col">2018</th>
+          <th scope="col">2019</th>
+          <th scope="col">2018</th>
+          <th scope="col">2019</th>
+        </tr>
+        <tr>
+          <th scope="row">Parts de marché</th>
+          <td style="--value: 49.6;"><span>49.6&nbsp;%</span></td>
+          <td style="--value: 57;"><span>57&nbsp;%</span></td>
+          <td style="--value: 11.74;"><span>11.74&nbsp;%</span></td>
+          <td style="--value: 9.59;"><span>9.59&nbsp;%</span></td>
+          <td style="--value: 21.53;"><span>21.53&nbsp;%</span></td>
+          <td style="--value: 18.78;"><span>18.78&nbsp;%</span></td>
+          <td style="--value: 3.72;"><span>3.724&nbsp;%</span></td>
+          <td style="--value: 3.5;"><span>3.5&nbsp;%</span></td>
+          <td style="--value: 4.46;"><span>4.46&nbsp;%</span></td>
+          <td style="--value: 3.66;"><span>3.66&nbsp;%</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
   <h2 id="pie-charts">Graphique en tarte</h2>
 
   <p>
