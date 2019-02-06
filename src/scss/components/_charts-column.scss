@@ -83,26 +83,12 @@
 
       tbody td {
         --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+        background-blend-mode: hard-light;
         background-position: 0% var(--position), center;
         background-size: 100% var(--size), $gutter;
       }
 
       thead [scope="col"] {
-        --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
-
-        &::before {
-          background-blend-mode: hard-light;
-          background-position: 0% var(--position), center;
-          background-size: 100% var(--size), 1rem;
-          content: "";
-          display: inline-block;
-          height: $gutter;
-          position: relative;
-          transform: translate3d(-.2rem, .1rem, 0);
-          width: $gutter;
-          z-index: 1;
-        }
-
         &::after {
           background-color: palette( default, secondary );
           background-image: url( map-get( $patterns, 'stripes' ) );
@@ -132,8 +118,7 @@
       @each $name, $pattern in $patterns {
         $i: index($patterns, ($name $pattern));
 
-        tbody td:nth-of-type(#{$i}n + #{$i}),
-        thead [scope="col"]:nth-of-type(#{$i + 1}n + #{$i + 1})::before {
+        tbody td:nth-of-type(#{$i}n + #{$i}) {
           background-image:
             linear-gradient(to top,
               palette( success, dark ),
@@ -155,8 +140,7 @@
         @each $name, $pattern in $patterns {
           $i: index($patterns, ($name $pattern));
 
-          tbody td:nth-of-type(#{$i}n + #{$i}),
-          thead [scope="col"]:nth-of-type(#{$i + 1}n + #{$i + 1})::before {
+          tbody td:nth-of-type(#{$i}n + #{$i}) {
             background-image:
               linear-gradient(to top,
                 Window,
@@ -174,29 +158,6 @@
     &.column-multiple {
       grid-template-columns: minmax(min-content, 14ch) repeat(calc(var(--y) - 1), 1fr);
       grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) repeat(2, minmax(min-content, 2rem));
-
-      tbody td {
-        background-color: palette( secondary, dark );
-        background-image: url( map-get( $patterns, 'stripes' ) );
-
-        /**
-         * @note Oh boy, if we could use var(--span) in selector…
-         */
-        &:nth-of-type(2n + 2) {
-          background-color: palette( accent );
-          background-image: url( map-get( $patterns, 'triangles' ) );
-        }
-      }
-
-      @media screen and (-ms-high-contrast: active) {
-        tbody td {
-          background-color: Window;
-
-          &:nth-of-type(2n + 2) {
-            background-color: Highlight;
-          }
-        }
-      }
 
       tbody th {
         grid-row: -10 / span 4;
@@ -224,8 +185,50 @@
         }
       }
 
-      thead tr [scope="col"]::after {
-        display: none;
+      thead tr:first-child [scope="col"] {
+        &:nth-child(even)::after {
+          background-color: palette( default, secondary );
+          background-image: url( map-get( $patterns, 'stripes' ) );
+          background-blend-mode: exclusion;
+          bottom: #{$gutter * 4};
+          content: "";
+          mix-blend-mode: multiply;
+          opacity: .25;
+          position: absolute;
+          transition: opacity .3s map-get( $timing-functions, 'move' );
+          top: $gutter;
+          width: calc((var(--width) * 2) + (var(--gap) / 2) + 1px);
+          z-index: 0;
+        }
+
+        @each $number in 1, 3, 5 {
+          &:nth-child(#{$number + 1})::after {
+            left: calc(14ch + 1em + (((var(--width) * 2) + (var(--gap) / 2) + 1px) * #{$number - 1}) + (var(--gap) * #{$number}));
+          }
+        }
+      }
+
+      tbody td {
+        background-color: palette( charts, pink );
+        background-image: url( map-get( $patterns, 'zig' ) );
+      }
+
+      /**
+       * @note Oh boy, if we could use var(--span) in selector…
+       */
+      tbody td:nth-of-type(2n + 2) {
+        background-color: palette( charts, blue );
+        background-image: url( map-get( $patterns, 'triangles' ) );
+      }
+
+      @media screen and (-ms-high-contrast: active) {
+        tbody td {
+          background-color: Window;
+        }
+
+        tbody td:nth-of-type(2n + 2) {
+          background-color: Highlight;
+        }
       }
     }
   }
