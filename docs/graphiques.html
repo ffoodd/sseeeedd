@@ -1344,16 +1344,12 @@ document.addEventListener( "DOMContentLoaded", function () {
   <ol>
     <li>
       la fonction <code>repeat()</code> appliquée avec la variable <var>--scale</var>
-      permet de gérer une échelle dynamique&nbsp;
+      permet de gérer une échelle dynamique&nbsp;;
     </li>
     <li>
       chaque cellule est placée sur la grille en fonction de <var>--value</var>
       —&nbsp;sa valeur, donc, sa couleur d’arrière-plan dépendant également de
-      sa valeur.
-    </li>
-    <li>
-      un motif d’arrière-plan, reprit dans l’entête <code>&lt;th&gt;</code>
-      associée, permet de peaufiner l’assortiement visuel&nbsp;;
+      sa valeur&nbsp;;
     </li>
     <li>
       et finalement la valeur textuelle —&nbsp;contenue dans un élément
@@ -1585,6 +1581,20 @@ document.addEventListener( "DOMContentLoaded", function () {
   </details>
 
   <h3>Colonnes multiples</h3>
+
+  <p>
+    Pour disposer de <var>deux</var> valeurs pour chaque colonne principale, nous devons également
+    disposer de <var>deux</var> sous-titres.
+    Concrètement parlant&nbsp;:
+  </p>
+
+  <ol>
+    <li>
+      on ajoute une seconde ligne dans l’entête <code>&lt;thead></code>,
+      avec <var>deux</var> cellules d’entête de colonne <code>&lt;th scope="col"></code>
+      pour chaque cellule d’entête de colonne dans la première ligne d’entête&nbsp;;
+    </li>
+  </ol>
 
   <div class="table-container" role="group" aria-labelledby="caption-8">
     <div class="fieldset d-flex sm-hidden">
