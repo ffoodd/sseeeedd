@@ -38,14 +38,10 @@ $colors: (
     dark: indigo,
     contrast: white
   ),
-  muted: (
-    base: gray,
-    light: darkgray,
-    contrast: black
-  ),
   alert: (
     base: crimson,
-    dark: firebrick,
+    light: firebrick,
+    dark: #911,
     contrast: white
   ),
   success: (
@@ -54,8 +50,16 @@ $colors: (
     dark: #01ac49,
     contrast: #444
   ),
+  muted: (
+    base: gray,
+    light: darkgray,
+    dark: #333,
+    contrast: black
+  ),
   default: (
     base: dimgray,
+    light: lightgray,
+    dark: darkgrey,
     secondary: whitesmoke,
     contrast: white
   )
