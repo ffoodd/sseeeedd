@@ -1348,7 +1348,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     </li>
     <li>
       chaque cellule est placée sur la grille en fonction de <var>--value</var>
-      —&nbsp;sa valeur, donc, sa couleur d’arrière-plan dépendant également de
+      —&nbsp;sa valeur, donc&nbsp;; sa couleur d’arrière-plan dépend également de
       sa valeur&nbsp;;
     </li>
     <li>
@@ -1590,9 +1590,29 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   <ol>
     <li>
-      on ajoute une seconde ligne dans l’entête <code>&lt;thead></code>,
-      avec <var>deux</var> cellules d’entête de colonne <code>&lt;th scope="col"></code>
-      pour chaque cellule d’entête de colonne dans la première ligne d’entête&nbsp;;
+      on ajoute <strong>une seconde ligne dans l’entête</strong> <code>&lt;thead></code>&nbsp;:
+      <ul>
+        <li>
+          avec <var>deux</var> cellules d’entête de colonne <code>&lt;th scope="col"></code>
+          pour chaque cellule d’entête de colonne dans la première ligne d’entête&nbsp;;
+        </li>
+        <li>
+          n’oublions pas d’ajouter un <code>colspan="2"</code> sur les cellules d’entête de
+          la première ligne pour faire correspondre la structure du tableau&nbsp;;
+        </li>
+        <li>
+          et enfin ajouter un <strong>identifiant</strong> à chaque cellule d’entête
+          afin de les référencer sur les cellules de données concernées —&nbsp;à l’aide
+          de l’attribut <code>headers</code>, par exemple pour la première cellule&nbsp;:
+          <code>headers="navigateur chrome annee chrome-2018"</code> où chaque valeur est un
+          identifiant de cellule d’entête.
+        </li>
+      </ul>
+    </li>
+    <li>
+      Côté styles, la seule véritable distinction est l’application des <strong>couleurs et motifs</strong>
+      non plus en fonction de chaque valeur, mais en fonction de la colonne —&nbsp;dans
+      l’exemple, un élément sur <var>deux</var> (puisque nous avons <var>deux</var> entrées par colonne).
     </li>
   </ol>
 
