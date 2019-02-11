@@ -94,6 +94,7 @@ a {
    * @note Using CSS masks to use colored base64 encoded SVG
    * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
    */
+  &[href^="#"]::before,
   &[target$="blank"]::after,
   &[href^="http://"]::before {
     background: currentColor;
@@ -104,6 +105,11 @@ a {
     mask-repeat: no-repeat;
     mask-position: center center;
     width: .625em;
+  }
+
+  &[href^="#"]::before {
+    mask-image: url("#{map-get( $icons, "anchor" )}");
+    margin: 0 .25em 0 0;
   }
 
   &[target$="blank"]::after {
