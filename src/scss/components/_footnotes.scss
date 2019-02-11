@@ -5,6 +5,10 @@
  * @link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters
 /* ==================== */
 
+a[href^="#footnote"]::before {
+  display: none;
+}
+
 a[id^="footnote-"][aria-describedby] {
   counter-increment: footnotes; /* 1 */
   text-decoration: none;
