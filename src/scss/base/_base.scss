@@ -94,32 +94,34 @@ a {
    * @note Using CSS masks to use colored base64 encoded SVG
    * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
    */
-  &[href^="#"]::before,
-  &[target$="blank"]::after,
-  &[href^="http://"]::before {
-    background: currentColor;
-    content: "";
-    display: inline-block;
-    height: .625em;
-    margin: 0 0 0 .25em;
-    mask-repeat: no-repeat;
-    mask-position: center center;
-    width: .625em;
-  }
+   @supports(mask-image: url()) {
+    &[href^="#"]::before,
+    &[target$="blank"]::after,
+    &[href^="http://"]::before {
+      background: currentColor;
+      content: "";
+      display: inline-block;
+      height: .625em;
+      margin: 0 0 0 .25em;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      width: .625em;
+    }
 
-  &[href^="#"]::before {
-    mask-image: url("#{map-get( $icons, "anchor" )}");
-    margin: 0 .25em 0 0;
-  }
+    &[href^="#"]::before {
+      mask-image: url("#{map-get( $icons, "anchor" )}");
+      margin: 0 .25em 0 0;
+    }
 
-  &[target$="blank"]::after {
-    mask-image: url("#{map-get( $icons, "external" )}");
-  }
+    &[target$="blank"]::after {
+      mask-image: url("#{map-get( $icons, "external" )}");
+    }
 
-  &[href^="http://"]::before {
-    background: palette( alert );
-    mask-image: url("#{map-get( $icons, "unsafe" )}");
-    margin: 0 .25em 0 0;
+    &[href^="http://"]::before {
+      background: palette( alert );
+      mask-image: url("#{map-get( $icons, "unsafe" )}");
+      margin: 0 .25em 0 0;
+    }
   }
 }
 
