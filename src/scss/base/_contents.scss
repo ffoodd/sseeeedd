@@ -32,7 +32,7 @@ blockquote {
   }
 }
 
-abbr[title] {
+abbr[aria-label] {
   border-bottom: 1px dotted;
   cursor: help;
   text-decoration: none;
