@@ -1024,7 +1024,11 @@ document.addEventListener( "DOMContentLoaded", function () {
     L’histogramme sert pour <strong>les distributions de valeurs</strong>.
     La structure du tableau est tout à fait ordinaire, cependant sa mise en forme repose
     sur <code>display: grid;</code> et surtout <code>display: contents;</code> pour
-    <strong>faciliter le placement des cellules</strong>.
+    <strong>faciliter le placement des cellules</strong> —&nbsp;technique inspirée par
+    <a href="https://hiddedevries.nl/en/blog/2018-04-21-more-accessible-markup-with-display-contents" hreflang="en">l’article
+    de <cite>Hidde De Vries</cite> <q lang="en">More accessible markup with <code>display: contents</code></q></a>,
+    et clarifiée par <a href="https://bitsofco.de/how-display-contents-works/" hreflang="en">l’article de
+    <cite>Ire Aderinokun</cite> <q lang="en">How <code>display: contents</code> works</q></a>.
   </p>
 
   <p>Le principe de base est le même que <a href="bar-chart">le graphique en barre</a>&nbsp;:</p>
@@ -1034,8 +1038,11 @@ document.addEventListener( "DOMContentLoaded", function () {
       permet de gérer une échelle dynamique&nbsp;;
     </li>
     <li>
+      les conteneurs <code>&lt;thead></code>, <code>&lt;tbody></code> et <code>&lt;tr></code>
+      sont neutralisés dans la gestion de la grille à l’aide de <code>display: contents</code>&nbsp;;
+    <li>
       chaque cellule est placée sur la grille en fonction de <var>--value</var>
-      —&nbsp;sa valeur, donc&nbsp;; sa couleur d’arrière-plan dépend également de
+      —&nbsp;sa valeur, donc —&nbsp;sa couleur d’arrière-plan dépend également de
       sa valeur&nbsp;;
     </li>
     <li>
@@ -1117,15 +1124,13 @@ document.addEventListener( "DOMContentLoaded", function () {
       <pre>
         <code class="language-scss">
 @supports (display: contents) {
-  .column {
-    --gap: .5rem;
+  [class*="column"] {
+    --gap: #{$gutter / 2};
     --size: calc(var(--scale, 100) * 100%);
-    --width: calc(64em / var(--y) - 1rem + 1px);
+    --width: calc(#{$width} / var(--y) - #{$gutter});
     display: grid;
-    grid-auto-columns: 1fr;
     grid-column-gap: var(--gap);
-    grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) minmax(min-content, 2rem);
-    max-height: 64em;
+    max-height: $width;
     position: relative;
 
     td,
@@ -1143,30 +1148,16 @@ document.addEventListener( "DOMContentLoaded", function () {
       display: contents;
     }
 
-    tbody th {
-      grid-row: -6 / -3;
-      grid-column: 1;
-      line-height: 1;
-    }
-
-    thead * {
-      grid-row: -2;
-    }
-
     caption {
       grid-column: 1 / span var(--y);
       grid-row: -1;
     }
 
     tbody td {
-      --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
-      background-blend-mode: hard-light;
-      background-position: 0% var(--position), center;
-      background-size: 100% var(--size), 1rem;
       grid-row: calc( 100 - var(--value) ) / -3;
       pointer-events: none;
       position: relative;
-      transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
+      transition: opacity .2s map-get( $timing-functions, 'move' );
 
       span {
         background: inherit;
@@ -1174,97 +1165,103 @@ document.addEventListener( "DOMContentLoaded", function () {
         -webkit-background-clip: text;
         font-weight: bold;
         bottom: 100%;
+        left: 0;
         line-height: 1.5;
         pointer-events: auto;
         position: absolute;
+        right: 0;
       }
 
-      @each $number in 1, 2, 3, 4, 5, 6, 7, 8 {
+      @each $number in 1, 2, 3, 4, 5, 6, 7 {
         &:nth-of-type(#{$number}) {
           grid-column: #{$number + 1};
         }
       }
     }
 
-    thead [scope="col"] {
-      --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+    .column-single {
+      grid-auto-columns: 1fr;
+      grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) minmax(min-content, 2rem);
 
-      &::before {
+      tbody th {
+        grid-row: -6 / -3;
+        grid-column: 1;
+        line-height: 1;
+      }
+
+      thead * {
+        grid-row: -2;
+      }
+
+      tbody td {
+        --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
         background-blend-mode: hard-light;
         background-position: 0% var(--position), center;
-        background-size: 100% var(--size), 1rem;
-        content: "";
-        display: inline-block;
-        height: $gutter;
-        position: relative;
-        transform: translate3d(-.2rem, .1rem, 0);
-        width: $gutter;
-        z-index: 1;
+        background-size: 100% var(--size), $gutter;
       }
 
-      &::after {
-        background-color: whitesmoke;
-        background-image: url( map-get( $patterns, 'stripes' ) );
-        background-blend-mode: exclusion;
-        bottom: 4rem;
-        content: "";
-        mix-blend-mode: multiply;
-        opacity: 0;
-        position: absolute;
-        transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
-        top: 1rem;
-        width: var(--width);
-        z-index: 0;
-      }
+      thead [scope="col"] {
+        &::after {
+          background-color: palette( default, secondary );
+          background-image: url( map-get( $patterns, 'stripes' ) );
+          background-blend-mode: exclusion;
+          bottom: #{$gutter * 4};
+          content: "";
+          mix-blend-mode: multiply;
+          opacity: 0;
+          position: absolute;
+          transition: opacity .3s map-get( $timing-functions, 'move' );
+          top: $gutter;
+          width: var(--width);
+          z-index: 0;
+        }
 
-      &:hover::after {
-        opacity: .5;
-      }
+        &:hover::after {
+          opacity: .5;
+        }
 
-      @each $number in 1, 2, 3, 4, 5, 6, 7 {
-        &:nth-child(#{$number + 1})::after {
-          left: calc(1em + (var(--width) * #{$number}) + (var(--gap) * #{$number}));
+        @each $number in 1, 2, 3, 4, 5, 6 {
+          &:nth-child(#{$number + 1})::after {
+            left: calc(1em + (var(--width) * #{$number}) + (var(--gap) * #{$number}));
+          }
         }
       }
-    }
 
-    @each $name, $pattern in $patterns {
-      $i: index($patterns, ($name $pattern));
-
-      tbody td:nth-of-type(#{$i}n + #{$i}),
-      thead [scope="col"]:nth-of-type(#{$i + 1}n + #{$i + 1})::before {
-        background-image:
-          linear-gradient(to top,
-            palette( success, dark ),
-            palette( dominant ),
-            palette( secondary ),
-            palette( accent ),
-            palette( alert )
-          ),
-          url($pattern);
-      }
-    }
-
-    @media screen and (-ms-high-contrast: active) {
       @each $name, $pattern in $patterns {
         $i: index($patterns, ($name $pattern));
 
-        tbody td:nth-of-type(#{$i}n + #{$i}),
-        thead [scope="col"]:nth-of-type(#{$i + 1}n + #{$i + 1})::before {
+        tbody td:nth-of-type(#{$i}n + #{$i}) {
           background-image:
             linear-gradient(to top,
-              Window,
-              ButtonFace,
-              ButtonShadow,
-              ButtonText,
-              highlight
+              palette( success, dark ),
+              palette( dominant ),
+              palette( secondary ),
+              palette( accent ),
+              palette( alert )
             ),
             url($pattern);
         }
       }
+
+      @media screen and (-ms-high-contrast: active) {
+        @each $name, $pattern in $patterns {
+          $i: index($patterns, ($name $pattern));
+
+          tbody td:nth-of-type(#{$i}n + #{$i}) {
+            background-image:
+              linear-gradient(to top,
+                Window,
+                ButtonFace,
+                ButtonShadow,
+                ButtonText,
+                highlight
+              ),
+              url($pattern);
+          }
+        }
+      }
     }
-  }
-}</code>
+  }</code>
       </pre>
     </div>
   </details>
@@ -1299,9 +1296,30 @@ document.addEventListener( "DOMContentLoaded", function () {
       </ul>
     </li>
     <li>
-      Côté styles, la seule véritable distinction est l’application des <strong>couleurs et motifs</strong>
-      non plus en fonction de chaque valeur, mais en fonction de la colonne —&nbsp;dans
-      l’exemple, un élément sur <var>deux</var> (puisque nous avons <var>deux</var> entrées par colonne).
+      Côté <strong>styles</strong>&nbsp;:
+      <ul>
+        <li>
+          les cellules d’entête de premier niveau doivent s’étendre sur deux colonnes de la grille,
+          comme le réclame leur attribut <code>colspan</code> pour la structure du tableau. Il est
+          malheureusement <strong>impossible d’utiliser la valeur d’un attribut</strong> dans une autre
+          propriété que <code>content</code> — sinon nous pourrions simplement écrire
+          <code>grid-column: 2 / span attr(colspan);</code> et ça serait magnifique…
+        </li>
+        <li>
+          mais non&nbsp;! Ainsi, une variable <var>--span</var> est ajoutée sur <code>&lt;table></code>,
+          et doit correspondre à la valeur des attributs <code>colspan</code> cités plus tôt&nbsp;:
+          elle sert donc à étendre les entêtes de premier niveau sur le nombre de colonnes adéquat.
+        </li>
+        <li>
+          les <strong>couleurs et motifs</strong> ne sont plus appliqués en fonction
+          de chaque valeur, mais en fonction de chaque colonne —&nbsp;dans l’exemple, un élément
+          sur <var>deux</var> (puisque nous avons <var>deux</var> entrées par colonne).
+          Là aussi, si nous pouvions utiliser une valeur d’attribut ou une propriété personnalisée
+          <strong>dans un sélecteur</strong>, ce serait génial. Imaginez un peu
+          <code>tbody td:nth-of-type(var(--span)n + var(--span))</code> ou encore
+          <code>tbody td:nth-of-type(attr(colspan)n + attr(colspan))</code>&nbsp;!
+        </li>
+      </ul>
     </li>
   </ol>
 
@@ -1361,6 +1379,126 @@ document.addEventListener( "DOMContentLoaded", function () {
       </tbody>
     </table>
   </div>
+
+  <details>
+    <summary>Le <abbr lang="en" title="HyperText Markup Language" aria-label="HyperText Markup Language">HTML</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-markup">
+&lt;table class="table-charts column-multiple" id="column-multiple" style="--y: 11; --span: 2;">
+  &lt;caption id="caption-8">Parts de marché navigateurs en France en janvier 2019&lt;/caption>
+  &lt;thead>
+    &lt;tr>
+      &lt;th scope="row" id="navigateur">Navigateur&lt;/th>
+      &lt;th scope="col" colspan="2" id="chrome">Chrome&lt;/th>
+    &lt;/tr>
+    &lt;tr>
+      &lt;th scope="row" id="annee">Année&lt;/th>
+      &lt;th scope="col" id="chrome-2018">2018&lt;/th>
+      &lt;th scope="col" id="chrome-2019">2019&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr>
+      &lt;th scope="row" id="parts">Parts de marché&lt;/th>
+      &lt;td style="--value: 49.6;" headers="navigateur chrome annee chrome-2018">&lt;span>49.6&nbsp;%&lt;/span>&lt;/td>
+      &lt;td style="--value: 57;" headers="navigateur chrome annee chrome-2019">&lt;span>57&nbsp;%&lt;/span>&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
+&lt;/table></code>
+      </pre>
+    </div>
+  </details>
+  <details>
+    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-scss">
+@supports (display: contents) {
+  [class*="column"] {
+    …
+  }
+
+  .column-multiple {
+    grid-template-columns: minmax(min-content, 14ch) repeat(calc(var(--y) - 1), 1fr);
+    grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) repeat(2, minmax(min-content, 2rem));
+
+    tbody th {
+      grid-row: -10 / span 4;
+    }
+
+    thead tr * {
+      grid-row: -2;
+      grid-column: 1;
+
+      @each $number in 2, 3, 4, 5, 6 {
+        &:nth-of-type(#{$number}) {
+          grid-column: calc(#{($number * 2)} - var(--span)) / span var(--span);
+        }
+      }
+    }
+
+    thead tr + tr * {
+      font-weight: normal;
+      grid-row: -3;
+
+      @each $number in 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 {
+        &:nth-of-type(#{$number}) {
+          grid-column: #{$number};
+        }
+      }
+    }
+
+    thead tr:first-child [scope="col"] {
+      &:nth-child(even)::after {
+        background-color: palette( default, secondary );
+        background-image: url( map-get( $patterns, 'stripes' ) );
+        background-blend-mode: exclusion;
+        bottom: #{$gutter * 4};
+        content: "";
+        mix-blend-mode: multiply;
+        opacity: .25;
+        position: absolute;
+        transition: opacity .3s map-get( $timing-functions, 'move' );
+        top: $gutter;
+        width: calc((var(--width) * 2) + (var(--gap) / 2) + 1px);
+        z-index: 0;
+      }
+
+      @each $number in 1, 3, 5 {
+        &:nth-child(#{$number + 1})::after {
+          left: calc(14ch + 1em + (((var(--width) * 2) + (var(--gap) / 2) + 1px) * #{$number - 1}) + (var(--gap) * #{$number}));
+        }
+      }
+    }
+
+    tbody td {
+      background-color: palette( charts, pink );
+      background-image: url( map-get( $patterns, 'zig' ) );
+    }
+
+    /**
+     * @note Oh boy, if we could use var(--span) in selector…
+     */
+    tbody td:nth-of-type(2n + 2) {
+      background-color: palette( charts, blue );
+      background-image: url( map-get( $patterns, 'triangles' ) );
+    }
+
+    @media screen and (-ms-high-contrast: active) {
+      tbody td {
+        background-color: Window;
+      }
+
+      tbody td:nth-of-type(2n + 2) {
+        background-color: Highlight;
+      }
+    }
+  }
+}</code>
+      </pre>
+    </div>
+  </details>
 
 
   <h2 id="pie-charts">Graphique en tarte</h2>
