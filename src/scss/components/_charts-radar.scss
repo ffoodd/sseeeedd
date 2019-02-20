@@ -3,5 +3,145 @@
 /* ==================== */
 
 @supports(clip-path: polygon(calc( 0% 0%, 100% - ( var(--1) * 100% / var(--scale) ) ) 100%, 100% 100%)) {
+  &.radar {
+    --radius: #{$width / 4};
+    --unitless-radius: calc( 1024 / 16 / 4 );
+    --size: calc( var(--radius) / var(--scale) );
+    --part: calc( 360deg / var(--items) );
+    background-image:
+      repeating-radial-gradient(
+        circle at 50%,
+        rgba(0, 0, 0, .2),
+        rgba(0, 0, 0, .2) 2px,
+        transparent 2px,
+        transparent calc(var(--size) * var(--step))
+      ),
+      repeating-radial-gradient(
+        circle at 50%,
+        rgba(0, 0, 0, .1),
+        rgba(0, 0, 0, .1) 2px,
+        transparent 2px,
+        transparent var(--size)
+      );
+    border: 2px solid;
+    border-radius: 50%;
+    height: calc( var(--radius) * 2 );
+    margin: $gutter * 6 auto;
+    position: relative;
+    width: calc( var(--radius) * 2 );
 
+    caption {
+      background: none;
+      position: absolute;
+    }
+
+    /**
+     * Placing items around a circle based on:
+     * @link https://stackoverflow.com/questions/12813573/position-icons-into-circle
+     * @link http://dabblet.com/gist/3866686
+     * @author Ana Tudor
+     *
+     * @note Negative values for radius helps to start at the top left corner
+     */
+    th {
+      --away: calc( (var(--radius) * -1) - 50% );
+      left: 50%;
+      margin: initial;
+      padding: 0 $gutter;
+      position: absolute;
+      top: 50%;
+      transform:
+        translate3d(-50%, -50%, 0)
+        rotate( calc(var(--part) * var(--index, 1)) )
+        translate( var(--away) )
+        rotate( calc(var(--part) * var(--index, 1) * -1) );
+
+      &::after {
+        content: attr(data-value) "\A0/\A0" attr(data-scale);
+        color: palette( accent );
+        display: block;
+        font-size: small;
+        font-weight: 400;
+      }
+
+      @each $number in 1, 2, 3, 4, 5, 6, 7 {
+        &:nth-of-type(#{$number}) {
+          --index: #{$number};
+        }
+      }
+    }
+
+    /**
+     * This is quite sophisticated, we're mixing multiple techniques
+     *
+     * @note Setting items as parts of the circle:
+     * @link https://tympanus.net/codrops/2013/08/09/building-a-circular-navigation-with-css-transforms/
+     * @author Sara Soueidan
+     *
+     * @note Because we skew items, clip-path() needs to take skew angle into account
+     * @note To do so, we need to know skewed width (which is hypothenuse of the resulting triangle)
+     * @note We only know two angles (skew one + suqare one) and a side (initial width),
+     * @note So we need to compute the sinus of the opposite angle to get hypothenuse
+     * @note Thanks god, Stereokai made trigonometry functions in pure CSS:
+     *
+     * @note Trigonometry functions based on:
+     * @link https://gist.github.com/stereokai/7666bfe93929b14c2dced148c79e0e97
+     * @author Stereokai
+     */
+    td {
+      --skew: calc( 90deg - var(--part) );
+      border-bottom: 1px solid palette( accent, light );
+      height: 50%;
+      left: 0;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      transform:
+        rotate( calc(var(--part) * var(--index, 1)) )
+        skew( var(--skew) );
+      transform-origin: 100% 100%;
+      width: 50%;
+
+      span {
+        --opposite: calc( 180 - (90 + (90 - (360 / var(--items)))) );
+        // get opposite angle in radians
+        --angle: calc( var(--opposite) * 0.01745329251 );
+        // calc() sin, dark wizardry!
+        @include sin(angle);
+        // calc() hypothenuse
+        --hypo: calc( var(--unitless-radius) / var(--sin-angle) );
+        // get the ratio: skewed / initial width
+        --ratio: calc( var(--hypo) / var(--unitless-radius) );
+        background: linear-gradient(
+          to top left,
+          palette( accent, light ) 10%,
+          palette( secondary, dark ) 75%
+        );
+        filter: drop-shadow( 0 0 $gutter palette( accent, dark ) );
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
+
+      @each $number in 1, 2, 3, 4, 5, 6, 7 {
+        &:nth-of-type(#{$number}) {
+          --index: #{$number};
+
+          span {
+            --pos: calc( 100% - (var(--#{$number + 1}) * 100% / (var(--scale) * var(--ratio) ) ) );
+            clip-path: polygon(
+              100% var(--pos),
+              calc( 100% - ( var(--#{$number}) * 100% / var(--scale) ) ) 100%,
+              100% 100%
+            );
+          }
+        }
+      }
+
+      &::after,
+      &::before {
+        display: none;
+      }
+    }
+  }
 }
