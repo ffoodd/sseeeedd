@@ -64,8 +64,9 @@ table:not(.table-charts) .sr-only {
     @import "charts-pie";
     @import "charts-line";
     @import "charts-column";
+    @import "charts-radar";
   }
 }
 
 // <dl> based charts
-@import "charts-radar";
+@import "dl-radar";

@@ -2649,6 +2649,48 @@ document.addEventListener( "DOMContentLoaded", function () {
     </div>
   </details>
 
+  <h3>Testons avec un tableau…</h3>
+
+
+  <div class="table-container" role="group" aria-labelledby="caption-9">
+    <div class="fieldset d-flex sm-hidden">
+      <p class="label no-margin">
+        <strong id="label-9">Interrupteur</strong><br>
+        <span id="description-9">Permet de désactiver les styles sur le tableau suivant.</span>
+      </p>
+      <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-9" aria-describedby="description-9">
+        <span>Guilleret</span>
+        <span>Sobre</span>
+      </button>
+    </div>
+
+    <table class="table-charts radar" id="radar" style="--scale: 20; --step: 5; --items: 7; --1: 14; --2: 11; --3: 13; --4: 16; --5: 10; --6: 12; --7: 4; --8: var(--1);">
+      <caption id="caption-9">Niveau d’intérêt par domaine, sur 20</caption>
+      <thead>
+        <tr>
+          <th scope="col">Accessibilité</th>
+          <th scope="col">Référencement</th>
+          <th scope="col">Performance</th>
+          <th scope="col">Compatibilité</th>
+          <th scope="col">Sécurité</th>
+          <th scope="col">Qualité de code</th>
+          <th scope="col">Test</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>14</td>
+          <td>11</td>
+          <td>13</td>
+          <td>16</td>
+          <td>10</td>
+          <td>12</td>
+          <td>4</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
       </main>
 
       
