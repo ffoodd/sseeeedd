@@ -26,13 +26,13 @@
     border: 2px solid;
     border-radius: 50%;
     height: calc( var(--radius) * 2 );
-    margin: $gutter * 6 auto $gutter * 8;
+    margin: $gutter * 6 auto $gutter * 12;
     position: relative;
     width: calc( var(--radius) * 2 );
 
     caption {
       background: none;
-      bottom: $gutter * -8;
+      bottom: $gutter * -10;
       position: absolute;
     }
 
