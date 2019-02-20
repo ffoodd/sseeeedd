@@ -4,8 +4,8 @@
 
 @supports(clip-path: polygon(calc( 0% 0%, 100% - ( var(--1) * 100% / var(--scale) ) ) 100%, 100% 100%)) {
   &.radar {
-    --radius: #{$width / 4};
-    --unitless-radius: calc( 1024 / 16 / 4 );
+    --radius: #{$width / 5};
+    --unitless-radius: calc( 1024 / 16 / 5 );
     --size: calc( var(--radius) / var(--scale) );
     --part: calc( 360deg / var(--items) );
     background-image:
@@ -26,12 +26,13 @@
     border: 2px solid;
     border-radius: 50%;
     height: calc( var(--radius) * 2 );
-    margin: $gutter * 6 auto;
+    margin: $gutter * 6 auto $gutter * 8;
     position: relative;
     width: calc( var(--radius) * 2 );
 
     caption {
       background: none;
+      bottom: $gutter * -8;
       position: absolute;
     }
 
@@ -46,7 +47,7 @@
     th {
       --away: calc( (var(--radius) * -1) - 50% );
       left: 50%;
-      margin: initial;
+      margin: 0;
       padding: 0 $gutter;
       position: absolute;
       top: 50%;
