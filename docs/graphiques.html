@@ -2364,11 +2364,11 @@ document.addEventListener( "DOMContentLoaded", function () {
   <h2 id="radar-charts">Graphique radar</h2>
 
   <p>
-    Celui-ci est plutôt amusant. Côté <abbr lang="en" title="HyperText Markup Language">HTML</abbr>,
-    on utilise une <strong>liste de définitions</strong>. Sinon, peu de différence&nbsp;:
-    on définit les variables <abbr lang="en" title="Cascading StyleSheet">CSS</abbr>
-    sur la liste de définitions —&nbsp;l’échelle (et les paliers), le nombre d’élément, et les valeurs.
-    On a aussi besoin d’un attribut <code>data-value</code> sur le terme pour afficher la valeur une nouvelle fois.
+    Celui-ci est plutôt amusant. On définit quelques variables
+    <abbr lang="en" title="Cascading StyleSheet">CSS</abbr> sur le tableau
+    &nbsp;: l’échelle (et les paliers), le nombre d’éléments, et les valeurs.
+    On a aussi besoin des attributs <code>data-value</code> et <code>data-scale</code>
+    sur chaque cellule d’entête <code>&lt;th></code> pour y afficher la valeur et l’échelle.
   </p>
 
   <p>
@@ -2377,17 +2377,18 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   <ul>
     <li>
-      Sur l’élément <code>&lt;dl></code>, on crée l’échelle circulaire à l’aide de deux
+      Sur l’élément <code>&lt;table></code>, on crée l’échelle circulaire à l’aide de deux
       <code>repeating-radial-gradient()</code> successifs —&nbsp;en fonction des variables
       <var>--scale</var> et <var>--step</var>&nbsp;;
     </li>
     <li>
-      Chaque élément <code>&lt;dt></code> est déplacé à l’extérieur du cercle, grâce à une technique
-      empruntée à <a href="https://stackoverflow.com/questions/12813573/position-icons-into-circle" hreflang="en">
+      Chaque élément <code>&lt;th></code> est déplacé à l’extérieur du cercle ainsi formé,
+      grâce à une technique empruntée à
+      <a href="https://stackoverflow.com/questions/12813573/position-icons-into-circle" hreflang="en">
       <cite>Ana Tudor</cite>, qui l’explique sur StackOverflow</a>&nbsp;;
     </li>
     <li>
-      Puis la magie opère sur les éléments <code>&lt;dd></code>&nbsp;:
+      Puis la magie opère sur les éléments <code>&lt;td></code>&nbsp;:
       <ol>
         <li>
           chacun est ajusté pour former <strong>un carré dont le côté est égal au rayon
@@ -2403,9 +2404,10 @@ document.addEventListener( "DOMContentLoaded", function () {
         <li>
           puis on utilise de nouveau <code>clip-path</code> et la fonction <code>polygon()</code>
           sur chaque enfant direct <code>&lt;span></code> —&nbsp;étendu pour occuper toute la surface
-          de son <code>&lt;dd></code> de parent&nbsp;— afin de former un triangle, basé pour un côté
+          de son <code>&lt;td></code> de parent&nbsp;— afin de former un triangle, basé pour un côté
           sur le ratio valeur de l’élément courant / échelle, et sur un autre côté un ratio basé sur
-          la valeur de l’élément suivant (miam les <code>calc()</code>) mais sur une autre échelle…
+          la valeur de l’élément suivant (miam les <code>calc()</code>)
+          —&nbsp;mais sur une autre échelle…
         </li>
         <li>
           car pour <strong>compenser la distorsion</strong> due à la valeur <code>skew()</code>,
@@ -2442,215 +2444,6 @@ document.addEventListener( "DOMContentLoaded", function () {
   </ul>
 
   <p>Et voilà, c’est tout&nbsp;!</p>
-
-  
-
-  <figure role="group" id="radar">
-    <dl role="list" class="charts-radar" style="--scale: 20; --step: 5; --items: 7; --1: 14; --2: 11; --3: 13; --4: 16; --5: 10; --6: 12; --7: 4; --8: var(--1);">
-      
-  
-  <dt role="term listitem" id="def_accessibilite" data-value="14" data-scale="20">
-    <dfn>Accessibilité</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_accessibilite" data-scale="20"><span>14</span></dd>
-
-      
-  
-  <dt role="term listitem" id="def_referencement" data-value="11" data-scale="20">
-    <dfn>Référencement</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_referencement" data-scale="20"><span>11</span></dd>
-
-      
-  
-  <dt role="term listitem" id="def_performance" data-value="13" data-scale="20">
-    <dfn>Performance</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_performance" data-scale="20"><span>13</span></dd>
-
-      
-  
-  <dt role="term listitem" id="def_compatibilite" data-value="16" data-scale="20">
-    <dfn>Compatibilité</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_compatibilite" data-scale="20"><span>16</span></dd>
-
-      
-  
-  <dt role="term listitem" id="def_securite" data-value="10" data-scale="20">
-    <dfn>Sécurité</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_securite" data-scale="20"><span>10</span></dd>
-
-      
-  
-  <dt role="term listitem" id="def_qualite-de-code" data-value="12" data-scale="20">
-    <dfn>Qualité de code</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_qualite-de-code" data-scale="20"><span>12</span></dd>
-
-      
-  
-  <dt role="term listitem" id="def_test" data-value="4" data-scale="20">
-    <dfn>Test</dfn>
-  </dt>
-  <dd role="definition listitem" aria-labelledby="def_test" data-scale="20"><span>4</span></dd>
-
-    </dl>
-    <figcaption>Niveau d’intérêt par domaine, sur 20</figcaption>
-  </figure>
-
-  <details>
-    <summary>Le <abbr lang="en" title="HyperText Markup Language" aria-label="HyperText Markup Language">HTML</abbr></summary>
-    <div>
-      <pre>
-        <code class="language-markup">
-&lt;figure role="group">
-  &lt;dl role="list" class="charts-radar"
-  style="--scale: 20; --step: 5; --items: 7; --1: 14; --2: 11; --3: 13; --4: 16; --5: 10; --6: 12; --7: 4; --8: var(--1);">
-    &lt;dt role="term listitem" id="def_accessibilite" data-value="14" data-scale="20">
-      &lt;dfn>Accessibilité&lt;/dfn>
-    &lt;/dt>
-    &lt;dd role="definition listitem" aria-labelledby="def_accessibilite" data-scale="20">
-      &lt;span>14&lt;/span>
-    &lt;/dd>
-  &lt;/dl>
-  &lt;figcaption>Niveau d’intérêt par domaine, sur 20&lt;/figcaption>
-&lt;/figure></code>
-      </pre>
-    </div>
-  </details>
-  <details>
-    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
-    <div>
-      <pre>
-        <code class="language-scss">
-@supports(clip-path: polygon(calc( 0% 0%, 100% - ( var(--1) * 100% / var(--scale) ) ) 100%, 100% 100%)) {
-  .charts-radar dd::after {
-    color: darkgray;
-    content: "\A0/\A0" attr(data-scale);
-  }
-
-  @media screen and (min-width: em(480)) {
-    .charts-radar {
-      --radius: 16em;
-      --unitless-radius: calc( 1024 / 16 / 4 );
-      --size: calc( var(--radius) / var(--scale) );
-      --part: calc( 360deg / var(--items) );
-      background-image:
-        repeating-radial-gradient(
-          circle at 50%,
-          rgba(0, 0, 0, .2),
-          rgba(0, 0, 0, .2) 2px,
-          transparent 2px,
-          transparent calc(var(--size) * var(--step))
-        ),
-        repeating-radial-gradient(
-          circle at 50%,
-          rgba(0, 0, 0, .1),
-          rgba(0, 0, 0, .1) 2px,
-          transparent 2px,
-          transparent var(--size)
-        );
-      border: 2px solid;
-      border-radius: 50%;
-      height: calc( var(--radius) * 2 );
-      margin: 6rem auto;
-      position: relative;
-      width: calc( var(--radius) * 2 );
-
-      + figcaption {
-        text-align: center;
-      }
-
-      dt {
-        --away: calc( (var(--radius) * -1) - 50% );
-        left: 50%;
-        margin: initial;
-        padding: 0 1rem;
-        position: absolute;
-        top: 50%;
-        transform:
-          translate3d(-50%, -50%, 0)
-          rotate( calc(var(--part) * var(--index, 1)) )
-          translate( var(--away) )
-          rotate( calc(var(--part) * var(--index, 1) * -1) );
-
-        &::after {
-          content: attr(data-value) "\A0/\A0" attr(data-scale);
-          color: rebeccapurple;
-          display: block;
-          font-size: small;
-          font-weight: 400;
-        }
-
-        @each $number in 1, 2, 3, 4, 5, 6, 7 {
-          &:nth-of-type(#{$number}) {
-            --index: #{$number};
-          }
-        }
-      }
-
-      dd {
-        --skew: calc( 90deg - var(--part) );
-        border-bottom: 1px solid blueviolet;
-        height: 50%;
-        left: 0;
-        margin: initial;
-        position: absolute;
-        top: 0;
-        transform:
-          rotate( calc(var(--part) * var(--index, 1)) )
-          skew( var(--skew) );
-        transform-origin: 100% 100%;
-        width: 50%;
-
-        span {
-          --opposite: calc( 180 - (90 + (90 - (360 / var(--items)))) );
-          --angle: calc( var(--opposite) * 0.01745329251 );
-          @include sin(angle);
-          --hypo: calc( var(--unitless-radius) / var(--sin-angle) );
-          --ratio: calc( var(--hypo) / var(--unitless-radius) );
-          background: linear-gradient(
-            to top left,
-            blueviolet 10%,
-            darkblue 75%
-          );
-          filter: drop-shadow( 0 0 1rem indigo );
-          height: 100%;
-          position: absolute;
-          width: 100%;
-        }
-
-        @each $number in 1, 2, 3, 4, 5, 6, 7 {
-          &:nth-of-type(#{$number}) {
-            --index: #{$number};
-
-            span {
-              --pos: calc( 100% - (var(--#{$number + 1}) * 100% / (var(--scale) * var(--ratio) ) ) );
-              clip-path: polygon(
-                100% var(--pos),
-                calc( 100% - ( var(--#{$number}) * 100% / var(--scale) ) ) 100%,
-                100% 100%
-              );
-            }
-          }
-        }
-
-        &::after,
-        &::before {
-          display: none;
-        }
-      }
-    }
-  }
-}</code>
-      </pre>
-    </div>
-  </details>
-
-  <h3>Testons avec un tableau…</h3>
-
 
   <div class="table-container" role="group" aria-labelledby="caption-9">
     <div class="fieldset d-flex sm-hidden">
@@ -2690,6 +2483,153 @@ document.addEventListener( "DOMContentLoaded", function () {
       </tbody>
     </table>
   </div>
+
+  <details>
+    <summary>Le <abbr lang="en" title="HyperText Markup Language" aria-label="HyperText Markup Language">HTML</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-markup">
+&lt;table class="table-charts radar" id="radar" style="--scale: 20; --step: 5; --items: 7; --1: 14; --2: 11; --3: 13; --4: 16; --5: 10; --6: 12; --7: 4; --8: var(--1);">
+  &lt;caption id="caption-9">Niveau d’intérêt par domaine, sur 20&lt;/caption>
+  &lt;thead>
+    &lt;tr>
+      &lt;th scope="col" data-value="14" data-scale="20">Accessibilité&lt;/th>
+      &lt;th scope="col" data-value="11" data-scale="20">Référencement&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr>
+      &lt;td>&lt;span>14&lt;/span>&lt;/td>
+      &lt;td>&lt;span>11&lt;/span>&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
+&lt;/table></code>
+      </pre>
+    </div>
+  </details>
+  <details>
+    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-scss">
+@supports(clip-path: polygon(calc( 0% 0%, 100% - ( var(--1) * 100% / var(--scale) ) ) 100%, 100% 100%)) {
+  .radar {
+    --radius: 12.8rem;
+    --unitless-radius: calc( 1024 / 16 / 5 );
+    --size: calc( var(--radius) / var(--scale) );
+    --part: calc( 360deg / var(--items) );
+    background-image:
+      repeating-radial-gradient(
+        circle at 50%,
+        rgba(0, 0, 0, .2),
+        rgba(0, 0, 0, .2) 2px,
+        transparent 2px,
+        transparent calc(var(--size) * var(--step))
+      ),
+      repeating-radial-gradient(
+        circle at 50%,
+        rgba(0, 0, 0, .1),
+        rgba(0, 0, 0, .1) 2px,
+        transparent 2px,
+        transparent var(--size)
+      );
+    border: 2px solid;
+    border-radius: 50%;
+    height: calc( var(--radius) * 2 );
+    margin: 6rem auto 8rem;
+    position: relative;
+    width: calc( var(--radius) * 2 );
+
+    caption {
+      background: none;
+      bottom: -8rem;
+      position: absolute;
+    }
+
+    th {
+      --away: calc( (var(--radius) * -1) - 50% );
+      left: 50%;
+      margin: 0;
+      padding: 0 1rem;
+      position: absolute;
+      top: 50%;
+      transform:
+        translate3d(-50%, -50%, 0)
+        rotate( calc(var(--part) * var(--index, 1)) )
+        translate( var(--away) )
+        rotate( calc(var(--part) * var(--index, 1) * -1) );
+
+      &::after {
+        content: attr(data-value) "\A0/\A0" attr(data-scale);
+        color: rebeccapurple;
+        display: block;
+        font-size: small;
+        font-weight: 400;
+      }
+
+      @each $number in 1, 2, 3, 4, 5, 6, 7 {
+        &:nth-of-type(#{$number}) {
+          --index: #{$number};
+        }
+      }
+    }
+
+    td {
+      --skew: calc( 90deg - var(--part) );
+      border-bottom: 1px solid blueviolet;
+      height: 50%;
+      left: 0;
+      margin: 0;
+      position: absolute;
+      top: 0;
+      transform:
+        rotate( calc(var(--part) * var(--index, 1)) )
+        skew( var(--skew) );
+      transform-origin: 100% 100%;
+      width: 50%;
+
+      span {
+        --opposite: calc( 180 - (90 + (90 - (360 / var(--items)))) );
+        --angle: calc( var(--opposite) * 0.01745329251 );
+        @include sin(angle);
+        --hypo: calc( var(--unitless-radius) / var(--sin-angle) );
+        --ratio: calc( var(--hypo) / var(--unitless-radius) );
+        background: linear-gradient(
+          to top left,
+          blueviolet 10%,
+          darkblue 75%
+        );
+        filter: drop-shadow( 0 0 1rem indigo );
+        height: 100%;
+        position: absolute;
+        width: 100%;
+      }
+
+      @each $number in 1, 2, 3, 4, 5, 6, 7 {
+        &:nth-of-type(#{$number}) {
+          --index: #{$number};
+
+          span {
+            --pos: calc( 100% - (var(--#{$number + 1}) * 100% / (var(--scale) * var(--ratio) ) ) );
+            clip-path: polygon(
+              100% var(--pos),
+              calc( 100% - ( var(--#{$number}) * 100% / var(--scale) ) ) 100%,
+              100% 100%
+            );
+          }
+        }
+      }
+
+      &::after,
+      &::before {
+        display: none;
+      }
+    }
+  }
+}</code>
+      </pre>
+    </div>
+  </details>
 
       </main>
 
