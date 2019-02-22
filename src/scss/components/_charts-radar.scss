@@ -145,4 +145,17 @@
       }
     }
   }
+
+  &.multiples {
+    margin-bottom: 16rem;
+
+    caption {
+      bottom: -14rem;
+    }
+
+    [scope="row"] {
+      position: absolute;
+      bottom: -10rem;
+    }
+  }
 }
