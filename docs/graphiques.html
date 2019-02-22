@@ -2361,6 +2361,134 @@ document.addEventListener( "DOMContentLoaded", function () {
     </p>
   </div>
 
+  <h3>Polaire</h3>
+
+  <p>
+    Pour cette déclinaison, on ne change presque rien&nbsp;: seulement la variable <var>--zoom</var>
+    et son implication dans la <strong>mise à l’échelle</strong> des portions à l’aide de <code>scale()</code>.
+  </p>
+
+  <div class="table-container" role="group" aria-labelledby="caption-10">
+    <div class="fieldset d-flex sm-hidden">
+      <p class="label no-margin">
+        <strong id="label-10">Interrupteur</strong><br>
+        <span id="description-10">Permet de désactiver les styles sur le tableau suivant.</span>
+      </p>
+      <button type="button" class="ml-auto fw-400 no-border p-relative disable-css" role="switch" aria-checked="true" aria-labelledby="label-10" aria-describedby="description-10">
+        <span>Guilleret</span>
+        <span>Sobre</span>
+      </button>
+    </div>
+
+    <table class="table-charts pie polar" id="polar">
+      <caption id="caption-10">Répartition du poids des ressources pour <a href="https://www.ffoodd.fr" target="_blank" rel="noopener noreferrer">ffoodd.fr</a></caption>
+      <thead class="sr-only">
+        <tr>
+          <th scope="col">Ressource</th>
+          <th scope="col">Proportion</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+<tr style="--color: #734BF9">
+  <th scope="row">HTML</th>
+  
+    
+  
+  <td style="--value: 2; --start: 0; ">
+    2&nbsp;%
+  </td>
+
+        
+</tr><tr style="--color: #E11A81">
+  <th scope="row">CSS</th>
+  
+    
+  
+  <td style="--value: 2; --start: 2; ">
+    2&nbsp;%
+  </td>
+
+        
+</tr><tr style="--color: #0172F0">
+  <th scope="row">JS</th>
+  
+    
+  
+  <td style="--value: 32; --start: 4; --lt-25: 0; --gt-25: 1; --lt-50: 1; --gt-50: 0;">
+    32&nbsp;%
+  </td>
+
+        
+</tr><tr style="--color: #FDC02F">
+  <th scope="row">Json</th>
+  
+    
+  
+  <td style="--value: 1; --start: 36; ">
+    1&nbsp;%
+  </td>
+
+        
+</tr><tr style="--color: #39CA74">
+  <th scope="row">Images</th>
+  
+    
+  
+  <td style="--value: 44; --start: 37; --lt-25: 0; --gt-25: 1; --lt-50: 1; --gt-50: 0;">
+    44&nbsp;%
+  </td>
+
+        
+</tr><tr style="--color: #FF2D40">
+  <th scope="row">Webfonts</th>
+  
+    
+  
+  <td style="--value: 17; --start: 81; ">
+    17&nbsp;%
+  </td>
+
+        
+</tr><tr style="--color: #585462">
+  <th scope="row">Autres</th>
+  
+    
+  
+  <td style="--value: 2; --start: 98; ">
+    2&nbsp;%
+  </td>
+
+      </tr></tbody>
+    </table>
+  </div>
+
+  <details>
+    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-scss">
+.polar {
+  tbody td::before {
+    --zoom: 50;
+    transform:
+      translate3d( -50%, -50%, 0 )
+      rotate( var(--position) )
+      scale( calc( ( var(--zoom) + ( var(--value) / ( 100 / var(--zoom) ) ) ) / 100 ) );
+  }
+
+  tbody tr:hover td::before {
+    --zoom: 50;
+  }
+
+  tbody:hover tr {
+    opacity: .5;
+  }
+}</code>
+      </pre>
+    </div>
+  </details>
+
   <h2 id="radar-charts">Graphique radar</h2>
 
   <p>

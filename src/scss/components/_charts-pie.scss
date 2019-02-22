@@ -118,6 +118,24 @@
     }
   }
 
+  &.polar {
+    tbody td::before {
+      --zoom: 50;
+      transform:
+        translate3d(-50%, -50%, 0)
+        rotate( var(--position) )
+        scale( calc( ( var(--zoom) + ( var(--value) / ( 100 / var(--zoom) ) ) ) / 100 ) );
+    }
+
+    tbody tr:hover td::before {
+      --zoom: 50;
+    }
+
+    tbody:hover tr {
+      opacity: .5;
+    }
+  }
+
    &.donut {
      mask-image: radial-gradient(
        circle at 50% calc(50% - #{$gutter * 2}),
