@@ -2184,7 +2184,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       position: absolute;
     }
 
-    th {
+    [scope="col"] {
       --away: calc( (var(--radius) * -1) - 50% );
       left: 50%;
       margin: 0;
@@ -2268,4 +2268,60 @@ document.addEventListener( "DOMContentLoaded", function () {
       </pre>
     </div>
   </details>
+
+
+  <h3>Radars superposés</h3>
+
+  <div class="table-container" role="group" aria-labelledby="caption-11">
+    <div class="fieldset d-flex sm-hidden">
+      <p class="label no-margin">
+        <strong id="label-11">Interrupteur</strong><br>
+        <span id="description-11">Permet de désactiver les styles sur le tableau suivant.</span>
+      </p>
+      <button type="button" class="ml-auto fw-400 no-border p-relative disable-css"
+              role="switch" aria-checked="true"
+              aria-labelledby="label-11" aria-describedby="description-11">
+        <span>Guilleret</span>
+        <span>Sobre</span>
+      </button>
+    </div>
+
+    <table class="table-charts radar" id="radar" style="--scale: 20; --step: 5; --items: 7;">
+      <caption id="caption-11">Niveau d’intérêt par domaine, sur 20</caption>
+      <thead>
+        <tr>
+          <td></td>
+          <th scope="col">Accessibilité</th>
+          <th scope="col">Référencement</th>
+          <th scope="col">Performance</th>
+          <th scope="col">Compatibilité</th>
+          <th scope="col">Sécurité</th>
+          <th scope="col">Qualité de code</th>
+          <th scope="col">Test</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="--1: 14; --2: 11; --3: 13; --4: 16; --5: 14; --6: 10; --7: 4; --8: var(--1);">
+          <th scope="row">Gaël</th>
+          <td><span>14</span></td>
+          <td><span>11</span></td>
+          <td><span>13</span></td>
+          <td><span>16</span></td>
+          <td><span>14</span></td>
+          <td><span>10</span></td>
+          <td><span>4</span></td>
+        </tr>
+        <tr style="--1: 18; --2: 10; --3: 11; --4: 16; --5: 10; --6: 12; --7: 11; --8: var(--1);">
+          <th scope="row">Luc</th>
+          <td><span>18</span></td>
+          <td><span>10</span></td>
+          <td><span>11</span></td>
+          <td><span>16</span></td>
+          <td><span>10</span></td>
+          <td><span>12</span></td>
+          <td><span>11</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 {% endblock %}
