@@ -176,10 +176,20 @@
 
     td {
       border-color: var(--color, currentColor);
+      opacity: .5;
+      transition: opacity .2s map-get( $timing-functions, 'move' );
+      will-change: opacity;
+      z-index: 0;
 
       span {
         background: var(--color, currentColor);
+        // @todo could be impoved using conic-gradient, isn't it?
       }
+    }
+
+    tr:hover td {
+      opacity: 1;
+      z-index: 1;
     }
   }
 }
