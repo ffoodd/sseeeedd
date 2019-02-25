@@ -163,10 +163,23 @@
     [scope="row"] {
       height: $gutter * 2;
       transform: translateY( #{$gutter * 8} );
+
+      &::before {
+        background: var(--color, currentColor);
+        content: "";
+        display: inline-block;
+        height: $gutter;
+        transform: translate3d(-.2rem, .1rem, 0);
+        width: $gutter;
+      }
     }
 
-    td span {
-      opacity: .5;
+    td {
+      border-color: var(--color, currentColor);
+
+      span {
+        background: var(--color, currentColor);
+      }
     }
   }
 }
