@@ -147,15 +147,26 @@
   }
 
   &.multiples {
-    margin-bottom: 16rem;
+    contain: layout style;
+    margin-bottom: $gutter * 12;
+    overflow: visible;
 
-    caption {
-      bottom: -14rem;
+    tr {
+      display: contents;
+    }
+
+    tbody {
+      columns: var(--areas);
+      vertical-align: bottom;
     }
 
     [scope="row"] {
-      position: absolute;
-      bottom: -10rem;
+      height: $gutter * 2;
+      transform: translateY( #{$gutter * 8} );
+    }
+
+    td span {
+      opacity: .5;
     }
   }
 }
