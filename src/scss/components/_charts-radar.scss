@@ -151,13 +151,21 @@
     margin-bottom: $gutter * 12;
     overflow: visible;
 
+    tbody {
+      columns: var(--areas);
+      vertical-align: bottom;
+    }
+
     tr {
       display: contents;
     }
 
-    tbody {
-      columns: var(--areas);
-      vertical-align: bottom;
+    td {
+      pointer-events: none;
+
+      span {
+        pointer-events: auto;
+      }
     }
 
     [scope="row"] {
