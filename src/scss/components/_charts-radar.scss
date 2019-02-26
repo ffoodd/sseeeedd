@@ -57,14 +57,6 @@
         translate( var(--away) )
         rotate( calc(var(--part) * var(--index, 1) * -1) );
 
-      &::after {
-        content: attr(data-value) "\A0/\A0" attr(data-scale);
-        color: palette( accent );
-        display: block;
-        font-size: small;
-        font-weight: 400;
-      }
-
       @each $number in 1, 2, 3, 4, 5, 6, 7 {
         &:nth-of-type(#{$number}) {
           --index: #{$number};
@@ -144,6 +136,14 @@
         display: none;
       }
     }
+  }
+
+  &:not(.multiples) [scope="col"]::after {
+    content: attr(data-value) "\A0/\A0" attr(data-scale);
+    color: palette( accent );
+    display: block;
+    font-size: small;
+    font-weight: 400;
   }
 
   &.multiples {
