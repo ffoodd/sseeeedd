@@ -160,14 +160,6 @@
       display: contents;
     }
 
-    td {
-      pointer-events: none;
-
-      span {
-        pointer-events: auto;
-      }
-    }
-
     [scope="row"] {
       height: $gutter * 2;
       transform: translateY( #{$gutter * 8} );
@@ -185,6 +177,7 @@
     td {
       border-color: var(--color, currentColor);
       opacity: .5;
+      pointer-events: none;
       transition: opacity .2s map-get( $timing-functions, 'move' );
       will-change: opacity;
       z-index: 0;
@@ -192,6 +185,7 @@
       span {
         background: var(--color, currentColor);
         // @todo could be impoved using conic-gradient, isn't it?
+        pointer-events: auto;
       }
     }
 

@@ -67,8 +67,7 @@
     "html-validator": "^3.1.3",
     "stylelint": "^9.10.1",
     "stylelint-config-recommended-scss": "^3.2.0",
-    "stylelint-scss": "^3.5.3",
-    "w3c-css": "^2.0.2"
+    "stylelint-scss": "^3.5.3"
   },
   "dependencies": {
     "a11y-dialog": "^5.2.0",

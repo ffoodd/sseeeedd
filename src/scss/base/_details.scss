@@ -10,7 +10,7 @@ details {
   }
 
   &[open] summary ~ * {
-    animation: slide-down .5s map-get( $timing-functions, 'enter' )
+    animation: slide-down .5s map-get( $timing-functions, 'enter' );
   }
 
   summary {
@@ -58,7 +58,7 @@ details {
           flex: 1;
 
           summary ~ * {
-            animation: slide-in .5s map-get( $timing-functions, 'enter' )
+            animation: slide-in .5s map-get( $timing-functions, 'enter' );
           }
         }
 
