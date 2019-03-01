@@ -1,6 +1,5 @@
 'use strict';
 
-const fs       = require('fs');
 const gulp     = require('gulp');
 const options  = require('./tasks/options');
 const browser  = require('browser-sync').create();
