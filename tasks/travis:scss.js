@@ -1,5 +1,5 @@
 const gulp      = require('gulp');
-const stylelint = require('gulp-stylelint');
+const linter    = require('gulp-stylelint');
 const options   = require('./options');
 
 function travisSCSS() {
@@ -7,7 +7,7 @@ function travisSCSS() {
       options.paths.dev + 'scss/**/*.scss',
       '!' + options.paths.dev + 'scss/dependencies/*.scss'
     ])
-    .pipe(stylelint(options.travis.stylelint));
+    .pipe(linter(options.travis.stylelint));
 }
 
 module.exports = travisSCSS;

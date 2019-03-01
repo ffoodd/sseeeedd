@@ -29,6 +29,9 @@ module.exports = {
     'last 1 versions',
     'not dead'
   ],
+  babel: {
+      presets: ['@babel/env']
+  },
   csso: {
     sourceMap: false
   },
