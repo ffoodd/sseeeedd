@@ -1,4 +1,3 @@
-const fs       = require('fs');
 const gulp     = require('gulp');
 const babel    = require('gulp-babel');
 const uglify   = require('gulp-uglify');

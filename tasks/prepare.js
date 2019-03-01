@@ -1,4 +1,3 @@
-const fs       = require('fs');
 const gulp     = require('gulp');
 const newer    = require('gulp-newer');
 const rename   = require('gulp-rename');

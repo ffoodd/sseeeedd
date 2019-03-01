@@ -39,7 +39,7 @@ function style(done) {
       if(error) {
         console.error(error);
       } else {
-        var errors = data.errors;
+        let errors = data.errors;
         for (let message in errors) {
           console.log(`${errors[message].message} at line ${errors[message].line}`)
         }

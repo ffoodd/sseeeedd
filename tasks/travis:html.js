@@ -1,5 +1,4 @@
 const fs        = require('fs');
-const gulp      = require('gulp');
 const html      = require('html-validator');
 const options   = require('./options');
 
@@ -18,7 +17,7 @@ function travisHTML(done) {
           return results;
         }, {});
         for (let result in results) {
-          if (results[result].type == "error") {
+          if (results[result].type === "error") {
             errors.push(results[result]);
           }
         }

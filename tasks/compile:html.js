@@ -6,7 +6,7 @@ const newer    = require('gulp-newer');
 const data     = require('gulp-data');
 const options  = require('./options');
 
-function getCards(file) {
+function getCards() {
  return {
    deck: JSON.parse(fs.readFileSync('./src/datas/deck.json'))
  };

@@ -1,4 +1,3 @@
-const fs       = require('fs');
 const gulp     = require('gulp');
 const imgmin   = require('gulp-imagemin');
 const symbol   = require('gulp-svgstore');
