@@ -153,9 +153,34 @@ textarea {
   vertical-align: top;
 }
 
+/**
+ * Messages
+ */
 label [class^="label-msg"],
 .label [class^="label-msg"] {
   display: block;
-  margin: -.25em 0 .25em 0;
-  font-size: .9em;
+  margin: $gutter / -4 0 $gutter / 4;
+  font-size: small;
+}
+
+.label-msg-error {
+  color: palette( alert, dark );
+}
+
+/**
+ * States
+ *
+ * @note Prevent required input to be invalid on first load
+ * @link https://www.ffoodd.fr/l-etat-des-champs/
+ */
+input:invalid {
+  box-shadow: none;
+}
+
+input:invalid:not(:focus) {
+  box-shadow: 0 0 0 $gutter / 8 palette( alert, light );
+}
+
+input:invalid:placeholder-shown {
+  box-shadow: none;
 }
