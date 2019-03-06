@@ -15,13 +15,9 @@ img[alt] {
   position: relative;
   vertical-align: middle;
 
-  &:not([src$=".svg"]) {
-    height: auto;
-  }
-
   /* 1 */
   &::after {
-    background: white;
+    background: palette( default, contrast );
     bottom: 0;
     content:
       attr( alt )         /* 3 */
@@ -45,11 +41,16 @@ figure[role="group"] {
   margin: em( 24 ) auto;
   overflow: hidden;
   padding: em( 16 );
+  width: min-content;
 
   figcaption {
     display: block;
     font-size: em( 14 );
     padding: 1em 0;
+  }
+
+  img {
+    min-width: min-content;
   }
 }
 
