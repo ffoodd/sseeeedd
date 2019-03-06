@@ -82,12 +82,12 @@ h6,
   @extend .hn;
 }
 
-textarea,
-table,
+p,
 td,
 th,
 div,
-p {
+table,
+textarea {
   word-wrap: break-word;
   hyphens: auto;
 }
