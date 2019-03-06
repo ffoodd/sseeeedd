@@ -1683,15 +1683,15 @@ document.addEventListener( "DOMContentLoaded", function () {
       <tbody>
         <tr>
           <th scope="row" id="parts">Parts de marché</th>
-          <td style="--value: 49.6;" headers="navigateur chrome annee chrome-2018"><span>49.6&nbsp;%</span></td>
+          <td style="--value: 50;" headers="navigateur chrome annee chrome-2018"><span>49.6&nbsp;%</span></td>
           <td style="--value: 57;" headers="navigateur chrome annee chrome-2019"><span>57&nbsp;%</span></td>
-          <td style="--value: 11.74;" headers="navigateur firefox annee firefox-2018"><span>11.74&nbsp;%</span></td>
-          <td style="--value: 9.59;" headers="navigateur firefox annee firefox-2019"><span>9.59&nbsp;%</span></td>
-          <td style="--value: 21.53;" headers="navigateur safari annee safari-2018"><span>21.53&nbsp;%</span></td>
-          <td style="--value: 18.78;" headers="navigateur safari annee safari-2019"><span>18.78&nbsp;%</span></td>
-          <td style="--value: 3.72;" headers="navigateur edge annee edge-2018"><span>3.72&nbsp;%</span></td>
-          <td style="--value: 3.5;" headers="navigateur edge annee edge-2019"><span>3.5&nbsp;%</span></td>
-          <td style="--value: 4.46;" headers="navigateur ie annee ie-2018"><span>4.46&nbsp;%</span></td>
+          <td style="--value: 12;" headers="navigateur firefox annee firefox-2018"><span>11.74&nbsp;%</span></td>
+          <td style="--value: 10;" headers="navigateur firefox annee firefox-2019"><span>9.59&nbsp;%</span></td>
+          <td style="--value: 22;" headers="navigateur safari annee safari-2018"><span>21.53&nbsp;%</span></td>
+          <td style="--value: 19;" headers="navigateur safari annee safari-2019"><span>18.78&nbsp;%</span></td>
+          <td style="--value: 4;" headers="navigateur edge annee edge-2018"><span>3.72&nbsp;%</span></td>
+          <td style="--value: 3;" headers="navigateur edge annee edge-2019"><span>3.5&nbsp;%</span></td>
+          <td style="--value: 4;" headers="navigateur ie annee ie-2018"><span>4.46&nbsp;%</span></td>
           <td style="--value: 3.66;" headers="navigateur ie annee ie-2019"><span>3.66&nbsp;%</span></td>
         </tr>
       </tbody>
@@ -1719,7 +1719,7 @@ document.addEventListener( "DOMContentLoaded", function () {
   &lt;tbody>
     &lt;tr>
       &lt;th scope="row" id="parts">Parts de marché&lt;/th>
-      &lt;td style="--value: 49.6;" headers="navigateur chrome annee chrome-2018">&lt;span>49.6&nbsp;%&lt;/span>&lt;/td>
+      &lt;td style="--value: 50;" headers="navigateur chrome annee chrome-2018">&lt;span>49.6&nbsp;%&lt;/span>&lt;/td>
       &lt;td style="--value: 57;" headers="navigateur chrome annee chrome-2019">&lt;span>57&nbsp;%&lt;/span>&lt;/td>
     &lt;/tr>
   &lt;/tbody>
@@ -1817,6 +1817,16 @@ document.addEventListener( "DOMContentLoaded", function () {
       </pre>
     </div>
   </details>
+
+  <div class="note">
+    <h4>Bug dans Chromium</h4>
+    <p>
+      Il y a en ce moment un bug dans Chromium —&nbsp;j’ai saisi
+      <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=938927" hreflang="en" target="_blank" rel="noopener noreferrer">un ticket sur bugs.chromium.org</a>&nbsp;—
+      lors de l’utilisation d’une valeur décimale pour le placement sur la grille.
+      Je ne sais pas si c’est une implication de la décimale, du calcul, de la propriété personnalisée…
+      mais pour le moment, ça ne fonctionne pas&nbsp;!
+  </p></div>
 
 
   <h2 id="pie-charts">Graphique en tarte</h2>
