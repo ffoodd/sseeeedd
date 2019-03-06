@@ -9,13 +9,13 @@
 button[type] {
   background-color: palette( accent );
   border: 1px solid palette( accent );
-  border-radius: $form-border-radius;
-  color: $form-button-color;
+  border-radius: $gutter / 4;
+  color: palette( dominant, contrast );
   font-family: inherit; // Fix typo inputs
   font-size: 1em; // Fix typo inputs
-  line-height: $form-line-height;
-  margin: .5em 0;
-  padding: $form-input-padding;
+  line-height: 1.5;
+  margin: $gutter / 2 0;
+  padding: $gutter / 2;
   vertical-align: middle;
   transition: all 300ms map-get( $timing-functions, 'move' );
   width: auto;
