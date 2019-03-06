@@ -9,19 +9,8 @@ textarea {
   line-height: 1.5;
 }
 
-label[for],
-#{$form-buttons} {
-  cursor: pointer;
-}
-
-form [disabled],
-form [readonly] {
-  cursor: not-allowed;
-}
-
 input,
 select,
-.label,
 label[for] {
   vertical-align: middle;
 }
@@ -52,11 +41,6 @@ form > * + * {
   margin-top: em( 48 );
 }
 
-/* Do not display delete cross in IE/Edge */
-::-ms-clear {
-  display: none;
-}
-
 fieldset,
 .fieldset {
   border: 0;
@@ -69,7 +53,7 @@ fieldset,
   }
 }
 
-legend {
+legend:first-child {
   font-weight: 700;
   margin-bottom: inherit;
 }
@@ -80,12 +64,6 @@ legend {
 
 label[for] {
   display: block;
-}
-
-#{$form-radio-checkbox} {
-  + label[for] {
-    display: inline-block;
-  }
 }
 
 select,
@@ -113,11 +91,6 @@ input[type="image"],
   width: auto;
 }
 
-[type="radio"]:not(:first-of-type),
-[type="checkbox"]:not(:first-of-type) {
-  margin-left: $gutter / 2;
-}
-
 #{$form-fields},
 #{$form-buttons} {
   appearance: none;
@@ -134,8 +107,16 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 #{$form-radio-checkbox} {
+  &:not(:first-of-type) {
+    margin-left: $gutter / 2;
+  }
+
   &:focus {
     outline: 1px dotted;
+  }
+
+  + label[for] {
+    display: inline-block;
   }
 }
 
@@ -154,10 +135,22 @@ textarea {
 }
 
 /**
+ * Cursors
+ */
+label[for],
+#{$form-buttons} {
+  cursor: pointer;
+}
+
+form [disabled],
+form [readonly] {
+  cursor: not-allowed;
+}
+
+/**
  * Messages
  */
-label [class^="label-msg"],
-.label [class^="label-msg"] {
+label [class^="label-msg"] {
   display: block;
   margin: $gutter / -4 0 $gutter / 4;
   font-size: small;
@@ -184,3 +177,27 @@ input:invalid:not(:focus) {
 input:invalid:placeholder-shown {
   box-shadow: none;
 }
+
+/**
+ * Browser reset
+ *
+ * 1. Do not display delete cross in IE/Edge
+ * 2. hiding IE11 arrow
+ * 3. 'x' appears on right of search input when text is entered. This removes it
+ */
+ ::-ms-clear {
+   display: none; /* 1 */
+ }
+
+ select::-ms-expand {
+   display: none;  /* 2 */
+ }
+
+ [type="search"] {
+   &::-webkit-search-decoration,
+   &::-webkit-search-cancel-button,
+   &::-webkit-search-results-button,
+   &::-webkit-search-results-decoration {
+     display: none;  /* 3 */
+   }
+ }
