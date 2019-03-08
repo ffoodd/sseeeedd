@@ -25,8 +25,10 @@
       );
     border: 2px solid;
     border-radius: 50%;
+    contain: layout style;
     height: calc( var(--radius) * 2 );
     margin: $gutter * 6 auto $gutter * 12;
+    overflow: visible;
     position: relative;
     width: calc( var(--radius) * 2 );
 
@@ -147,9 +149,7 @@
   }
 
   &.radar-multiple {
-    contain: layout style;
     margin-bottom: $gutter * 12;
-    overflow: visible;
 
     tbody {
       columns: var(--areas);
