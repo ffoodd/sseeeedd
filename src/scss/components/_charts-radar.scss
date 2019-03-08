@@ -3,7 +3,7 @@
 /* ==================== */
 
 @supports(clip-path: polygon(calc( 0% 0%, 100% - ( var(--1) * 100% / var(--scale) ) ) 100%, 100% 100%)) {
-  &.radar {
+  &[class*="radar"] {
     --radius: #{$width / 5};
     --unitless-radius: calc( 1024 / 16 / 5 );
     --size: calc( var(--radius) / var(--scale) );
@@ -136,62 +136,62 @@
         display: none;
       }
     }
+  }
 
-    &:not(.multiples) [scope="col"]::after {
-      content: attr(data-value) "\A0/\A0" attr(data-scale);
-      color: palette( accent );
-      display: block;
-      font-size: small;
-      font-weight: 400;
+  &.radar [scope="col"]::after {
+    content: attr(data-value) "\A0/\A0" attr(data-scale);
+    color: palette( accent );
+    display: block;
+    font-size: small;
+    font-weight: 400;
+  }
+
+  &.radar-multiple {
+    contain: layout style;
+    margin-bottom: $gutter * 12;
+    overflow: visible;
+
+    tbody {
+      columns: var(--areas);
+      vertical-align: bottom;
     }
 
-    &.multiples {
-      contain: layout style;
-      margin-bottom: $gutter * 12;
-      overflow: visible;
+    tr {
+      display: contents;
+    }
 
-      tbody {
-        columns: var(--areas);
-        vertical-align: bottom;
+    [scope="row"] {
+      height: $gutter * 2;
+      transform: translateY( #{$gutter * 8} );
+
+      &::before {
+        background: var(--color, currentColor);
+        content: "";
+        display: inline-block;
+        height: $gutter;
+        transform: translate3d(-.2rem, .1rem, 0);
+        width: $gutter;
       }
+    }
 
-      tr {
-        display: contents;
+    td {
+      border-color: var(--color, currentColor);
+      opacity: .5;
+      pointer-events: none;
+      transition: opacity .2s map-get( $timing-functions, 'move' );
+      will-change: opacity;
+      z-index: 0;
+
+      span {
+        background: var(--color, currentColor);
+        // @todo could be impoved using conic-gradient, isn't it?
+        pointer-events: auto;
       }
+    }
 
-      [scope="row"] {
-        height: $gutter * 2;
-        transform: translateY( #{$gutter * 8} );
-
-        &::before {
-          background: var(--color, currentColor);
-          content: "";
-          display: inline-block;
-          height: $gutter;
-          transform: translate3d(-.2rem, .1rem, 0);
-          width: $gutter;
-        }
-      }
-
-      td {
-        border-color: var(--color, currentColor);
-        opacity: .5;
-        pointer-events: none;
-        transition: opacity .2s map-get( $timing-functions, 'move' );
-        will-change: opacity;
-        z-index: 0;
-
-        span {
-          background: var(--color, currentColor);
-          // @todo could be impoved using conic-gradient, isn't it?
-          pointer-events: auto;
-        }
-      }
-
-      tr:hover td {
-        opacity: 1;
-        z-index: 1;
-      }
+    tr:hover td {
+      opacity: 1;
+      z-index: 1;
     }
   }
 }
