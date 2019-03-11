@@ -1,5 +1,8 @@
 /* ==================== */
 /* == Cards
+ *
+ * @note Based on Heydon Pickering's inclusive components
+ * @link https://inclusive-components.design/cards/
 /* ==================== */
 
 .card {
@@ -54,7 +57,7 @@
 .card-title {
   font-size: em( 26 );
   line-height: 1.2;
-  margin: $gutter 0;
+  margin: $gutter 0 !important;
 }
 
 .card-link {

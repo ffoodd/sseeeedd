@@ -76,23 +76,22 @@
   <p>Un message peut ne pas être une alerte. Pour ce cas, une <code>div</code> avec la classe <code>note</code> peut être employée.</p>
 
   <div class="note">
-    <h4>Note technique</h4>
+    <h3>Grille</h3>
     <p>
-       Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-       Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.
-       Ces cars sont traînés par une locomotive électrique, avec accumulateurs
-       d’une capacité de deux cents ampères-ohms,
-       et leur vitesse atteint de quinze à dix-huit dix-neuf kilomètres.
+      Un système de grille basique mais efficace est disponible.
+      La version de base repose sur les <strong>colonnes</strong> <abbr lang="en" title="Cascading StyleSheet">css</abbr>
+      —&nbsp;supportées depuis <abbr lang="en" title="Internet Explorer">ie</abbr>10&nbsp;— et la grille fixe
+      s’appuie sur les <strong>grilles</strong> CSS (sans préfixes Microsoft, mais avec une bascule sur les colonnes pour les navigateurs intermédiaires).
     </p>
   </div>
 
   <h2 id="cards">Cartes</h2>
 
   <p>
-    Un système de grille basique mais efficace est disponible.
-    La version de base repose sur les <strong>colonnes</strong> <abbr lang="en" title="Cascading StyleSheet">css</abbr>
-    —&nbsp;supportées depuis <abbr lang="en" title="Internet Explorer">ie</abbr>10&nbsp;— et la grille fixe
-    s’appuie sur les <strong>grilles</strong> CSS (sans préfixes Microsoft, mais avec une bascule sur les colonnes pour les navigateurs intermédiaires).
+    Un jeu de carte —&nbsp;basé sur <a href="https://inclusive-components.design/cards/" hreflang="en">le
+    composant inclusif conçu par <cite>Heydon Pickering</cite></a>&nbsp;— est ajusté à l’usage de sseeeedd.
+    Il utilise, entre autres subtilités, les propriétés personalisées, <code>flexbox</code> et
+    <code>:focus-within</code>.
   </p>
 
   {% import 'macros/_cards.html' as cards %}
