@@ -6,7 +6,7 @@ input,
 optgroup,
 select,
 textarea {
-  line-height: 1.5;
+  line-height: inherit;
 }
 
 input,
@@ -29,12 +29,6 @@ form,
 fieldset,
 .fieldset {
   max-width: em( 600 );
-
-  select,
-  #{$form-fields},
-  input[type="range"] {
-    width: 100%;
-  }
 }
 
 form > * + * {
@@ -59,7 +53,7 @@ legend:first-child {
 }
 
 ::placeholder {
-  color: palette( muted, light );
+  color: palette( default, light );
 }
 
 label[for] {
@@ -68,8 +62,10 @@ label[for] {
 
 select,
 #{$form-fields} {
+  appearance: none;
   background-color: palette( default, secondary );
   border: 1px solid palette( dominant, dark );
+  width: 100%;
 
   &:focus {
     border: 1px solid palette( accent, light );
@@ -91,9 +87,8 @@ input[type="image"],
   width: auto;
 }
 
-#{$form-fields},
-#{$form-buttons} {
-  appearance: none;
+input[type="range"] {
+  width: 100%;
 }
 
 input[type="number"],
@@ -140,6 +135,7 @@ textarea {
  */
 label[for],
 #{$form-buttons} {
+  appearance: none;
   cursor: pointer;
 }
 
@@ -158,7 +154,7 @@ label [class^="label-msg"] {
 }
 
 .label-msg-error {
-  color: palette( alert, dark );
+  color: palette( secondary );
 }
 
 /**
@@ -172,7 +168,7 @@ input:invalid {
 }
 
 input:invalid:not(:focus) {
-  box-shadow: 0 0 0 $gutter / 8 palette( alert, light );
+  box-shadow: 0 0 0 $gutter / 8 palette( secondary, light );
 }
 
 input:invalid:placeholder-shown {
@@ -186,19 +182,19 @@ input:invalid:placeholder-shown {
  * 2. hiding IE11 arrow
  * 3. 'x' appears on right of search input when text is entered. This removes it
  */
- ::-ms-clear {
-   display: none; /* 1 */
- }
+::-ms-clear {
+  display: none; /* 1 */
+}
 
- select::-ms-expand {
-   display: none;  /* 2 */
- }
+select::-ms-expand {
+  display: none;  /* 2 */
+}
 
- [type="search"] {
-   &::-webkit-search-decoration,
-   &::-webkit-search-cancel-button,
-   &::-webkit-search-results-button,
-   &::-webkit-search-results-decoration {
-     display: none;  /* 3 */
-   }
- }
+[type="search"] {
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;  /* 3 */
+  }
+}
