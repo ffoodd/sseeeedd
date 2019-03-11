@@ -1,16 +1,25 @@
 {% macro card(variant='', image='true', text='true', time='true') %}
-  <article class="card{{ variant }}">
-    {% if image == 'true' %}
-      <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt="" width="480" height="150" class="no-margin no-padding" />
-    {% endif %}
-    {% if text == 'true' %}
-      <h3>Intitulé de la carte</h3>
-      <p>Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-    {% endif %}
-    {% if time == 'true' %}
-      <footer>
+  <article class="card card{{ variant }}" role="article"
+           itemscope itemtype="https://schema.org/Article">
+    <div class="card-text">
+      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+      {% if time == 'true' %}
         <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+      {% endif %}
+      {% if text == 'true' %}
+        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
+      {% endif %}
+      <footer class="d-flex">
+        <a href="./" class="card-link ml-auto">Lire la suite
+          <span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+        </a>
       </footer>
+    </div>
+    {% if image == 'true' %}
+      <div class="card-img">
+        <img src="https://via.placeholder.com/480x150/ffffff/0083f1" alt=""
+              width="480" height="150" class="stretch no-margin no-padding" itemprop="image" />
+      </div>
     {% endif %}
   </article>
 {% endmacro %}

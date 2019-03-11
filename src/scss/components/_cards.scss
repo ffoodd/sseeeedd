@@ -2,32 +2,82 @@
 /* == Cards
 /* ==================== */
 
-[class*="card"] {
-  background: palette( default, contrast );
-  border: 1px solid palette( muted, light );
+.card {
+  --background: #{palette( default, contrast )};
+  --border: #{palette( muted, light )};
+  --color: #{palette( default )};
+  --shadow: #{transparentize(palette( default ), .75)};
+  background: var(--background);
+  border: 1px solid var(--border);
   border-radius: em( 4 );
-  color: palette( default );
-  display: block;
+  color: var(--color);
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
+  position: relative;
+  transition: box-shadow .3s map-get( $timing-functions, 'enter' );
 
-  > * {
-    margin: 0 0 $gutter;
-    padding: 0 $gutter;
+  &:hover,
+  &:focus-within {
+    box-shadow: 0 0 0 rem( 4 ) var(--shadow);
   }
 
-  > img {
-    border-radius: em( 3 ) em( 3 ) 0 0;
-  }
-
-  > h3 {
-    color: inherit;
-    display: inline-block;
-    font-size: em( 26 );
-    line-height: 1.2;
-    margin: $gutter 0;
+  &:focus-within .card-link:focus {
+    outline: none;
+    text-decoration: none;
   }
 }
 
+.card-img {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+  height: rem( 96 );
+}
+
+.card-text {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  margin-bottom: $gutter;
+  order: 1;
+  padding: 0 $gutter;
+
+  * {
+    color: inherit;
+    max-width: 60ch;
+  }
+
+  :last-child {
+    margin-top: auto;
+  }
+}
+
+.card-title {
+  font-size: em( 26 );
+  line-height: 1.2;
+  margin: $gutter 0;
+}
+
+.card-link {
+  text-decoration: none;
+
+  &::before {
+    bottom: 0;
+    content: "";
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  &:hover {
+    color: inherit;
+  }
+
+  &:focus {
+    color: inherit;
+    text-decoration: underline;
+  }
+}
 
 /* -------------------- */
 /* -- Variants
@@ -35,8 +85,9 @@
 
 @each $variant in alert, success, accent, dominant, secondary {
 	.card-#{$variant} {
-		background: palette( #{$variant} );
-    border-color: palette( #{$variant}, dark );
-		color: palette( #{$variant}, contrast );
+		--background: #{palette( $variant )};
+    --border: #{palette( $variant, dark )};
+		--color: #{palette( $variant, contrast )};
+    --shadow: #{transparentize(palette( $variant ), .75)};
 	}
 }

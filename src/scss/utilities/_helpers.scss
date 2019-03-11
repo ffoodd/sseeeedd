@@ -99,6 +99,15 @@
   float: left;
 }
 
+/* Images */
+.stretch {
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}
+
+/* RWD */
 @media screen and (max-width: em(479)) {
   .sm-hidden {
     display: none !important;

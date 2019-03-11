@@ -86,10 +86,6 @@ a {
     opacity: .75;
   }
 
-  &:visited {
-    color: palette( success, dark );
-  }
-
   /**
    * @note Using CSS masks to use colored base64 encoded SVG
    * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
@@ -123,6 +119,13 @@ a {
       margin: 0 .25em 0 0;
     }
   }
+}
+
+/**
+ * @note :visited style applies only to main content links
+ */
+main article p a:visited {
+  color: palette( success, dark );
 }
 
 address {
