@@ -12,8 +12,13 @@
 img[alt] {
   display: inline-block;
   max-width: 100%;
+  min-height: em( 64 );
   position: relative;
   vertical-align: middle;
+
+  &:not([src$=".svg"]) {
+    height: auto;
+  }
 
   /* 1 */
   &::after {

@@ -21,11 +21,6 @@ th,
 td {
   padding: $gutter / 2 rem( 12 );
   text-align: left;
-
-  thead &,
-  tbody & {
-    border-bottom: 1px solid palette( default, secondary );
-  }
 }
 
 th,
@@ -39,7 +34,12 @@ td {
 }
 
 tbody {
-  border: 1px solid palette( default, secondary );
+  border: 1px solid palette( default );
+}
+
+thead {
+  background: palette( default, contrast );
+  border: 1px solid palette( dominant, dark );
 }
 
 /**
