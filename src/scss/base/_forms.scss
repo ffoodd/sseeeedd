@@ -127,6 +127,7 @@ select[multiple] {
 select:not([multiple]) {
   appearance: none;
   background: no-repeat url("#{map-get( $icons, "select" )}") center right .5em / 1em 1em;
+  color: window;
 }
 
 textarea {
