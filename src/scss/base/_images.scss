@@ -42,7 +42,7 @@ svg {
 }
 
 figure[role="group"] {
-  background: white;
+  background: palette( default, contrast );
   margin: em( 24 ) auto;
   min-width: $content-width;
   overflow: hidden;
