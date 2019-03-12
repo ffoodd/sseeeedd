@@ -154,7 +154,7 @@ label [class^="label-msg"] {
 }
 
 .label-msg-error {
-  color: palette( secondary );
+  color: palette( alert );
 }
 
 /**
@@ -168,7 +168,7 @@ input:invalid {
 }
 
 input:invalid:not(:focus) {
-  box-shadow: 0 0 0 $gutter / 8 palette( secondary, light );
+  box-shadow: 0 0 0 $gutter / 8 palette( alert, light );
 }
 
 input:invalid:placeholder-shown {
