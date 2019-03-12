@@ -44,6 +44,7 @@ svg {
 figure[role="group"] {
   background: white;
   margin: em( 24 ) auto;
+  min-width: $content-width;
   overflow: hidden;
   padding: em( 16 );
   width: min-content;

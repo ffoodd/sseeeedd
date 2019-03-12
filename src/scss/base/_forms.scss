@@ -28,7 +28,7 @@ textarea {
 form,
 fieldset,
 .fieldset {
-  max-width: em( 600 );
+  max-width: $content-width;
 }
 
 form > * + * {
