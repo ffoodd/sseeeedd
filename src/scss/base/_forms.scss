@@ -65,6 +65,7 @@ select,
   appearance: none;
   background-color: palette( default, secondary );
   border: 1px solid palette( dominant, dark );
+  color: palette( default );
   width: 100%;
 
   &:focus {
@@ -163,16 +164,27 @@ label [class^="label-msg"] {
  * @note Prevent required input to be invalid on first load
  * @link https://www.ffoodd.fr/l-etat-des-champs/
  */
-input:invalid {
-  box-shadow: none;
-}
+#{$form-fields} {
+  &:invalid {
+   box-shadow: none;
+  }
 
-input:invalid:not(:focus) {
-  box-shadow: 0 0 0 $gutter / 8 palette( alert, light );
-}
+  &:valid:focus {
+   background: palette( default, contrast ) no-repeat url("#{map-get( $icons, "valid" )}") center right .5em / 1em 1.25em;
+  }
 
-input:invalid:placeholder-shown {
-  box-shadow: none;
+  &:invalid:not(:focus) {
+    background: palette( default, contrast ) no-repeat url("#{map-get( $icons, "invalid" )}") center right .5em / 1em 1.25em;
+    box-shadow: 0 0 0 $gutter / 8 palette( alert, light );
+  }
+
+  &:invalid:placeholder-shown {
+    box-shadow: none;
+  }
+
+  &:required:placeholder-shown {
+    background: palette( default, contrast ) no-repeat url("#{map-get( $icons, "required" )}") center right .5em / 1em 1.25em;
+  }
 }
 
 /**
