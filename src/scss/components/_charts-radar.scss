@@ -156,21 +156,27 @@
       vertical-align: bottom;
     }
 
-    tr {
-      display: contents;
-    }
-
     [scope="row"] {
+      bottom: $gutter * -8;
       height: $gutter * 2;
-      transform: translateY( #{$gutter * 8} );
+      left: $gutter;
+      position: absolute;
 
       &::before {
         background: var(--color, currentColor);
         content: "";
         display: inline-block;
         height: $gutter;
-        transform: translate3d(-.2rem, .1rem, 0);
+        margin-right: $gutter / 4;
+        transform: translate3d(0, .1rem, 0);
         width: $gutter;
+      }
+    }
+
+    // Allowing more areas :)
+    @each $number in 1 {
+      tr:nth-child(#{$number + 1}) [scope="row"] {
+        left: calc( #{$gutter} + (100% / var(--areas)) * #{$number});
       }
     }
 
