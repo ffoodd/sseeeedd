@@ -1,12 +1,12 @@
 @charset "UTF-8";
 
 /* ==================== */
-/* == Utilities
+/* == Abstracts
 /* ==================== */
-@import "utilities/functions";
-@import "utilities/variables";
-@import "utilities/mixins";
-@import "utilities/helpers";
+@import "abstracts/functions";
+@import "abstracts/variables";
+@import "abstracts/mixins";
+@import "abstracts/helpers";
 
 /* ==================== */
 /* == Vendors
