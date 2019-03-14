@@ -38,7 +38,7 @@ form > * + * {
 fieldset,
 .fieldset {
   border: 0;
-  margin-bottom: $gutter;
+  margin: $gutter auto $gutter * 2;
   padding: 0;
 
   > p,
