@@ -6,7 +6,6 @@
 @import "abstracts/functions";
 @import "abstracts/variables";
 @import "abstracts/mixins";
-@import "abstracts/helpers";
 
 /* ==================== */
 /* == Vendors
@@ -27,6 +26,7 @@
 @import "base/details";
 @import "base/forms";
 @import "base/buttons";
+@import "base/helpers";
 
 /* ==================== */
 /* == Layout
