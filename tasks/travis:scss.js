@@ -5,7 +5,7 @@ const options   = require('./options');
 function travisSCSS() {
   return gulp.src([
       options.paths.dev + 'scss/**/*.scss',
-      '!' + options.paths.dev + 'scss/dependencies/*.scss'
+      '!' + options.paths.dev + 'scss/vendors/*.scss'
     ])
     .pipe(linter(options.travis.stylelint));
 }

@@ -15,7 +15,7 @@ module.exports = {
       cmps: './docs/composants.html',
       gphs: './docs/graphiques.html'
   },
-  dependencies: [
+  vendors: [
     './node_modules/a11y-dialog/a11y-dialog.min.js',
     './node_modules/van11y-accessible-tab-panel-aria/dist/van11y-accessible-tab-panel-aria.min.js'
   ],

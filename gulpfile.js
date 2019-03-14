@@ -54,7 +54,7 @@ function watch() {
   gulp.watch( options.paths.dev + 'datas/**/*.json',  gulp.series( 'html', reload ) );
 }
 exports.watch   = watch;
-exports.default = gulp.series( sync, watch );
+exports.default = gulp.series( 'build', sync, watch );
 
 
 /**

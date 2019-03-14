@@ -6,7 +6,7 @@ const newer    = require('gulp-newer');
 const options  = require('./options');
 
 function js() {
-    return gulp.src(options.paths.dev + 'js/*.js')
+    return gulp.src(options.paths.dev + 'js/**/*.js')
       .pipe(newer(options.paths.dest + 'js'))
       .pipe(babel(options.babel))
       .pipe(uglify().on('error', function(err) {
