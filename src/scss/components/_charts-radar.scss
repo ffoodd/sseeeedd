@@ -181,23 +181,57 @@
     }
 
     td {
+      align-items: flex-end;
       border-color: var(--color, currentColor);
-      opacity: .5;
+      display: flex;
+      justify-content: flex-end;
+      opacity: .25;
       pointer-events: none;
       transition: opacity .2s map-get( $timing-functions, 'move' );
       will-change: opacity;
       z-index: 0;
 
+      &::after {
+        content: attr(data-value);
+        color: var(--color, currentColor);
+        display: block;
+        font-size: small;
+        font-weight: 700;
+        opacity: 0;
+        text-indent: #{$gutter / -2};
+        transform:
+          skew( calc( var(--skew) * -1 ) )
+          rotate( calc( var(--part) * var(--index, 1) * -1 ) );
+        transform-origin: 0 0;
+        transition: inherit;
+        width: 100%;
+        will-change: inherit;
+        white-space: nowrap;
+      }
+
       span {
         background: var(--color, currentColor);
-        // @todo could be impoved using conic-gradient, isn't it?
         pointer-events: auto;
+
+        @supports ( mask-image: url() ) {
+          mask-image: radial-gradient(circle at bottom right, rgba(0,0,0,1), rgba(0,0,0,.5));
+        }
+      }
+
+      @each $number in 1, 2, 3, 4, 5, 6, 7 {
+        &:nth-of-type(#{$number})::after {
+          width: calc( var(--#{$number}) * 100% / var(--scale) );
+        }
       }
     }
 
     tr:hover td {
       opacity: 1;
       z-index: 1;
+
+      &::after {
+        opacity: inherit;
+      }
     }
   }
 }
