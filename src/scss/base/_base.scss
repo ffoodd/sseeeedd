@@ -56,11 +56,15 @@ body {
 }
 
 /**
- * @note Ensure focus outline contrast
+ * 1. Ensure focus outline contrast
  * @see https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html#user-interface-components
+ * 2. Ensure focus outline visibility
+ * @author Manuel Matuzovic
+ * @see https://www.matuzo.at/blog/improving-the-keyboard-accessibility-of-codepen-embeds/#accessibility-improvements
  */
 :focus {
-  outline-color: currentColor !important;
+  outline-color: currentColor !important;  /* 1 */
+  transform: rotate(0);                    /* 2 */
 }
 
 /**
