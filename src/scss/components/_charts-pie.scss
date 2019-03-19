@@ -1,8 +1,5 @@
 /* ==================== */
 /* == Pie Charts
- **
- * @note SVG patterns inline coming from:
- * @link http://www.heropatterns.com/
 /* ==================== */
 @supports (clip-path: polygon( 50% calc( 50% + ( var(--gt-25, 0) ) ) )) {
   &.pie {
