@@ -13,6 +13,7 @@
     flex-flow: column nowrap;
     height: calc(#{rem( 180 )} * 1.5);
     justify-content: space-between;
+    min-width: unset;
     outline: 1px dotted;
     outline-offset: $gutter * -1.75;
     padding: $gutter;
