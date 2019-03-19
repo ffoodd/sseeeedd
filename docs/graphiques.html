@@ -2660,7 +2660,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       <pre>
         <code class="language-scss">
 @supports(clip-path: polygon(calc( 0% 0%, 100% - ( var(--1) * 100% / var(--scale) ) ) 100%, 100% 100%)) {
-  .radar {
+  [class*="radar"] {
     --radius: 12.8rem;
     --unitless-radius: calc( 1024 / 16 / 5 );
     --size: calc( var(--radius) / var(--scale) );
@@ -2705,19 +2705,11 @@ document.addEventListener( "DOMContentLoaded", function () {
         rotate( calc(var(--part) * var(--index, 1)) )
         translate( var(--away) )
         rotate( calc(var(--part) * var(--index, 1) * -1) );
+    }
 
-      &::after {
-        content: attr(data-value) "\A0/\A0" attr(data-scale);
-        color: rebeccapurple;
-        display: block;
-        font-size: small;
-        font-weight: 400;
-      }
-
-      @each $number in 1, 2, 3, 4, 5, 6, 7 {
-        &:nth-of-type(#{$number}) {
-          --index: #{$number};
-        }
+    @each $number in 1, 2, 3, 4, 5, 6, 7 {
+      [scope="col"]:nth-of-type(#{$number}) {
+        --index: #{$number};
       }
     }
 
@@ -2734,44 +2726,52 @@ document.addEventListener( "DOMContentLoaded", function () {
         skew( var(--skew) );
       transform-origin: 100% 100%;
       width: 50%;
+    }
 
-      span {
-        --opposite: calc( 180 - (90 + (90 - (360 / var(--items)))) );
-        --angle: calc( var(--opposite) * 0.01745329251 );
-        @include sin(angle);
-        --hypo: calc( var(--unitless-radius) / var(--sin-angle) );
-        --ratio: calc( var(--hypo) / var(--unitless-radius) );
-        background: linear-gradient(
-          to top left,
-          blueviolet 10%,
-          darkblue 75%
+    td span {
+      --opposite: calc( 180 - (90 + (90 - (360 / var(--items)))) );
+      --angle: calc( var(--opposite) * 0.01745329251 );
+      @include sin(angle);
+      --hypo: calc( var(--unitless-radius) / var(--sin-angle) );
+      --ratio: calc( var(--hypo) / var(--unitless-radius) );
+      background: linear-gradient(
+        to top left,
+        blueviolet 10%,
+        darkblue 75%
+      );
+      filter: drop-shadow( 0 0 1rem indigo );
+      height: 100%;
+      position: absolute;
+      width: 100%;
+    }
+
+    @each $number in 1, 2, 3, 4, 5, 6, 7 {
+      td:nth-of-type(#{$number}) {
+        --index: #{$number};
+      }
+
+      td:nth-of-type(#{$number}) span {
+        --pos: calc( 100% - (var(--#{$number + 1}) * 100% / (var(--scale) * var(--ratio) ) ) );
+        clip-path: polygon(
+          100% var(--pos),
+          calc( 100% - ( var(--#{$number}) * 100% / var(--scale) ) ) 100%,
+          100% 100%
         );
-        filter: drop-shadow( 0 0 1rem indigo );
-        height: 100%;
-        position: absolute;
-        width: 100%;
-      }
-
-      @each $number in 1, 2, 3, 4, 5, 6, 7 {
-        &:nth-of-type(#{$number}) {
-          --index: #{$number};
-
-          span {
-            --pos: calc( 100% - (var(--#{$number + 1}) * 100% / (var(--scale) * var(--ratio) ) ) );
-            clip-path: polygon(
-              100% var(--pos),
-              calc( 100% - ( var(--#{$number}) * 100% / var(--scale) ) ) 100%,
-              100% 100%
-            );
-          }
-        }
-      }
-
-      &::after,
-      &::before {
-        display: none;
       }
     }
+
+    td::after,
+    td::before {
+      display: none;
+    }
+  }
+
+  .radar [scope="col"]::after {
+    content: attr(data-value) "\A0/\A0" attr(data-scale);
+    color: palette( accent );
+    display: block;
+    font-size: small;
+    font-weight: 400;
   }
 }</code>
       </pre>
@@ -2787,10 +2787,41 @@ document.addEventListener( "DOMContentLoaded", function () {
       cela <strong>empêche Chrome de définir les dimensions du tableau</strong>…
       Pour les utilisateurs de Chrome, utilisez l’inspecteur pour décocher cette propriété
       sur la balise <code>&lt;table></code> de ces exemples&nbsp;!
-  </p></div>
+    </p>
+  </div>
 
 
   <h3>Radars superposés</h3>
+
+  <p>Très peu de changements par rapport à la version précédente&nbsp;:</p>
+
+  <ol>
+    <li>
+      l’élément <code>&lt;table></code> ne porte plus les valeurs, mais dispose d’une nouvelle
+      variable <var>--areas</var> pour indiquer le nombre de lignes dans le tableau&nbsp;;
+    </li>
+    <li>
+      les cellules d’entête de colonne sont dépouillées de leurs attributs <code>data-</code>&nbsp;;
+    </li>
+    <li>
+      en revanche on multiplie le nombre de lignes dans le corps du tableau&nbsp;:
+      <ul>
+        <li>
+          chacune porte plusieurs variables&nbsp;:
+          <var>--color</var> puis les valeurs —&nbsp;<var>--1</var>, etc.&nbsp;;
+        </li>
+        <li>
+          et contient plusieurs cellules&nbsp;: une d’entête de ligne <code>&lt;th scope="row"></code>
+          et des cellules de données <code>&lt;td</code> —&nbsp;ces dernières affublées d’un
+          attribut <code>data-value</code> utilisé pour afficher la valeur au survol.
+      </li></ul>
+    </li>
+    <li>
+      le reste est relativement commun désormais —&nbsp;si vous avez parcourus les exmples précédents&nbsp;:
+      une couleur pour chaque ligne, présentée sur les cellules d’entête et servant d’arrière-plan aux
+      cellules de données&nbsp;; un effet distinctif au survol de chaque ligne, etc.
+    </li>
+  </ol>
 
   <div class="table-container" role="group" aria-labelledby="caption-11">
     <div class="fieldset d-flex sm-hidden">
@@ -2842,6 +2873,130 @@ document.addEventListener( "DOMContentLoaded", function () {
       </tbody>
     </table>
   </div>
+
+  <details>
+    <summary>Le <abbr lang="en" title="HyperText Markup Language" aria-label="HyperText Markup Language">HTML</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-markup">
+&lt;table class="table-charts radar-multiple" id="radar-multiple" style="--scale: 20; --step: 5; --items: 7; --areas: 2;">
+  &lt;caption id="caption-9">Niveau d’intérêt par domaine, sur 20&lt;/caption>
+  &lt;thead>
+    &lt;tr>
+      &lt;th scope="col">Accessibilité&lt;/th>
+      &lt;th scope="col">Référencement&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr style="--color: #734bf9; --1: 14; --2: 11; --3: 13; --4: 16; --5: 14; --6: 10; --7: 4; --8: var(--1);">
+      &lt;th scope="row">Gaël&lt;/th>
+      &lt;td data-value="14">&lt;span>14&lt;/span>&lt;/td>
+    &lt;/tr>
+    &lt;tr style="-color: #e11a81; --1: 18; --2: 10; --3: 11; --4: 16; --5: 10; --6: 12; --7: 11; --8: var(--1);">
+      &lt;th scope="row">Luc&lt;/th>
+      &lt;td data-value="18">&lt;span>18&lt;/span>&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
+&lt;/table></code>
+      </pre>
+    </div>
+  </details>
+  <details>
+    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <div>
+      <pre>
+        <code class="language-scss">
+.radar-multiple {
+  margin-bottom: 12rem;
+
+  tbody {
+    columns: var(--areas);
+    vertical-align: bottom;
+  }
+
+  [scope="row"] {
+    bottom: -8rem;
+    height: 2rem;
+    left: 1rem;
+    position: absolute;
+  }
+
+  [scope="row"]::before {
+    background: var(--color, currentColor);
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    margin-right: .25rem;
+    transform: translate3d(0, .1rem, 0);
+    width: 1rem;
+  }
+
+  // Allowing more areas :)
+  @each $number in 1 {
+    tr:nth-child(#{$number + 1}) [scope="row"] {
+      left: calc( #{$gutter} + (100% / var(--areas)) * #{$number});
+    }
+  }
+
+  td {
+    align-items: flex-end;
+    border-color: var(--color, currentColor);
+    display: flex;
+    justify-content: flex-end;
+    opacity: .25;
+    pointer-events: none;
+    transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
+    will-change: opacity;
+    z-index: 0;
+  }
+
+  td::after {
+    content: attr(data-value);
+    color: var(--color, currentColor);
+    display: block;
+    font-size: small;
+    font-weight: 700;
+    opacity: 0;
+    text-indent: -.5rem;
+    transform:
+      skew( calc( var(--skew) * -1 ) )
+      rotate( calc( var(--part) * var(--index, 1) * -1 ) );
+    transform-origin: 0 0;
+    transition: inherit;
+    width: 100%;
+    will-change: inherit;
+    white-space: nowrap;
+  }
+
+  td span {
+    background: var(--color, currentColor);
+    pointer-events: auto;
+  }
+
+  @supports ( mask-image: url() ) {
+    td span {
+      mask-image: radial-gradient(circle at bottom right, rgba(0,0,0,1), rgba(0,0,0,.5));
+    }
+  }
+
+  @each $number in 1, 2, 3, 4, 5, 6, 7 {
+    td:nth-of-type(#{$number})::after {
+      width: calc( var(--#{$number}) * 100% / var(--scale) );
+    }
+  }
+
+  tr:hover td {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  tr:hover td::after {
+    opacity: inherit;
+  }
+}</code>
+      </pre>
+    </div>
+  </details>
 
       </main>
 
