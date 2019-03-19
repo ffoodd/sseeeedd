@@ -9,9 +9,6 @@
  * @see Bennett Feely's clippy to understand polygon() syntax
  * @link http://bennettfeely.com/clippy/
  */
- /** Line charts
-  * @note 1. calc() in width doesn't work in Firefox…
-  */
  @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
    &.line {
      --offset: calc( ( 100% / var(--x) ) / 2);
@@ -80,6 +77,10 @@
        z-index: 2;
      }
 
+    /** 1.
+      * @bugfix calc() in width doesn't work in…
+      * @affected Firefox
+      */
      th,
      td {
        background: palette( default, contrast );
@@ -87,10 +88,6 @@
        text-align: center;
        width: calc( 100% / var(--x) );
        width: 7.69%; /* 1 */
-
-       &:hover {
-         color: palette( secondary );
-       }
      }
 
      th[scope="col"] {
