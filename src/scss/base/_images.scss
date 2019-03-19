@@ -41,19 +41,25 @@ svg {
 figure[role="group"] {
   background: palette( default, contrast );
   margin: em( 24 ) auto;
-  min-width: $content-width;
+  max-width: 100%;
   overflow: hidden;
   padding: em( 16 );
-  width: min-content;
 
   figcaption {
     display: block;
     font-size: em( 14 );
     padding: 1em 0;
   }
+}
 
-  img {
-    min-width: min-content;
+@media screen and (min-width: #{$content-width}) {
+  figure[role="group"] {
+    min-width: $content-width;
+    width: min-content;
+
+    img {
+      min-width: min-content;
+    }
   }
 }
 
