@@ -16,6 +16,7 @@
 [class*="columns"] > * {
   display: inline-block;
   margin-bottom: $gutter * 2;
+  max-width: 100%;
 }
 
 @media screen and (min-width: em(480)) {
@@ -24,7 +25,7 @@
     column-gap: $gutter * 2;
     orphans: 1; /* 1 */
     widows:1;   /* 1 */
-    
+
     > * {
       page-break-inside: avoid; /* 2 */
       break-inside: avoid;      /* 2 */
@@ -37,10 +38,10 @@
       columns: $number;
     }
   }
-  
+
   /* -------------------- */
   /* -- Fixed grid
-  /* -------------------- */  
+  /* -------------------- */
   @supports (display: grid) {
     [class*="grid"] {
       display: grid;
@@ -52,19 +53,19 @@
         grid-template-columns: repeat(#{$number}, [col] 1fr);
       }
     }
-    
+
     @each $number in 2, 3 {
       .grid-1-#{$number} {
         @extend .grid-#{$number + 1};
-        
+
         > *:nth-child(even) {
           grid-column: 2 / span $number;
         }
       }
-      
+
       .grid-#{$number}-1 {
         @extend .grid-#{$number + 1};
-        
+
         > *:nth-child(odd) {
           grid-column: 1 / span $number;
         }
