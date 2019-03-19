@@ -2330,9 +2330,20 @@ document.addEventListener( "DOMContentLoaded", function () {
     </li>
     <li>
       le reste est relativement commun désormais —&nbsp;si vous avez parcourus les exmples précédents&nbsp;:
-      une couleur pour chaque ligne, présentée sur les cellules d’entête et servant d’arrière-plan aux
-      cellules de données&nbsp;; un effet distinctif au survol de chaque ligne, etc.
+      <ol>
+        <li>
+          une couleur pour chaque ligne, présentée sur les cellules d’entête et servant d’arrière-plan aux
+          cellules de données&nbsp;;
+        </li>
+        <li>
+          un effet distinctif au <strong>survol</strong> de chaque ligne&nbsp;: les valeurs apparaissent
+          textuellement au survol, et la ligne survolée est mise en exergue. Afin de ne pas priver les utilisateurs
+          n’ayant pas de pointeur doué pour le survol, cet effet est une <strong>amélioration progressive<strong>
+          basé sur la <em lang="en">media query</em> <code>@media (hover: hover) { … }</code>.
+        </li>
+      </ol>
     </li>
+
   </ol>
 
   <div class="table-container" role="group" aria-labelledby="caption-11">
@@ -2457,7 +2468,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     border-color: var(--color, currentColor);
     display: flex;
     justify-content: flex-end;
-    opacity: .25;
+    opacity: .5;
     pointer-events: none;
     transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
     will-change: opacity;
@@ -2470,7 +2481,6 @@ document.addEventListener( "DOMContentLoaded", function () {
     display: block;
     font-size: small;
     font-weight: 700;
-    opacity: 0;
     text-indent: -.5rem;
     transform:
       skew( calc( var(--skew) * -1 ) )
@@ -2499,13 +2509,23 @@ document.addEventListener( "DOMContentLoaded", function () {
     }
   }
 
-  tr:hover td {
-    opacity: 1;
-    z-index: 1;
-  }
+  @media (hover: hover) {
+    td {
+      opacity: .25;
+    }
 
-  tr:hover td::after {
-    opacity: inherit;
+    td::after {
+      opacity: 0;
+    }
+
+    tr:hover td {
+      opacity: 1;
+      z-index: 1;
+    }
+
+    tr:hover td::after {
+      opacity: inherit;
+    }
   }
 }</code>
       </pre>

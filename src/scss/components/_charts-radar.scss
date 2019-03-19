@@ -185,7 +185,7 @@
       border-color: var(--color, currentColor);
       display: flex;
       justify-content: flex-end;
-      opacity: .25;
+      opacity: .5;
       pointer-events: none;
       transition: opacity .2s map-get( $timing-functions, 'move' );
       will-change: opacity;
@@ -197,7 +197,6 @@
         display: block;
         font-size: small;
         font-weight: 700;
-        opacity: 0;
         text-indent: #{$gutter / -2};
         transform:
           skew( calc( var(--skew) * -1 ) )
@@ -225,12 +224,22 @@
       }
     }
 
-    tr:hover td {
-      opacity: 1;
-      z-index: 1;
+    @media (hover: hover) {
+      td {
+        opacity: .25;
 
-      &::after {
-        opacity: inherit;
+        &::after {
+          opacity: 0;
+        }
+      }
+
+      tr:hover td {
+        opacity: 1;
+        z-index: 1;
+
+        &::after {
+          opacity: inherit;
+        }
       }
     }
   }
