@@ -2023,8 +2023,6 @@ document.addEventListener( "DOMContentLoaded", function () {
     Celui-ci est plutôt amusant. On définit quelques variables
     <abbr lang="en" title="Cascading StyleSheet">CSS</abbr> sur le tableau
     &nbsp;: l’échelle (et les paliers), le nombre d’éléments, et les valeurs.
-    On a aussi besoin des attributs <code>data-value</code> et <code>data-scale</code>
-    sur chaque cellule d’entête <code>&lt;th></code> pour y afficher la valeur et l’échelle.
   </p>
 
   <p>
@@ -2033,16 +2031,22 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   <ul>
     <li>
-      Sur l’élément <code>&lt;table></code>, on crée l’échelle circulaire à l’aide de deux
+      sur l’élément <code>&lt;table></code>, on crée l’échelle circulaire à l’aide de deux
       <code>repeating-radial-gradient()</code> successifs —&nbsp;en fonction des variables
       <var>--scale</var> et <var>--step</var>&nbsp;;
     </li>
     <li>
-      Chaque élément <code>&lt;th></code> est déplacé à l’extérieur du cercle ainsi formé,
+      chaque élément <code>&lt;th></code> est déplacé à l’extérieur du cercle ainsi formé,
       grâce à une technique empruntée à
       <a href="https://stackoverflow.com/questions/12813573/position-icons-into-circle" hreflang="en">
       <cite>Ana Tudor</cite>, qui l’explique sur StackOverflow</a>&nbsp;;
     </li>
+    <li>
+      puis —&nbsp;toujours sur les cellules d’entête&nbsp;— la valeur correspondant à chaque colonne
+      est affichée dans un pseudo-élément <code>::after</code> à l’aide
+      <a hreflang="en" href="https://codepen.io/cassie-codes/pen/22ea69e0f681d45f2f4c2ca5e6acf4ab">d’une
+      astuce de <cite>Cassie Evans</cite>, utilisant <code>counter-reset</code> et <code>counter()</code>
+      pour afficher une variable numérique dans la propriété <code>content</code></a>.
     <li>
       Puis la magie opère sur les éléments <code>&lt;td></code>&nbsp;:
       <ol>
@@ -2119,13 +2123,13 @@ document.addEventListener( "DOMContentLoaded", function () {
       <caption id="caption-9">Niveau d’intérêt par domaine, sur 20</caption>
       <thead>
         <tr>
-          <th scope="col" data-value="14" data-scale="20">Accessibilité</th>
-          <th scope="col" data-value="11" data-scale="20">Référencement</th>
-          <th scope="col" data-value="13" data-scale="20">Performance</th>
-          <th scope="col" data-value="16" data-scale="20">Compatibilité</th>
-          <th scope="col" data-value="10" data-scale="20">Sécurité</th>
-          <th scope="col" data-value="12" data-scale="20">Qualité de code</th>
-          <th scope="col" data-value="4" data-scale="20">Test</th>
+          <th scope="col">Accessibilité</th>
+          <th scope="col">Référencement</th>
+          <th scope="col">Performance</th>
+          <th scope="col">Compatibilité</th>
+          <th scope="col">Sécurité</th>
+          <th scope="col">Qualité de code</th>
+          <th scope="col">Test</th>
         </tr>
       </thead>
       <tbody>
@@ -2151,8 +2155,8 @@ document.addEventListener( "DOMContentLoaded", function () {
   &lt;caption id="caption-9">Niveau d’intérêt par domaine, sur 20&lt;/caption>
   &lt;thead>
     &lt;tr>
-      &lt;th scope="col" data-value="14" data-scale="20">Accessibilité&lt;/th>
-      &lt;th scope="col" data-value="11" data-scale="20">Référencement&lt;/th>
+      &lt;th scope="col">Accessibilité&lt;/th>
+      &lt;th scope="col">Référencement&lt;/th>
     &lt;/tr>
   &lt;/thead>
   &lt;tbody>
@@ -2193,8 +2197,11 @@ document.addEventListener( "DOMContentLoaded", function () {
       );
     border: 2px solid;
     border-radius: 50%;
+    contain: layout style;
+    counter-reset: scale var(--scale);
     height: calc( var(--radius) * 2 );
     margin: 6rem auto 12rem;
+    overflow: visible;
     position: relative;
     width: calc( var(--radius) * 2 );
 
@@ -2278,11 +2285,17 @@ document.addEventListener( "DOMContentLoaded", function () {
   }
 
   .radar [scope="col"]::after {
-    content: attr(data-value) "\A0/\A0" attr(data-scale);
     color: palette( accent );
     display: block;
     font-size: small;
     font-weight: 400;
+  }
+
+  @each $number in 1, 2, 3, 4, 5, 6, 7 {
+    .radar [scope="col"]:nth-child(#{$number})::after {
+      counter-reset: value var(--#{$number});
+      content: counter(value) "\A0/\A0" counter(scale);
+    }
   }
 }</code>
       </pre>
@@ -2313,9 +2326,6 @@ document.addEventListener( "DOMContentLoaded", function () {
       variable <var>--areas</var> pour indiquer le nombre de lignes dans le tableau&nbsp;;
     </li>
     <li>
-      les cellules d’entête de colonne sont dépouillées de leurs attributs <code>data-</code>&nbsp;;
-    </li>
-    <li>
       en revanche on multiplie le nombre de lignes dans le corps du tableau&nbsp;:
       <ul>
         <li>
@@ -2324,8 +2334,7 @@ document.addEventListener( "DOMContentLoaded", function () {
         </li>
         <li>
           et contient plusieurs cellules&nbsp;: une d’entête de ligne <code>&lt;th scope="row"></code>
-          et des cellules de données <code>&lt;td></code> —&nbsp;ces dernières affublées d’un
-          attribut <code>data-value</code> utilisé pour afficher la valeur au survol.
+          et des cellules de données <code>&lt;td></code>&nbsp;;
       </ul>
     </li>
     <li>
@@ -2377,23 +2386,23 @@ document.addEventListener( "DOMContentLoaded", function () {
       <tbody>
         <tr style="--color: #734bf9; --1: 14; --2: 11; --3: 13; --4: 16; --5: 14; --6: 10; --7: 4; --8: var(--1);">
           <th scope="row">Gaël</th>
-          <td data-value="14"><span>14</span></td>
-          <td data-value="11"><span>11</span></td>
-          <td data-value="13"><span>13</span></td>
-          <td data-value="16"><span>16</span></td>
-          <td data-value="14"><span>14</span></td>
-          <td data-value="10"><span>10</span></td>
-          <td data-value="4"><span>4</span></td>
+          <td><span>14</span></td>
+          <td><span>11</span></td>
+          <td><span>13</span></td>
+          <td><span>16</span></td>
+          <td><span>14</span></td>
+          <td><span>10</span></td>
+          <td><span>4</span></td>
         </tr>
         <tr style="--color: #e11a81; --1: 18; --2: 10; --3: 11; --4: 16; --5: 10; --6: 12; --7: 11; --8: var(--1);">
           <th scope="row">Luc</th>
-          <td data-value="18"><span>18</span></td>
-          <td data-value="10"><span>10</span></td>
-          <td data-value="11"><span>11</span></td>
-          <td data-value="16"><span>16</span></td>
-          <td data-value="10"><span>10</span></td>
-          <td data-value="12"><span>12</span></td>
-          <td data-value="11"><span>11</span></td>
+          <td><span>18</span></td>
+          <td><span>10</span></td>
+          <td><span>11</span></td>
+          <td><span>16</span></td>
+          <td><span>10</span></td>
+          <td><span>12</span></td>
+          <td><span>11</span></td>
         </tr>
       </tbody>
     </table>
@@ -2415,11 +2424,11 @@ document.addEventListener( "DOMContentLoaded", function () {
   &lt;tbody>
     &lt;tr style="--color: #734bf9; --1: 14; --2: 11; --3: 13; --4: 16; --5: 14; --6: 10; --7: 4; --8: var(--1);">
       &lt;th scope="row">Gaël&lt;/th>
-      &lt;td data-value="14">&lt;span>14&lt;/span>&lt;/td>
+      &lt;td>&lt;span>14&lt;/span>&lt;/td>
     &lt;/tr>
     &lt;tr style="-color: #e11a81; --1: 18; --2: 10; --3: 11; --4: 16; --5: 10; --6: 12; --7: 11; --8: var(--1);">
       &lt;th scope="row">Luc&lt;/th>
-      &lt;td data-value="18">&lt;span>18&lt;/span>&lt;/td>
+      &lt;td>&lt;span>18&lt;/span>&lt;/td>
     &lt;/tr>
   &lt;/tbody>
 &lt;/table></code>
@@ -2456,14 +2465,14 @@ document.addEventListener( "DOMContentLoaded", function () {
     width: 1rem;
   }
 
-  // Allowing more areas :)
+  /* Allowing more areas :) */
   @each $number in 1 {
     tr:nth-child(#{$number + 1}) [scope="row"] {
       left: calc( #{$gutter} + (100% / var(--areas)) * #{$number});
     }
   }
 
-  td {
+  tbody td {
     align-items: flex-end;
     border-color: var(--color, currentColor);
     display: flex;
@@ -2475,8 +2484,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     z-index: 0;
   }
 
-  td::after {
-    content: attr(data-value);
+  tbody td::after {
     color: var(--color, currentColor);
     display: block;
     font-size: small;
@@ -2492,38 +2500,40 @@ document.addEventListener( "DOMContentLoaded", function () {
     white-space: nowrap;
   }
 
-  td span {
+  @each $number in 1, 2, 3, 4, 5, 6, 7 {
+    tbody td:nth-of-type(#{$number})::after {
+      counter-reset: value var(--#{$number});
+      content: counter(value);
+      width: calc( var(--#{$number}) * 100% / var(--scale) );
+    }
+  }
+
+  tbody td span {
     background: var(--color, currentColor);
     pointer-events: auto;
   }
 
   @supports ( mask-image: url() ) {
-    td span {
+    tbody td span {
       mask-image: radial-gradient(circle at bottom right, rgba(0,0,0,1), rgba(0,0,0,.5));
     }
   }
 
-  @each $number in 1, 2, 3, 4, 5, 6, 7 {
-    td:nth-of-type(#{$number})::after {
-      width: calc( var(--#{$number}) * 100% / var(--scale) );
-    }
-  }
-
   @media (hover: hover) {
-    td {
+    tbody td {
       opacity: .25;
     }
 
-    td::after {
+    tbody td::after {
       opacity: 0;
     }
 
-    tr:hover td {
+    tbody tr:hover td {
       opacity: 1;
       z-index: 1;
     }
 
-    tr:hover td::after {
+    tbody tr:hover td::after {
       opacity: inherit;
     }
   }

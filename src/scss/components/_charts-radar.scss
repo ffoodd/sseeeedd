@@ -26,6 +26,7 @@
     border: 2px solid;
     border-radius: 50%;
     contain: layout style;
+    counter-reset: scale var(--scale);
     height: calc( var(--radius) * 2 );
     margin: $gutter * 6 auto $gutter * 12;
     overflow: visible;
@@ -140,12 +141,20 @@
     }
   }
 
-  &.radar [scope="col"]::after {
-    content: attr(data-value) "\A0/\A0" attr(data-scale);
-    color: palette( accent );
-    display: block;
-    font-size: small;
-    font-weight: 400;
+  &.radar [scope="col"] {
+    &::after {
+      color: palette( accent );
+      display: block;
+      font-size: small;
+      font-weight: 400;
+    }
+
+    @each $number in 1, 2, 3, 4, 5, 6, 7 {
+      &:nth-child(#{$number})::after {
+        counter-reset: value var(--#{$number});
+        content: counter(value) "\A0/\A0" counter(scale);
+      }
+    }
   }
 
   &.radar-multiple {
@@ -180,7 +189,7 @@
       }
     }
 
-    td {
+    tbody td {
       align-items: flex-end;
       border-color: var(--color, currentColor);
       display: flex;
@@ -192,7 +201,6 @@
       z-index: 0;
 
       &::after {
-        content: attr(data-value);
         color: var(--color, currentColor);
         display: block;
         font-size: small;
@@ -208,6 +216,14 @@
         white-space: nowrap;
       }
 
+      @each $number in 1, 2, 3, 4, 5, 6, 7 {
+        &:nth-of-type(#{$number})::after {
+          counter-reset: value var(--#{$number});
+          content: counter(value);
+          width: calc( var(--#{$number}) * 100% / var(--scale) );
+        }
+      }
+
       span {
         background: var(--color, currentColor);
         pointer-events: auto;
@@ -216,16 +232,10 @@
           mask-image: radial-gradient(circle at bottom right, rgba(0,0,0,1), rgba(0,0,0,.5));
         }
       }
-
-      @each $number in 1, 2, 3, 4, 5, 6, 7 {
-        &:nth-of-type(#{$number})::after {
-          width: calc( var(--#{$number}) * 100% / var(--scale) );
-        }
-      }
     }
 
     @media (hover: hover) {
-      td {
+      tbody td {
         opacity: .25;
 
         &::after {
@@ -233,7 +243,7 @@
         }
       }
 
-      tr:hover td {
+      tbody tr:hover td {
         opacity: 1;
         z-index: 1;
 
