@@ -11,25 +11,37 @@
       --side: calc( #{$width} / 2 );
       --hypo: calc( 1024 / 16 / 2 );
       display: table-row;
+    }
 
-      tr {
-        display: table-cell;
-        transition: opacity .3s map-get( $timing-functions, 'move' );
-        will-change: opacity;
+    tbody tr {
+      display: table-cell;
+      transition: opacity .3s map-get( $timing-functions, 'move' );
+      will-change: opacity;
+    }
+
+    tbody th {
+      padding-right: $gutter / 2;
+
+      &::before {
+        background: var(--color, currentColor);
+        content: "";
+        display: inline-block;
+        height: $gutter;
+        transform: translate3d(-.2rem, .1rem, 0);
+        width: $gutter;
       }
+    }
 
-      th {
-        padding-right: $gutter / 2;
+    tbody td {
+      --position: calc(var(--start, 0) * .01turn);
+    }
 
-        &::before {
-          background: var(--color, currentColor);
-          content: "";
-          display: inline-block;
-          height: $gutter;
-          transform: translate3d(-.2rem, .1rem, 0);
-          width: $gutter;
-        }
-      }
+    tbody td::after,
+    tbody td::before {
+      left: 50%;
+      position: absolute;
+      top: 40%;
+      transform-origin: center center;
     }
 
     /**
@@ -47,7 +59,6 @@
      * @link https://caniuse.com/#search=mask
      */
     tbody td::before {
-      --position: calc(var(--start, 0) * .01turn);
       --zoom: .75;
       --part: calc( var(--value) * 3.6 );
       --main-angle: calc( var(--part) - ( 90 * ( var(--gt-25, 0) + var(--gt-50, 0) + var(--gt-75, 0) ) ) );
@@ -75,20 +86,16 @@
       );
       content: '';
       height: var(--side);
-      left: 50%;
       mask-image: radial-gradient(
         circle at center,
         palette( default, contrast) 0%,
         palette( default, contrast) calc(var(--side) / 2),
         transparent calc(var(--side) / 2)
       );
-      position: absolute;
-      top: 40%;
       transform:
         translate3d(-50%, -50%, 0)
         rotate( var(--position) )
         scale( var(--zoom) );
-      transform-origin: center center;
       transition: transform .2s map-get( $timing-functions, 'move' );
       width: var(--side);
       will-change: transform;
@@ -106,10 +113,28 @@
       }
     }
 
-    tbody:hover tr {
-      opacity: .75;
+    tbody td::after {
+      --away: calc( var(--position) - .25turn + var(--value) * .005turn );
+      background-color: palette( dominant );
+      counter-reset: value var(--value);
+      content: var(--term) "\A0: " counter(value) "\A0%";
+      color: palette( dominant, contrast );
+      opacity: 0;
+      padding: $gutter / 2;
+      transform:
+        translate3d(-50%, -50%, 0)
+        rotate( var(--away) )
+        translate( calc( var(--side) / 2 - #{$gutter} ) )
+        rotate( calc( var(--away) * -1 ) );
+      transition: opacity .2s map-get( $timing-functions, 'move' );
+      will-change: opacity;
+    }
 
-      &:hover {
+    tbody:hover tr {
+      opacity: .5;
+
+      &:hover,
+      &:hover td::after {
         opacity: 1;
       }
     }
@@ -126,10 +151,6 @@
 
     tbody tr:hover td::before {
       --zoom: 50;
-    }
-
-    tbody:hover tr {
-      opacity: .5;
     }
   }
 

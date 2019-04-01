@@ -1,5 +1,5 @@
 {% macro pie(term='', definition='', unit='', title='', start='0', color='') %}
-<tr style="--color: {{ color }}">
+<tr style="--color: {{ color }};--term: '{{ term }}';">
   <th scope="row">{{ term }}</th>
   {% if definition < 25 %}
     {% set style = "" %}
