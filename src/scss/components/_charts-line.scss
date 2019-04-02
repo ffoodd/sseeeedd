@@ -170,12 +170,15 @@
              td {
                &::before {
                  --size: #{$gutter};
+                 --value: var(--1);
+                 --top: calc( (var(--height) - ( var(--value) / var(--y) * var(--height) ) ) );
                  background-color: var(--color, currentColor);
                  border: 2px solid palette( default, contrast );
                  border-radius: 50%;
                  box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
                  content: "";
                  height: var(--size);
+                 left: calc( var(--offset) * 3 );
                  position: absolute;
                  top: var(--top, 100);
                  transform: translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0);
@@ -186,15 +189,29 @@
                  z-index: 4;
                }
 
-               &:first-of-type::before {
-                 --top: calc( (var(--height) - ( var(--1) / var(--y) * var(--height) ) ) );
+               &::after {
+                 background-color: palette( dominant );
+                 counter-reset: value var(--value);
+                 content: counter(value) "\A0°C";
+                 color: palette( dominant, contrast );
+                 opacity: 0;
+                 padding: $gutter / 2;
                  left: calc( var(--offset) * 3 );
+                 pointer-events: none;
+                 position: absolute;
+                 top: var(--top, 100);
+                 transform: translate3d(-50%, -150%, 0);
+                 transition: opacity .2s map-get( $timing-functions, 'move' );
+                 will-change: opacity;
+                 z-index: 5;
                }
 
                @each $number in 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
-                 &:nth-of-type(#{$number})::before {
-                   --top: calc( (var(--height) - ( var(--#{$number}) / var(--y) * var(--height) ) ) );
-                   left: calc( ( 100% / var(--x) * #{$number } ) + var(--offset) );
+                 &:nth-of-type(#{$number})::before,
+                 &:nth-of-type(#{$number})::after {
+                   --value: var(--#{$number});
+                   --top: calc( (var(--height) - ( var(--value) / var(--y) * var(--height) ) ) );
+                   left: calc( ( 100% / var(--x) * #{$number} ) + var(--offset) );
                  }
                }
              }
@@ -216,6 +233,7 @@
          }
 
          tbody:hover tr[style]:hover::before,
+         tbody:hover tr[style] td:hover::after,
          tbody:hover tr[style]:hover td::before {
              opacity: 1;
          }

@@ -121,6 +121,7 @@
       color: palette( dominant, contrast );
       opacity: 0;
       padding: $gutter / 2;
+      pointer-events: none;
       transform:
         translate3d(-50%, -50%, 0)
         rotate( var(--away) )
