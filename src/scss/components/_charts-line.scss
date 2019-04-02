@@ -119,6 +119,7 @@
 
      td {
        --value: var(--1);
+       --term: var(--t-1);
        --top: calc( (var(--height) - ( var(--value) / var(--y) * 100% ) ) );
        line-height: 1.5;
 
@@ -128,14 +129,14 @@
          position: absolute;
          transform: translateX(-50%);
          width: inherit;
-         z-index: 5;
+         z-index: 10;
        }
 
        &::after {
          --arrow: calc(100% - #{$gutter / 4});
          background-color: palette( dominant );
          counter-reset: value var(--value);
-         content: counter(value) "\A0°C";
+         content: var(--term) " " var(--year) "\A " counter(value) "\A0°C";
          color: palette( dominant, contrast );
          clip-path: polygon(
            0% 0%,
@@ -161,12 +162,14 @@
            opacity .2s map-get( $timing-functions, 'enter' ),
            transform .2s map-get( $timing-functions, 'enter' );
          will-change: opacity, transform;
+         white-space: pre;
          z-index: 5;
        }
 
        @each $number in 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 {
          &:nth-child(#{$number})::after {
            --value: var(--#{$number - 1});
+           --term: var(--t-#{$number - 1});
            --top: calc( (var(--height) - ( var(--value) / var(--y) * var(--height) ) ) );
            left: calc( ( 100% / var(--x) * #{$number - 1} ) + var(--offset) );
          }
@@ -290,7 +293,7 @@
                scale(1.25);
        }
 
-       th[scope="col"] {
+       th[scope="col"]:not(:first-child) {
          &::after {
            mix-blend-mode: multiply;
          }
@@ -307,7 +310,7 @@
     * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
     */
    @media screen and (-ms-high-contrast: active) {
-     .line tr[style]::before {
+     &.line tr[style]::before {
        background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
      }
    }
