@@ -29,13 +29,23 @@
 }
 
 [role="tooltip"] {
+  --arrow: calc(100% - #{$gutter / 4});
   background: palette( dominant );
   bottom: calc(100% + .5em);
   color: palette( default, secondary );
+  clip-path: polygon(
+    0% 0%,
+    100% 0%,
+    100% var(--arrow),
+    calc(50% - #{$gutter / 4}) var(--arrow),
+    50% 100%,
+    calc(50% + #{$gutter / 4}) var(--arrow),
+    0% var(--arrow)
+  );
   left: 50%;
   opacity: 0;
   margin: 0;
-  padding: em( 4 ) em( 8 ) em( 5 );
+  padding: em( 4 ) em( 8 ) em( 8 );
   pointer-events: none;
   position: absolute;
   transform-origin: 50% calc(100% + 10px);
@@ -49,14 +59,4 @@
     visibility 0s linear .2s;
   visibility: hidden;
   white-space: nowrap;
-
-  &::after {
-    border-left: em( 4 ) solid transparent;
-    border-right: em( 4 ) solid transparent;
-    border-top: em( 4 ) solid palette( dominant );
-    bottom: em( -4 );
-    content: "";
-    left: calc(50% - .25em);
-    position: absolute;
-  }
 }
