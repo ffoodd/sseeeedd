@@ -132,11 +132,25 @@
          z-index: 10;
        }
 
+       /**
+        * 1.
+        * @note Using white-space and:
+        ** `\A` to make a line-break
+        ** `\A0` for a non-breakable space
+        * @note Based on CSS Secrets by
+        * @author Lea Verou
+        * @link https://lea.verou.me/2012/02/flexible-multiline-definition-lists-with-2-lines-of-css/
+        *
+        * 2.
+        * @note Display CSS integers custom properties with a trick using counters
+        * @author Cassie Evans
+        * @link https://codepen.io/cassie-codes/pen/22ea69e0f681d45f2f4c2ca5e6acf4ab
+        */
        &::after {
          --arrow: calc(100% - #{$gutter / 4});
          background-color: palette( dominant );
-         counter-reset: value var(--value);
-         content: var(--term) " " var(--year) "\A " counter(value) "\A0°C";
+         counter-reset: value var(--value);                                 /* 2 */
+         content: var(--term) " " var(--year) "\A " counter(value) "\A0°C"; /* 1 */
          color: palette( dominant, contrast );
          clip-path: polygon(
            0% 0%,
@@ -235,7 +249,6 @@
            }
 
            td {
-             --value: var(--1);
              --top: calc( (var(--height) - ( var(--value) / var(--y) * var(--height) ) ) );
 
              &::before {

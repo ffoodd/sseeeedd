@@ -149,10 +149,16 @@
       font-weight: 400;
     }
 
+    /**
+     * 1.
+     * @note Display CSS integers custom properties with a trick using counters
+     * @author Cassie Evans
+     * @link https://codepen.io/cassie-codes/pen/22ea69e0f681d45f2f4c2ca5e6acf4ab
+     */
     @each $number in 1, 2, 3, 4, 5, 6, 7 {
       &:nth-child(#{$number})::after {
-        counter-reset: value var(--#{$number});
-        content: counter(value) "\A0/\A0" counter(scale);
+        counter-reset: value var(--#{$number});           /* 1 */
+        content: counter(value) "\A0/\A0" counter(scale); /* 1 */
       }
     }
   }
@@ -218,8 +224,8 @@
 
       @each $number in 1, 2, 3, 4, 5, 6, 7 {
         &:nth-of-type(#{$number})::after {
-          counter-reset: value var(--#{$number});
-          content: counter(value);
+          counter-reset: value var(--#{$number}); /* 1 */
+          content: counter(value);                /* 1 */
           width: calc( var(--#{$number}) * 100% / var(--scale) );
         }
       }
