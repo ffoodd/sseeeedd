@@ -32,7 +32,6 @@
   --arrow: calc(100% - #{$gutter / 4});
   background: palette( dominant );
   bottom: calc(100% + .5em);
-  color: palette( default, secondary );
   clip-path: polygon(
     0% 0%,
     100% 0%,
@@ -42,6 +41,7 @@
     calc(50% + #{$gutter / 4}) var(--arrow),
     0% var(--arrow)
   );
+  color: palette( default, secondary );
   left: 50%;
   opacity: 0;
   margin: 0;

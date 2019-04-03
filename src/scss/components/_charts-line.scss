@@ -149,9 +149,6 @@
        &::after {
          --arrow: calc(100% - #{$gutter / 4});
          background-color: palette( dominant );
-         counter-reset: value var(--value);                                 /* 2 */
-         content: var(--term) " " var(--year) "\A " counter(value) "\A0°C"; /* 1 */
-         color: palette( dominant, contrast );
          clip-path: polygon(
            0% 0%,
            100% 0%,
@@ -161,6 +158,9 @@
            calc(50% + #{$gutter / 4}) var(--arrow),
            0% var(--arrow)
          );
+         color: palette( dominant, contrast );
+         content: var(--term) " " var(--year) "\A " counter(value) "\A0°C"; /* 1 */
+         counter-reset: value var(--value);                                 /* 2 */
          opacity: 0;
          padding: $gutter / 2;
          left: calc( var(--offset) * 3 );

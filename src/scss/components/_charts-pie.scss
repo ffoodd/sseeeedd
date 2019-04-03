@@ -114,29 +114,48 @@
     }
 
     tbody td::after {
+      --arrow: calc(100% - #{$gutter / 4});
       --away: calc( var(--position) - .25turn + var(--value) * .005turn );
       background-color: palette( dominant );
-      counter-reset: value var(--value);
-      content: var(--term) "\A0: " counter(value) "\A0%";
       color: palette( dominant, contrast );
+      content: var(--term) "\A0: " counter(value) "\A0%";
+      counter-reset: value var(--value);
       opacity: 0;
       padding: $gutter / 2;
       pointer-events: none;
+      transform-origin: 50% calc(100% + 10px);
       transform:
         translate3d(-50%, -50%, 0)
         rotate( var(--away) )
         translate( calc( var(--side) / 2 - #{$gutter} ) )
-        rotate( calc( var(--away) * -1 ) );
-      transition: opacity .2s map-get( $timing-functions, 'move' );
-      will-change: opacity;
+        rotate( calc( var(--away) * -1 ) )
+        perspective(1000px)
+        rotate3d(1, 0, 0, 45deg);
+      transition:
+        opacity .2s map-get( $timing-functions, 'enter' ),
+        transform .2s map-get( $timing-functions, 'enter' );
+      will-change: opacity, transform;
     }
 
     tbody:hover tr {
       opacity: .5;
 
-      &:hover,
+      &:hover {
+        opacity: 1;
+      }
+
       &:hover td::after {
         opacity: 1;
+        transform:
+          translate3d(-50%, -50%, 0)
+          rotate( var(--away) )
+          translate( calc( var(--side) / 2 - #{$gutter} ) )
+          rotate( calc( var(--away) * -1 ) )
+          perspective(1000px)
+          rotate3d(1, 0, 0, 0deg);
+        transition:
+          opacity .2s map-get( $timing-functions, 'exit' ),
+          transform .2s map-get( $timing-functions, 'exit' );
       }
     }
   }
