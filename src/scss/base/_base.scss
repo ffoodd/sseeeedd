@@ -89,6 +89,15 @@ a {
   &:active {
     opacity: .75;
   }
+}
+
+/**
+ * @note Only to main content links
+ */
+main article a {
+  &:visited {
+    color: palette( success, dark );
+  }
 
   /**
    * @note Using CSS masks to use colored base64 encoded SVG
@@ -123,13 +132,6 @@ a {
       margin: 0 .25em 0 0;
     }
   }
-}
-
-/**
- * @note :visited style applies only to main content links
- */
-main article p a:visited {
-  color: palette( success, dark );
 }
 
 address {
