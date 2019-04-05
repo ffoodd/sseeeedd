@@ -185,14 +185,7 @@
      );
 
      tbody td::after {
-       --away: calc( var(--side) / 2 - #{$gutter * 4} );
-       opacity: 1;
-       transition: transform .2s map-get( $timing-functions, 'enter' );
-       will-change: transform;
-     }
-
-     tbody:hover tr:hover td::after {
-       transition: transform .2s map-get( $timing-functions, 'exit' );
+       --away: calc( var(--side) / 2 - #{$gutter * 2.5} );
      }
    }
 
