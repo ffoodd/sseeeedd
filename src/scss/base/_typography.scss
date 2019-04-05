@@ -82,14 +82,33 @@ h6,
   @extend .hn;
 }
 
-p,
 td,
 th,
 div,
 table,
 textarea {
-  word-wrap: break-word;
   hyphens: auto;
+  word-wrap: break-word;
+}
+
+/**
+ * @note Advanced hyphenation
+ * @author Richard Rutter
+ * @link https://clagnut.com/blog/2395
+ */
+p,
+li,
+dd {
+  -ms-hyphenate-limit-chars: 6 3 2;
+  -ms-hyphenate-limit-lines: 2;
+  -ms-hyphenate-limit-last: always;
+  -ms-hyphenate-limit-zone: 8%;
+  hyphenate-limit-chars: 6 3 2;
+  hyphenate-limit-lines: 2;
+  hyphenate-limit-last: always;
+  hyphenate-limit-zone: 8%;
+  hyphens: auto;
+  word-wrap: break-word;
 }
 
 li {
