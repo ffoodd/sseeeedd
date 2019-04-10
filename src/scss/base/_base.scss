@@ -94,7 +94,7 @@ a {
 /**
  * @note Only to main content links
  */
-main article a {
+main a {
   &:visited {
     color: palette( success, dark );
   }
@@ -105,13 +105,15 @@ main article a {
    */
    @supports(mask-image: url()) {
     &[href^="#"]::before,
+    &[href^="tel:"]::before,
     &[target$="blank"]::after,
-    &[href^="http://"]::before {
+    &[href^="http://"]::before,
+    &[href^="mailto:"]::before {
       background: currentColor;
       content: "";
       display: inline-block;
       height: .625em;
-      margin: 0 0 0 .25em;
+      margin: 0 .25em 0 0;
       mask-repeat: no-repeat;
       mask-position: center center;
       width: .625em;
@@ -119,17 +121,24 @@ main article a {
 
     &[href^="#"]::before {
       mask-image: url("#{map-get( $icons, "anchor" )}");
-      margin: 0 .25em 0 0;
     }
 
     &[target$="blank"]::after {
+      margin: 0 0 0 .25em;
       mask-image: url("#{map-get( $icons, "external" )}");
     }
 
     &[href^="http://"]::before {
       background: palette( alert );
       mask-image: url("#{map-get( $icons, "unsafe" )}");
-      margin: 0 .25em 0 0;
+    }
+
+    &[href^="mailto:"]::after {
+      display: none;
+    }
+
+    &[href^="mailto:"]::before {
+      mask-image: url("#{map-get( $icons, "mail" )}");
     }
   }
 }
