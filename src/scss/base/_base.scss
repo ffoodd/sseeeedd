@@ -148,45 +148,43 @@ main a {
     content: "\1f513";
   }
 
-  @if $use-icons == true {
-    /**
-     * @note Using CSS masks to use colored base64 encoded SVG
-     * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
-     */
-     @supports(mask-image: url()) {
-      &[href^="#"]::before,
-      &[href^="tel:"]::before,
-      &[target$="blank"]::after,
-      &[href^="http://"]::before,
-      &[href^="mailto:"]::before {
-        background: currentColor;
-        content: "";
-        height: .625em;
-        mask-repeat: no-repeat;
-        mask-position: center center;
-        width: .625em;
-      }
+  /**
+   * @note Using CSS masks to use colored base64 encoded SVG
+   * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
+   */
+   @supports(mask-image: url()) {
+    &[href^="#"]::before,
+    &[href^="tel:"]::before,
+    &[target$="blank"]::after,
+    &[href^="http://"]::before,
+    &[href^="mailto:"]::before {
+      background: currentColor;
+      content: "";
+      height: .625em;
+      mask-repeat: no-repeat;
+      mask-position: center center;
+      width: .625em;
+    }
 
-      &[href^="#"]::before {
-        mask-image: url("#{map-get( $icons, "anchor" )}");
-      }
+    &[href^="#"]::before {
+      mask-image: url("#{map-get( $icons, "anchor" )}");
+    }
 
-      &[target$="blank"]::after {
-        mask-image: url("#{map-get( $icons, "external" )}");
-      }
+    &[target$="blank"]::after {
+      mask-image: url("#{map-get( $icons, "external" )}");
+    }
 
-      &[href^="http://"]::before {
-        background: palette( alert );
-        mask-image: url("#{map-get( $icons, "unsafe" )}");
-      }
+    &[href^="http://"]::before {
+      background: palette( alert );
+      mask-image: url("#{map-get( $icons, "unsafe" )}");
+    }
 
-      &[href^="mailto:"]::before {
-        mask-image: url("#{map-get( $icons, "mail" )}");
-      }
+    &[href^="mailto:"]::before {
+      mask-image: url("#{map-get( $icons, "mail" )}");
+    }
 
-      &[href^="tel:"]::before {
-        mask-image: url("#{map-get( $icons, "tel" )}");
-      }
+    &[href^="tel:"]::before {
+      mask-image: url("#{map-get( $icons, "tel" )}");
     }
   }
 }
