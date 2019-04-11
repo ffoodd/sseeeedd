@@ -52,10 +52,6 @@ legend:first-child {
   margin-bottom: inherit;
 }
 
-::placeholder {
-  color: palette( default, light );
-}
-
 label[for] {
   display: block;
 }
@@ -66,10 +62,12 @@ select,
   background-color: palette( default, contrast );
   border: 1px solid palette( dominant, dark );
   color: palette( default );
+  transition: box-shadow .3s map-get($timing-functions, "enter");
   width: 100%;
 
   &:focus {
     border: 1px solid palette( accent, light );
+    box-shadow: 0 0 0 rem( 2 ) transparentize( palette( accent, light ), .75 );
   }
 
   /**
@@ -164,20 +162,16 @@ label [class^="label-msg"] {
  * @link https://www.ffoodd.fr/l-etat-des-champs/
  */
 #{$form-fields} {
-  &:invalid {
-   box-shadow: none;
-  }
-
   &:valid:focus {
-   background: palette( default, contrast ) no-repeat url("#{map-get( $icons, "valid" )}") center right .5em / 1em 1.25em;
+    background: palette( default, contrast ) no-repeat url("#{map-get( $icons, "valid" )}") center right .5em / 1em 1.25em;
   }
 
   &:invalid:not(:focus) {
     background: palette( default, contrast ) no-repeat url("#{map-get( $icons, "invalid" )}") center right .5em / 1em 1.25em;
-    box-shadow: 0 0 0 $gutter / 8 palette( alert, light );
+    box-shadow: 0 0 0 rem( 2 ) transparentize( palette( alert, light ), .5 );
   }
 
-  &:invalid:placeholder-shown {
+  &:invalid:placeholder-shown:not(:focus) {
     box-shadow: none;
   }
 

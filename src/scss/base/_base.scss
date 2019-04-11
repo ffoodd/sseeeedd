@@ -56,6 +56,14 @@ body {
 }
 
 /**
+ * @note Placeholders
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::placeholder
+ */
+::placeholder {
+  color: palette( default, light );
+}
+
+/**
  * 1. Ensure focus outline contrast
  * @see https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html#user-interface-components
  * 2. Ensure focus outline visibility by using isolation property
@@ -63,9 +71,13 @@ body {
  * @note Based on an idea:
  * @author Manuel Matuzovic
  * @see https://www.matuzo.at/blog/improving-the-keyboard-accessibility-of-codepen-embeds/#accessibility-improvements
+ * 3. Allow to animate outline on focus
+ * @author Heydon Pickering
+ * @see https://www.heydonworks.com/article/shrinking-button-outlines
  */
 :focus {
   outline-color: currentColor !important;  /* 1 */
+  outline-offset: 0;                       /* 3 */
   isolation: isolate;                      /* 2 */
 }
 
@@ -80,8 +92,11 @@ body:hover [tabindex="-1"]:focus {
 
 a {
   color: palette( secondary );
+  outline: rem( 2 ) solid transparent;
+  outline-offset: $gutter * 2;
   text-decoration-style: dotted;
   text-decoration-skip-ink: auto;
+  transition: outline-offset .3s map-get($timing-functions, "enter");
 
   &:hover,
   &:focus {
@@ -90,6 +105,7 @@ a {
 
   &:active {
     opacity: .75;
+    transition: none;
   }
 }
 
