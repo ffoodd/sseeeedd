@@ -91,6 +91,24 @@ a {
   }
 }
 
+[href^="tel:"]::before {
+  content: "\1f4f1";
+  display: inline-block;
+  margin: 0 .25em 0 0;
+}
+
+@media screen and (min-width: #{$width}) {
+  [href^="tel:"] {
+    color: currentColor;
+    pointer-events: none;
+    text-decoration: none;
+
+    &::before {
+      display: none !important;
+    }
+  }
+}
+
 /**
  * @note Only to main content links
  */
@@ -99,46 +117,76 @@ main a {
     color: palette( success, dark );
   }
 
-  /**
-   * @note Using CSS masks to use colored base64 encoded SVG
-   * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
-   */
-   @supports(mask-image: url()) {
-    &[href^="#"]::before,
-    &[href^="tel:"]::before,
-    &[target$="blank"]::after,
-    &[href^="http://"]::before,
-    &[href^="mailto:"]::before {
-      background: currentColor;
-      content: "";
-      display: inline-block;
-      height: .625em;
-      margin: 0 .25em 0 0;
-      mask-repeat: no-repeat;
-      mask-position: center center;
-      width: .625em;
-    }
+  &[href^="#"]::before,
+  &[target$="blank"]::after,
+  &[href^="http:"]::before,
+  &[href^="mailto:"]::before {
+    content: "";
+    display: inline-block;
+    margin: 0 .25em 0 0;
+  }
 
-    &[href^="#"]::before {
-      mask-image: url("#{map-get( $icons, "anchor" )}");
-    }
+  &[href^="#"]::before {
+    content: "\2693";
+  }
 
-    &[target$="blank"]::after {
-      margin: 0 0 0 .25em;
-      mask-image: url("#{map-get( $icons, "external" )}");
-    }
+  &[target$="blank"]::after {
+    content: "\1f5d7";
+    margin: 0 0 0 .25em;
+  }
 
-    &[href^="http://"]::before {
-      background: palette( alert );
-      mask-image: url("#{map-get( $icons, "unsafe" )}");
-    }
+  &[href^="mailto:"]::after {
+    display: none;
+  }
 
-    &[href^="mailto:"]::after {
-      display: none;
-    }
+  &[href^="mailto:"]::before {
+    content: "\1f4e7";
+  }
 
-    &[href^="mailto:"]::before {
-      mask-image: url("#{map-get( $icons, "mail" )}");
+  &[href^="http:"]::before {
+    color: palette( alert );
+    content: "\1f513";
+  }
+
+  @if $use-icons == true {
+    /**
+     * @note Using CSS masks to use colored base64 encoded SVG
+     * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
+     */
+     @supports(mask-image: url()) {
+      &[href^="#"]::before,
+      &[href^="tel:"]::before,
+      &[target$="blank"]::after,
+      &[href^="http://"]::before,
+      &[href^="mailto:"]::before {
+        background: currentColor;
+        content: "";
+        height: .625em;
+        mask-repeat: no-repeat;
+        mask-position: center center;
+        width: .625em;
+      }
+
+      &[href^="#"]::before {
+        mask-image: url("#{map-get( $icons, "anchor" )}");
+      }
+
+      &[target$="blank"]::after {
+        mask-image: url("#{map-get( $icons, "external" )}");
+      }
+
+      &[href^="http://"]::before {
+        background: palette( alert );
+        mask-image: url("#{map-get( $icons, "unsafe" )}");
+      }
+
+      &[href^="mailto:"]::before {
+        mask-image: url("#{map-get( $icons, "mail" )}");
+      }
+
+      &[href^="tel:"]::before {
+        mask-image: url("#{map-get( $icons, "tel" )}");
+      }
     }
   }
 }
