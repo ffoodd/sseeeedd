@@ -136,4 +136,4 @@ $icons: (
 /* ==================== */
 $form-fields: ( 'input[type="text"], input[type="number"], input[type="search"], input[type="password"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="color"], input[type="file"], textarea' );
 $form-radio-checkbox: ( 'input[type="checkbox"], input[type="radio"]' );
-$form-buttons: ( 'input[type="submit"], input[type="reset"], input[type="button"], button, .button' );
+$form-buttons: ( '.button, button[type], input[type="submit"], input[type="reset"], input[type="button"]' );

@@ -5,8 +5,10 @@
 /**
  * 1. High contrast mode helper
  ** @see http://fr.slideshare.net/TheZero1/webexpo-highcontrast (slide 11)
+ * 2. Ensure outline stay visible in High contrast mode
+ ** @see https://accessibility.blog.gov.uk/2018/08/01/supporting-users-who-change-colours-on-gov-uk/
  */
-button[type] {
+#{$form-buttons} {
   background-color: palette( accent );
   border: 1px solid palette( accent );
   border-radius: $gutter / 4;
@@ -21,20 +23,26 @@ button[type] {
   width: auto;
   appearance: none;
 
-  &:hover,
+  &:hover {
+    border: 1px solid palette( accent, light );
+    background-color: palette( accent, light );
+  }
+
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    border: 1px solid rgba( palette( accent ), .75 );
-    background-color: rgba( palette( accent ), .75 );
+    border: 1px solid palette( accent, dark );
+    background-color: palette( accent, dark );
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 rem( 2 ) transparentize( palette( accent, light ), .75 );
+    outline-color: transparent; /* 2 */
   }
 
   &:active,
   &[aria-expanded="true"] {
-    box-shadow:
-      inset 0 2px rgba( 255, 255, 255, .2 ),
-      0 .125em 0 -.1em rgba( 0, 0, 0, .15 );
-    top: em( 2 );
+    transform: translateY( rem( 2 ) );
   }
 
   &[disabled] {
@@ -43,8 +51,10 @@ button[type] {
     &:focus,
     &:active {
       background-color: palette( default );
+      box-shadow: none;
       color: palette( default, secondary );
       cursor: not-allowed;
+      pointer-events: none;
     }
   }
 }

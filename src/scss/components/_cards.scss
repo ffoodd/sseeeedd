@@ -26,7 +26,7 @@
   }
 
   &:focus-within .card-link:focus {
-    outline: none;
+    outline-color: transparent;
     text-decoration: none;
   }
 }

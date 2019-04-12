@@ -65,26 +65,26 @@ body {
 
 /**
  * 1. Ensure focus outline contrast
- * @see https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html#user-interface-components
+ ** @see https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html#user-interface-components
  * 2. Ensure focus outline visibility by using isolation property
- * @see https://developer.mozilla.org/fr/docs/Web/CSS/isolation
- * @note Based on an idea:
- * @author Manuel Matuzovic
- * @see https://www.matuzo.at/blog/improving-the-keyboard-accessibility-of-codepen-embeds/#accessibility-improvements
+ ** @see https://developer.mozilla.org/fr/docs/Web/CSS/isolation
+ ** @note Based on an idea:
+ ** @author Manuel Matuzovic
+ ** @see https://www.matuzo.at/blog/improving-the-keyboard-accessibility-of-codepen-embeds/#accessibility-improvements
  * 3. Allow to animate outline on focus
- * @author Heydon Pickering
- * @see https://www.heydonworks.com/article/shrinking-button-outlines
+ ** @author Heydon Pickering
+ ** @see https://www.heydonworks.com/article/shrinking-button-outlines
  */
 :focus {
-  outline-color: currentColor !important;  /* 1 */
-  outline-offset: 0;                       /* 3 */
-  isolation: isolate;                      /* 2 */
+  outline-color: currentColor; /* 1 */
+  outline-offset: 0;           /* 3 */
+  isolation: isolate;          /* 2 */
 }
 
 /**
  * @note Visually hide programmatically given focus when using a hover capable pointer
- * @see https://twitter.com/heydonworks/status/594115773871824897
- * @see https://twitter.com/AmeliasBrain/status/1026521723888226304
+ ** @see https://twitter.com/heydonworks/status/594115773871824897
+ ** @see https://accessibility.blog.gov.uk/2018/08/01/supporting-users-who-change-colours-on-gov-uk/
  */
 body:hover [tabindex="-1"]:focus {
     outline-color: transparent;
@@ -232,7 +232,7 @@ button svg {
 
 main {
   margin: 0 auto;
-  outline: none;
+  outline-color: transparent;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
