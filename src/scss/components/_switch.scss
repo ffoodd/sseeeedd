@@ -3,12 +3,13 @@
 /* ==================== */
 
 button[role="switch"] {
-  background-color: rgba( palette( dominant, light ), .1 );
+  background-color: transparentize( palette( dominant, light ), .9 );
   border-radius: rem( 22 ) !important;
   box-sizing: content-box;
   color: palette( dominant );
   height: rem( 44 );
   line-height: rem( 44 );
+  outline-color: transparent;
   padding: 0 $gutter * 3;
   transition: all .3s map-get( $timing-functions, 'enter' );
   width: rem( 76 );
@@ -31,17 +32,20 @@ button[role="switch"] {
   &:hover,
   &:focus,
   &:active {
-    background-color: rgba( palette( dominant, light ), .075 );
+    background-color: transparentize( palette( dominant, light ), .925 );
     color: palette( dominant, dark );
-    top: 0;
   }
 
   &[aria-checked="true"] {
-    background-color: rgba( palette( success, light ), .3 );
+    background-color: transparentize( palette( success, light ), .75 );
 
     &::before {
       background: palette( success, dark );
       transform: translateX(#{rem( 78 ) + $gutter * 3});
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 rem( 2 ) transparentize( palette( success, dark ), .75 );
     }
   }
 
