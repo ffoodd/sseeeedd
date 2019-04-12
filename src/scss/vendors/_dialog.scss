@@ -17,18 +17,27 @@ dialog {
   top: 50%;
   transform: translate3d(0, -50%, 0);
   z-index: 13;
-  
+
   &[open] {
     display: block;
   }
 }
 
 .dialog > :first-child {
-  background: rgba(palette( default ), .5);
+  background: transparentize( palette( default ), .5 );
   bottom: 0;
   left: 0;
   position: fixed;
   right: 0;
   top: 0;
   z-index: 12;
+}
+
+.dialog-close {
+  line-height: 0;
+  padding: $gutter / 2;
+
+  &:focus {
+    box-shadow: inset 0 0 0 rem( 2 ) transparentize( palette( accent, light ), .75 );
+  }
 }
