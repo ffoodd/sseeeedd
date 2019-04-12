@@ -79,6 +79,15 @@ select,
   }
 }
 
+/**
+ * Prevent inner select focus indicator in Firefox
+ ** @see https://developer.mozilla.org/fr/docs/Web/CSS/:-moz-focusring
+ */
+select:-moz-focusring {
+  color: transparent;
+  text-shadow: 0 0 0 palette( default );
+}
+
 input[type="image"],
 #{$form-radio-checkbox} {
   background-color: transparent;
@@ -158,9 +167,8 @@ label [class^="label-msg"] {
 
 /**
  * States
- *
- * @note Prevent required input to be invalid on first load
- * @link https://www.ffoodd.fr/l-etat-des-champs/
+ ** @note Prevent required input to be invalid on first load
+ ** @link https://www.ffoodd.fr/l-etat-des-champs/
  */
 #{$form-fields} {
   &:valid:focus {
