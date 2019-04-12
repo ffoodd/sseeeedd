@@ -34,8 +34,11 @@
     color: palette( secondary );
     display: block;
     margin: 0;
+    outline: rem( 2 ) solid transparent;
+    outline-offset: $gutter * 2;
     padding: $gutter / 2 $gutter;
     text-decoration: none;
+    transition: outline-offset .3s map-get($timing-functions, "enter");
     white-space: nowrap;
 
     &:hover,
@@ -44,6 +47,12 @@
       background: palette( default, secondary );
       border: 0;
       color: palette( secondary, dark );
+    }
+
+    &:focus {
+      box-shadow: none;
+      outline: rem( 2 ) solid currentColor;
+      outline-offset: 0;
     }
   }
 
@@ -107,10 +116,10 @@
   }
 
   > *:hover > ul,
+  > *.focus-within > ul,
   > * > button:hover + ul,
   > * > button:focus + ul,
-  > * > button:active + ul,
-  > *.focus-within > ul {
+  > * > button:active + ul {
     box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
     clip: auto;  /* 1 */
     outline: 1px solid palette( muted, light );
@@ -137,6 +146,10 @@
 
       > *:focus-within {
         z-index: 2;
+
+        button {
+          background: none;
+        }
       }
 
       ul {
@@ -147,10 +160,10 @@
       }
 
       > *:hover > ul,
+      > *:focus-within > ul,
       > * > button:hover + ul,
       > * > button:focus + ul,
-      > * > button:active + ul,
-      > *:focus-within > ul {
+      > * > button:active + ul {
         box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
         clip-path: circle(150% at top right);
         outline: 1px solid palette( muted, light );
