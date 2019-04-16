@@ -109,24 +109,6 @@ a {
   }
 }
 
-[href^="tel:"]::before {
-  content: "\1f4f1";
-  display: inline-block;
-  margin: 0 .25em 0 0;
-}
-
-@media screen and (min-width: #{$width}) {
-  [href^="tel:"] {
-    color: currentColor;
-    pointer-events: none;
-    text-decoration: none;
-
-    &::before {
-      display: none !important;
-    }
-  }
-}
-
 /**
  * @note Only to main content links
  */
@@ -136,12 +118,17 @@ main a {
   }
 
   &[href^="#"]::before,
+  &[href^="tel:"]::before,
   &[target$="blank"]::after,
   &[href^="http:"]::before,
   &[href^="mailto:"]::before {
     content: "";
     display: inline-block;
     margin: 0 .25em 0 0;
+  }
+
+  &[href^="tel:"]::before {
+    content: "\1f4f1";
   }
 
   &[href^="#"]::before {
@@ -164,6 +151,18 @@ main a {
   &[href^="http:"]::before {
     color: palette( alert );
     content: "\1f513";
+  }
+
+  @media (hover: hover) {
+    &[href^="tel:"] {
+      color: currentColor;
+      pointer-events: none;
+      text-decoration: none;
+
+      &::before {
+        display: none !important;
+      }
+    }
   }
 
   /**
@@ -201,8 +200,10 @@ main a {
       mask-image: url("#{map-get( $icons, "mail" )}");
     }
 
-    &[href^="tel:"]::before {
-      mask-image: url("#{map-get( $icons, "tel" )}");
+    @media (hover: hover) {
+      &[href^="tel:"]::before {
+        mask-image: url("#{map-get( $icons, "tel" )}");
+      }
     }
   }
 }
