@@ -41,13 +41,13 @@
        position: absolute;
      }
 
-     th[scope="row"],
+     [scope="row"],
      thead th:first-child {
          color: var(--color, currentColor);
          text-align: left;
      }
 
-     tr[style]::before {
+     [style]::before {
        bottom: var(--bottom);
        background: linear-gradient(to top, palette( secondary, light ), palette( alert ) 75%);
        clip-path: polygon(
@@ -90,7 +90,7 @@
        width: 7.69%; /* 1 */
      }
 
-     th[scope="col"] {
+     [scope="col"] {
        &:not(:first-child)::after {
          background-color: palette( default, contrast );
          background-image: url( map-get( $patterns, 'stripes' ) );
@@ -203,7 +203,7 @@
    }
 
    &.points {
-       tr[style] {
+       [style] {
            &::before {
              background-color: var(--color, currentColor);
              clip-path: polygon(
@@ -283,30 +283,30 @@
        @each $name, $pattern in $patterns {
         $i: index($patterns, ($name $pattern));
 
-        tr[style]:nth-child(#{$i}n + #{$i})::before,
-        tr[style]:nth-child(#{$i}n + #{$i}) th::before,
-        tr[style]:nth-child(#{$i}n + #{$i}) td::before {
+        [style]:nth-child(#{$i}n + #{$i})::before,
+        [style]:nth-child(#{$i}n + #{$i}) th::before,
+        [style]:nth-child(#{$i}n + #{$i}) td::before {
           background-image: url($pattern); /* 1 */
         }
       }
 
-       tbody:hover tr[style]::before,
-       tbody:hover tr[style] td::before {
+       tbody:hover [style]::before,
+       tbody:hover [style] td::before {
            opacity: .25;
        }
 
-       tbody:hover tr[style]:hover::before,
-       tbody:hover tr[style]:hover td::before {
+       tbody:hover [style]:hover::before,
+       tbody:hover [style]:hover td::before {
            opacity: 1;
        }
 
-       tbody:hover tr[style]:hover td::before {
+       tbody:hover [style]:hover td::before {
            transform:
                translate3d(calc(var(--size) / -2), calc(var(--size) / -2), 0)
                scale(1.25);
        }
 
-       th[scope="col"]:not(:first-child) {
+       [scope="col"]:not(:first-child) {
          &::after {
            mix-blend-mode: multiply;
          }
@@ -323,7 +323,7 @@
     * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
     */
    @media screen and (-ms-high-contrast: active) {
-     &.line tr[style]::before {
+     &.line [style]::before {
        background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
      }
    }
