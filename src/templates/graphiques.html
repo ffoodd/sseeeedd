@@ -309,102 +309,84 @@ document.addEventListener( "DOMContentLoaded", function () {
     </div>
   </details>
   <details>
-    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <summary>Le <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr></summary>
     <div>
-      <p>
-        Il y a un certains nombres de variables
-        <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr>
-        dans ce code, pour les transitions, les couleurs ou les dimensions par exemples.
-        Elles sont propres à sseeeedd.
-        Je les laisse afin de montrer l’adaptabilité de ces techniques, mais je vous invite
-        <strong>à jeter un œil à votre inspecteur</strong> si vous souhaitez consulter
-        une version statique de ce code.
-      </p>
       <pre>
-        <code class="language-scss">
+        <code class="language-css">
 @supports (grid-template-columns: repeat( var(--scale, 100), minmax(0, 1fr) )) {
-  .bar {
-    caption {
-      text-align: initial;
-      text-indent: 13.5rem;
-    }
+  .table-charts.bar caption {
+    text-align: initial;
+    text-indent: 13.5rem;
+  }
 
-    tbody tr {
-      display: grid;
-      grid-auto-rows: 1fr;
-      grid-row-gap: .5rem;
-      grid-template-columns: minmax(min-content, em( 200 ) ) repeat( var(--scale, 100), minmax(0, 1fr) ) 10ch;
-      transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
+  .table-charts.bar tr {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-row-gap: .5rem;
+    grid-template-columns: minmax(min-content, em( 200 ) ) repeat( var(--scale, 100), minmax(0, 1fr) ) 10ch;
+    transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
+  }
 
-      th {
-        grid-column: 1 / 1;
-        margin: .5rem 0 0;
-        padding: 0 1rem 0 0;
-        text-align: right;
-      }
+  .table-charts.bar th {
+    grid-column: 1 / 1;
+    margin: .5rem 0 0;
+    padding: 0 1rem 0 0;
+    text-align: right;
+  }
 
-      td {
-        --size: calc( var(--scale, 100) * 100% );
-        --position: calc( var(--value, 0) / var(--scale, 100) * 100% );
-        background-blend-mode: hard-light;
-        background-position: var(--position) 0%, center;
-        background-size:  var(--size) 100%, contain;
-        grid-column: 2 / var(--value, 0);
-        margin: .5rem 0 0;
-        position: relative;
+  .table-charts.bar td {
+    --size: calc( var(--scale, 100) * 100% );
+    --position: calc( var(--value, 0) / var(--scale, 100) * 100% );
+    background-blend-mode: hard-light;
+    background-position: var(--position) 0%, center;
+    background-size:  var(--size) 100%, contain;
+    grid-column: 2 / var(--value, 0);
+    margin: .5rem 0 0;
+    position: relative;
+  }
 
-        span {
-          background: inherit;
-          -webkit-text-fill-color: transparent;
-          -webkit-background-clip: text;
-          font-weight: bold;
-          left: 100%;
-          line-height: 1.5;
-          position: absolute;
-        }
-      }
+  .table-charts.bar span {
+    background: inherit;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: bold;
+    left: 100%;
+    line-height: 1.5;
+    position: absolute;
+  }
 
-      @each $name, $pattern in $patterns {
-        $i: index($patterns, ($name $pattern) );
+  /* @note loop over each needed SVG pattern */
+  .table-charts.bar tr:nth-child(2n + 2) td {
+    background-image:
+      linear-gradient(to right,
+        #01ac49,
+        #444,
+        mediumblue,
+        rebeccapurple,
+        crimson
+      ),
+      url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  }
 
-        &:nth-child(#{$i}n + #{$i} ) td {
-          background-image:
-            linear-gradient(to right,
-              #01ac49,
-              #444,
-              mediumblue,
-              rebeccapurple,
-              crimson
-            ),
-            url($pattern);
-        }
-      }
-    }
+  .table-charts.bar tbody:hover tr {
+    opacity: .5;
+  }
 
-    &:hover tr {
-      opacity: .5;
-    }
+  .table-charts.bar tbody:hover tr:hover {
+    opacity: 1;
+  }
 
-    &:hover tr:hover {
-      opacity: 1;
-    }
-
-    @media screen and (-ms-high-contrast: active) {
-      @each $name, $pattern in $patterns {
-        $i: index($patterns, ($name $pattern) );
-
-        &:nth-child(#{$i}n + #{$i} ) td {
-          background-image:
-            linear-gradient(to right,
-              Window,
-              ButtonFace,
-              ButtonShadow,
-              ButtonText,
-              highlight
-            ),
-            url($pattern);
-        }
-      }
+  @media screen and (-ms-high-contrast: active) {
+    .table-charts.bar tr:nth-child(2n + 2) td {
+      background-image:
+        linear-gradient(to right,
+          Window,
+          ButtonFace,
+          ButtonShadow,
+          ButtonText,
+          highlight
+        ),
+        url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
     }
   }
 }</code>
@@ -477,11 +459,13 @@ document.addEventListener( "DOMContentLoaded", function () {
     <div>
       <pre>
         <code class="language-scss">
-&.waterfall {
-  @each $number in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 {
-    tr:nth-of-type(#{$number} ) td {
-      grid-column: var(--#{$number - 1}, 0) / var(--value, 0);
-    }
+.bar.waterfall {
+  tr:nth-of-type(2) td {
+    grid-column: var(--1, 0) / var(--value, 0);
+  }
+
+  tr:nth-of-type(3) td {
+    grid-column: var(--3, 0) / var(--value, 0);
   }
 }</code>
       </pre>
