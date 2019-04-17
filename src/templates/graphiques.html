@@ -1179,149 +1179,139 @@ document.addEventListener( "DOMContentLoaded", function () {
     </div>
   </details>
   <details>
-    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <summary>Le <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr></summary>
     <div>
       <pre>
-        <code class="language-scss">
+        <code class="language-css">
 @supports (display: contents) {
-  [class*="column"] {
-    --gap: #{$gutter / 2};
+  .table-charts[class*="column"] {
+    --gap: .5rem;
     --size: calc(var(--scale, 100) * 100%);
-    --width: calc(#{$width} / var(--y) - #{$gutter});
+    --width: calc(64em / var(--y) - 1rem);
     display: grid;
     grid-column-gap: var(--gap);
-    max-height: $width;
+    max-height: 64em;
     position: relative;
+  }
 
-    td,
-    th {
-      margin: 0;
+  .table-charts[class*="column"] td,
+  .table-charts[class*="column"] th {
+    margin: 0;
+  }
+
+  .table-charts[class*="column"] tr > * + * {
+    text-align: center;
+  }
+
+  .table-charts[class*="column"] tr,
+  .table-charts[class*="column"] tbody,
+  .table-charts[class*="column"] thead {
+    display: contents;
+  }
+
+  .table-charts[class*="column"] caption {
+    grid-column: 1 / span var(--y);
+    grid-row: -1;
+  }
+
+  .table-charts[class*="column"] td {
+    grid-row: calc( 100 - var(--value) ) / -3;
+    pointer-events: none;
+    position: relative;
+    transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
+  }
+
+  .table-charts[class*="column"] span {
+    background: inherit;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: bold;
+    bottom: 100%;
+    left: 0;
+    line-height: 1.5;
+    pointer-events: auto;
+    position: absolute;
+    right: 0;
+  }
+
+  /* @note Loop over each column */
+  .table-charts[class*="column"] td:nth-of-type(2) {
+    grid-column: 3;
+  }
+
+  .table-charts.column-single {
+    grid-auto-columns: 1fr;
+    grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) minmax(min-content, 2rem);
+  }
+
+  .table-charts.column-single tbody th {
+    grid-row: -6 / -3;
+    grid-column: 1;
+    line-height: 1;
+  }
+
+  .table-charts.column-single thead * {
+    grid-row: -2;
+  }
+
+  .table-charts.column-single td {
+    --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+    background-blend-mode: hard-light;
+    background-position: 0% var(--position), center;
+    background-size: 100% var(--size), $gutter;
+  }
+
+  .table-charts.column-single thead [scope="col"]::after {
+    background-color: palette( default, secondary );
+    background-image: url( map-get( $patterns, 'stripes' ) );
+    background-blend-mode: exclusion;
+    bottom: #{$gutter * 4};
+    content: "";
+    mix-blend-mode: multiply;
+    opacity: 0;
+    position: absolute;
+    transition: opacity .3s map-get( $timing-functions, 'move' );
+    top: $gutter;
+    width: var(--width);
+    z-index: 0;
+  }
+
+  .table-charts.column-single thead [scope="col"]:hover::after {
+    opacity: .5;
+  }
+
+  /* @note Loop over each column */
+  .table-charts.column-single thead [scope="col"]:nth-child(3)::after {
+    left: calc(1em + (var(--width) * 2) + (var(--gap) * 2));
+  }
+
+  /* @note Loop over each SVG pattern */
+  .table-charts.column-single tbody td:nth-of-type(2n + 2) {
+    background-image:
+      linear-gradient(to top,
+        palette( success, dark ),
+        palette( dominant ),
+        palette( secondary ),
+        palette( accent ),
+        palette( alert )
+      ),
+      url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E);
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .table-charts.column-single tbody td:nth-of-type(2n + 2) {
+      background-image:
+        linear-gradient(to top,
+          Window,
+          ButtonFace,
+          ButtonShadow,
+          ButtonText,
+          highlight
+        ),
+        url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E);
     }
-
-    tr > * + * {
-      text-align: center;
-    }
-
-    tr,
-    tbody,
-    thead {
-      display: contents;
-    }
-
-    caption {
-      grid-column: 1 / span var(--y);
-      grid-row: -1;
-    }
-
-    tbody td {
-      grid-row: calc( 100 - var(--value) ) / -3;
-      pointer-events: none;
-      position: relative;
-      transition: opacity .2s map-get( $timing-functions, 'move' );
-
-      span {
-        background: inherit;
-        -webkit-text-fill-color: transparent;
-        -webkit-background-clip: text;
-        font-weight: bold;
-        bottom: 100%;
-        left: 0;
-        line-height: 1.5;
-        pointer-events: auto;
-        position: absolute;
-        right: 0;
-      }
-
-      @each $number in 1, 2, 3, 4, 5, 6, 7 {
-        &:nth-of-type(#{$number}) {
-          grid-column: #{$number + 1};
-        }
-      }
-    }
-
-    .column-single {
-      grid-auto-columns: 1fr;
-      grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) minmax(min-content, 2rem);
-
-      tbody th {
-        grid-row: -6 / -3;
-        grid-column: 1;
-        line-height: 1;
-      }
-
-      thead * {
-        grid-row: -2;
-      }
-
-      tbody td {
-        --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
-        background-blend-mode: hard-light;
-        background-position: 0% var(--position), center;
-        background-size: 100% var(--size), $gutter;
-      }
-
-      thead [scope="col"] {
-        &::after {
-          background-color: palette( default, secondary );
-          background-image: url( map-get( $patterns, 'stripes' ) );
-          background-blend-mode: exclusion;
-          bottom: #{$gutter * 4};
-          content: "";
-          mix-blend-mode: multiply;
-          opacity: 0;
-          position: absolute;
-          transition: opacity .3s map-get( $timing-functions, 'move' );
-          top: $gutter;
-          width: var(--width);
-          z-index: 0;
-        }
-
-        &:hover::after {
-          opacity: .5;
-        }
-
-        @each $number in 1, 2, 3, 4, 5, 6 {
-          &:nth-child(#{$number + 1})::after {
-            left: calc(1em + (var(--width) * #{$number}) + (var(--gap) * #{$number}));
-          }
-        }
-      }
-
-      @each $name, $pattern in $patterns {
-        $i: index($patterns, ($name $pattern));
-
-        tbody td:nth-of-type(#{$i}n + #{$i}) {
-          background-image:
-            linear-gradient(to top,
-              palette( success, dark ),
-              palette( dominant ),
-              palette( secondary ),
-              palette( accent ),
-              palette( alert )
-            ),
-            url($pattern);
-        }
-      }
-
-      @media screen and (-ms-high-contrast: active) {
-        @each $name, $pattern in $patterns {
-          $i: index($patterns, ($name $pattern));
-
-          tbody td:nth-of-type(#{$i}n + #{$i}) {
-            background-image:
-              linear-gradient(to top,
-                Window,
-                ButtonFace,
-                ButtonShadow,
-                ButtonText,
-                highlight
-              ),
-              url($pattern);
-          }
-        }
-      }
-    }
-  }</code>
+  }
+}</code>
       </pre>
     </div>
   </details>
@@ -1470,89 +1460,75 @@ document.addEventListener( "DOMContentLoaded", function () {
     </div>
   </details>
   <details>
-    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <summary>Le <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr></summary>
     <div>
       <pre>
-        <code class="language-scss">
+        <code class="language-css">
 @supports (display: contents) {
-  [class*="column"] {
-    …
-  }
-
-  .column-multiple {
+  .table-charts.column-multiple {
     grid-template-columns: minmax(min-content, 14ch) repeat(calc(var(--y) - 1), 1fr);
     grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) repeat(2, minmax(min-content, 2rem));
+  }
 
-    tbody th {
-      grid-row: -10 / span 4;
+  .table-charts.column-multiple tbody th {
+    grid-row: -10 / span 4;
+  }
+
+  .table-charts.column-multiple thead tr * {
+    grid-row: -2;
+    grid-column: 1;
+  }
+
+  .table-charts.column-multiple thead tr *:nth-of-type(2) {
+    grid-column: calc(4 - var(--span)) / span var(--span);
+  }
+
+  .table-charts.column-multiple thead tr + tr * {
+    font-weight: normal;
+    grid-row: -3;
+  }
+
+  .table-charts.column-multiple thead tr + tr *:nth-of-type(2) {
+    grid-column: 2;
+  }
+
+  .table-charts.column-multiple thead tr:first-child [scope="col"]:nth-child(even)::after {
+    background-color: whitesmoke;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    background-blend-mode: exclusion;
+    bottom: 4rem;
+    content: "";
+    mix-blend-mode: multiply;
+    opacity: .25;
+    position: absolute;
+    transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
+    top: 1rem;
+    width: calc((var(--width) * 2) + (var(--gap) / 2) + 1px);
+    z-index: 0;
+  }
+
+  .table-charts.column-multiple thead tr:first-child [scope="col"]:nth-child(4)::after {
+    left: calc(14ch + 1em + (((var(--width) * 2) + (var(--gap) / 2) + 1px) * 2) + (var(--gap) * 3));
+  }
+
+  .table-charts.column-multiple tbody td {
+    background-color: #e11a81;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff99'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* @note Oh boy, if we could use var(--span) in selector… */
+  .table-charts.column-multiple tbody td:nth-of-type(2n + 2) {
+    background-color: #0172f0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='16' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff99'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .table-charts.column-multiple tbody td {
+      background-color: Window;
     }
 
-    thead tr * {
-      grid-row: -2;
-      grid-column: 1;
-
-      @each $number in 2, 3, 4, 5, 6 {
-        &:nth-of-type(#{$number}) {
-          grid-column: calc(#{($number * 2)} - var(--span)) / span var(--span);
-        }
-      }
-    }
-
-    thead tr + tr * {
-      font-weight: normal;
-      grid-row: -3;
-
-      @each $number in 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 {
-        &:nth-of-type(#{$number}) {
-          grid-column: #{$number};
-        }
-      }
-    }
-
-    thead tr:first-child [scope="col"] {
-      &:nth-child(even)::after {
-        background-color: palette( default, secondary );
-        background-image: url( map-get( $patterns, 'stripes' ) );
-        background-blend-mode: exclusion;
-        bottom: #{$gutter * 4};
-        content: "";
-        mix-blend-mode: multiply;
-        opacity: .25;
-        position: absolute;
-        transition: opacity .3s map-get( $timing-functions, 'move' );
-        top: $gutter;
-        width: calc((var(--width) * 2) + (var(--gap) / 2) + 1px);
-        z-index: 0;
-      }
-
-      @each $number in 1, 3, 5 {
-        &:nth-child(#{$number + 1})::after {
-          left: calc(14ch + 1em + (((var(--width) * 2) + (var(--gap) / 2) + 1px) * #{$number - 1}) + (var(--gap) * #{$number}));
-        }
-      }
-    }
-
-    tbody td {
-      background-color: palette( charts, pink );
-      background-image: url( map-get( $patterns, 'zig' ) );
-    }
-
-    /**
-     * @note Oh boy, if we could use var(--span) in selector…
-     */
-    tbody td:nth-of-type(2n + 2) {
-      background-color: palette( charts, blue );
-      background-image: url( map-get( $patterns, 'triangles' ) );
-    }
-
-    @media screen and (-ms-high-contrast: active) {
-      tbody td {
-        background-color: Window;
-      }
-
-      tbody td:nth-of-type(2n + 2) {
-        background-color: Highlight;
-      }
+    .table-charts.column-multiple tbody td:nth-of-type(2n + 2) {
+      background-color: Highlight;
     }
   }
 }</code>
