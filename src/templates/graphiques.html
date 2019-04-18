@@ -355,7 +355,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     position: absolute;
   }
 
-  /* @note loop over each needed SVG pattern */
+  /* @note À répéter pour chaque ligne, afin de les distinguer grâce à un motif */
   .table-charts.bar tr:nth-child(2n + 2) td {
     background-image:
       linear-gradient(to right,
@@ -1034,7 +1034,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     left: calc( ( 100% / var(--x) * 2 ) + var(--offset) );
   }
 
-  /* @note Loop over each needed pattern */
+  /* @note À répéter pour chaque ligne, afin de les distinguer grâce à un motif */
   .table-charts.points [style]:nth-child( 2n + 2 )::before,
   .table-charts.points [style]:nth-child( 2n + 2 ) th::before,
   .table-charts.points [style]:nth-child( 2n + 2 ) td::before  {
@@ -1234,7 +1234,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     right: 0;
   }
 
-  /* @note Loop over each column */
+  /* @note À répéter pour chaque colonne, afin de les distinguer grâce à un motif *
   .table-charts[class*="column"] td:nth-of-type(2) {
     grid-column: 3;
   }
@@ -1280,12 +1280,12 @@ document.addEventListener( "DOMContentLoaded", function () {
     opacity: .5;
   }
 
-  /* @note Loop over each column */
+  /* @note À répéter pour chaque colonne, afin d’en disposer l’arrière-plan au bon endroit */
   .table-charts.column-single [scope="col"]:nth-child(3)::after {
     left: calc(1em + (var(--width) * 2) + (var(--gap) * 2));
   }
 
-  /* @note Loop over each SVG pattern */
+  /* @note À répéter pour chaque colonne, afin de les distinguer grâce à un motif */
   .table-charts.column-single td:nth-of-type(2n + 2) {
     background-image:
       linear-gradient(to top,
