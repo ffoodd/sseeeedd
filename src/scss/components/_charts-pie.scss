@@ -13,13 +13,13 @@
       display: table-row;
     }
 
-    tbody tr {
+    tr {
       display: table-cell;
       transition: opacity .3s map-get( $timing-functions, 'move' );
       will-change: opacity;
     }
 
-    tbody th {
+    [scope="row"] {
       padding-right: $gutter / 2;
 
       &::before {
@@ -32,12 +32,12 @@
       }
     }
 
-    tbody td {
+    td {
       --position: calc(var(--start, 0) * .01turn);
     }
 
-    tbody td::after,
-    tbody td::before {
+    td::after,
+    td::before {
       left: 50%;
       position: absolute;
       top: 40%;
@@ -58,7 +58,7 @@
      * @note Mask support:
      * @link https://caniuse.com/#search=mask
      */
-    tbody td::before {
+    td::before {
       --zoom: .75;
       --part: calc( var(--value) * 3.6 );
       --main-angle: calc( var(--part) - ( 90 * ( var(--gt-25, 0) + var(--gt-50, 0) + var(--gt-75, 0) ) ) );
@@ -101,7 +101,7 @@
       will-change: transform;
     }
 
-    tbody tr:hover td::before {
+    tr:hover td::before {
       --zoom: .8;
     }
 
@@ -113,7 +113,7 @@
       }
     }
 
-    tbody td::after {
+    td::after {
       --arrow: calc(100% - #{$gutter / 4});
       --axis: calc( var(--position) - .25turn + var(--value) * .005turn );
       --away: calc( var(--side) / 2 - #{$gutter} );
@@ -162,7 +162,7 @@
   }
 
   &.polar {
-    tbody td::before {
+    td::before {
       --zoom: 50;
       transform:
         translate3d(-50%, -50%, 0)
@@ -170,7 +170,7 @@
         scale( calc( ( var(--zoom) + ( var(--value) / ( 100 / var(--zoom) ) ) ) / 100 ) );
     }
 
-    tbody tr:hover td::before {
+    tr:hover td::before {
       --zoom: 50;
     }
   }
@@ -184,7 +184,7 @@
        palette( default, contrast) 100%
      );
 
-     tbody td::after {
+     td::after {
        --away: calc( var(--side) / 2 - #{$gutter * 2.5} );
      }
    }

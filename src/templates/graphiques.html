@@ -1710,126 +1710,144 @@ document.addEventListener( "DOMContentLoaded", function () {
     </div>
   </details>
   <details>
-    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <summary>Le <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr></summary>
     <div>
       <pre>
-        <code class="language-scss">
+        <code class="language-css">
 @supports (clip-path: polygon( 50% calc( 50% + ( var(--gt-25, 0) ) ) )) {
-  .pie {
+  .table-charts.pie {
     margin: 0 auto;
     padding-top: calc(32em - 2rem);
     position: relative;
+  }
 
-    tbody {
-      --side: calc( 64em / 2 );
-      --hypo: calc( 1024 / 16 / 2 );
-      display: table-row;
-    }
+  .table-charts.pie tbody {
+    --side: calc( 64em / 2 );
+    --hypo: calc( 1024 / 16 / 2 );
+    display: table-row;
+  }
 
-    tbody tr {
-      display: table-cell;
-      transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
-    }
+  .table-charts.pie tr {
+    display: table-cell;
+    transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
+  }
 
-    tbody th {
-      padding-right: .5rem;
-    }
+  .table-charts.pie [scope="row"] {
+    padding-right: .5rem;
+  }
 
-    tbody th::before {
-      background: var(--color, currentColor);
-      content: "";
-      display: inline-block;
-      height: 1rem;
-      transform: translate3d(-.2rem, .1rem, 0);
-      width: 1rem;
-    }
+  .table-charts.pie [scope="row"]::before {
+    background: var(--color, currentColor);
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    transform: translate3d(-.2rem, .1rem, 0);
+    width: 1rem;
+  }
 
-    tbody td::before {
-      // L’inclinaison, pour se placer au bon endroit
-      --position: calc(var(--start, 0) * .01turn);
-      --zoom: .75;
-      // L’angle représenté par la valeur : 3.6 = 360deg / 100
-      // Puisque nous utilisons une valeur en pourcentage
-      --part: calc( var(--value) * 3.6 );
-      // L’angle « utile » pour le calcul, nécessairement inférieur à 90deg
-      // On soustrait donc 90deg (= ¼ × 360deg) par tranche de 25% (= ¼ × 100%, oui oui)
-      --main-angle: calc( var(--part) - ( 90 * ( var(--gt-25, 0) + var(--gt-50, 0) + var(--gt-75, 0) ) ) );
-      // L’angle principal, exprimé en radian
-      --β: calc( var(--main-angle) * 0.01745329251 );
-      // Le dernier angle en radian, par déduction puisque dans un triangle rectangle
-      --α: calc( ( 90 - var(--main-angle) ) * 0.01745329251 );
-      // La magie de Stereokai, pour obtenir le sinus de ces angles
-      @include sin(β);
-      @include sin(α);
-      // La longueur des côtés opposés à chaque angle
-      // L’hypothénuse = le rayon, sans unité ↑
-      --B: calc( var(--hypo) * var(--sin-β) );
-      --A: calc( var(--hypo) * var(--sin-α) );
-      // Et enfin, la position, exprimée en pourcentage de l’hypothénuse,
-      // puis divisée par deux pour s’inscrire dans un quart du cercle
-      --pos-B: calc( ( var(--B) * 100 / var(--hypo) ) / 2 );
-      --pos-A: calc( ( var(--A) * 100 / var(--hypo) ) / 2 );
-      background-color: var(--color, currentColor);
-      clip-path: polygon(
-        50% 50%,
-        50% 0%,
-        100% 0%,
-        calc( 50% + ( var(--pos-B) * 1% * var(--lt-25, 1) ) + ( var(--gt-25, 0) * 50% ) ) calc( 50% - ( var(--pos-A) * 1% * var(--lt-25, 1) ) ),
-        calc( 50% + ( var(--gt-25, 0) * 50% ) )                                           calc( 50% + ( var(--gt-25, 0) * 50% ) ),
-        calc( 50% + ( var(--pos-A) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ) calc( 50% + ( var(--pos-B) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ),
-        calc( 50% - ( var(--gt-50, 0) * 50% ) )                                           calc( 50% + ( var(--gt-50, 0) * 50% ) ),
-        calc( 50% - ( var(--pos-B) * 1% * var(--lt-75, 1) ) - ( var(--gt-75, 0) * 50% ) ) calc( 50% + ( var(--pos-A) * 1% * var(--lt-75, 1) ) ),
-        calc( 50% - ( var(--gt-75, 0) * 50% ) )                                           calc( 50% - ( var(--gt-75, 0) * 50% ) ),
-        calc( 50% - ( var(--pos-A) * 1% * var(--gt-75, 0) ) )                             calc( 50% - ( var(--pos-B) * 1% * var(--gt-75, 0) ) ),
-        50% 50%
-      );
-      content: '';
-      height: var(--side);
-      left: 50%;
-      mask-image: radial-gradient(
-        circle at center,
-        white 0%,
-        white calc(var(--side) / 2),
-        transparent calc(var(--side) / 2)
-      );
-      position: absolute;
-      top: 40%;
-      transform:
-        translate3d(-50%, -50%, 0)
-        rotate( var(--position) )
-        scale( var(--zoom) );
-      transform-origin: center center;
-      transition: transform .2s cubic-bezier(.5, 0, .5, 1);
-      width: var(--side);
-    }
+  .table-charts.pie td {
+    --position: calc(var(--start, 0) * .01turn);
+  }
 
-    tbody tr:hover td::before {
-      --zoom: .8;
-    }
+  .table-charts.pie td::after,
+  .table-charts.pie td::before {
+    left: 50%;
+    position: absolute;
+    top: 40%;
+    transform-origin: center center;
+  }
 
-    @each $name, $pattern in $patterns {
-      $i: index($patterns, ($name $pattern));
+  .table-charts.pie td::before {
+    /* L’inclinaison, pour se placer au bon endroit */
+    --position: calc(var(--start, 0) * .01turn);
+    --zoom: .75;
+    /* L’angle représenté par la valeur : 3.6 = 360deg / 100 */
+    /* Puisque nous utilisons une valeur en pourcentage */
+    --part: calc( var(--value) * 3.6 );
+    /* L’angle « utile » pour le calcul, nécessairement inférieur à 90deg */
+    /* On soustrait donc 90deg (= ¼ × 360deg) par tranche de 25% (= ¼ × 100%, oui oui) */
+    --main-angle: calc( var(--part) - ( 90 * ( var(--gt-25, 0) + var(--gt-50, 0) + var(--gt-75, 0) ) ) );
+    /* L’angle principal, exprimé en radian */
+    --β: calc( var(--main-angle) * 0.01745329251 );
+    /* Le dernier angle en radian, par déduction puisque dans un triangle rectangle */
+    --α: calc( ( 90 - var(--main-angle) ) * 0.01745329251 );
+    /* La magie de Stereokai, pour obtenir le sinus de ces angles */
+    --sin-term-β-1: var(--β);
+    --sin-term-β-2: calc((var(--β) * var(--β) * var(--β)) / 6);
+    --sin-term-β-3: calc((var(--β) * var(--β) * var(--β) * var(--β) * var(--β)) / 120);
+    --sin-term-β-4: calc((var(--β) * var(--β) * var(--β) * var(--β) * var(--β) * var(--β) * var(--β)) / 5040);
+    --sin-term-β-5: calc((var(--β) * var(--β) * var(--β) * var(--β) * var(--β) * var(--β) * var(--β) * var(--β) * var(--β)) / 362880);
+    --sin-β: calc(var(--sin-term-β-1) - var(--sin-term-β-2) + var(--sin-term-β-3) - var(--sin-term-β-4) + var(--sin-term-β-5));
+    --sin-term-α-1: var(--α);
+    --sin-term-α-2: calc((var(--α) * var(--α) * var(--α)) / 6);
+    --sin-term-α-3: calc((var(--α) * var(--α) * var(--α) * var(--α) * var(--α)) / 120);
+    --sin-term-α-4: calc((var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α)) / 5040);
+    --sin-term-α-5: calc((var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α)) / 362880);
+    --sin-α: calc(var(--sin-term-α-1) - var(--sin-term-α-2) + var(--sin-term-α-3) - var(--sin-term-α-4) + var(--sin-term-α-5));
+    /* La longueur des côtés opposés à chaque angle */
+    /* L’hypothénuse = le rayon, sans unité ↑ */
+    --B: calc( var(--hypo) * var(--sin-β) );
+    --A: calc( var(--hypo) * var(--sin-α) );
+    /* Et enfin, la position, exprimée en pourcentage de l’hypothénuse, */
+    /* puis divisée par deux pour s’inscrire dans un quart du cercle */
+    --pos-B: calc( ( var(--B) * 100 / var(--hypo) ) / 2 );
+    --pos-A: calc( ( var(--A) * 100 / var(--hypo) ) / 2 );
+    background-color: var(--color, currentColor);
+    clip-path: polygon(
+      50% 50%,
+      50% 0%,
+      100% 0%,
+      calc( 50% + ( var(--pos-B) * 1% * var(--lt-25, 1) ) + ( var(--gt-25, 0) * 50% ) ) calc( 50% - ( var(--pos-A) * 1% * var(--lt-25, 1) ) ),
+      calc( 50% + ( var(--gt-25, 0) * 50% ) )                                           calc( 50% + ( var(--gt-25, 0) * 50% ) ),
+      calc( 50% + ( var(--pos-A) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ) calc( 50% + ( var(--pos-B) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ),
+      calc( 50% - ( var(--gt-50, 0) * 50% ) )                                           calc( 50% + ( var(--gt-50, 0) * 50% ) ),
+      calc( 50% - ( var(--pos-B) * 1% * var(--lt-75, 1) ) - ( var(--gt-75, 0) * 50% ) ) calc( 50% + ( var(--pos-A) * 1% * var(--lt-75, 1) ) ),
+      calc( 50% - ( var(--gt-75, 0) * 50% ) )                                           calc( 50% - ( var(--gt-75, 0) * 50% ) ),
+      calc( 50% - ( var(--pos-A) * 1% * var(--gt-75, 0) ) )                             calc( 50% - ( var(--pos-B) * 1% * var(--gt-75, 0) ) ),
+      50% 50%
+    );
+    content: '';
+    height: var(--side);
+    left: 50%;
+    mask-image: radial-gradient(
+      circle at center,
+      white 0%,
+      white calc(var(--side) / 2),
+      transparent calc(var(--side) / 2)
+    );
+    position: absolute;
+    top: 40%;
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotate( var(--position) )
+      scale( var(--zoom) );
+    transform-origin: center center;
+    transition: transform .2s cubic-bezier(.5, 0, .5, 1);
+    width: var(--side);
+  }
 
-      tr:nth-child(#{$i}n + #{$i}) *::before {
-        background-image: url($pattern); /* 1 */
-      }
-    }
+  .table-charts.pie tr:hover td::before {
+    --zoom: .8;
+  }
 
-    tbody:hover tr {
-      opacity: .75;
-    }
+  .table-charts.pie tr:nth-child(2n + 2) *::before {
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  }
 
-    tbody:hover tr:hover {
-      opacity: 1;
-    }
+  .table-charts.pie tbody:hover tr {
+    opacity: .75;
+  }
+
+  .table-charts.pie tbody:hover tr:hover {
+    opacity: 1;
   }
 
   @media screen and (-ms-high-contrast: active) {
-    .pie tbody tr *::before {
+    .table-charts.pie tr *::before {
       background-color: Window;
     }
 
-    .pie tbody tr:nth-of-type(odd) *::before {
+    .table-charts.pie tr:nth-of-type(odd) *::before {
       background-color: WindowText;
     }
   }
@@ -1949,11 +1967,11 @@ document.addEventListener( "DOMContentLoaded", function () {
   </div>
 
   <details>
-    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <summary>Le <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr></summary>
     <div>
       <pre>
-        <code class="language-scss">
-.donut {
+        <code class="language-css">
+.table-charts.donut {
   mask-image: radial-gradient(
     circle at 50% calc(50% - 2rem),
     transparent 0%,
@@ -1961,6 +1979,10 @@ document.addEventListener( "DOMContentLoaded", function () {
     white calc(var(--offset) + 1px),
     white 100%
   );
+}
+
+.table-charts.donut td::after {
+  --away: calc( var(--side) / 2 - 2.5rem );
 }</code>
       </pre>
     </div>
@@ -2019,26 +2041,24 @@ document.addEventListener( "DOMContentLoaded", function () {
   </div>
 
   <details>
-    <summary>Le <abbr lang="en" title="Syntactically Awesome StyleSheet" aria-label="Syntactically Awesome StyleSheet">Sass</abbr></summary>
+    <summary>Le <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr></summary>
     <div>
       <pre>
-        <code class="language-scss">
-.polar {
-  tbody td::before {
-    --zoom: 50;
-    transform:
-      translate3d( -50%, -50%, 0 )
-      rotate( var(--position) )
-      scale( calc( ( var(--zoom) + ( var(--value) / ( 100 / var(--zoom) ) ) ) / 100 ) );
-  }
+        <code class="language-css">
+.table-charts.polar td::before {
+  --zoom: 50;
+  transform:
+    translate3d( -50%, -50%, 0 )
+    rotate( var(--position) )
+    scale( calc( ( var(--zoom) + ( var(--value) / ( 100 / var(--zoom) ) ) ) / 100 ) );
+}
 
-  tbody tr:hover td::before {
-    --zoom: 50;
-  }
+.table-charts.polar tr:hover td::before {
+  --zoom: 50;
+}
 
-  tbody:hover tr {
-    opacity: .5;
-  }
+.table-charts.polar tbody:hover tr {
+  opacity: .5;
 }</code>
       </pre>
     </div>
