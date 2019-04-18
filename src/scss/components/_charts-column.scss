@@ -88,7 +88,7 @@
         background-size: 100% var(--size), $gutter;
       }
 
-      thead [scope="col"] {
+      [scope="col"] {
         &::after {
           background-color: palette( default, secondary );
           background-image: url( map-get( $patterns, 'stripes' ) );
@@ -118,7 +118,7 @@
       @each $name, $pattern in $patterns {
         $i: index($patterns, ($name $pattern));
 
-        tbody td:nth-of-type(#{$i}n + #{$i}) {
+        td:nth-of-type(#{$i}n + #{$i}) {
           background-image:
             linear-gradient(to top,
               palette( success, dark ),
@@ -140,7 +140,7 @@
         @each $name, $pattern in $patterns {
           $i: index($patterns, ($name $pattern));
 
-          tbody td:nth-of-type(#{$i}n + #{$i}) {
+          td:nth-of-type(#{$i}n + #{$i}) {
             background-image:
               linear-gradient(to top,
                 Window,
@@ -185,7 +185,7 @@
         }
       }
 
-      thead tr:first-child [scope="col"] {
+      tr:first-child [scope="col"] {
         &:nth-child(even)::after {
           background-color: palette( default, secondary );
           background-image: url( map-get( $patterns, 'stripes' ) );
@@ -208,7 +208,7 @@
         }
       }
 
-      tbody td {
+      td {
         background-color: palette( charts, pink );
         background-image: url( map-get( $patterns, 'zig' ) );
       }
@@ -216,17 +216,17 @@
       /**
        * @note Oh boy, if we could use var(--span) in selector…
        */
-      tbody td:nth-of-type(2n + 2) {
+      td:nth-of-type(2n + 2) {
         background-color: palette( charts, blue );
         background-image: url( map-get( $patterns, 'triangles' ) );
       }
 
       @media screen and (-ms-high-contrast: active) {
-        tbody td {
+        td {
           background-color: Window;
         }
 
-        tbody td:nth-of-type(2n + 2) {
+        td:nth-of-type(2n + 2) {
           background-color: Highlight;
         }
       }

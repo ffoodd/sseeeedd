@@ -1258,48 +1258,48 @@ document.addEventListener( "DOMContentLoaded", function () {
     --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
     background-blend-mode: hard-light;
     background-position: 0% var(--position), center;
-    background-size: 100% var(--size), $gutter;
+    background-size: 100% var(--size), 1rem;
   }
 
-  .table-charts.column-single thead [scope="col"]::after {
-    background-color: palette( default, secondary );
-    background-image: url( map-get( $patterns, 'stripes' ) );
+  .table-charts.column-single [scope="col"]::after {
+    background-color: whitesmoke;
+    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
     background-blend-mode: exclusion;
-    bottom: #{$gutter * 4};
+    bottom: 4rem;
     content: "";
     mix-blend-mode: multiply;
     opacity: 0;
     position: absolute;
-    transition: opacity .3s map-get( $timing-functions, 'move' );
-    top: $gutter;
+    transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
+    top: 1rem;
     width: var(--width);
     z-index: 0;
   }
 
-  .table-charts.column-single thead [scope="col"]:hover::after {
+  .table-charts.column-single [scope="col"]:hover::after {
     opacity: .5;
   }
 
   /* @note Loop over each column */
-  .table-charts.column-single thead [scope="col"]:nth-child(3)::after {
+  .table-charts.column-single [scope="col"]:nth-child(3)::after {
     left: calc(1em + (var(--width) * 2) + (var(--gap) * 2));
   }
 
   /* @note Loop over each SVG pattern */
-  .table-charts.column-single tbody td:nth-of-type(2n + 2) {
+  .table-charts.column-single td:nth-of-type(2n + 2) {
     background-image:
       linear-gradient(to top,
-        palette( success, dark ),
-        palette( dominant ),
-        palette( secondary ),
-        palette( accent ),
-        palette( alert )
+        #01ac49,
+        #444,
+        mediumblue,
+        rebeccapurple,
+        crimson
       ),
       url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E);
   }
 
   @media screen and (-ms-high-contrast: active) {
-    .table-charts.column-single tbody td:nth-of-type(2n + 2) {
+    .table-charts.column-single td:nth-of-type(2n + 2) {
       background-image:
         linear-gradient(to top,
           Window,
@@ -1492,7 +1492,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     grid-column: 2;
   }
 
-  .table-charts.column-multiple thead tr:first-child [scope="col"]:nth-child(even)::after {
+  .table-charts.column-multiple tr:first-child [scope="col"]:nth-child(even)::after {
     background-color: whitesmoke;
     background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
     background-blend-mode: exclusion;
@@ -1507,27 +1507,27 @@ document.addEventListener( "DOMContentLoaded", function () {
     z-index: 0;
   }
 
-  .table-charts.column-multiple thead tr:first-child [scope="col"]:nth-child(4)::after {
+  .table-charts.column-multiple tr:first-child [scope="col"]:nth-child(4)::after {
     left: calc(14ch + 1em + (((var(--width) * 2) + (var(--gap) / 2) + 1px) * 2) + (var(--gap) * 3));
   }
 
-  .table-charts.column-multiple tbody td {
+  .table-charts.column-multiple td {
     background-color: #e11a81;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff99'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 
   /* @note Oh boy, if we could use var(--span) in selector… */
-  .table-charts.column-multiple tbody td:nth-of-type(2n + 2) {
+  .table-charts.column-multiple td:nth-of-type(2n + 2) {
     background-color: #0172f0;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='16' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff99'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   }
 
   @media screen and (-ms-high-contrast: active) {
-    .table-charts.column-multiple tbody td {
+    .table-charts.column-multiple td {
       background-color: Window;
     }
 
-    .table-charts.column-multiple tbody td:nth-of-type(2n + 2) {
+    .table-charts.column-multiple td:nth-of-type(2n + 2) {
       background-color: Highlight;
     }
   }
