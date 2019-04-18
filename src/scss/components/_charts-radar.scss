@@ -59,11 +59,12 @@
         rotate( calc(var(--part) * var(--index, 1)) )
         translate( var(--away) )
         rotate( calc(var(--part) * var(--index, 1) * -1) );
+    }
 
-      @each $number in 1, 2, 3, 4, 5, 6, 7 {
-        &:nth-of-type(#{$number}) {
-          --index: #{$number};
-        }
+    @each $number in 1, 2, 3, 4, 5, 6, 7 {
+      td:nth-of-type(#{$number}),
+      [scope="col"]:nth-of-type(#{$number}) {
+        --index: #{$number};
       }
     }
 
@@ -98,39 +99,14 @@
       transform-origin: 100% 100%;
       width: 50%;
 
-      span {
-        --opposite: calc( 180 - (90 + (90 - (360 / var(--items)))) );
-        // get opposite angle in radians
-        --angle: calc( var(--opposite) * 0.01745329251 );
-        // calc() sin, dark wizardry!
-        @include sin(angle);
-        // calc() hypothenuse
-        --hypo: calc( var(--unitless-radius) / var(--sin-angle) );
-        // get the ratio: skewed / initial width
-        --ratio: calc( var(--hypo) / var(--unitless-radius) );
-        background: linear-gradient(
-          to top left,
-          palette( accent, light ) 10%,
-          palette( secondary, dark ) 75%
-        );
-        filter: drop-shadow( 0 0 $gutter palette( accent, dark ) );
-        height: 100%;
-        position: absolute;
-        width: 100%;
-      }
-
       @each $number in 1, 2, 3, 4, 5, 6, 7 {
-        &:nth-of-type(#{$number}) {
-          --index: #{$number};
-
-          span {
-            --pos: calc( 100% - (var(--#{$number + 1}) * 100% / (var(--scale) * var(--ratio) ) ) );
-            clip-path: polygon(
-              100% var(--pos),
-              calc( 100% - ( var(--#{$number}) * 100% / var(--scale) ) ) 100%,
-              100% 100%
-            );
-          }
+        &:nth-of-type(#{$number}) span {
+          --pos: calc( 100% - (var(--#{$number + 1}) * 100% / (var(--scale) * var(--ratio) ) ) );
+          clip-path: polygon(
+            100% var(--pos),
+            calc( 100% - ( var(--#{$number}) * 100% / var(--scale) ) ) 100%,
+            100% 100%
+          );
         }
       }
 
@@ -138,6 +114,27 @@
       &::before {
         display: none;
       }
+    }
+
+    span {
+      --opposite: calc( 180 - (90 + (90 - (360 / var(--items)))) );
+      // get opposite angle in radians
+      --angle: calc( var(--opposite) * 0.01745329251 );
+      // calc() sin, dark wizardry!
+      @include sin(angle);
+      // calc() hypothenuse
+      --hypo: calc( var(--unitless-radius) / var(--sin-angle) );
+      // get the ratio: skewed / initial width
+      --ratio: calc( var(--hypo) / var(--unitless-radius) );
+      background: linear-gradient(
+        to top left,
+        palette( accent, light ) 10%,
+        palette( secondary, dark ) 75%
+      );
+      filter: drop-shadow( 0 0 $gutter palette( accent, dark ) );
+      height: 100%;
+      position: absolute;
+      width: 100%;
     }
   }
 
@@ -195,7 +192,7 @@
       }
     }
 
-    tbody td {
+    td {
       align-items: flex-end;
       border-color: var(--color, currentColor);
       display: flex;
@@ -229,19 +226,19 @@
           width: calc( var(--#{$number}) * 100% / var(--scale) );
         }
       }
+    }
 
-      span {
-        background: var(--color, currentColor);
-        pointer-events: auto;
+    span {
+      background: var(--color, currentColor);
+      pointer-events: auto;
 
-        @supports ( mask-image: url() ) {
-          mask-image: radial-gradient(circle at bottom right, rgba(0,0,0,1), rgba(0,0,0,.5));
-        }
+      @supports ( mask-image: url() ) {
+        mask-image: radial-gradient(circle at bottom right, rgba(0,0,0,1), rgba(0,0,0,.5));
       }
     }
 
     @media (hover: hover) {
-      tbody td {
+      td {
         opacity: .25;
 
         &::after {
@@ -249,7 +246,7 @@
         }
       }
 
-      tbody tr:hover td {
+      tr:hover td {
         opacity: 1;
         z-index: 1;
 

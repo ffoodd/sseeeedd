@@ -55,7 +55,7 @@ table:not(.table-charts) .sr-only {
       padding: 0;
 
       &:empty {
-        display: none;
+        display: none !important;
       }
     }
 
