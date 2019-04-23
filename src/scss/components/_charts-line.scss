@@ -93,7 +93,7 @@
      [scope="col"] {
        &:not(:first-child)::after {
          background-color: palette( default, contrast );
-         background-image: url( map-get( $patterns, 'stripes' ) );
+         background-image: var(--stripes);
          background-blend-mode: exclusion;
          bottom: $gutter * 4;
          content: "";
@@ -286,7 +286,7 @@
         [style]:nth-child(#{$i}n + #{$i})::before,
         [style]:nth-child(#{$i}n + #{$i}) th::before,
         [style]:nth-child(#{$i}n + #{$i}) td::before {
-          background-image: url($pattern); /* 1 */
+          background-image: var(--#{$name}); /* 1 */
         }
       }
 

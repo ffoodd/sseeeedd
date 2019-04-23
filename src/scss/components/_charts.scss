@@ -22,6 +22,10 @@
   overflow: hidden;
   padding: 1em;
 
+  @each $name, $pattern in $patterns {
+    --#{$name}: url("#{$pattern}");
+  }
+
   > caption:first-child {
     background: inherit;
     font-style: normal;

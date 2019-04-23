@@ -42,7 +42,7 @@
               palette( accent ),
               palette( alert )
             ),
-            url($pattern); /* 1 */
+            var(--#{$name}); /* 1 */
         }
       }
     }
@@ -103,7 +103,7 @@
               ButtonText,
               highlight
             ),
-            url($pattern);
+            var(--#{$name});
         }
       }
     }

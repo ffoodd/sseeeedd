@@ -109,7 +109,7 @@
       $i: index($patterns, ($name $pattern));
 
       tr:nth-child(#{$i}n + #{$i}) *::before {
-        background-image: url($pattern); /* 1 */
+        background-image: var(--#{$name}); /* 1 */
       }
     }
 
