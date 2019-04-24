@@ -22,6 +22,13 @@
   overflow: hidden;
   padding: 1em;
 
+  /**
+   * @note Defining a CSS custom property for each inlined SVG pattern
+   * @author Trys Mudford
+   * @link https://www.trysmudford.com/blog/using-css-custom-properties/
+   * @via Jeremy Keith
+   * @link https://adactio.com/journal/15075
+   */
   @each $name, $pattern in $patterns {
     --#{$name}: url("#{$pattern}");
   }

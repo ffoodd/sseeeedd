@@ -119,23 +119,41 @@
       selon le type de graphique&nbsp;;
     </li>
     <li>
-      pour ne pas embarquer trop de fichiers externes, <strong>une liste finie de motifs
+      pour ne pas embarquer trop de fichiers externes, on utilise
+      <a hreflang="en" href="https://www.trysmudford.com/blog/using-css-custom-properties/">une technique
+      proposée par <cite>Trys Mudford</cite></a> pour <strong>inclure nos
       <abbr lang="en" title="Scalable Vector Graphics" aria-label="Scalable Vector Graphics">svg</abbr>
-      encodés en base64</strong> sont utilisés dans le thème. À ce propos, seuls les chevrons et le
-      caracère «&nbsp;#&nbsp;» ont besoin d’être encodés dans le
-      <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr>.
-      Ne vous fatiguez pas avec les autres caractères, leur encodage nuit sérieusement à la lisibilité.
+      en <i lang="en">data URi</i> dans une variable
+      <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr> chacun</strong>&nbsp;;
+      ainsi, une liste finie de motifs est utilisée dans le thème, sans jamais répéter le <abbr lang="en" title="Scalable Vector Graphics" aria-label="Scalable Vector Graphics">svg</abbr>.
     </li>
   </ol>
 
+  <div class="note">
+    <h4>Qu’encoder&nbsp;?</h4>
+    <p>
+      <a hreflang="en" href="https://codepen.io/tigt/post/optimizing-svgs-in-data-uris"><cite>Taylor Hunt</cite>
+      a rédigé un article complet sur l’optimisation des
+      <abbr lang="en" title="Scalable Vector Graphics" aria-label="Scalable Vector Graphics">svg</abbr>
+      passés en <i lang="en">data URi</i></a>. En résumé, seuls les chevrons et le
+      caracère «&nbsp;#&nbsp;» ont besoin d’être encodés dans le
+      <abbr lang="en" title="Cascading StyleSheet" aria-label="Cascading StyleSheet">css</abbr>.
+      Ne vous fatiguez pas avec les autres caractères, leur encodage nuit sérieusement à la lisibilité.
+    </p>
+  </div>
+
   <pre>
     <code class="language-css">
-tr:nth-child(2n + 2) td {
+.table-charts {
+  --stripes: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.table-charts tr:nth-child(2n + 2) td {
   --size: calc( var(--scale, 100) * 100% );
   --position: calc( var(--value, 0) / var(--scale, 100) * 100% );
   background-image:
     linear-gradient( right, Window, ButtonFace, ButtonText, highlight ),
-    url(data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E);
+    var(--stripes);
   background-blend-mode: hard-light;
   background-position: var(--position) 0%, center;
   background-size:  var(--size) 100%, contain;
@@ -365,7 +383,7 @@ document.addEventListener( "DOMContentLoaded", function () {
         rebeccapurple,
         crimson
       ),
-      url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+      var(--stripes);
   }
 
   .table-charts.bar tbody:hover tr {
@@ -386,7 +404,7 @@ document.addEventListener( "DOMContentLoaded", function () {
           ButtonText,
           highlight
         ),
-        url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+        var(--stripes);
     }
   }
 }</code>
@@ -730,7 +748,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   .table-charts.line [scope="col"]:not(:first-child)::after {
     background-color: white;
-    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: var(--stripes);
     background-blend-mode: exclusion;
     bottom: 4rem;
     content: "";
@@ -1038,7 +1056,7 @@ document.addEventListener( "DOMContentLoaded", function () {
   .table-charts.points [style]:nth-child( 2n + 2 )::before,
   .table-charts.points [style]:nth-child( 2n + 2 ) th::before,
   .table-charts.points [style]:nth-child( 2n + 2 ) td::before  {
-     background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+     background-image: var(--stripes);
    }
 
   .table-charts.points tbody:hover [style]::before,
@@ -1234,7 +1252,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     right: 0;
   }
 
-  /* @note À répéter pour chaque colonne, afin de les distinguer grâce à un motif *
+  /* @note À répéter pour chaque colonne, afin de les distinguer grâce à un motif */
   .table-charts[class*="column"] td:nth-of-type(2) {
     grid-column: 3;
   }
@@ -1263,7 +1281,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   .table-charts.column-single [scope="col"]::after {
     background-color: whitesmoke;
-    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: var(--stripes);
     background-blend-mode: exclusion;
     bottom: 4rem;
     content: "";
@@ -1295,7 +1313,7 @@ document.addEventListener( "DOMContentLoaded", function () {
         rebeccapurple,
         crimson
       ),
-      url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E);
+      var(--stripes);
   }
 
   @media screen and (-ms-high-contrast: active) {
@@ -1308,7 +1326,7 @@ document.addEventListener( "DOMContentLoaded", function () {
           ButtonText,
           highlight
         ),
-        url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E);
+        var(--stripes);
     }
   }
 }</code>
@@ -1494,7 +1512,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   .table-charts.column-multiple tr:first-child [scope="col"]:nth-child(even)::after {
     background-color: whitesmoke;
-    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: var(--stripes);
     background-blend-mode: exclusion;
     bottom: 4rem;
     content: "";
@@ -1513,13 +1531,13 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   .table-charts.column-multiple td {
     background-color: #e11a81;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff99'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: var(--zig);
   }
 
   /* @note Oh boy, if we could use var(--span) in selector… */
   .table-charts.column-multiple td:nth-of-type(2n + 2) {
     background-color: #0172f0;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='16' viewBox='0 0 36 72'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23ffffff99'%3E%3Cpath d='M2 6h12L8 18 2 6zm18 36h12l-6 12-6-12z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-image: var(--triangles);
   }
 
   @media screen and (-ms-high-contrast: active) {
@@ -1831,7 +1849,7 @@ document.addEventListener( "DOMContentLoaded", function () {
   }
 
   .table-charts.pie tr:nth-child(2n + 2) *::before {
-    background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+    background-image: var(--stripes);
   }
 
   .table-charts.pie tbody:hover tr {
