@@ -77,17 +77,12 @@
        z-index: 2;
      }
 
-    /** 1.
-      * @bugfix calc() in width doesn't work in…
-      * @affected Firefox
-      */
      th,
      td {
        background: palette( default, contrast );
        font-weight: bold;
        text-align: center;
        width: calc( 100% / var(--x) );
-       width: 7.69%; /* 1 */
      }
 
      [scope="col"] {
