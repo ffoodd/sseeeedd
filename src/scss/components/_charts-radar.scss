@@ -3,7 +3,11 @@
 /* ==================== */
 
 @supports(clip-path: polygon(calc( 0% 0%, 100% - ( var(--1) * 100% / var(--scale) ) ) 100%, 100% 100%)) {
-  &[class*="radar"] {
+  .radar-container .fieldset {
+    display: flex !important;
+  }
+
+  .table-charts[class*="radar"] {
     --radius: #{$width / 5};
     --unitless-radius: calc( 1024 / 16 / 5 );
     --size: calc( var(--radius) / var(--scale) );
@@ -138,7 +142,7 @@
     }
   }
 
-  &.radar [scope="col"] {
+  .table-charts.radar [scope="col"] {
     &::after {
       color: palette( accent );
       display: block;
@@ -160,7 +164,7 @@
     }
   }
 
-  &.radar-multiple {
+  .table-charts.radar-multiple {
     margin-bottom: $gutter * 12;
 
     tbody {

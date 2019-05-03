@@ -1,6 +1,9 @@
 /* ==================== */
 /* == Charts
 /* ==================== */
+.table-container .fieldset {
+  display: none !important;
+}
 
 [class*="charts"] {
   [role="presentation"] {
@@ -69,12 +72,11 @@ table:not(.table-charts) .sr-only {
         display: none !important;
       }
     }
-
-    // <table> based charts
-    @import "charts-bar";
-    @import "charts-pie";
-    @import "charts-line";
-    @import "charts-column";
-    @import "charts-radar";
   }
+
+  @import "charts-bar";
+  @import "charts-pie";
+  @import "charts-line";
+  @import "charts-column";
+  @import "charts-radar";
 }

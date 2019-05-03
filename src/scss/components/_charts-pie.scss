@@ -2,7 +2,11 @@
 /* == Pie Charts
 /* ==================== */
 @supports (clip-path: polygon( 50% calc( 50% + ( var(--gt-25, 0) ) ) )) {
-  &.pie {
+  .pie-container .fieldset {
+    display: flex !important;
+  }
+
+  .table-charts.pie {
     margin: 0 auto;
     padding-top: calc(#{$width / 2} - #{$gutter * 2});
     position: relative;
@@ -161,7 +165,7 @@
     }
   }
 
-  &.polar {
+  .table-charts.polar {
     td::before {
       --zoom: 50;
       transform:
@@ -175,7 +179,7 @@
     }
   }
 
-   &.donut {
+   .table-charts.donut {
      mask-image: radial-gradient(
        circle at 50% calc(50% - #{$gutter * 2}),
        transparent 0%,
@@ -195,7 +199,7 @@
    * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
    */
   @media screen and (-ms-high-contrast: active) {
-    &.pie {
+    .table-charts.pie {
       tbody tr *::before {
         background-color: Window;
       }

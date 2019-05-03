@@ -7,7 +7,11 @@
 /* ==================== */
 
 @supports (display: contents) {
-  &[class*="column"] {
+  .column-container .fieldset {
+    display: flex !important;
+  }
+
+  .table-charts[class*="column"] {
     --gap: #{$gutter / 2};
     --size: calc(var(--scale, 100) * 100%);
     --width: calc(#{$width} / var(--y) - #{$gutter});

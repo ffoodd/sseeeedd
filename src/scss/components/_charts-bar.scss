@@ -17,7 +17,11 @@
 /* ==================== */
 
 @supports (grid-template-columns: repeat(var(--scale, 100), minmax(0, 1fr))) {
-  &.bar {
+  .bar-container .fieldset {
+    display: flex !important;
+  }
+
+  .table-charts.bar {
     caption {
       text-align: initial;
       text-indent: #{rem( 200 ) + $gutter};

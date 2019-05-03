@@ -10,7 +10,11 @@
  * @link http://bennettfeely.com/clippy/
  */
  @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
-   &.line {
+   .line-container .fieldset {
+     display: flex !important;
+   }
+
+   .table-charts.line {
      --offset: calc( ( 100% / var(--x) ) / 2);
      --height: calc( #{$width / 2} - #{$gutter * 2} );
      --bottom: calc( 100% - var(--height) );
@@ -197,7 +201,7 @@
      }
    }
 
-   &.points {
+   .table-charts.points {
        [style] {
            &::before {
              background-color: var(--color, currentColor);
@@ -318,7 +322,7 @@
     * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
     */
    @media screen and (-ms-high-contrast: active) {
-     &.line [style]::before {
+     .table-charts.line [style]::before {
        background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
      }
    }
