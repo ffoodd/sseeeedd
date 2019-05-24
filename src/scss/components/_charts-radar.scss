@@ -29,7 +29,7 @@
       );
     border: 2px solid;
     border-radius: 50%;
-    contain: layout style;
+    contain: layout;
     counter-reset: scale var(--scale);
     height: calc( var(--radius) * 2 );
     margin: $gutter * 6 auto $gutter * 12;
