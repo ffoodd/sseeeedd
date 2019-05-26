@@ -453,9 +453,16 @@ document.addEventListener( "DOMContentLoaded", function () {
   .table-charts.bar td {
     --size: calc( var(--scale, 100) * 100% );
     --position: calc( var(--value, 0) / var(--scale, 100) * 100% );
+    background:
+        linear-gradient(to right,
+          palette( success, dark ),
+          palette( dominant ),
+          palette( secondary ),
+          palette( accent ),
+          palette( alert )
+        ) var(--position) 0% / var(--size) 100%,
+        var(--background) center / contain;
     background-blend-mode: hard-light;
-    background-position: var(--position) 0%, center;
-    background-size:  var(--size) 100%, contain;
     grid-column: 2 / var(--value, 0);
     margin: .5rem 0 0;
     position: relative;
@@ -472,16 +479,8 @@ document.addEventListener( "DOMContentLoaded", function () {
   }
 
   /* @note À répéter pour chaque ligne, afin de les distinguer grâce à un motif */
-  .table-charts.bar tr:nth-child(2n + 2) td {
-    background-image:
-      linear-gradient(to right,
-        #01ac49,
-        #444,
-        mediumblue,
-        rebeccapurple,
-        crimson
-      ),
-      var(--stripes);
+  .table-charts.bar tr:nth-child(2n + 2) {
+    --background: var(--stripes);
   }
 
   .table-charts.bar tbody:hover tr {
@@ -493,7 +492,7 @@ document.addEventListener( "DOMContentLoaded", function () {
   }
 
   @media screen and (-ms-high-contrast: active) {
-    .table-charts.bar tr:nth-child(2n + 2) td {
+    .table-charts.bar td {
       background-image:
         linear-gradient(to right,
           Window,
@@ -502,7 +501,7 @@ document.addEventListener( "DOMContentLoaded", function () {
           ButtonText,
           highlight
         ),
-        var(--stripes);
+        var(--background);
     }
   }
 }</code>
@@ -964,8 +963,7 @@ document.addEventListener( "DOMContentLoaded", function () {
   }
 
   .table-charts.line [scope="col"]:not(:first-child)::after {
-    background-color: white;
-    background-image: var(--stripes);
+    background: white var(--stripes);
     background-blend-mode: exclusion;
     bottom: 4rem;
     content: "";
@@ -1290,7 +1288,7 @@ document.addEventListener( "DOMContentLoaded", function () {
         <code class="language-css">
 @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
   .table-charts.points [style]::before {
-    background-color: var(--color, currentColor);
+    background: var(--color, currentColor) var(--background);
     clip-path: polygon(
       calc( ( 100% / var(--x) * 1 ) + var(--offset) ) calc( 100% - ( var(--1) / var(--y) * 100% ) ),
       calc( ( 100% / var(--x) * 2 ) + var(--offset) ) calc( 100% - ( var(--2) / var(--y) * 100% ) ),
@@ -1325,7 +1323,7 @@ document.addEventListener( "DOMContentLoaded", function () {
   }
 
   .table-charts.points [style] th::before {
-     background-color: var(--color, currentColor);
+     background: var(--color, currentColor) var(--background);
      content: "";
      display: inline-block;
      height: 1rem;
@@ -1339,7 +1337,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   .table-charts.points [style] td::before {
     --size: 1rem;
-    background-color: var(--color, currentColor);
+    background: var(--color, currentColor) var(--background);
     border: 2px solid white;
     border-radius: 50%;
     box-shadow: 0 0 4rem rgba(0, 0, 0, .5);
@@ -1363,10 +1361,8 @@ document.addEventListener( "DOMContentLoaded", function () {
   }
 
   /* @note À répéter pour chaque ligne, afin de les distinguer grâce à un motif */
-  .table-charts.points [style]:nth-child( 2n + 2 )::before,
-  .table-charts.points [style]:nth-child( 2n + 2 ) th::before,
-  .table-charts.points [style]:nth-child( 2n + 2 ) td::before  {
-     background-image: var(--stripes);
+  .table-charts.points [style]:nth-child( 2n + 2 )  {
+     --background: var(--stripes);
    }
 
   .table-charts.points tbody:hover [style]::before,
@@ -1582,14 +1578,20 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   .table-charts.column-single td {
     --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+    background:
+        linear-gradient(to top,
+          palette( success, dark ),
+          palette( dominant ),
+          palette( secondary ),
+          palette( accent ),
+          palette( alert )
+        ) 0% var(--position) / 100% var(--size),
+        var(--background) center / 1rem;
     background-blend-mode: hard-light;
-    background-position: 0% var(--position), center;
-    background-size: 100% var(--size), 1rem;
   }
 
   .table-charts.column-single [scope="col"]::after {
-    background-color: whitesmoke;
-    background-image: var(--stripes);
+    background: whitesmoke var(--stripes);
     background-blend-mode: exclusion;
     bottom: 4rem;
     content: "";
@@ -1613,15 +1615,7 @@ document.addEventListener( "DOMContentLoaded", function () {
 
   /* @note À répéter pour chaque colonne, afin de les distinguer grâce à un motif */
   .table-charts.column-single td:nth-of-type(2n + 2) {
-    background-image:
-      linear-gradient(to top,
-        #01ac49,
-        #444,
-        mediumblue,
-        rebeccapurple,
-        crimson
-      ),
-      var(--stripes);
+    --background: var(--stripes);
   }
 
   @media screen and (-ms-high-contrast: active) {
@@ -1634,7 +1628,7 @@ document.addEventListener( "DOMContentLoaded", function () {
           ButtonText,
           highlight
         ),
-        var(--stripes);
+        var(--background);
     }
   }
 }</code>
@@ -1817,8 +1811,7 @@ document.addEventListener( "DOMContentLoaded", function () {
   }
 
   .table-charts.column-multiple tr:first-child [scope="col"]:nth-child(even)::after {
-    background-color: whitesmoke;
-    background-image: var(--stripes);
+    background: whitesmoke var(--stripes);
     background-blend-mode: exclusion;
     bottom: 4rem;
     content: "";
@@ -2081,10 +2074,16 @@ document.addEventListener( "DOMContentLoaded", function () {
     &lt;/tr>
   &lt;/thead>
   &lt;tbody>
-    &lt;tr style="--color: #734bf9">
-      &lt;th scope="row">HTML
+    &lt;tr style="--color: #734bf9;--term: 'HTML';">
+      &lt;th scope="row">HTML&lt;/th>
         &lt;td style="--value: 2; --start: 0; ">
           2&nbsp;%
+        &lt;/td>
+     &lt;/tr>
+     &lt;tr style="--color: #0172F0;--term: 'JS';">
+        &lt;th scope="row">JS&lt;/th>
+        &lt;td style="--value: 32; --start: 4; --lt-25: 0; --gt-25: 1; --lt-50: 1; --gt-50: 0;">
+            32&nbsp;%
         &lt;/td>
     &lt;/tr>
     &lt;tr>[…]&lt;/tr>
@@ -2121,7 +2120,7 @@ document.addEventListener( "DOMContentLoaded", function () {
   }
 
   .table-charts.pie [scope="row"]::before {
-    background: var(--color, currentColor);
+    background: var(--color, currentColor) var(--background);
     content: "";
     display: inline-block;
     height: 1rem;
@@ -2176,7 +2175,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     /* puis divisée par deux pour s’inscrire dans un quart du cercle */
     --pos-B: calc( ( var(--B) * 100 / var(--hypo) ) / 2 );
     --pos-A: calc( ( var(--A) * 100 / var(--hypo) ) / 2 );
-    background-color: var(--color, currentColor);
+    background: var(--color, currentColor) var(--background);
     clip-path: polygon(
       50% 50%,
       50% 0%,
@@ -2197,7 +2196,7 @@ document.addEventListener( "DOMContentLoaded", function () {
       circle at center,
       white 0%,
       white calc(var(--side) / 2),
-      transparent calc(var(--side) / 2)
+      transparent 0
     );
     position: absolute;
     top: 40%;
@@ -2214,8 +2213,8 @@ document.addEventListener( "DOMContentLoaded", function () {
     --zoom: .8;
   }
 
-  .table-charts.pie tr:nth-child(2n + 2) *::before {
-    background-image: var(--stripes);
+  .table-charts.pie tr:nth-child(2n + 2) {
+    --background: var(--stripes);
   }
 
   .table-charts.pie tbody:hover tr {
@@ -2736,14 +2735,14 @@ document.addEventListener( "DOMContentLoaded", function () {
         circle at 50%,
         rgba(0, 0, 0, .2),
         rgba(0, 0, 0, .2) 2px,
-        transparent 2px,
+        transparent 0,
         transparent calc(var(--size) * var(--step))
       ),
       repeating-radial-gradient(
         circle at 50%,
         rgba(0, 0, 0, .1),
         rgba(0, 0, 0, .1) 2px,
-        transparent 2px,
+        transparent 0,
         transparent var(--size)
       );
     border: 2px solid;

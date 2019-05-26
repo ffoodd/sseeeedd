@@ -204,7 +204,7 @@
    .table-charts.points {
        [style] {
            &::before {
-             background-color: var(--color, currentColor);
+             background: var(--color, currentColor) var(--background);
              clip-path: polygon(
                calc((100% / var(--x) * 1) + var(--offset)) calc(100% - (var(--1) / var(--y) * 100%)),
                calc((100% / var(--x) * 2) + var(--offset)) calc(100% - (var(--2) / var(--y) * 100%)),
@@ -239,7 +239,7 @@
            }
 
            th::before {
-              background-color: var(--color, currentColor);
+              background: var(--color, currentColor) var(--background);
               content: "";
               display: inline-block;
               height: 1rem;
@@ -252,7 +252,7 @@
 
              &::before {
                --size: #{$gutter};
-               background-color: var(--color, currentColor);
+               background: var(--color, currentColor) var(--background);
                border: 2px solid palette( default, contrast );
                border-radius: 50%;
                box-shadow: 0 0 #{$gutter / 4} rgba(0, 0, 0, .5);
@@ -282,10 +282,8 @@
        @each $name, $pattern in $patterns {
         $i: index($patterns, ($name $pattern));
 
-        [style]:nth-child(#{$i}n + #{$i})::before,
-        [style]:nth-child(#{$i}n + #{$i}) th::before,
-        [style]:nth-child(#{$i}n + #{$i}) td::before {
-          background-image: var(--#{$name}); /* 1 */
+        [style]:nth-child(#{$i}n + #{$i}) {
+            --background: var(--#{$name}); /* 1 */
         }
       }
 

@@ -87,15 +87,21 @@
 
       td {
         --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+        background:
+            linear-gradient(to top,
+              palette( success, dark ),
+              palette( dominant ),
+              palette( secondary ),
+              palette( accent ),
+              palette( alert )
+            ) 0% var(--position) / 100% var(--size),
+            var(--background) center / $gutter;
         background-blend-mode: hard-light;
-        background-position: 0% var(--position), center;
-        background-size: 100% var(--size), $gutter;
       }
 
       [scope="col"] {
         &::after {
-          background-color: palette( default, secondary );
-          background-image: var(--stripes);
+          background: palette( default, secondary ) var(--stripes);
           background-blend-mode: exclusion;
           bottom: #{$gutter * 4};
           content: "";
@@ -123,15 +129,7 @@
         $i: index($patterns, ($name $pattern));
 
         td:nth-of-type(#{$i}n + #{$i}) {
-          background-image:
-            linear-gradient(to top,
-              palette( success, dark ),
-              palette( dominant ),
-              palette( secondary ),
-              palette( accent ),
-              palette( alert )
-            ),
-            var(--#{$name});
+          --background: var(--#{$name});
         }
       }
 
@@ -141,20 +139,16 @@
        * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
        */
       @media screen and (-ms-high-contrast: active) {
-        @each $name, $pattern in $patterns {
-          $i: index($patterns, ($name $pattern));
-
-          td:nth-of-type(#{$i}n + #{$i}) {
-            background-image:
-              linear-gradient(to top,
-                Window,
-                ButtonFace,
-                ButtonShadow,
-                ButtonText,
-                highlight
-              ),
-              var(--#{$name});
-          }
+        td {
+          background-image:
+            linear-gradient(to top,
+              Window,
+              ButtonFace,
+              ButtonShadow,
+              ButtonText,
+              highlight
+            ),
+            var(--background);
         }
       }
     }

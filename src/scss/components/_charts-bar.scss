@@ -37,16 +37,8 @@
       @each $name, $pattern in $patterns {
         $i: index($patterns, ($name $pattern));
 
-        &:nth-child(#{$i}n + #{$i}) td {
-          background-image:
-            linear-gradient(to right,
-              palette( success, dark ),
-              palette( dominant ),
-              palette( secondary ),
-              palette( accent ),
-              palette( alert )
-            ),
-            var(--#{$name}); /* 1 */
+        &:nth-child(#{$i}n + #{$i}) {
+            --background: var(--#{$name}); /* 1 */
         }
       }
     }
@@ -61,9 +53,16 @@
     td {
       --size: calc(var(--scale, 100) * 100%);
       --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+      background:
+        linear-gradient(to right,
+          palette( success, dark ),
+          palette( dominant ),
+          palette( secondary ),
+          palette( accent ),
+          palette( alert )
+        ) var(--position) 0% / var(--size) 100%,
+        var(--background) center / contain;
       background-blend-mode: hard-light;
-      background-position: var(--position) 0%, center;
-      background-size: var(--size) 100%, contain;
       grid-column: 2 / var(--value, 0);
       margin: $gutter / 2 0 0;
       position: relative;
@@ -95,20 +94,16 @@
      * @link http://www.gwhitworth.com/blog/2017/04/how-to-use-ms-high-contrast
      */
     @media screen and (-ms-high-contrast: active) {
-      @each $name, $pattern in $patterns {
-        $i: index($patterns, ($name $pattern));
-
-        tr:nth-child(#{$i}n + #{$i}) td {
-          background-image:
-            linear-gradient(to right,
-              Window,
-              ButtonFace,
-              ButtonShadow,
-              ButtonText,
-              highlight
-            ),
-            var(--#{$name});
-        }
+      td {
+        background-image:
+          linear-gradient(to right,
+            Window,
+            ButtonFace,
+            ButtonShadow,
+            ButtonText,
+            highlight
+          ),
+          var(--background);
       }
     }
 

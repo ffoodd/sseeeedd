@@ -27,7 +27,7 @@
       padding-right: $gutter / 2;
 
       &::before {
-        background: var(--color, currentColor);
+        background: var(--color, currentColor) var(--background);
         content: "";
         display: inline-block;
         height: $gutter;
@@ -74,7 +74,7 @@
       --A: calc( var(--hypo) * var(--sin-α) );
       --pos-B: calc( ( var(--B) * 100 / var(--hypo) ) / 2 );
       --pos-A: calc( ( var(--A) * 100 / var(--hypo) ) / 2 );
-      background-color: var(--color, currentColor);
+      background: var(--color, currentColor) var(--background);
       clip-path: polygon(
         50% 50%,
         50% 0%,
@@ -94,7 +94,7 @@
         circle at center,
         palette( default, contrast) 0%,
         palette( default, contrast) calc(var(--side) / 2),
-        transparent calc(var(--side) / 2)
+        transparent 0
       );
       transform:
         translate3d(-50%, -50%, 0)
@@ -112,8 +112,8 @@
     @each $name, $pattern in $patterns {
       $i: index($patterns, ($name $pattern));
 
-      tr:nth-child(#{$i}n + #{$i}) *::before {
-        background-image: var(--#{$name}); /* 1 */
+      tr:nth-child(#{$i}n + #{$i}) {
+        --background: var(--#{$name}); /* 1 */
       }
     }
 
