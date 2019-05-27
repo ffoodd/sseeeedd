@@ -1817,13 +1817,13 @@ document.addEventListener( "DOMContentLoaded", function () {
    50% 50%,
    50% 0%,
    100% 0%,
-   calc( 50% + ( var(--pos-B) * 1% * var(--lt-25, 1) ) + ( var(--gt-25, 0) * 50% ) ) calc( 50% - ( var(--pos-A) * 1% * var(--lt-25, 1) ) ),
-   calc( 50% + ( var(--gt-25, 0) * 50% ) )                      calc( 50% + ( var(--gt-25, 0) * 50% ) ),
-   calc( 50% + ( var(--pos-A) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ) calc( 50% + ( var(--pos-B) * 1% * var(--lt-50, 1) ) + ( var(--gt-50, 0) * 50% ) ),
-   calc( 50% - ( var(--gt-50, 0) * 50% ) )                      calc( 50% + ( var(--gt-50, 0) * 50% ) ),
-   calc( 50% - ( var(--pos-B) * 1% * var(--lt-75, 1) ) - ( var(--gt-75, 0) * 50% ) ) calc( 50% + ( var(--pos-A) * 1% * var(--lt-75, 1) ) ),
-   calc( 50% - ( var(--gt-75, 0) * 50% ) )                      calc( 50% - ( var(--gt-75, 0) * 50% ) ),
-   calc( 50% - ( var(--pos-A) * 1% * var(--gt-75, 0) ) )               calc( 50% - ( var(--pos-B) * 1% * var(--gt-75, 0) ) ),
+   calc(50% + (var(--pos-B) * 1% * var(--lt-25, 1)) + (var(--gt-25, 0) * 50%)) calc(50% - (var(--pos-A) * 1% * var(--lt-25, 1))),
+   calc(50% + (var(--gt-25, 0) * 50%)) calc(50% + (var(--gt-25, 0) * 50%)),
+   calc(50% + (var(--pos-A) * 1% * var(--lt-50, 0)) + (var(--gt-50, 0) * 50%)) calc(50% + (var(--pos-B) * 1% * var(--lt-50, 0)) + (var(--gt-50, 0) * 50%)),
+   calc(50% - (var(--gt-50, 0) * 50%)) calc(50% + (var(--gt-50, 0) * 50%)),
+   calc(50% - (var(--pos-B) * 1% * var(--lt-75, 0)) - (var(--gt-75, 0) * 50%)) calc(50% + (var(--pos-A) * 1% * var(--lt-75, 0))),
+   calc(50% - (var(--gt-75, 0) * 50%)) calc(50% - (var(--gt-75, 0) * 50%)),
+   calc(50% - (var(--pos-A) * 1% * var(--gt-75, 0))) calc(50% - (var(--pos-B) * 1% * var(--gt-75, 0))),
    50% 50%
   );
   content: '';
