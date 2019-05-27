@@ -1808,14 +1808,10 @@ document.addEventListener( "DOMContentLoaded", function () {
   --sin-term-α-4: calc((var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α)) / 5040);
   --sin-term-α-5: calc((var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α) * var(--α)) / 362880);
   --sin-α: calc(var(--sin-term-α-1) - var(--sin-term-α-2) + var(--sin-term-α-3) - var(--sin-term-α-4) + var(--sin-term-α-5));
-  /* La longueur des côtés opposés à chaque angle */
-  /* L’hypothénuse = le rayon, sans unité ↑ */
-  --B: calc( var(--hypo) * var(--sin-β) );
-  --A: calc( var(--hypo) * var(--sin-α) );
-  /* Et enfin, la position, exprimée en pourcentage de l’hypothénuse, */
-  /* puis divisée par deux pour s’inscrire dans un quart du cercle */
-  --pos-B: calc( ( var(--B) * 100 / var(--hypo) ) / 2 );
-  --pos-A: calc( ( var(--A) * 100 / var(--hypo) ) / 2 );
+  /* Enfin, la position exprimée en % de l’hypothénuse, et divisée par 2 pour s’inscrire dans ¼ du cercle
+   * soit après simplification, divisé par 50 */
+  --pos-B: calc( var(--sin-β) * 50 );
+  --pos-A: calc( var(--sin-α) * 50 );
   background-color: var(--color, currentColor);
   clip-path: polygon(
    50% 50%,

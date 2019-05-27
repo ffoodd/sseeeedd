@@ -70,10 +70,8 @@
       --α: calc( ( 90 - var(--main-angle) ) * 0.01745329251 );
       @include sin(β);
       @include sin(α);
-      --B: calc( var(--hypo) * var(--sin-β) );
-      --A: calc( var(--hypo) * var(--sin-α) );
-      --pos-B: calc( ( var(--B) * 100 / var(--hypo) ) / 2 );
-      --pos-A: calc( ( var(--A) * 100 / var(--hypo) ) / 2 );
+      --pos-B: calc( var(--sin-β) * 50 );
+      --pos-A: calc( var(--sin-α) * 50 );
       background: var(--color, currentColor) var(--background);
       clip-path: polygon(
         50% 50%,
