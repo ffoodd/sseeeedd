@@ -15,7 +15,7 @@
    }
 
    .table-charts.line {
-     --offset: calc( ( 100% / var(--x) ) / 2);
+     --offset: calc( ( 100% / var(--x) ) / 2 );
      --height: calc( #{$width / 2} - #{$gutter * 2} );
      --bottom: calc( 100% - var(--height) );
      padding: var(--height) 0 $gutter;
@@ -119,7 +119,7 @@
      td {
        --value: var(--1);
        --term: var(--t-1);
-       --top: calc( (var(--height) - ( var(--value) / var(--y) * 100% ) ) );
+       --top: calc( var(--height) - ( var(--value) / var(--y) * 100% ) );
        line-height: 1.5;
 
        &::before {
@@ -183,7 +183,6 @@
          &:nth-child(#{$number})::after {
            --value: var(--#{$number - 1});
            --term: var(--t-#{$number - 1});
-           --top: calc( (var(--height) - ( var(--value) / var(--y) * var(--height) ) ) );
            left: calc( ( 100% / var(--x) * #{$number - 1} ) + var(--offset) );
          }
        }

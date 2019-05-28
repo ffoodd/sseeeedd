@@ -671,7 +671,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     <code class="language-css">
 @supports (clip-path: polygon(0% calc( 100% - ( var(--1) * 100% / var(--y) )) )) {
  .table-charts.line {
-  --offset: calc( ( 100% / var(--x) ) / 2);
+  --offset: calc( ( 100% / var(--x) ) / 2 );
   --height: calc( 32em - 2rem );
   --bottom: calc( 100% - var(--height) );
   padding: var(--height) 0 1rem;
@@ -778,7 +778,7 @@ document.addEventListener( "DOMContentLoaded", function () {
  .table-charts.line td {
   --value: var(--1);
   --term: var(--t-1);
-  --top: calc( (var(--height) - ( var(--value) / var(--y) * 100% ) ) );
+  --top: calc( var(--height) - ( var(--value) / var(--y) * 100% ) );
   line-height: 1.5;
  }
 
@@ -2355,8 +2355,7 @@ document.addEventListener( "DOMContentLoaded", function () {
    rotate( calc(var(--part) * var(--index, 1) * -1) );
  }
 
- .table-charts[class*="radar"] td:nth-of-type(2),
- .table-charts[class*="radar"] [scope="col"]:nth-of-type(2) {
+ .table-charts[class*="radar"] tr > *:nth-of-type(2) {
   --index: 2;
  }
 
