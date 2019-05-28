@@ -1,8 +1,13 @@
 /* ==================== */
 /* == Charts
 /* ==================== */
+.table-container {
+  margin: $gutter * 2 0;
+}
+
 .table-container .fieldset {
   display: none !important;
+  padding: 0 $gutter;
 }
 
 [class*="charts"] {
