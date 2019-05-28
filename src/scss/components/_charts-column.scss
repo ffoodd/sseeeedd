@@ -185,8 +185,7 @@
 
       tr:first-child [scope="col"] {
         &:nth-child(even)::after {
-          background-color: palette( default, secondary );
-          background-image: var(--stripes);
+          background: palette( default, secondary ) var(--stripes);
           background-blend-mode: exclusion;
           bottom: #{$gutter * 4};
           content: "";
@@ -215,8 +214,7 @@
        * @note Oh boy, if we could use var(--span) in selector…
        */
       td:nth-of-type(2n + 2) {
-        background-color: palette( charts, blue );
-        background-image: var(--triangles);
+        background: palette( charts, blue ) var(--triangles);
       }
 
       @media screen and (-ms-high-contrast: active) {

@@ -168,20 +168,20 @@
  <pre>
   <code class="language-css">
 .table-charts {
- --stripes: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+  --stripes: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff99' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 }
 
 .table-charts tr:nth-child(2n + 2) {
- --background: var(--stripes);
+  --background: var(--stripes);
 }
 
 .table-charts td {
- --size: calc( var(--scale, 100) * 100% );
- --position: calc( var(--value, 0) / var(--scale, 100) * 100% );
- background:
-  linear-gradient( right, Window, ButtonFace, ButtonText, highlight ) var(--position) 0% / var(--size) 100%,
-  var(--background) center / contain;
- background-blend-mode: hard-light;
+  --size: calc( var(--scale, 100) * 100% );
+  --position: calc( var(--value, 0) / var(--scale, 100) * 100% );
+  background:
+    linear-gradient( right, Window, ButtonFace, ButtonText, highlight ) var(--position) 0% / var(--size) 100%,
+    var(--background) center / contain;
+  background-blend-mode: hard-light;
 }</code>
  </pre>
 
@@ -233,17 +233,17 @@
  <pre>
   <code class="language-javascript">
 document.addEventListener( "DOMContentLoaded", function () {
- var switches = document.querySelectorAll( '[role="switch"]' );
+  var switches = document.querySelectorAll( '[role="switch"]' );
 
- Array.prototype.forEach.call( switches, function( el, i ) {
-  el.addEventListener( 'click', function() {
-   var checked = this.getAttribute( 'aria-checked' ) == 'true' || false;
-   this.setAttribute( 'aria-checked', !checked );
+  Array.prototype.forEach.call( switches, function( el, i ) {
+    el.addEventListener( 'click', function() {
+      var checked = this.getAttribute( 'aria-checked' ) == 'true' || false;
+      this.setAttribute( 'aria-checked', !checked );
 
-   var chart = this.parentNode.nextElementSibling;
-   chart.classList.toggle( 'table-charts' );
+      var chart = this.parentNode.nextElementSibling;
+      chart.classList.toggle( 'table-charts' );
+    } );
   } );
- } );
 } );</code>
  </pre>
 
@@ -409,22 +409,22 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-markup">
 &lt;table class="table-charts bar" style="--scale: 3000">
- &lt;caption id="caption-1">Temps de chargement pour ffoodd.fr&lt;/caption>
- &lt;thead class="sr-only">
-  &lt;tr>
-   &lt;td>&lt;/td>
-   &lt;th scope="col">Temps de chargement cumulé&lt;/th>
-  &lt;/tr>
- &lt;/thead>
- &lt;tbody>
- &lt;tr>
-  &lt;th scope="row">Temps&nbsp;: backend&lt;/th>
-  &lt;td style="--value: 4">
-   &lt;span>4&nbsp;&lt;abbr title="Milliseconde" aria-label="Milliseconde">ms&lt;/abbr>&lt;/span>
-  &lt;/td>
- &lt;/tr>
- &lt;tr>[…]&lt;/tr>
-&lt;/tbody>
+  &lt;caption id="caption-1">Temps de chargement pour ffoodd.fr&lt;/caption>
+  &lt;thead class="sr-only">
+    &lt;tr>
+      &lt;td>&lt;/td>
+      &lt;th scope="col">Temps de chargement cumulé&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr>
+      &lt;th scope="row">Temps&nbsp;: backend&lt;/th>
+      &lt;td style="--value: 4">
+        &lt;span>4&nbsp;&lt;abbr title="Milliseconde" aria-label="Milliseconde">ms&lt;/abbr>&lt;/span>
+      &lt;/td>
+    &lt;/tr>
+    &lt;tr>[…]&lt;/tr>
+  &lt;/tbody>
 &lt;/table>
     </code>
    </pre>
@@ -436,81 +436,81 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-css">
 @supports (grid-template-columns: repeat( var(--scale, 100), minmax(0, 1fr) )) {
- .table-charts.bar caption {
-  text-align: initial;
-  text-indent: 13.5rem;
- }
-
- .table-charts.bar tr {
-  display: grid;
-  grid-auto-rows: 1fr;
-  grid-row-gap: .5rem;
-  grid-template-columns: minmax(min-content, em( 200 ) ) repeat( var(--scale, 100), minmax(0, 1fr) ) 10ch;
-  transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
- }
-
- .table-charts.bar th {
-  grid-column: 1 / 1;
-  margin: .5rem 0 0;
-  padding: 0 1rem 0 0;
-  text-align: right;
- }
-
- .table-charts.bar td {
-  --size: calc( var(--scale, 100) * 100% );
-  --position: calc( var(--value, 0) / var(--scale, 100) * 100% );
-  background-blend-mode: hard-light;
-  background-position: var(--position) 0%, center;
-  background-size: var(--size) 100%, contain;
-  grid-column: 2 / var(--value, 0);
-  margin: .5rem 0 0;
-  position: relative;
- }
-
- .table-charts.bar span {
-  background: inherit;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  font-weight: bold;
-  left: 100%;
-  line-height: 1.5;
-  position: absolute;
- }
-
- /* @note À répéter pour chaque ligne, afin de les distinguer grâce à un motif */
- .table-charts.bar tr:nth-child(2n + 2) td {
-  background-image:
-   linear-gradient(to right,
-    #01ac49,
-    #444,
-    mediumblue,
-    rebeccapurple,
-    crimson
-   ),
-   var(--stripes);
- }
-
- .table-charts.bar tbody:hover tr {
-  opacity: .5;
- }
-
- .table-charts.bar tbody:hover tr:hover {
-  opacity: 1;
- }
-
- @media screen and (-ms-high-contrast: active) {
-  .table-charts.bar tr:nth-child(2n + 2) td {
-   background-image:
-    linear-gradient(to right,
-     Window,
-     ButtonFace,
-     ButtonShadow,
-     ButtonText,
-     highlight
-    ),
-    var(--stripes);
+  .table-charts.bar caption {
+    text-align: initial;
+    text-indent: 13.5rem;
   }
- }
+
+  .table-charts.bar tr {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-row-gap: .5rem;
+    grid-template-columns: minmax(min-content, em( 200 ) ) repeat( var(--scale, 100), minmax(0, 1fr) ) 10ch;
+    transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
+  }
+
+  .table-charts.bar th {
+    grid-column: 1 / 1;
+    margin: .5rem 0 0;
+    padding: 0 1rem 0 0;
+    text-align: right;
+  }
+
+  .table-charts.bar td {
+    --size: calc( var(--scale, 100) * 100% );
+    --position: calc( var(--value, 0) / var(--scale, 100) * 100% );
+    background-blend-mode: hard-light;
+    background-position: var(--position) 0%, center;
+    background-size: var(--size) 100%, contain;
+    grid-column: 2 / var(--value, 0);
+    margin: .5rem 0 0;
+    position: relative;
+  }
+
+  .table-charts.bar span {
+    background: inherit;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: bold;
+    left: 100%;
+    line-height: 1.5;
+    position: absolute;
+  }
+
+  /* @note À répéter pour chaque ligne, afin de les distinguer grâce à un motif */
+  .table-charts.bar tr:nth-child(2n + 2) td {
+    background-image:
+      linear-gradient(to right,
+        #01ac49,
+        #444,
+        mediumblue,
+        rebeccapurple,
+        crimson
+      ),
+     var(--stripes);
+  }
+
+  .table-charts.bar tbody:hover tr {
+    opacity: .5;
+  }
+
+  .table-charts.bar tbody:hover tr:hover {
+    opacity: 1;
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .table-charts.bar tr:nth-child(2n + 2) td {
+      background-image:
+        linear-gradient(to right,
+           Window,
+           ButtonFace,
+           ButtonShadow,
+           ButtonText,
+           highlight
+        ),
+      var(--stripes);
+    }
+  }
 }</code>
    </pre>
   </div>
@@ -657,7 +657,7 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-css">
 .bar.waterfall tr:nth-of-type(2) td {
- grid-column: var(--1, 0) / var(--value, 0);
+  grid-column: var(--1, 0) / var(--value, 0);
 }</code>
    </pre>
   </div>
@@ -860,23 +860,23 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-markup">
 &lt;table class="table-charts line" style="--y: 32; --x: 13; --t-1: 'Jan.'; --t-2: 'Fév.'; […]">
- &lt;caption id="caption-3">Température mensuelle moyenne en 2017&lt;/caption>
- &lt;thead>
-  &lt;tr>
-   &lt;th scope="col">Année&lt;/th>
-   &lt;th scope="col">Jan.&lt;/th>
-   &lt;th scope="col">[…]&lt;/th>
-  &lt;/tr>
- &lt;/thead>
- &lt;tbody>
-  &lt;tr style="--year: '2017'; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
-   &lt;th scope="row">2017&lt;/th>
-   &lt;td>
-    8&nbsp;&lt;abbr title="Degré Celsius" aria-label="Degré Celsius">°C&lt;/abbr>
-   &lt;/td>
-   &lt;td>[…]&lt;/td>
-  &lt;/tr>
- &lt;/tbody>
+  &lt;caption id="caption-3">Température mensuelle moyenne en 2017&lt;/caption>
+  &lt;thead>
+    &lt;tr>
+      &lt;th scope="col">Année&lt;/th>
+      &lt;th scope="col">Jan.&lt;/th>
+      &lt;th scope="col">[…]&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr style="--year: '2017'; --1: 8; --2: 6; --3: 9; --4: 12; --5: 15; --6: 21; --7: 24; --8: 25; --9: 22; --10: 19; --11: 14; --12: 9;">
+      &lt;th scope="row">2017&lt;/th>
+      &lt;td>
+        8&nbsp;&lt;abbr title="Degré Celsius" aria-label="Degré Celsius">°C&lt;/abbr>
+      &lt;/td>
+      &lt;td>[…]&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
 &lt;/table></code>
    </pre>
   </div>
@@ -887,184 +887,182 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-css">
 @supports (clip-path: polygon(0% calc( 100% - ( var(--1) * 100% / var(--y) )) )) {
- .table-charts.line {
-  --offset: calc( ( 100% / var(--x) ) / 2 );
-  --height: calc( 32em - 2rem );
-  --bottom: calc( 100% - var(--height) );
-  padding: var(--height) 0 1rem;
-  position: relative;
-  transition:
-   background .3s cubic-bezier(.5, 0, .5, 1),
-   color .3s cubic-bezier(.5, 0, .5, 1);
- }
-
- .table-charts.line::after {
-  --scale: calc( ( 100% - ( var(--y) * 1px) ) / var(--y) );
-  background:
-   repeating-linear-gradient(
-    to bottom,
-    white, white var(--scale),
-    rgba(0, 0, 0, .25) calc( var(--scale) + 1px)
-   );
-  bottom: var(--bottom);
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 1;
- }
-
- .table-charts.line tr::before {
-  content: "";
-  position: absolute;
- }
-
- .table-charts.line [scope="row"],
- .table-charts.line thead th:first-child {
-  color: var(--color, currentColor);
-  text-align: left;
- }
-
- .table-charts.line [style]::before {
-  bottom: var(--bottom);
-  background: linear-gradient(to top, deepskyblue, crimson 75%);
-  clip-path: polygon(
-   0% 100%,
-   calc( ( 100% / var(--x) * 1) ) 100%,
-   calc( ( 100% / var(--x) * 1) ) calc( 100% - ( var(--1) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 1) + var(--offset) ) calc( 100% - ( var(--1) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 2) + var(--offset) ) calc( 100% - ( var(--2) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 3) + var(--offset) ) calc( 100% - ( var(--3) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 4) + var(--offset) ) calc( 100% - ( var(--4) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 5) + var(--offset) ) calc( 100% - ( var(--5) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 6) + var(--offset) ) calc( 100% - ( var(--6) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 7) + var(--offset) ) calc( 100% - ( var(--7) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 8) + var(--offset) ) calc( 100% - ( var(--8) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 9) + var(--offset) ) calc( 100% - ( var(--9) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 10) + var(--offset) ) calc( 100% - ( var(--10) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 11) + var(--offset) ) calc( 100% - ( var(--11) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 12) + var(--offset) ) calc( 100% - ( var(--12) / var(--y) * 100% ) ),
-   100% calc( 100% - ( var(--12) / var(--y) * 100% ) ),
-   100% 100%,
-   0% 100%
-  );
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  z-index: 2;
- }
-
- .table-charts.line th,
- .table-charts.line td {
-  background: white;
-  font-weight: bold;
-  text-align: center;
-  width: calc( 100% / var(--x) );
-  width: 7.69%;
- }
-
- .table-charts.line th:hover,
- .table-charts.line td:hover {
-  color: mediumblue;
- }
-
- .table-charts.line [scope="col"]:not(:first-child)::after {
-  background-color: white;
-  background-image: var(--stripes);
-  background-blend-mode: exclusion;
-  bottom: 4rem;
-  content: "";
-  height: calc( 100% - 4rem );
-  mix-blend-mode: soft-light;
-  opacity: 0;
-  position: absolute;
-  transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
-  width: inherit;
-  z-index: 3;
- }
-
- .table-charts.line th[scope="col"]:nth-child(3)::after {
-  left: calc( 100% / var(--x) * 2 );
- }
-
- .table-charts.line [scope="col"]:hover::after {
-  opacity: .75;
- }
-
- .table-charts.line td {
-  --value: var(--1);
-  --term: var(--t-1);
-  --top: calc( var(--height) - ( var(--value) / var(--y) * 100% ) );
-  line-height: 1.5;
- }
-
- .table-charts.line td::before {
-  content: '';
-  height: 1.5rem;
-  position: absolute;
-  transform: translateX(-50%);
-  width: inherit;
-  z-index: 10;
- }
-
- .table-charts.line td::after {
-  --arrow: calc(100% - .25rem);
-  background-color: #444;
-  counter-reset: value var(--value);
-  content: var(--term) " " var(--year) "\A " counter(value) "\A0°C";
-  color: #fff;
-  clip-path: polygon(
-   0% 0%,
-   100% 0%,
-   100% var(--arrow),
-   calc(50% - .25rem) var(--arrow),
-   50% 100%,
-   calc(50% + .25rem) var(--arrow),
-   0% var(--arrow)
-  );
-  opacity: 0;
-  padding: .5rem;
-  left: calc( var(--offset) * 3 );
-  pointer-events: none;
-  position: absolute;
-  top: var(--top, 100);
-  transform-origin: 50% calc(100% + 10px);
-  transform:
-   translate3d(-50%, -125%, 0)
-   perspective(1000px)
-   rotate3d(1, 0, 0, 45deg);
-  transition:
-   opacity .2s cubic-bezier(0, .5, .5, 1),
-   transform .2s cubic-bezier(0, .5, .5, 1);
-  will-change: opacity, transform;
-  white-space: pre;
-  z-index: 5;
- }
-
- .table-charts.line td:nth-child(3)::after {
-  --value: var(--2);
-  --term: var(--t-2);
-  --top: calc( (var(--height) - ( var(--value) / var(--y) * var(--height) ) ) );
-  left: calc( ( 100% / var(--x) * 2 ) + var(--offset) );
- }
-
- .table-charts.line td:hover::after {
-  opacity: 1;
-  transform:
-   translate3d(-50%, -125%, 0)
-   perspective(1000px)
-   rotate3d(1, 0, 0, 0deg);
-  transition:
-   opacity .2s cubic-bezier(.5, 0, 1, .5),
-   transform .2s cubic-bezier(.5, 0, 1, .5);
- }
-
- @media screen and (-ms-high-contrast: active) {
-  .table-charts.line tr[style]::before {
-   background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
+  .table-charts.line {
+    --offset: calc( ( 100% / var(--x) ) / 2 );
+    --height: calc( 32em - 2rem );
+    --bottom: calc( 100% - var(--height) );
+    padding: var(--height) 0 1rem;
+    position: relative;
+    transition:
+      background .3s cubic-bezier(.5, 0, .5, 1),
+      color .3s cubic-bezier(.5, 0, .5, 1);
   }
- }
+
+  .table-charts.line::after {
+    --scale: calc( ( 100% - ( var(--y) * 1px) ) / var(--y) );
+    background:
+      repeating-linear-gradient(
+        to bottom,
+        white, white var(--scale),
+        rgba(0, 0, 0, .25) calc( var(--scale) + 1px)
+      );
+    bottom: var(--bottom);
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .table-charts.line tr::before {
+    content: "";
+    position: absolute;
+  }
+
+  .table-charts.line [scope="row"],
+  .table-charts.line thead th:first-child {
+    color: var(--color, currentColor);
+    text-align: left;
+  }
+
+  .table-charts.line [style]::before {
+    bottom: var(--bottom);
+    background: linear-gradient(to top, deepskyblue, crimson 75%);
+    clip-path: polygon(
+      0% 100%,
+      calc( ( 100% / var(--x) * 1) ) 100%,
+      calc( ( 100% / var(--x) * 1) ) calc( 100% - ( var(--1) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 1) + var(--offset) ) calc( 100% - ( var(--1) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 2) + var(--offset) ) calc( 100% - ( var(--2) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 3) + var(--offset) ) calc( 100% - ( var(--3) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 4) + var(--offset) ) calc( 100% - ( var(--4) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 5) + var(--offset) ) calc( 100% - ( var(--5) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 6) + var(--offset) ) calc( 100% - ( var(--6) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 7) + var(--offset) ) calc( 100% - ( var(--7) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 8) + var(--offset) ) calc( 100% - ( var(--8) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 9) + var(--offset) ) calc( 100% - ( var(--9) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 10) + var(--offset) ) calc( 100% - ( var(--10) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 11) + var(--offset) ) calc( 100% - ( var(--11) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 12) + var(--offset) ) calc( 100% - ( var(--12) / var(--y) * 100% ) ),
+      100% calc( 100% - ( var(--12) / var(--y) * 100% ) ),
+      100% 100%,
+      0% 100%
+    );
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 2;
+  }
+
+  .table-charts.line th,
+  .table-charts.line td {
+    background: white;
+    font-weight: bold;
+    text-align: center;
+    width: calc( 100% / var(--x) );
+    width: 7.69%;
+  }
+
+  .table-charts.line th:hover,
+  .table-charts.line td:hover {
+    color: mediumblue;
+  }
+
+  .table-charts.line [scope="col"]:not(:first-child)::after {
+    background: white var(--stripes);
+    background-blend-mode: exclusion;
+    bottom: 4rem;
+    content: "";
+    height: calc( 100% - 4rem );
+    mix-blend-mode: soft-light;
+    opacity: 0;
+    position: absolute;
+    transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
+    width: inherit;
+    z-index: 3;
+  }
+
+  .table-charts.line th[scope="col"]:nth-child(3)::after {
+    left: calc( 100% / var(--x) * 2 );
+  }
+
+  .table-charts.line [scope="col"]:hover::after {
+   opacity: .75;
+  }
+
+  .table-charts.line td {
+    --value: var(--1);
+    --term: var(--t-1);
+    line-height: 1.5;
+  }
+
+  .table-charts.line td::before {
+    content: '';
+    height: 1.5rem;
+    position: absolute;
+    transform: translateX(-50%);
+    width: inherit;
+    z-index: 10;
+  }
+
+  .table-charts.line td::after {
+    --arrow: calc(100% - .25rem);
+    --top: calc( var(--height) - ( var(--value) / var(--y) * var(--height) ) );
+    background-color: #444;
+    counter-reset: value var(--value);
+    content: var(--term) " " var(--year) "\A " counter(value) "\A0°C";
+    color: #fff;
+    clip-path: polygon(
+      0% 0%,
+      100% 0%,
+      100% var(--arrow),
+      calc(50% - .25rem) var(--arrow),
+      50% 100%,
+      calc(50% + .25rem) var(--arrow),
+      0% var(--arrow)
+    );
+    opacity: 0;
+    padding: .5rem;
+    left: calc( var(--offset) * 3 );
+    pointer-events: none;
+    position: absolute;
+    top: var(--top, 100);
+    transform-origin: 50% calc(100% + 10px);
+    transform:
+      translate3d(-50%, -125%, 0)
+      perspective(1000px)
+      rotate3d(1, 0, 0, 45deg);
+    transition:
+      opacity .2s cubic-bezier(0, .5, .5, 1),
+      transform .2s cubic-bezier(0, .5, .5, 1);
+    will-change: opacity, transform;
+    white-space: pre;
+    z-index: 5;
+  }
+
+  .table-charts.line td:nth-child(3)::after {
+    --value: var(--2);
+    --term: var(--t-2);
+    left: calc( ( 100% / var(--x) * 2 ) + var(--offset) );
+  }
+
+  .table-charts.line td:hover::after {
+    opacity: 1;
+    transform:
+      translate3d(-50%, -125%, 0)
+      perspective(1000px)
+      rotate3d(1, 0, 0, 0deg);
+    transition:
+      opacity .2s cubic-bezier(.5, 0, 1, .5),
+      transform .2s cubic-bezier(.5, 0, 1, .5);
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .table-charts.line tr[style]::before {
+      background: linear-gradient(to top, ButtonHighlight, Highlight 75%);
+    }
+  }
 }</code>
    </pre>
   </div>
@@ -1295,109 +1293,103 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-css">
 @supports (clip-path: polygon(0% calc(100% - (var(--1) * 100% / var(--y))))) {
- .table-charts.points [style]::before {
-  background-color: var(--color, currentColor);
-  clip-path: polygon(
-   calc( ( 100% / var(--x) * 1 ) + var(--offset) ) calc( 100% - ( var(--1) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 2 ) + var(--offset) ) calc( 100% - ( var(--2) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 3 ) + var(--offset) ) calc( 100% - ( var(--3) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 4 ) + var(--offset) ) calc( 100% - ( var(--4) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 5 ) + var(--offset) ) calc( 100% - ( var(--5) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 6 ) + var(--offset) ) calc( 100% - ( var(--6) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 7 ) + var(--offset) ) calc( 100% - ( var(--7) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 8 ) + var(--offset) ) calc( 100% - ( var(--8) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 9 ) + var(--offset) ) calc( 100% - ( var(--9) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 10 ) + var(--offset) ) calc( 100% - ( var(--10) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 11 ) + var(--offset) ) calc( 100% - ( var(--11) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 12 ) + var(--offset) ) calc( 100% - ( var(--12) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 13 ) + var(--offset) ) calc( 100% - ( var(--12) / var(--y) * 100% ) ),
-   100% calc( 100% - ( var(--12) / var(--y) * 100% ) ),
-   100% calc( ( 100% + 4rem ) - ( var(--12) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 13 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--12) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 12 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--12) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 11 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--11) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 10 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--10) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 9 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--9) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 8 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--8) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 7 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--7) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 6 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--6) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 5 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--5) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 4 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--4) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 3 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--3) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 2 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--2) / var(--y) * 100% ) ),
-   calc( ( 100% / var(--x) * 1 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--1) / var(--y) * 100% ) )
-  );
-  transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
- }
-
- .table-charts.points [style] th::before {
-   background-color: var(--color, currentColor);
-   content: "";
-   display: inline-block;
-   height: 1rem;
-   transform: translate3d(-.2rem, .1rem, 0);
-   width: 1rem;
- }
-
- .table-charts.points [style] td {
-  --top: calc( (var(--height) - ( var(--value) / var(--y) * var(--height) ) ) );
- }
-
- .table-charts.points [style] td::before {
-  --size: 1rem;
-  background-color: var(--color, currentColor);
-  border: 2px solid white;
-  border-radius: 50%;
-  box-shadow: 0 0 4rem rgba(0, 0, 0, .5);
-  content: "";
-  height: var(--size);
-  left: calc( var(--offset) * 3 );
-  position: absolute;
-  top: var(--top, 100);
-  transform: translate3d(calc( var(--size) / -2), calc( var(--size) / -2), 0);
-  transition:
-    opacity .3s cubic-bezier(.5, 0, .5, 1),
-    transform .3s cubic-bezier(.5, 0, .5, 1);
-  width: var(--size);
-  z-index: 4;
- }
-
- .table-charts.points [style] td:nth-of-type(2)::before {
-  --value: var(--2);
-  --top: calc( ( var(--height) - ( var(--2 ) / var(--y) * var(--height) ) ) );
-  left: calc( ( 100% / var(--x) * 2 ) + var(--offset) );
- }
-
- /* @note À répéter pour chaque ligne, afin de les distinguer grâce à un motif */
- .table-charts.points [style]:nth-child( 2n + 2 )::before,
- .table-charts.points [style]:nth-child( 2n + 2 ) th::before,
- .table-charts.points [style]:nth-child( 2n + 2 ) td::before {
-   background-image: var(--stripes);
+  .table-charts.points [style]::before {
+    background: var(--color, currentColor) var(--background);
+    clip-path: polygon(
+      calc( ( 100% / var(--x) * 1 ) + var(--offset) ) calc( 100% - ( var(--1) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 2 ) + var(--offset) ) calc( 100% - ( var(--2) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 3 ) + var(--offset) ) calc( 100% - ( var(--3) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 4 ) + var(--offset) ) calc( 100% - ( var(--4) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 5 ) + var(--offset) ) calc( 100% - ( var(--5) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 6 ) + var(--offset) ) calc( 100% - ( var(--6) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 7 ) + var(--offset) ) calc( 100% - ( var(--7) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 8 ) + var(--offset) ) calc( 100% - ( var(--8) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 9 ) + var(--offset) ) calc( 100% - ( var(--9) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 10 ) + var(--offset) ) calc( 100% - ( var(--10) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 11 ) + var(--offset) ) calc( 100% - ( var(--11) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 12 ) + var(--offset) ) calc( 100% - ( var(--12) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 13 ) + var(--offset) ) calc( 100% - ( var(--12) / var(--y) * 100% ) ),
+      100% calc( 100% - ( var(--12) / var(--y) * 100% ) ),
+      100% calc( ( 100% + 4rem ) - ( var(--12) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 13 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--12) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 12 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--12) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 11 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--11) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 10 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--10) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 9 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--9) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 8 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--8) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 7 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--7) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 6 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--6) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 5 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--5) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 4 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--4) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 3 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--3) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 2 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--2) / var(--y) * 100% ) ),
+      calc( ( 100% / var(--x) * 1 ) + var(--offset) ) calc( ( 100% + 4rem ) - ( var(--1) / var(--y) * 100% ) )
+    );
+    transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
   }
 
- .table-charts.points tbody:hover [style]::before,
- .table-charts.points tbody:hover [style] td::before {
-  opacity: .25;
- }
+  .table-charts.points [style] th::before {
+    background: var(--color, currentColor) var(--background);
+    content: "";
+    display: inline-block;
+    height: 1rem;
+    transform: translate3d(-.2rem, .1rem, 0);
+    width: 1rem;
+  }
 
- .table-charts.points tbody:hover [style]:hover::before,
- .table-charts.points tbody:hover [style]:hover td::before {
-  opacity: 1;
- }
+  .table-charts.points [style] td::before {
+    --size: 1rem;
+    --top: calc( var(--height) - ( var(--value) / var(--y) * var(--height) ) );
+    background: var(--color, currentColor) var(--background);
+    border: 2px solid white;
+    border-radius: 50%;
+    box-shadow: 0 0 4rem rgba(0, 0, 0, .5);
+    content: "";
+    height: var(--size);
+    left: calc( var(--offset) * 3 );
+    position: absolute;
+    top: var(--top, 100);
+    transform: translate3d(calc( var(--size) / -2), calc( var(--size) / -2), 0);
+    transition:
+      opacity .3s cubic-bezier(.5, 0, .5, 1),
+      transform .3s cubic-bezier(.5, 0, .5, 1);
+    width: var(--size);
+    z-index: 4;
+  }
 
- .table-charts.points tbody:hover [style]:hover td::before {
-  transform:
-    translate3d( calc( var(--size) / -2 ), calc( var(--size ) / -2), 0 )
-    scale( 1.25 );
- }
+  .table-charts.points [style] td:nth-of-type(2)::before {
+    --value: var(--2);
+    left: calc( ( 100% / var(--x) * 2 ) + var(--offset) );
+  }
 
- .table-charts.points [scope="col"]::after {
-  mix-blend-mode: multiply;
- }
+  /* @note À répéter pour chaque ligne, afin de les distinguer grâce à un motif */
+  .table-charts.points [style]:nth-child( 2n + 2 ) {
+    --background: var(--stripes);
+  }
 
- .table-charts.points [scope="col"]:hover::after {
-  opacity: .5;
- }
+  .table-charts.points tbody:hover [style]::before,
+  .table-charts.points tbody:hover [style] td::before {
+    opacity: .25;
+  }
+
+  .table-charts.points tbody:hover [style]:hover::before,
+  .table-charts.points tbody:hover [style]:hover td::before {
+    opacity: 1;
+  }
+
+  .table-charts.points tbody:hover [style]:hover td::before {
+    transform:
+      translate3d( calc( var(--size) / -2 ), calc( var(--size ) / -2), 0 )
+      scale( 1.25 );
+  }
+
+  .table-charts.points [scope="col"]::after {
+    mix-blend-mode: multiply;
+  }
+
+  .table-charts.points [scope="col"]:hover::after {
+    opacity: .5;
+  }
 }</code>
    </pre>
   </div>
@@ -1516,133 +1508,130 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-css">
 @supports (display: contents) {
- .table-charts[class*="column"] {
-  --gap: .5rem;
-  --size: calc(var(--scale, 100) * 100%);
-  --width: calc(64em / var(--y) - 1rem);
-  display: grid;
-  grid-column-gap: var(--gap);
-  max-height: 64em;
-  position: relative;
- }
-
- .table-charts[class*="column"] td,
- .table-charts[class*="column"] th {
-  margin: 0;
- }
-
- .table-charts[class*="column"] tr > * + * {
-  text-align: center;
- }
-
- .table-charts[class*="column"] tr,
- .table-charts[class*="column"] tbody,
- .table-charts[class*="column"] thead {
-  display: contents;
- }
-
- .table-charts[class*="column"] caption {
-  grid-column: 1 / span var(--y);
-  grid-row: -1;
- }
-
- .table-charts[class*="column"] td {
-  grid-row: calc( 100 - var(--value) ) / -3;
-  pointer-events: none;
-  position: relative;
-  transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
- }
-
- .table-charts[class*="column"] span {
-  background: inherit;
-  -webkit-text-fill-color: transparent;
-  -webkit-background-clip: text;
-  font-weight: bold;
-  bottom: 100%;
-  left: 0;
-  line-height: 1.5;
-  pointer-events: auto;
-  position: absolute;
-  right: 0;
- }
-
- /* @note À répéter pour chaque colonne, afin de les distinguer grâce à un motif */
- .table-charts[class*="column"] td:nth-of-type(2) {
-  grid-column: 3;
- }
-
- .table-charts.column-single {
-  grid-auto-columns: 1fr;
-  grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) minmax(min-content, 2rem);
- }
-
- .table-charts.column-single tbody th {
-  grid-row: -6 / -3;
-  grid-column: 1;
-  line-height: 1;
- }
-
- .table-charts.column-single thead * {
-  grid-row: -2;
- }
-
- .table-charts.column-single td {
-  --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
-  background-blend-mode: hard-light;
-  background-position: 0% var(--position), center;
-  background-size: 100% var(--size), 1rem;
- }
-
- .table-charts.column-single [scope="col"]::after {
-  background-color: whitesmoke;
-  background-image: var(--stripes);
-  background-blend-mode: exclusion;
-  bottom: 4rem;
-  content: "";
-  mix-blend-mode: multiply;
-  opacity: 0;
-  position: absolute;
-  transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
-  top: 1rem;
-  width: var(--width);
-  z-index: 0;
- }
-
- .table-charts.column-single [scope="col"]:hover::after {
-  opacity: .5;
- }
-
- /* @note À répéter pour chaque colonne, afin d’en disposer l’arrière-plan au bon endroit */
- .table-charts.column-single [scope="col"]:nth-child(3)::after {
-  left: calc(1em + (var(--width) * 2) + (var(--gap) * 2));
- }
-
- /* @note À répéter pour chaque colonne, afin de les distinguer grâce à un motif */
- .table-charts.column-single td:nth-of-type(2n + 2) {
-  background-image:
-   linear-gradient(to top,
-    #01ac49,
-    #444,
-    mediumblue,
-    rebeccapurple,
-    crimson
-   ),
-   var(--stripes);
- }
-
- @media screen and (-ms-high-contrast: active) {
-  .table-charts.column-single td:nth-of-type(2n + 2) {
-   background-image:
-    linear-gradient(to top,
-     Window,
-     ButtonFace,
-     ButtonShadow,
-     ButtonText,
-     highlight
-    ),
-    var(--stripes);
+  .table-charts[class*="column"] {
+    --gap: .5rem;
+    --size: calc(var(--scale, 100) * 100%);
+    --width: calc(64em / var(--y) - 1rem);
+    display: grid;
+    grid-column-gap: var(--gap);
+    max-height: 64em;
+    position: relative;
   }
- }
+
+  .table-charts[class*="column"] td,
+  .table-charts[class*="column"] th {
+    margin: 0;
+  }
+
+  .table-charts[class*="column"] tr > * + * {
+    text-align: center;
+  }
+
+  .table-charts[class*="column"] tr,
+  .table-charts[class*="column"] tbody,
+  .table-charts[class*="column"] thead {
+    display: contents;
+  }
+
+  .table-charts[class*="column"] caption {
+    grid-column: 1 / span var(--y);
+    grid-row: -1;
+  }
+
+  .table-charts[class*="column"] td {
+    grid-row: calc( 100 - var(--value) ) / -3;
+    pointer-events: none;
+    position: relative;
+    transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
+  }
+
+  .table-charts[class*="column"] span {
+    background: inherit;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-weight: bold;
+    bottom: 100%;
+    left: 0;
+    line-height: 1.5;
+    pointer-events: auto;
+    position: absolute;
+    right: 0;
+  }
+
+  /* @note À répéter pour chaque colonne, afin de les distinguer grâce à un motif */
+  .table-charts[class*="column"] td:nth-of-type(2) {
+    grid-column: 3;
+  }
+
+  .table-charts.column-single {
+    grid-auto-columns: 1fr;
+    grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) minmax(min-content, 2rem);
+  }
+
+  .table-charts.column-single tbody th {
+    grid-row: -6 / -3;
+    grid-column: 1;
+    line-height: 1;
+  }
+
+  .table-charts.column-single thead * {
+    grid-row: -2;
+  }
+
+  .table-charts.column-single td {
+    --position: calc(var(--value, 0) / var(--scale, 100) * 100%);
+    background-blend-mode: hard-light;
+      linear-gradient(to top,
+        #01ac49,
+        #444,
+        mediumblue,
+        rebeccapurple,
+        crimson
+      ) 0% var(--position) / 100% var(--size),
+      var(--background) center / $gutter;
+  }
+
+  .table-charts.column-single [scope="col"]::after {
+    background: whitesmoke var(--stripes);
+    background-blend-mode: exclusion;
+    bottom: 4rem;
+    content: "";
+    mix-blend-mode: multiply;
+    opacity: 0;
+    position: absolute;
+    transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
+    top: 1rem;
+    width: var(--width);
+    z-index: 0;
+  }
+
+  .table-charts.column-single [scope="col"]:hover::after {
+    opacity: .5;
+  }
+
+  /* @note À répéter pour chaque colonne, afin d’en disposer l’arrière-plan au bon endroit */
+  .table-charts.column-single [scope="col"]:nth-child(3)::after {
+    left: calc(1em + (var(--width) * 2) + (var(--gap) * 2));
+  }
+
+  /* @note À répéter pour chaque colonne, afin de les distinguer grâce à un motif */
+  .table-charts.column-single td:nth-of-type(2n + 2) {
+    --background: var(--stripes);
+  }
+
+  @media screen and (-ms-high-contrast: active) {
+    .table-charts.column-single td {
+      background-image:
+        linear-gradient(to top,
+          Window,
+          ButtonFace,
+          ButtonShadow,
+          ButtonText,
+          highlight
+        ),
+        var(--background);
+    }
+  }
 }</code>
    </pre>
   </div>
@@ -1766,25 +1755,25 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-markup">
 &lt;table class="table-charts column-multiple" id="column-multiple" style="--y: 11; --span: 2;">
- &lt;caption id="caption-8">Parts de marché navigateurs en France en janvier 2019&lt;/caption>
- &lt;thead>
-  &lt;tr>
-   &lt;th scope="row" id="navigateur">Navigateur&lt;/th>
-   &lt;th scope="col" colspan="2" id="chrome">Chrome&lt;/th>
-  &lt;/tr>
-  &lt;tr>
-   &lt;th scope="row" id="annee">Année&lt;/th>
-   &lt;th scope="col" id="chrome-2018">2018&lt;/th>
-   &lt;th scope="col" id="chrome-2019">2019&lt;/th>
-  &lt;/tr>
- &lt;/thead>
- &lt;tbody>
-  &lt;tr>
-   &lt;th scope="row" id="parts">Parts de marché&lt;/th>
-   &lt;td style="--value: 50;" headers="navigateur chrome annee chrome-2018">&lt;span>49.6&nbsp;%&lt;/span>&lt;/td>
-   &lt;td style="--value: 57;" headers="navigateur chrome annee chrome-2019">&lt;span>57&nbsp;%&lt;/span>&lt;/td>
-  &lt;/tr>
- &lt;/tbody>
+  &lt;caption id="caption-8">Parts de marché navigateurs en France en janvier 2019&lt;/caption>
+  &lt;thead>
+    &lt;tr>
+      &lt;th scope="row" id="navigateur">Navigateur&lt;/th>
+      &lt;th scope="col" colspan="2" id="chrome">Chrome&lt;/th>
+    &lt;/tr>
+    &lt;tr>
+      &lt;th scope="row" id="annee">Année&lt;/th>
+      &lt;th scope="col" id="chrome-2018">2018&lt;/th>
+      &lt;th scope="col" id="chrome-2019">2019&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr>
+      &lt;th scope="row" id="parts">Parts de marché&lt;/th>
+      &lt;td style="--value: 50;" headers="navigateur chrome annee chrome-2018">&lt;span>49.6&nbsp;%&lt;/span>&lt;/td>
+      &lt;td style="--value: 57;" headers="navigateur chrome annee chrome-2019">&lt;span>57&nbsp;%&lt;/span>&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
 &lt;/table></code>
    </pre>
   </div>
@@ -1795,72 +1784,69 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-css">
 @supports (display: contents) {
- .table-charts.column-multiple {
-  grid-template-columns: minmax(min-content, 14ch) repeat(calc(var(--y) - 1), 1fr);
-  grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) repeat(2, minmax(min-content, 2rem));
- }
+  .table-charts.column-multiple {
+    grid-template-columns: minmax(min-content, 14ch) repeat(calc(var(--y) - 1), 1fr);
+    grid-template-rows: repeat(var(--scale, 100), minmax(0, .25rem)) repeat(2, minmax(min-content, 2rem));
+  }
 
- .table-charts.column-multiple tbody th {
-  grid-row: -10 / span 4;
- }
+  .table-charts.column-multiple tbody th {
+    grid-row: -10 / span 4;
+  }
 
- .table-charts.column-multiple thead tr * {
-  grid-row: -2;
-  grid-column: 1;
- }
+  .table-charts.column-multiple thead tr * {
+    grid-row: -2;
+    grid-column: 1;
+  }
 
- .table-charts.column-multiple thead tr *:nth-of-type(2) {
-  grid-column: calc(4 - var(--span)) / span var(--span);
- }
+  .table-charts.column-multiple thead tr *:nth-of-type(2) {
+    grid-column: calc(4 - var(--span)) / span var(--span);
+  }
 
- .table-charts.column-multiple thead tr + tr * {
-  font-weight: normal;
-  grid-row: -3;
- }
+  .table-charts.column-multiple thead tr + tr * {
+    font-weight: normal;
+    grid-row: -3;
+  }
 
- .table-charts.column-multiple thead tr + tr *:nth-of-type(2) {
-  grid-column: 2;
- }
+  .table-charts.column-multiple thead tr + tr *:nth-of-type(2) {
+    grid-column: 2;
+  }
 
- .table-charts.column-multiple tr:first-child [scope="col"]:nth-child(even)::after {
-  background-color: whitesmoke;
-  background-image: var(--stripes);
-  background-blend-mode: exclusion;
-  bottom: 4rem;
-  content: "";
-  mix-blend-mode: multiply;
-  opacity: .25;
-  position: absolute;
-  transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
-  top: 1rem;
-  width: calc((var(--width) * 2) + (var(--gap) / 2) + 1px);
-  z-index: 0;
- }
+  .table-charts.column-multiple tr:first-child [scope="col"]:nth-child(even)::after {
+    background: whitesmoke var(--stripes);
+    background-blend-mode: exclusion;
+    bottom: 4rem;
+    content: "";
+    mix-blend-mode: multiply;
+    opacity: .25;
+    position: absolute;
+    transition: opacity .3s cubic-bezier(.5, 0, .5, 1);
+    top: 1rem;
+    width: calc((var(--width) * 2) + (var(--gap) / 2) + 1px);
+    z-index: 0;
+  }
 
- .table-charts.column-multiple tr:first-child [scope="col"]:nth-child(4)::after {
-  left: calc(14ch + 1em + (((var(--width) * 2) + (var(--gap) / 2) + 1px) * 2) + (var(--gap) * 3));
- }
+  .table-charts.column-multiple tr:first-child [scope="col"]:nth-child(4)::after {
+    left: calc(14ch + 1em + (((var(--width) * 2) + (var(--gap) / 2) + 1px) * 2) + (var(--gap) * 3));
+  }
 
- .table-charts.column-multiple td {
-  background-color: #e11a81;
-  background-image: var(--zig);
- }
-
- /* @note Oh boy, if we could use var(--span) in selector… */
- .table-charts.column-multiple td:nth-of-type(2n + 2) {
-  background-color: #0172f0;
-  background-image: var(--triangles);
- }
-
- @media screen and (-ms-high-contrast: active) {
   .table-charts.column-multiple td {
-   background-color: Window;
+    background: #e11a81 var(--zig);
   }
 
+  /* @note Oh boy, if we could use var(--span) in selector… */
   .table-charts.column-multiple td:nth-of-type(2n + 2) {
-   background-color: Highlight;
+    background: #0172f0 var(--triangles);
   }
- }
+
+  @media screen and (-ms-high-contrast: active) {
+    .table-charts.column-multiple td {
+      background-color: Window;
+    }
+
+    .table-charts.column-multiple td:nth-of-type(2n + 2) {
+      background-color: Highlight;
+    }
+  }
 }</code>
    </pre>
   </div>
@@ -2059,14 +2045,14 @@ document.addEventListener( "DOMContentLoaded", function () {
    </p>
    <pre>
     <code class="language-scss">
- @mixin sin($angle) {
+@mixin sin($angle) {
   --sin-term-#{$angle}-1: var(--#{$angle});
   --sin-term-#{$angle}-2: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 6);
   --sin-term-#{$angle}-3: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 120);
   --sin-term-#{$angle}-4: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 5040);
   --sin-term-#{$angle}-5: calc((var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle}) * var(--#{$angle})) / 362880);
   --sin-#{$angle}: calc(var(--sin-term-#{$angle}-1) - var(--sin-term-#{$angle}-2) + var(--sin-term-#{$angle}-3) - var(--sin-term-#{$angle}-4) + var(--sin-term-#{$angle}-5));
- }</code>
+}</code>
    </pre>
    <p>
     Il ne reste plus qu’à utiliser ces dimensions pour placer les points du polygône.
@@ -2079,22 +2065,22 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-markup">
 &lt;table class="table-charts pie">
- &lt;caption id="caption-5">Répartition du poids des ressources pour ffoodd.fr&lt;/caption>
- &lt;thead class="sr-only">
-  &lt;tr>
-   &lt;th scope="col">Ressource&lt;/th>
-   &lt;th scope="col">Proportion&lt;/th>
-  &lt;/tr>
- &lt;/thead>
- &lt;tbody>
-  &lt;tr style="--color: #734bf9">
-   &lt;th scope="row">HTML
-    &lt;td style="--value: 2; --start: 0; ">
-     2&nbsp;%
-    &lt;/td>
-  &lt;/tr>
-  &lt;tr>[…]&lt;/tr>
- &lt;/tbody>
+  &lt;caption id="caption-5">Répartition du poids des ressources pour ffoodd.fr&lt;/caption>
+  &lt;thead class="sr-only">
+    &lt;tr>
+      &lt;th scope="col">Ressource&lt;/th>
+      &lt;th scope="col">Proportion&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr style="--color: #734bf9; --term: 'HTML';">
+      &lt;th scope="row">HTML
+      &lt;td style="--value: 2; --start: 0;">
+      2&nbsp;%
+      &lt;/td>
+    &lt;/tr>
+    &lt;tr>[…]&lt;/tr>
+  &lt;/tbody>
 &lt;/table></code>
    </pre>
   </div>
@@ -2689,7 +2675,7 @@ document.addEventListener( "DOMContentLoaded", function () {
     translate3d( -50%, -50%, 0 )
     rotate( var(--position) )
     scale( calc( ( var(--zoom) + ( var(--value) / ( 100 / var(--zoom) ) ) ) / 100 ) );
-  }
+}
 
 .table-charts.polar tr:hover td::before {
   --zoom: 50;
@@ -2835,19 +2821,19 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-markup">
 &lt;table class="table-charts radar" id="radar" style="--scale: 20; --step: 5; --items: 7; --1: 14; --2: 11; --3: 13; --4: 16; --5: 10; --6: 12; --7: 4; --8: var(--1);">
- &lt;caption id="caption-9">Niveau d’intérêt par domaine, sur 20&lt;/caption>
- &lt;thead>
-  &lt;tr>
-   &lt;th scope="col">Accessibilité&lt;/th>
-   &lt;th scope="col">Référencement&lt;/th>
-  &lt;/tr>
- &lt;/thead>
- &lt;tbody>
-  &lt;tr>
-   &lt;td>&lt;span>14&lt;/span>&lt;/td>
-   &lt;td>&lt;span>11&lt;/span>&lt;/td>
-  &lt;/tr>
- &lt;/tbody>
+  &lt;caption id="caption-9">Niveau d’intérêt par domaine, sur 20&lt;/caption>
+  &lt;thead>
+    &lt;tr>
+      &lt;th scope="col">Accessibilité&lt;/th>
+      &lt;th scope="col">Référencement&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr>
+      &lt;td>&lt;span>14&lt;/span>&lt;/td>
+      &lt;td>&lt;span>11&lt;/span>&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
 &lt;/table></code>
    </pre>
   </div>
@@ -2858,123 +2844,123 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-css">
 @supports(clip-path: polygon(calc( 0% 0%, 100% - ( var(--1) * 100% / var(--scale) ) ) 100%, 100% 100%)) {
- .table-charts[class*="radar"] {
-  --radius: 12.8rem;
-  --unitless-radius: calc( 1024 / 16 / 5 );
-  --size: calc( var(--radius) / var(--scale) );
-  --part: calc( 360deg / var(--items) );
-  background-image:
-   repeating-radial-gradient(
-    circle at 50%,
-    rgba(0, 0, 0, .2),
-    rgba(0, 0, 0, .2) 2px,
-    transparent 2px,
-    transparent calc(var(--size) * var(--step))
-   ),
-   repeating-radial-gradient(
-    circle at 50%,
-    rgba(0, 0, 0, .1),
-    rgba(0, 0, 0, .1) 2px,
-    transparent 2px,
-    transparent var(--size)
-   );
-  border: 2px solid;
-  border-radius: 50%;
-  contain: layout style;
-  counter-reset: scale var(--scale);
-  height: calc( var(--radius) * 2 );
-  margin: 6rem auto 12rem;
-  overflow: visible;
-  position: relative;
-  width: calc( var(--radius) * 2 );
- }
+  .table-charts[class*="radar"] {
+    --radius: 12.8rem;
+    --unitless-radius: calc( 1024 / 16 / 5 );
+    --size: calc( var(--radius) / var(--scale) );
+    --part: calc( 360deg / var(--items) );
+    background-image:
+      repeating-radial-gradient(
+        circle at 50%,
+        rgba(0, 0, 0, .2),
+        rgba(0, 0, 0, .2) 2px,
+        transparent 2px,
+        transparent calc(var(--size) * var(--step))
+      ),
+      repeating-radial-gradient(
+        circle at 50%,
+        rgba(0, 0, 0, .1),
+        rgba(0, 0, 0, .1) 2px,
+        transparent 2px,
+        transparent var(--size)
+      );
+    border: 2px solid;
+    border-radius: 50%;
+    contain: layout style;
+    counter-reset: scale var(--scale);
+    height: calc( var(--radius) * 2 );
+    margin: 6rem auto 12rem;
+    overflow: visible;
+    position: relative;
+    width: calc( var(--radius) * 2 );
+  }
 
- .table-charts[class*="radar"] caption {
-  background: none;
-  bottom: -10rem;
-  position: absolute;
- }
+  .table-charts[class*="radar"] caption {
+    background: none;
+    bottom: -10rem;
+    position: absolute;
+  }
 
- .table-charts[class*="radar"] [scope="col"] {
-  --away: calc( (var(--radius) * -1) - 50% );
-  left: 50%;
-  margin: 0;
-  padding: 0 1rem;
-  position: absolute;
-  top: 50%;
-  transform:
-   translate3d(-50%, -50%, 0)
-   rotate( calc(var(--part) * var(--index, 1)) )
-   translate( var(--away) )
-   rotate( calc(var(--part) * var(--index, 1) * -1) );
- }
+  .table-charts[class*="radar"] [scope="col"] {
+    --away: calc( (var(--radius) * -1) - 50% );
+    left: 50%;
+    margin: 0;
+    padding: 0 1rem;
+    position: absolute;
+    top: 50%;
+    transform:
+      translate3d(-50%, -50%, 0)
+      rotate( calc(var(--part) * var(--index, 1)) )
+      translate( var(--away) )
+      rotate( calc(var(--part) * var(--index, 1) * -1) );
+  }
 
- .table-charts[class*="radar"] tr > *:nth-of-type(2) {
-  --index: 2;
- }
+  .table-charts[class*="radar"] tr > *:nth-of-type(2) {
+    --index: 2;
+  }
 
- .table-charts[class*="radar"] td {
-  --skew: calc( 90deg - var(--part) );
-  border-bottom: 1px solid blueviolet;
-  height: 50%;
-  left: 0;
-  margin: 0;
-  position: absolute;
-  top: 0;
-  transform:
-   rotate( calc(var(--part) * var(--index, 1)) )
-   skew( var(--skew) );
-  transform-origin: 100% 100%;
-  width: 50%;
- }
+  .table-charts[class*="radar"] td {
+    --skew: calc( 90deg - var(--part) );
+    border-bottom: 1px solid blueviolet;
+    height: 50%;
+    left: 0;
+    margin: 0;
+    position: absolute;
+    top: 0;
+    transform:
+      rotate( calc(var(--part) * var(--index, 1)) )
+      skew( var(--skew) );
+    transform-origin: 100% 100%;
+    width: 50%;
+  }
 
- .table-charts[class*="radar"] span {
-  --opposite: calc( 180 - (90 + (90 - (360 / var(--items)))) );
-  --angle: calc( var(--opposite) * 0.01745329251 );
-  --sin-term-angle-1: var(--angle);
-  --sin-term-angle-2: calc((var(--angle) * var(--angle) * var(--angle)) / 6);
-  --sin-term-angle-3: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 120);
-  --sin-term-angle-4: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 5040);
-  --sin-term-angle-5: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 362880);
-  --sin-angle: calc(var(--sin-term-angle-1) - var(--sin-term-angle-2) + var(--sin-term-angle-3) - var(--sin-term-angle-4) + var(--sin-term-angle-5));
-  --hypo: calc( var(--unitless-radius) / var(--sin-angle) );
-  --ratio: calc( var(--hypo) / var(--unitless-radius) );
-  background: linear-gradient(
-   to top left,
-   blueviolet 10%,
-   darkblue 75%
-  );
-  filter: drop-shadow( 0 0 1rem indigo );
-  height: 100%;
-  position: absolute;
-  width: 100%;
- }
+  .table-charts[class*="radar"] span {
+    --opposite: calc( 180 - (90 + (90 - (360 / var(--items)))) );
+    --angle: calc( var(--opposite) * 0.01745329251 );
+    --sin-term-angle-1: var(--angle);
+    --sin-term-angle-2: calc((var(--angle) * var(--angle) * var(--angle)) / 6);
+    --sin-term-angle-3: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 120);
+    --sin-term-angle-4: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 5040);
+    --sin-term-angle-5: calc((var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle) * var(--angle)) / 362880);
+    --sin-angle: calc(var(--sin-term-angle-1) - var(--sin-term-angle-2) + var(--sin-term-angle-3) - var(--sin-term-angle-4) + var(--sin-term-angle-5));
+    --hypo: calc( var(--unitless-radius) / var(--sin-angle) );
+    --ratio: calc( var(--hypo) / var(--unitless-radius) );
+    background: linear-gradient(
+      to top left,
+      blueviolet 10%,
+      darkblue 75%
+    );
+    filter: drop-shadow( 0 0 1rem indigo );
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
 
- .table-charts[class*="radar"] td:nth-of-type(2) span {
-  --pos: calc( 100% - (var(--3) * 100% / (var(--scale) * var(--ratio) ) ) );
-  clip-path: polygon(
-   100% var(--pos),
-   calc( 100% - ( var(--2) * 100% / var(--scale) ) ) 100%,
-   100% 100%
-  );
- }
+  .table-charts[class*="radar"] td:nth-of-type(2) span {
+    --pos: calc( 100% - (var(--3) * 100% / (var(--scale) * var(--ratio) ) ) );
+    clip-path: polygon(
+      100% var(--pos),
+      calc( 100% - ( var(--2) * 100% / var(--scale) ) ) 100%,
+      100% 100%
+    );
+  }
 
- .table-charts[class*="radar"] td::after,
- .table-charts[class*="radar"] td::before {
-  display: none;
- }
+  .table-charts[class*="radar"] td::after,
+  .table-charts[class*="radar"] td::before {
+    display: none;
+  }
 
- .table-charts.radar [scope="col"]::after {
-  color: rebeccapurple;
-  display: block;
-  font-size: small;
-  font-weight: 400;
- }
+  .table-charts.radar [scope="col"]::after {
+    color: rebeccapurple;
+    display: block;
+    font-size: small;
+    font-weight: 400;
+  }
 
- .table-charts.radar [scope="col"]:nth-child(2)::after {
-  counter-reset: value var(--2);
-  content: counter(value) "\A0/\A0" counter(scale);
- }
+  .table-charts.radar [scope="col"]:nth-child(2)::after {
+    counter-reset: value var(--2);
+    content: counter(value) "\A0/\A0" counter(scale);
+  }
 }</code>
    </pre>
   </div>
@@ -3089,23 +3075,23 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-markup">
 &lt;table class="table-charts radar-multiple" id="radar-multiple" style="--scale: 20; --step: 5; --items: 7; --areas: 2;">
- &lt;caption id="caption-9">Niveau d’intérêt par domaine, sur 20&lt;/caption>
- &lt;thead>
-  &lt;tr>
-   &lt;th scope="col">Accessibilité&lt;/th>
-   &lt;th scope="col">Référencement&lt;/th>
-  &lt;/tr>
- &lt;/thead>
- &lt;tbody>
-  &lt;tr style="--color: #734bf9; --1: 14; --2: 11; --3: 13; --4: 16; --5: 14; --6: 10; --7: 4; --8: var(--1);">
-   &lt;th scope="row">Gaël&lt;/th>
-   &lt;td>&lt;span>14&lt;/span>&lt;/td>
-  &lt;/tr>
-  &lt;tr style="-color: #e11a81; --1: 18; --2: 10; --3: 11; --4: 16; --5: 10; --6: 12; --7: 11; --8: var(--1);">
-   &lt;th scope="row">Luc&lt;/th>
-   &lt;td>&lt;span>18&lt;/span>&lt;/td>
-  &lt;/tr>
- &lt;/tbody>
+  &lt;caption id="caption-9">Niveau d’intérêt par domaine, sur 20&lt;/caption>
+  &lt;thead>
+    &lt;tr>
+      &lt;th scope="col">Accessibilité&lt;/th>
+      &lt;th scope="col">Référencement&lt;/th>
+    &lt;/tr>
+  &lt;/thead>
+  &lt;tbody>
+    &lt;tr style="--color: #734bf9; --1: 14; --2: 11; --3: 13; --4: 16; --5: 14; --6: 10; --7: 4; --8: var(--1);">
+      &lt;th scope="row">Gaël&lt;/th>
+      &lt;td>&lt;span>14&lt;/span>&lt;/td>
+    &lt;/tr>
+    &lt;tr style="-color: #e11a81; --1: 18; --2: 10; --3: 11; --4: 16; --5: 10; --6: 12; --7: 11; --8: var(--1);">
+      &lt;th scope="row">Luc&lt;/th>
+      &lt;td>&lt;span>18&lt;/span>&lt;/td>
+    &lt;/tr>
+  &lt;/tbody>
 &lt;/table></code>
    </pre>
   </div>
@@ -3116,98 +3102,98 @@ document.addEventListener( "DOMContentLoaded", function () {
    <pre>
     <code class="language-css">
 .table-charts.radar-multiple {
- margin-bottom: 12rem;
+  margin-bottom: 12rem;
 }
 
 .table-charts.radar-multiple tbody {
- columns: var(--areas);
- vertical-align: bottom;
+  columns: var(--areas);
+  vertical-align: bottom;
 }
 
 .table-charts.radar-multiple [scope="row"] {
- bottom: -8rem;
- height: 2rem;
- left: 1rem;
- position: absolute;
+  bottom: -8rem;
+  height: 2rem;
+  left: 1rem;
+  position: absolute;
 }
 
 .table-charts.radar-multiple [scope="row"]::before {
- background: var(--color, currentColor);
- content: "";
- display: inline-block;
- height: 1rem;
- margin-right: .25rem;
- transform: translate3d(0, .1rem, 0);
- width: 1rem;
+  background: var(--color, currentColor);
+  content: "";
+  display: inline-block;
+  height: 1rem;
+  margin-right: .25rem;
+  transform: translate3d(0, .1rem, 0);
+  width: 1rem;
 }
 
 /* Pour obtenir une deuxième zone : */
 .table-charts.radar-multiple tr:nth-child(2) [scope="row"] {
- left: calc( 1rem + (100% / var(--areas)) * 1);
+  left: calc( 1rem + (100% / var(--areas)) * 1);
 }
 
 .table-charts.radar-multiple td {
- align-items: flex-end;
- border-color: var(--color, currentColor);
- display: flex;
- justify-content: flex-end;
- opacity: .5;
- pointer-events: none;
- transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
- will-change: opacity;
- z-index: 0;
+  align-items: flex-end;
+  border-color: var(--color, currentColor);
+  display: flex;
+  justify-content: flex-end;
+  opacity: .5;
+  pointer-events: none;
+  transition: opacity .2s cubic-bezier(.5, 0, .5, 1);
+  will-change: opacity;
+  z-index: 0;
 }
 
 .table-charts.radar-multiple td::after {
- color: var(--color, currentColor);
- display: block;
- font-size: small;
- font-weight: 700;
- text-indent: -.5rem;
- transform:
-  skew( calc( var(--skew) * -1 ) )
-  rotate( calc( var(--part) * var(--index, 1) * -1 ) );
- transform-origin: 0 0;
- transition: inherit;
- width: 100%;
- will-change: inherit;
- white-space: nowrap;
+  color: var(--color, currentColor);
+  display: block;
+  font-size: small;
+  font-weight: 700;
+  text-indent: -.5rem;
+  transform:
+    skew( calc( var(--skew) * -1 ) )
+    rotate( calc( var(--part) * var(--index, 1) * -1 ) );
+  transform-origin: 0 0;
+  transition: inherit;
+  width: 100%;
+  will-change: inherit;
+  white-space: nowrap;
 }
 
 .table-charts.radar-multiple td:nth-of-type(2)::after {
- counter-reset: value var(--2);
- content: counter(value);
- width: calc( var(--2) * 100% / var(--scale) );
+  counter-reset: value var(--2);
+  content: counter(value);
+  width: calc( var(--2) * 100% / var(--scale) );
 }
 
 .table-charts.radar-multiple span {
- background: var(--color, currentColor);
- pointer-events: auto;
+  background: var(--color, currentColor);
+  pointer-events: auto;
 }
 
 @supports ( mask-image: url() ) {
- .table-charts.radar-multiple span {
-  mask-image: radial-gradient(circle at bottom right, rgba(0,0,0,1), rgba(0,0,0,.5));
- }
+  .table-charts.radar-multiple span {
+    mask-image: radial-gradient(circle at bottom right, rgba(0,0,0,1), rgba(0,0,0,.5));
+  }
 }
 
 @media (hover: hover) {
- .table-charts.radar-multiple td {
-  opacity: .25;
- }
+  .table-charts.radar-multiple td {
+    opacity: .25;
+  }
 
- .table-charts.radar-multiple td::after {
-  opacity: 0;
- }
+  .table-charts.radar-multiple td::after {
+    opacity: 0;
+  }
 
- .table-charts.radar-multiple tr:hover td {
-  opacity: 1;
-  z-index: 1;
- }
+  .table-charts.radar-multiple tr:hover td {
+    opacity: 1;
+    z-index: 1;
+  }
 
- .table-charts.radar-multiple tr:hover td::after {
-  opacity: inherit;
- }
+  .table-charts.radar-multiple tr:hover td::after {
+    opacity: inherit;
+  }
 }</code>
    </pre>
   </div>
