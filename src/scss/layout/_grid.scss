@@ -30,6 +30,15 @@
       page-break-inside: avoid; /* 2 */
       break-inside: avoid;      /* 2 */
     }
+
+    figure[role="group"] {
+      min-width: 0;
+      width: auto;
+
+      img {
+        min-width: 0;
+      }
+    }
   }
 
   @each $number in 2, 3, 4 {
