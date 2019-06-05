@@ -28,7 +28,7 @@ img[alt] {
       "\A"                /* 2 */
       "—\A0" attr( src ); /* 4 */
     font-size: 1rem;
-    padding: em( 8 );
+    padding: $gutter / 2;
     width: 100%;
     white-space: pre-wrap;
   }
@@ -40,15 +40,15 @@ svg {
 
 figure[role="group"] {
   background: palette( default, contrast );
-  margin: em( 24 ) auto;
+  margin: $gutter auto;
   max-width: 100%;
   overflow: hidden;
-  padding: em( 16 );
+  padding: $gutter;
 
   figcaption {
     display: block;
     font-size: em( 14 );
-    padding: 1em 0;
+    padding: $gutter 0;
   }
 }
 
