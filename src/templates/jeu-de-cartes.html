@@ -70,7 +70,7 @@
 
   <div class="deck" id="cards">
     {% for item in deck %}
-      <figure class="card p-relative no-margin d-flex clr-{{ item.color }}" role="group" style="--card: #card-{{ loop.index }}">
+      <figure class="card p-relative no-margin d-flex clr-{{ item.color }}" role="figure" style="--card: #card-{{ loop.index }}" aria-label="{{ item.label }}">
         <p class="--l d-flex no-padding p-relative rounded bg-{{ item.color }}" id="card-{{ loop.index }}">{{ item.value }}</p>
         <svg width="56" height="64" role="img" aria-label="{{ item.label }}" class="no-margin no-padding">
           <use xlink:href="img/symbol.svg#{{ item.icon }}"></use>

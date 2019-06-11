@@ -38,7 +38,7 @@ svg {
   fill: currentColor;
 }
 
-figure[role="group"] {
+figure {
   background: palette( default, contrast );
   margin: $gutter auto;
   max-width: 100%;
@@ -53,7 +53,7 @@ figure[role="group"] {
 }
 
 @media screen and (min-width: #{$content-width}) {
-  figure[role="group"] {
+  figure {
     min-width: $content-width;
     width: min-content;
 
