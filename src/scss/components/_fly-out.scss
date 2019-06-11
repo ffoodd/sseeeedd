@@ -76,11 +76,11 @@
       }
     }
 
-    > :first-child:not(:only-child) {
+    > button {
       padding-right: $gutter;
     }
 
-    > :first-child:not(:only-child)::after {
+    > button::after {
       content: "↓";
       display: inline-block;
       padding-left: $gutter / 2;
@@ -117,20 +117,20 @@
 
   > *:hover > ul,
   > *.focus-within > ul,
-  > * > :first-child:not(:only-child):hover + ul,
-  > * > :first-child:not(:only-child):focus + ul,
-  > * > :first-child:not(:only-child):active + ul {
+  > * > button:hover + ul,
+  > * > button:focus + ul,
+  > * > button:active + ul {
     box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
     clip: auto;  /* 1 */
     outline: 1px solid palette( muted, light );
     transition: clip .3s map-get( $timing-functions, 'exit' );
   }
 
-  > * > :first-child:not(:only-child):hover::after,
-  > * > :first-child:not(:only-child):focus::after,
-  > * > :first-child:not(:only-child):active::after,
-  > *:hover > :first-child:not(:only-child)::after,
-  > *.focus-within > :first-child:not(:only-child)::after {
+  > * > button:hover::after,
+  > * > button:focus::after,
+  > * > button:active::after,
+  > *:hover > button::after,
+  > *.focus-within > button::after {
     transform: rotateX( .5turn );
     transition: transform .3s map-get( $timing-functions, 'exit' );
   }
@@ -147,7 +147,7 @@
       > *:focus-within {
         z-index: 2;
 
-        :first-child:not(:only-child) {
+        button {
           background: none;
         }
       }
@@ -161,16 +161,16 @@
 
       > *:hover > ul,
       > *:focus-within > ul,
-      > * > :first-child:not(:only-child):hover + ul,
-      > * > :first-child:not(:only-child):focus + ul,
-      > * > :first-child:not(:only-child):active + ul {
+      > * > button:hover + ul,
+      > * > button:focus + ul,
+      > * > button:active + ul {
         box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
         clip-path: circle(150% at top right);
         outline: 1px solid palette( muted, light );
         transition: clip-path .3s map-get( $timing-functions, 'exit' );
       }
 
-      > *:focus-within > :first-child:not(:only-child)::after {
+      > *:focus-within > button::after {
         transform: rotateX( .5turn );
         transition: transform .3s map-get( $timing-functions, 'exit' );
       }
