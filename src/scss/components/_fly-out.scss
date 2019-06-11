@@ -97,7 +97,6 @@
     font-size: inherit;
     min-width: 100%;
     padding-top: em( 40 );
-    pointer-events: none;
     position: absolute;
     top: 0;
     transition: clip .3s map-get( $timing-functions, 'enter' ) .5s;
@@ -111,7 +110,6 @@
     a,
     button {
       padding: $gutter / 2 $gutter;
-      pointer-events: auto;
     }
   }
 
