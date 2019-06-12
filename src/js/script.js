@@ -73,11 +73,6 @@
     el.addEventListener('click', function() {
       var checked = this.getAttribute('aria-checked') === 'true' || false;
       this.setAttribute('aria-checked', !checked);
-
-      if (this.classList.contains('disable-css')) {
-        var chart = this.parentNode.nextElementSibling;
-        chart.classList.toggle('table-charts');
-      }
     });
   });
 
