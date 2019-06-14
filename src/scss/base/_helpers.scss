@@ -1,7 +1,6 @@
 ///* ==================== */
 /* == Helpers
 /* ==================== */
-/* purgecss start ignore */
 .no-margin {
   margin: 0 !important;
 }
@@ -253,7 +252,6 @@
 	width: 1px !important;
 	white-space: nowrap !important;            // 3
 }
-/* purgecss end ignore */
 
 // Use in conjunction with .sr-only to only display content when it's focused.
 // @note Useful for skip links
@@ -273,8 +271,6 @@
 
 // Aliasing .sr-only
 // @note To match H5BP, Foundation, and Formage
-/* purgecss start ignore */
 .visually-hidden {
   @extend .sr-only;
 }
-/* purgecss end ignore */
