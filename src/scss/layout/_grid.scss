@@ -19,7 +19,7 @@
   max-width: 100%;
 }
 
-@media screen and (min-width: em(480)) {
+@media screen and (min-width: #{$content-width}) {
   [class*="grid"],
   [class*="columns"] {
     column-gap: $gutter * 2;
@@ -29,15 +29,6 @@
     > * {
       page-break-inside: avoid; /* 2 */
       break-inside: avoid;      /* 2 */
-    }
-
-    figure {
-      min-width: 0;
-      width: auto;
-
-      img {
-        min-width: 0;
-      }
     }
   }
 

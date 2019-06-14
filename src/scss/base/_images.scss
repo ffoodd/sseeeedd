@@ -61,6 +61,19 @@ figure {
       min-width: min-content;
     }
   }
+
+  li,
+  [class*="grid"],
+  [class*="columns"] {
+    figure {
+      min-width: 0;
+      width: auto;
+
+      img {
+        min-width: 0;
+      }
+    }
+  }
 }
 
 @media (inverted-colors) {
