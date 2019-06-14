@@ -6,7 +6,7 @@ const options  = require('./options');
 function img() {
     return gulp.src(options.paths.dev + 'img/*')
       .pipe(newer(options.paths.dest + 'img'))
-      .pipe(imgmin())
+      .pipe(imgmin({verbose: true}))
       .pipe(gulp.dest(options.paths.dest + 'img'));
 }
 
