@@ -22,7 +22,7 @@
     "pretest": "npm run gulp build",
     "test": "npm run gulp test",
     "start": "npm run gulp",
-    "prepublishOnly": "npm run gulp zip && rm -rf pkg"
+    "prepublishOnly": "npm run gulp zip"
   },
   "stylelint": {
     "extends": "stylelint-config-recommended-scss",
