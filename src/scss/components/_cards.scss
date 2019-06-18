@@ -17,7 +17,7 @@
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  transition: box-shadow .3s map-get( $timing-functions, 'enter' );
+  transition: box-shadow .3s var(--enter);
 
   &:hover,
   &:focus-within {

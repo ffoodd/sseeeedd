@@ -22,8 +22,8 @@
       rotate3d(1, 0, 0, 0deg)
       translateX(-50%);
     transition:
-      opacity .2s map-get( $timing-functions, 'exit' ),
-      transform .2s map-get( $timing-functions, 'exit' );
+      opacity .2s var(--exit),
+      transform .2s var(--exit);
     visibility: visible;
   }
 }
@@ -54,8 +54,8 @@
     rotate3d(1, 0, 0, 45deg)
     translateX(-50%);
   transition:
-    opacity .2s map-get( $timing-functions, 'enter' ),
-    transform .2s map-get( $timing-functions, 'enter' ),
+    opacity .2s var(--enter),
+    transform .2s var(--enter),
     visibility 0s linear .2s;
   visibility: hidden;
   white-space: nowrap;

@@ -62,7 +62,7 @@ select,
   background-color: var(--contrast);
   border: 1px solid var(--dominant-dark);
   color: var(--default);
-  transition: box-shadow .3s map-get($timing-functions, "enter");
+  transition: box-shadow .3s var(--enter);
   width: 100%;
 
   &:focus {
@@ -130,7 +130,7 @@ select[multiple] {
 
 select:not([multiple]) {
   appearance: none;
-  background: var(--contrast) no-repeat url("#{map-get( $icons, "select" )}") center right .5em / 1em 1em;
+  background: var(--contrast) no-repeat var(--select) center right .5em / 1em 1em;
 }
 
 textarea {
@@ -172,11 +172,11 @@ label [class^="label-msg"] {
  */
 #{$form-fields} {
   &:valid:focus {
-    background: var(--contrast) no-repeat url("#{map-get( $icons, "valid" )}") center right .5em / 1em 1.25em;
+    background: var(--contrast) no-repeat var(--valid) center right .5em / 1em 1.25em;
   }
 
   &:invalid:not(:focus) {
-    background: var(--contrast) no-repeat url("#{map-get( $icons, "invalid" )}") center right .5em / 1em 1.25em;
+    background: var(--contrast) no-repeat var(--invalid) center right .5em / 1em 1.25em;
     box-shadow: 0 0 0 rem( 2 ) var(--alert-light);
   }
 
@@ -185,7 +185,7 @@ label [class^="label-msg"] {
   }
 
   &:required:placeholder-shown {
-    background: var(--contrast) no-repeat url("#{map-get( $icons, "required" )}") center right .5em / 1em 1.25em;
+    background: var(--contrast) no-repeat var(--required) center right .5em / 1em 1.25em;
   }
 }
 

@@ -38,7 +38,7 @@
     outline-offset: $gutter * 2;
     padding: $gutter / 2 $gutter;
     text-decoration: none;
-    transition: outline-offset .3s map-get($timing-functions, "enter");
+    transition: outline-offset .3s var(--enter);
     white-space: nowrap;
 
     &:hover,
@@ -84,7 +84,7 @@
       content: "↓";
       display: inline-block;
       padding-left: $gutter / 2;
-      transition: transform .3s map-get( $timing-functions, 'enter' ) .5s;
+      transition: transform .3s var(--enter) .5s;
       will-change: transform;
     }
   }
@@ -99,7 +99,7 @@
     padding-top: em( 40 );
     position: absolute;
     top: 0;
-    transition: clip .3s map-get( $timing-functions, 'enter' ) .5s;
+    transition: clip .3s var(--enter) .5s;
     will-change: clip;
     z-index: -1;
 
@@ -121,7 +121,7 @@
     box-shadow: em( 4 ) em( 4 ) 0 0 var(--default);
     clip: auto;  /* 1 */
     outline: 1px solid var(--muted-light);
-    transition: clip .3s map-get( $timing-functions, 'exit' );
+    transition: clip .3s var(--exit);
   }
 
   > * > button:hover::after,
@@ -130,7 +130,7 @@
   > *:hover > button::after,
   > *.focus-within > button::after {
     transform: rotateX( .5turn );
-    transition: transform .3s map-get( $timing-functions, 'exit' );
+    transition: transform .3s var(--exit);
   }
 }
 
@@ -153,7 +153,7 @@
       ul {
         clip: auto;
         clip-path: circle(em( 18 ) at left top); /* 1 */
-        transition: clip-path .3s map-get( $timing-functions, 'enter' ) .5s; /* 2 */
+        transition: clip-path .3s var(--enter) .5s; /* 2 */
         will-change: clip-path;
       }
 
@@ -165,12 +165,12 @@
         box-shadow: em( 4 ) em( 4 ) 0 0 var(--default);
         clip-path: circle(150% at top right);
         outline: 1px solid var(--muted-light);
-        transition: clip-path .3s map-get( $timing-functions, 'exit' );
+        transition: clip-path .3s var(--exit);
       }
 
       > *:focus-within > button::after {
         transform: rotateX( .5turn );
-        transition: transform .3s map-get( $timing-functions, 'exit' );
+        transition: transform .3s var(--exit);
       }
     }
   }

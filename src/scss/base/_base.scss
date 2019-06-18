@@ -96,7 +96,7 @@ a {
   outline-offset: $gutter * 2;
   text-decoration-style: dotted;
   text-decoration-skip-ink: auto;
-  transition: outline-offset .3s map-get($timing-functions, "enter");
+  transition: outline-offset .3s var(--enter);
 
   &:hover,
   &:focus {
@@ -184,25 +184,25 @@ main a {
     }
 
     &[href^="#"]::before {
-      mask-image: url("#{map-get( $icons, "anchor" )}");
+      mask-image: var(--anchor);
     }
 
     &[target$="blank"]::after {
-      mask-image: url("#{map-get( $icons, "external" )}");
+      mask-image: var(--external);
     }
 
     &[href^="http://"]::before {
       background: var(--alert);
-      mask-image: url("#{map-get( $icons, "unsafe" )}");
+      mask-image: var(--unsafe);
     }
 
     &[href^="mailto:"]::before {
-      mask-image: url("#{map-get( $icons, "mail" )}");
+      mask-image: var(--mail);
     }
 
     @media (hover: hover) {
       &[href^="tel:"]::before {
-        mask-image: url("#{map-get( $icons, "tel" )}");
+        mask-image: var(--tel);
       }
     }
   }
