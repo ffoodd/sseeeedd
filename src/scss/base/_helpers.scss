@@ -132,35 +132,37 @@
 
 // Colors
 .muted {
-  color: palette( muted ) !important;
+  color: var(--muted) !important;
 
   em,
   strong {
-    color: palette( default, secondary );
+    color: var(--default-secondary);
   }
 }
 
 @each $color in default, alert, success, accent, dominant, secondary {
 	.clr-#{$color} {
-		color: palette( #{$color} ) !important;
+		color: var(--#{$color}) !important;
+  }
+}
+
+[class*="bg-"] {
+  * {
+    color: inherit;
+  }
+
+  a:hover,
+  a:focus {
+    color: inherit;
+    opacity: .75;
   }
 }
 
 // Backgrounds
 @each $color in alert, success, accent, dominant, secondary, default {
 	.bg-#{$color} {
-		background-color: palette( #{$color} );
-		color: palette( #{$color}, contrast );
-
-    * {
-      color: inherit;
-    }
-
-    a:hover,
-    a:focus {
-      color: inherit;
-      opacity: .75;
-    }
+		background-color: var(--#{$color});
+		color: var(--#{$color}-contrast);
   }
 }
 

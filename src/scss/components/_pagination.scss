@@ -20,18 +20,18 @@
     
     &:hover,
     &:focus {
-      background: palette( default, contrast );
+      background: var(--contrast);
     }
   }
   
   [tabindex="-1"] {
-    color: palette( muted );
+    color: var(--muted);
     pointer-events: none;
   }
   
   [aria-current] {
-    background: palette( accent );
-    color: palette( accent, contrast );
+    background: var(--accent);
+    color: var(--contrast);
     pointer-events: none;
   }
 }

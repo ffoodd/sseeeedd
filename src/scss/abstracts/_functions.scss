@@ -38,23 +38,6 @@
 }
 
 
-// Color palette
-// @note Allow to pick a color in defined color palette
-// @author Tom Davies
-// @see http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/
-@function palette( $color, $tone: "base" ) {
-  @if ( map-has-key( $colors, $color ) ) {
-    @if ( map-has-key( map-get( $colors, $color ), $tone ) ) {
-      @return map-get( map-get( $colors, $color ), $tone );
-    } @else {
-      @error "Biip ! `#{$tone}` is not a valid `#{$color}`'s variants.";
-    }
-  } @else {
-    @error "Biip ! `#{$color}` is not part of our palette…";
-  }
-}
-
-
 // Replace `$search` with `$replace` in `$string`
 // @author Hugo Giraudel
 // @param {String} $string - Initial string

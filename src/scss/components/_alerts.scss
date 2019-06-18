@@ -3,6 +3,8 @@
 /* ==================== */
 
 [role="alert"] {
+  border: 1px solid var(--alert-color);
+  box-shadow: em( 4 ) em( 4 ) 0 0 var(--alert-color);
 	font-weight: bold;
 	margin: $gutter $gutter / 2;
 	padding: 0 $gutter;
@@ -10,7 +12,6 @@
 
 @each $alert in alert, success, accent, dominant, secondary {
 	.bg-#{$alert}[role="alert"] {
-		border: 1px solid palette( #{$alert}, dark );
-		box-shadow: em( 4 ) em( 4 ) 0 0 palette( #{$alert}, dark );
+    --alert-color: var(--#{$alert}-dark);
 	}
 }

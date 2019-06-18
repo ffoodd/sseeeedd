@@ -14,7 +14,7 @@ blockquote {
   z-index: 2;
 
   &::before {
-    color: palette( muted, light );
+    color: var(--muted-light);
     content: open-quote;
     font-size: em( 160 );
     font-weight: 700;
@@ -51,14 +51,14 @@ strong {
 }
 
 cite {
-  color: palette( accent );
+  color: var(--accent);
   font-style: normal;
   @extend .hn;
 }
 
 hr {
-  border-bottom: 1px solid palette( default, contrast );
-  border-top: 1px solid transparentize( palette( muted, light ), .5 );
+  border-bottom: 1px solid var(--contrast);
+  border-top: 1px solid var(--muted-light);
   height: 0;
 }
 
@@ -69,10 +69,10 @@ code {
 }
 
 pre {
-  background: palette( dominant );
+  background: var(--dominant);
   border: 0;
   border-radius: em( 4 );
-  color: palette( dominant, contrast );
+  color: var(--contrast);
   direction: ltr;
   font-family: "Fira Mono", "Consolas", "Monaco", "Andale Mono", monospace;
   font-size: small;
@@ -88,10 +88,10 @@ pre {
   word-wrap: normal;
 
   &::before {
-    background: palette( alert );
+    background: var(--alert);
     border-radius: 50%;
     box-shadow: em( 24 ) 0 0 0 Orange,
-                em( 48 ) 0 0 0 palette( success );
+                em( 48 ) 0 0 0 var(--success);
     content: "";
     display: block;
     height: 1rem;
@@ -104,7 +104,7 @@ pre {
 :not(pre) > code {
   border: 1px solid;
   border-radius: .2em;
-  color: palette( accent );
+  color: var(--accent);
   display: inline-block;
   font-family: inherit;
   padding: .1em;
@@ -112,9 +112,9 @@ pre {
 }
 
 :not(pre) > var {
-  background: palette( accent, contrast );
+  background: var(--contrast);
   border-style: dashed;
-  color: palette( accent, dark );
+  color: var(--accent-dark);
 }
 
 dl,

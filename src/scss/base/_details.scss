@@ -3,7 +3,7 @@
 /* ==================== */
 
 details {
-  border: em( 4 ) solid palette( dominant, dark );
+  border: em( 4 ) solid var(--dominant-dark);
 
   & + & {
     border-top-width: 0;
@@ -14,15 +14,15 @@ details {
   }
 
   summary {
-    background: palette( dominant );
-    color: palette( dominant, contrast );
+    background: var(--dominant);
+    color: var(--contrast);
     cursor: pointer;
     padding: 1rem;
     transition: background .2s map-get( $timing-functions, 'enter' );
 
     &:hover,
     &:focus {
-      background: palette( dominant, dark );
+      background: var(--dominant-dark);
     }
 
     ~ * {

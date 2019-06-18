@@ -3,10 +3,10 @@
 /* ==================== */
 
 button[role="switch"] {
-  background-color: transparentize( palette( dominant, light ), .9 );
+  background-color: var(--dominant-light);
   border-radius: rem( 22 ) !important;
   box-sizing: content-box;
-  color: palette( dominant );
+  color: var(--dominant);
   height: rem( 44 );
   line-height: rem( 44 );
   outline-color: transparent;
@@ -16,7 +16,7 @@ button[role="switch"] {
   will-change: background-color;
 
   &::before {
-    background: palette( default, contrast );
+    background: var(--contrast);
     border-radius: rem( 22 );
     content: "";
     position: absolute;
@@ -32,20 +32,20 @@ button[role="switch"] {
   &:hover,
   &:focus,
   &:active {
-    background-color: transparentize( palette( dominant, light ), .925 );
-    color: palette( dominant, dark );
+    background-color: var(--dominant-light);
+    color: var(--dominant-dark);
   }
 
   &[aria-checked="true"] {
-    background-color: transparentize( palette( success, light ), .75 );
+    background-color: var(--success-light);
 
     &::before {
-      background: palette( success, dark );
+      background: var(--success-dark);
       transform: translateX(#{rem( 78 ) + $gutter * 3});
     }
 
     &:focus {
-      box-shadow: 0 0 0 rem( 2 ) transparentize( palette( success, dark ), .75 );
+      box-shadow: 0 0 0 rem( 2 ) var(--success-dark);
     }
   }
 

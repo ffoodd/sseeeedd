@@ -6,10 +6,9 @@
 /* ==================== */
 
 .card {
-  --background: #{palette( default, contrast )};
-  --border: #{palette( muted, light )};
-  --color: #{palette( default )};
-  --shadow: #{transparentize(palette( default ), .75)};
+  --background: var(--contrast);
+  --border: var(--muted-light);
+  --color: var(--default);
   background: var(--background);
   border: 1px solid var(--border);
   border-radius: em( 4 );
@@ -22,7 +21,7 @@
 
   &:hover,
   &:focus-within {
-    box-shadow: 0 0 0 rem( 4 ) var(--shadow);
+    box-shadow: 0 0 0 rem( 4 ) var(--color);
   }
 
   &:focus-within .card-link:focus {
@@ -88,9 +87,8 @@
 
 @each $variant in alert, success, accent, dominant, secondary {
 	.card-#{$variant} {
-		--background: #{palette( $variant )};
-    --border: #{palette( $variant, dark )};
-		--color: #{palette( $variant, contrast )};
-    --shadow: #{transparentize(palette( $variant ), .75)};
+		--background: var(--#{$variant});
+    --border: var(--#{$variant}-dark);
+		--color: var(--#{$variant}-contrast);
 	}
 }

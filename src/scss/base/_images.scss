@@ -21,7 +21,7 @@ img[alt] {
 
   /* 1 */
   &::after {
-    background: palette( default, contrast );
+    background: var(--contrast);
     display: block;
     content:
       attr( alt )         /* 3 */
@@ -39,7 +39,7 @@ svg {
 }
 
 figure {
-  background: palette( default, contrast );
+  background: var(--contrast);
   margin: $gutter auto;
   max-width: 100%;
   overflow: hidden;

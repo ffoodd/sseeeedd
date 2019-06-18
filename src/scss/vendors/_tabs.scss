@@ -7,7 +7,7 @@
 /* ==================== */
 
 [role="tablist"] {
-  color: palette( dominant, light );
+  color: var(--dominant-light);
   margin-bottom: 0;
 }
 
@@ -21,10 +21,10 @@
   transform: translateY(1px);
 
   &[aria-selected="true"] {
-    background: palette( default, contrast );
-    border: 1px solid transparentize( palette( dominant, light ), .75 );
-    border-bottom-color: palette( default, contrast );
-    color: palette( secondary );
+    background: var(--contrast);
+    border: 1px solid var(--dominant-light);
+    border-bottom-color: var(--contrast);
+    color: var(--secondary);
   }
 
   &:active {
@@ -32,14 +32,14 @@
   }
 
   &:focus {
-    outline-color: transparentize( palette( dominant, light ), .75 );
+    outline-color: var(--dominant-light);
     outline-offset: rem( -44 );
   }
 }
 
 [role="tabpanel"] {
-  background: palette( default, contrast );
-  border: 1px solid transparentize( palette( dominant, light ), .75 );
+  background: var(--contrast);
+  border: 1px solid var(--dominant-light);
   border-radius: rem( 4 );
   padding: $gutter;
 

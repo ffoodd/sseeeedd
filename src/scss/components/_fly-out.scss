@@ -28,10 +28,10 @@
 
   a,
   button {
-    background: palette( secondary, contrast );
+    background: var(--contrast);
     border: 0;
     border-radius: 0;
-    color: palette( secondary );
+    color: var(--secondary);
     display: block;
     margin: 0;
     outline: rem( 2 ) solid transparent;
@@ -44,9 +44,9 @@
     &:hover,
     &:focus,
     &:active {
-      background: palette( default, secondary );
+      background: var(--default-secondary);
       border: 0;
-      color: palette( secondary, dark );
+      color: var(--secondary-dark);
     }
 
     &:focus {
@@ -57,7 +57,7 @@
   }
 
   > * {
-    background: palette( default, contrast );
+    background: var(--contrast);
     margin: $gutter / 2;
     position: relative;
     z-index: 1;
@@ -118,9 +118,9 @@
   > * > button:hover + ul,
   > * > button:focus + ul,
   > * > button:active + ul {
-    box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
+    box-shadow: em( 4 ) em( 4 ) 0 0 var(--default);
     clip: auto;  /* 1 */
-    outline: 1px solid palette( muted, light );
+    outline: 1px solid var(--muted-light);
     transition: clip .3s map-get( $timing-functions, 'exit' );
   }
 
@@ -162,9 +162,9 @@
       > * > button:hover + ul,
       > * > button:focus + ul,
       > * > button:active + ul {
-        box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
+        box-shadow: em( 4 ) em( 4 ) 0 0 var(--default);
         clip-path: circle(150% at top right);
-        outline: 1px solid palette( muted, light );
+        outline: 1px solid var(--muted-light);
         transition: clip-path .3s map-get( $timing-functions, 'exit' );
       }
 
