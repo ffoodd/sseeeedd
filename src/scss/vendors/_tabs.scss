@@ -51,9 +51,3 @@
     display: none;
   }
 }
-
-@media screen and (-ms-high-contrast: active) {
-  [role="tab"][aria-selected="true"] {
-    border-color: buttonText buttonText buttonFace;
-  }
-}

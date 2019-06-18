@@ -52,6 +52,36 @@ html {
   --data-success: %2301ac49;
 }
 
+@media screen and (-ms-high-contrast: active) {
+  html {
+    --contrast: buttonText;
+    --contrast-light: windowText;
+    --dominant: buttonFace;
+    --dominant-light: var(--dominant);
+    --dominant-dark: var(--dominant);
+    --secondary: window;
+    --secondary-light: var(--secondary);
+    --secondary-dark: var(--secondary);
+    --secondary-contrast: var(--contrast-light);
+    --accent: highlight;
+    --accent-light: var(--accent);
+    --accent-dark: var(--accent);
+    --accent-contrast: highlightText;
+    --alert: var(--accent);
+    --alert-light: var(--accent);
+    --alert-dark: var(--accent);
+    --alert-contrast: var(--accent-contrast);
+    --success: var(--accent);
+    --success-light: var(--accent);
+    --success-dark: var(--accent);
+    --success-contrast: var(--accent-contrast);
+    --muted: grayText;
+    --muted-light: var(--muted);
+    --default: var(--muted);
+    --default-secondary: var(--secondary);
+  }
+}
+
 /* ==================== */
 /* == Timing functions
  *

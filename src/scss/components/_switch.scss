@@ -16,7 +16,7 @@ button[role="switch"] {
   will-change: background-color;
 
   &::before {
-    background: var(--contrast);
+    background: currentColor;
     border-radius: rem( 22 );
     content: "";
     position: absolute;
@@ -49,6 +49,10 @@ button[role="switch"] {
     }
   }
 
+  > span {
+    background-color: inherit;
+  }
+
   > *:first-child,
   &[aria-checked="true"] > *:last-child {
     display: none;
@@ -56,28 +60,5 @@ button[role="switch"] {
 
   &[aria-checked="true"] > *:first-child {
     display: block;
-  }
-}
-
-@media screen and (-ms-high-contrast: active) {
-  button[role="switch"] {
-    background-color: buttonFace;
-    border: 1px solid currentColor !important;
-    color: buttonText;
-
-    > span {
-      background-color: inherit;
-    }
-
-    &::before {
-      background: currentColor;
-    }
-
-    @supports (--css: var(--iables)) {
-      button[role="switch"][aria-checked="true"] {
-        background-color: highlight;
-        color: highlightText;
-      }
-    }
   }
 }

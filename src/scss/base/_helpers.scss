@@ -166,48 +166,6 @@
   }
 }
 
-@media screen and (-ms-high-contrast: active) {
-  .clr-success,
-  .clr-dominant {
-		color: buttonFace !important;
-  }
-
-  .clr-secondary {
-    color: window !important;
-  }
-
-  .muted {
-    color: grayText !important;
-
-    em,
-    strong {
-      color: windowText;
-    }
-  }
-
-  .bg-success,
-  .bg-dominant {
-		background-color: buttonFace;
-		color: buttonText;
-  }
-
-  .bg-secondary {
-		background-color: window;
-		color: windowText;
-  }
-
-  .clr-alert,
-  .clr-accent {
-		color: highlight !important;
-  }
-
-  .bg-alert,
-  .bg-accent {
-		background-color: highlight;
-		color: highlightText;
-  }
-}
-
 // Others
 .rounded {
   border-radius: 50%;
