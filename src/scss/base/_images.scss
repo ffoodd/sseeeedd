@@ -74,6 +74,11 @@ figure {
       }
     }
   }
+
+  .deck > figure {
+    min-width: 0;
+    width: 100%;
+  }
 }
 
 @media (inverted-colors) {
