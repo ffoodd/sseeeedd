@@ -88,14 +88,17 @@
             La mise en forme de cette palette est basée sur <a href="https://codepen.io/tigt/post/semantic-html-for-colors"
             hreflang="en">une astuce de <cite>Taylor Hunt</cite></a>.
           </p>
-          <div class="deck">
+          <div class="palette">
+            {% import 'macros/_color.html' as palette %}
             {% set colors = ['alert','success','accent','dominant','secondary', 'default'] %}
             {% for color in colors %}
              <figure role="figure" aria-label="{{ color | capitalize }}">
-                <svg width="100%" height="3em" aria-label="{{ color }}" class="clr-{{ color }} mb-1">
-                  <rect fill="currentColor" width="100%" height="100%">
-                </svg>
-                <figcaption class="fw-700 no-padding">{{ color | capitalize }}</figcaption>
+                <figcaption class="fw-700 no-padding mb-1">{{ color | capitalize }}</figcaption>
+                {{ palette.color(color) }}
+                <div class="grid-2">
+                  {{ palette.color(color, '-light', 'claire') }}
+                  {{ palette.color(color, '-dark', 'sombre') }}
+                </div>
               </figure>
              {% endfor %}
           </div>
