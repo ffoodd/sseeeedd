@@ -5,11 +5,15 @@
 .palette {
   display: grid;
   grid-gap: $gutter;
-  grid-template-columns: repeat(auto-fill, minmax(calc(100% / 7), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(#{rem( 150 )}, 1fr));
   grid-auto-flow: dense;
 
   figure {
     min-width: 0;
     width: 100%;
+  }
+
+  [class*="grid"] {
+    grid-gap: $gutter;
   }
 }
