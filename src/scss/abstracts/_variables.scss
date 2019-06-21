@@ -20,36 +20,34 @@ html {
   // ====================
   // == Colors
   // ====================
-  --contrast: white;
-  --contrast-light: black;
-  --dominant: #444;
+  --contrast: hsl(0, 0%, 100%);
+  --contrast-light: hsl(0, 0%, 0%);
+  --dominant: hsl(0, 0%, 26.7%);
   --dominant-light: var(--secondary);
-  --dominant-dark: black;
+  --dominant-dark: hsl(0, 0%, 0%);
   --dominant-contrast: var(--contrast);
-  --secondary: mediumblue;
-  --secondary-light: deepskyblue;
-  --secondary-dark: DarkBlue;
+  --secondary: hsl(240, 100%, 40.2%);       // mediumblue
+  --secondary-light: hsl(195.1, 100%, 50%); // deepskyblue
+  --secondary-dark: hsl(240, 100%, 27.3%);  // darkblue
   --secondary-contrast: var(--contrast);
-  --accent: rebeccapurple;
-  --accent-light: blueviolet;
-  --accent-dark: indigo;
+  --accent: hsl(270, 50%, 40%);             // rebeccapurple
+  --accent-light: hsl(271.1, 75.9%, 52.7%); // blueviolet
+  --accent-dark: hsl(274.6, 100%, 25.5%);   // indigo
   --accent-contrast: var(--contrast);
-  --alert: crimson;
-  --alert-light: firebrick;
-  --alert-dark: #911;
+  --alert: hsl(348, 83.3%, 47.1%);          // crimson
+  --alert-light: hsl(0, 67.9%, 41.6%);      // firebrick
+  --alert-dark: hsl(0, 80%, 33.3%);         // #911
   --alert-contrast: var(--contrast);
-  --success: springgreen;
-  --success-light: palegreen;
-  --success-dark: #01ac49;
+  --success: hsl(149.9, 100%, 50%);         // springreen
+  --success-light: hsl(120, 92.5%, 79%);    // palegreen
+  --success-dark: hsl(145.3, 98.8%, 33.9%);
   --success-contrast: var(--dominant);
-  --muted: gray;
-  --muted-light: darkgray;
-  --default: dimgray;
+  --muted: hsl(0, 0%, 41.2%);               // gray
+  --muted-light: hsl(0, 0%, 66.3%);         // darkgray
+  --default: hsl(0, 0%, 26.7%);             // dimgray
   --default-light: var(--muted-light);
-  --default-secondary: whitesmoke;
+  --default-secondary: hsl(0, 0%, 96.1%);   // whitesmoke
   --default-contrast: var(--contrast);
-  // To use in Data URi SVG
-  --data-success: %2301ac49;
   // ==================== */
   // == Timing functions
   //
@@ -68,7 +66,7 @@ html {
   --anchor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 85 85.2'%3E%3Cpath d='M56.7 51.7l9.1 9c-2.3 5.5-8.1 9.7-17.3 11.2v-45c6.1-2.3 8-7.1 8-12.7C56.5 6.4 50.2 0 42.4 0s-14 6.3-14 14.2c0 5.6 1.9 10.4 8 12.7v45c-9.1-1.5-15-5.7-17.3-11.2l9.2-9H0v27.8l9.8-9.8c6.2 9.2 18.5 15.5 32.7 15.5 14.2 0 26.5-6.3 32.7-15.5l9.8 9.8V51.7zM42.5 19c-2.6 0-4.7-2.1-4.7-4.7s2.1-4.7 4.7-4.7 4.7 2.1 4.7 4.7-2.1 4.7-4.7 4.7z'/%3E%3C/svg%3E");
   --select: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 59 47.5'%3E%3Cpath d='M29.414,37.657 L0.344,8.586 L8.828,0.102 L29.414,20.686 L50,0.1 L58.484,8.585 L29.414,37.657'/%3E%3C/svg%3E");
   --required: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'%3E%3Cpath fill='var(--alert)' d='M53.5355339 41.4644661L70 25l5 5-16.4644661 16.4644661h23.2842713v7.0710678H58.5355339L75 70l-5 5-16.4644661-16.4644661v23.2842713h-7.0710678V58.5355339L30 75l-5-5 16.4644661-16.4644661H18.1801948v-7.0710678h23.2842713L25 30l5-5 16.4644661 16.4644661V18.1801948h7.0710678z'/%3E%3C/svg%3E");
-  --valid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6.3 6.1'%3E%3Cpath fill='var(--data-success)' d='M0 2.6235l.898-.898 1.3851 1.3851L5.3936 0l.898.8981-4.0085 4.0085L0 2.6235z'/%3E%3C/svg%3E");
+  --valid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6.3 6.1'%3E%3Cpath fill='var(--success)' d='M0 2.6235l.898-.898 1.3851 1.3851L5.3936 0l.898.8981-4.0085 4.0085L0 2.6235z'/%3E%3C/svg%3E");
   --invalid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'%3E%3Cpath fill='var(--alert)' d='M74.749 11.109L50 35.858 25.251 11.109 11.109 25.251 35.858 50 11.109 74.749l14.142 14.142L50 64.142l24.749 24.749 14.142-14.142L64.142 50l24.749-24.749z'/%3E%3C/svg%3E");
   --mail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 56'%3E%3Cpath d='M0 0v3.7188l42 28.62504L84.000004 3.7188V0zm0 10.9688v45.03124h84.000004V10.9688L43.6875 38.46884a3.0003 3.0003 0 0 1-3.375 0z'/%3E%3C/svg%3E");
   --tel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 88'%3E%3Cpath d='M6 0C2.676 0 0 2.676 0 6v76.00005c0 3.324 2.676 6 6 6h34c3.324 0 6-2.676 6-6V6c0-3.324-2.676-6-6-6zM4 10h38v64.00005H4z'/%3E%3C/svg%3E");
