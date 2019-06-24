@@ -20,34 +20,43 @@ html {
   // ====================
   // == Colors
   // ====================
-  --contrast: hsl(0, 0%, 100%);
-  --contrast-light: hsl(0, 0%, 0%);
-  --dominant: hsl(0, 0%, 26.7%);
-  --dominant-light: var(--secondary);
-  --dominant-dark: hsl(0, 0%, 0%);
+  // Hues
+  --main: 240;
+  --next: 270;
+  --good: 150;
+  // Lightnesses
+  --high: 50%;
+  --base: 40%;
+  --low:  25%;
+  // Palette
+  --contrast:          hsl(0, 0%, 100%);
+  --contrast-light:    hsl(0, 0%, 0%);
+  --dominant:          hsl(0, 0%, var(--low));
+  --dominant-light:    var(--secondary);
+  --dominant-dark:     hsl(0, 0%, 0%);
   --dominant-contrast: var(--contrast);
-  --secondary: hsl(240, 100%, 40.2%);       // mediumblue
-  --secondary-light: hsl(195.1, 100%, 50%); // deepskyblue
-  --secondary-dark: hsl(240, 100%, 27.3%);  // darkblue
+  --secondary:         hsl(var(--main), 100%,  var(--base));       // mediumblue
+  --secondary-light:   hsl(var(--main), 100%,  var(--high)); // deepskyblue
+  --secondary-dark:    hsl(var(--main), 100%,  var(--low));  // darkblue
   --secondary-contrast: var(--contrast);
-  --accent: hsl(270, 50%, 40%);             // rebeccapurple
-  --accent-light: hsl(271.1, 75.9%, 52.7%); // blueviolet
-  --accent-dark: hsl(274.6, 100%, 25.5%);   // indigo
-  --accent-contrast: var(--contrast);
-  --alert: hsl(348, 83.3%, 47.1%);          // crimson
-  --alert-light: hsl(0, 67.9%, 41.6%);      // firebrick
-  --alert-dark: hsl(0, 80%, 33.3%);         // #911
-  --alert-contrast: var(--contrast);
-  --success: hsl(149.9, 100%, 50%);         // springreen
-  --success-light: hsl(120, 92.5%, 79%);    // palegreen
-  --success-dark: hsl(145.3, 98.8%, 33.9%);
-  --success-contrast: var(--dominant);
-  --muted: hsl(0, 0%, 41.2%);               // gray
-  --muted-light: hsl(0, 0%, 66.3%);         // darkgray
-  --default: hsl(0, 0%, 26.7%);             // dimgray
-  --default-light: var(--muted-light);
+  --accent:            hsl(var(--next), 50%,   var(--base));             // rebeccapurple
+  --accent-light:      hsl(var(--next), 75.9%, var(--high)); // blueviolet
+  --accent-dark:       hsl(var(--next), 100%,  var(--low));   // indigo
+  --accent-contrast:   var(--contrast);
+  --alert:             hsl(0, 83.3%, var(--base));          // crimson
+  --alert-light:       hsl(0, 67.9%, 41.6%);      // firebrick
+  --alert-dark:        hsl(0, 80%, 33.3%);         // #911
+  --alert-contrast:    var(--contrast);
+  --success:           hsl(var(--good), 100%, var(--high));         // springreen
+  --success-light:     hsl(var(--good), 92.5%, 79%);    // palegreen
+  --success-dark:      hsl(var(--good), 98.8%, 33.9%);
+  --success-contrast:  var(--dominant);
+  --muted:             hsl(0, 0%, var(--base));               // gray
+  --muted-light:       hsl(0, 0%, 66.3%);         // darkgray
+  --default:           hsl(0, 0%, var(--low));             // dimgray
+  --default-light:     var(--muted);
   --default-secondary: hsl(0, 0%, 96.1%);   // whitesmoke
-  --default-contrast: var(--contrast);
+  --default-contrast:  var(--contrast);
   // ==================== */
   // == Timing functions
   //
@@ -82,7 +91,7 @@ html {
     --secondary: window;
     --secondary-light: var(--secondary);
     --secondary-dark: var(--secondary);
-    --secondary-contrast: var(--contrast-light);
+    --secondary-contrast: var(--contrast);
     --accent: highlight;
     --accent-light: var(--accent);
     --accent-dark: var(--accent);
