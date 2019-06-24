@@ -85,7 +85,7 @@
 /* -- Variants
 /* -------------------- */
 
-@each $variant in alert, success, accent, dominant, secondary {
+@each $variant in alert, success, accent, default, secondary {
 	.card-#{$variant} {
 		--background: var(--#{$variant});
     --border: var(--#{$variant}-dark);

@@ -60,7 +60,7 @@ select,
 #{$form-fields} {
   appearance: none;
   background-color: var(--contrast);
-  border: 1px solid var(--dominant-dark);
+  border: 1px solid var(--default-dark);
   color: var(--default);
   transition: box-shadow .3s var(--enter);
   width: 100%;

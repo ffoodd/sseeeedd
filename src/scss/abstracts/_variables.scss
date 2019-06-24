@@ -31,10 +31,6 @@ html {
   // Palette
   --contrast:          hsl(0, 0%, 100%);
   --contrast-light:    hsl(0, 0%, 0%);
-  --dominant:          hsl(0, 0%, var(--low));
-  --dominant-light:    var(--secondary);
-  --dominant-dark:     hsl(0, 0%, 0%);
-  --dominant-contrast: var(--contrast);
   --secondary:         hsl(var(--main), 100%,  var(--base));       // mediumblue
   --secondary-light:   hsl(var(--main), 100%,  var(--high)); // deepskyblue
   --secondary-dark:    hsl(var(--main), 100%,  var(--low));  // darkblue
@@ -50,11 +46,12 @@ html {
   --success:           hsl(var(--good), 100%, var(--high));         // springreen
   --success-light:     hsl(var(--good), 92.5%, 79%);    // palegreen
   --success-dark:      hsl(var(--good), 98.8%, 33.9%);
-  --success-contrast:  var(--dominant);
+  --success-contrast:  var(--default);
   --muted:             hsl(0, 0%, var(--base));               // gray
   --muted-light:       hsl(0, 0%, 66.3%);         // darkgray
   --default:           hsl(0, 0%, var(--low));             // dimgray
   --default-light:     var(--muted);
+  --default-dark:      hsl(0, 0%, 0%);
   --default-secondary: hsl(0, 0%, 96.1%);   // whitesmoke
   --default-contrast:  var(--contrast);
   // ==================== */
@@ -85,9 +82,6 @@ html {
   html {
     --contrast: buttonText;
     --contrast-light: windowText;
-    --dominant: buttonFace;
-    --dominant-light: var(--dominant);
-    --dominant-dark: var(--dominant);
     --secondary: window;
     --secondary-light: var(--secondary);
     --secondary-dark: var(--secondary);

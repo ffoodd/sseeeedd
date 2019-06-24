@@ -3,10 +3,10 @@
 /* ==================== */
 
 button[role="switch"] {
-  background-color: var(--dominant-light);
+  background-color: var(--default-light);
   border-radius: rem( 22 ) !important;
   box-sizing: content-box;
-  color: var(--dominant);
+  color: var(--default);
   height: rem( 44 );
   line-height: rem( 44 );
   outline-color: transparent;
@@ -32,8 +32,8 @@ button[role="switch"] {
   &:hover,
   &:focus,
   &:active {
-    background-color: var(--dominant-light);
-    color: var(--dominant-dark);
+    background-color: var(--default-light);
+    color: var(--default-dark);
   }
 
   &[aria-checked="true"] {

@@ -10,7 +10,7 @@
 	padding: 0 $gutter;
 }
 
-@each $alert in alert, success, accent, dominant, secondary {
+@each $alert in alert, success, accent, default, secondary {
 	.bg-#{$alert}[role="alert"] {
     --alert-color: var(--#{$alert}-dark);
 	}

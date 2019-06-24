@@ -145,7 +145,7 @@
   }
 }
 
-@each $color in default, alert, success, accent, dominant, secondary {
+@each $color in default, alert, success, accent, secondary {
 	.clr-#{$color} {
 		color: var(--#{$color}) !important;
   }
@@ -164,7 +164,7 @@
 }
 
 // Backgrounds
-@each $color in alert, success, accent, dominant, secondary, default {
+@each $color in alert, success, accent, secondary, default {
 	.bg-#{$color} {
 		background-color: var(--#{$color});
 		color: var(--#{$color}-contrast);

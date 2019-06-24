@@ -30,7 +30,7 @@
 
 [role="tooltip"] {
   --arrow: calc(100% - #{$gutter / 4});
-  background: var(--dominant);
+  background: var(--default);
   bottom: calc(100% + .5em);
   clip-path: polygon(
     0% 0%,

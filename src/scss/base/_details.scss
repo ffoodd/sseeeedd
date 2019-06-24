@@ -3,7 +3,7 @@
 /* ==================== */
 
 details {
-  border: em( 4 ) solid var(--dominant-dark);
+  border: em( 4 ) solid var(--default-dark);
 
   & + & {
     border-top-width: 0;
@@ -14,7 +14,7 @@ details {
   }
 
   summary {
-    background: var(--dominant);
+    background: var(--default);
     color: var(--contrast);
     cursor: pointer;
     padding: 1rem;
@@ -22,7 +22,7 @@ details {
 
     &:hover,
     &:focus {
-      background: var(--dominant-dark);
+      background: var(--default-dark);
     }
 
     ~ * {
