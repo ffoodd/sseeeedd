@@ -30,29 +30,29 @@ html {
   --low:  25%;
   // Palette
   --contrast:          hsl(0, 0%, 100%);
-  --contrast-light:    hsl(0, 0%, 0%);
-  --secondary:         hsl(var(--main), 100%,  var(--base));       // mediumblue
+  --contrast-inverse:  hsl(0, 0%, 0%);
+  --secondary:         hsl(var(--main), 100%,  var(--base)); // mediumblue
   --secondary-light:   hsl(var(--main), 100%,  var(--high)); // deepskyblue
   --secondary-dark:    hsl(var(--main), 100%,  var(--low));  // darkblue
   --secondary-contrast: var(--contrast);
-  --accent:            hsl(var(--next), 50%,   var(--base));             // rebeccapurple
-  --accent-light:      hsl(var(--next), 75.9%, var(--high)); // blueviolet
-  --accent-dark:       hsl(var(--next), 100%,  var(--low));   // indigo
+  --accent:            hsl(var(--next), 50%,   var(--base)); // rebeccapurple
+  --accent-light:      hsl(var(--next), 50%,   var(--high)); // blueviolet
+  --accent-dark:       hsl(var(--next), 50%,   var(--low));  // indigo
   --accent-contrast:   var(--contrast);
-  --alert:             hsl(0, 83.3%, var(--base));          // crimson
-  --alert-light:       hsl(0, 67.9%, 41.6%);      // firebrick
-  --alert-dark:        hsl(0, 80%, 33.3%);         // #911
+  --alert:             hsl(0, 75%, var(--base));             // crimson
+  --alert-light:       hsl(0, 75%, var(--high));             // firebrick
+  --alert-dark:        hsl(0, 75%, var(--low));              // #911
   --alert-contrast:    var(--contrast);
-  --success:           hsl(var(--good), 100%, var(--high));         // springreen
-  --success-light:     hsl(var(--good), 92.5%, 79%);    // palegreen
-  --success-dark:      hsl(var(--good), 98.8%, 33.9%);
+  --success:           hsl(var(--good), 100%, var(--base));  // springreen
+  --success-light:     hsl(var(--good), 100%, var(--high));  // palegreen
+  --success-dark:      hsl(var(--good), 100%, var(--low));
   --success-contrast:  var(--default);
-  --muted:             hsl(0, 0%, var(--base));               // gray
-  --muted-light:       hsl(0, 0%, 66.3%);         // darkgray
-  --default:           hsl(0, 0%, var(--low));             // dimgray
+  --muted:             hsl(0, 0%, var(--base));              // gray
+  --muted-light:       hsl(0, 0%, var(--high));              // darkgray
+  --default:           hsl(0, 0%, var(--low));               // dimgray
   --default-light:     var(--muted);
-  --default-dark:      hsl(0, 0%, 0%);
-  --default-secondary: hsl(0, 0%, 96.1%);   // whitesmoke
+  --default-dark:      var(--contrast-inverse);
+  --default-secondary: hsl(0, 0%, 95%);                      // whitesmoke
   --default-contrast:  var(--contrast);
   // ==================== */
   // == Timing functions
@@ -81,7 +81,7 @@ html {
 @media screen and (-ms-high-contrast: active) {
   html {
     --contrast: buttonText;
-    --contrast-light: windowText;
+    --contrast-inverse: windowText;
     --secondary: window;
     --secondary-light: var(--secondary);
     --secondary-dark: var(--secondary);
