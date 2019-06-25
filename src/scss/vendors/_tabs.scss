@@ -22,7 +22,7 @@
 
   &[aria-selected="true"] {
     background: hsl(var(--contrast));
-    border: 1px solid hsl(var(--default-light));
+    border: 1px solid hsla(var(--default-light), .25);
     border-bottom-color: hsl(var(--contrast));
     color: hsl(var(--secondary));
   }
@@ -32,14 +32,14 @@
   }
 
   &:focus {
-    outline-color: hsl(var(--default-light));
+    outline-color: hsla(var(--default-light), .25);
     outline-offset: rem( -44 );
   }
 }
 
 [role="tabpanel"] {
   background: hsl(var(--contrast));
-  border: 1px solid hsl(var(--default-light));
+  border: 1px solid hsla(var(--default-light), .25);
   border-radius: rem( 4 );
   padding: $gutter;
 

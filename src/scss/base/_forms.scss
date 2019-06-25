@@ -67,7 +67,7 @@ select,
 
   &:focus {
     border: 1px solid hsl(var(--accent-light));
-    box-shadow: 0 0 0 rem( 2 ) hsl(var(--accent-light));
+    box-shadow: 0 0 0 rem( 2 ) hsla(var(--accent-light), .25);
   }
 
   /**
@@ -115,7 +115,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   &:focus {
-    box-shadow: 0 0 0 rem( 2 ) var(--accent-light);
+    box-shadow: 0 0 0 rem( 2 ) hsla(var(--accent-light), .25);
     outline-color: transparent;
   }
 
@@ -177,7 +177,7 @@ label [class^="label-msg"] {
 
   &:invalid:not(:focus) {
     background: hsl(var(--contrast)) no-repeat var(--invalid) center right .5em / 1em 1.25em;
-    box-shadow: 0 0 0 rem( 2 ) hsl(var(--alert-light));
+    box-shadow: 0 0 0 rem( 2 ) hsla(var(--alert-light), .5);
   }
 
   &:invalid:placeholder-shown:not(:focus) {

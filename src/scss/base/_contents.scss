@@ -58,7 +58,7 @@ cite {
 
 hr {
   border-bottom: 1px solid hsl(var(--contrast));
-  border-top: 1px solid hsl(var(--muted-light));
+  border-top: 1px solid hsla(var(--muted-light), .5);
   height: 0;
 }
 

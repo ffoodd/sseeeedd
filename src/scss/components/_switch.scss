@@ -3,7 +3,7 @@
 /* ==================== */
 
 button[role="switch"] {
-  background-color: hsl(var(--default-light));
+  background-color: hsla(var(--default-light), .1);
   border-radius: rem( 22 ) !important;
   box-sizing: content-box;
   color: hsl(var(--default));
@@ -32,12 +32,12 @@ button[role="switch"] {
   &:hover,
   &:focus,
   &:active {
-    background-color: hsl(var(--default-light));
+    background-color: hsla(var(--default-light), .075);
     color: hsl(var(--default-dark));
   }
 
   &[aria-checked="true"] {
-    background-color: hsl(var(--success-light));
+    background-color: hsla(var(--success-light), .25);
 
     &::before {
       background: hsl(var(--success-dark));
@@ -45,12 +45,8 @@ button[role="switch"] {
     }
 
     &:focus {
-      box-shadow: 0 0 0 rem( 2 ) hsl(var(--success-dark));
+      box-shadow: 0 0 0 rem( 2 ) hsla(var(--success-dark), .25);
     }
-  }
-
-  > span {
-    background-color: inherit;
   }
 
   > *:first-child,

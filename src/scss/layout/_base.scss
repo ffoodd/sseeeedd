@@ -3,7 +3,7 @@
 /* ==================== */
 
 body > * {
-  background: hsl(var(--default-secondary));
+  background: hsla(var(--default-secondary), .75);
   margin: 0 auto;
   padding: $gutter;
 

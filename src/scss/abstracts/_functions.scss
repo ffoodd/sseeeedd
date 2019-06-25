@@ -5,8 +5,12 @@
 // @note WTF? Need to override Sass function to use native CSS function /!\
 // @author Dan Eden
 // @see https://github.com/sass/sass/issues/469#issuecomment-77290544
-@function hsl($whatever) {
-  @return unquote('hsl(#{$whatever})');
+@function hsl($color) {
+  @return unquote('hsl(#{$color})');
+}
+
+@function hsla($color, $opacity) {
+  @return unquote('hsla(#{$color}, #{$opacity})');
 }
 
 // em conversion

@@ -9,6 +9,7 @@
   --background: hsl(var(--contrast));
   --border: hsl(var(--muted-light));
   --color: hsl(var(--default));
+  --shadow: hsla(var(--default), .25);
   background: var(--background);
   border: 1px solid var(--border);
   border-radius: em( 4 );
@@ -21,7 +22,7 @@
 
   &:hover,
   &:focus-within {
-    box-shadow: 0 0 0 rem( 4 ) var(--color);
+    box-shadow: 0 0 0 rem( 4 ) var(--shadow);
   }
 
   &:focus-within .card-link:focus {
@@ -71,7 +72,8 @@
     top: 0;
   }
 
-  &:hover {
+  &:hover,
+  &:visited {
     color: inherit;
   }
 
@@ -88,7 +90,8 @@
 @each $variant in alert, success, accent, default, secondary {
 	.card-#{$variant} {
 		--background: hsl(var(--#{$variant}));
-    --border: hsl(var(--#{$variant}-dark));
+    --border: hsla(var(--#{$variant}-dark), .25);
 		--color: hsl(var(--#{$variant}-contrast));
+    --shadow: hsla(var(--#{$variant}), .25);
 	}
 }

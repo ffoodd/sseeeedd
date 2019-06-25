@@ -36,7 +36,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 rem( 2 ) hsl(var(--accent-light));
+    box-shadow: 0 0 0 rem( 2 ) hsla(var(--accent-light), .25);
     outline-color: transparent; /* 2 */
   }
 
