@@ -24,7 +24,7 @@ dialog {
 }
 
 .dialog > :first-child {
-  background: var(--default);
+  background: hsl(var(--default));
   bottom: 0;
   left: 0;
   position: fixed;
@@ -38,6 +38,6 @@ dialog {
   padding: $gutter / 2;
 
   &:focus {
-    box-shadow: inset 0 0 0 rem( 2 ) var(--accent-light);
+    box-shadow: inset 0 0 0 rem( 2 ) hsl(var(--accent-light));
   }
 }

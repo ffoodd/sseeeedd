@@ -8,30 +8,30 @@
       content: "← ";
       speak: none;
     }
-    
+
     &:last-child a::after {
       content: " →";
       speak: none;
     }
   }
-  
-  a {    
+
+  a {
     text-decoration: none;
-    
+
     &:hover,
     &:focus {
-      background: var(--contrast);
+      background: hsl(var(--contrast));
     }
   }
-  
+
   [tabindex="-1"] {
-    color: var(--muted);
+    color: hsl(var(--muted));
     pointer-events: none;
   }
-  
+
   [aria-current] {
-    background: var(--accent);
-    color: var(--contrast);
+    background: hsl(var(--accent));
+    color: hsl(var(--contrast));
     pointer-events: none;
   }
 }

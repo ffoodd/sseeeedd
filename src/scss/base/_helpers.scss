@@ -137,17 +137,17 @@
 
 // Colors
 .muted {
-  color: var(--muted) !important;
+  color: hsl(var(--muted)) !important;
 
   em,
   strong {
-    color: var(--default-secondary);
+    color: hsl(var(--default-secondary));
   }
 }
 
 @each $color in default, alert, success, accent, secondary {
 	.clr-#{$color} {
-		color: var(--#{$color}) !important;
+		color: hsl(var(--#{$color})) !important;
   }
 }
 
@@ -166,8 +166,8 @@
 // Backgrounds
 @each $color in alert, success, accent, secondary, default {
 	.bg-#{$color} {
-		background-color: var(--#{$color});
-		color: var(--#{$color}-contrast);
+		background-color: hsl(var(--#{$color}));
+		color: hsl(var(--#{$color}-contrast));
   }
 }
 

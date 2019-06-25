@@ -10,11 +10,11 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: var(--muted);
+	color: hsl(var(--muted));
 }
 
 .token.punctuation {
-	color: var(--secondary-light);
+	color: hsl(var(--secondary-light));
 }
 
 .namespace {
@@ -27,7 +27,7 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.number,
 .token.constant,
 .token.symbol {
-	color: var(--success);
+	color: hsl(var(--success));
 }
 
 .token.selector,
@@ -36,7 +36,7 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.char,
 .token.builtin,
 .token.inserted {
-	color: var(--secondary-light);
+	color: hsl(var(--secondary-light));
 }
 
 .token.operator,
@@ -51,12 +51,12 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: var(--success);
+	color: hsl(var(--success));
 }
 
 .token.regex,
 .token.important {
-	color: var(--alert);
+	color: hsl(var(--alert));
 }
 
 .token.important,
@@ -73,6 +73,6 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 }
 
 .token.deleted {
-	color:  var(--alert-dark);
+	color:  hsl(var(--alert-dark));
 }
 /*! purgecss end ignore */

@@ -9,10 +9,10 @@
  ** @see https://accessibility.blog.gov.uk/2018/08/01/supporting-users-who-change-colours-on-gov-uk/
  */
 #{$form-buttons} {
-  background-color: var(--accent);
-  border: 1px solid var(--accent);
+  background-color: hsl(var(--accent));
+  border: 1px solid hsl(var(--accent));
   border-radius: $gutter / 4;
-  color: var(--contrast);
+  color: hsl(var(--contrast));
   font-family: inherit;
   font-size: 1em;
   line-height: 1.5;
@@ -24,19 +24,19 @@
   appearance: none;
 
   &:hover {
-    border: 1px solid var(--accent-light);
-    background-color: var(--accent-light);
+    border: 1px solid hsl(var(--accent-light));
+    background-color: hsl(var(--accent-light));
   }
 
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    border: 1px solid var(--accent-dark);
-    background-color: var(--accent-dark);
+    border: 1px solid hsl(var(--accent-dark));
+    background-color: hsl(var(--accent-dark));
   }
 
   &:focus {
-    box-shadow: 0 0 0 rem( 2 ) var(--accent-light);
+    box-shadow: 0 0 0 rem( 2 ) hsl(var(--accent-light));
     outline-color: transparent; /* 2 */
   }
 
@@ -50,9 +50,9 @@
     &:hover,
     &:focus,
     &:active {
-      background-color: var(--default);
+      background-color: hsl(var(--default));
       box-shadow: none;
-      color: var(--default-secondary);
+      color: hsl(var(--default-secondary));
       cursor: not-allowed;
       pointer-events: none;
     }

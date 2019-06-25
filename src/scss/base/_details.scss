@@ -3,7 +3,7 @@
 /* ==================== */
 
 details {
-  border: em( 4 ) solid var(--default-dark);
+  border: em( 4 ) solid hsl(var(--default-dark));
 
   & + & {
     border-top-width: 0;
@@ -14,15 +14,15 @@ details {
   }
 
   summary {
-    background: var(--default);
-    color: var(--contrast);
+    background: hsl(var(--default));
+    color: hsl(var(--contrast));
     cursor: pointer;
     padding: 1rem;
     transition: background .2s var(--enter);
 
     &:hover,
     &:focus {
-      background: var(--default-dark);
+      background: hsl(var(--default-dark));
     }
 
     ~ * {

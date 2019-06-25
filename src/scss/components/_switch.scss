@@ -3,10 +3,10 @@
 /* ==================== */
 
 button[role="switch"] {
-  background-color: var(--default-light);
+  background-color: hsl(var(--default-light));
   border-radius: rem( 22 ) !important;
   box-sizing: content-box;
-  color: var(--default);
+  color: hsl(var(--default));
   height: rem( 44 );
   line-height: rem( 44 );
   outline-color: transparent;
@@ -32,20 +32,20 @@ button[role="switch"] {
   &:hover,
   &:focus,
   &:active {
-    background-color: var(--default-light);
-    color: var(--default-dark);
+    background-color: hsl(var(--default-light));
+    color: hsl(var(--default-dark));
   }
 
   &[aria-checked="true"] {
-    background-color: var(--success-light);
+    background-color: hsl(var(--success-light));
 
     &::before {
-      background: var(--success-dark);
+      background: hsl(var(--success-dark));
       transform: translateX(#{rem( 78 ) + $gutter * 3});
     }
 
     &:focus {
-      box-shadow: 0 0 0 rem( 2 ) var(--success-dark);
+      box-shadow: 0 0 0 rem( 2 ) hsl(var(--success-dark));
     }
   }
 

@@ -25,7 +25,7 @@ td {
 
 th,
 table strong {
-  color: var(--default-dark);
+  color: hsl(var(--default-dark));
 }
 
 td {
@@ -34,11 +34,11 @@ td {
 }
 
 tbody {
-  border: 1px solid var(--default);
+  border: 1px solid hsl(var(--default));
 }
 
 thead {
-  border: 1px solid var(--default-dark);
+  border: 1px solid hsl(var(--default-dark));
 }
 
 /**

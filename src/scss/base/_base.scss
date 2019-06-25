@@ -34,8 +34,8 @@ html[lang] {
 }
 
 body {
-  background: var(--default-secondary);
-  color: var(--default);
+  background: hsl(var(--default-secondary));
+  color: hsl(var(--default));
   counter-reset: footnotes;
   font: normal 400 1em/1.5 sans-serif;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -50,8 +50,8 @@ body {
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::selection
  */
 ::selection {
-  background-color: var(--accent);
-  color: var(--default-secondary);
+  background-color: hsl(var(--accent));
+  color: hsl(var(--default-secondary));
   text-shadow: none;
 }
 
@@ -60,7 +60,7 @@ body {
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::placeholder
  */
 ::placeholder {
-  color: var(--default-light);
+  color: hsl(var(--default-light));
 }
 
 /**
@@ -91,7 +91,7 @@ body:hover [tabindex="-1"]:focus {
 }
 
 a {
-  color: var(--secondary);
+  color: hsl(var(--secondary));
   outline: rem( 2 ) solid transparent;
   outline-offset: $gutter * 2;
   text-decoration-style: dotted;
@@ -100,7 +100,7 @@ a {
 
   &:hover,
   &:focus {
-    color: var(--secondary-dark);
+    color: hsl(var(--secondary-dark));
   }
 
   &:active {
@@ -114,7 +114,7 @@ a {
  */
 main a {
   &:visited {
-    color: var(--success-dark);
+    color: hsl(var(--success-dark));
   }
 
   &[href^="#"]::before,
@@ -149,7 +149,7 @@ main a {
   }
 
   &[href^="http:"]::before {
-    color: var(--alert);
+    color: hsl(var(--alert));
     content: "\1f513";
   }
 

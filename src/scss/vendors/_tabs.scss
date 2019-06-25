@@ -7,7 +7,7 @@
 /* ==================== */
 
 [role="tablist"] {
-  color: var(--default-light);
+  color: hsl(var(--default-light));
   margin-bottom: 0;
 }
 
@@ -21,10 +21,10 @@
   transform: translateY(1px);
 
   &[aria-selected="true"] {
-    background: var(--contrast);
-    border: 1px solid var(--default-light);
-    border-bottom-color: var(--contrast);
-    color: var(--secondary);
+    background: hsl(var(--contrast));
+    border: 1px solid hsl(var(--default-light));
+    border-bottom-color: hsl(var(--contrast));
+    color: hsl(var(--secondary));
   }
 
   &:active {
@@ -32,14 +32,14 @@
   }
 
   &:focus {
-    outline-color: var(--default-light);
+    outline-color: hsl(var(--default-light));
     outline-offset: rem( -44 );
   }
 }
 
 [role="tabpanel"] {
-  background: var(--contrast);
-  border: 1px solid var(--default-light);
+  background: hsl(var(--contrast));
+  border: 1px solid hsl(var(--default-light));
   border-radius: rem( 4 );
   padding: $gutter;
 

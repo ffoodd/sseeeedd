@@ -6,9 +6,9 @@
 /* ==================== */
 
 .card {
-  --background: var(--contrast);
-  --border: var(--muted-light);
-  --color: var(--default);
+  --background: hsl(var(--contrast));
+  --border: hsl(var(--muted-light));
+  --color: hsl(var(--default));
   background: var(--background);
   border: 1px solid var(--border);
   border-radius: em( 4 );
@@ -87,8 +87,8 @@
 
 @each $variant in alert, success, accent, default, secondary {
 	.card-#{$variant} {
-		--background: var(--#{$variant});
-    --border: var(--#{$variant}-dark);
-		--color: var(--#{$variant}-contrast);
+		--background: hsl(var(--#{$variant}));
+    --border: hsl(var(--#{$variant}-dark));
+		--color: hsl(var(--#{$variant}-contrast));
 	}
 }

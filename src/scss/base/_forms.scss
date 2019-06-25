@@ -59,15 +59,15 @@ label[for] {
 select,
 #{$form-fields} {
   appearance: none;
-  background-color: var(--contrast);
-  border: 1px solid var(--default-dark);
-  color: var(--default);
+  background-color: hsl(var(--contrast));
+  border: 1px solid hsl(var(--default-dark));
+  color: hsl(var(--default));
   transition: box-shadow .3s var(--enter);
   width: 100%;
 
   &:focus {
-    border: 1px solid var(--accent-light);
-    box-shadow: 0 0 0 rem( 2 ) var(--accent-light);
+    border: 1px solid hsl(var(--accent-light));
+    box-shadow: 0 0 0 rem( 2 ) hsl(var(--accent-light));
   }
 
   /**
@@ -85,7 +85,7 @@ select,
  */
 select:-moz-focusring {
   color: transparent;
-  text-shadow: 0 0 0 var(--default);
+  text-shadow: 0 0 0 hsl(var(--default));
 }
 
 input[type="image"],
@@ -130,7 +130,7 @@ select[multiple] {
 
 select:not([multiple]) {
   appearance: none;
-  background: var(--contrast) no-repeat var(--select) center right .5em / 1em 1em;
+  background: hsl(var(--contrast)) no-repeat var(--select) center right .5em / 1em 1em;
 }
 
 textarea {
@@ -162,7 +162,7 @@ label [class^="label-msg"] {
 }
 
 .label-msg-error {
-  color: var(--alert);
+  color: hsl(var(--alert));
 }
 
 /**
@@ -172,12 +172,12 @@ label [class^="label-msg"] {
  */
 #{$form-fields} {
   &:valid:focus {
-    background: var(--contrast) no-repeat var(--valid) center right .5em / 1em 1.25em;
+    background: hsl(var(--contrast)) no-repeat var(--valid) center right .5em / 1em 1.25em;
   }
 
   &:invalid:not(:focus) {
-    background: var(--contrast) no-repeat var(--invalid) center right .5em / 1em 1.25em;
-    box-shadow: 0 0 0 rem( 2 ) var(--alert-light);
+    background: hsl(var(--contrast)) no-repeat var(--invalid) center right .5em / 1em 1.25em;
+    box-shadow: 0 0 0 rem( 2 ) hsl(var(--alert-light));
   }
 
   &:invalid:placeholder-shown:not(:focus) {
@@ -185,7 +185,7 @@ label [class^="label-msg"] {
   }
 
   &:required:placeholder-shown {
-    background: var(--contrast) no-repeat var(--required) center right .5em / 1em 1.25em;
+    background: hsl(var(--contrast)) no-repeat var(--required) center right .5em / 1em 1.25em;
   }
 }
 
