@@ -50,9 +50,9 @@
     &:hover,
     &:focus,
     &:active {
-      background-color: hsl(var(--default));
+      background-color: hsl(var(--muted-dark));
       box-shadow: none;
-      color: hsl(var(--default-secondary));
+      color: hsl(var(--background));
       cursor: not-allowed;
       pointer-events: none;
     }

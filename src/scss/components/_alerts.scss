@@ -10,7 +10,7 @@
 	padding: 0 $gutter;
 }
 
-@each $alert in alert, success, accent, default, secondary {
+@each $alert in alert, success, accent, secondary {
 	.bg-#{$alert}[role="alert"] {
     --color: hsl(var(--#{$alert}-dark));
 	}

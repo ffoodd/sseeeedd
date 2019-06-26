@@ -19,41 +19,41 @@ $path: "../" !default;
 html {
   // ====================
   // == Colors
+  //
+  // 1. Analogous color is obtained by adding / removing 30deg to the colorwheel
+  // @see https://stackoverflow.com/questions/14095849/calculating-the-analogous-color-with-python
+  // 2. Success / alert UI colors are complementary
   // ====================
+  --neutral: 0, 0%;
   // Hues
-  --main: 240;
-  --next: 270;
-  --good: 150;
+  --hue: 240;
+  --analogous: calc(var(--hue) + 30);  // 1
+  --right: 150;
+  --wrong:  calc(var(--right) + 180); // 2
   // Lightnesses
-  --high: 50%;
-  --base: 40%;
-  --low:  25%;
+  --light-scale: 1.25;
+  --lightness: 40%;
+  --brighter: calc(var(--lightness) * var(--light-scale));
+  --darkness: calc(var(--lightness) / var(--light-scale));
   // Palette
-  --contrast:          0, 0%, 100%;
-  --contrast-inverse:  0, 0%, 0%;
-  --secondary:         var(--main), 100%,  var(--base); // mediumblue
-  --secondary-light:   var(--main), 100%,  var(--high); // deepskyblue
-  --secondary-dark:    var(--main), 100%,  var(--low);  // darkblue
-  --secondary-contrast: var(--contrast);
-  --accent:            var(--next), 50%,   var(--base); // rebeccapurple
-  --accent-light:      var(--next), 50%,   var(--high); // blueviolet
-  --accent-dark:       var(--next), 50%,   var(--low);  // indigo
-  --accent-contrast:   var(--contrast);
-  --alert:             0, 75%, var(--base);             // crimson
-  --alert-light:       0, 75%, var(--high);             // firebrick
-  --alert-dark:        0, 75%, var(--low);              // #911
-  --alert-contrast:    var(--contrast);
-  --success:           var(--good), 100%, var(--base);  // springreen
-  --success-light:     var(--good), 100%, var(--high);  // palegreen
-  --success-dark:      var(--good), 100%, var(--low);
-  --success-contrast:  var(--default);
-  --muted:             0, 0%, var(--base);              // gray
-  --muted-light:       0, 0%, var(--high);              // darkgray
-  --default:           0, 0%, var(--low);               // dimgray
-  --default-light:     var(--muted);
-  --default-dark:      var(--contrast-inverse);
-  --default-secondary: 0, 0%, 95%;                      // whitesmoke
-  --default-contrast:  var(--contrast);
+  --secondary:        var(--hue),       100%, var(--lightness);
+  --secondary-light:  var(--hue),       100%, var(--brighter);
+  --secondary-dark:   var(--hue),       100%, var(--darkness);
+  --accent:           var(--analogous), 100%, var(--lightness);
+  --accent-light:     var(--analogous), 100%, var(--brighter);
+  --accent-dark:      var(--analogous), 100%, var(--darkness);
+  --alert:            var(--wrong),     100%, var(--lightness);
+  --alert-light:      var(--wrong),     100%, var(--brighter);
+  --alert-dark:       var(--wrong),     100%, var(--darkness);
+  --success:          var(--right),     100%, var(--lightness);
+  --success-light:    var(--right),     100%, var(--brighter);
+  --success-dark:     var(--right),     100%, var(--darkness);
+  --contrast:         var(--neutral), 100%;
+  --contrast-inverse: var(--neutral), 0%;
+  --muted:            var(--neutral), var(--lightness);
+  --muted-light:      var(--neutral), var(--brighter);
+  --muted-dark:       var(--neutral), var(--darkness);
+  --background:       var(--neutral), 96%;
   // ==================== */
   // == Timing functions
   //

@@ -8,8 +8,8 @@
 .card {
   --background: hsl(var(--contrast));
   --border: hsl(var(--muted-light));
-  --color: hsl(var(--default));
-  --shadow: hsla(var(--default), .25);
+  --color: hsl(var(--muted-dark));
+  --shadow: hsla(var(--muted-dark), .25);
   background: var(--background);
   border: 1px solid var(--border);
   border-radius: em( 4 );
@@ -91,7 +91,7 @@
 	.card-#{$variant} {
 		--background: hsl(var(--#{$variant}));
     --border: hsla(var(--#{$variant}-dark), .25);
-		--color: hsl(var(--#{$variant}-contrast));
+		--color: hsl(var(--contrast));
     --shadow: hsla(var(--#{$variant}), .25);
 	}
 }

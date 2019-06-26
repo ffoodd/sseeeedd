@@ -30,7 +30,7 @@
 
 [role="tooltip"] {
   --arrow: calc(100% - #{$gutter / 4});
-  background: hsl(var(--default));
+  background: hsl(var(--muted-dark));
   bottom: calc(100% + .5em);
   clip-path: polygon(
     0% 0%,
@@ -41,7 +41,7 @@
     calc(50% + #{$gutter / 4}) var(--arrow),
     0% var(--arrow)
   );
-  color: hsl(var(--default-secondary));
+  color: hsl(var(--background));
   left: 50%;
   opacity: 0;
   margin: 0;

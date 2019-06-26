@@ -16,7 +16,7 @@ caption {
 }
 
 .hn {
-  color: hsl(var(--default-dark));
+  color: hsl(var(--contrast-inverse));
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -36,7 +36,7 @@ h1,
   @extend .hn;
 
   strong {
-    color: hsl(var(--default));
+    color: hsl(var(--muted-dark));
   }
 }
 
@@ -51,7 +51,7 @@ h2,
 
 h3,
 .h3 {
-  color: hsl(var(--default));
+  color: hsl(var(--muted-dark));
   font-size: em( 36 );
   line-height: 1.3334;
   margin: em( 48, 36 ) 0 em( 24, 36 );

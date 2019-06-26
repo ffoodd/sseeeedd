@@ -90,7 +90,7 @@
           </p>
           <div class="palette">
             {% import 'macros/_color.html' as palette %}
-            {% set colors = ['default','secondary','accent','alert','success'] %}
+            {% set colors = ['muted','secondary','accent','alert','success'] %}
             {% for color in colors %}
              <figure role="figure" aria-label="{{ color | capitalize }}">
                 <figcaption class="fw-700 no-padding mb-1">{{ color | capitalize }}</figcaption>

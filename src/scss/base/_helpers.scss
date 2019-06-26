@@ -141,11 +141,11 @@
 
   em,
   strong {
-    color: hsl(var(--default-secondary));
+    color: hsl(var(--background));
   }
 }
 
-@each $color in default, alert, success, accent, secondary {
+@each $color in alert, success, accent, secondary {
 	.clr-#{$color} {
 		color: hsl(var(--#{$color})) !important;
   }
@@ -164,10 +164,10 @@
 }
 
 // Backgrounds
-@each $color in alert, success, accent, secondary, default {
+@each $color in alert, success, accent, secondary {
 	.bg-#{$color} {
 		background-color: hsl(var(--#{$color}));
-		color: hsl(var(--#{$color}-contrast));
+		color: hsl(var(--contrast));
   }
 }
 

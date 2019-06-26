@@ -34,8 +34,8 @@ html[lang] {
 }
 
 body {
-  background: hsl(var(--default-secondary));
-  color: hsl(var(--default));
+  background: hsl(var(--background));
+  color: hsl(var(--muted-dark));
   counter-reset: footnotes;
   font: normal 400 1em/1.5 sans-serif;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -51,7 +51,7 @@ body {
  */
 ::selection {
   background-color: hsl(var(--accent));
-  color: hsl(var(--default-secondary));
+  color: hsl(var(--background));
   text-shadow: none;
 }
 
@@ -60,7 +60,7 @@ body {
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::placeholder
  */
 ::placeholder {
-  color: hsl(var(--default-light));
+  color: hsl(var(--muted));
 }
 
 /**
@@ -192,7 +192,6 @@ main a {
     }
 
     &[href^="http://"]::before {
-      background: var(--alert);
       mask-image: var(--unsafe);
     }
 

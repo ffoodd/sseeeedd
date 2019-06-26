@@ -3,10 +3,10 @@
 /* ==================== */
 
 button[role="switch"] {
-  background-color: hsla(var(--default-light), .1);
+  background-color: hsla(var(--muted), .1);
   border-radius: rem( 22 ) !important;
   box-sizing: content-box;
-  color: hsl(var(--default));
+  color: hsl(var(--muted-dark));
   height: rem( 44 );
   line-height: rem( 44 );
   outline-color: transparent;
@@ -32,8 +32,8 @@ button[role="switch"] {
   &:hover,
   &:focus,
   &:active {
-    background-color: hsla(var(--default-light), .075);
-    color: hsl(var(--default-dark));
+    background-color: hsla(var(--muted), .075);
+    color: hsl(var(--contrast-inverse));
   }
 
   &[aria-checked="true"] {

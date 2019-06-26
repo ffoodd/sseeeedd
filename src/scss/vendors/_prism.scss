@@ -11,7 +11,7 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.doctype,
 .token.cdata,
 .token.punctuation {
-	color: hsl(var(--default-secondary));
+	color: hsl(var(--background));
 }
 
 .namespace {

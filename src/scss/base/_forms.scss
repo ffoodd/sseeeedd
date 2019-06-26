@@ -60,8 +60,8 @@ select,
 #{$form-fields} {
   appearance: none;
   background-color: hsl(var(--contrast));
-  border: 1px solid hsl(var(--default-dark));
-  color: hsl(var(--default));
+  border: 1px solid hsl(var(--contrast-inverse));
+  color: hsl(var(--muted-dark));
   transition: box-shadow .3s var(--enter);
   width: 100%;
 
@@ -85,7 +85,7 @@ select,
  */
 select:-moz-focusring {
   color: transparent;
-  text-shadow: 0 0 0 hsl(var(--default));
+  text-shadow: 0 0 0 hsl(var(--muted-dark));
 }
 
 input[type="image"],
