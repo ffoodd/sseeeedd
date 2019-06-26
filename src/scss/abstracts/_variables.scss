@@ -20,6 +20,10 @@ html {
   // ====================
   // == Colors
   //
+  // Using hsl(), calc() and custom properties to handle palette
+  // Inspired by Sara Soueidan
+  // @see https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/
+  //
   // 1. Analogous color is obtained by adding / removing 30deg to the colorwheel
   // @see https://stackoverflow.com/questions/14095849/calculating-the-analogous-color-with-python
   // 2. Success / alert UI colors are complementary
