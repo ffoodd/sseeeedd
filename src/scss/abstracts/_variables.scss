@@ -16,6 +16,25 @@
 /* ==================== */
 $path: "../" !default;
 
+
+/* ==================== */
+/* == Spacings
+/* ==================== */
+$full-width: false !default;
+$base: 1140 / 16 !default;
+$width: em( 1024 ) !default;
+$gutter: rem( 16 ) !default;
+$content-width: em( 600 ) !default;
+
+
+/* ==================== */
+/* == Formage
+/* ==================== */
+$form-fields: ( 'input[type="text"], input[type="number"], input[type="search"], input[type="password"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="color"], input[type="file"], textarea' );
+$form-radio-checkbox: ( 'input[type="checkbox"], input[type="radio"]' );
+$form-buttons: ( '.button, button, input[type="submit"], input[type="reset"], input[type="button"]' );
+
+
 html {
   // ====================
   // == Colors
@@ -31,12 +50,12 @@ html {
   --neutral: 0, 0%;
   // Hues
   --hue: 240;
-  --analogous: calc(var(--hue) + 30);  // 1
+  --analogous: calc(var(--hue) + 30); // 1
   --right: 150;
-  --wrong:  calc(var(--right) + 180); // 2
+  --wrong: calc(var(--right) + 180); // 2
   // Lightnesses
-  --light-scale: 1.25;
-  --lightness: 40%;
+  --light-scale: 1.5;
+  --lightness: 30%;
   --brighter: calc(var(--lightness) * var(--light-scale));
   --darkness: calc(var(--lightness) / var(--light-scale));
   // Palette
@@ -88,19 +107,9 @@ html {
   }
 }
 
-/* ==================== */
-/* == Spacings
-/* ==================== */
-$full-width: false !default;
-$base: 1140 / 16 !default;
-$width: em( 1024 ) !default;
-$gutter: rem( 16 ) !default;
-$content-width: em( 600 ) !default;
-
-
-/* ==================== */
-/* == Formage
-/* ==================== */
-$form-fields: ( 'input[type="text"], input[type="number"], input[type="search"], input[type="password"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="color"], input[type="file"], textarea' );
-$form-radio-checkbox: ( 'input[type="checkbox"], input[type="radio"]' );
-$form-buttons: ( '.button, button, input[type="submit"], input[type="reset"], input[type="button"]' );
+@media screen and (min-width: #{$content-width}) {
+  html {
+    --light-scale: 1.25;
+    --lightness: 40%;
+  }
+}
