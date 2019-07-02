@@ -36,6 +36,10 @@
   margin-left: auto !important;
 }
 
+.mx-auto {
+  margin: 0 auto !important;
+}
+
 .mt-auto {
   margin-top: auto !important;
 }
@@ -83,6 +87,7 @@
 }
 
 .flex-column {
+  align-items: flex-start;;
   flex-direction: column !important;
 }
 
