@@ -8,6 +8,7 @@
 	font-weight: bold;
 	margin: $gutter $gutter / 2;
 	padding: 0 $gutter;
+  text-shadow: em( 2 ) em( 2 ) 0 var(--color);
 }
 
 @each $alert in alert, success, accent, secondary {

@@ -10,6 +10,7 @@
   --border: hsl(var(--muted-light));
   --color: hsl(var(--muted-dark));
   --shadow: hsla(var(--muted-dark), .25);
+  --text-shadow: var(--background);
   background: var(--background);
   border: 1px solid var(--border);
   border-radius: em( 4 );
@@ -43,6 +44,7 @@
   margin-bottom: $gutter;
   order: 1;
   padding: 0 $gutter;
+  text-shadow: em( 1 ) em( 1 ) 0 var(--text-shadow);
 
   * {
     color: inherit;
@@ -57,6 +59,7 @@
 .card-title {
   font-size: em( 26 );
   line-height: 1.2;
+  text-shadow: em( 2, 26 ) em( 2, 26 ) 0 var(--text-shadow);
   margin: $gutter 0 !important;
 }
 
@@ -90,8 +93,9 @@
 @each $variant in alert, success, accent, default, secondary {
 	.card-#{$variant} {
 		--background: hsl(var(--#{$variant}));
-    --border: hsla(var(--#{$variant}-dark), .25);
+    --border: hsl(var(--#{$variant}-dark));
 		--color: hsl(var(--contrast));
     --shadow: hsla(var(--#{$variant}), .25);
+    --text-shadow: var(--border);
 	}
 }
