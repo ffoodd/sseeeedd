@@ -39,18 +39,18 @@ html {
   // ====================
   // == Colors
   //
-  // Using hsl(), calc() and custom properties to handle palette
+  // Using hsl(), calc() and var() to handle palette
   // Inspired by Sara Soueidan
   // @see https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/
   //
   // 1. Analogous color is obtained by adding / removing 30deg to the colorwheel
-  // @see https://stackoverflow.com/questions/14095849/calculating-the-analogous-color-with-python
+  // @see https://stackoverflow.com/questions/14095849/calculating-the-analog-color-with-python
   // 2. Success / alert UI colors are complementary
   // ====================
   --neutral: 0, 0%;
   // Hues
   --hue: 240;
-  --analogous: calc(var(--hue) + 30); // 1
+  --analog: calc(var(--hue) + 30); // 1
   --right: 150;
   --wrong: calc(var(--right) + 180); // 2
   // Lightnesses
@@ -59,23 +59,23 @@ html {
   --brighter: calc(var(--lightness) * var(--light-scale));
   --darkness: calc(var(--lightness) / var(--light-scale));
   // Palette
-  --secondary:        var(--hue),       100%, var(--lightness);
-  --secondary-light:  var(--hue),       100%, var(--brighter);
-  --secondary-dark:   var(--hue),       100%, var(--darkness);
-  --accent:           var(--analogous), 100%, var(--lightness);
-  --accent-light:     var(--analogous), 100%, var(--brighter);
-  --accent-dark:      var(--analogous), 100%, var(--darkness);
-  --alert:            var(--wrong),     100%, var(--lightness);
-  --alert-light:      var(--wrong),     100%, var(--brighter);
-  --alert-dark:       var(--wrong),     100%, var(--darkness);
-  --success:          var(--right),     100%, var(--lightness);
-  --success-light:    var(--right),     100%, var(--brighter);
-  --success-dark:     var(--right),     100%, var(--darkness);
+  --secondary:        var(--hue),     100%, var(--lightness);
+  --secondary-light:  var(--hue),     100%, var(--brighter); // 0
+  --secondary-dark:   var(--hue),     100%, var(--darkness); // 2
+  --accent:           var(--analog),  50%,  var(--lightness);
+  --accent-light:     var(--analog),  50%,  var(--brighter); // 8
+  --accent-dark:      var(--analog),  50%,  var(--darkness); // 3
+  --alert:            var(--wrong),   100%, var(--lightness);
+  --alert-light:      var(--wrong),   100%, var(--brighter); // 0
+  --alert-dark:       var(--wrong),   100%, var(--darkness); // 2
+  --success:          var(--right),   100%, var(--lightness);
+  --success-light:    var(--right),   100%, var(--brighter); // 3
+  --success-dark:     var(--right),   100%, var(--darkness); // 3
   --contrast:         var(--neutral), 100%;
   --contrast-inverse: var(--neutral), 0%;
   --muted:            var(--neutral), var(--lightness);
-  --muted-light:      var(--neutral), var(--brighter);
-  --muted-dark:       var(--neutral), var(--darkness);
+  --muted-light:      var(--neutral), var(--brighter); // 5
+  --muted-dark:       var(--neutral), var(--darkness); // 17
   --background:       var(--neutral), 96%;
   // ==================== */
   // == Timing functions
