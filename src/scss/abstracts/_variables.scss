@@ -46,8 +46,11 @@ html {
   // 1. Analogous color is obtained by adding / removing 30deg to the colorwheel
   // @see https://stackoverflow.com/questions/14095849/calculating-the-analog-color-with-python
   // 2. Success / alert UI colors are complementary
+  // 3. Contrast color switches between white/black
+  // @see https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
   // ====================
   --neutral: 0, 0%;
+  --treshold: 60%;
   // Hues
   --hue: 240;
   --analog: calc(var(--hue) + 30); // 1
@@ -58,6 +61,7 @@ html {
   --lightness: 30%;
   --brighter: calc(var(--lightness) * var(--light-scale));
   --darkness: calc(var(--lightness) / var(--light-scale));
+  --switch: calc((var(--lightness) - var(--treshold)) * -100);
   // Palette
   --secondary:        var(--hue),     100%, var(--lightness);
   --secondary-light:  var(--hue),     100%, var(--brighter); // 0
@@ -71,8 +75,8 @@ html {
   --success:          var(--right),   100%, var(--lightness);
   --success-light:    var(--right),   100%, var(--brighter); // 3
   --success-dark:     var(--right),   100%, var(--darkness); // 3
-  --contrast:         var(--neutral), 100%;
-  --contrast-inverse: var(--neutral), 0%;
+  --contrast:         var(--neutral), var(--switch);
+  --contrast-inverse: var(--neutral), calc(var(--switch) * -1);
   --muted:            var(--neutral), var(--lightness);
   --muted-light:      var(--neutral), var(--brighter); // 5
   --muted-dark:       var(--neutral), var(--darkness); // 17
