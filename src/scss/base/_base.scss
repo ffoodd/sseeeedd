@@ -251,12 +251,12 @@ main {
   a svg,
   button svg {
     background: none;
-    border-color: var(--contrast);
-    fill: var(--contrast);
+    border-color: Highlight;
+    fill: Highlight;
   }
 
   mark {
-    background-color: var(--accent);
-    color: var(--accent-contrast);
+    background-color: Highlight;
+    color: HighlightText;
   }
 }
