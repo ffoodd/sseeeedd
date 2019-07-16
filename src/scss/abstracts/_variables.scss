@@ -54,6 +54,7 @@ html {
   // 5. Using golden ratio for light scale
   // @see https://en.wikipedia.org/wiki/Golden_ratio
   // ====================
+  color-scheme: light dark;
   --neutral: 0, 0%;
   --treshold: 60%;                                              // 3
   // Hues
@@ -122,3 +123,13 @@ html {
     --lightness: 40%;
   }
 }
+
+/*@media screen and (prefers-color-scheme: dark) {
+  html {
+    --lightness:  80%;
+    --brighter:   calc(var(--lightness) / var(--light-scale));
+    --darker:     calc(var(--lightness) * var(--light-scale));
+    --muted:      var(--neutral), 20%;
+    --background: var(--neutral), 10%;
+  }
+}*/
