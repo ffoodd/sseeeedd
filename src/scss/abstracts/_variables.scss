@@ -51,38 +51,40 @@ html {
   // @see https://codepen.io/una/pen/VJMBbx
   // 4. Palette based on rebeccapurple:
   // @see https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/
+  // 5. Using golden ratio for light scale
+  // @see https://en.wikipedia.org/wiki/Golden_ratio
   // ====================
   --neutral: 0, 0%;
-  --treshold: 60%;
+  --treshold: 60%;                                              // 3
   // Hues
   --hue: 240;
-  --analog: calc(var(--hue) + 30); // 1
+  --analog: calc(var(--hue) + 30);                              // 1
   --right: 150;
-  --wrong: calc(var(--right) + 180); // 2
+  --wrong: calc(var(--right) + 180);                            // 2
   // Lightnesses
-  --light-scale: 1.5;
+  --light-scale: 1.61803398875;                                 // 5
   --lightness: 30%;
   --brighter: calc(var(--lightness) * var(--light-scale));
   --darker: calc(var(--lightness) / var(--light-scale));
-  --switch: calc((var(--lightness) - var(--treshold)) * -100);
+  --switch: calc((var(--lightness) - var(--treshold)) * -100);  // 3
   // Palette
   --secondary:        var(--hue),     100%, var(--lightness);
-  --secondary-light:  var(--hue),     100%, var(--brighter); // 0
-  --secondary-dark:   var(--hue),     100%, var(--darker); // 2
-  --accent:           var(--analog),  50%,  var(--lightness);
-  --accent-light:     var(--analog),  50%,  var(--brighter); // 8
-  --accent-dark:      var(--analog),  50%,  var(--darker); // 3
+  --secondary-light:  var(--hue),     100%, var(--brighter);
+  --secondary-dark:   var(--hue),     100%, var(--darker);
+  --accent:           var(--analog),  50%,  var(--lightness);   // 4
+  --accent-light:     var(--analog),  50%,  var(--brighter);
+  --accent-dark:      var(--analog),  50%,  var(--darker);
   --alert:            var(--wrong),   100%, var(--lightness);
-  --alert-light:      var(--wrong),   100%, var(--brighter); // 0
-  --alert-dark:       var(--wrong),   100%, var(--darker); // 2
+  --alert-light:      var(--wrong),   100%, var(--brighter);
+  --alert-dark:       var(--wrong),   100%, var(--darker);
   --success:          var(--right),   100%, var(--lightness);
-  --success-light:    var(--right),   100%, var(--brighter); // 3
-  --success-dark:     var(--right),   100%, var(--darker); // 3
-  --contrast:         var(--neutral), var(--switch);
-  --contrast-inverse: var(--neutral), calc(var(--switch) * -1);
+  --success-light:    var(--right),   100%, var(--brighter);
+  --success-dark:     var(--right),   100%, var(--darker);
+  --contrast:         var(--neutral), var(--switch);            // 3
+  --contrast-inverse: var(--neutral), calc(var(--switch) * -1); // 3
   --muted:            var(--neutral), var(--lightness);
-  --muted-light:      var(--neutral), var(--brighter); // 5
-  --muted-dark:       var(--neutral), var(--darker); // 17
+  --muted-light:      var(--neutral), var(--brighter);
+  --muted-dark:       var(--neutral), var(--darker);
   --background:       var(--neutral), 96%;
   // ==================== */
   // == Timing functions
