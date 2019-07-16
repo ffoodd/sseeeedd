@@ -84,8 +84,19 @@
           </div>
           <h2>Palette de couleurs</h2>
           <p>
-            La mise en forme de cette palette est basée sur <a href="https://codepen.io/tigt/post/semantic-html-for-colors" hreflang="en">une astuce de <cite>Taylor Hunt</cite></a>.
+            La palette est entièrement gérée à l’aide <a href="https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/" hreflang="en">d’une technique partagée par <cite>Sara Soueidan</cite> —&nbsp;basée sur les
+            fonctions <code>var()</code>, <code>calc()</code> et <code>hsl()</code></a>. Cependant,
+            j’utilise ici une palette de couleurs <strong>anologues</strong>.
           </p>
+          <p>
+            La couleur centrale pour cette démonstration est la couleur tonique, dont je voulais
+            qu’elle corresponde à la couleur <code>rebeccapurple</code>. Je vous invite à lire
+            <a href="https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/" hreflang="en">le billet
+            d’<cite>Eric Meyer</cite> sur l’origine de <code>rebeccapurple</code></a>, vous devriez comprendre.
+            En revanche les couleurs «&nbsp;systèmes&nbsp;» pour évoquer les alertes et succès dans l’interface
+            sont <strong>complémentaires</strong>.
+          </p>
+
           <div class="palette">
             
             
@@ -346,6 +357,49 @@
               </figure>
              
           </div>
+          <p>
+            La mise en forme de cette palette est basée sur <a href="https://codepen.io/tigt/post/semantic-html-for-colors" hreflang="en">une astuce de <cite>Taylor Hunt</cite></a>.
+          </p>
+          <h3>Implémentation technique</h3>
+          <p>La totalité de la palette est déduite de quelques valeurs d’origines&nbsp;:</p>
+          <ol>
+            <li>
+              la teinte <var>--hue</var> de la couleur secondaire, à laquelle nous ajoutons 30°
+              pour obtenir la couleur <strong>analogue</strong> —&nbsp;ici, la tonique <code>rebeccapurple</code>
+              évoquée plus haut&nbsp;;
+            </li>
+            <li>
+              la teinte <var>--right</var> définissant la couleur système du succès, dont nous déduisons
+              la complémentaire pour les alertes en ajoutant 180°,
+              c’est à dire en lui faisant effectuer <strong>un demi-tour chromatique</strong>&nbsp;;
+            </li>
+            <li>
+              pour la luminosité, nous avons besoin de trois valeurs&nbsp;:
+              <ol>
+                <li>une base <var>--lightness</var>, fixée à <var>40%</var> —&nbsp;toujours basée sur <code>rebeccapurple</code>&nbsp;;</li>
+                <li>un coefficient <var>--light-scale</var> (fixé à <var>1.5</var>) pour placer les déclinaisons sur une <strong>échelle</strong> cohérente&nbsp;;</li>
+                <li>
+                  puis les déclinaisons claire et sombre, que nous déduisons grâce au coefficient
+                  —&nbsp;respectivement <var>--brighter</var> et <var>--darker</var>.
+                </li>
+              </ol>
+            </li>
+          </ol>
+          <p>Le tout se corse légèrement avec deux mécanismes supplémentaires&nbsp;:</p>
+          <ul>
+            <li>
+              <strong>l’accentuation des contrastes</strong> sur petits écrans, en redéfinissant
+              la luminosité de base <var>--lightness</var> et le coefficient <var>--light-scale</var>
+              dans une <em lang="en">media query</em>&nbsp;;
+            </li>
+            <li>
+              un mécanisme de <strong>bascule</strong> de la couleur de contraste basé sur la luminosité,
+              <a href="https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/" hreflang="en">expliqué
+              par <cite>Facundo Corradini</cite> sur CSS Tricks</a> et <a href="https://codepen.io/una/pen/VJMBbx" hreflang="en">implémenté par <cite>Una Kravets</cite> dans un CodePen</a>.
+              Ce mécanisme n’est pas parfait puisqu’il ne repose pas sur la luminosité <em>perçue</em>,
+              mais s’avère suffisamment fiable dans la plupart des cas.
+            </li>
+          </ul>
         
       </main>
 

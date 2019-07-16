@@ -49,6 +49,8 @@ html {
   // 3. Contrast color switches between white/black
   // @see https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
   // @see https://codepen.io/una/pen/VJMBbx
+  // 4. Palette based on rebeccapurple:
+  // @see https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/
   // ====================
   --neutral: 0, 0%;
   --treshold: 60%;
@@ -61,26 +63,26 @@ html {
   --light-scale: 1.5;
   --lightness: 30%;
   --brighter: calc(var(--lightness) * var(--light-scale));
-  --darkness: calc(var(--lightness) / var(--light-scale));
+  --darker: calc(var(--lightness) / var(--light-scale));
   --switch: calc((var(--lightness) - var(--treshold)) * -100);
   // Palette
   --secondary:        var(--hue),     100%, var(--lightness);
   --secondary-light:  var(--hue),     100%, var(--brighter); // 0
-  --secondary-dark:   var(--hue),     100%, var(--darkness); // 2
+  --secondary-dark:   var(--hue),     100%, var(--darker); // 2
   --accent:           var(--analog),  50%,  var(--lightness);
   --accent-light:     var(--analog),  50%,  var(--brighter); // 8
-  --accent-dark:      var(--analog),  50%,  var(--darkness); // 3
+  --accent-dark:      var(--analog),  50%,  var(--darker); // 3
   --alert:            var(--wrong),   100%, var(--lightness);
   --alert-light:      var(--wrong),   100%, var(--brighter); // 0
-  --alert-dark:       var(--wrong),   100%, var(--darkness); // 2
+  --alert-dark:       var(--wrong),   100%, var(--darker); // 2
   --success:          var(--right),   100%, var(--lightness);
   --success-light:    var(--right),   100%, var(--brighter); // 3
-  --success-dark:     var(--right),   100%, var(--darkness); // 3
+  --success-dark:     var(--right),   100%, var(--darker); // 3
   --contrast:         var(--neutral), var(--switch);
   --contrast-inverse: var(--neutral), calc(var(--switch) * -1);
   --muted:            var(--neutral), var(--lightness);
   --muted-light:      var(--neutral), var(--brighter); // 5
-  --muted-dark:       var(--neutral), var(--darkness); // 17
+  --muted-dark:       var(--neutral), var(--darker); // 17
   --background:       var(--neutral), 96%;
   // ==================== */
   // == Timing functions
