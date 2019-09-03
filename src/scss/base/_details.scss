@@ -9,10 +9,6 @@ details {
     border-top-width: 0;
   }
 
-  &[open] summary ~ * {
-    animation: slide-down .5s var(--enter);
-  }
-
   summary {
     background: hsl(var(--muted-dark));
     color: hsl(var(--contrast));
@@ -28,6 +24,10 @@ details {
     ~ * {
       margin: rem( 24 ) 1rem 0;
     }
+  }
+
+  &[open] summary ~ * {
+    animation: slide-down .5s var(--enter);
   }
 }
 
@@ -54,14 +54,6 @@ details {
         min-width: em( 56 );
         overflow: hidden;
 
-        &[open] {
-          flex: 1;
-
-          summary ~ * {
-            animation: slide-in .5s var(--enter);
-          }
-        }
-
         & + details {
           border-width: em( 4 ) em( 4 ) em( 4 ) 0;
         }
@@ -78,6 +70,14 @@ details {
             > *:first-child {
               margin-top: 0;
             }
+          }
+        }
+
+        &[open] {
+          flex: 1;
+
+          summary ~ * {
+            animation: slide-in .5s var(--enter);
           }
         }
       }

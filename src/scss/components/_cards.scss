@@ -25,11 +25,6 @@
   &:focus-within {
     box-shadow: 0 0 0 rem( 4 ) var(--shadow);
   }
-
-  &:focus-within .card-link:focus {
-    outline-color: transparent;
-    text-decoration: none;
-  }
 }
 
 .card-img {
@@ -83,6 +78,11 @@
   &:focus {
     color: inherit;
     text-decoration: underline;
+  }
+
+  .card:focus-within &:focus {
+    outline-color: transparent;
+    text-decoration: none;
   }
 }
 
