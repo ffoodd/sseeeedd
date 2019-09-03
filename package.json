@@ -1,6 +1,6 @@
 {
   "name": "sseeeedd",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Sow sseeeedd and see your front-end grow",
   "repository": {
     "type": "git",
@@ -32,8 +32,11 @@
     "rules": {
       "no-descending-specificity": null,
       "property-no-unknown": [
-        true, {
-          "ignoreProperties": ["color-scheme"]
+        true,
+        {
+          "ignoreProperties": [
+            "color-scheme"
+          ]
         }
       ]
     }
