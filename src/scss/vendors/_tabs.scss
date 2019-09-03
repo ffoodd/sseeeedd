@@ -7,7 +7,7 @@
 /* ==================== */
 
 [role="tablist"] {
-  color: palette( dominant, light );
+  color: hsl(var(--muted));
   margin-bottom: 0;
 }
 
@@ -21,10 +21,10 @@
   transform: translateY(1px);
 
   &[aria-selected="true"] {
-    background: palette( default, contrast );
-    border: 1px solid transparentize( palette( dominant, light ), .75 );
-    border-bottom-color: palette( default, contrast );
-    color: palette( secondary );
+    background: hsl(var(--contrast));
+    border: 1px solid hsla(var(--muted), .25);
+    border-bottom-color: hsl(var(--contrast));
+    color: hsl(var(--secondary));
   }
 
   &:active {
@@ -32,14 +32,14 @@
   }
 
   &:focus {
-    outline-color: transparentize( palette( dominant, light ), .75 );
+    outline-color: hsla(var(--muted), .25);
     outline-offset: rem( -44 );
   }
 }
 
 [role="tabpanel"] {
-  background: palette( default, contrast );
-  border: 1px solid transparentize( palette( dominant, light ), .75 );
+  background: hsl(var(--contrast));
+  border: 1px solid hsla(var(--muted), .25);
   border-radius: rem( 4 );
   padding: $gutter;
 
@@ -49,11 +49,5 @@
 
   &[aria-hidden="true"] {
     display: none;
-  }
-}
-
-@media screen and (-ms-high-contrast: active) {
-  [role="tab"][aria-selected="true"] {
-    border-color: buttonText buttonText buttonFace;
   }
 }

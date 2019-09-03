@@ -12,25 +12,11 @@
   button {
     margin: 0;
   }
-
-  button:hover + [role="tooltip"],
-  button:focus + [role="tooltip"] {
-    opacity: 1;
-    pointer-events: auto;
-    transform:
-      perspective(1000px)
-      rotate3d(1, 0, 0, 0deg)
-      translateX(-50%);
-    transition:
-      opacity .2s map-get( $timing-functions, 'exit' ),
-      transform .2s map-get( $timing-functions, 'exit' );
-    visibility: visible;
-  }
 }
 
 [role="tooltip"] {
   --arrow: calc(100% - #{$gutter / 4});
-  background: palette( dominant );
+  background: hsl(var(--muted-dark));
   bottom: calc(100% + .5em);
   clip-path: polygon(
     0% 0%,
@@ -41,7 +27,7 @@
     calc(50% + #{$gutter / 4}) var(--arrow),
     0% var(--arrow)
   );
-  color: palette( default, secondary );
+  color: hsl(var(--background));
   left: 50%;
   opacity: 0;
   margin: 0;
@@ -54,9 +40,23 @@
     rotate3d(1, 0, 0, 45deg)
     translateX(-50%);
   transition:
-    opacity .2s map-get( $timing-functions, 'enter' ),
-    transform .2s map-get( $timing-functions, 'enter' ),
+    opacity .2s var(--enter),
+    transform .2s var(--enter),
     visibility 0s linear .2s;
   visibility: hidden;
   white-space: nowrap;
+
+  .tooltip button:hover + &,
+  .tooltip button:focus + & {
+    opacity: 1;
+    pointer-events: auto;
+    transform:
+      perspective(1000px)
+      rotate3d(1, 0, 0, 0deg)
+      translateX(-50%);
+    transition:
+      opacity .2s var(--exit),
+      transform .2s var(--exit);
+    visibility: visible;
+  }
 }

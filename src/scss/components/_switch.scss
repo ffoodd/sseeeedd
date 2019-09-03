@@ -3,20 +3,20 @@
 /* ==================== */
 
 button[role="switch"] {
-  background-color: transparentize( palette( dominant, light ), .9 );
+  background-color: hsla(var(--muted), .1);
   border-radius: rem( 22 ) !important;
   box-sizing: content-box;
-  color: palette( dominant );
+  color: hsl(var(--muted-dark));
   height: rem( 44 );
   line-height: rem( 44 );
   outline-color: transparent;
   padding: 0 $gutter * 3;
-  transition: all .3s map-get( $timing-functions, 'enter' );
+  transition: all .3s var(--enter);
   width: rem( 76 );
   will-change: background-color;
 
   &::before {
-    background: palette( default, contrast );
+    background: currentColor;
     border-radius: rem( 22 );
     content: "";
     position: absolute;
@@ -24,7 +24,7 @@ button[role="switch"] {
     left: rem( 4 );
     top: rem( 4 );
     transform: none;
-    transition: transform .3s map-get( $timing-functions, 'enter' ) 0s;
+    transition: transform .3s var(--enter) 0s;
     width: rem( 38 );
     will-change: transform;
   }
@@ -32,20 +32,20 @@ button[role="switch"] {
   &:hover,
   &:focus,
   &:active {
-    background-color: transparentize( palette( dominant, light ), .925 );
-    color: palette( dominant, dark );
+    background-color: hsla(var(--muted), .075);
+    color: hsl(var(--contrast-inverse));
   }
 
   &[aria-checked="true"] {
-    background-color: transparentize( palette( success, light ), .75 );
+    background-color: hsla(var(--success-light), .25);
 
     &::before {
-      background: palette( success, dark );
+      background: hsl(var(--success-dark));
       transform: translateX(#{rem( 78 ) + $gutter * 3});
     }
 
     &:focus {
-      box-shadow: 0 0 0 rem( 2 ) transparentize( palette( success, dark ), .75 );
+      box-shadow: 0 0 0 rem( 2 ) hsla(var(--success-dark), .25);
     }
   }
 
@@ -56,28 +56,5 @@ button[role="switch"] {
 
   &[aria-checked="true"] > *:first-child {
     display: block;
-  }
-}
-
-@media screen and (-ms-high-contrast: active) {
-  button[role="switch"] {
-    background-color: buttonFace;
-    border: 1px solid currentColor !important;
-    color: buttonText;
-
-    > span {
-      background-color: inherit;
-    }
-
-    &::before {
-      background: currentColor;
-    }
-
-    @supports (--css: var(--iables)) {
-      button[role="switch"][aria-checked="true"] {
-        background-color: highlight;
-        color: highlightText;
-      }
-    }
   }
 }

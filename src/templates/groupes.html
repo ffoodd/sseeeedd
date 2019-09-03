@@ -56,7 +56,7 @@
     </li>
   </ol>
 
-  {% set messages = ['alert','success','accent','dominant','secondary'] %}
+  {% set messages = ['alert','success','accent','secondary'] %}
   {% for message in messages %}
    <div role="alert" aria-live="assertive" class="alert bg-{{ message }}">
      <p>Oh, le joli message&nbsp;!</p>
@@ -92,7 +92,7 @@
 
   <div class="columns-3">
     {{ cards.card() }}
-    {{ cards.card('-dominant', 'true', '', '') }}
+    {{ cards.card('', 'true', '', '') }}
     {{ cards.card('-success', '', 'true', '') }}
     {{ cards.card('-accent') }}
     {{ cards.card('', '', 'true', 'true') }}
@@ -105,7 +105,7 @@
 
   <div class="grid-3">
     {{ cards.card() }}
-    {{ cards.card('-dominant', 'true', '', 'true') }}
+    {{ cards.card('', 'true', '', 'true') }}
     {{ cards.card('-success', 'true', 'true', '') }}
     {{ cards.card('-accent', '', '', 'true') }}
     {{ cards.card() }}

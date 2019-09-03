@@ -12,10 +12,7 @@
           <meta property="og:description" name="description" content="Une graîne pour cultiver son front-end">
           <meta name="twitter:card" content="summary">
         
-        <script>
-          document.documentElement.classList.remove('no-js');
-          document.documentElement.classList.add('js');
-        </script>
+        <script>document.documentElement.classList.replace('no-js','js');</script>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
         <link rel="stylesheet" href="css/styles.min.css" media="all">
         <link rel="stylesheet" href="css/print.min.css" media="print">
@@ -82,6 +79,327 @@
               </p>
             </div>
           </div>
+          <h2>Palette de couleurs</h2>
+          <p>
+            La palette est entièrement gérée à l’aide <a href="https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/" hreflang="en">d’une technique partagée par <cite>Sara Soueidan</cite> —&nbsp;basée sur les
+            fonctions <code>var()</code>, <code>calc()</code> et <code>hsl()</code></a>. Cependant,
+            j’utilise ici une palette de couleurs <strong>anologues</strong>.
+          </p>
+          <p>
+            La couleur centrale pour cette démonstration est la couleur tonique, dont je voulais
+            qu’elle corresponde à la couleur <code>rebeccapurple</code>. Je vous invite à lire
+            <a href="https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/" hreflang="en">le billet
+            d’<cite>Eric Meyer</cite> sur l’origine de <code>rebeccapurple</code></a>, vous devriez comprendre.
+            En revanche les couleurs «&nbsp;systèmes&nbsp;» pour évoquer les alertes et succès dans l’interface
+            sont <strong>complémentaires</strong>.
+          </p>
+
+          <div class="palette">
+            
+            
+            
+             <figure role="figure" aria-label="Muted">
+                <figcaption class="fw-700 no-padding mb-1">Muted</figcaption>
+                
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Muted — principale">
+    <svg width="100%" height="3em" aria-label="muted">
+      <rect fill="hsl(var(--muted))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding mb-1">
+      <span class="sr-only">Muted —&nbsp;</span>
+      Principale
+    </figcaption>
+  </figure>
+
+                <div class="grid-2">
+                  
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Muted — claire">
+    <svg width="100%" height="1em" aria-label="muted-light">
+      <rect fill="hsl(var(--muted-light))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding caption--xs">
+      <span class="sr-only">Muted —&nbsp;</span>
+      Claire
+    </figcaption>
+  </figure>
+
+                  
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Muted — sombre">
+    <svg width="100%" height="1em" aria-label="muted-dark">
+      <rect fill="hsl(var(--muted-dark))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding caption--xs">
+      <span class="sr-only">Muted —&nbsp;</span>
+      Sombre
+    </figcaption>
+  </figure>
+
+                </div>
+              </figure>
+             
+             <figure role="figure" aria-label="Secondary">
+                <figcaption class="fw-700 no-padding mb-1">Secondary</figcaption>
+                
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Secondary — principale">
+    <svg width="100%" height="3em" aria-label="secondary">
+      <rect fill="hsl(var(--secondary))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding mb-1">
+      <span class="sr-only">Secondary —&nbsp;</span>
+      Principale
+    </figcaption>
+  </figure>
+
+                <div class="grid-2">
+                  
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Secondary — claire">
+    <svg width="100%" height="1em" aria-label="secondary-light">
+      <rect fill="hsl(var(--secondary-light))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding caption--xs">
+      <span class="sr-only">Secondary —&nbsp;</span>
+      Claire
+    </figcaption>
+  </figure>
+
+                  
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Secondary — sombre">
+    <svg width="100%" height="1em" aria-label="secondary-dark">
+      <rect fill="hsl(var(--secondary-dark))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding caption--xs">
+      <span class="sr-only">Secondary —&nbsp;</span>
+      Sombre
+    </figcaption>
+  </figure>
+
+                </div>
+              </figure>
+             
+             <figure role="figure" aria-label="Accent">
+                <figcaption class="fw-700 no-padding mb-1">Accent</figcaption>
+                
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Accent — principale">
+    <svg width="100%" height="3em" aria-label="accent">
+      <rect fill="hsl(var(--accent))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding mb-1">
+      <span class="sr-only">Accent —&nbsp;</span>
+      Principale
+    </figcaption>
+  </figure>
+
+                <div class="grid-2">
+                  
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Accent — claire">
+    <svg width="100%" height="1em" aria-label="accent-light">
+      <rect fill="hsl(var(--accent-light))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding caption--xs">
+      <span class="sr-only">Accent —&nbsp;</span>
+      Claire
+    </figcaption>
+  </figure>
+
+                  
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Accent — sombre">
+    <svg width="100%" height="1em" aria-label="accent-dark">
+      <rect fill="hsl(var(--accent-dark))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding caption--xs">
+      <span class="sr-only">Accent —&nbsp;</span>
+      Sombre
+    </figcaption>
+  </figure>
+
+                </div>
+              </figure>
+             
+             <figure role="figure" aria-label="Alert">
+                <figcaption class="fw-700 no-padding mb-1">Alert</figcaption>
+                
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Alert — principale">
+    <svg width="100%" height="3em" aria-label="alert">
+      <rect fill="hsl(var(--alert))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding mb-1">
+      <span class="sr-only">Alert —&nbsp;</span>
+      Principale
+    </figcaption>
+  </figure>
+
+                <div class="grid-2">
+                  
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Alert — claire">
+    <svg width="100%" height="1em" aria-label="alert-light">
+      <rect fill="hsl(var(--alert-light))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding caption--xs">
+      <span class="sr-only">Alert —&nbsp;</span>
+      Claire
+    </figcaption>
+  </figure>
+
+                  
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Alert — sombre">
+    <svg width="100%" height="1em" aria-label="alert-dark">
+      <rect fill="hsl(var(--alert-dark))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding caption--xs">
+      <span class="sr-only">Alert —&nbsp;</span>
+      Sombre
+    </figcaption>
+  </figure>
+
+                </div>
+              </figure>
+             
+             <figure role="figure" aria-label="Success">
+                <figcaption class="fw-700 no-padding mb-1">Success</figcaption>
+                
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Success — principale">
+    <svg width="100%" height="3em" aria-label="success">
+      <rect fill="hsl(var(--success))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding mb-1">
+      <span class="sr-only">Success —&nbsp;</span>
+      Principale
+    </figcaption>
+  </figure>
+
+                <div class="grid-2">
+                  
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Success — claire">
+    <svg width="100%" height="1em" aria-label="success-light">
+      <rect fill="hsl(var(--success-light))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding caption--xs">
+      <span class="sr-only">Success —&nbsp;</span>
+      Claire
+    </figcaption>
+  </figure>
+
+                  
+  
+    
+    
+  
+  <figure role="figure" class="no-padding no-margin" aria-label="Success — sombre">
+    <svg width="100%" height="1em" aria-label="success-dark">
+      <rect fill="hsl(var(--success-dark))" width="100%" height="100%"/>
+    </svg>
+    <figcaption class="no-padding caption--xs">
+      <span class="sr-only">Success —&nbsp;</span>
+      Sombre
+    </figcaption>
+  </figure>
+
+                </div>
+              </figure>
+             
+          </div>
+          <p>
+            La mise en forme de cette palette est basée sur <a href="https://codepen.io/tigt/post/semantic-html-for-colors" hreflang="en">une astuce de <cite>Taylor Hunt</cite></a>.
+          </p>
+          <h3>Implémentation technique</h3>
+          <p>La totalité de la palette est déduite de quelques valeurs d’origines&nbsp;:</p>
+          <ol>
+            <li>
+              la teinte <var>--hue</var> de la couleur secondaire, à laquelle nous ajoutons 30°
+              pour obtenir la couleur <strong>analogue</strong> —&nbsp;ici, la tonique <code>rebeccapurple</code>
+              évoquée plus haut&nbsp;;
+            </li>
+            <li>
+              la teinte <var>--right</var> définissant la couleur système du succès, dont nous déduisons
+              la complémentaire pour les alertes en ajoutant 180°,
+              c’est à dire en lui faisant effectuer <strong>un demi-tour chromatique</strong>&nbsp;;
+            </li>
+            <li>
+              pour la luminosité, nous avons besoin de trois valeurs&nbsp;:
+              <ol>
+                <li>une base <var>--lightness</var>, fixée à <var>40%</var> —&nbsp;toujours basée sur <code>rebeccapurple</code>&nbsp;;</li>
+                <li>
+                  un coefficient <var>--light-scale</var> —&nbsp;fixé à <var>1.61803398875</var>,
+                  <a href="https://fr.wikipedia.org/wiki/Nombre_d%27or">le nombre d’or</a>&nbsp;—
+                  pour placer les déclinaisons sur une <strong>échelle</strong> cohérente&nbsp;;</li>
+                <li>
+                  puis les déclinaisons claire et sombre, que nous déduisons grâce au coefficient
+                  —&nbsp;respectivement <var>--brighter</var> et <var>--darker</var>.
+                </li>
+              </ol>
+            </li>
+          </ol>
+          <p>Le tout se corse légèrement avec deux mécanismes supplémentaires&nbsp;:</p>
+          <ul>
+            <li>
+              <strong>l’accentuation des contrastes</strong> sur petits écrans, en redéfinissant
+              la luminosité de base <var>--lightness</var> et le coefficient <var>--light-scale</var>
+              dans une <em lang="en">media query</em>&nbsp;;
+            </li>
+            <li>
+              un mécanisme de <strong>bascule</strong> de la couleur de contraste basé sur la luminosité,
+              <a href="https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/" hreflang="en">expliqué
+              par <cite>Facundo Corradini</cite> sur CSS Tricks</a> et <a href="https://codepen.io/una/pen/VJMBbx" hreflang="en">implémenté par <cite>Una Kravets</cite> dans un CodePen</a>.
+              Ce mécanisme n’est pas parfait puisqu’il ne repose pas sur la luminosité <em>perçue</em>,
+              mais s’avère suffisamment fiable dans la plupart des cas.
+            </li>
+          </ul>
         
       </main>
 

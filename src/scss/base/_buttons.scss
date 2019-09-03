@@ -9,34 +9,34 @@
  ** @see https://accessibility.blog.gov.uk/2018/08/01/supporting-users-who-change-colours-on-gov-uk/
  */
 #{$form-buttons} {
-  background-color: palette( accent );
-  border: 1px solid palette( accent );
+  background-color: hsl(var(--accent));
+  border: 1px solid hsl(var(--accent));
   border-radius: $gutter / 4;
-  color: palette( dominant, contrast );
+  color: hsl(var(--contrast));
   font-family: inherit;
   font-size: 1em;
   line-height: 1.5;
   margin: $gutter / 2 0;
   padding: $gutter / 2;
   vertical-align: middle;
-  transition: all 300ms map-get( $timing-functions, 'move' );
+  transition: all 300ms var(--move);
   width: auto;
   appearance: none;
 
   &:hover {
-    border: 1px solid palette( accent, light );
-    background-color: palette( accent, light );
+    border: 1px solid hsl(var(--accent-light));
+    background-color: hsl(var(--accent-light));
   }
 
   &:focus,
   &:active,
   &[aria-expanded="true"] {
-    border: 1px solid palette( accent, dark );
-    background-color: palette( accent, dark );
+    border: 1px solid hsl(var(--accent-dark));
+    background-color: hsl(var(--accent-dark));
   }
 
   &:focus {
-    box-shadow: 0 0 0 rem( 2 ) transparentize( palette( accent, light ), .75 );
+    box-shadow: 0 0 0 rem( 2 ) hsla(var(--accent-light), .25);
     outline-color: transparent; /* 2 */
   }
 
@@ -50,9 +50,9 @@
     &:hover,
     &:focus,
     &:active {
-      background-color: palette( default );
+      background-color: hsl(var(--muted-dark));
       box-shadow: none;
-      color: palette( default, secondary );
+      color: hsl(var(--background));
       cursor: not-allowed;
       pointer-events: none;
     }

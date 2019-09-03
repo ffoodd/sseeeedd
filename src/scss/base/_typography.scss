@@ -16,7 +16,7 @@ caption {
 }
 
 .hn {
-  color: palette( dominant, dark );
+  color: hsl(var(--contrast-inverse));
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,20 +29,20 @@ caption {
 
 h1,
 .h1 {
-  color: palette( secondary );
+  color: hsl(var(--secondary));
   font-size: em( 46 );
   line-height: 1.0434;
   margin:  em( 48, 46 ) 0 em( 24, 46 );
   @extend .hn;
 
   strong {
-    color: palette( dominant );
+    color: hsl(var(--muted-dark));
   }
 }
 
 h2,
 .h2 {
-  color: palette( accent );
+  color: hsl(var(--accent));
   font-size: em( 40 );
   line-height: 1.2;
   margin: em( 48, 40 ) 0 em( 24, 40 );
@@ -51,7 +51,7 @@ h2,
 
 h3,
 .h3 {
-  color: palette( dominant );
+  color: hsl(var(--muted-dark));
   font-size: em( 36 );
   line-height: 1.3334;
   margin: em( 48, 36 ) 0 em( 24, 36 );

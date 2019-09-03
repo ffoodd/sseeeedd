@@ -28,25 +28,25 @@
 
   a,
   button {
-    background: palette( secondary, contrast );
+    background: hsl(var(--contrast));
     border: 0;
     border-radius: 0;
-    color: palette( secondary );
+    color: hsl(var(--secondary));
     display: block;
     margin: 0;
     outline: rem( 2 ) solid transparent;
     outline-offset: $gutter * 2;
     padding: $gutter / 2 $gutter;
     text-decoration: none;
-    transition: outline-offset .3s map-get($timing-functions, "enter");
+    transition: outline-offset .3s var(--enter);
     white-space: nowrap;
 
     &:hover,
     &:focus,
     &:active {
-      background: palette( default, secondary );
+      background: hsl(var(--background));
       border: 0;
-      color: palette( secondary, dark );
+      color: hsl(var(--secondary-dark));
     }
 
     &:focus {
@@ -57,7 +57,7 @@
   }
 
   > * {
-    background: palette( default, contrast );
+    background: hsl(var(--contrast));
     margin: $gutter / 2;
     position: relative;
     z-index: 1;
@@ -84,7 +84,7 @@
       content: "↓";
       display: inline-block;
       padding-left: $gutter / 2;
-      transition: transform .3s map-get( $timing-functions, 'enter' ) .5s;
+      transition: transform .3s var(--enter) .5s;
       will-change: transform;
     }
   }
@@ -99,7 +99,7 @@
     padding-top: em( 40 );
     position: absolute;
     top: 0;
-    transition: clip .3s map-get( $timing-functions, 'enter' ) .5s;
+    transition: clip .3s var(--enter) .5s;
     will-change: clip;
     z-index: -1;
 
@@ -118,10 +118,10 @@
   > * > button:hover + ul,
   > * > button:focus + ul,
   > * > button:active + ul {
-    box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
+    box-shadow: em( 4 ) em( 4 ) 0 0 hsla(var(--muted-dark), .25);
     clip: auto;  /* 1 */
-    outline: 1px solid palette( muted, light );
-    transition: clip .3s map-get( $timing-functions, 'exit' );
+    outline: 1px solid hsl(var(--muted-light));
+    transition: clip .3s var(--exit);
   }
 
   > * > button:hover::after,
@@ -130,7 +130,7 @@
   > *:hover > button::after,
   > *.focus-within > button::after {
     transform: rotateX( .5turn );
-    transition: transform .3s map-get( $timing-functions, 'exit' );
+    transition: transform .3s var(--exit);
   }
 }
 
@@ -153,7 +153,7 @@
       ul {
         clip: auto;
         clip-path: circle(em( 18 ) at left top); /* 1 */
-        transition: clip-path .3s map-get( $timing-functions, 'enter' ) .5s; /* 2 */
+        transition: clip-path .3s var(--enter) .5s; /* 2 */
         will-change: clip-path;
       }
 
@@ -162,15 +162,15 @@
       > * > button:hover + ul,
       > * > button:focus + ul,
       > * > button:active + ul {
-        box-shadow: em( 4 ) em( 4 ) 0 0 transparentize( palette( default ), .8 );
+        box-shadow: em( 4 ) em( 4 ) 0 0 hsla(var(--muted-dark), .25);
         clip-path: circle(150% at top right);
-        outline: 1px solid palette( muted, light );
-        transition: clip-path .3s map-get( $timing-functions, 'exit' );
+        outline: 1px solid hsl(var(--muted-light));
+        transition: clip-path .3s var(--exit);
       }
 
       > *:focus-within > button::after {
         transform: rotateX( .5turn );
-        transition: transform .3s map-get( $timing-functions, 'exit' );
+        transition: transform .3s var(--exit);
       }
     }
   }

@@ -6,10 +6,11 @@
 /* ==================== */
 
 .card {
-  --background: #{palette( default, contrast )};
-  --border: #{palette( muted, light )};
-  --color: #{palette( default )};
-  --shadow: #{transparentize(palette( default ), .75)};
+  --background: hsl(var(--contrast));
+  --border: hsl(var(--muted-light));
+  --color: hsl(var(--muted-dark));
+  --shadow: hsla(var(--muted-dark), .25);
+  --text-shadow: var(--background);
   background: var(--background);
   border: 1px solid var(--border);
   border-radius: em( 4 );
@@ -18,16 +19,11 @@
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  transition: box-shadow .3s map-get( $timing-functions, 'enter' );
+  transition: box-shadow .3s var(--enter);
 
   &:hover,
   &:focus-within {
     box-shadow: 0 0 0 rem( 4 ) var(--shadow);
-  }
-
-  &:focus-within .card-link:focus {
-    outline-color: transparent;
-    text-decoration: none;
   }
 }
 
@@ -43,6 +39,7 @@
   margin-bottom: $gutter;
   order: 1;
   padding: 0 $gutter;
+  text-shadow: em( 1 ) em( 1 ) 0 var(--text-shadow);
 
   * {
     color: inherit;
@@ -57,6 +54,7 @@
 .card-title {
   font-size: em( 26 );
   line-height: 1.2;
+  text-shadow: em( 2, 26 ) em( 2, 26 ) 0 var(--text-shadow);
   margin: $gutter 0 !important;
 }
 
@@ -72,7 +70,8 @@
     top: 0;
   }
 
-  &:hover {
+  &:hover,
+  &:visited {
     color: inherit;
   }
 
@@ -80,17 +79,23 @@
     color: inherit;
     text-decoration: underline;
   }
+
+  .card:focus-within &:focus {
+    outline-color: transparent;
+    text-decoration: none;
+  }
 }
 
 /* -------------------- */
 /* -- Variants
 /* -------------------- */
 
-@each $variant in alert, success, accent, dominant, secondary {
+@each $variant in alert, success, accent, default, secondary {
 	.card-#{$variant} {
-		--background: #{palette( $variant )};
-    --border: #{palette( $variant, dark )};
-		--color: #{palette( $variant, contrast )};
-    --shadow: #{transparentize(palette( $variant ), .75)};
+		--background: hsl(var(--#{$variant}));
+    --border: hsl(var(--#{$variant}-dark));
+		--color: hsl(var(--contrast));
+    --shadow: hsla(var(--#{$variant}), .25);
+    --text-shadow: var(--border);
 	}
 }

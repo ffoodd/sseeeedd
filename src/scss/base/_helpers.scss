@@ -36,6 +36,10 @@
   margin-left: auto !important;
 }
 
+.mx-auto {
+  margin: 0 auto !important;
+}
+
 .mt-auto {
   margin-top: auto !important;
 }
@@ -83,6 +87,7 @@
 }
 
 .flex-column {
+  align-items: flex-start;
   flex-direction: column !important;
 }
 
@@ -114,6 +119,11 @@
 }
 
 // Sizing
+[class*="--xs"] {
+  font-size: rem( 12 );
+  line-height: 1.5;
+}
+
 [class*="--s"] {
   font-size: rem( 14 );
   line-height: 1.5;
@@ -132,77 +142,37 @@
 
 // Colors
 .muted {
-  color: palette( muted ) !important;
+  color: hsl(var(--muted)) !important;
 
   em,
   strong {
-    color: palette( default, secondary );
+    color: hsl(var(--background));
   }
 }
 
-@each $color in default, alert, success, accent, dominant, secondary {
+@each $color in alert, success, accent, secondary {
 	.clr-#{$color} {
-		color: palette( #{$color} ) !important;
+		color: hsl(var(--#{$color})) !important;
+  }
+}
+
+[class*="bg-"] {
+  * {
+    color: inherit;
+  }
+
+  a:hover,
+  a:focus {
+    color: inherit;
+    opacity: .75;
   }
 }
 
 // Backgrounds
-@each $color in alert, success, accent, dominant, secondary, default {
+@each $color in alert, success, accent, secondary {
 	.bg-#{$color} {
-		background-color: palette( #{$color} );
-		color: palette( #{$color}, contrast );
-
-    * {
-      color: inherit;
-    }
-
-    a:hover,
-    a:focus {
-      color: inherit;
-      opacity: .75;
-    }
-  }
-}
-
-@media screen and (-ms-high-contrast: active) {
-  .clr-success,
-  .clr-dominant {
-		color: buttonFace !important;
-  }
-
-  .clr-secondary {
-    color: window !important;
-  }
-
-  .muted {
-    color: grayText !important;
-
-    em,
-    strong {
-      color: windowText;
-    }
-  }
-
-  .bg-success,
-  .bg-dominant {
-		background-color: buttonFace;
-		color: buttonText;
-  }
-
-  .bg-secondary {
-		background-color: window;
-		color: windowText;
-  }
-
-  .clr-alert,
-  .clr-accent {
-		color: highlight !important;
-  }
-
-  .bg-alert,
-  .bg-accent {
-		background-color: highlight;
-		color: highlightText;
+		background-color: hsl(var(--#{$color}));
+		color: hsl(var(--contrast));
   }
 }
 

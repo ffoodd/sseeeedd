@@ -3,10 +3,10 @@
 /* ==================== */
 
 body > * {
-  background: transparentize( palette( default, secondary ), .25 );
+  background: hsla(var(--background), .75);
   margin: 0 auto;
   padding: $gutter;
-  
+
   @if $full-width == false {
     max-width: $width;
   }

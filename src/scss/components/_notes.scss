@@ -3,9 +3,9 @@
 /* ==================== */
 
 .note {
-  background: palette( default, contrast );
+  background: hsl(var(--contrast));
   border-left: $gutter solid;
-  color: palette( default );
+  color: hsl(var(--muted-dark));
   margin: $gutter 0;
   padding: $gutter / 2 $gutter $gutter / 4;
 
@@ -14,6 +14,6 @@
   }
 
   &.wip {
-    color: palette( alert );
+    color: hsl(var(--alert));
   }
 }

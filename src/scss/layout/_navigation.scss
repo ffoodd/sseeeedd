@@ -17,7 +17,7 @@ nav {
 
   a[aria-current] {
     border-bottom: em( 4 ) solid;
-    color: palette( accent );
+    color: hsl(var(--accent));
 
     &:hover,
     &:focus,
@@ -27,7 +27,7 @@ nav {
   }
 
   button[aria-current] {
-    color: palette( accent );
+    color: hsl(var(--accent));
   }
 
   > ul > li + li {

@@ -1,0 +1,18 @@
+{% macro color(color='default', variant='', label='principale') %}
+  {% if 'principale' == label %}
+    {% set size = '3em' %}
+    {% set margin = ' mb-1' %}
+  {% else %}
+    {% set size = '1em' %}
+    {% set margin = ' caption--xs' %}
+  {% endif %}
+  <figure role="figure" class="no-padding no-margin" aria-label="{{ color | capitalize }} — {{ label }}">
+    <svg width="100%" height="{{ size }}" aria-label="{{ color }}{{ variant }}">
+      <rect fill="hsl(var(--{{ color }}{{ variant }}))" width="100%" height="100%">
+    </svg>
+    <figcaption class="no-padding{{ margin }}">
+      <span class="sr-only">{{ color | capitalize }} —&nbsp;</span>
+      {{ label | capitalize }}
+    </figcaption>
+  </figure>
+{% endmacro %}

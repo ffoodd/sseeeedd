@@ -59,15 +59,15 @@ label[for] {
 select,
 #{$form-fields} {
   appearance: none;
-  background-color: palette( default, contrast );
-  border: 1px solid palette( dominant, dark );
-  color: palette( default );
-  transition: box-shadow .3s map-get($timing-functions, "enter");
+  background-color: hsl(var(--contrast));
+  border: 1px solid hsl(var(--contrast-inverse));
+  color: hsl(var(--muted-dark));
+  transition: box-shadow .3s var(--enter);
   width: 100%;
 
   &:focus {
-    border: 1px solid palette( accent, light );
-    box-shadow: 0 0 0 rem( 2 ) transparentize( palette( accent, light ), .75 );
+    border: 1px solid hsl(var(--accent-light));
+    box-shadow: 0 0 0 rem( 2 ) hsla(var(--accent-light), .25);
   }
 
   /**
@@ -85,7 +85,7 @@ select,
  */
 select:-moz-focusring {
   color: transparent;
-  text-shadow: 0 0 0 palette( default );
+  text-shadow: 0 0 0 hsl(var(--muted-dark));
 }
 
 input[type="image"],
@@ -115,7 +115,7 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 
   &:focus {
-    box-shadow: 0 0 0 rem( 2 ) transparentize( palette( accent, light ), .75 );
+    box-shadow: 0 0 0 rem( 2 ) hsla(var(--accent-light), .25);
     outline-color: transparent;
   }
 
@@ -130,7 +130,7 @@ select[multiple] {
 
 select:not([multiple]) {
   appearance: none;
-  background: palette( default, contrast ) no-repeat url("#{map-get( $icons, "select" )}") center right .5em / 1em 1em;
+  background: hsl(var(--contrast)) no-repeat var(--select) center right .5em / 1em 1em;
 }
 
 textarea {
@@ -162,7 +162,7 @@ label [class^="label-msg"] {
 }
 
 .label-msg-error {
-  color: palette( alert );
+  color: hsl(var(--alert));
 }
 
 /**
@@ -172,12 +172,12 @@ label [class^="label-msg"] {
  */
 #{$form-fields} {
   &:valid:focus {
-    background: palette( default, contrast ) no-repeat url("#{map-get( $icons, "valid" )}") center right .5em / 1em 1.25em;
+    background: hsl(var(--contrast)) no-repeat var(--valid) center right .5em / 1em 1.25em;
   }
 
   &:invalid:not(:focus) {
-    background: palette( default, contrast ) no-repeat url("#{map-get( $icons, "invalid" )}") center right .5em / 1em 1.25em;
-    box-shadow: 0 0 0 rem( 2 ) transparentize( palette( alert, light ), .5 );
+    background: hsl(var(--contrast)) no-repeat var(--invalid) center right .5em / 1em 1.25em;
+    box-shadow: 0 0 0 rem( 2 ) hsla(var(--alert-light), .5);
   }
 
   &:invalid:placeholder-shown:not(:focus) {
@@ -185,7 +185,7 @@ label [class^="label-msg"] {
   }
 
   &:required:placeholder-shown {
-    background: palette( default, contrast ) no-repeat url("#{map-get( $icons, "required" )}") center right .5em / 1em 1.25em;
+    background: hsl(var(--contrast)) no-repeat var(--required) center right .5em / 1em 1.25em;
   }
 }
 

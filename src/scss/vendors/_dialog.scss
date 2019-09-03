@@ -24,7 +24,7 @@ dialog {
 }
 
 .dialog > :first-child {
-  background: transparentize( palette( default ), .5 );
+  background: hsla(var(--muted-dark), .5);
   bottom: 0;
   left: 0;
   position: fixed;
@@ -38,6 +38,6 @@ dialog {
   padding: $gutter / 2;
 
   &:focus {
-    box-shadow: inset 0 0 0 rem( 2 ) transparentize( palette( accent, light ), .75 );
+    box-shadow: inset 0 0 0 rem( 2 ) hsla(var(--accent-light), .25);
   }
 }

@@ -25,7 +25,7 @@ td {
 
 th,
 table strong {
-  color: palette( dominant, dark );
+  color: hsl(var(--contrast-inverse));
 }
 
 td {
@@ -34,11 +34,11 @@ td {
 }
 
 tbody {
-  border: 1px solid palette( default );
+  border: 1px solid hsl(var(--muted-dark));
 }
 
 thead {
-  border: 1px solid palette( dominant, dark );
+  border: 1px solid hsl(var(--contrast-inverse));
 }
 
 /**
@@ -56,7 +56,7 @@ thead {
     radial-gradient(farthest-side at 0% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)),
     radial-gradient(farthest-side at 100% 50%, rgba(0,0,0,.2), rgba(0,0,0,0)) 0 100%;
   background-repeat: no-repeat;
-  background-color: palette( default, contrast );
+  background-color: var(--contrast);
   background-size: 2.5rem 100%, 2.5rem 100%, 1rem 100%, 1rem 100%;
   background-position: 0 0, 100%, 0 0, 100%;
   background-attachment: local, local, scroll, scroll;
