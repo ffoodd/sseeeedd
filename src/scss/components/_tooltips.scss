@@ -46,8 +46,10 @@
   visibility: hidden;
   white-space: nowrap;
 
+  .tooltip:focus-within &,
   .tooltip button:hover + &,
-  .tooltip button:focus + & {
+  .tooltip button:focus + &,
+  .tooltip button:active + & {
     opacity: 1;
     pointer-events: auto;
     transform:
