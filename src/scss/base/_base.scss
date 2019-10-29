@@ -117,6 +117,10 @@ main a {
     color: hsl(var(--success-dark));
   }
 
+  &[hreflang]::after {
+    content: "\A0[" attr(hreflang) "]";
+  }
+
   &[download]::after,
   &[href^="#"]::before,
   &[href^="tel:"]::before,
