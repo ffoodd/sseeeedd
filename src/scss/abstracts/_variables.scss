@@ -101,6 +101,10 @@ html {
   //
   // == Icons
   //
+  // Credits:
+  // — Download icon by Jens Windolf → https://thenounproject.com/term/download/5507/
+  //
+  --download: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cpath d='M63 0H9C4.03 0 0 4.03 0 9v54c0 4.969 4.03 9 9 9h54c4.971 0 9-4.031 9-9V9c0-4.97-4.029-9-9-9zm0 63H9V9h54z'/%3E%3Cpath d='M54 36H42V15H30v21H18l18 21z'/%3E%3C/svg%3E");
   --external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M91.875 62H85v23H15V15h23V0H0v100h100V62z'/%3E%3Cpath d='M54 0v.627l17.787 17.85L52.701 38H38v24h24V49.799l20.773-20.337L99.374 46H100V0z'/%3E%3C/svg%3E");
   --unsafe: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47 59.5'%3E%3Cpath d='m 44,26.5 h -3.5 v -10 C 40.5,7.402 33.098,0 24,0 H 23 C 14.801,0 7.943,5.874 6.694,13.966 c -0.295,1.91 1.015,3.698 2.925,3.993 1.916,0.297 3.699,-1.016 3.993,-2.925 C 14.319,10.454 18.355,7 23,7 h 1 c 5.238,0 9.5,4.262 9.5,9.5 v 10 H 3 c -1.657,0 -3,1.343 -3,3 v 27 c 0,1.657 1.343,3 3,3 h 41 c 1.657,0 3,-1.343 3,-3 v -27 c 0,-1.657 -1.343,-3 -3,-3 z'/%3E%3C/svg%3E");
   --anchor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 85 85.2'%3E%3Cpath d='M56.7 51.7l9.1 9c-2.3 5.5-8.1 9.7-17.3 11.2v-45c6.1-2.3 8-7.1 8-12.7C56.5 6.4 50.2 0 42.4 0s-14 6.3-14 14.2c0 5.6 1.9 10.4 8 12.7v45c-9.1-1.5-15-5.7-17.3-11.2l9.2-9H0v27.8l9.8-9.8c6.2 9.2 18.5 15.5 32.7 15.5 14.2 0 26.5-6.3 32.7-15.5l9.8 9.8V51.7zM42.5 19c-2.6 0-4.7-2.1-4.7-4.7s2.1-4.7 4.7-4.7 4.7 2.1 4.7 4.7-2.1 4.7-4.7 4.7z'/%3E%3C/svg%3E");
