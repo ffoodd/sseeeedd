@@ -62,7 +62,6 @@ select,
   background-color: hsl(var(--contrast));
   border: 1px solid hsl(var(--contrast-inverse));
   color: hsl(var(--muted-dark));
-  transition: box-shadow .3s var(--enter);
   width: 100%;
 
   &:focus {
