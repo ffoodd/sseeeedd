@@ -87,7 +87,7 @@ body {
  ** @see https://accessibility.blog.gov.uk/2018/08/01/supporting-users-who-change-colours-on-gov-uk/
  */
 body:hover [tabindex="-1"]:focus {
-    outline-color: transparent;
+  outline-color: transparent;
 }
 
 a {
