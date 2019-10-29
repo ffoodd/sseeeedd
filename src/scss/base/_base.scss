@@ -74,8 +74,21 @@ body {
  * 3. Allow to animate outline on focus
  ** @author Heydon Pickering
  ** @see https://www.heydonworks.com/article/shrinking-button-outlines
+ * 4. Progressively enhance by using :focus-visible
+ ** @see https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
  */
 :focus {
+  outline-color: currentColor; /* 1 */
+  outline-offset: .25rem;      /* 3 */
+  isolation: isolate;          /* 2 */
+}
+
+:focus:not(:focus-visible) {   /* 4 */
+  outline-color: transparent;
+  isolation: auto;
+}
+
+:focus-visible {               /* 4 */
   outline-color: currentColor; /* 1 */
   outline-offset: .25rem;      /* 3 */
   isolation: isolate;          /* 2 */
