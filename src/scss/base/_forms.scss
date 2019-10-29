@@ -70,6 +70,15 @@ select,
     box-shadow: 0 0 0 rem( 2 ) hsla(var(--accent-light), .25);
   }
 
+  &[readonly] {
+    background-color: hsl(var(--disabled));
+
+    &:focus {
+      border-color: hsl(var(--muted));
+      box-shadow: 0 0 0 rem( 2 ) hsla(var(--muted-light), .5);
+    }
+  }
+
   /**
    * Avoid zoom on iOS when focus on inputs
    * http://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
@@ -147,8 +156,8 @@ label[for],
   cursor: pointer;
 }
 
-form [disabled],
-form [read-only] {
+form [disabled] {
+  background-color: hsl(var(--disabled));
   cursor: not-allowed;
 }
 

@@ -86,6 +86,7 @@ html {
   --muted:            var(--neutral), var(--lightness);
   --muted-light:      var(--neutral), var(--brighter);
   --muted-dark:       var(--neutral), var(--darker);
+  --disabled:         var(--neutral), 90%;
   --background:       var(--neutral), 96%;
   // ==================== */
   // == Timing functions
