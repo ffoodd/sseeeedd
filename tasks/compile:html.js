@@ -15,7 +15,6 @@ function getCards() {
 function template() {
     return gulp.src(options.paths.dev + 'templates/*.html')
       .pipe(data(getCards))
-      .pipe(newer(options.paths.dest))
       .pipe(nunjucks(options.nunjucks))
       .pipe(svg())
       .pipe(gulp.dest(options.paths.dest));

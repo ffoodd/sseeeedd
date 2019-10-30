@@ -68,6 +68,7 @@
     "gulp-rename": "^1.4.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
+    "gulp-sri-hash": "^2.2.1",
     "gulp-stylelint": "^9.0.0",
     "gulp-svgstore": "^7.0.1",
     "gulp-uglify": "^3.0.2",

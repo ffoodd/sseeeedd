@@ -21,7 +21,8 @@ gulp.task('js',      require('./tasks/compile:js'));
 gulp.task('img',     require('./tasks/compile:img'));
 gulp.task('svg',     require('./tasks/compile:svg'));
 gulp.task('html',    require('./tasks/compile:html'));
-gulp.task('build', gulp.series( clean, 'prepare', gulp.series( 'svg', 'html', gulp.parallel( 'sass', 'js', 'img', 'svg', 'html' ) ) ) );
+gulp.task('sri',     require('./tasks/compile:sri'));
+gulp.task('build', gulp.series( clean, 'prepare', gulp.series( 'svg', 'html', gulp.parallel( 'sass', 'js', 'img', 'svg', 'html' ), 'sri' ) ) );
 
 
 /**
@@ -48,8 +49,8 @@ function sync(done) {
  * @section Watch
  */
 function watch() {
-  gulp.watch( options.paths.dev + 'scss/**/*.scss',   gulp.series( 'sass', reload ) );
-  gulp.watch( options.paths.dev + 'js/**/*.js',       gulp.series( 'js', reload ) );
+  gulp.watch( options.paths.dev + 'scss/**/*.scss',   gulp.series( 'sass', 'html', 'sri', reload ) );
+  gulp.watch( options.paths.dev + 'js/**/*.js',       gulp.series( 'js', 'html', 'sri', reload ) );
   gulp.watch( options.paths.dev + 'img/**/*.*',       gulp.series( 'img', reload ) );
   gulp.watch( options.paths.dev + 'img/svg/*.svg',    gulp.series( 'svg', 'html', reload ) );
   gulp.watch( options.paths.dev + 'templates/*.html', gulp.series( 'html', reload ) );
