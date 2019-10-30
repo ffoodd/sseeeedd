@@ -6,7 +6,7 @@ const options  = require('./options');
 
 function sprite() {
    return gulp.src(options.paths.dev + 'img/svg/*.svg')
-    .pipe(imgmin(imgmin.svgo(options.svgo)))
+    .pipe(imgmin([imgmin.svgo(options.svgo)]))
     .pipe(symbol(options.symbol))
     .pipe(rename({basename: 'symbol'}))
     .pipe(gulp.dest(options.paths.dest + 'img/'));
