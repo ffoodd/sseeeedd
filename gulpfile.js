@@ -36,7 +36,9 @@ function sync(done) {
     browser.init({
       server: {
          baseDir: options.paths.dest
-      }
+      },
+      https: true,
+      cors: true
     });
     done();
 }
