@@ -16,6 +16,7 @@
 
 [role="tooltip"] {
   --arrow: calc(100% - #{$gutter / 4});
+  --rotation: 45deg;
   background: hsl(var(--muted-dark));
   bottom: calc(100% + .5em);
   clip-path: polygon(
@@ -37,7 +38,7 @@
   transform-origin: 50% calc(100% + 10px);
   transform:
     perspective(1000px)
-    rotate3d(1, 0, 0, 45deg)
+    rotate3d(1, 0, 0, var(--rotation))
     translateX(-50%);
   transition:
     opacity .2s var(--enter),
@@ -50,12 +51,9 @@
   .tooltip button:hover + &,
   .tooltip button:focus + &,
   .tooltip button:active + & {
+    --rotation: 0deg;
     opacity: 1;
     pointer-events: auto;
-    transform:
-      perspective(1000px)
-      rotate3d(1, 0, 0, 0deg)
-      translateX(-50%);
     transition:
       opacity .2s var(--exit),
       transform .2s var(--exit);
