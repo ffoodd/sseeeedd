@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="fr" class="no-js"><head>
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,10 +14,10 @@
 
         <script>document.documentElement.classList.replace('no-js','js');</script>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="css/styles.min.css" media="all" integrity="sha384-ls+RMk5UiWToWnp1nk48JdlshQiVsHT+ayj9Tv1COou8mmqyv1pSUKDQPmaWZ7ud" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/print.min.css" media="print" integrity="sha384-i3dRwmp8zXRlpUnJTD27rKIBzSEdYbc0YEFwuULfvleZ4Vm0RG81i/6HXy96jet8" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.min.css" media="all">
+        <link rel="stylesheet" href="css/print.min.css" media="print">
     </head>
-    <body itemscope itemtype="http://schema.org/WebPage">
+    <body itemscope="" itemtype="http://schema.org/WebPage">
       <header role="banner">
         
           <div>
@@ -74,7 +76,7 @@
   <h2>Puissance d’une sonate cacophonique</h2>
 
   <blockquote>
-    On voit que les cours d’eau sont peu abondants dans le pays !
+    On voit que les cours d’eau sont peu abondants dans le pays&nbsp;!
     <footer><cite>Pinchinat</cite></footer>
   </blockquote>
 
@@ -113,10 +115,10 @@
       <div class="note">
         <h6>Accessibilité des listes de définitions</h6>
         <p>
-          Le support par les technologies d'assistance est plus que disparate :
-          il faut doubler <code><dt></code> avec <code><dfn></code>,
+          Le support par les technologies d'assistance est plus que disparate&nbsp;:
+          il faut doubler <code>&lt;dt&gt;</code> avec <code>&lt;dfn&gt;</code>,
           utiliser <code>aria-labelledby</code> pour associer la définition au terme,
-          et — au cas où ça puisse aider — expliciter la sémantique des éléments
+          et —&nbsp;au cas où ça puisse aider&nbsp;— expliciter la sémantique des éléments
           avec les rôles <code>term</code> et <code>definition</code> ajoutés dans
           <abbr lang="en" title="Accessible Rich Internet Application" aria-label="Accessible Rich Internet Application">ARIA</abbr> 1.1.
         </p>
@@ -145,7 +147,7 @@
   <div class="grid-1-3">
     <div class="d-flex flex-column m-auto">
       <svg width="56" height="64" role="img" aria-label="Gaël Poupard" class="mx-auto no-padding">
-        <use href="img/symbol.svg#ffoodd"/>
+        <use xlink:href="img/symbol.svg#ffoodd"/>
       </svg>
       <h6>Icônes multicolores</h6>
       <p class="p--s mt-0">
@@ -154,24 +156,24 @@
       </p>
       <div class="grid-2">
         <svg width="32" height="32" aria-hidden="true" focusable="false" class="mx-auto no-padding">
-          <use href="img/symbol.svg#frame"/>
+          <use xlink:href="img/symbol.svg#frame"/>
         </svg>
         <svg width="32" height="32" aria-hidden="true" focusable="false" class="mx-auto no-padding">
-          <use href="img/symbol.svg#map"/>
+          <use xlink:href="img/symbol.svg#map"/>
         </svg>
       </div>
     </div>
     <div class="note">
       <h6><em lang="en">Sprite</em> <abbr title="Scalable Vector Graphics" aria-label="Scalable Vector Graphics">SVG</abbr> externe</h6>
       <p>
-        Pour utiliser une image SVG, facile : tous les fichiers <code>.svg</code> présents
+        Pour utiliser une image SVG, facile&nbsp;: tous les fichiers <code>.svg</code> présents
         dans le répertoire <var>/src/img/svg</var> sont combinés dans un <em lang="en">sprite</em>.
-        Vous pouvez appeler votre image grâce à son identifiant :
+        Vous pouvez appeler votre image grâce à son identifiant&nbsp;:
       </p>
       <pre class="language-markup"><code class="language-markup">
-<svg width="56" height="64" role="img" aria-label="Gaël Poupard" class="no-margin no-padding">
-  <use xlink:href="img/symbol.svg#ffoodd"></use>
-</svg></code>
+&lt;svg width="56" height="64" role="img" aria-label="Gaël Poupard" class="no-margin no-padding">
+  &lt;use xlink:href="img/symbol.svg#ffoodd">&lt;/use>
+&lt;/svg></code>
       </pre>
     </div>
   </div>
@@ -287,7 +289,7 @@
 
   <div class="tooltip">
     <button type="button">Afficher</button>
-    <p role="tooltip">Et hop !</p>
+    <p role="tooltip">Et hop&nbsp;!</p>
   </div>
 
   <h3 id="footnotes-label">Notes de bas-de-page</h3>
@@ -306,12 +308,11 @@
       </main>
 
       
-        <script src="js/script.min.js" async integrity="sha384-nSz5iaVsMYxw1DET6jWDkOywdGgY5Qxbh9xybx8vRsMZPJhX+5GMTmMKoq0ORQtO" crossorigin="anonymous"></script>
-        <script src="js/prism.min.js" integrity="sha384-jCq/sLgQkL7biJNIjsKBaAXo+hFmO/bVhUw8V4w7zknBgB5r2geKTaupFvFIlsKJ" crossorigin="anonymous"></script>
+        <script src="js/script.min.js" async></script>
+        <script src="js/prism.min.js"></script>
       
 
       
       
-    
-
-</body></html>
+    </body>
+</html>
