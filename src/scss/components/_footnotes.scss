@@ -27,16 +27,3 @@ a[id^="footnote-"][aria-describedby] {
 footer[id="footnotes"] {
   max-width: 75ch;
 }
-
-/**
- * Adding an effect when receiving focus
- */
-@keyframes footnotes {
-  from {
-    color: hsl(var(--secondary));
-  }
-}
-
-[role="note"]:target {
-  animation: footnotes .5s var(--enter);
-}

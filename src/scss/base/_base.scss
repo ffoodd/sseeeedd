@@ -50,6 +50,28 @@ body {
 }
 
 /**
+ * @note Target
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/:target
+ */
+@keyframes target {
+  from {
+    background-color: transparent;
+    box-shadow: none;
+    outline: rem(2) solid transparent;
+    outline-offset: $gutter * 2;
+  } to {
+    background-color: hsl(var(--contrast));
+    box-shadow: 0 0 0 .25rem hsl(var(--contrast));
+    outline: rem(2) solid hsl(var(--accent));
+    outline-offset: .25rem;
+  }
+}
+
+:target {
+  animation: target .3s var(--enter) .3s forwards;
+}
+
+/**
  * @note Selection
  * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::selection
  */
