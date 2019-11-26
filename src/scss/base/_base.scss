@@ -101,6 +101,7 @@ body {
  */
 body:hover [tabindex="-1"]:focus {
   outline-color: transparent;
+  isolation: auto;
 }
 
 a {
