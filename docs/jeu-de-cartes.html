@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="fr" class="no-js"><head>
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+    <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -12,10 +14,10 @@
 
         <script>document.documentElement.classList.replace('no-js','js');</script>
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="css/styles.min.css" media="all" integrity="sha384-SgaPAkLVAiVUmX81pjxylZqIeZRLybNfU2SYCPsfPnpdsbq+0mhHOVvYhAGslkO2" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/print.min.css" media="print" integrity="sha384-i3dRwmp8zXRlpUnJTD27rKIBzSEdYbc0YEFwuULfvleZ4Vm0RG81i/6HXy96jet8" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/styles.min.css" media="all">
+        <link rel="stylesheet" href="css/print.min.css" media="print">
     </head>
-    <body itemscope itemtype="http://schema.org/WebPage">
+    <body itemscope="" itemtype="http://schema.org/WebPage">
       <header role="banner">
         
           <div>
@@ -55,24 +57,24 @@
 
   <p>
     Ce composant est principalement intéressant parce qu’il est <strong>généré</strong> depuis un fichier <code>.json</code>.
-    Chaque carte correspond à une entrée comprenant :
+    Chaque carte correspond à une entrée comprenant&nbsp;:
   </p>
 
   <ul>
     <li>un label,</li>
     <li>une valeur,</li>
     <li>
-      une couleur : qui doit être présente dans la <code>palette()</code> du projet
-      — jetez un œil à <code>./src/scss/abstracts/variables.scss</code>,
+      une couleur&nbsp;: qui doit être présente dans la <code>palette()</code> du projet
+      —&nbsp;jetez un œil à <code>./src/scss/abstracts/variables.scss</code>,
     </li>
     <li>
-      et une icône  le nom d’un fichier <abbr lang="en" title="Scalable Vector Graphics">SVG</abbr>
-      dans le répertoire <code>./src/img/svg/</code> — le tout combiné dans un <em lang="en">sprite</em>.
+      et une icône&nbsp; le nom d’un fichier <abbr lang="en" title="Scalable Vector Graphics">SVG</abbr>
+      dans le répertoire <code>./src/img/svg/</code> —&nbsp;le tout combiné dans un <em lang="en">sprite</em>.
     </li>
   </ul>
 
   <p>
-    Le reste n’est que sémantique et styles — notamment l’utilisation de la fonction
+    Le reste n’est que sémantique et styles —&nbsp;notamment l’utilisation de la fonction
     <abbr lang="en" title="Cascading StyleSheet">CSS</abbr> <code>element()</code>,
     supportée uniquement par Firefox.
   </p>
@@ -82,7 +84,7 @@
       <figure class="card p-relative no-margin d-flex clr-secondary" role="figure" style="--card: #card-1" aria-label="Environnement de dév">
         <p class="--l d-flex no-padding p-relative rounded bg-secondary" id="card-1">3</p>
         <svg width="56" height="64" role="img" aria-label="Environnement de dév" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Environnement de dév</p>
@@ -92,7 +94,7 @@
       <figure class="card p-relative no-margin d-flex clr-secondary" role="figure" style="--card: #card-2" aria-label="Stratégie de déploiement">
         <p class="--l d-flex no-padding p-relative rounded bg-secondary" id="card-2">1</p>
         <svg width="56" height="64" role="img" aria-label="Stratégie de déploiement" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Stratégie de déploiement</p>
@@ -102,7 +104,7 @@
       <figure class="card p-relative no-margin d-flex clr-secondary" role="figure" style="--card: #card-3" aria-label="Stratégie de tests">
         <p class="--l d-flex no-padding p-relative rounded bg-secondary" id="card-3">1</p>
         <svg width="56" height="64" role="img" aria-label="Stratégie de tests" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Stratégie de tests</p>
@@ -112,7 +114,7 @@
       <figure class="card p-relative no-margin d-flex clr-secondary" role="figure" style="--card: #card-4" aria-label="Cookies">
         <p class="--l d-flex no-padding p-relative rounded bg-secondary" id="card-4">1</p>
         <svg width="56" height="64" role="img" aria-label="Cookies" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Cookies</p>
@@ -122,7 +124,7 @@
       <figure class="card p-relative no-margin d-flex clr-secondary" role="figure" style="--card: #card-5" aria-label="WYSIWYG amélioré">
         <p class="--l d-flex no-padding p-relative rounded bg-secondary" id="card-5">3</p>
         <svg width="56" height="64" role="img" aria-label="WYSIWYG amélioré" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">WYSIWYG amélioré</p>
@@ -132,7 +134,7 @@
       <figure class="card p-relative no-margin d-flex clr-accent" role="figure" style="--card: #card-6" aria-label="Accessibilité">
         <p class="--l d-flex no-padding p-relative rounded bg-accent" id="card-6">2</p>
         <svg width="56" height="64" role="img" aria-label="Accessibilité" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Accessibilité</p>
@@ -142,7 +144,7 @@
       <figure class="card p-relative no-margin d-flex clr-accent" role="figure" style="--card: #card-7" aria-label="Guide de styles">
         <p class="--l d-flex no-padding p-relative rounded bg-accent" id="card-7">3</p>
         <svg width="56" height="64" role="img" aria-label="Guide de styles" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Guide de styles</p>
@@ -152,7 +154,7 @@
       <figure class="card p-relative no-margin d-flex clr-accent" role="figure" style="--card: #card-8" aria-label="Menus">
         <p class="--l d-flex no-padding p-relative rounded bg-accent" id="card-8">1.5</p>
         <svg width="56" height="64" role="img" aria-label="Menus" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Menus</p>
@@ -162,7 +164,7 @@
       <figure class="card p-relative no-margin d-flex clr-accent" role="figure" style="--card: #card-9" aria-label="Fil d’Ariane">
         <p class="--l d-flex no-padding p-relative rounded bg-accent" id="card-9">½</p>
         <svg width="56" height="64" role="img" aria-label="Fil d’Ariane" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Fil d’Ariane</p>
@@ -172,7 +174,7 @@
       <figure class="card p-relative no-margin d-flex clr-accent" role="figure" style="--card: #card-10" aria-label="Chapitrage">
         <p class="--l d-flex no-padding p-relative rounded bg-accent" id="card-10">1</p>
         <svg width="56" height="64" role="img" aria-label="Chapitrage" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Chapitrage</p>
@@ -182,7 +184,7 @@
       <figure class="card p-relative no-margin d-flex clr-alert" role="figure" style="--card: #card-11" aria-label="Partage">
         <p class="--l d-flex no-padding p-relative rounded bg-alert" id="card-11">½</p>
         <svg width="56" height="64" role="img" aria-label="Partage" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Partage</p>
@@ -192,7 +194,7 @@
       <figure class="card p-relative no-margin d-flex clr-alert" role="figure" style="--card: #card-12" aria-label="Impression">
         <p class="--l d-flex no-padding p-relative rounded bg-alert" id="card-12">1</p>
         <svg width="56" height="64" role="img" aria-label="Impression" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Impression</p>
@@ -202,7 +204,7 @@
       <figure class="card p-relative no-margin d-flex clr-alert" role="figure" style="--card: #card-13" aria-label="Contenus associés">
         <p class="--l d-flex no-padding p-relative rounded bg-alert" id="card-13">3</p>
         <svg width="56" height="64" role="img" aria-label="Contenus associés" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Contenus associés</p>
@@ -212,7 +214,7 @@
       <figure class="card p-relative no-margin d-flex clr-alert" role="figure" style="--card: #card-14" aria-label="PWA">
         <p class="--l d-flex no-padding p-relative rounded bg-alert" id="card-14">1</p>
         <svg width="56" height="64" role="img" aria-label="PWA" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">PWA</p>
@@ -222,7 +224,7 @@
       <figure class="card p-relative no-margin d-flex clr-default" role="figure" style="--card: #card-15" aria-label="Formation contributeurs">
         <p class="--l d-flex no-padding p-relative rounded bg-default" id="card-15">5</p>
         <svg width="56" height="64" role="img" aria-label="Formation contributeurs" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Formation contributeurs</p>
@@ -232,7 +234,7 @@
       <figure class="card p-relative no-margin d-flex clr-default" role="figure" style="--card: #card-16" aria-label="Formation administrateurs">
         <p class="--l d-flex no-padding p-relative rounded bg-default" id="card-16">5</p>
         <svg width="56" height="64" role="img" aria-label="Formation administrateurs" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Formation administrateurs</p>
@@ -242,7 +244,7 @@
       <figure class="card p-relative no-margin d-flex clr-default" role="figure" style="--card: #card-17" aria-label="Guide de contribution">
         <p class="--l d-flex no-padding p-relative rounded bg-default" id="card-17">?</p>
         <svg width="56" height="64" role="img" aria-label="Guide de contribution" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Guide de contribution</p>
@@ -252,7 +254,7 @@
       <figure class="card p-relative no-margin d-flex clr-success" role="figure" style="--card: #card-18" aria-label="Documentation">
         <p class="--l d-flex no-padding p-relative rounded bg-success" id="card-18">?</p>
         <svg width="56" height="64" role="img" aria-label="Documentation" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
+          <use xlink:href="img/symbol.svg#ffoodd"/>
         </svg>
         <figcaption class="no-margin no-padding">
           <p class="no-margin fw-700">Documentation</p>
@@ -265,19 +267,18 @@
     <h2 class="h4">À améliorer</h2>
     <p>
       Le balisage ne me paraît pas être le plus opportun pour le moment.
-      Commentaires bienvenus !
+      Commentaires bienvenus&nbsp;!
     </p>
   </div>
 
       </main>
 
       
-        <script src="js/script.min.js" async integrity="sha384-nSz5iaVsMYxw1DET6jWDkOywdGgY5Qxbh9xybx8vRsMZPJhX+5GMTmMKoq0ORQtO" crossorigin="anonymous"></script>
-        <script src="js/prism.min.js" integrity="sha384-jCq/sLgQkL7biJNIjsKBaAXo+hFmO/bVhUw8V4w7zknBgB5r2geKTaupFvFIlsKJ" crossorigin="anonymous"></script>
+        <script src="js/script.min.js" async></script>
+        <script src="js/prism.min.js"></script>
       
 
       
       
-    
-
-</body></html>
+    </body>
+</html>

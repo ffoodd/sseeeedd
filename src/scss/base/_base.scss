@@ -14,6 +14,9 @@
  * 3. Smooth scroll
  *    @see https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations
  *    @see https://codepen.io/benfrain/pen/VxeLPb
+ * 4. Breathing room to any content automatically scrolled to
+*     @author Florens Verschelde (@fvsch)
+ *    @see https://twitter.com/fvsch/status/1190277947871105027
  */
 html[lang] {
   box-sizing: border-box;
@@ -24,7 +27,8 @@ html[lang] {
   }
 
   position: relative;
-  scroll-behavior: smooth;            /* 3 */
+  scroll-behavior: smooth;              /* 3 */
+  scroll-padding-top: 1rem;             /* 4 */
 }
 
 *,
