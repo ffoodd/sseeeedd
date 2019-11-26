@@ -7,18 +7,24 @@
  ** @see http://fr.slideshare.net/TheZero1/webexpo-highcontrast (slide 11)
  * 2. Ensure outline stay visible in High contrast mode
  ** @see https://accessibility.blog.gov.uk/2018/08/01/supporting-users-who-change-colours-on-gov-uk/
+ * 3. Better <button> styling
+ ** @author Florens Verschelde (@fvsch)
+ ** @see https://fvsch.com/styling-buttons/
  */
 #{$form-buttons} {
   background-color: hsl(var(--accent));
   border: 1px solid hsl(var(--accent));
   border-radius: $gutter / 4;
   color: hsl(var(--contrast));
-  font-family: inherit;
-  font-size: 1em;
+  cursor: pointer; /* 3 */
+  display: inline-block;
+  font: inherit; /* 3 */
   line-height: 1.5;
   margin: $gutter / 2 0;
+  outline: none; /* 2 */
   padding: $gutter / 2;
   vertical-align: middle;
+  text-decoration: none;
   transition: all 300ms var(--move);
   width: auto;
   appearance: none;
@@ -37,7 +43,11 @@
 
   &:focus {
     box-shadow: 0 0 0 rem( 2 ) hsla(var(--accent-light), .25);
-    outline-color: transparent; /* 2 */
+    outline: rem( 2 ) solid transparent; /* 2 */
+  }
+
+  &:-moz-focusring {
+    outline: rem( 2 ) solid transparent; /* 2 */
   }
 
   &:active,
