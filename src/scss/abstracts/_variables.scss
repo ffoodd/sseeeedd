@@ -59,7 +59,7 @@ html {
   --treshold: 60%;                                              // 3
   // Hues
   --hue: 240;
-  --analog: calc(var(--hue) + 30);                              // 1
+  --rotation: calc(var(--hue) + 30);                              // 1
   --right: 150;
   --wrong: calc(var(--right) + 180);                            // 2
   // Lightnesses
@@ -72,9 +72,9 @@ html {
   --secondary:        var(--hue),     100%, var(--lightness);
   --secondary-light:  var(--hue),     100%, var(--brighter);
   --secondary-dark:   var(--hue),     100%, var(--darker);
-  --accent:           var(--analog),  50%,  var(--lightness);   // 4
-  --accent-light:     var(--analog),  50%,  var(--brighter);
-  --accent-dark:      var(--analog),  50%,  var(--darker);
+  --accent:           var(--rotation),  50%,  var(--lightness); // 4
+  --accent-light:     var(--rotation),  50%,  var(--brighter);
+  --accent-dark:      var(--rotation),  50%,  var(--darker);
   --alert:            var(--wrong),   100%, var(--lightness);
   --alert-light:      var(--wrong),   100%, var(--brighter);
   --alert-dark:       var(--wrong),   100%, var(--darker);
