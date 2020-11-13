@@ -1,7 +1,7 @@
 'use strict';
 
 const gulp     = require('gulp');
-const options  = require('./tasks/options');
+const options  = require('./options');
 const browser  = require('browser-sync').create();
 const zip      = require('gulp-zip');
 const del      = require('del');

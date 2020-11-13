@@ -1,6 +1,6 @@
 const gulp    = require('gulp');
 const hash    = require('gulp-sri-hash');
-const options = require('./options');
+const options = require('../options');
 
 function sri() {
   return gulp.src(options.test.all)

@@ -4,7 +4,7 @@ const svg      = require('gulp-inject-svg');
 const nunjucks = require('gulp-nunjucks-render');
 const newer    = require('gulp-newer');
 const data     = require('gulp-data');
-const options  = require('./options');
+const options  = require('../options');
 
 function getCards() {
  return {

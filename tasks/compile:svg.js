@@ -2,7 +2,7 @@ const gulp     = require('gulp');
 const imgmin   = require('gulp-imagemin');
 const symbol   = require('gulp-svgstore');
 const rename   = require('gulp-rename');
-const options  = require('./options');
+const options  = require('../options');
 
 function sprite() {
    return gulp.src(options.paths.dev + 'img/svg/*.svg')

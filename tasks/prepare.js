@@ -1,7 +1,7 @@
 const gulp     = require('gulp');
 const newer    = require('gulp-newer');
 const rename   = require('gulp-rename');
-const options  = require('./options');
+const options  = require('../options');
 
 function normalize() {
   return gulp.src([options.paths.node + '/normalize.css/*.css'])

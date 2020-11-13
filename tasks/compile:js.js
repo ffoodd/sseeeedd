@@ -3,7 +3,7 @@ const babel    = require('gulp-babel');
 const uglify   = require('gulp-uglify');
 const rename   = require('gulp-rename');
 const newer    = require('gulp-newer');
-const options  = require('./options');
+const options  = require('../options');
 
 function js() {
     return gulp.src(options.paths.dev + 'js/**/*.js')

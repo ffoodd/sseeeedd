@@ -1,7 +1,7 @@
 const gulp     = require('gulp');
 const imgmin   = require('gulp-imagemin');
 const newer    = require('gulp-newer');
-const options  = require('./options');
+const options  = require('../options');
 
 function img() {
     return gulp.src(options.paths.dev + 'img/*')

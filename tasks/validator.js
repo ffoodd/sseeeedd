@@ -1,6 +1,6 @@
 const fs       = require('fs');
 const gulp     = require('gulp');
-const options  = require('./options');
+const options  = require('../options');
 const html     = require('html-validator');
 
 /**

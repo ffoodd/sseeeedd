@@ -1,6 +1,6 @@
 const gulp      = require('gulp');
 const linter    = require('gulp-stylelint');
-const options   = require('./options');
+const options   = require('../options');
 
 function travisSCSS() {
   return gulp.src([

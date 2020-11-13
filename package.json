@@ -47,7 +47,7 @@
   "devDependencies": {
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
-    "axe-core": "^3.5.5",
+    "axe-core": "^4.0.2",
     "browser-sync": "^2.26.13",
     "del": "^4.1.1",
     "doiuse": "^4.4.0",

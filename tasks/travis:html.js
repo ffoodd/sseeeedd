@@ -1,6 +1,6 @@
 const fs        = require('fs');
 const html      = require('html-validator');
-const options   = require('./options');
+const options   = require('../options');
 
 function travisHTML(done) {
   fs.readFile(options.test.grps, 'utf8', (error, response) => {
