@@ -1,0 +1,16 @@
+@use "../abstracts/functions";
+@use "../abstracts/variables";
+
+/* ==================== */
+/* == Layout base
+/* ==================== */
+
+body > * {
+	background: functions.hsla(var(--background), .75);
+	margin: 0 auto;
+	padding: variables.$gutter;
+
+	@if variables.$full-width == false {
+		max-width: variables.$width;
+	}
+}

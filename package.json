@@ -1,87 +1,78 @@
 {
-  "name": "sseeeedd",
-  "version": "0.2.1",
-  "description": "Sow sseeeedd and see your front-end grow",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:ffoodd/sseeeedd.git"
-  },
-  "author": "Gaël Poupard",
-  "license": "MIT",
-  "keywords": [
-    "template",
-    "accessibility",
-    "front-end",
-    "starter"
-  ],
-  "style": "dist/css/styles.min.css",
-  "sass": "src/scss/styles.scss",
-  "main": "dist/js/script.min.js",
-  "scripts": {
-    "gulp": "node node_modules/gulp/bin/gulp.js",
-    "pretest": "npm run gulp build",
-    "test": "npm run gulp test",
-    "start": "npm run gulp",
-    "prepublishOnly": "npm run gulp zip"
-  },
-  "stylelint": {
-    "extends": "stylelint-config-recommended-scss",
-    "plugins": [
-      "stylelint-scss"
-    ],
-    "rules": {
-      "no-descending-specificity": null,
-      "property-no-unknown": [
-        true,
-        {
-          "ignoreProperties": [
-            "color-scheme"
-          ]
-        }
-      ]
-    }
-  },
-  "ignore": [
-    "node_modules"
-  ],
-  "devDependencies": {
-    "@babel/core": "^7.12.3",
-    "@babel/preset-env": "^7.12.1",
-    "axe-core": "^4.0.2",
-    "browser-sync": "^2.26.13",
-    "del": "^4.1.1",
-    "doiuse": "^4.4.0",
-    "eslint": "^5.16.0",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^6.1.0",
-    "gulp-axe-webdriver": "^3.1.3",
-    "gulp-babel": "^8.0.0",
-    "gulp-csso": "^3.0.1",
-    "gulp-data": "^1.3.1",
-    "gulp-eslint": "^5.0.0",
-    "gulp-imagemin": "^6.2.0",
-    "gulp-inject-svg": "^0.1.18",
-    "gulp-louis": "^2.4.2",
-    "gulp-newer": "^1.4.0",
-    "gulp-nunjucks-render": "^2.2.3",
-    "gulp-purgecss": "^1.2.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.1.0",
-    "gulp-sourcemaps": "^2.6.5",
-    "gulp-sri-hash": "^2.2.1",
-    "gulp-stylelint": "^9.0.0",
-    "gulp-svgstore": "^7.0.1",
-    "gulp-uglify": "^3.0.2",
-    "gulp-zip": "^5.0.2",
-    "html-validator": "^4.1.1",
-    "stylelint": "^15.10.1",
-    "stylelint-config-recommended-scss": "^3.3.0",
-    "stylelint-scss": "^3.18.0",
-    "tar": "^6.0.5"
-  },
-  "dependencies": {
-    "a11y-dialog": "^5.4.2",
-    "normalize.css": "^8.0.1",
-    "van11y-accessible-tab-panel-aria": "^2.0.4"
-  }
+	"name": "sseeeedd",
+	"version": "0.2.1",
+	"description": "Sow sseeeedd and see your front-end grow",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:ffoodd/sseeeedd.git"
+	},
+	"author": "Gaël Poupard",
+	"license": "MIT",
+	"keywords": [
+		"template",
+		"accessibility",
+		"front-end",
+		"starter"
+	],
+	"style": "dist/sseeeedd.min.css",
+	"sass": "src/sseeeedd.scss",
+	"main": "dist/js/script.min.js",
+	"scripts": {
+		"pretest": "npm run build && npm run build:docs",
+		"test": "concurrently \"npm:test:*\"",
+		"test:html": "html-validate \"docs/*.html\"",
+		"test:a11y": "pa11y-ci 'docs/*.html' -c .pa11yci.json",
+		"prestart": "npm run build && npm run build:docs",
+		"start": "concurrently --kill-others \"npm:watch\" \"npm:browser:start\"",
+		"browser:start": "servor docs --browse --reload --secure",
+		"build": "sass src/:dist/ --style expanded --source-map",
+		"postbuild": "postcss dist/{sseeeedd,sseeeedd-print}.css --dir dist/ --ext .min.css -u autoprefixer cssnano -m",
+		"prebuild:docs": "shx rm -rf docs/*",
+		"build:docs": "concurrently \"npm:build:docs:*\"",
+		"postbuild:docs": "shx cp -r _site/{favicon.ico,humans.txt} docs/ && shx mkdir docs/css && shx cp -r dist/*.min.{css,css.map} docs/css",
+		"build:docs:html": "nunjucks *.njk _site/datas/deck.json -p _site/templates -o docs",
+		"prebuild:docs:svg": "shx mkdir docs/img/",
+		"build:docs:svg": "svgo _site/img/**/*.svg -o docs/img/",
+		"postbuild:docs:svg": "svg-sprite docs/img/*.svg --config .svgsprite.json",
+		"prebuild:docs:js": "shx mkdir docs/js",
+		"build:docs:js": "terser _site/js/script.js -o docs/js/script.min.js -c -m --source-map && terser _site/js/prism.js -o docs/js/prism.min.js -c -m --source-map",
+		"build:docs:json": "",
+		"watch": "concurrently --kill-others \"npm:watch:*\"",
+		"watch:html": "nodemon --watch _site/templates --ext njk --exec \"npm run build:docs:html\"",
+		"watch:src": "nodemon --watch src/ --ext scss --exec \"npm run build\"",
+		"watch:svg": "nodemon --watch _site/img --ext svg --exec \"npm run build:docs:svg\"",
+		"watch:js": "nodemon --watch _site/js --ext js --exec \"npm run build:docs:js\"",
+		"watch:data": "nodemon --watch _site/datas --ext json --exec \"npm run build:docs:json\"",
+		"lint": "concurrently \"npm:lint:*\"",
+		"lint:scss": "stylelint src/**/*.scss",
+		"lint:js": "eslint _site/js/**/*.js"
+	},
+	"ignore": [
+		"node_modules"
+	],
+	"devDependencies": {
+		"autoprefixer": "^10.4.7",
+		"concurrently": "^8.2.0",
+		"cssnano": "^6.0.1",
+		"eslint": "^8.45.0",
+		"html-validate": "^8.0.5",
+		"nodemon": "^2.0.19",
+		"nunjucks-cli": "^1.0.0",
+		"pa11y-ci": "^3.0.1",
+		"pa11y-ci-reporter-html": "^6.0.0",
+		"postcss": "^8.4.25",
+		"postcss-cli": "^10.0.0",
+		"sass": "^1.63.6",
+		"servor": "^4.0.2",
+		"shx": "^0.3.4",
+		"stylelint": "^15.10.1",
+		"stylelint-config-recommended-scss": "^12.0.0",
+		"stylelint-scss": "^5.0.1",
+		"svg-sprite": "^2.0.2",
+		"svgo": "^3.0.2",
+		"terser": "^5.14.2"
+	},
+	"dependencies": {
+		"normalize.css": "^8.0.1"
+	}
 }

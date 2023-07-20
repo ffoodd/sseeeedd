@@ -1,0 +1,150 @@
+@use "sass:math";
+@use "functions";
+
+@charset "UTF-8";
+/* ----------------------------- */
+/* Table of contents */
+/* ----------------------------- */
+/*
+  == Paths
+  == Colors
+  == Timing functions
+  == Spacings
+  == Patterns
+  == Formage
+*/
+
+/* ==================== */
+/* == Paths
+/* ==================== */
+$path: "../" !default;
+
+
+/* ==================== */
+/* == Spacings
+/* ==================== */
+$full-width: false !default;
+$base: math.div(1140, 16) !default;
+$width: functions.em(1024) !default;
+$gutter: functions.rem(16) !default;
+$content-width: functions.em(600) !default;
+
+
+/* ==================== */
+/* == Formage
+/* ==================== */
+$form-fields: ('input[type="text"], input[type="number"], input[type="search"], input[type="password"], input[type="email"], input[type="url"], input[type="tel"], input[type="date"], input[type="time"], input[type="datetime-local"], input[type="month"], input[type="week"], input[type="color"], input[type="file"], textarea');
+$form-radio-checkbox: ('input[type="checkbox"], input[type="radio"]');
+$form-buttons: ('.button, button, [type="submit"], [type="reset"], [type="button"]');
+
+
+html {
+	// ====================
+	// == Colors
+	//
+	// Using hsl(), calc() and var() to handle palette
+	// Inspired by Sara Soueidan
+	// @see https://www.sarasoueidan.com/blog/hex-rgb-to-hsl/
+	//
+	// 1. Analogous color is obtained by adding / removing 30deg to the colorwheel
+	// @see https://stackoverflow.com/questions/14095849/calculating-the-analog-color-with-python
+	// 2. Success / alert UI colors are complementary
+	// 3. Contrast color switches between white/black
+	// @see https://css-tricks.com/switch-font-color-for-different-backgrounds-with-css/
+	// @see https://codepen.io/una/pen/VJMBbx
+	// 4. Palette based on rebeccapurple:
+	// @see https://meyerweb.com/eric/thoughts/2014/06/19/rebeccapurple/
+	// 5. Using golden ratio for light scale
+	// @see https://en.wikipedia.org/wiki/Golden_ratio
+	// ====================
+	color-scheme: light dark;
+	--neutral: 0, 0%;
+	--treshold: 60%; // 3
+	// Hues
+	--hue: 240;
+	--rotation: calc(var(--hue) + 30); // 1
+	--right: 150;
+	--wrong: calc(var(--right) + 180); // 2
+	// Lightnesses
+	--light-scale: 1.61803398875; // 5
+	--lightness: 30%;
+	--brighter: calc(var(--lightness) * var(--light-scale));
+	--darker: calc(var(--lightness) / var(--light-scale));
+	--switch: calc((var(--lightness) - var(--treshold)) * -100); // 3
+	// Palette
+	--secondary: var(--hue), 100%, var(--lightness);
+	--secondary-light: var(--hue), 100%, var(--brighter);
+	--secondary-dark: var(--hue), 100%, var(--darker);
+	--accent: var(--rotation), 50%, var(--lightness); // 4
+	--accent-light: var(--rotation), 50%, var(--brighter);
+	--accent-dark: var(--rotation), 50%, var(--darker);
+	--alert: var(--wrong), 100%, var(--lightness);
+	--alert-light: var(--wrong), 100%, var(--brighter);
+	--alert-dark: var(--wrong), 100%, var(--darker);
+	--success: var(--right), 100%, var(--lightness);
+	--success-light: var(--right), 100%, var(--brighter);
+	--success-dark: var(--right), 100%, var(--darker);
+	--contrast: var(--neutral), var(--switch); // 3
+	--contrast-inverse: var(--neutral), calc(var(--switch) * -1); // 3
+	--muted: var(--neutral), var(--lightness);
+	--muted-light: var(--neutral), var(--brighter);
+	--muted-dark: var(--neutral), var(--darker);
+	--disabled: var(--neutral), 90%;
+	--background: var(--neutral), 96%;
+	// ==================== */
+	// == Timing functions
+	//
+	// @note Simple cubic-bezier curves for timing functions
+	// @author David K. Piano
+	// @link https://twitter.com/DavidKPiano/status/965704092545900544
+	// ==================== */
+	--enter: cubic-bezier(0, .5, .5, 1);
+	--exit: cubic-bezier(.5, 0, 1, .5);
+	--move: cubic-bezier(.5, 0, .5, 1);
+	//
+	// == Icons
+	//
+	// With proper credits and links to TheNounProject:
+	// — Download icon by Jens Windolf → https://thenounproject.com/term/download/5507/
+	--download: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cpath d='M63 0H9C4.03 0 0 4.03 0 9v54c0 4.969 4.03 9 9 9h54c4.971 0 9-4.031 9-9V9c0-4.97-4.029-9-9-9zm0 63H9V9h54z'/%3E%3Cpath d='M54 36H42V15H30v21H18l18 21z'/%3E%3C/svg%3E");
+	// — External icon by Luc Poupard → https://thenounproject.com/icon/13883/
+	--external: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M91.875 62H85v23H15V15h23V0H0v100h100V62z'/%3E%3Cpath d='M54 0v.627l17.787 17.85L52.701 38H38v24h24V49.799l20.773-20.337L99.374 46H100V0z'/%3E%3C/svg%3E");
+	// — Unsafe icon by Sophie Haskind → https://thenounproject.com/icon/698506/
+	--unsafe: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47 59.5'%3E%3Cpath d='m 44,26.5 h -3.5 v -10 C 40.5,7.402 33.098,0 24,0 H 23 C 14.801,0 7.943,5.874 6.694,13.966 c -0.295,1.91 1.015,3.698 2.925,3.993 1.916,0.297 3.699,-1.016 3.993,-2.925 C 14.319,10.454 18.355,7 23,7 h 1 c 5.238,0 9.5,4.262 9.5,9.5 v 10 H 3 c -1.657,0 -3,1.343 -3,3 v 27 c 0,1.657 1.343,3 3,3 h 41 c 1.657,0 3,-1.343 3,-3 v -27 c 0,-1.657 -1.343,-3 -3,-3 z'/%3E%3C/svg%3E");
+	--anchor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 85 85.2'%3E%3Cpath d='M56.7 51.7l9.1 9c-2.3 5.5-8.1 9.7-17.3 11.2v-45c6.1-2.3 8-7.1 8-12.7C56.5 6.4 50.2 0 42.4 0s-14 6.3-14 14.2c0 5.6 1.9 10.4 8 12.7v45c-9.1-1.5-15-5.7-17.3-11.2l9.2-9H0v27.8l9.8-9.8c6.2 9.2 18.5 15.5 32.7 15.5 14.2 0 26.5-6.3 32.7-15.5l9.8 9.8V51.7zM42.5 19c-2.6 0-4.7-2.1-4.7-4.7s2.1-4.7 4.7-4.7 4.7 2.1 4.7 4.7-2.1 4.7-4.7 4.7z'/%3E%3C/svg%3E");
+	// — Select icon by Ben Davis → https://thenounproject.com/icon/268229/
+	--select: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 59 47.5'%3E%3Cpath d='M29.414,37.657 L0.344,8.586 L8.828,0.102 L29.414,20.686 L50,0.1 L58.484,8.585 L29.414,37.657'/%3E%3C/svg%3E");
+	// — Required icon by Landan Lloyd → https://thenounproject.com/icon/1371247/
+	--required: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'%3E%3Cpath fill='hsl(var(--alert))' d='M53.5355339 41.4644661L70 25l5 5-16.4644661 16.4644661h23.2842713v7.0710678H58.5355339L75 70l-5 5-16.4644661-16.4644661v23.2842713h-7.0710678V58.5355339L30 75l-5-5 16.4644661-16.4644661H18.1801948v-7.0710678h23.2842713L25 30l5-5 16.4644661 16.4644661V18.1801948h7.0710678z'/%3E%3C/svg%3E");
+	// — Valid icon by QomarunArt → https://thenounproject.com/icon/2127850/
+	--valid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6.3 6.1'%3E%3Cpath fill='hsl(var(--success))' d='M0 2.6235l.898-.898 1.3851 1.3851L5.3936 0l.898.8981-4.0085 4.0085L0 2.6235z'/%3E%3C/svg%3E");
+	// — Invalid icon by Aleks → https://thenounproject.com/icon/463665/
+	--invalid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'%3E%3Cpath fill='hsl(var(--alert))' d='M74.749 11.109L50 35.858 25.251 11.109 11.109 25.251 35.858 50 11.109 74.749l14.142 14.142L50 64.142l24.749 24.749 14.142-14.142L64.142 50l24.749-24.749z'/%3E%3C/svg%3E");
+	// — Mail icon by Aybige → https://thenounproject.com/icon/1683386/
+	--mail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 56'%3E%3Cpath d='M0 0v3.7188l42 28.62504L84.000004 3.7188V0zm0 10.9688v45.03124h84.000004V10.9688L43.6875 38.46884a3.0003 3.0003 0 0 1-3.375 0z'/%3E%3C/svg%3E");
+	// — Phone icon by Aybige → https://thenounproject.com/icon/1860897/
+	--tel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 88'%3E%3Cpath d='M6 0C2.676 0 0 2.676 0 6v76.00005c0 3.324 2.676 6 6 6h34c3.324 0 6-2.676 6-6V6c0-3.324-2.676-6-6-6zM4 10h38v64.00005H4z'/%3E%3C/svg%3E");
+}
+
+@media screen and (-ms-high-contrast: active) {
+	html {
+		// @todo Find a way to override custom props ↑
+	}
+}
+
+@media screen and (min-width: #{$content-width}) {
+	html {
+		--light-scale: 1.25;
+		--lightness: 40%;
+	}
+}
+
+/*@media screen and (prefers-color-scheme: dark) {
+  html {
+    --lightness:  80%;
+    --brighter:   calc(var(--lightness) / var(--light-scale));
+    --darker:     calc(var(--lightness) * var(--light-scale));
+    --muted:      var(--neutral), 20%;
+    --background: var(--neutral), 10%;
+  }
+}*/
