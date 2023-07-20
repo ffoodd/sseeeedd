@@ -1,0 +1,19 @@
+{
+	"extends": [
+		"html-validate:recommended"
+	],
+	"rules": {
+		"aria-label-misuse": "off",
+		"no-redundant-role": "off",
+		"no-inline-style": "off",
+		"form-dup-name": [
+			"error",
+			{
+				"shared": [
+					"radio",
+					"checkbox"
+				]
+			}
+		]
+	}
+}

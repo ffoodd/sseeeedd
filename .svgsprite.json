@@ -1,0 +1,27 @@
+{
+	"svg": {
+		"xmlDeclaration": false,
+		"doctypeDeclaration": false,
+		"namespaceIDs": false,
+		"dimensionAttributes": false,
+		"rootAttributes": {
+			"xmlns": "http://www.w3.org/2000/svg"
+		}
+	},
+	"mode": {
+		"symbol": {
+			"dest": "docs/img",
+			"sprite": "symbol.svg",
+			"inline": true
+		}
+	},
+	"shape": {
+		"transform": [{
+			"svgo": {
+				"plugins": [
+					"removeXMLNS"
+				]
+			}
+		}]
+	}
+}

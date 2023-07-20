@@ -1,0 +1,49 @@
+{% extends "index.njk" %}
+
+{% block meta %}
+	<title>sseeeedd — Graphiques</title>
+	<meta property="og:url" content="https://ffoodd.github.io/sseeeedd/graphiques.html">
+	<meta property="og:title" content="sseeeedd — Graphiques">
+	<meta property="og:type" content="article">
+	<meta property="og:description"
+				name="description" content="Une graîne pour cultiver son front-end">
+	<meta name="twitter:card" content="summary">
+{% endblock %}
+
+{% block navigation %}
+	<ul class="fly-out">
+		<li><a href="index.html">Accueil</a></li>
+		<li><a href="elements.html">Éléments</a></li>
+		<li>
+			<button type="button">Groupes</button>
+			<ul>
+				<li><a href="groupes.html">Introduction</a></li>
+				<li><a href="groupes.html#messages">Messages</a></li>
+				<li><a href="groupes.html#cards">Cartes</a></li>
+				<li><a href="groupes.html#panels">Panneaux</a></li>
+				<li><a href="groupes.html#navigation">Navigation</a></li>
+				<li><a href="groupes.html#codeblocks">Blocs de code</a></li>
+				<li><a href="groupes.html#dl">Définitions</a></li>
+			</ul>
+		</li>
+		<li><a href="composants.html">Composants</a></li>
+		<li><a aria-current="page">Graphiques</a></li>
+		<li><a href="jeu-de-cartes.html">Jeu de cartes</a></li>
+	</ul>
+{% endblock %}
+
+{% block main %}
+	<h1>Graphiques</h1>
+
+	<p>
+		Les graphiques ont désormais leur dépôt à part, intitulé <strong>chaarts</strong>&nbsp;!
+		Vous les trouverez aux adresses suivantes&nbsp;:
+	</p>
+
+	<ul>
+		<li><a href="https://ffoodd.github.io/chaarts/">le site de documentation de chaarts</a></li>
+		<li><a href="https://github.com/ffoodd/chaarts" hreflang="en">le dépôt Github de chaarts</a></li>
+	</ul>
+
+	<p>Retrouvez-moi là-bas&nbsp;!</p>
+{% endblock %}

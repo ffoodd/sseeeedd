@@ -1,0 +1,63 @@
+@use "../abstracts/functions";
+@use "../abstracts/variables";
+
+/* ==================== */
+/* == Switch
+/* ==================== */
+
+button[role="switch"] {
+	background-color: functions.hsla(var(--muted), .1);
+	border-radius: functions.rem(22) !important;
+	box-sizing: content-box;
+	color: functions.hsl(var(--muted-dark));
+	height: functions.rem(44);
+	line-height: functions.rem(44);
+	outline-color: transparent;
+	padding: 0 variables.$gutter * 3;
+	transition: all .3s var(--enter);
+	width: functions.rem(76);
+	will-change: background-color;
+
+	&::before {
+		background: currentColor;
+		border-radius: functions.rem(22);
+		content: "";
+		position: absolute;
+		height: functions.rem(38);
+		left: functions.rem(4);
+		top: functions.rem(4);
+		transform: none;
+		transition: transform .3s var(--enter) 0s;
+		width: functions.rem(38);
+		will-change: transform;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: functions.hsla(var(--muted), .075);
+		color: functions.hsl(var(--contrast-inverse));
+	}
+
+	&[aria-checked="true"] {
+		background-color: functions.hsla(var(--success-light), .25);
+
+		&::before {
+			background: functions.hsl(var(--success-dark));
+			transform: translateX(#{functions.rem( 78 ) + variables.$gutter * 3});
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 functions.rem(2) functions.hsla(var(--success-dark), .25);
+		}
+	}
+
+	> *:first-child,
+	&[aria-checked="true"] > *:last-child {
+		display: none;
+	}
+
+	&[aria-checked="true"] > *:first-child {
+		display: block;
+	}
+}

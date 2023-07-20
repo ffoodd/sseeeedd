@@ -1,2 +1,35 @@
-node_modules
-.idea
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+
+# IDEs and editors
+/.idea
+/.vscode
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/.sass-cache
+*.log
+
+# System Files
+.DS_Store
+Thumbs.db
+
+# Build
+docs/includes/
+docs/img/*.svg
+!docs/img/symbol.svg

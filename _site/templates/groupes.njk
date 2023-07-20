@@ -1,0 +1,303 @@
+{% extends "index.njk" %}
+
+{% block meta %}
+	<title>sseeeedd — Groupes</title>
+	<meta property="og:url" content="https://ffoodd.github.io/sseeeedd/groupes.html">
+	<meta property="og:title" content="sseeeedd — Groupes">
+	<meta property="og:type" content="article">
+	<meta property="og:description"
+				name="description" content="Une graîne pour cultiver son front-end">
+	<meta name="twitter:card" content="summary">
+{% endblock %}
+
+{% block navigation %}
+	<ul class="fly-out">
+		<li><a href="index.html">Accueil</a></li>
+		<li><a href="elements.html">Éléments</a></li>
+		<li>
+			<button type="button" aria-current="page">Groupes</button>
+			<ul>
+				<li><a href="./groupes.html">Introduction</a></li>
+				<li><a href="graphiques.html">Introduction</a></li>
+				<li><a href="./groupes.html#messages">Messages</a></li>
+				<li><a href="./groupes.html#cards">Cartes</a></li>
+				<li><a href="./groupes.html#panels">Panneaux</a></li>
+				<li><a href="./groupes.html#navigation">Navigation</a></li>
+				<li><a href="./groupes.html#codeblocks">Blocs de code</a></li>
+				<li><a href="./groupes.html#dl">Définitions</a></li>
+			</ul>
+		</li>
+		<li><a href="composants.html">Composants</a></li>
+		<li><a href="graphiques.html">Graphiques</a></li>
+		<li><a href="jeu-de-cartes.html">Jeu de cartes</a></li>
+	</ul>
+{% endblock %}
+
+{% block main %}
+	<h1>Groupes</h1>
+
+	<p>Les groupes sont les éléments d’interface de complexité intermédiaire.</p>
+
+	<h2 id="messages">Messages</h2>
+
+	<p>
+		Les boîtes de message respectent le motif de conception <abbr lang="en"
+																																	title="Accessible Rich Internet Application">aria</abbr>
+		associé. Pour vous en servir correctement, deux conditions&nbsp;:
+	</p>
+
+	<ol>
+		<li>
+			la <code>div role="alert" aria-live="assertive"</code> doit être présente mais vide dans le code source
+			dès le chargement de la page&nbsp;;
+		</li>
+		<li>
+			lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang="en"
+																																							title="HyperText Markup Language">html</abbr>,
+			de préférence avec la méthode JavaScript <code>.innerHTML()</code>.
+		</li>
+	</ol>
+
+	{% set messages = ['alert','success','accent','secondary'] %}
+	{% for message in messages %}
+		<div role="alert" aria-live="assertive" class="alert bg-{{ message }}">
+			<p>Oh, le joli message&nbsp;!</p>
+		</div>
+	{% endfor %}
+
+	<h3>Notes</h3>
+
+	<p>Un message peut ne pas être une alerte. Pour ce cas, une <code>div</code> avec la classe <code>note</code> peut
+		être employée.</p>
+
+	<div class="note">
+		<h3>Grille</h3>
+		<p>
+			Un système de grille basique mais efficace est disponible.
+			La version de base repose sur les <strong>colonnes</strong> <abbr lang="en"
+																																				title="Cascading StyleSheet">css</abbr>
+			—&nbsp;supportées depuis <abbr lang="en" title="Internet Explorer">ie</abbr>10&nbsp;— et la grille fixe
+			s’appuie sur les <strong>grilles</strong> CSS (sans préfixes Microsoft, mais avec une bascule sur les colonnes
+			pour les navigateurs intermédiaires).
+		</p>
+	</div>
+
+	<h2 id="cards">Cartes</h2>
+
+	<p>
+		Un jeu de carte —&nbsp;basé sur <a href="https://inclusive-components.design/cards/" hreflang="en">le
+			composant inclusif conçu par <cite>Heydon Pickering</cite></a>&nbsp;— est ajusté à l’usage de sseeeedd.
+		Il utilise, entre autres subtilités, les propriétés personalisées, <code>flexbox</code> et
+		<code>:focus-within</code>.
+	</p>
+
+	{% import 'macros/_cards.njk' as cards %}
+
+	<h3>En colonnes</h3>
+
+	<div class="columns-3">
+		{{ cards.card() }}
+		{{ cards.card('', 'true', '', '') }}
+		{{ cards.card('-success', '', 'true', '') }}
+		{{ cards.card('-accent') }}
+		{{ cards.card('', '', 'true', 'true') }}
+		{{ cards.card('-alert', '', 'true', '') }}
+		{{ cards.card('', '', 'true', 'true') }}
+		{{ cards.card('-secondary') }}
+	</div>
+
+	<h3>En grille fixe</h3>
+
+	<div class="grid-3">
+		{{ cards.card() }}
+		{{ cards.card('', 'true', '', 'true') }}
+		{{ cards.card('-success', 'true', 'true', '') }}
+		{{ cards.card('-accent', '', '', 'true') }}
+		{{ cards.card() }}
+		{{ cards.card('-alert') }}
+		{{ cards.card() }}
+		{{ cards.card('-secondary') }}
+	</div>
+
+	<h2 id="panels">Panneaux</h2>
+
+	<p>
+		Les panneaux sont les éléments HTML5 natifs <code>details</code> et <code>summary</code>.
+		Ces éléments travaillent conjointement pour composer un élément interactif permettant d’afficher
+		du contenu supplémentaire.
+		<br>
+		Ils sont par conséquents accessibles et se dégradent gracieusement sur les navigateurs ne les supportant pas.
+	</p>
+
+	{% set panneaux = [1,2,3,4] %}
+	{% for panneau in panneaux %}
+		<details>
+			<summary>Panneau №{{ loop.index }}</summary>
+			<div>
+				<h3>Contenu №{{ loop.index }}</h3>
+				<p>
+					Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+					<small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+					Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec
+					<mark>accumulateurs</mark>
+					d’une capacité de deux cents ampères-ohms,
+					et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à
+					<del>dix-huit</del>
+					<ins>dix-neuf</ins>
+					kilomètres.
+				</p>
+			</div>
+		</details>
+	{% endfor %}
+
+	<div class="note">
+		<h3 class="h4">Un seul panneau ouvert</h3>
+		<p>
+			Si vous voulez n’avoir qu’un seul panneau ouvert à la fois, il vous suffit de les regrouper dans un conteneur
+			portant la classe <code>.details-group</code>, et un petit script s’occupera du reste.
+		</p>
+	</div>
+
+	<h3>Panneaux verticaux</h3>
+
+	<p>
+		Les panneaux verticaux sont une version enrichie des panneaux ordinaires.
+		Ils s’appuient sur <code>flexbox</code> et un bout de JavaScript, pour s’assurer qu’un seul panneau soit déplié à la
+		fois.
+		L’orientation verticale du texte dépend du support de la propriété CSS <code>writing-mode</code>.
+	</p>
+
+	<div class="details-group vertical">
+		{% for panneau in panneaux %}
+			<details {% if loop.index == 1 %}open{% endif %}>
+				<summary>Panneau №{{ loop.index }}</summary>
+				<div>
+					<h3>Contenu №{{ loop.index }}</h3>
+					<p>
+						Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+						<small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+						Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec
+						<mark>accumulateurs</mark>
+						d’une capacité de deux cents ampères-ohms,
+						et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à
+						<del>dix-huit</del>
+						<ins>dix-neuf</ins>
+						kilomètres.
+					</p>
+				</div>
+			</details>
+		{% endfor %}
+	</div>
+
+	<h2 id="navigation">Navigation</h2>
+
+	<h3>Menu déroulant</h3>
+
+	<p>
+		Là, ça devient rigolo.
+		<br>
+		Ces menus déroulants <strong>fonctionnent sans JavaScript</strong> et sont parfaitement <strong>accessibles</strong>.
+		Ils sont cependant
+		limités à un seul niveau. Si vous avez besoin de plusieurs niveaux imbriqués, préférez une solution basée sur
+		JavaScript.
+		<br>
+		Ce composant requiert le support de&nbsp;:
+	</p>
+
+	<ul>
+		<li><code>clip</code> ou <code>clip-path</code> pour le masquage du sous-menu et ses effets d’apparition&nbsp;;</li>
+		<li>
+			<code>:focus-within</code> pour maintenir le menu ouvert tant qu’un élément enfant a le
+			<em lang="en">focus</em>&nbsp;: le <em lang="en">polyfill</em> crée par
+			<a href="https://github.com/aFarkas" target="_blank" rel="noopener noreferrer">Alexandre Zarkas <span
+					class="sr-only">(compte personnel sur Github, nouvel onglet)</span></a>
+			est utilisé pour les navigateurs le nécessitant.
+		</li>
+	</ul>
+
+	<p>
+		Un délai de 300&nbsp;<abbr title="Milliseconde">ms</abbr> est laissé avant de refermer le menu,
+		pour éviter les fermetures intempestives et non désirées.
+	</p>
+
+	<ul class="fly-out">
+		<li>
+			<button type="button">Niveau 1</button>
+			<ul>
+				<li><a href="">Niveau 2</a></li>
+				<li><a href="">Niveau 2</a></li>
+				<li><a href="">Niveau 2</a></li>
+			</ul>
+		</li>
+		<li><a href="">Niveau 1</a></li>
+		<li>
+			<button type="button">Niveau 1</button>
+			<ul>
+				<li><a href="">Niveau 2</a></li>
+				<li><a href="">Niveau 2</a></li>
+				<li><a href="">Niveau 2</a></li>
+			</ul>
+		</li>
+	</ul>
+
+	<div class="note">
+		<h4>Note technique</h4>
+		<p>
+			L’ouverture du second niveau se déclenchant lors de l’interaction en CSS, il est <strong>fortement
+				recommandé</strong>
+			d’utiliser un <code>button</code> comme déclencheur.
+		</p>
+	</div>
+
+	<h3>Pagination</h3>
+
+	<nav role="navigation" aria-label="Pagination">
+		<ul id="pagination">
+			<li><a tabindex="-1">Précédent</a></li>
+			<li><a href="/" aria-current="page">
+					<span class="sr-only">Page </span>1
+					<span class="sr-only">(page actuelle)</span>
+				</a></li>
+			<li><a href="?page=2"><span class="sr-only">Page </span>2</a></li>
+			<li><a href="?page=3"><span class="sr-only">Page </span>3</a></li>
+			<li><a href="?page=2">Suivant</a></li>
+		</ul>
+	</nav>
+
+	<h3>Fil d’Ariane</h3>
+
+	<nav role="navigation" aria-label="Vous êtes ici :">
+		<ul id="breadcrumb">
+			<li><a href="index.html">Accueil</a></li>
+			<li aria-current="page">Groupes</li>
+		</ul>
+	</nav>
+
+	<h2 id="codeblocks">Blocs de code</h2>
+
+	<p>
+		Les blocs de code ont un habillage personnalisé, imitant sommairement une fenêtre système.
+		<strong>PrismJS</strong>, un script de coloration syntaxique supportant plusieurs langages, est présent
+		—&nbsp;avec un thème personnalisé aux couleurs de sseeeedd.
+	</p>
+
+	<pre><code class="language-css">.open-space {
+  display: grid;
+  grid-template: repeat(16, minmax(3rem, 1fr)) / repeat(44, minmax(calc(3rem * 4 / 3), 1fr));
+  height: 100vh;
+  position: fixed;
+  width: 100vw;
+}</code></pre>
+
+	<h2 id="dl">Liste de définitions légendée</h2>
+
+	<figure role="figure" aria-label="Exemple de liste de définitions.">
+		<dl>
+			<dt>Terme</dt>
+			<dd>Définition</dd>
+			<dt>Clé</dt>
+			<dd>Valeur</dd>
+		</dl>
+		<figcaption>Exemple de liste de définitions.</figcaption>
+	</figure>
+{% endblock %}

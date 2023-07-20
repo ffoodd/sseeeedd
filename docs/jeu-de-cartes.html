@@ -1,283 +1,291 @@
-<!DOCTYPE html><html lang="fr" class="no-js"><head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        
-  <title>sseeeedd — Jeu de cartes</title>
-  <meta property="og:url" content="https://ffoodd.github.io/sseeeedd/graphiques.html">
-  <meta property="og:title" content="sseeeedd — Jeu de cartes">
-  <meta property="og:type" content="article">
-  <meta property="og:description" name="description" content="Une graîne pour cultiver son front-end">
-  <meta name="twitter:card" content="summary">
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>sseeeedd — Jeu de cartes</title>
+	<meta property="og:url" content="https://ffoodd.github.io/sseeeedd/graphiques.html">
+	<meta property="og:title" content="sseeeedd — Jeu de cartes">
+	<meta property="og:type" content="article">
+	<meta property="og:description"
+				name="description" content="Une graîne pour cultiver son front-end">
+	<meta name="twitter:card" content="summary">
+	<script>document.documentElement.classList.replace('no-js', 'js');</script>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/sseeeedd.min.css" media="all">
+	<link rel="stylesheet" href="css/sseeeedd-print.min.css" media="print">
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+<header role="banner">
+		<div>
+			<a href="#nav" class="sr-only sr-only-focusable">Aller à la navigation</a>
+			<a href="#main" class="sr-only sr-only-focusable">Aller au contenu</a>
+		</div>
 
-        <script>document.documentElement.classList.replace('no-js','js');</script>
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="css/styles.min.css" media="all" integrity="sha384-q+xnw+dxcoYN1ADH/r2L0WjCahhtzgeuOUtUZBZBA0PNYR9VzhoH5oUgE0u4l2jk" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/print.min.css" media="print" integrity="sha384-i3dRwmp8zXRlpUnJTD27rKIBzSEdYbc0YEFwuULfvleZ4Vm0RG81i/6HXy96jet8" crossorigin="anonymous">
-    </head>
-    <body itemscope itemtype="http://schema.org/WebPage">
-      <header role="banner">
-        
-          <div>
-            <a href="#nav" class="sr-only sr-only-focusable">Aller à la navigation</a>
-            <a href="#main" class="sr-only sr-only-focusable">Aller au contenu</a>
-          </div>
-        
+	<nav role="navigation" id="nav" aria-label="Navigation principale">
+	<ul class="fly-out">
+		<li><a href="index.html">Accueil</a></li>
+		<li><a href="elements.html">Éléments</a></li>
+		<li>
+			<button type="button">Groupes</button>
+			<ul>
+				<li><a href="groupes.html">Introduction</a></li>
+				<li><a href="groupes.html#messages">Messages</a></li>
+				<li><a href="groupes.html#cards">Cartes</a></li>
+				<li><a href="groupes.html#panels">Panneaux</a></li>
+				<li><a href="groupes.html#navigation">Navigation</a></li>
+				<li><a href="groupes.html#codeblocks">Blocs de code</a></li>
+				<li><a href="groupes.html#dl">Définitions</a></li>
+			</ul>
+		</li>
+		<li><a href="composants.html">Composants</a></li>
+		<li><a href="graphiques.html">Graphiques</a></li>
+		<li><a aria-current="page">Jeu de cartes</a></li>
+	</ul>
+	</nav>
+</header>
 
-        <nav role="navigation" id="nav" aria-label="Navigation principale">
-          
-  <ul class="fly-out">
-    <li><a href="./index.html">Accueil</a></li>
-    <li><a href="./elements.html">Éléments</a></li>
-    <li>
-      <button type="button">Groupes</button>
-      <ul>
-        <li><a href="./groupes.html">Introduction</a></li>
-        <li><a href="./groupes.html#messages">Messages</a></li>
-        <li><a href="./groupes.html#cards">Cartes</a></li>
-        <li><a href="./groupes.html#panels">Panneaux</a></li>
-        <li><a href="./groupes.html#navigation">Navigation</a></li>
-        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>
-        <li><a href="./groupes.html#dl">Définitions</a></li>
-      </ul>
-    </li>
-    <li><a href="./composants.html">Composants</a></li>
-    <li><a href="./graphiques.html">Graphiques</a></li>
-    <li><a aria-current="page">Jeu de cartes</a></li>
-  </ul>
+<main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">
+	<h1>Jeu de cartes</h1>
 
-        </nav>
-      </header>
+	<p>
+		Ce composant est principalement intéressant parce qu’il est <strong>généré</strong> depuis un fichier
+		<code>.json</code>.
+		Chaque carte correspond à une entrée comprenant&nbsp;:
+	</p>
 
-      <main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">
-        
-  <h1>Jeu de cartes</h1>
+	<ul>
+		<li>un label,</li>
+		<li>une valeur,</li>
+		<li>
+			une couleur&nbsp;: qui doit être présente dans la <code>palette()</code> du projet
+			—&nbsp;jetez un œil à <code>./src/scss/abstracts/variables.scss</code>,
+		</li>
+		<li>
+			et une icône&nbsp; le nom d’un fichier <abbr lang="en" title="Scalable Vector Graphics">SVG</abbr>
+			dans le répertoire <code>./src/img/svg/</code> —&nbsp;le tout combiné dans un <em lang="en">sprite</em>.
+		</li>
+	</ul>
 
-  <p>
-    Ce composant est principalement intéressant parce qu’il est <strong>généré</strong> depuis un fichier <code>.json</code>.
-    Chaque carte correspond à une entrée comprenant :
-  </p>
+	<p>
+		Le reste n’est que sémantique et styles —&nbsp;notamment l’utilisation de la fonction
+		<abbr lang="en" title="Cascading StyleSheet">CSS</abbr> <code>element()</code>,
+		supportée uniquement par Firefox.
+	</p>
 
-  <ul>
-    <li>un label,</li>
-    <li>une valeur,</li>
-    <li>
-      une couleur : qui doit être présente dans la <code>palette()</code> du projet
-      — jetez un œil à <code>./src/scss/abstracts/variables.scss</code>,
-    </li>
-    <li>
-      et une icône  le nom d’un fichier <abbr lang="en" title="Scalable Vector Graphics">SVG</abbr>
-      dans le répertoire <code>./src/img/svg/</code> — le tout combiné dans un <em lang="en">sprite</em>.
-    </li>
-  </ul>
+	<div class="deck" id="cards">
+			<figure class="card p-relative no-margin d-flex clr-secondary" role="figure"
+							style="--card: #card-1" aria-label="Environnement de dév">
+				<p class="--l d-flex no-padding p-relative rounded bg-secondary"
+					 id="card-1">3</p>
+				<svg width="56" height="64" role="img" aria-label="Environnement de dév" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Environnement de dév</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-secondary" role="figure"
+							style="--card: #card-2" aria-label="Stratégie de déploiement">
+				<p class="--l d-flex no-padding p-relative rounded bg-secondary"
+					 id="card-2">1</p>
+				<svg width="56" height="64" role="img" aria-label="Stratégie de déploiement" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Stratégie de déploiement</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-secondary" role="figure"
+							style="--card: #card-3" aria-label="Stratégie de tests">
+				<p class="--l d-flex no-padding p-relative rounded bg-secondary"
+					 id="card-3">1</p>
+				<svg width="56" height="64" role="img" aria-label="Stratégie de tests" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Stratégie de tests</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-secondary" role="figure"
+							style="--card: #card-4" aria-label="Cookies">
+				<p class="--l d-flex no-padding p-relative rounded bg-secondary"
+					 id="card-4">1</p>
+				<svg width="56" height="64" role="img" aria-label="Cookies" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Cookies</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-secondary" role="figure"
+							style="--card: #card-5" aria-label="WYSIWYG amélioré">
+				<p class="--l d-flex no-padding p-relative rounded bg-secondary"
+					 id="card-5">3</p>
+				<svg width="56" height="64" role="img" aria-label="WYSIWYG amélioré" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">WYSIWYG amélioré</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-accent" role="figure"
+							style="--card: #card-6" aria-label="Accessibilité">
+				<p class="--l d-flex no-padding p-relative rounded bg-accent"
+					 id="card-6">2</p>
+				<svg width="56" height="64" role="img" aria-label="Accessibilité" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Accessibilité</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-accent" role="figure"
+							style="--card: #card-7" aria-label="Guide de styles">
+				<p class="--l d-flex no-padding p-relative rounded bg-accent"
+					 id="card-7">3</p>
+				<svg width="56" height="64" role="img" aria-label="Guide de styles" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Guide de styles</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-accent" role="figure"
+							style="--card: #card-8" aria-label="Menus">
+				<p class="--l d-flex no-padding p-relative rounded bg-accent"
+					 id="card-8">1.5</p>
+				<svg width="56" height="64" role="img" aria-label="Menus" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Menus</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-accent" role="figure"
+							style="--card: #card-9" aria-label="Fil d’Ariane">
+				<p class="--l d-flex no-padding p-relative rounded bg-accent"
+					 id="card-9">½</p>
+				<svg width="56" height="64" role="img" aria-label="Fil d’Ariane" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Fil d’Ariane</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-accent" role="figure"
+							style="--card: #card-10" aria-label="Chapitrage">
+				<p class="--l d-flex no-padding p-relative rounded bg-accent"
+					 id="card-10">1</p>
+				<svg width="56" height="64" role="img" aria-label="Chapitrage" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Chapitrage</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-alert" role="figure"
+							style="--card: #card-11" aria-label="Partage">
+				<p class="--l d-flex no-padding p-relative rounded bg-alert"
+					 id="card-11">½</p>
+				<svg width="56" height="64" role="img" aria-label="Partage" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Partage</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-alert" role="figure"
+							style="--card: #card-12" aria-label="Impression">
+				<p class="--l d-flex no-padding p-relative rounded bg-alert"
+					 id="card-12">1</p>
+				<svg width="56" height="64" role="img" aria-label="Impression" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Impression</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-alert" role="figure"
+							style="--card: #card-13" aria-label="Contenus associés">
+				<p class="--l d-flex no-padding p-relative rounded bg-alert"
+					 id="card-13">3</p>
+				<svg width="56" height="64" role="img" aria-label="Contenus associés" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Contenus associés</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-alert" role="figure"
+							style="--card: #card-14" aria-label="PWA">
+				<p class="--l d-flex no-padding p-relative rounded bg-alert"
+					 id="card-14">1</p>
+				<svg width="56" height="64" role="img" aria-label="PWA" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">PWA</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-default" role="figure"
+							style="--card: #card-15" aria-label="Formation contributeurs">
+				<p class="--l d-flex no-padding p-relative rounded bg-default"
+					 id="card-15">5</p>
+				<svg width="56" height="64" role="img" aria-label="Formation contributeurs" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Formation contributeurs</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-default" role="figure"
+							style="--card: #card-16" aria-label="Formation administrateurs">
+				<p class="--l d-flex no-padding p-relative rounded bg-default"
+					 id="card-16">5</p>
+				<svg width="56" height="64" role="img" aria-label="Formation administrateurs" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Formation administrateurs</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-default" role="figure"
+							style="--card: #card-17" aria-label="Guide de contribution">
+				<p class="--l d-flex no-padding p-relative rounded bg-default"
+					 id="card-17">?</p>
+				<svg width="56" height="64" role="img" aria-label="Guide de contribution" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Guide de contribution</p>
+				</figcaption>
+			</figure>
+			<figure class="card p-relative no-margin d-flex clr-success" role="figure"
+							style="--card: #card-18" aria-label="Documentation">
+				<p class="--l d-flex no-padding p-relative rounded bg-success"
+					 id="card-18">?</p>
+				<svg width="56" height="64" role="img" aria-label="Documentation" class="no-margin no-padding">
+					<use xlink:href="img/symbol.svg#ffoodd"></use>
+				</svg>
+				<figcaption class="no-margin no-padding">
+					<p class="no-margin fw-700">Documentation</p>
+				</figcaption>
+			</figure>
+	</div>
 
-  <p>
-    Le reste n’est que sémantique et styles — notamment l’utilisation de la fonction
-    <abbr lang="en" title="Cascading StyleSheet">CSS</abbr> <code>element()</code>,
-    supportée uniquement par Firefox.
-  </p>
+	<div class="note">
+		<h2 class="h4">À améliorer</h2>
+		<p>
+			Le balisage ne me paraît pas être le plus opportun pour le moment.
+			Commentaires bienvenus&nbsp;!
+		</p>
+	</div>
+</main>
 
-  <div class="deck" id="cards">
-    
-      <figure class="card p-relative no-margin d-flex clr-secondary" role="figure" style="--card: #card-1" aria-label="Environnement de dév">
-        <p class="--l d-flex no-padding p-relative rounded bg-secondary" id="card-1">3</p>
-        <svg width="56" height="64" role="img" aria-label="Environnement de dév" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Environnement de dév</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-secondary" role="figure" style="--card: #card-2" aria-label="Stratégie de déploiement">
-        <p class="--l d-flex no-padding p-relative rounded bg-secondary" id="card-2">1</p>
-        <svg width="56" height="64" role="img" aria-label="Stratégie de déploiement" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Stratégie de déploiement</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-secondary" role="figure" style="--card: #card-3" aria-label="Stratégie de tests">
-        <p class="--l d-flex no-padding p-relative rounded bg-secondary" id="card-3">1</p>
-        <svg width="56" height="64" role="img" aria-label="Stratégie de tests" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Stratégie de tests</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-secondary" role="figure" style="--card: #card-4" aria-label="Cookies">
-        <p class="--l d-flex no-padding p-relative rounded bg-secondary" id="card-4">1</p>
-        <svg width="56" height="64" role="img" aria-label="Cookies" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Cookies</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-secondary" role="figure" style="--card: #card-5" aria-label="WYSIWYG amélioré">
-        <p class="--l d-flex no-padding p-relative rounded bg-secondary" id="card-5">3</p>
-        <svg width="56" height="64" role="img" aria-label="WYSIWYG amélioré" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">WYSIWYG amélioré</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-accent" role="figure" style="--card: #card-6" aria-label="Accessibilité">
-        <p class="--l d-flex no-padding p-relative rounded bg-accent" id="card-6">2</p>
-        <svg width="56" height="64" role="img" aria-label="Accessibilité" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Accessibilité</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-accent" role="figure" style="--card: #card-7" aria-label="Guide de styles">
-        <p class="--l d-flex no-padding p-relative rounded bg-accent" id="card-7">3</p>
-        <svg width="56" height="64" role="img" aria-label="Guide de styles" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Guide de styles</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-accent" role="figure" style="--card: #card-8" aria-label="Menus">
-        <p class="--l d-flex no-padding p-relative rounded bg-accent" id="card-8">1.5</p>
-        <svg width="56" height="64" role="img" aria-label="Menus" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Menus</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-accent" role="figure" style="--card: #card-9" aria-label="Fil d’Ariane">
-        <p class="--l d-flex no-padding p-relative rounded bg-accent" id="card-9">½</p>
-        <svg width="56" height="64" role="img" aria-label="Fil d’Ariane" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Fil d’Ariane</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-accent" role="figure" style="--card: #card-10" aria-label="Chapitrage">
-        <p class="--l d-flex no-padding p-relative rounded bg-accent" id="card-10">1</p>
-        <svg width="56" height="64" role="img" aria-label="Chapitrage" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Chapitrage</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-alert" role="figure" style="--card: #card-11" aria-label="Partage">
-        <p class="--l d-flex no-padding p-relative rounded bg-alert" id="card-11">½</p>
-        <svg width="56" height="64" role="img" aria-label="Partage" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Partage</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-alert" role="figure" style="--card: #card-12" aria-label="Impression">
-        <p class="--l d-flex no-padding p-relative rounded bg-alert" id="card-12">1</p>
-        <svg width="56" height="64" role="img" aria-label="Impression" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Impression</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-alert" role="figure" style="--card: #card-13" aria-label="Contenus associés">
-        <p class="--l d-flex no-padding p-relative rounded bg-alert" id="card-13">3</p>
-        <svg width="56" height="64" role="img" aria-label="Contenus associés" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Contenus associés</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-alert" role="figure" style="--card: #card-14" aria-label="PWA">
-        <p class="--l d-flex no-padding p-relative rounded bg-alert" id="card-14">1</p>
-        <svg width="56" height="64" role="img" aria-label="PWA" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">PWA</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-default" role="figure" style="--card: #card-15" aria-label="Formation contributeurs">
-        <p class="--l d-flex no-padding p-relative rounded bg-default" id="card-15">5</p>
-        <svg width="56" height="64" role="img" aria-label="Formation contributeurs" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Formation contributeurs</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-default" role="figure" style="--card: #card-16" aria-label="Formation administrateurs">
-        <p class="--l d-flex no-padding p-relative rounded bg-default" id="card-16">5</p>
-        <svg width="56" height="64" role="img" aria-label="Formation administrateurs" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Formation administrateurs</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-default" role="figure" style="--card: #card-17" aria-label="Guide de contribution">
-        <p class="--l d-flex no-padding p-relative rounded bg-default" id="card-17">?</p>
-        <svg width="56" height="64" role="img" aria-label="Guide de contribution" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Guide de contribution</p>
-        </figcaption>
-      </figure>
-    
-      <figure class="card p-relative no-margin d-flex clr-success" role="figure" style="--card: #card-18" aria-label="Documentation">
-        <p class="--l d-flex no-padding p-relative rounded bg-success" id="card-18">?</p>
-        <svg width="56" height="64" role="img" aria-label="Documentation" class="no-margin no-padding">
-          <use href="img/symbol.svg#ffoodd"/>
-        </svg>
-        <figcaption class="no-margin no-padding">
-          <p class="no-margin fw-700">Documentation</p>
-        </figcaption>
-      </figure>
-    
-  </div>
+	<script src="js/script.min.js" async></script>
+	<script src="js/prism.min.js"></script>
 
-  <div class="note">
-    <h2 class="h4">À améliorer</h2>
-    <p>
-      Le balisage ne me paraît pas être le plus opportun pour le moment.
-      Commentaires bienvenus !
-    </p>
-  </div>
-
-      </main>
-
-      
-        <script src="js/script.min.js" async integrity="sha384-n6omyfzfEIqke68FxxK/jgcY8A79hJ+7F5ojK2+zKq2IqraJ6Ne2FeCok7VNqASt" crossorigin="anonymous"></script>
-        <script src="js/prism.min.js" integrity="sha384-jCq/sLgQkL7biJNIjsKBaAXo+hFmO/bVhUw8V4w7zknBgB5r2geKTaupFvFIlsKJ" crossorigin="anonymous"></script>
-      
-
-      
-      
-    
-
-</body></html>
+</body>
+</html>

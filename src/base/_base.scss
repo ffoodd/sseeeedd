@@ -1,0 +1,327 @@
+@use "../abstracts/functions";
+@use "../abstracts/variables";
+
+/* ==================== */
+/* == Base
+/* ==================== */
+
+/**
+ * @note Some improvements taken from Ergonomize.css
+ * @author Effeilo
+ - @see https://github.com/Effeilo/ergonomize.css/blob/master/ergonomize.css
+ * 1. Force scrollbars to always be visible to prevent awkward jumps when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 2. For some Firefox.
+ *    css-tricks.com/snippets/css/force-vertical-scrollbar/
+ * 3. Smooth scroll
+ *    @see https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations
+ *    @see https://codepen.io/benfrain/pen/VxeLPb
+ * 4. Breathing room to any content automatically scrolled to
+*     @author Florens Verschelde (@fvsch)
+ *    @see https://twitter.com/fvsch/status/1190277947871105027
+ */
+html[lang] {
+	box-sizing: border-box;
+
+	@if variables.$full-width == false {
+		overflow-y: scroll; /* 1 */
+		overflow: -moz-scrollbars-vertical; /* 2 */
+	}
+
+	position: relative;
+	scroll-behavior: smooth; /* 3 */
+	scroll-padding-top: 1rem; /* 4 */
+}
+
+*,
+*::after,
+*::before {
+	box-sizing: inherit;
+}
+
+body {
+	background: functions.hsl(var(--background));
+	color: functions.hsl(var(--muted-dark));
+	counter-reset: footnotes;
+	font: normal 400 1em/1.5 sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	overflow-x: hidden;
+	position: relative;
+	-webkit-font-smoothing: subpixel-antialiased;
+	text-rendering: optimizeSpeed;
+}
+
+/**
+ * @note Target
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/:target
+ */
+@keyframes target {
+	from {
+		background-color: transparent;
+		box-shadow: none;
+		outline: functions.rem(2) solid transparent;
+		outline-offset: variables.$gutter * 2;
+	}
+	to {
+		background-color: functions.hsl(var(--contrast));
+		box-shadow: 0 0 0 .25rem functions.hsl(var(--contrast));
+		outline: functions.rem(2) solid functions.hsl(var(--accent));
+		outline-offset: .25rem;
+	}
+}
+
+:target {
+	animation: target .3s var(--enter) .3s forwards;
+}
+
+/**
+ * @note Selection
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::selection
+ */
+::selection {
+	background-color: functions.hsl(var(--accent));
+	color: functions.hsl(var(--background));
+	text-shadow: none;
+}
+
+/**
+ * @note Placeholders
+ * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::placeholder
+ */
+::placeholder {
+	color: functions.hsl(var(--muted));
+}
+
+/**
+ * 1. Ensure focus outline contrast
+ ** @see https://www.w3.org/WAI/WCAG21/Understanding/non-text-contrast.html#user-interface-components
+ * 2. Ensure focus outline visibility by using isolation property
+ ** @see https://developer.mozilla.org/fr/docs/Web/CSS/isolation
+ ** @note Based on an idea:
+ ** @author Manuel Matuzovic
+ ** @see https://www.matuzo.at/blog/improving-the-keyboard-accessibility-of-codepen-embeds/#accessibility-improvements
+ * 3. Allow to animate outline on focus
+ ** @author Heydon Pickering
+ ** @see https://www.heydonworks.com/article/shrinking-button-outlines
+ * 4. Progressively enhance by using :focus-visible
+ ** @see https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+ */
+:focus {
+	outline-color: currentColor; /* 1 */
+	outline-offset: .25rem; /* 3 */
+	isolation: isolate; /* 2 */
+}
+
+:focus:not(:focus-visible) { /* 4 */
+	outline-color: transparent;
+	isolation: auto;
+}
+
+:focus-visible { /* 4 */
+	outline-color: currentColor; /* 1 */
+	outline-offset: .25rem; /* 3 */
+	isolation: isolate; /* 2 */
+}
+
+/**
+ * @note Visually hide programmatically given focus when using a hover capable pointer
+ ** @see https://twitter.com/heydonworks/status/594115773871824897
+ ** @see https://accessibility.blog.gov.uk/2018/08/01/supporting-users-who-change-colours-on-gov-uk/
+ */
+body:hover [tabindex="-1"]:focus {
+	outline-color: transparent;
+	isolation: auto;
+}
+
+a {
+	color: functions.hsl(var(--secondary));
+	outline: functions.rem(2) solid transparent;
+	outline-offset: variables.$gutter * 2;
+	text-decoration-style: dotted;
+	text-decoration-skip-ink: auto;
+	transition: outline-offset .3s var(--enter);
+
+	&:hover {
+		color: functions.hsl(var(--secondary-dark));
+		text-decoration-style: solid;
+	}
+
+	&:focus {
+		color: functions.hsl(var(--secondary-dark));
+		text-decoration: none;
+	}
+
+	&:active {
+		opacity: .75;
+		transition: none;
+	}
+}
+
+/**
+ * @note Only to main content links
+ */
+main a {
+	&:visited {
+		color: functions.hsl(var(--success-dark));
+	}
+
+	&[hreflang]::after {
+		content: "\A0[" attr(hreflang) "]";
+	}
+
+	&[download]::after,
+	&[href^="#"]::before,
+	&[href^="tel:"]::before,
+	&[target$="blank"]::after,
+	&[href^="http:"]::before,
+	&[href^="mailto:"]::before {
+		content: "";
+		display: inline-block;
+		margin: 0 .25em 0 0;
+	}
+
+	&[download]::after {
+		content: "\2b07";
+		margin: 0 0 0 .25em;
+	}
+
+	&[href^="tel:"]::before {
+		content: "\1f4f1";
+	}
+
+	&[href^="#"]::before {
+		content: "\2693";
+	}
+
+	&[target$="blank"]::after {
+		content: "\1f5d7";
+		margin: 0 0 0 .25em;
+	}
+
+	&[href^="mailto:"]::after {
+		display: none;
+	}
+
+	&[href^="mailto:"]::before {
+		content: "\1f4e7";
+	}
+
+	&[href^="http:"]::before {
+		color: functions.hsl(var(--alert));
+		content: "\1f513";
+	}
+
+	@media (hover: hover) {
+		&[href^="tel:"] {
+			color: currentColor;
+			pointer-events: none;
+			text-decoration: none;
+
+			&::before {
+				display: none !important;
+			}
+		}
+	}
+
+	/**
+	 * @note Using CSS masks to use colored base64 encoded SVG
+	 * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
+	 */
+	@supports (mask-image: url()) {
+		&[download]::after,
+		&[href^="#"]::before,
+		&[href^="tel:"]::before,
+		&[target$="blank"]::after,
+		&[href^="http://"]::before,
+		&[href^="mailto:"]::before {
+			background: currentColor;
+			content: "";
+			height: .625em;
+			mask-repeat: no-repeat;
+			mask-position: center center;
+			width: .625em;
+		}
+
+		&[download]::after {
+			mask-image: var(--download);
+		}
+
+		&[href^="#"]::before {
+			mask-image: var(--anchor);
+		}
+
+		&[target$="blank"]::after {
+			mask-image: var(--external);
+		}
+
+		&[href^="http://"]::before {
+			mask-image: var(--unsafe);
+		}
+
+		&[href^="mailto:"]::before {
+			mask-image: var(--mail);
+		}
+
+		@media (hover: hover) {
+			&[href^="tel:"]::before {
+				mask-image: var(--tel);
+			}
+		}
+	}
+}
+
+address {
+	font-size: functions.rem(22);
+	font-style: normal;
+	padding: 0 0 0 2em;
+}
+
+code,
+pre,
+video,
+svg {
+	max-width: 100%;
+}
+
+[hidden],
+[role="alert"]:empty {
+	display: none;
+}
+
+a svg,
+button svg {
+	pointer-events: none;
+}
+
+main {
+	margin: 0 auto;
+	outline-color: transparent;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+	* {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/**
+ * Handle high contrast mode in Windows
+ * @link http://adrianroselli.com/2017/12/tweaking-text-level-styles.html
+ */
+@media screen and (-ms-high-contrast: active) {
+	a svg,
+	button svg {
+		background: none;
+		border-color: Highlight;
+		fill: Highlight;
+	}
+
+	mark {
+		background-color: Highlight;
+		color: HighlightText;
+	}
+}

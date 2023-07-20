@@ -1,0 +1,22 @@
+@use "../abstracts/functions";
+@use "../abstracts/variables";
+
+/* ==================== */
+/* == Notes
+/* ==================== */
+
+.note {
+	background: functions.hsl(var(--contrast));
+	border-left: variables.$gutter solid;
+	color: functions.hsl(var(--muted-dark));
+	margin: variables.$gutter 0;
+	padding: variables.$gutter * 0.5 variables.$gutter variables.$gutter * 0.25;
+
+	*:not(pre) {
+		color: inherit;
+	}
+
+	&.wip {
+		color: functions.hsl(var(--alert));
+	}
+}

@@ -1,0 +1,104 @@
+@use "../abstracts/functions";
+@use "../abstracts/variables";
+
+/* ==================== */
+/* == Cards
+ *
+ * @note Based on Heydon Pickering's inclusive components
+ * @link https://inclusive-components.design/cards/
+/* ==================== */
+
+.card {
+	--background: hsl(var(--contrast));
+	--border: hsl(var(--muted-light));
+	--color: hsl(var(--muted-dark));
+	--shadow: hsla(var(--muted-dark), .25);
+	--text-shadow: var(--background);
+	background: var(--background);
+	border: 1px solid var(--border);
+	border-radius: functions.em(4);
+	color: var(--color);
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	position: relative;
+	transition: box-shadow .3s var(--enter);
+
+	&:hover,
+	&:focus-within {
+		box-shadow: 0 0 0 functions.rem(4) var(--shadow);
+	}
+}
+
+.card-img {
+	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
+	height: functions.rem(96);
+}
+
+.card-text {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	margin-bottom: variables.$gutter;
+	order: 1;
+	padding: 0 variables.$gutter;
+	text-shadow: functions.em(1) functions.em(1) 0 var(--text-shadow);
+
+	* {
+		color: inherit;
+		max-width: 60ch;
+	}
+
+	:last-child {
+		margin-top: auto;
+	}
+}
+
+.card-title {
+	font-size: functions.em(26);
+	line-height: 1.2;
+	text-shadow: functions.em(2, 26) functions.em(2, 26) 0 var(--text-shadow);
+	margin: variables.$gutter 0 !important;
+}
+
+.card-link {
+	text-decoration: none;
+
+	&::before {
+		bottom: 0;
+		content: "";
+		left: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+	&:hover,
+	&:visited {
+		color: inherit;
+	}
+
+	&:focus {
+		color: inherit;
+		text-decoration: underline;
+	}
+
+	.card:focus-within &:focus {
+		outline-color: transparent;
+		text-decoration: none;
+	}
+}
+
+/* -------------------- */
+/* -- Variants
+/* -------------------- */
+
+@each $variant in alert, success, accent, default, secondary {
+	.card-#{$variant} {
+		--background: hsl(var(--#{$variant}));
+		--border: hsl(var(--#{$variant}-dark));
+		--color: hsl(var(--contrast));
+		--shadow: hsla(var(--#{$variant}), .25);
+		--text-shadow: var(--border);
+	}
+}

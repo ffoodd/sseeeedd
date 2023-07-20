@@ -1,0 +1,180 @@
+@use "../abstracts/functions";
+@use "../abstracts/variables";
+
+/* ==================== */
+/* == Fly-out
+ *
+ * @note The whole thing needs :focus-within support
+ * @link https://caniuse.com/#search=%3Afocus-within
+ * @note A polyfill is used for unsupporting browsers, adding .focus-within on matching elements
+ *
+ * 1. clip-path is used to visually hide subnav
+ * @link https://developer.mozilla.org/fr/docs/Web/CSS/clip-path
+ * @note clip is obsolete version, limited to rect() shapes
+ * @link https://codepen.io/ffoodd/pen/Eolkb
+ *
+ * 2. Using a delay to improve unprecise mouse navigation
+ * @link https://www.w3.org/WAI/tutorials/menus/flyout/#mouse-users
+ * @link https://developer.mozilla.org/fr/docs/Web/CSS/transition-delay
+ */
+
+.fly-out {
+	&,
+	& ul {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	a,
+	button {
+		background: functions.hsl(var(--contrast));
+		border: 0;
+		border-radius: 0;
+		color: functions.hsl(var(--secondary));
+		display: block;
+		margin: 0;
+		outline: functions.rem(2) solid transparent;
+		outline-offset: variables.$gutter * 2;
+		padding: variables.$gutter * 0.5 variables.$gutter;
+		text-decoration: none;
+		transition: outline-offset .3s var(--enter);
+		white-space: nowrap;
+
+		&:hover,
+		&:focus,
+		&:active {
+			background: functions.hsl(var(--background));
+			border: 0;
+			color: functions.hsl(var(--secondary-dark));
+		}
+
+		&:focus {
+			box-shadow: none;
+			outline: functions.rem(2) solid currentColor;
+			outline-offset: 0;
+		}
+	}
+
+	> * {
+		background: functions.hsl(var(--contrast));
+		margin: variables.$gutter * 0.5;
+		position: relative;
+		z-index: 1;
+
+		&:hover,
+		&.focus-within {
+			z-index: 2;
+		}
+
+		> a,
+		> button {
+			&:hover,
+			&:focus,
+			&:active {
+				background: none;
+			}
+		}
+
+		> button {
+			padding-right: variables.$gutter;
+		}
+
+		> button::after {
+			content: "↓";
+			display: inline-block;
+			padding-left: variables.$gutter * 0.5;
+			transition: transform .3s var(--enter) .5s;
+			will-change: transform;
+		}
+	}
+
+	ul {
+		align-items: flex-start;
+		background: inherit;
+		clip: rect(0, 2rem, 2rem, 0); /* 1 */
+		flex-direction: column;
+		font-size: inherit;
+		min-width: 100%;
+		padding-top: functions.em(40);
+		position: absolute;
+		top: 0;
+		transition: clip .3s var(--enter) .5s;
+		will-change: clip;
+		z-index: -1;
+
+		li {
+			min-width: inherit;
+		}
+
+		a,
+		button {
+			padding: variables.$gutter * 0.5 variables.$gutter;
+		}
+	}
+
+	> *:hover > ul,
+	> *.focus-within > ul,
+	> * > button:hover + ul,
+	> * > button:focus + ul,
+	> * > button:active + ul {
+		box-shadow: functions.em(4) functions.em(4) 0 0 functions.hsla(var(--muted-dark), .25);
+		clip: auto; /* 1 */
+		outline: 1px solid functions.hsl(var(--muted-light));
+		transition: clip .3s var(--exit);
+	}
+
+	> * > button:hover::after,
+	> * > button:focus::after,
+	> * > button:active::after,
+	> *:hover > button::after,
+	> *.focus-within > button::after {
+		transform: rotateX(.5turn);
+		transition: transform .3s var(--exit);
+	}
+}
+
+@supports (clip-path: circle(150% at top right)) {
+	@media screen and (min-width: functions.em(480)) {
+		.fly-out {
+			&,
+			& ul {
+				justify-content: initial;
+			}
+
+			> *:focus-within {
+				z-index: 2;
+
+				button {
+					background: none;
+				}
+			}
+
+			ul {
+				clip: auto;
+				clip-path: circle(functions.em(18) at left top); /* 1 */
+				transition: clip-path .3s var(--enter) .5s; /* 2 */
+				will-change: clip-path;
+			}
+
+			> *:hover > ul,
+			> *:focus-within > ul,
+			> * > button:hover + ul,
+			> * > button:focus + ul,
+			> * > button:active + ul {
+				box-shadow: functions.em(4) functions.em(4) 0 0 functions.hsla(var(--muted-dark), .25);
+				clip-path: circle(150% at top right);
+				outline: 1px solid functions.hsl(var(--muted-light));
+				transition: clip-path .3s var(--exit);
+			}
+
+			> *:focus-within > button::after {
+				transform: rotateX(.5turn);
+				transition: transform .3s var(--exit);
+			}
+		}
+	}
+}

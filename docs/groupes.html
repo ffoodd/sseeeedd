@@ -1,726 +1,716 @@
-<!DOCTYPE html><html lang="fr" class="no-js"><head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        
-  <title>sseeeedd — Groupes</title>
-  <meta property="og:url" content="https://ffoodd.github.io/sseeeedd/groupes.html">
-  <meta property="og:title" content="sseeeedd — Groupes">
-  <meta property="og:type" content="article">
-  <meta property="og:description" name="description" content="Une graîne pour cultiver son front-end">
-  <meta name="twitter:card" content="summary">
+<!DOCTYPE html>
+<html lang="fr" class="no-js">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>sseeeedd — Groupes</title>
+	<meta property="og:url" content="https://ffoodd.github.io/sseeeedd/groupes.html">
+	<meta property="og:title" content="sseeeedd — Groupes">
+	<meta property="og:type" content="article">
+	<meta property="og:description"
+				name="description" content="Une graîne pour cultiver son front-end">
+	<meta name="twitter:card" content="summary">
+	<script>document.documentElement.classList.replace('no-js', 'js');</script>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="css/sseeeedd.min.css" media="all">
+	<link rel="stylesheet" href="css/sseeeedd-print.min.css" media="print">
+</head>
+<body itemscope itemtype="http://schema.org/WebPage">
+<header role="banner">
+		<div>
+			<a href="#nav" class="sr-only sr-only-focusable">Aller à la navigation</a>
+			<a href="#main" class="sr-only sr-only-focusable">Aller au contenu</a>
+		</div>
 
-        <script>document.documentElement.classList.replace('no-js','js');</script>
-        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-        <link rel="stylesheet" href="css/styles.min.css" media="all" integrity="sha384-q+xnw+dxcoYN1ADH/r2L0WjCahhtzgeuOUtUZBZBA0PNYR9VzhoH5oUgE0u4l2jk" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/print.min.css" media="print" integrity="sha384-i3dRwmp8zXRlpUnJTD27rKIBzSEdYbc0YEFwuULfvleZ4Vm0RG81i/6HXy96jet8" crossorigin="anonymous">
-    </head>
-    <body itemscope itemtype="http://schema.org/WebPage">
-      <header role="banner">
-        
-          <div>
-            <a href="#nav" class="sr-only sr-only-focusable">Aller à la navigation</a>
-            <a href="#main" class="sr-only sr-only-focusable">Aller au contenu</a>
-          </div>
-        
+	<nav role="navigation" id="nav" aria-label="Navigation principale">
+	<ul class="fly-out">
+		<li><a href="index.html">Accueil</a></li>
+		<li><a href="elements.html">Éléments</a></li>
+		<li>
+			<button type="button" aria-current="page">Groupes</button>
+			<ul>
+				<li><a href="./groupes.html">Introduction</a></li>
+				<li><a href="graphiques.html">Introduction</a></li>
+				<li><a href="./groupes.html#messages">Messages</a></li>
+				<li><a href="./groupes.html#cards">Cartes</a></li>
+				<li><a href="./groupes.html#panels">Panneaux</a></li>
+				<li><a href="./groupes.html#navigation">Navigation</a></li>
+				<li><a href="./groupes.html#codeblocks">Blocs de code</a></li>
+				<li><a href="./groupes.html#dl">Définitions</a></li>
+			</ul>
+		</li>
+		<li><a href="composants.html">Composants</a></li>
+		<li><a href="graphiques.html">Graphiques</a></li>
+		<li><a href="jeu-de-cartes.html">Jeu de cartes</a></li>
+	</ul>
+	</nav>
+</header>
 
-        <nav role="navigation" id="nav" aria-label="Navigation principale">
-          
-  <ul class="fly-out">
-    <li><a href="./index.html">Accueil</a></li>
-    <li><a href="./elements.html">Éléments</a></li>
-    <li>
-      <button type="button" aria-current="page">Groupes</button>
-      <ul>
-        <li><a href="./groupes.html">Introduction</a></li>
-        <li><a href="./graphiques.html">Introduction</a></li>
-        <li><a href="./groupes.html#messages">Messages</a></li>
-        <li><a href="./groupes.html#cards">Cartes</a></li>
-        <li><a href="./groupes.html#panels">Panneaux</a></li>
-        <li><a href="./groupes.html#navigation">Navigation</a></li>
-        <li><a href="./groupes.html#codeblocks">Blocs de code</a></li>
-        <li><a href="./groupes.html#dl">Définitions</a></li>
-      </ul>
-    </li>
-    <li><a href="./composants.html">Composants</a></li>
-    <li><a href="./graphiques.html">Graphiques</a></li>
-    <li><a href="./jeu-de-cartes.html">Jeu de cartes</a></li>
-  </ul>
+<main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">
+	<h1>Groupes</h1>
 
-        </nav>
-      </header>
+	<p>Les groupes sont les éléments d’interface de complexité intermédiaire.</p>
 
-      <main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">
-        
-  <h1>Groupes</h1>
+	<h2 id="messages">Messages</h2>
 
-  <p>Les groupes sont les éléments d’interface de complexité intermédiaire.</p>
+	<p>
+		Les boîtes de message respectent le motif de conception <abbr lang="en"
+																																	title="Accessible Rich Internet Application">aria</abbr>
+		associé. Pour vous en servir correctement, deux conditions&nbsp;:
+	</p>
 
-  <h2 id="messages">Messages</h2>
+	<ol>
+		<li>
+			la <code>div role="alert" aria-live="assertive"</code> doit être présente mais vide dans le code source
+			dès le chargement de la page&nbsp;;
+		</li>
+		<li>
+			lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang="en"
+																																							title="HyperText Markup Language">html</abbr>,
+			de préférence avec la méthode JavaScript <code>.innerHTML()</code>.
+		</li>
+	</ol>
 
-  <p>
-    Les boîtes de message respectent le motif de conception <abbr lang="en" title="Accessible Rich Internet Application">aria</abbr>
-    associé. Pour vous en servir correctement, deux conditions :
-  </p>
+		<div role="alert" aria-live="assertive" class="alert bg-alert">
+			<p>Oh, le joli message&nbsp;!</p>
+		</div>
+		<div role="alert" aria-live="assertive" class="alert bg-success">
+			<p>Oh, le joli message&nbsp;!</p>
+		</div>
+		<div role="alert" aria-live="assertive" class="alert bg-accent">
+			<p>Oh, le joli message&nbsp;!</p>
+		</div>
+		<div role="alert" aria-live="assertive" class="alert bg-secondary">
+			<p>Oh, le joli message&nbsp;!</p>
+		</div>
 
-  <ol>
-    <li>
-      la <code>div role="alert" aria-live="assertive"</code> doit être présente mais vide dans le code source
-      dès le chargement de la page ;
-    </li>
-    <li>
-      lors de l’affichage d’un message, vous devez modifier son contenu <abbr lang="en" title="HyperText Markup Language">html</abbr>,
-      de préférence avec la méthode JavaScript <code>.innerHTML()</code>.
-    </li>
-  </ol>
+	<h3>Notes</h3>
 
-  
-  
-   <div role="alert" aria-live="assertive" class="alert bg-alert">
-     <p>Oh, le joli message !</p>
-   </div>
-  
-   <div role="alert" aria-live="assertive" class="alert bg-success">
-     <p>Oh, le joli message !</p>
-   </div>
-  
-   <div role="alert" aria-live="assertive" class="alert bg-accent">
-     <p>Oh, le joli message !</p>
-   </div>
-  
-   <div role="alert" aria-live="assertive" class="alert bg-secondary">
-     <p>Oh, le joli message !</p>
-   </div>
-  
+	<p>Un message peut ne pas être une alerte. Pour ce cas, une <code>div</code> avec la classe <code>note</code> peut
+		être employée.</p>
 
-  <h3>Notes</h3>
+	<div class="note">
+		<h3>Grille</h3>
+		<p>
+			Un système de grille basique mais efficace est disponible.
+			La version de base repose sur les <strong>colonnes</strong> <abbr lang="en"
+																																				title="Cascading StyleSheet">css</abbr>
+			—&nbsp;supportées depuis <abbr lang="en" title="Internet Explorer">ie</abbr>10&nbsp;— et la grille fixe
+			s’appuie sur les <strong>grilles</strong> CSS (sans préfixes Microsoft, mais avec une bascule sur les colonnes
+			pour les navigateurs intermédiaires).
+		</p>
+	</div>
 
-  <p>Un message peut ne pas être une alerte. Pour ce cas, une <code>div</code> avec la classe <code>note</code> peut être employée.</p>
+	<h2 id="cards">Cartes</h2>
 
-  <div class="note">
-    <h3>Grille</h3>
-    <p>
-      Un système de grille basique mais efficace est disponible.
-      La version de base repose sur les <strong>colonnes</strong> <abbr lang="en" title="Cascading StyleSheet">css</abbr>
-      — supportées depuis <abbr lang="en" title="Internet Explorer">ie</abbr>10 — et la grille fixe
-      s’appuie sur les <strong>grilles</strong> CSS (sans préfixes Microsoft, mais avec une bascule sur les colonnes pour les navigateurs intermédiaires).
-    </p>
-  </div>
+	<p>
+		Un jeu de carte —&nbsp;basé sur <a href="https://inclusive-components.design/cards/" hreflang="en">le
+			composant inclusif conçu par <cite>Heydon Pickering</cite></a>&nbsp;— est ajusté à l’usage de sseeeedd.
+		Il utilise, entre autres subtilités, les propriétés personalisées, <code>flexbox</code> et
+		<code>:focus-within</code>.
+	</p>
 
-  <h2 id="cards">Cartes</h2>
 
-  <p>
-    Un jeu de carte — basé sur <a href="https://inclusive-components.design/cards/" hreflang="en">le
-    composant inclusif conçu par <cite>Heydon Pickering</cite></a> — est ajusté à l’usage de sseeeedd.
-    Il utilise, entre autres subtilités, les propriétés personalisées, <code>flexbox</code> et
-    <code>:focus-within</code>.
-  </p>
+	<h3>En colonnes</h3>
 
-  
+	<div class="columns-3">
+			<article class="card " role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+			<div class="card-img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice"
+						 focusable="false" aria-hidden="true">
+					<rect fill="hsl(var(--disabled))" width="100%" height="100%"></rect>
+					<text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+						300×100
+					</text>
+				</svg>
+			</div>
+	</article>
 
-  <h3>En colonnes</h3>
+			<article class="card " role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+			<div class="card-img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice"
+						 focusable="false" aria-hidden="true">
+					<rect fill="hsl(var(--disabled))" width="100%" height="100%"></rect>
+					<text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+						300×100
+					</text>
+				</svg>
+			</div>
+	</article>
 
-  <div class="columns-3">
-    
-  <article class="card card" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-      <div class="card-img">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
-            <rect fill="hsl(var(--disabled))" width="100%" height="100%"/>
-            <text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">300×100</text>
-        </svg>
-      </div>
-    
-  </article>
+			<article class="card card-success" role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+	</article>
 
-    
-  <article class="card card" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-      <div class="card-img">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
-            <rect fill="hsl(var(--disabled))" width="100%" height="100%"/>
-            <text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">300×100</text>
-        </svg>
-      </div>
-    
-  </article>
+			<article class="card card-accent" role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+			<div class="card-img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice"
+						 focusable="false" aria-hidden="true">
+					<rect fill="hsl(var(--disabled))" width="100%" height="100%"></rect>
+					<text fill="hsl(var(--accent))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+						300×100
+					</text>
+				</svg>
+			</div>
+	</article>
 
-    
-  <article class="card card-success" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-  </article>
+			<article class="card " role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+	</article>
 
-    
-  <article class="card card-accent" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-      <div class="card-img">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
-            <rect fill="hsl(var(--disabled))" width="100%" height="100%"/>
-            <text fill="hsl(var(--accent))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">300×100</text>
-        </svg>
-      </div>
-    
-  </article>
+			<article class="card card-alert" role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+	</article>
 
-    
-  <article class="card card" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-  </article>
+			<article class="card " role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+	</article>
 
-    
-  <article class="card card-alert" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-  </article>
+			<article class="card card-secondary" role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+			<div class="card-img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice"
+						 focusable="false" aria-hidden="true">
+					<rect fill="hsl(var(--disabled))" width="100%" height="100%"></rect>
+					<text fill="hsl(var(--secondary))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+						300×100
+					</text>
+				</svg>
+			</div>
+	</article>
 
-    
-  <article class="card card" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-  </article>
+	</div>
 
-    
-  <article class="card card-secondary" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-      <div class="card-img">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
-            <rect fill="hsl(var(--disabled))" width="100%" height="100%"/>
-            <text fill="hsl(var(--secondary))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">300×100</text>
-        </svg>
-      </div>
-    
-  </article>
+	<h3>En grille fixe</h3>
 
-  </div>
+	<div class="grid-3">
+			<article class="card " role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+			<div class="card-img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice"
+						 focusable="false" aria-hidden="true">
+					<rect fill="hsl(var(--disabled))" width="100%" height="100%"></rect>
+					<text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+						300×100
+					</text>
+				</svg>
+			</div>
+	</article>
 
-  <h3>En grille fixe</h3>
+			<article class="card " role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+			<div class="card-img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice"
+						 focusable="false" aria-hidden="true">
+					<rect fill="hsl(var(--disabled))" width="100%" height="100%"></rect>
+					<text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+						300×100
+					</text>
+				</svg>
+			</div>
+	</article>
 
-  <div class="grid-3">
-    
-  <article class="card card" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-      <div class="card-img">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
-            <rect fill="hsl(var(--disabled))" width="100%" height="100%"/>
-            <text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">300×100</text>
-        </svg>
-      </div>
-    
-  </article>
+			<article class="card card-success" role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+			<div class="card-img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice"
+						 focusable="false" aria-hidden="true">
+					<rect fill="hsl(var(--disabled))" width="100%" height="100%"></rect>
+					<text fill="hsl(var(--success))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+						300×100
+					</text>
+				</svg>
+			</div>
+	</article>
 
-    
-  <article class="card card" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-      <div class="card-img">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
-            <rect fill="hsl(var(--disabled))" width="100%" height="100%"/>
-            <text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">300×100</text>
-        </svg>
-      </div>
-    
-  </article>
+			<article class="card card-accent" role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+	</article>
 
-    
-  <article class="card card-success" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-      <div class="card-img">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
-            <rect fill="hsl(var(--disabled))" width="100%" height="100%"/>
-            <text fill="hsl(var(--success))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">300×100</text>
-        </svg>
-      </div>
-    
-  </article>
+			<article class="card " role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+			<div class="card-img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice"
+						 focusable="false" aria-hidden="true">
+					<rect fill="hsl(var(--disabled))" width="100%" height="100%"></rect>
+					<text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+						300×100
+					</text>
+				</svg>
+			</div>
+	</article>
 
-    
-  <article class="card card-accent" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-  </article>
+			<article class="card card-alert" role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+			<div class="card-img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice"
+						 focusable="false" aria-hidden="true">
+					<rect fill="hsl(var(--disabled))" width="100%" height="100%"></rect>
+					<text fill="hsl(var(--alert))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+						300×100
+					</text>
+				</svg>
+			</div>
+	</article>
 
-    
-  <article class="card card" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-      <div class="card-img">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
-            <rect fill="hsl(var(--disabled))" width="100%" height="100%"/>
-            <text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">300×100</text>
-        </svg>
-      </div>
-    
-  </article>
+			<article class="card " role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+			<div class="card-img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice"
+						 focusable="false" aria-hidden="true">
+					<rect fill="hsl(var(--disabled))" width="100%" height="100%"></rect>
+					<text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+						300×100
+					</text>
+				</svg>
+			</div>
+	</article>
 
-    
-  <article class="card card-alert" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-      <div class="card-img">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
-            <rect fill="hsl(var(--disabled))" width="100%" height="100%"/>
-            <text fill="hsl(var(--alert))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">300×100</text>
-        </svg>
-      </div>
-    
-  </article>
+			<article class="card card-secondary" role="article"
+					 itemscope itemtype="https://schema.org/Article">
+		<div class="card-text">
+			<h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
+				<time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
+				<p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la
+					mer.</p>
+			<footer class="d-flex">
+				<a href="" class="card-link ml-auto">Lire la suite
+					<span class="sr-only">de «&nbsp;Intitulé de la carte&nbsp;»</span>
+				</a>
+			</footer>
+		</div>
+			<div class="card-img">
+				<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice"
+						 focusable="false" aria-hidden="true">
+					<rect fill="hsl(var(--disabled))" width="100%" height="100%"></rect>
+					<text fill="hsl(var(--secondary))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">
+						300×100
+					</text>
+				</svg>
+			</div>
+	</article>
 
-    
-  <article class="card card" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-      <div class="card-img">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
-            <rect fill="hsl(var(--disabled))" width="100%" height="100%"/>
-            <text fill="hsl(var(-))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">300×100</text>
-        </svg>
-      </div>
-    
-  </article>
+	</div>
 
-    
-  <article class="card card-secondary" role="article" itemscope itemtype="https://schema.org/Article">
-    <div class="card-text">
-      <h3 itemprop="name" class="card-title">Intitulé de la carte</h3>
-      
-        <time datetime="2018-02-08" itemprop="datePublished" class="small">8 février 2018</time>
-      
-      
-        <p itemprop="description">Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.</p>
-      
-      <footer class="d-flex">
-        <a href="./" class="card-link ml-auto">Lire la suite
-          <span class="sr-only">de « Intitulé de la carte »</span>
-        </a>
-      </footer>
-    </div>
-    
-      <div class="card-img">
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
-            <rect fill="hsl(var(--disabled))" width="100%" height="100%"/>
-            <text fill="hsl(var(--secondary))" x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">300×100</text>
-        </svg>
-      </div>
-    
-  </article>
+	<h2 id="panels">Panneaux</h2>
 
-  </div>
+	<p>
+		Les panneaux sont les éléments HTML5 natifs <code>details</code> et <code>summary</code>.
+		Ces éléments travaillent conjointement pour composer un élément interactif permettant d’afficher
+		du contenu supplémentaire.
+		<br>
+		Ils sont par conséquents accessibles et se dégradent gracieusement sur les navigateurs ne les supportant pas.
+	</p>
 
-  <h2 id="panels">Panneaux</h2>
+		<details>
+			<summary>Panneau №1</summary>
+			<div>
+				<h3>Contenu №1</h3>
+				<p>
+					Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+					<small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+					Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec
+					<mark>accumulateurs</mark>
+					d’une capacité de deux cents ampères-ohms,
+					et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à
+					<del>dix-huit</del>
+					<ins>dix-neuf</ins>
+					kilomètres.
+				</p>
+			</div>
+		</details>
+		<details>
+			<summary>Panneau №2</summary>
+			<div>
+				<h3>Contenu №2</h3>
+				<p>
+					Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+					<small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+					Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec
+					<mark>accumulateurs</mark>
+					d’une capacité de deux cents ampères-ohms,
+					et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à
+					<del>dix-huit</del>
+					<ins>dix-neuf</ins>
+					kilomètres.
+				</p>
+			</div>
+		</details>
+		<details>
+			<summary>Panneau №3</summary>
+			<div>
+				<h3>Contenu №3</h3>
+				<p>
+					Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+					<small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+					Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec
+					<mark>accumulateurs</mark>
+					d’une capacité de deux cents ampères-ohms,
+					et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à
+					<del>dix-huit</del>
+					<ins>dix-neuf</ins>
+					kilomètres.
+				</p>
+			</div>
+		</details>
+		<details>
+			<summary>Panneau №4</summary>
+			<div>
+				<h3>Contenu №4</h3>
+				<p>
+					Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+					<small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+					Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec
+					<mark>accumulateurs</mark>
+					d’une capacité de deux cents ampères-ohms,
+					et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à
+					<del>dix-huit</del>
+					<ins>dix-neuf</ins>
+					kilomètres.
+				</p>
+			</div>
+		</details>
 
-  <p>
-    Les panneaux sont les éléments HTML5 natifs <code>details</code> et <code>summary</code>.
-    Ces éléments travaillent conjointement pour composer un élément interactif permettant d’afficher
-    du contenu supplémentaire.
-    <br>
-    Ils sont par conséquents accessibles et se dégradent gracieusement sur les navigateurs ne les supportant pas.
-  </p>
+	<div class="note">
+		<h3 class="h4">Un seul panneau ouvert</h3>
+		<p>
+			Si vous voulez n’avoir qu’un seul panneau ouvert à la fois, il vous suffit de les regrouper dans un conteneur
+			portant la classe <code>.details-group</code>, et un petit script s’occupera du reste.
+		</p>
+	</div>
 
-  
-  
-    <details>
-      <summary>Panneau №1</summary>
-      <div>
-        <h3>Contenu №1</h3>
-        <p>
-          Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-          <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
-          Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
-          et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
-        </p>
-      </div>
-    </details>
-  
-    <details>
-      <summary>Panneau №2</summary>
-      <div>
-        <h3>Contenu №2</h3>
-        <p>
-          Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-          <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
-          Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
-          et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
-        </p>
-      </div>
-    </details>
-  
-    <details>
-      <summary>Panneau №3</summary>
-      <div>
-        <h3>Contenu №3</h3>
-        <p>
-          Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-          <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
-          Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
-          et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
-        </p>
-      </div>
-    </details>
-  
-    <details>
-      <summary>Panneau №4</summary>
-      <div>
-        <h3>Contenu №4</h3>
-        <p>
-          Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-          <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
-          Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
-          et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
-        </p>
-      </div>
-    </details>
-  
+	<h3>Panneaux verticaux</h3>
 
-  <div class="note">
-    <h3 class="h4">Un seul panneau ouvert</h3>
-    <p>
-      Si vous voulez n’avoir qu’un seul panneau ouvert à la fois, il vous suffit de les regrouper dans un conteneur
-      portant la classe <code>.details-group</code>, et un petit script s’occupera du reste.
-    </p>
-  </div>
+	<p>
+		Les panneaux verticaux sont une version enrichie des panneaux ordinaires.
+		Ils s’appuient sur <code>flexbox</code> et un bout de JavaScript, pour s’assurer qu’un seul panneau soit déplié à la
+		fois.
+		L’orientation verticale du texte dépend du support de la propriété CSS <code>writing-mode</code>.
+	</p>
 
-  <h3>Panneaux verticaux</h3>
+	<div class="details-group vertical">
+			<details open>
+				<summary>Panneau №1</summary>
+				<div>
+					<h3>Contenu №1</h3>
+					<p>
+						Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+						<small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+						Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec
+						<mark>accumulateurs</mark>
+						d’une capacité de deux cents ampères-ohms,
+						et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à
+						<del>dix-huit</del>
+						<ins>dix-neuf</ins>
+						kilomètres.
+					</p>
+				</div>
+			</details>
+			<details >
+				<summary>Panneau №2</summary>
+				<div>
+					<h3>Contenu №2</h3>
+					<p>
+						Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+						<small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+						Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec
+						<mark>accumulateurs</mark>
+						d’une capacité de deux cents ampères-ohms,
+						et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à
+						<del>dix-huit</del>
+						<ins>dix-neuf</ins>
+						kilomètres.
+					</p>
+				</div>
+			</details>
+			<details >
+				<summary>Panneau №3</summary>
+				<div>
+					<h3>Contenu №3</h3>
+					<p>
+						Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+						<small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+						Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec
+						<mark>accumulateurs</mark>
+						d’une capacité de deux cents ampères-ohms,
+						et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à
+						<del>dix-huit</del>
+						<ins>dix-neuf</ins>
+						kilomètres.
+					</p>
+				</div>
+			</details>
+			<details >
+				<summary>Panneau №4</summary>
+				<div>
+					<h3>Contenu №4</h3>
+					<p>
+						Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
+						<small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
+						Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec
+						<mark>accumulateurs</mark>
+						d’une capacité de deux cents ampères-ohms,
+						et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à
+						<del>dix-huit</del>
+						<ins>dix-neuf</ins>
+						kilomètres.
+					</p>
+				</div>
+			</details>
+	</div>
 
-  <p>
-    Les panneaux verticaux sont une version enrichie des panneaux ordinaires.
-    Ils s’appuient sur <code>flexbox</code> et un bout de JavaScript, pour s’assurer qu’un seul panneau soit déplié à la fois.
-    L’orientation verticale du texte dépend du support de la propriété CSS <code>writing-mode</code>.
-  </p>
+	<h2 id="navigation">Navigation</h2>
 
-  <div class="details-group vertical">
-    
-      <details open>
-        <summary>Panneau №1</summary>
-        <div>
-          <h3>Contenu №1</h3>
-          <p>
-            Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-            <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
-            Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
-            et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
-          </p>
-        </div>
-      </details>
-    
-      <details>
-        <summary>Panneau №2</summary>
-        <div>
-          <h3>Contenu №2</h3>
-          <p>
-            Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-            <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
-            Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
-            et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
-          </p>
-        </div>
-      </details>
-    
-      <details>
-        <summary>Panneau №3</summary>
-        <div>
-          <h3>Contenu №3</h3>
-          <p>
-            Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-            <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
-            Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
-            et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
-          </p>
-        </div>
-      </details>
-    
-      <details>
-        <summary>Panneau №4</summary>
-        <div>
-          <h3>Contenu №4</h3>
-          <p>
-            Au fond de la darse s’amorce une seconde ligne de trams qui longe le bord de la mer.
-            <small>Le tram se compose de six cars, où nombre de voyageurs ont déjà pris place.</small>
-            Ces cars sont traînés par <strong>une locomotive électrique</strong>, avec <mark>accumulateurs</mark> d’une capacité de deux cents ampères-ohms,
-            et leur <a href="https://fr.wikipedia.org/wiki/Vitesse">vitesse</a> atteint de quinze à <del>dix-huit</del> <ins>dix-neuf</ins> kilomètres.
-          </p>
-        </div>
-      </details>
-    
-  </div>
+	<h3>Menu déroulant</h3>
 
-  <h2 id="navigation">Navigation</h2>
+	<p>
+		Là, ça devient rigolo.
+		<br>
+		Ces menus déroulants <strong>fonctionnent sans JavaScript</strong> et sont parfaitement <strong>accessibles</strong>.
+		Ils sont cependant
+		limités à un seul niveau. Si vous avez besoin de plusieurs niveaux imbriqués, préférez une solution basée sur
+		JavaScript.
+		<br>
+		Ce composant requiert le support de&nbsp;:
+	</p>
 
-  <h3>Menu déroulant</h3>
+	<ul>
+		<li><code>clip</code> ou <code>clip-path</code> pour le masquage du sous-menu et ses effets d’apparition&nbsp;;</li>
+		<li>
+			<code>:focus-within</code> pour maintenir le menu ouvert tant qu’un élément enfant a le
+			<em lang="en">focus</em>&nbsp;: le <em lang="en">polyfill</em> crée par
+			<a href="https://github.com/aFarkas" target="_blank" rel="noopener noreferrer">Alexandre Zarkas <span
+					class="sr-only">(compte personnel sur Github, nouvel onglet)</span></a>
+			est utilisé pour les navigateurs le nécessitant.
+		</li>
+	</ul>
 
-  <p>
-    Là, ça devient rigolo.
-    <br>
-    Ces menus déroulants <strong>fonctionnent sans JavaScript</strong> et sont parfaitement <strong>accessibles</strong>. Ils sont cependant
-    limités à un seul niveau. Si vous avez besoin de plusieurs niveaux imbriqués, préférez une solution basée sur JavaScript.
-    <br>
-    Ce composant requiert le support de :
-  </p>
+	<p>
+		Un délai de 300&nbsp;<abbr title="Milliseconde">ms</abbr> est laissé avant de refermer le menu,
+		pour éviter les fermetures intempestives et non désirées.
+	</p>
 
-  <ul>
-    <li><code>clip</code> ou <code>clip-path</code> pour le masquage du sous-menu et ses effets d’apparition ;</li>
-    <li>
-      <code>:focus-within</code> pour maintenir le menu ouvert tant qu’un élément enfant a le
-      <em lang="en">focus</em> : le <em lang="en">polyfill</em> crée par
-      <a href="https://github.com/aFarkas" target="_blank" rel="noopener noreferrer">Alexandre Zarkas <span class="sr-only">(compte personnel sur Github, nouvel onglet)</span></a>
-      est utilisé pour les navigateurs le nécessitant.
-    </li>
-  </ul>
+	<ul class="fly-out">
+		<li>
+			<button type="button">Niveau 1</button>
+			<ul>
+				<li><a href="">Niveau 2</a></li>
+				<li><a href="">Niveau 2</a></li>
+				<li><a href="">Niveau 2</a></li>
+			</ul>
+		</li>
+		<li><a href="">Niveau 1</a></li>
+		<li>
+			<button type="button">Niveau 1</button>
+			<ul>
+				<li><a href="">Niveau 2</a></li>
+				<li><a href="">Niveau 2</a></li>
+				<li><a href="">Niveau 2</a></li>
+			</ul>
+		</li>
+	</ul>
 
-  <p>
-    Un délai de 300 <abbr title="Milliseconde">ms</abbr> est laissé avant de refermer le menu,
-    pour éviter les fermetures intempestives et non désirées.
-  </p>
+	<div class="note">
+		<h4>Note technique</h4>
+		<p>
+			L’ouverture du second niveau se déclenchant lors de l’interaction en CSS, il est <strong>fortement
+				recommandé</strong>
+			d’utiliser un <code>button</code> comme déclencheur.
+		</p>
+	</div>
 
-  <ul class="fly-out">
-    <li>
-      <button type="button">Niveau 1</button>
-      <ul>
-        <li><a href="./">Niveau 2</a></li>
-        <li><a href="./">Niveau 2</a></li>
-        <li><a href="./">Niveau 2</a></li>
-      </ul>
-    </li>
-    <li><a href="./">Niveau 1</a></li>
-    <li>
-      <button type="button">Niveau 1</button>
-      <ul>
-        <li><a href="./">Niveau 2</a></li>
-        <li><a href="./">Niveau 2</a></li>
-        <li><a href="./">Niveau 2</a></li>
-      </ul>
-    </li>
-  </ul>
+	<h3>Pagination</h3>
 
-  <div class="note">
-    <h4>Note technique</h4>
-    <p>
-      L’ouverture du second niveau se déclenchant lors de l’interaction en CSS, il est <strong>fortement recommandé</strong>
-      d’utiliser un <code>button</code> comme déclencheur.
-    </p>
-  </div>
+	<nav role="navigation" aria-label="Pagination">
+		<ul id="pagination">
+			<li><a tabindex="-1">Précédent</a></li>
+			<li><a href="/" aria-current="page">
+					<span class="sr-only">Page </span>1
+					<span class="sr-only">(page actuelle)</span>
+				</a></li>
+			<li><a href="?page=2"><span class="sr-only">Page </span>2</a></li>
+			<li><a href="?page=3"><span class="sr-only">Page </span>3</a></li>
+			<li><a href="?page=2">Suivant</a></li>
+		</ul>
+	</nav>
 
-  <h3>Pagination</h3>
+	<h3>Fil d’Ariane</h3>
 
-  <nav role="navigation" aria-label="Pagination">
-    <ul id="pagination">
-      <li><a tabindex="-1">Précédent</a></li>
-      <li><a href="/" aria-current="page">
-        <span class="sr-only">Page </span>1
-        <span class="sr-only">(page actuelle)</span>
-      </a></li>
-      <li><a href="./?page=2"><span class="sr-only">Page </span>2</a></li>
-      <li><a href="./?page=3"><span class="sr-only">Page </span>3</a></li>
-      <li><a href="./?page=2">Suivant</a></li>
-    </ul>
-  </nav>
+	<nav role="navigation" aria-label="Vous êtes ici :">
+		<ul id="breadcrumb">
+			<li><a href="index.html">Accueil</a></li>
+			<li aria-current="page">Groupes</li>
+		</ul>
+	</nav>
 
-  <h3>Fil d’Ariane</h3>
+	<h2 id="codeblocks">Blocs de code</h2>
 
-  <nav role="navigation" aria-label="Vous êtes ici :">
-    <ul id="breadcrumb">
-      <li><a href="./index.html">Accueil</a></li>
-      <li aria-current="page">Groupes</li>
-    </ul>
-  </nav>
+	<p>
+		Les blocs de code ont un habillage personnalisé, imitant sommairement une fenêtre système.
+		<strong>PrismJS</strong>, un script de coloration syntaxique supportant plusieurs langages, est présent
+		—&nbsp;avec un thème personnalisé aux couleurs de sseeeedd.
+	</p>
 
-  <h2 id="codeblocks">Blocs de code</h2>
-
-  <p>
-    Les blocs de code ont un habillage personnalisé, imitant sommairement une fenêtre système.
-    <strong>PrismJS</strong>, un script de coloration syntaxique supportant plusieurs langages, est présent
-    — avec un thème personnalisé aux couleurs de sseeeedd.
-  </p>
-
-  <pre><code class="language-css">.open-space {
+	<pre><code class="language-css">.open-space {
   display: grid;
   grid-template: repeat(16, minmax(3rem, 1fr)) / repeat(44, minmax(calc(3rem * 4 / 3), 1fr));
   height: 100vh;
@@ -728,27 +718,21 @@
   width: 100vw;
 }</code></pre>
 
-  <h2 id="dl">Liste de définitions légendée</h2>
+	<h2 id="dl">Liste de définitions légendée</h2>
 
-  <figure role="figure" aria-label="Exemple de liste de définitions.">
-    <dl>
-      <dt>Terme</dt>
-      <dd>Définition</dd>
-      <dt>Clé</dt>
-      <dd>Valeur</dd>
-    </dl>
-    <figcaption>Exemple de liste de définitions.</figcaption>
-  </figure>
+	<figure role="figure" aria-label="Exemple de liste de définitions.">
+		<dl>
+			<dt>Terme</dt>
+			<dd>Définition</dd>
+			<dt>Clé</dt>
+			<dd>Valeur</dd>
+		</dl>
+		<figcaption>Exemple de liste de définitions.</figcaption>
+	</figure>
+</main>
 
-      </main>
+	<script src="js/script.min.js" async></script>
+	<script src="js/prism.min.js"></script>
 
-      
-        <script src="js/script.min.js" async integrity="sha384-n6omyfzfEIqke68FxxK/jgcY8A79hJ+7F5ojK2+zKq2IqraJ6Ne2FeCok7VNqASt" crossorigin="anonymous"></script>
-        <script src="js/prism.min.js" integrity="sha384-jCq/sLgQkL7biJNIjsKBaAXo+hFmO/bVhUw8V4w7zknBgB5r2geKTaupFvFIlsKJ" crossorigin="anonymous"></script>
-      
-
-      
-      
-    
-
-</body></html>
+</body>
+</html>

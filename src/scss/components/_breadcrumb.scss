@@ -1,8 +1,0 @@
-/* ==================== */
-/* == Breadcrumb
-/* ==================== */
-
-[id="breadcrumb"] li:not(:last-child)::after {
-  content: "→";
-  speak: none;
-}
