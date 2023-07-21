@@ -24,6 +24,7 @@ details {
 		}
 
 		~ * {
+			box-sizing: border-box;
 			margin: functions.rem(24) 1rem 0;
 		}
 	}
