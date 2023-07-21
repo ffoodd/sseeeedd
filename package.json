@@ -31,6 +31,7 @@
 		"build:docs": "concurrently \"npm:build:docs:*\"",
 		"postbuild:docs": "shx cp -r _site/{favicon.ico,humans.txt} docs/ && shx mkdir docs/css && shx cp -r dist/*.min.{css,css.map} docs/css",
 		"build:docs:html": "nunjucks *.njk _site/datas/deck.json -p _site/templates -o docs",
+		"prebuild:docs:svg": "shx rm -rf docs/img/symbol.svg",
 		"build:docs:svg": "svgo _site/img/**/*.svg -o docs/img/",
 		"postbuild:docs:svg": "svg-sprite docs/img/*.svg --config .svgsprite.json",
 		"build:docs:js": "terser _site/js/script.js -o docs/js/script.min.js -c -m --source-map && terser _site/js/prism.js -o docs/js/prism.min.js -c -m --source-map",
