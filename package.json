@@ -70,8 +70,5 @@
 		"svg-sprite": "^2.0.2",
 		"svgo": "^3.0.2",
 		"terser": "^5.14.2"
-	},
-	"dependencies": {
-		"normalize.css": "^8.0.1"
 	}
 }
