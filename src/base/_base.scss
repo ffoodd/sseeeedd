@@ -60,13 +60,13 @@ body {
 	from {
 		background-color: transparent;
 		box-shadow: none;
-		outline: functions.rem(2) solid transparent;
+		outline: .125rem solid transparent;
 		outline-offset: variables.$gutter * 2;
 	}
 	to {
 		background-color: functions.hsl(var(--contrast));
 		box-shadow: 0 0 0 .25rem functions.hsl(var(--contrast));
-		outline: functions.rem(2) solid functions.hsl(var(--accent));
+		outline: .125rem solid functions.hsl(var(--accent));
 		outline-offset: .25rem;
 	}
 }
@@ -136,7 +136,7 @@ body:hover [tabindex="-1"]:focus {
 
 a {
 	color: functions.hsl(var(--secondary));
-	outline: functions.rem(2) solid transparent;
+	outline: .125rem solid transparent;
 	outline-offset: variables.$gutter * 2;
 	text-decoration-style: dotted;
 	text-decoration-skip-ink: auto;
