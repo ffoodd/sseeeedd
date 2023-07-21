@@ -216,6 +216,7 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
  */
 html[lang] {
   box-sizing: border-box;
+  caret-color: hsl(var(--accent));
   overflow-y: scroll; /* 1 */
   position: relative;
   scroll-padding-block: 1vh; /* 3 */

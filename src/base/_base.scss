@@ -21,6 +21,7 @@
  */
 html[lang] {
 	box-sizing: border-box;
+	caret-color: functions.hsl(var(--accent));
 
 	@if variables.$full-width == false {
 		overflow-y: scroll; /* 1 */
