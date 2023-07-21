@@ -757,6 +757,11 @@ svg {
   display: none;
 }
 
+a,
+button {
+  touch-action: manipulation;
+}
+
 a svg,
 button svg {
   pointer-events: none;
