@@ -2,12 +2,7 @@
 
 {% block meta %}
 	<title>sseeeedd — Éléments</title>
-	<meta property="og:url" content="https://ffoodd.github.io/sseeeedd/elements.html">
-	<meta property="og:title" content="sseeeedd — Éléments">
-	<meta property="og:type" content="article">
-	<meta property="og:description"
-				name="description" content="Une graîne pour cultiver son front-end">
-	<meta name="twitter:card" content="summary">
+	<meta	name="description" content="Une graîne pour cultiver son front-end">
 {% endblock %}
 
 {% block navigation %}
@@ -25,8 +20,6 @@
 				<li><a href="groupes.html#dl">Définitions</a></li>
 			</ul>
 		</li>
-		<li><a href="composants.html">Composants</a></li>
-		<li><a href="graphiques.html">Graphiques</a></li>
 		<li><a href="jeu-de-cartes.html">Jeu de cartes</a></li>
 	</ul>
 {% endblock %}
@@ -305,4 +298,24 @@
 			</li>
 		</ol>
 	</footer>
+
+	<h3>Fenêtre de dialogue</h3>
+
+	<div>
+		<button type="button" class="dialog-opener">Afficher la fenêtre de dialogue</button>
+		<dialog aria-labelledby="dialog-title">
+			<form method="dialog" class="d-flex">
+				<h1 id="dialog-title" class="h4 no-margin">Dialogue</h1>
+				<button class="no-background no-border clr-accent ml-auto rounded">
+					<svg width="16" height="16" aria-hidden="true" focusable="false">
+						<use xlink:href="img/symbol.svg#close"></use>
+					</svg>
+					<span class="sr-only">Fermer cette fenêtre modale</span>
+				</button>
+			</form>
+
+			<p>N’êtes-vous pas d’accord&nbsp;?</p>
+			<button>Oh, la ferme&nbsp;!</button>
+		</dialog>
+	</div>
 {% endblock %}
