@@ -12,8 +12,6 @@
  * 1. Force scrollbars to always be visible to prevent awkward jumps when
  *    navigating between pages that do/do not have enough content to produce
  *    scrollbars naturally.
- * 2. For some Firefox.
- *    css-tricks.com/snippets/css/force-vertical-scrollbar/
  * 3. Smooth scroll
  *    @see https://evilmartians.com/chronicles/scroll-to-the-future-modern-javascript-css-scrolling-implementations
  *    @see https://codepen.io/benfrain/pen/VxeLPb
@@ -26,12 +24,14 @@ html[lang] {
 
 	@if variables.$full-width == false {
 		overflow-y: scroll; /* 1 */
-		overflow: -moz-scrollbars-vertical; /* 2 */
 	}
 
 	position: relative;
-	scroll-behavior: smooth; /* 3 */
-	scroll-padding-top: 1rem; /* 4 */
+	scroll-padding-block: 1vh; /* 3 */
+
+	@media screen and (prefers-reduced-motion: no-preference) {
+		scroll-behavior: smooth; /* 2 */
+	}
 }
 
 *,
@@ -309,7 +309,6 @@ main {
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
 	}
 }
 
