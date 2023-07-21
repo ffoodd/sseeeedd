@@ -688,6 +688,7 @@ pre::before {
   display: inline-block;
   font-family: inherit;
   padding: 0.1em;
+  user-select: all;
   white-space: nowrap;
 }
 
