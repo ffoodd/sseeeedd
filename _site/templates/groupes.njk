@@ -2,12 +2,7 @@
 
 {% block meta %}
 	<title>sseeeedd — Groupes</title>
-	<meta property="og:url" content="https://ffoodd.github.io/sseeeedd/groupes.html">
-	<meta property="og:title" content="sseeeedd — Groupes">
-	<meta property="og:type" content="article">
-	<meta property="og:description"
-				name="description" content="Une graîne pour cultiver son front-end">
-	<meta name="twitter:card" content="summary">
+	<meta name="description" content="Une graîne pour cultiver son front-end">
 {% endblock %}
 
 {% block navigation %}
@@ -27,8 +22,6 @@
 				<li><a href="./groupes.html#dl">Définitions</a></li>
 			</ul>
 		</li>
-		<li><a href="composants.html">Composants</a></li>
-		<li><a href="graphiques.html">Graphiques</a></li>
 		<li><a href="jeu-de-cartes.html">Jeu de cartes</a></li>
 	</ul>
 {% endblock %}
@@ -150,14 +143,6 @@
 		</details>
 	{% endfor %}
 
-	<div class="note">
-		<h3 class="h4">Un seul panneau ouvert</h3>
-		<p>
-			Si vous voulez n’avoir qu’un seul panneau ouvert à la fois, il vous suffit de les regrouper dans un conteneur
-			portant la classe <code>.details-group</code>, et un petit script s’occupera du reste.
-		</p>
-	</div>
-
 	<h3>Panneaux verticaux</h3>
 
 	<p>
@@ -266,7 +251,7 @@
 
 	<h3>Fil d’Ariane</h3>
 
-	<nav role="navigation" aria-label="Vous êtes ici :">
+	<nav role="navigation" aria-label="Vous êtes ici :">
 		<ul id="breadcrumb">
 			<li><a href="index.html">Accueil</a></li>
 			<li aria-current="page">Groupes</li>
