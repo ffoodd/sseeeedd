@@ -1198,6 +1198,7 @@ details summary:hover, details summary:focus {
   background: hsl(var(--contrast-inverse));
 }
 details summary ~ * {
+  box-sizing: border-box;
   margin: 1.5rem 1rem 0;
 }
 details[open] summary ~ * {
