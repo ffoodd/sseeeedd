@@ -12,7 +12,10 @@
 			true,
 			{
 				"ignoreProperties": [
-					"color-scheme"
+					"color-scheme",
+					"hyphenate-limit-lines",
+					"hyphenate-limit-last",
+					"hyphenate-limit-zone"
 				]
 			}
 		]
