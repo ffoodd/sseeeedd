@@ -61,7 +61,7 @@
 		"pa11y-ci-reporter-html": "^6.0.1",
 		"postcss": "^8.4.28",
 		"postcss-cli": "^10.0.0",
-		"sass": "^1.65.1",
+		"sass": "^1.66.1",
 		"servor": "^4.0.2",
 		"shx": "^0.3.4",
 		"stylelint": "^15.10.2",
