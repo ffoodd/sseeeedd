@@ -69,7 +69,7 @@ select,
 
 	&:focus {
 		border: 1px solid hsl(var(--accent-light));
-		box-shadow: 0 0 0 .125rem  hsl(var(--accent-light) / .25);
+		box-shadow: 0 0 0 .125rem hsl(var(--accent-light) / .25);
 	}
 
 	&[readonly] {
@@ -77,7 +77,7 @@ select,
 
 		&:focus {
 			border-color: hsl(var(--muted));
-			box-shadow: 0 0 0 .125rem  hsl(var(--muted-light) / .5);
+			box-shadow: 0 0 0 .125rem hsl(var(--muted-light) / .5);
 		}
 	}
 
@@ -233,7 +233,7 @@ input[type="number"]::-webkit-outer-spin-button {
 	}
 
 	&:focus {
-		box-shadow: 0 0 0 .125rem  hsl(var(--accent-light) / .25);
+		box-shadow: 0 0 0 .125rem hsl(var(--accent-light) / .25);
 		outline-color: transparent;
 	}
 
@@ -296,7 +296,7 @@ label [class^="label-msg"] {
 
 	&:not([list]):invalid:not(:focus) {
 		background: hsl(var(--contrast)) no-repeat var(--invalid) center right .5em / 1em 1.25em;
-		box-shadow: 0 0 0 .125rem  hsl(var(--alert-light), .5);
+		box-shadow: 0 0 0 .125rem hsl(var(--alert-light), .5);
 	}
 
 	&:invalid:placeholder-shown:not(:focus) {

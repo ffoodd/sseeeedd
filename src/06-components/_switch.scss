@@ -19,18 +19,28 @@ button[role="switch"] {
 	inline-size: 4.75rem;
 	will-change: background-color;
 
+	&::after,
 	&::before {
 		background: currentColor;
-		border-radius: 1.375rem;
+		block-size: 2.375rem;
+		border-radius: 50%;
 		content: "";
 		position: absolute;
-		block-size: 2.375rem;
+		inline-size: 2.375rem;
 		inset-inline-start: .25rem;
 		inset-block-start: .25rem;
 		transform: none;
 		transition: transform .3s var(--enter) 0s;
-		inline-size: 2.375rem;
 		will-change: transform;
+	}
+
+	&::after {
+		background: hsl(var(--contrast) / .5);
+		block-size: 1rem;
+		inline-size: 1rem;
+		inset-inline-start: .925rem;
+		inset-block-start: .925rem;
+		visibility: hidden;
 	}
 
 	&:hover,
@@ -38,6 +48,10 @@ button[role="switch"] {
 	&:active {
 		background-color: hsl(var(--muted) / .075);
 		color: hsl(var(--contrast-inverse));
+
+		&::after {
+			visibility: visible;
+		}
 	}
 
 	&[aria-checked="true"] {
@@ -45,11 +59,15 @@ button[role="switch"] {
 
 		&::before {
 			background: hsl(var(--success-dark));
-			transform: translateX(#{math.div(78, 16) + variables.$gutter * 3});
+		}
+
+		&::after,
+		&::before {
+			transform: translateX(calc(4.75rem + .125rem + #{variables.$gutter * 3}));
 		}
 
 		&:focus {
-			box-shadow: 0 0 0 .125rem  hsl(var(--success-dark) / .25);
+			box-shadow: 0 0 0 .125rem hsl(var(--success-dark) / .25);
 		}
 	}
 

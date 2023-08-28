@@ -30,8 +30,8 @@ html[lang] {
 	position: relative;
 	scroll-padding-block: 1vh; /* 3 */
 
-	@media screen and (prefers-reduced-motion: no-preference) {
-		scroll-behavior: smooth; /* 2 */
+	&:focus-within {
+		scroll-behavior: smooth; /*2 */
 	}
 }
 
@@ -46,7 +46,8 @@ body {
 	color: hsl(var(--muted-dark));
 	counter-reset: footnotes;
 	font: normal 400 1em/1.5 sans-serif;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+	min-block-size: 100vh;
 	overflow-x: hidden;
 	position: relative;
 	-webkit-font-smoothing: subpixel-antialiased;
@@ -306,10 +307,13 @@ main {
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
-	* {
+	*,
+	*::before,
+	*::after {
 		animation-duration: 0.01ms !important;
 		animation-iteration-count: 1 !important;
 		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
 	}
 }
 
