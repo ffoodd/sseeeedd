@@ -30,10 +30,6 @@
 				#{$property}-#{$side}: $value !important;
 			}
 
-			.#{$prop}#{$axis}-#{$spacing} {
-				#{$property}-#{$side}: $value !important;
-			}
-
 			@each $position in 'start', 'end' {
 				.#{$prop}#{$axis}#{string.slice($position, 1, 1)}-#{$spacing} {
 					#{$property}-#{$side}-#{$position}: $value !important;
