@@ -11,7 +11,7 @@
 	--background: hsl(var(--contrast));
 	--border: hsl(var(--muted-light));
 	--color: hsl(var(--muted-dark));
-	--shadow: hsla(var(--muted-dark), .25);
+	--shadow: hsl(var(--muted-dark), .25);
 	--text-shadow: var(--background);
 	background: var(--background);
 	border: 1px solid var(--border);
@@ -94,7 +94,7 @@
 		--background: hsl(var(--#{$variant}));
 		--border: hsl(var(--#{$variant}-dark));
 		--color: hsl(var(--contrast));
-		--shadow: hsla(var(--#{$variant}), .25);
+		--shadow: hsl(var(--#{$variant}), .25);
 		--text-shadow: var(--border);
 	}
 }

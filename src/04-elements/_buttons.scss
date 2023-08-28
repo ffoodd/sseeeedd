@@ -44,7 +44,7 @@
 	}
 
 	&:focus {
-		box-shadow: 0 0 0 .125rem hsla(var(--accent-light), .25);
+		box-shadow: 0 0 0 .125rem hsl(var(--accent-light) / .25);
 		outline: .125rem solid transparent; /* 2 */
 	}
 

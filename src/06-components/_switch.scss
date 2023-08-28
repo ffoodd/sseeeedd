@@ -6,7 +6,7 @@
 /* ==================== */
 
 button[role="switch"] {
-	background-color: hsla(var(--muted), .1);
+	background-color: hsl(var(--muted) / .1);
 	border-radius: 1.375rem !important;
 	box-sizing: content-box;
 	color: hsl(var(--muted-dark));
@@ -35,12 +35,12 @@ button[role="switch"] {
 	&:hover,
 	&:focus,
 	&:active {
-		background-color: hsla(var(--muted), .075);
+		background-color: hsl(var(--muted) / .075);
 		color: hsl(var(--contrast-inverse));
 	}
 
 	&[aria-checked="true"] {
-		background-color: hsla(var(--success-light), .25);
+		background-color: hsl(var(--success-light) / .25);
 
 		&::before {
 			background: hsl(var(--success-dark));
@@ -48,7 +48,7 @@ button[role="switch"] {
 		}
 
 		&:focus {
-			box-shadow: 0 0 0 .125rem  hsla(var(--success-dark), .25);
+			box-shadow: 0 0 0 .125rem  hsl(var(--success-dark) / .25);
 		}
 	}
 

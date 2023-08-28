@@ -62,7 +62,7 @@ cite {
 
 hr {
 	border-block-end: 1px solid hsl(var(--contrast));
-	border-block-start: 1px solid hsla(var(--muted-light), .5);
+	border-block-start: 1px solid hsl(var(--muted-light) / .5);
 	block-size: 0;
 }
 
