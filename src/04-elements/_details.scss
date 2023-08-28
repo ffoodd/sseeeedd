@@ -1,0 +1,96 @@
+@use "sass:math";
+
+/* ==================== */
+/* == Details
+/* ==================== */
+
+details {
+	border: .25rem solid hsl(var(--contrast-inverse));
+
+	& + & {
+		border-top-width: 0;
+	}
+
+	summary {
+		background: hsl(var(--muted-dark));
+		color: hsl(var(--contrast));
+		cursor: pointer;
+		padding: 1rem;
+		transition: background .2s var(--enter);
+
+		&:hover,
+		&:focus {
+			background: hsl(var(--contrast-inverse));
+		}
+
+		~ * {
+			box-sizing: border-box;
+			margin: 1.5rem 1rem 0;
+		}
+	}
+
+	&[open] summary ~ * {
+		animation: slide-down .5s var(--enter);
+	}
+}
+
+@keyframes slide-down {
+	0%, 50% {
+		opacity: 0;
+		transform: translateY(1.5rem);
+	}
+}
+
+@media screen and (min-width: #{math.div(480, 16)}em) {
+	/**
+	 * @note Writing-mode
+	 ** 1. For everyone except Firefox
+	 ** 2. Firefox is the only one supporting the nicer value
+	 * @link https://developer.mozilla.org/fr/docs/Web/CSS/writing-mode#Compatibilité_des_navigateurs
+	 */
+	@supports (--css: var(--iables)) {
+		.vertical {
+			display: flex;
+
+			details {
+				flex: 0;
+				min-width: 3.5rem;
+				overflow: hidden;
+
+				& + details {
+					border-width: .25rem .25rem .25rem 0;
+				}
+
+				summary {
+					float: left;
+					min-height: 20rem;
+					writing-mode: vertical-lr; /* 1 */
+					writing-mode: sideways-lr; /* 2 */
+
+					~ * {
+						padding-left: 3.5rem;
+
+						> *:first-child {
+							margin-top: 0;
+						}
+					}
+				}
+
+				&[open] {
+					flex: 1;
+
+					summary ~ * {
+						animation: slide-in .5s var(--enter);
+					}
+				}
+			}
+		}
+	}
+}
+
+@keyframes slide-in {
+	0%, 50% {
+		opacity: 0;
+		transform: translateX(-1.5rem);
+	}
+}

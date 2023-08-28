@@ -1,0 +1,20 @@
+@use "../01-settings/variables";
+
+/* ==================== */
+/* == Alerts
+/* ==================== */
+
+[role="alert"] {
+	border: 1px solid var(--color);
+	box-shadow: .25rem .25rem 0 0 var(--color);
+	font-weight: bold;
+	margin: variables.$gutter variables.$gutter * 0.5;
+	padding: 0 variables.$gutter;
+	text-shadow: .125rem .125rem 0 var(--color);
+}
+
+@each $alert in alert, success, accent, secondary {
+	.bg-#{$alert}[role="alert"] {
+		--color: hsl(var(--#{$alert}-dark));
+	}
+}

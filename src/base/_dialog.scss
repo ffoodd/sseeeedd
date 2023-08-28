@@ -1,7 +1,0 @@
-@use "../abstracts/functions";
-@use "../abstracts/variables";
-
-dialog {
-	background-color: functions.hsl(var(--background));
-	color: functions.hsl(var(--muted-dark));
-}

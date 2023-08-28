@@ -1,0 +1,161 @@
+@use "sass:math";
+@use "../01-settings/variables";
+@use "../02-abstracts/placeholders";
+
+/* ==================== */
+/* == Contents
+/* ==================== */
+
+blockquote {
+	font-size: 1rem;
+	font-style: italic;
+	line-height: 1.5;
+	margin: 3rem 0 1.5rem;
+	max-width: 100%;
+	padding-left: #{math.div(112, 16)}em;
+	position: relative;
+	quotes: "«\00A0" "\00A0»";
+	z-index: 2;
+
+	&::before {
+		color: hsl(var(--muted-light));
+		content: open-quote;
+		font-size: #{math.div(160, 16)}em;
+		font-weight: 700;
+		left: 0;
+		line-height: 0;
+		opacity: .25;
+		position: absolute;
+		top: 0;
+		z-index: -1;
+	}
+
+	footer {
+		font-style: normal;
+		@extend .hn;
+	}
+}
+
+abbr[aria-label] {
+	border-bottom: 1px dotted;
+	cursor: help;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+small,
+.small {
+	font-size: .875rem;
+}
+
+b,
+dt,
+strong {
+	@extend .hn;
+}
+
+cite {
+	color: hsl(var(--accent));
+	font-style: normal;
+	@extend .hn;
+}
+
+hr {
+	border-bottom: 1px solid hsl(var(--contrast));
+	border-top: 1px solid hsla(var(--muted-light), .5);
+	height: 0;
+}
+
+var,
+code {
+	font: inherit;
+	line-height: 1;
+}
+
+pre {
+	background: hsl(var(--muted-dark));
+	border: 0;
+	border-radius: .25rem;
+	color: hsl(var(--contrast));
+	direction: ltr;
+	font-family: "Fira Mono", "Consolas", "Monaco", "Andale Mono", monospace;
+	font-size: small;
+	line-height: 1.5;
+	hyphens: none;
+	tab-size: 4;
+	overflow-x: auto;
+	padding: 2rem 1rem .5rem;
+	text-align: left;
+	white-space: pre;
+	word-break: normal;
+	word-spacing: normal;
+	word-wrap: normal;
+
+	&::before {
+		background: hsl(var(--alert));
+		border-radius: 50%;
+		box-shadow: 1.5rem 0 0 0 Orange,
+		3rem 0 0 0 hsl(var(--success));
+		content: "";
+		display: block;
+		height: 1rem;
+		transform: translateY(-1rem);
+		width: 1rem;
+	}
+}
+
+:not(pre) > var,
+:not(pre) > code {
+	border: 1px solid;
+	border-radius: .2em;
+	color: hsl(var(--accent));
+	display: inline-block;
+	font-family: inherit;
+	padding: .1em;
+	user-select: all;
+	white-space: nowrap;
+}
+
+:not(pre) > var {
+	background: hsl(var(--contrast));
+	border-style: dashed;
+	color: hsl(var(--accent-dark));
+}
+
+dl,
+dd {
+	margin: 0;
+}
+
+dd + dt {
+	margin: variables.$gutter 0 0;
+}
+
+dt dfn {
+	font-style: normal;
+}
+
+figure {
+	dt {
+		clear: left;
+		float: left;
+		margin: 0 0 variables.$gutter;
+	}
+
+	dd {
+		display: flex;
+		margin: 0 0 variables.$gutter;
+
+		&::before {
+			border-top: 1px dotted;
+			content: "";
+			flex: 1;
+			margin: 0 variables.$gutter * 0.5;
+			transform: translateY(variables.$gutter * .9);
+		}
+	}
+
+	dl + figcaption {
+		text-align: center;
+	}
+}

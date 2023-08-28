@@ -1,0 +1,9 @@
+@use "../01-settings/variables";
+
+/* ----------------------------- */
+/* -- Header
+/* ----------------------------- */
+
+header .sr-only-focusable {
+	left: variables.$gutter;
+}
