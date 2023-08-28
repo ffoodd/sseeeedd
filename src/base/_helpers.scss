@@ -1,17 +1,11 @@
+@use "sass:string";
+@use "sass:meta";
 @use "../abstracts/functions";
 @use "../abstracts/variables";
 
 ///* ==================== */
 /* == Helpers
 /* ==================== */
-.no-margin {
-	margin: 0 !important;
-}
-
-.no-padding {
-	padding: 0 !important;
-}
-
 .no-border {
 	border: 0 !important;
 }
@@ -31,40 +25,48 @@
 	}
 }
 
-.m-auto {
-	margin: auto !important;
-}
-
-.ml-auto {
-	margin-left: auto !important;
-}
-
-.mx-auto {
-	margin: 0 auto !important;
-}
-
-.mt-auto {
-	margin-top: auto !important;
-}
-
 .no-background {
 	background: none !important;
 }
 
-.mr-1 {
-	margin-right: variables.$gutter !important;
-}
+// Spacings
+@each $spacing in 0, 1, 2, 3, 'auto' {
+	$value: $spacing;
+	@if meta.type-of($spacing) == number {
+		$value: $spacing * variables.$gutter;
+	}
 
-.mt-0 {
-	margin-top: 0 !important;
-}
+	@each $property in 'margin', 'padding' {
+		$prop: string.slice($property, 1, 1);
 
-.ml-1 {
-	margin-left: variables.$gutter !important;
-}
+		@if $value == 0 {
+			.no-#{$property} {
+				#{property}: $value !important;
+			}
+		} @else {
+			.#{$prop}-#{$spacing} {
+				#{property}: $value !important;
+			}
+		}
 
-.mb-1 {
-	margin-bottom: variables.$gutter !important;
+		@each $side in 'block', 'start' {
+			$axis: string.slice($side, 1, 1);
+
+			#{$prop}#{$axis}-#{$spacing} {
+				#{property}-#{$side}: $value !important;
+			}
+
+			.#{$prop}#{$axis}-#{$spacing} {
+				#{property}-#{$side}: $value !important;
+			}
+
+			@each $position in 'start', 'end' {
+				.#{$prop}#{$axis}#{string.slice($position, 1, 1)}-#{$spacing} {
+					#{property}-#{$side}-#{position}: $value !important;
+				}
+			}
+		}
+	}
 }
 
 .p-relative {
@@ -182,7 +184,6 @@
 // Others
 .rounded {
 	border-radius: 50%;
-	clip-path: circle(50% at 50% 50%);
 }
 
 // ----------------------------- */

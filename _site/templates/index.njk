@@ -95,7 +95,7 @@
 			{% set colors = ['muted','secondary','accent','alert','success'] %}
 			{% for color in colors %}
 				<figure role="figure" aria-label="{{ color | capitalize }}">
-					<figcaption class="fw-700 no-padding mb-1">{{ color | capitalize }}</figcaption>
+					<figcaption class="fw-700 no-padding mbe-1">{{ color | capitalize }}</figcaption>
 					{{ palette.color(color) }}
 					<div class="grid-2">
 						{{ palette.color(color, '-light', 'claire') }}

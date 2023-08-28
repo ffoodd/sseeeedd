@@ -1231,16 +1231,16 @@ select::-ms-expand {
 /* ==================== */
 /* == Abstracts
 /* ==================== */
+dialog {
+  background-color: hsl(var(--background));
+  color: hsl(var(--muted-dark));
+}
+
+/* ==================== */
+/* == Abstracts
+/* ==================== */
 /* == Helpers
 /* ==================== */
-.no-margin {
-  margin: 0 !important;
-}
-
-.no-padding {
-  padding: 0 !important;
-}
-
 .no-border {
   border: 0 !important;
 }
@@ -1258,40 +1258,368 @@ select::-ms-expand {
   display: inline;
 }
 
-.m-auto {
-  margin: auto !important;
-}
-
-.ml-auto {
-  margin-left: auto !important;
-}
-
-.mx-auto {
-  margin: 0 auto !important;
-}
-
-.mt-auto {
-  margin-top: auto !important;
-}
-
 .no-background {
   background: none !important;
 }
 
-.mr-1 {
-  margin-right: 1rem !important;
+.m-0 {
+  property: 0rem !important;
 }
 
-.mt-0 {
-  margin-top: 0 !important;
+mb-0 {
+  property-block: 0rem !important;
 }
 
-.ml-1 {
-  margin-left: 1rem !important;
+.mb-0 {
+  property-block: 0rem !important;
+}
+
+.mbs-0 {
+  property-block-position: 0rem !important;
+}
+
+.mbe-0 {
+  property-block-position: 0rem !important;
+}
+
+ms-0 {
+  property-start: 0rem !important;
+}
+
+.ms-0 {
+  property-start: 0rem !important;
+}
+
+.mss-0 {
+  property-start-position: 0rem !important;
+}
+
+.mse-0 {
+  property-start-position: 0rem !important;
+}
+
+.p-0 {
+  property: 0rem !important;
+}
+
+pb-0 {
+  property-block: 0rem !important;
+}
+
+.pb-0 {
+  property-block: 0rem !important;
+}
+
+.pbs-0 {
+  property-block-position: 0rem !important;
+}
+
+.pbe-0 {
+  property-block-position: 0rem !important;
+}
+
+ps-0 {
+  property-start: 0rem !important;
+}
+
+.ps-0 {
+  property-start: 0rem !important;
+}
+
+.pss-0 {
+  property-start-position: 0rem !important;
+}
+
+.pse-0 {
+  property-start-position: 0rem !important;
+}
+
+.m-1 {
+  property: 1rem !important;
+}
+
+mb-1 {
+  property-block: 1rem !important;
 }
 
 .mb-1 {
-  margin-bottom: 1rem !important;
+  property-block: 1rem !important;
+}
+
+.mbs-1 {
+  property-block-position: 1rem !important;
+}
+
+.mbe-1 {
+  property-block-position: 1rem !important;
+}
+
+ms-1 {
+  property-start: 1rem !important;
+}
+
+.ms-1 {
+  property-start: 1rem !important;
+}
+
+.mss-1 {
+  property-start-position: 1rem !important;
+}
+
+.mse-1 {
+  property-start-position: 1rem !important;
+}
+
+.p-1 {
+  property: 1rem !important;
+}
+
+pb-1 {
+  property-block: 1rem !important;
+}
+
+.pb-1 {
+  property-block: 1rem !important;
+}
+
+.pbs-1 {
+  property-block-position: 1rem !important;
+}
+
+.pbe-1 {
+  property-block-position: 1rem !important;
+}
+
+ps-1 {
+  property-start: 1rem !important;
+}
+
+.ps-1 {
+  property-start: 1rem !important;
+}
+
+.pss-1 {
+  property-start-position: 1rem !important;
+}
+
+.pse-1 {
+  property-start-position: 1rem !important;
+}
+
+.m-2 {
+  property: 2rem !important;
+}
+
+mb-2 {
+  property-block: 2rem !important;
+}
+
+.mb-2 {
+  property-block: 2rem !important;
+}
+
+.mbs-2 {
+  property-block-position: 2rem !important;
+}
+
+.mbe-2 {
+  property-block-position: 2rem !important;
+}
+
+ms-2 {
+  property-start: 2rem !important;
+}
+
+.ms-2 {
+  property-start: 2rem !important;
+}
+
+.mss-2 {
+  property-start-position: 2rem !important;
+}
+
+.mse-2 {
+  property-start-position: 2rem !important;
+}
+
+.p-2 {
+  property: 2rem !important;
+}
+
+pb-2 {
+  property-block: 2rem !important;
+}
+
+.pb-2 {
+  property-block: 2rem !important;
+}
+
+.pbs-2 {
+  property-block-position: 2rem !important;
+}
+
+.pbe-2 {
+  property-block-position: 2rem !important;
+}
+
+ps-2 {
+  property-start: 2rem !important;
+}
+
+.ps-2 {
+  property-start: 2rem !important;
+}
+
+.pss-2 {
+  property-start-position: 2rem !important;
+}
+
+.pse-2 {
+  property-start-position: 2rem !important;
+}
+
+.m-3 {
+  property: 3rem !important;
+}
+
+mb-3 {
+  property-block: 3rem !important;
+}
+
+.mb-3 {
+  property-block: 3rem !important;
+}
+
+.mbs-3 {
+  property-block-position: 3rem !important;
+}
+
+.mbe-3 {
+  property-block-position: 3rem !important;
+}
+
+ms-3 {
+  property-start: 3rem !important;
+}
+
+.ms-3 {
+  property-start: 3rem !important;
+}
+
+.mss-3 {
+  property-start-position: 3rem !important;
+}
+
+.mse-3 {
+  property-start-position: 3rem !important;
+}
+
+.p-3 {
+  property: 3rem !important;
+}
+
+pb-3 {
+  property-block: 3rem !important;
+}
+
+.pb-3 {
+  property-block: 3rem !important;
+}
+
+.pbs-3 {
+  property-block-position: 3rem !important;
+}
+
+.pbe-3 {
+  property-block-position: 3rem !important;
+}
+
+ps-3 {
+  property-start: 3rem !important;
+}
+
+.ps-3 {
+  property-start: 3rem !important;
+}
+
+.pss-3 {
+  property-start-position: 3rem !important;
+}
+
+.pse-3 {
+  property-start-position: 3rem !important;
+}
+
+.m-auto {
+  property: "auto" !important;
+}
+
+mb-auto {
+  property-block: "auto" !important;
+}
+
+.mb-auto {
+  property-block: "auto" !important;
+}
+
+.mbs-auto {
+  property-block-position: "auto" !important;
+}
+
+.mbe-auto {
+  property-block-position: "auto" !important;
+}
+
+ms-auto {
+  property-start: "auto" !important;
+}
+
+.ms-auto {
+  property-start: "auto" !important;
+}
+
+.mss-auto {
+  property-start-position: "auto" !important;
+}
+
+.mse-auto {
+  property-start-position: "auto" !important;
+}
+
+.p-auto {
+  property: "auto" !important;
+}
+
+pb-auto {
+  property-block: "auto" !important;
+}
+
+.pb-auto {
+  property-block: "auto" !important;
+}
+
+.pbs-auto {
+  property-block-position: "auto" !important;
+}
+
+.pbe-auto {
+  property-block-position: "auto" !important;
+}
+
+ps-auto {
+  property-start: "auto" !important;
+}
+
+.ps-auto {
+  property-start: "auto" !important;
+}
+
+.pss-auto {
+  property-start-position: "auto" !important;
+}
+
+.pse-auto {
+  property-start-position: "auto" !important;
 }
 
 .p-relative {
@@ -1421,7 +1749,6 @@ select::-ms-expand {
 
 .rounded {
   border-radius: 50%;
-  clip-path: circle(50% at 50% 50%);
 }
 
 .sr-only,

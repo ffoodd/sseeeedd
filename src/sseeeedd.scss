@@ -26,13 +26,13 @@
 @use "base/details";
 @use "base/forms";
 @use "base/buttons";
-// @todo Use <dialog>
+@use "base/dialog";
 @use "base/helpers";
 
 /* ==================== */
 /* == Layout
 /* ==================== */
-@use "layout/base" as base2;
+@use "layout/base" as layout;
 @use "layout/grid";
 @use "layout/header";
 @use "layout/footer";
