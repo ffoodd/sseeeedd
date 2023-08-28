@@ -21,7 +21,7 @@
 /* ==================== */
 html {
   color-scheme: light dark;
-  --neutral: 0, 0%;
+  --neutral: 0 0%;
   --treshold: 60%;
   --hue: 240;
   --rotation: calc(var(--hue) + 30);
@@ -32,25 +32,25 @@ html {
   --brighter: calc(var(--lightness) * var(--light-scale));
   --darker: calc(var(--lightness) / var(--light-scale));
   --switch: calc((var(--lightness) - var(--treshold)) * -100);
-  --secondary: var(--hue), 100%, var(--lightness);
-  --secondary-light: var(--hue), 100%, var(--brighter);
-  --secondary-dark: var(--hue), 100%, var(--darker);
-  --accent: var(--rotation), 50%, var(--lightness);
-  --accent-light: var(--rotation), 50%, var(--brighter);
-  --accent-dark: var(--rotation), 50%, var(--darker);
-  --alert: var(--wrong), 100%, var(--lightness);
-  --alert-light: var(--wrong), 100%, var(--brighter);
-  --alert-dark: var(--wrong), 100%, var(--darker);
-  --success: var(--right), 100%, var(--lightness);
-  --success-light: var(--right), 100%, var(--brighter);
-  --success-dark: var(--right), 100%, var(--darker);
-  --contrast: var(--neutral), var(--switch);
-  --contrast-inverse: var(--neutral), calc(var(--switch) * -1);
-  --muted: var(--neutral), var(--lightness);
-  --muted-light: var(--neutral), var(--brighter);
-  --muted-dark: var(--neutral), var(--darker);
-  --disabled: var(--neutral), 90%;
-  --background: var(--neutral), 96%;
+  --secondary: var(--hue) 100% var(--lightness);
+  --secondary-light: var(--hue) 100% var(--brighter);
+  --secondary-dark: var(--hue) 100% var(--darker);
+  --accent: var(--rotation) 50% var(--lightness);
+  --accent-light: var(--rotation) 50% var(--brighter);
+  --accent-dark: var(--rotation) 50% var(--darker);
+  --alert: var(--wrong) 100% var(--lightness);
+  --alert-light: var(--wrong) 100% var(--brighter);
+  --alert-dark: var(--wrong) 100% var(--darker);
+  --success: var(--right) 100% var(--lightness);
+  --success-light: var(--right) 100% var(--brighter);
+  --success-dark: var(--right) 100% var(--darker);
+  --contrast: var(--neutral) var(--switch);
+  --contrast-inverse: var(--neutral) calc(var(--switch) * -1);
+  --muted: var(--neutral) var(--lightness);
+  --muted-light: var(--neutral) var(--brighter);
+  --muted-dark: var(--neutral) var(--darker);
+  --disabled: var(--neutral) 90%;
+  --background: var(--neutral) 96%;
   --enter: cubic-bezier(0, .5, .5, 1);
   --exit: cubic-bezier(.5, 0, 1, .5);
   --move: cubic-bezier(.5, 0, .5, 1);
@@ -543,7 +543,7 @@ cite {
 
 hr {
   border-block-end: 1px solid hsl(var(--contrast));
-  border-block-start: 1px solid hsla(var(--muted-light), 0.5);
+  border-block-start: 1px solid hsl(var(--muted-light)/0.5);
   block-size: 0;
 }
 
@@ -929,7 +929,7 @@ input[type=text], input[type=number], input[type=search], input[type=password], 
 select:focus,
 input[type=text]:focus, input[type=number]:focus, input[type=search]:focus, input[type=password]:focus, input[type=email]:focus, input[type=url]:focus, input[type=tel]:focus, input[type=date]:focus, input[type=time]:focus, input[type=datetime-local]:focus, input[type=month]:focus, input[type=week]:focus, input[type=color]:focus, input[type=file]:focus, textarea:focus {
   border: 1px solid hsl(var(--accent-light));
-  box-shadow: 0 0 0 0.125rem hsla(var(--accent-light), 0.25);
+  box-shadow: 0 0 0 0.125rem hsl(var(--accent-light)/0.25);
 }
 select[readonly],
 input[type=text][readonly], input[type=number][readonly], input[type=search][readonly], input[type=password][readonly], input[type=email][readonly], input[type=url][readonly], input[type=tel][readonly], input[type=date][readonly], input[type=time][readonly], input[type=datetime-local][readonly], input[type=month][readonly], input[type=week][readonly], input[type=color][readonly], input[type=file][readonly], textarea[readonly] {
@@ -938,7 +938,7 @@ input[type=text][readonly], input[type=number][readonly], input[type=search][rea
 select[readonly]:focus,
 input[type=text][readonly]:focus, input[type=number][readonly]:focus, input[type=search][readonly]:focus, input[type=password][readonly]:focus, input[type=email][readonly]:focus, input[type=url][readonly]:focus, input[type=tel][readonly]:focus, input[type=date][readonly]:focus, input[type=time][readonly]:focus, input[type=datetime-local][readonly]:focus, input[type=month][readonly]:focus, input[type=week][readonly]:focus, input[type=color][readonly]:focus, input[type=file][readonly]:focus, textarea[readonly]:focus {
   border-color: hsl(var(--muted));
-  box-shadow: 0 0 0 0.125rem hsla(var(--muted-light), 0.5);
+  box-shadow: 0 0 0 0.125rem hsl(var(--muted-light)/0.5);
 }
 @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
   select,
@@ -981,7 +981,7 @@ input[type=checkbox]:not(:first-of-type), input[type=radio]:not(:first-of-type) 
   margin-inline-start: 0.5rem;
 }
 input[type=checkbox]:focus, input[type=radio]:focus {
-  box-shadow: 0 0 0 0.125rem hsla(var(--accent-light), 0.25);
+  box-shadow: 0 0 0 0.125rem hsl(var(--accent-light)/0.25);
   outline-color: transparent;
 }
 input[type=checkbox] + label[for], input[type=radio] + label[for] {
@@ -1039,7 +1039,7 @@ input[type=text]:valid:focus, input[type=number]:valid:focus, input[type=search]
 }
 input[type=text]:invalid:not(:focus), input[type=number]:invalid:not(:focus), input[type=search]:invalid:not(:focus), input[type=password]:invalid:not(:focus), input[type=email]:invalid:not(:focus), input[type=url]:invalid:not(:focus), input[type=tel]:invalid:not(:focus), input[type=date]:invalid:not(:focus), input[type=time]:invalid:not(:focus), input[type=datetime-local]:invalid:not(:focus), input[type=month]:invalid:not(:focus), input[type=week]:invalid:not(:focus), input[type=color]:invalid:not(:focus), input[type=file]:invalid:not(:focus), textarea:invalid:not(:focus) {
   background: hsl(var(--contrast)) no-repeat var(--invalid) center right 0.5em/1em 1.25em;
-  box-shadow: 0 0 0 0.125rem hsla(var(--alert-light), 0.5);
+  box-shadow: 0 0 0 0.125rem hsl(var(--alert-light), 0.5);
 }
 input[type=text]:invalid:placeholder-shown:not(:focus), input[type=number]:invalid:placeholder-shown:not(:focus), input[type=search]:invalid:placeholder-shown:not(:focus), input[type=password]:invalid:placeholder-shown:not(:focus), input[type=email]:invalid:placeholder-shown:not(:focus), input[type=url]:invalid:placeholder-shown:not(:focus), input[type=tel]:invalid:placeholder-shown:not(:focus), input[type=date]:invalid:placeholder-shown:not(:focus), input[type=time]:invalid:placeholder-shown:not(:focus), input[type=datetime-local]:invalid:placeholder-shown:not(:focus), input[type=month]:invalid:placeholder-shown:not(:focus), input[type=week]:invalid:placeholder-shown:not(:focus), input[type=color]:invalid:placeholder-shown:not(:focus), input[type=file]:invalid:placeholder-shown:not(:focus), textarea:invalid:placeholder-shown:not(:focus) {
   box-shadow: none;
@@ -1106,7 +1106,7 @@ select::-ms-expand {
   background-color: hsl(var(--accent-dark));
 }
 .button:focus, button:focus, [type=submit]:focus, [type=reset]:focus, [type=button]:focus {
-  box-shadow: 0 0 0 0.125rem hsla(var(--accent-light), 0.25);
+  box-shadow: 0 0 0 0.125rem hsl(var(--accent-light)/0.25);
   outline: 0.125rem solid transparent; /* 2 */
 }
 .button:-moz-focusring, button:-moz-focusring, [type=submit]:-moz-focusring, [type=reset]:-moz-focusring, [type=button]:-moz-focusring {
@@ -1132,7 +1132,7 @@ dialog {
 /* == Layout 03-generic
 /* ==================== */
 body > * {
-  background: hsla(var(--background), 0.75);
+  background: hsl(var(--background)/0.75);
   margin: 0 auto;
   padding: 1rem;
   max-inline-size: 64em;
@@ -1488,7 +1488,7 @@ footer[id=footnotes] {
   --background: hsl(var(--contrast));
   --border: hsl(var(--muted-light));
   --color: hsl(var(--muted-dark));
-  --shadow: hsla(var(--muted-dark), .25);
+  --shadow: hsl(var(--muted-dark), .25);
   --text-shadow: var(--background);
   background: var(--background);
   border: 1px solid var(--border);
@@ -1560,7 +1560,7 @@ footer[id=footnotes] {
   --background: hsl(var(--alert));
   --border: hsl(var(--alert-dark));
   --color: hsl(var(--contrast));
-  --shadow: hsla(var(--alert), .25);
+  --shadow: hsl(var(--alert), .25);
   --text-shadow: var(--border);
 }
 
@@ -1568,7 +1568,7 @@ footer[id=footnotes] {
   --background: hsl(var(--success));
   --border: hsl(var(--success-dark));
   --color: hsl(var(--contrast));
-  --shadow: hsla(var(--success), .25);
+  --shadow: hsl(var(--success), .25);
   --text-shadow: var(--border);
 }
 
@@ -1576,7 +1576,7 @@ footer[id=footnotes] {
   --background: hsl(var(--accent));
   --border: hsl(var(--accent-dark));
   --color: hsl(var(--contrast));
-  --shadow: hsla(var(--accent), .25);
+  --shadow: hsl(var(--accent), .25);
   --text-shadow: var(--border);
 }
 
@@ -1584,7 +1584,7 @@ footer[id=footnotes] {
   --background: hsl(var(--default));
   --border: hsl(var(--default-dark));
   --color: hsl(var(--contrast));
-  --shadow: hsla(var(--default), .25);
+  --shadow: hsl(var(--default), .25);
   --text-shadow: var(--border);
 }
 
@@ -1592,7 +1592,7 @@ footer[id=footnotes] {
   --background: hsl(var(--secondary));
   --border: hsl(var(--secondary-dark));
   --color: hsl(var(--contrast));
-  --shadow: hsla(var(--secondary), .25);
+  --shadow: hsl(var(--secondary), .25);
   --text-shadow: var(--border);
 }
 
@@ -1700,7 +1700,7 @@ footer[id=footnotes] {
 .fly-out > * > button:hover + ul,
 .fly-out > * > button:focus + ul,
 .fly-out > * > button:active + ul {
-  box-shadow: 0.25rem 0.25rem 0 0 hsla(var(--muted-dark), 0.25);
+  box-shadow: 0.25rem 0.25rem 0 0 hsl(var(--muted-dark)/0.25);
   clip: auto; /* 1 */
   outline: 1px solid hsl(var(--muted-light));
   transition: clip 0.3s var(--exit);
@@ -1736,7 +1736,7 @@ footer[id=footnotes] {
     .fly-out > * > button:hover + ul,
     .fly-out > * > button:focus + ul,
     .fly-out > * > button:active + ul {
-      box-shadow: 0.25rem 0.25rem 0 0 hsla(var(--muted-dark), 0.25);
+      box-shadow: 0.25rem 0.25rem 0 0 hsl(var(--muted-dark), 0.25);
       clip-path: circle(150% at top right);
       outline: 1px solid hsl(var(--muted-light));
       transition: clip-path 0.3s var(--exit);
@@ -1751,7 +1751,7 @@ footer[id=footnotes] {
 /* == Switch
 /* ==================== */
 button[role=switch] {
-  background-color: hsla(var(--muted), 0.1);
+  background-color: hsl(var(--muted)/0.1);
   border-radius: 1.375rem !important;
   box-sizing: content-box;
   color: hsl(var(--muted-dark));
@@ -1777,18 +1777,18 @@ button[role=switch]::before {
   will-change: transform;
 }
 button[role=switch]:hover, button[role=switch]:focus, button[role=switch]:active {
-  background-color: hsla(var(--muted), 0.075);
+  background-color: hsl(var(--muted)/0.075);
   color: hsl(var(--contrast-inverse));
 }
 button[role=switch][aria-checked=true] {
-  background-color: hsla(var(--success-light), 0.25);
+  background-color: hsl(var(--success-light)/0.25);
 }
 button[role=switch][aria-checked=true]::before {
   background: hsl(var(--success-dark));
   transform: translateX(7.875rem);
 }
 button[role=switch][aria-checked=true]:focus {
-  box-shadow: 0 0 0 0.125rem hsla(var(--success-dark), 0.25);
+  box-shadow: 0 0 0 0.125rem hsl(var(--success-dark)/0.25);
 }
 button[role=switch] > *:first-child, button[role=switch][aria-checked=true] > *:last-child {
   display: none;

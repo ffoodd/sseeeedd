@@ -56,7 +56,7 @@ html {
 	// @see https://en.wikipedia.org/wiki/Golden_ratio
 	// ====================
 	color-scheme: light dark;
-	--neutral: 0, 0%;
+	--neutral: 0 0%;
 	--treshold: 60%; // 3
 	// Hues
 	--hue: 240;
@@ -70,25 +70,25 @@ html {
 	--darker: calc(var(--lightness) / var(--light-scale));
 	--switch: calc((var(--lightness) - var(--treshold)) * -100); // 3
 	// Palette
-	--secondary: var(--hue), 100%, var(--lightness);
-	--secondary-light: var(--hue), 100%, var(--brighter);
-	--secondary-dark: var(--hue), 100%, var(--darker);
-	--accent: var(--rotation), 50%, var(--lightness); // 4
-	--accent-light: var(--rotation), 50%, var(--brighter);
-	--accent-dark: var(--rotation), 50%, var(--darker);
-	--alert: var(--wrong), 100%, var(--lightness);
-	--alert-light: var(--wrong), 100%, var(--brighter);
-	--alert-dark: var(--wrong), 100%, var(--darker);
-	--success: var(--right), 100%, var(--lightness);
-	--success-light: var(--right), 100%, var(--brighter);
-	--success-dark: var(--right), 100%, var(--darker);
-	--contrast: var(--neutral), var(--switch); // 3
-	--contrast-inverse: var(--neutral), calc(var(--switch) * -1); // 3
-	--muted: var(--neutral), var(--lightness);
-	--muted-light: var(--neutral), var(--brighter);
-	--muted-dark: var(--neutral), var(--darker);
-	--disabled: var(--neutral), 90%;
-	--background: var(--neutral), 96%;
+	--secondary: var(--hue) 100% var(--lightness);
+	--secondary-light: var(--hue) 100% var(--brighter);
+	--secondary-dark: var(--hue) 100% var(--darker);
+	--accent: var(--rotation) 50% var(--lightness); // 4
+	--accent-light: var(--rotation) 50% var(--brighter);
+	--accent-dark: var(--rotation) 50% var(--darker);
+	--alert: var(--wrong) 100% var(--lightness);
+	--alert-light: var(--wrong) 100% var(--brighter);
+	--alert-dark: var(--wrong) 100% var(--darker);
+	--success: var(--right) 100% var(--lightness);
+	--success-light: var(--right) 100% var(--brighter);
+	--success-dark: var(--right) 100% var(--darker);
+	--contrast: var(--neutral) var(--switch); // 3
+	--contrast-inverse: var(--neutral) calc(var(--switch) * -1); // 3
+	--muted: var(--neutral) var(--lightness);
+	--muted-light: var(--neutral) var(--brighter);
+	--muted-dark: var(--neutral) var(--darker);
+	--disabled: var(--neutral) 90%;
+	--background: var(--neutral) 96%;
 	// ==================== */
 	// == Timing functions
 	//
