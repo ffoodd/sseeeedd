@@ -1,0 +1,39 @@
+@media screen and (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/**
+ * Handle high contrast mode in Windows
+ * @link http://adrianroselli.com/2017/12/tweaking-text-level-styles.html
+ */
+@media screen and (-ms-high-contrast: active) {
+	a svg,
+	button svg {
+		background: none;
+		border-color: Highlight;
+		fill: Highlight;
+	}
+
+	mark {
+		background-color: Highlight;
+		color: HighlightText;
+	}
+}
+
+
+@media screen and (prefers-color-scheme: dark) {
+	body {
+		color: hsl(var(--muted));
+	}
+
+	img {
+		filter: brightness(.9) contrast(1.2);
+	}
+}
