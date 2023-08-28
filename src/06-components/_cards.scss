@@ -31,7 +31,7 @@
 
 .card-img {
 	clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-	height: 6rem;
+	block-size: 6rem;
 }
 
 .card-text {
@@ -45,7 +45,7 @@
 
 	* {
 		color: inherit;
-		max-width: 60ch;
+		max-inline-size: 60ch;
 	}
 
 	:last-child {

@@ -31,7 +31,7 @@ textarea {
 form,
 fieldset,
 .fieldset {
-	max-width: variables.$content-width;
+	max-inline-size: variables.$content-width;
 }
 
 form > * + * {
@@ -65,7 +65,7 @@ select,
 	background-color: hsl(var(--contrast));
 	border: 1px solid hsl(var(--contrast-inverse));
 	color: hsl(var(--muted-dark));
-	width: 100%;
+	inline-size: 100%;
 
 	&:focus {
 		border: 1px solid hsl(var(--accent-light));
@@ -103,11 +103,11 @@ input[type="image"],
 #{variables.$form-radio-checkbox} {
 	background-color: transparent;
 	border: 0;
-	width: auto;
+	inline-size: auto;
 }
 
 input[type="range"] {
-	width: 100%;
+	inline-size: 100%;
 }
 
 input[type="number"],

@@ -14,11 +14,11 @@
 img[alt] {
 	display: inline-block;
 	font-size: 0;
-	max-width: 100%;
+	max-inline-size: 100%;
 	vertical-align: middle;
 
 	&:not([src$=".svg"]) {
-		height: auto;
+		block-size: auto;
 	}
 
 	/* 1 */
@@ -30,7 +30,7 @@ img[alt] {
 		"—\A0" attr(src); /* 4 */
 		font-size: 1rem;
 		padding: variables.$gutter * 0.5;
-		width: 100%;
+		inline-size: 100%;
 		white-space: pre-wrap;
 	}
 }
@@ -42,7 +42,7 @@ svg {
 figure {
 	background: hsl(var(--contrast));
 	margin: variables.$gutter auto;
-	max-width: 100%;
+	max-inline-size: 100%;
 	overflow: hidden;
 	padding: variables.$gutter;
 
@@ -55,11 +55,11 @@ figure {
 
 @media screen and (min-width: #{variables.$content-width}) {
 	figure {
-		min-width: variables.$content-width;
-		width: min-content;
+		min-inline-size: variables.$content-width;
+		inline-size: min-content;
 
 		img {
-			min-width: min-content;
+			min-inline-size: min-content;
 		}
 	}
 
@@ -67,11 +67,11 @@ figure {
 	[class*="grid"],
 	[class*="columns"] {
 		figure {
-			min-width: 0;
-			width: auto;
+			min-inline-size: 0;
+			inline-size: auto;
 
 			img {
-				min-width: 0;
+				min-inline-size: 0;
 			}
 		}
 	}

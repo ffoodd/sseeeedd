@@ -9,7 +9,7 @@ table {
 	caption-side: block-start;
 	font-feature-settings: "tnum";
 	margin-block-end: variables.$gutter * 1.5;
-	width: 100%;
+	inline-size: 100%;
 	vertical-align: top;
 
 	> caption:first-child {
@@ -32,7 +32,7 @@ table strong {
 
 td {
 	line-height: 1.25;
-	max-width: 100%;
+	max-inline-size: 100%;
 }
 
 tbody {
@@ -61,7 +61,7 @@ thead {
 	background-size: 2.5rem 100%, 2.5rem 100%, 1rem 100%, 1rem 100%;
 	background-position: 0 0, 100%, 0 0, 100%;
 	background-attachment: local, local, scroll, scroll;
-	max-width: 100%;
+	max-inline-size: 100%;
 	overflow-x: auto;
 	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch;

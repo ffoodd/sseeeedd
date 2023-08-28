@@ -14,23 +14,23 @@
 	[class*="card"] {
 		border: 1px solid;
 		flex-flow: column nowrap;
-		height: calc(#{math.div(180, 16)}rem * 1.5);
+		block-size: calc(#{math.div(180, 16)}rem * 1.5);
 		justify-content: space-between;
-		min-width: unset;
+		min-inline-size: unset;
 		outline: 1px dotted;
 		outline-offset: variables.$gutter * -1.75;
 		padding: variables.$gutter;
 		text-align: center;
-		width: #{math.div(180, 16)}rem;
+		inline-size: #{math.div(180, 16)}rem;
 		z-index: 0;
 
 		figure {
-			width: 100%;
+			inline-size: 100%;
 		}
 
 		figcaption {
 			margin: 0 auto;
-			max-width: calc(100% - #{variables.$gutter * 2.5});
+			max-inline-size: calc(100% - #{variables.$gutter * 2.5});
 			padding-block-end: 0;
 
 			p {
@@ -42,18 +42,18 @@
 		[class*="--l"] {
 			border: variables.$gutter * 0.25 solid currentColor;
 			box-sizing: content-box;
-			height: variables.$gutter * 2;
+			block-size: variables.$gutter * 2;
 			justify-content: center;
 			margin: 0 auto 0 0;
-			width: variables.$gutter * 2;
+			inline-size: variables.$gutter * 2;
 			z-index: 2;
 		}
 
 		&::after {
 			content: "";
 			display: flex;
-			height: variables.$gutter * 2.5;
-			width: variables.$gutter * 2.5;
+			block-size: variables.$gutter * 2.5;
+			inline-size: variables.$gutter * 2.5;
 		}
 	}
 

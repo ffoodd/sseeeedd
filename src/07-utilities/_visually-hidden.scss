@@ -35,11 +35,11 @@
 	border: 0 !important;
 	clip: rect(1px, 1px, 1px, 1px) !important; // 1
 	clip-path: inset(50%) !important; // 2
-	height: 1px !important;
+	block-size: 1px !important;
 	overflow: hidden !important;
 	padding: 0 !important;
 	position: absolute !important;
-	width: 1px !important;
+	inline-size: 1px !important;
 	white-space: nowrap !important; // 3
 }
 
@@ -51,9 +51,9 @@
 .visually-hidden-focusable:active {
 	clip: auto !important;
 	clip-path: none !important;
-	height: auto !important;
+	block-size: auto !important;
 	overflow: visible !important;
-	width: auto !important;
+	inline-size: auto !important;
 	white-space: normal !important;
 }
 

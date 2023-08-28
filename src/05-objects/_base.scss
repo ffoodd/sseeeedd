@@ -10,6 +10,6 @@ body > * {
 	padding: variables.$gutter;
 
 	@if variables.$full-width == false {
-		max-width: variables.$width;
+		max-inline-size: variables.$width;
 	}
 }
