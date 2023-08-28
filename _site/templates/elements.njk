@@ -214,6 +214,22 @@
 				<option value="3">Option №3</option>
 			</select>
 		</p>
+		<p class="fieldset">
+			<label for="autocomplete">Liste de suggestions</label>
+			<input id="autocomplete" type="text" list="languages">
+			<datalist id="languages">
+				<option>HTML</option>
+				<option>CSS</option>
+				<option>SVG</option>
+			</datalist>
+		</p>
+		<div class="fieldset">
+			<label for="range">Curseur de sélection</label>
+			<div class="p-relative">
+				<input id="range" type="range" min="0" max="100" step="5">
+				<output id="output" for="range" role="status" class="p-absolute"></output>
+			</div>
+		</div>
 		<fieldset>
 			<legend>Choix</legend>
 			<input type="checkbox" name="choix" id="C" value="C">
@@ -227,15 +243,6 @@
 			<label for="zone">Zone de texte</label>
 			<textarea id="zone" name="zone"></textarea>
 		</p>
-		<p class="fieldset">
-					<label for="autocomplete">Liste de suggestions</label>
-					<input id="autocomplete" type="text" list="languages">
-					<datalist id="languages">
-						<option>HTML</option>
-						<option>CSS</option>
-						<option>SVG</option>
-					</datalist>
-				</p>
 		<div class="fieldset d-flex">
 			<p class="label no-margin">
 				<strong id="label-1">Commutateur</strong><br>
