@@ -915,7 +915,7 @@ label[for] {
 }
 
 select,
-input[type=text], input[type=number], input[type=search], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=date], input[type=time], input[type=datetime-local], input[type=month], input[type=week], input[type=color], input[type=file], textarea {
+input, textarea {
   appearance: none;
   background-color: hsl(var(--contrast));
   border: 1px solid hsl(var(--contrast-inverse));
@@ -927,22 +927,22 @@ input[type=text], input[type=number], input[type=search], input[type=password], 
    */
 }
 select:focus,
-input[type=text]:focus, input[type=number]:focus, input[type=search]:focus, input[type=password]:focus, input[type=email]:focus, input[type=url]:focus, input[type=tel]:focus, input[type=date]:focus, input[type=time]:focus, input[type=datetime-local]:focus, input[type=month]:focus, input[type=week]:focus, input[type=color]:focus, input[type=file]:focus, textarea:focus {
+input:focus, textarea:focus {
   border: 1px solid hsl(var(--accent-light));
   box-shadow: 0 0 0 0.125rem hsl(var(--accent-light)/0.25);
 }
 select[readonly],
-input[type=text][readonly], input[type=number][readonly], input[type=search][readonly], input[type=password][readonly], input[type=email][readonly], input[type=url][readonly], input[type=tel][readonly], input[type=date][readonly], input[type=time][readonly], input[type=datetime-local][readonly], input[type=month][readonly], input[type=week][readonly], input[type=color][readonly], input[type=file][readonly], textarea[readonly] {
+input[readonly], textarea[readonly] {
   background-color: hsl(var(--disabled));
 }
 select[readonly]:focus,
-input[type=text][readonly]:focus, input[type=number][readonly]:focus, input[type=search][readonly]:focus, input[type=password][readonly]:focus, input[type=email][readonly]:focus, input[type=url][readonly]:focus, input[type=tel][readonly]:focus, input[type=date][readonly]:focus, input[type=time][readonly]:focus, input[type=datetime-local][readonly]:focus, input[type=month][readonly]:focus, input[type=week][readonly]:focus, input[type=color][readonly]:focus, input[type=file][readonly]:focus, textarea[readonly]:focus {
+input[readonly]:focus, textarea[readonly]:focus {
   border-color: hsl(var(--muted));
   box-shadow: 0 0 0 0.125rem hsl(var(--muted-light)/0.5);
 }
 @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
   select,
-  input[type=text], input[type=number], input[type=search], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=date], input[type=time], input[type=datetime-local], input[type=month], input[type=week], input[type=color], input[type=file], textarea {
+  input, textarea {
     font-size: 1em;
   }
 }
@@ -957,7 +957,7 @@ select:-moz-focusring {
 }
 
 input[type=image],
-input[type=checkbox], input[type=radio] {
+[type=checkbox], [type=radio] {
   background-color: transparent;
   border: 0;
   inline-size: auto;
@@ -977,14 +977,14 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
-input[type=checkbox]:not(:first-of-type), input[type=radio]:not(:first-of-type) {
+[type=checkbox]:not(:first-of-type), [type=radio]:not(:first-of-type) {
   margin-inline-start: 0.5rem;
 }
-input[type=checkbox]:focus, input[type=radio]:focus {
+[type=checkbox]:focus, [type=radio]:focus {
   box-shadow: 0 0 0 0.125rem hsl(var(--accent-light)/0.25);
   outline-color: transparent;
 }
-input[type=checkbox] + label[for], input[type=radio] + label[for] {
+[type=checkbox] + label[for], [type=radio] + label[for] {
   display: inline-block;
 }
 
@@ -992,6 +992,7 @@ select[multiple] {
   vertical-align: top;
 }
 
+input[list],
 select:not([multiple]) {
   appearance: none;
   background: hsl(var(--contrast)) no-repeat var(--select) center right 0.5em/1em 1em;
@@ -1034,37 +1035,27 @@ label [class^=label-msg] {
  ** @note Prevent required input to be invalid on first load
  ** @link https://www.ffoodd.fr/l-etat-des-champs/
  */
-input[type=text]:valid:focus, input[type=number]:valid:focus, input[type=search]:valid:focus, input[type=password]:valid:focus, input[type=email]:valid:focus, input[type=url]:valid:focus, input[type=tel]:valid:focus, input[type=date]:valid:focus, input[type=time]:valid:focus, input[type=datetime-local]:valid:focus, input[type=month]:valid:focus, input[type=week]:valid:focus, input[type=color]:valid:focus, input[type=file]:valid:focus, textarea:valid:focus {
+input:not([list]):valid:focus, textarea:not([list]):valid:focus {
   background: hsl(var(--contrast)) no-repeat var(--valid) center right 0.5em/1em 1.25em;
 }
-input[type=text]:invalid:not(:focus), input[type=number]:invalid:not(:focus), input[type=search]:invalid:not(:focus), input[type=password]:invalid:not(:focus), input[type=email]:invalid:not(:focus), input[type=url]:invalid:not(:focus), input[type=tel]:invalid:not(:focus), input[type=date]:invalid:not(:focus), input[type=time]:invalid:not(:focus), input[type=datetime-local]:invalid:not(:focus), input[type=month]:invalid:not(:focus), input[type=week]:invalid:not(:focus), input[type=color]:invalid:not(:focus), input[type=file]:invalid:not(:focus), textarea:invalid:not(:focus) {
+input:not([list]):invalid:not(:focus), textarea:not([list]):invalid:not(:focus) {
   background: hsl(var(--contrast)) no-repeat var(--invalid) center right 0.5em/1em 1.25em;
   box-shadow: 0 0 0 0.125rem hsl(var(--alert-light), 0.5);
 }
-input[type=text]:invalid:placeholder-shown:not(:focus), input[type=number]:invalid:placeholder-shown:not(:focus), input[type=search]:invalid:placeholder-shown:not(:focus), input[type=password]:invalid:placeholder-shown:not(:focus), input[type=email]:invalid:placeholder-shown:not(:focus), input[type=url]:invalid:placeholder-shown:not(:focus), input[type=tel]:invalid:placeholder-shown:not(:focus), input[type=date]:invalid:placeholder-shown:not(:focus), input[type=time]:invalid:placeholder-shown:not(:focus), input[type=datetime-local]:invalid:placeholder-shown:not(:focus), input[type=month]:invalid:placeholder-shown:not(:focus), input[type=week]:invalid:placeholder-shown:not(:focus), input[type=color]:invalid:placeholder-shown:not(:focus), input[type=file]:invalid:placeholder-shown:not(:focus), textarea:invalid:placeholder-shown:not(:focus) {
+input:invalid:placeholder-shown:not(:focus), textarea:invalid:placeholder-shown:not(:focus) {
   box-shadow: none;
 }
-input[type=text]:required:placeholder-shown, input[type=number]:required:placeholder-shown, input[type=search]:required:placeholder-shown, input[type=password]:required:placeholder-shown, input[type=email]:required:placeholder-shown, input[type=url]:required:placeholder-shown, input[type=tel]:required:placeholder-shown, input[type=date]:required:placeholder-shown, input[type=time]:required:placeholder-shown, input[type=datetime-local]:required:placeholder-shown, input[type=month]:required:placeholder-shown, input[type=week]:required:placeholder-shown, input[type=color]:required:placeholder-shown, input[type=file]:required:placeholder-shown, textarea:required:placeholder-shown {
+input:not([list]):required:placeholder-shown, textarea:not([list]):required:placeholder-shown {
   background: hsl(var(--contrast)) no-repeat var(--required) center right 0.5em/1em 1.25em;
 }
 
 /**
  * Browser reset
  *
- * 1. Do not display delete cross in IE/Edge
- * 2. hiding IE11 arrow
- * 3. 'x' appears on right of search input when text is entered. This removes it
+ * 1. 'x' appears on right of search input when text is entered. This removes it
  */
-::-ms-clear {
-  display: none; /* 1 */
-}
-
-select::-ms-expand {
-  display: none; /* 2 */
-}
-
 [type=search]::-webkit-search-decoration, [type=search]::-webkit-search-cancel-button, [type=search]::-webkit-search-results-button, [type=search]::-webkit-search-results-decoration {
-  display: none; /* 3 */
+  display: none; /* 1 */
 }
 
 /* ==================== */
