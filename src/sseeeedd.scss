@@ -1,54 +1,50 @@
 @charset "UTF-8";
 
-// @todo Migrate to Dart Sass
-/* ==================== */
-/* == Abstracts
-/* ==================== */
-@use "abstracts/functions";
-@use "abstracts/variables";
-@use "abstracts/placeholders";
-@use "abstracts/mixins";
+// Settings
+@use "01-settings/variables";
 
-/* ==================== */
-/* == Vendors
-/* ==================== */
-// @todo Include from node_modules
-@use "vendors/prism";
+// Abstracts
+@use "02-abstracts/mixins";
+@use "02-abstracts/placeholders";
 
-/* ==================== */
-/* == Base
-/* ==================== */
-@use "base/base";
-@use "base/typography";
-@use "base/contents";
-@use "base/images";
-@use "base/tables";
-@use "base/details";
-@use "base/forms";
-@use "base/buttons";
-@use "base/dialog";
-@use "base/helpers";
+// Base
+@use "03-generic/base";
+@use "03-generic/typography";
 
-/* ==================== */
-/* == Layout
-/* ==================== */
-@use "layout/base" as layout;
-@use "layout/grid";
-@use "layout/header";
-@use "layout/footer";
-@use "layout/navigation";
+// Elements
+@use "04-elements/contents";
+@use "04-elements/images";
+@use "04-elements/tables";
+@use "04-elements/details";
+@use "04-elements/forms";
+@use "04-elements/buttons";
+@use "04-elements/dialog";
 
-/* ==================== */
-/* == Components
-/* ==================== */
-@use "components/breadcrumb";
-@use "components/pagination";
-@use "components/notes";
-@use "components/footnotes";
-@use "components/tooltips";
-@use "components/alerts";
-@use "components/cards";
-@use "components/fly-out";
-@use "components/switch";
-@use "components/deck";
-@use "components/palette";
+// Layout
+@use "05-objects/base" as layout;
+@use "05-objects/grid";
+@use "05-objects/header";
+@use "05-objects/footer";
+@use "05-objects/navigation";
+@use "05-objects/prism"; // @todo Include from node_modules
+
+// Components
+@use "06-components/breadcrumb";
+@use "06-components/pagination";
+@use "06-components/notes";
+@use "06-components/footnotes";
+@use "06-components/tooltips";
+@use "06-components/alerts";
+@use "06-components/cards";
+@use "06-components/fly-out";
+@use "06-components/switch";
+@use "06-components/deck";
+@use "06-components/palette";
+
+// Utilities
+@use "07-utilities/utilities";
+@use "07-utilities/backgrounds";
+@use "07-utilities/colors";
+@use "07-utilities/sizing";
+@use "07-utilities/spacings";
+@use "07-utilities/visually-hidden";

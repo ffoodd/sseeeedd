@@ -1,0 +1,37 @@
+/* ==================== */
+/* == Pagination
+/* ==================== */
+
+[id="pagination"] {
+	li {
+		&:first-child a::before {
+			content: "← ";
+			speak: none;
+		}
+
+		&:last-child a::after {
+			content: " →";
+			speak: none;
+		}
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			background: hsl(var(--contrast));
+		}
+	}
+
+	[tabindex="-1"] {
+		color: hsl(var(--muted));
+		pointer-events: none;
+	}
+
+	[aria-current] {
+		background: hsl(var(--accent));
+		color: hsl(var(--contrast));
+		pointer-events: none;
+	}
+}

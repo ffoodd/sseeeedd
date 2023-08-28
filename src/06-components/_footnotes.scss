@@ -1,0 +1,29 @@
+/* ==================== */
+/* == Footnotes
+ *
+ * @note Using CSS counters
+ * @link https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters
+/* ==================== */
+
+a[href^="#footnote"]::before {
+	display: none;
+}
+
+a[id^="footnote-"][aria-describedby] {
+	counter-increment: footnotes; /* 1 */
+	text-decoration: none;
+
+	&::after {
+		content: "[" counter(footnotes) "]";
+		vertical-align: super;
+		font-size: .875rem;
+		font-weight: 400;
+		margin-left: 2px;
+		color: hsl(var(--accent));
+		cursor: pointer;
+	}
+}
+
+footer[id="footnotes"] {
+	max-width: 75ch;
+}

@@ -1,0 +1,63 @@
+@use "sass:math";
+@use "../01-settings/variables";
+
+/* ==================== */
+/* == Switch
+/* ==================== */
+
+button[role="switch"] {
+	background-color: hsla(var(--muted), .1);
+	border-radius: 1.375rem !important;
+	box-sizing: content-box;
+	color: hsl(var(--muted-dark));
+	height: 2.75rem;
+	line-height: 2.75rem;
+	outline-color: transparent;
+	padding: 0 variables.$gutter * 3;
+	transition: all .3s var(--enter);
+	width: 4.75rem;
+	will-change: background-color;
+
+	&::before {
+		background: currentColor;
+		border-radius: 1.375rem;
+		content: "";
+		position: absolute;
+		height: 2.375rem;
+		left: .25rem;
+		top: .25rem;
+		transform: none;
+		transition: transform .3s var(--enter) 0s;
+		width: 2.375rem;
+		will-change: transform;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: hsla(var(--muted), .075);
+		color: hsl(var(--contrast-inverse));
+	}
+
+	&[aria-checked="true"] {
+		background-color: hsla(var(--success-light), .25);
+
+		&::before {
+			background: hsl(var(--success-dark));
+			transform: translateX(#{math.div(78, 16) + variables.$gutter * 3});
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 .125rem  hsla(var(--success-dark), .25);
+		}
+	}
+
+	> *:first-child,
+	&[aria-checked="true"] > *:last-child {
+		display: none;
+	}
+
+	&[aria-checked="true"] > *:first-child {
+		display: block;
+	}
+}

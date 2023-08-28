@@ -1,0 +1,106 @@
+@use "sass:math";
+@use "../02-abstracts/placeholders";
+
+/* ==================== */
+/* == Typography
+/* ==================== */
+
+p,
+ul,
+ol,
+dl,
+pre,
+td,
+th,
+caption {
+	font-size: 1em;
+	line-height: 1.5;
+	margin: #{math.div(24, 16)}em 0;
+}
+
+h1,
+.h1 {
+	color: hsl(var(--secondary));
+	font-size: #{math.div(46, 16)}em;
+	line-height: 1.0434;
+	@extend .hn;
+
+	strong {
+		color: hsl(var(--muted-dark));
+	}
+}
+
+h2,
+.h2 {
+	color: hsl(var(--accent));
+	font-size: #{math.div(40, 16)}em;
+	line-height: 1.2;
+	@extend .hn;
+}
+
+h3,
+.h3 {
+	color: hsl(var(--muted-dark));
+	font-size: #{math.div(36, 16)}em;
+	line-height: 1.3334;
+	@extend .hn;
+}
+
+h4,
+.h4 {
+	font-size: #{math.div(30, 16)}em;
+	line-height: 1.6;
+	@extend .hn;
+}
+
+h5,
+.h5 {
+	font-size: #{math.div(26, 16)}em;
+	line-height: 1.8462;
+	@extend .hn;
+}
+
+h6,
+.h6 {
+	font-size: #{math.div(22, 16)}em;
+	line-height: 1.0909;
+	@extend .hn;
+}
+
+td,
+th,
+div,
+table,
+textarea {
+	hyphens: auto;
+	word-wrap: break-word;
+}
+
+/**
+ * @note Advanced hyphenation
+ * @author Richard Rutter
+ * @link https://clagnut.com/blog/2395
+ */
+p,
+li,
+dd {
+	-ms-hyphenate-limit-chars: 6 3 2;
+	-ms-hyphenate-limit-lines: 2;
+	-ms-hyphenate-limit-last: always;
+	-ms-hyphenate-limit-zone: 8%;
+	hyphenate-limit-chars: 6 3 2;
+	hyphenate-limit-lines: 2;
+	hyphenate-limit-last: always;
+	hyphenate-limit-zone: 8%;
+	hyphens: auto;
+	word-wrap: break-word;
+}
+
+li {
+	p,
+	ul,
+	ol {
+		margin-bottom: 0;
+		margin-top: 0;
+	}
+}

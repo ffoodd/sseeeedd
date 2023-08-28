@@ -1,0 +1,12 @@
+.hn {
+	color: hsl(var(--contrast-inverse));
+	font-weight: 700;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin: 3rem 0 1.5rem;
+	text-rendering: optimizelegibility;
+
+	&:first-child {
+		margin-top: 0;
+	}
+}
