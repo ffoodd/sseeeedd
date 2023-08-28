@@ -72,15 +72,17 @@ html {
     --lightness: 40%;
   }
 }
-/*@media screen and (prefers-color-scheme: dark) {
+@media screen and (prefers-color-scheme: dark) {
   html {
-    --lightness:  80%;
-    --brighter:   calc(var(--lightness) / var(--light-scale));
-    --darker:     calc(var(--lightness) * var(--light-scale));
-    --muted:      var(--neutral), 20%;
-    --background: var(--neutral), 10%;
+    --hue: 210;
+    --lightness: 64%;
+    --light-scale: 1.5;
+    --treshold: 40%;
+    --brighter: calc(var(--lightness) / var(--light-scale));
+    --darker: calc(var(--lightness) * var(--light-scale));
+    --background: var(--neutral) 8%;
   }
-}*/
+}
 .hn, blockquote footer, b,
 dt,
 strong, cite, h1,
@@ -400,6 +402,14 @@ main {
   mark {
     background-color: Highlight;
     color: HighlightText;
+  }
+}
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    color: hsl(var(--muted));
+  }
+  img {
+    filter: brightness(0.9) contrast(1.2);
   }
 }
 /* ==================== */

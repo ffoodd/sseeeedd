@@ -334,3 +334,14 @@ main {
 		color: HighlightText;
 	}
 }
+
+
+@media screen and (prefers-color-scheme: dark) {
+	body {
+		color: hsl(var(--muted));
+	}
+
+	img {
+		filter: brightness(.9) contrast(1.2);
+	}
+}
