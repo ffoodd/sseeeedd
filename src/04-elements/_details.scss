@@ -54,7 +54,7 @@ details {
 
 			details {
 				flex: 0;
-				min-width: 3.5rem;
+				min-inline-size: 3.5rem;
 				overflow: hidden;
 
 				& + details {

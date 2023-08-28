@@ -25,5 +25,5 @@ a[id^="footnote-"][aria-describedby] {
 }
 
 footer[id="footnotes"] {
-	max-width: 75ch;
+	max-inline-size: 75ch;
 }

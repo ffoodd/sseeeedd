@@ -238,10 +238,10 @@ main a {
 		&[href^="mailto:"]::before {
 			background: currentColor;
 			content: "";
-			height: .625em;
+			block-size: .625em;
 			mask-repeat: no-repeat;
 			mask-position: center center;
-			width: .625em;
+			inline-size: .625em;
 		}
 
 		&[download]::after {
@@ -282,7 +282,7 @@ code,
 pre,
 video,
 svg {
-	max-width: 100%;
+	max-inline-size: 100%;
 }
 
 [hidden],

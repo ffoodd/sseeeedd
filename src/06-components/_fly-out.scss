@@ -98,7 +98,7 @@
 		clip: rect(0, 2rem, 2rem, 0); /* 1 */
 		flex-direction: column;
 		font-size: inherit;
-		min-width: 100%;
+		min-inline-size: 100%;
 		padding-block-start: 2.5rem;
 		position: absolute;
 		inset-block-start: 0;
@@ -107,7 +107,7 @@
 		z-index: -1;
 
 		li {
-			min-width: inherit;
+			min-inline-size: inherit;
 		}
 
 		a,
