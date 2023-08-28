@@ -153,7 +153,7 @@
 				<use xlink:href="img/symbol.svg#ffoodd"></use>
 			</svg>
 			<h6>Icônes multicolores</h6>
-			<p class="p--s mt-0">
+			<p class="p--s mbs-0">
 				Basées sur <a hreflang="en" href="https://frontstuff.io/multi-colored-svg-symbol-icons-with-css-variables">
 					une technique partagée par <strong>Sarah Dayan</strong>, utilisant les variables CSS dans l’attribut
 					<code>fill</code></a>.
@@ -317,18 +317,21 @@
 	<div>
 		<button type="button" class="dialog-opener">Afficher la fenêtre de dialogue</button>
 		<dialog aria-labelledby="dialog-title">
-			<form method="dialog" class="d-flex">
-				<h1 id="dialog-title" class="h4 no-margin">Dialogue</h1>
-				<button class="no-background no-border clr-accent ml-auto rounded">
-					<svg width="16" height="16" aria-hidden="true" focusable="false">
-						<use xlink:href="img/symbol.svg#close"></use>
-					</svg>
-					<span class="sr-only">Fermer cette fenêtre modale</span>
-				</button>
+			<form method="dialog">
+				<header class="d-flex mbe-1">
+					<h1 id="dialog-title" class="h4 no-margin">Dialogue</h1>
+					<button class="no-background no-border clr-accent ml-auto rounded">
+						<svg width="16" height="16" aria-hidden="true" focusable="false" class="d-block">
+							<use xlink:href="img/symbol.svg#close"></use>
+						</svg>
+						<span class="sr-only">Fermer cette fenêtre modale</span>
+					</button>
+				</header>
+				<p class="mbs-0">N’êtes-vous pas d’accord&nbsp;?</p>
+				<button>Oh, la ferme&nbsp;!</button>
 			</form>
 
-			<p>N’êtes-vous pas d’accord&nbsp;?</p>
-			<button>Oh, la ferme&nbsp;!</button>
+
 		</dialog>
 	</div>
 </main>
