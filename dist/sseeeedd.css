@@ -317,10 +317,10 @@ main a[href^="http:"]::before {
   main a[download]::after, main a[href^="#"]::before, main a[href^="tel:"]::before, main a[target$=blank]::after, main a[href^="http://"]::before, main a[href^="mailto:"]::before {
     background: currentColor;
     content: "";
-    height: 0.625em;
+    block-size: 0.625em;
     mask-repeat: no-repeat;
     mask-position: center center;
-    width: 0.625em;
+    inline-size: 0.625em;
   }
   main a[download]::after {
     mask-image: var(--download);
@@ -354,7 +354,7 @@ code,
 pre,
 video,
 svg {
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 [hidden],
@@ -502,7 +502,7 @@ blockquote {
   font-style: italic;
   line-height: 1.5;
   margin: 3rem 0 1.5rem;
-  max-width: 100%;
+  max-inline-size: 100%;
   padding-inline-start: 7em;
   position: relative;
   quotes: "« " " »";
@@ -544,7 +544,7 @@ cite {
 hr {
   border-block-end: 1px solid hsl(var(--contrast));
   border-block-start: 1px solid hsla(var(--muted-light), 0.5);
-  height: 0;
+  block-size: 0;
 }
 
 var,
@@ -578,9 +578,9 @@ pre::before {
   box-shadow: 1.5rem 0 0 0 Orange, 3rem 0 0 0 hsl(var(--success));
   content: "";
   display: block;
-  height: 1rem;
+  block-size: 1rem;
   transform: translateY(-1rem);
-  width: 1rem;
+  inline-size: 1rem;
 }
 
 :not(pre) > var,
@@ -647,12 +647,12 @@ figure dl + figcaption {
 img[alt] {
   display: inline-block;
   font-size: 0;
-  max-width: 100%;
+  max-inline-size: 100%;
   vertical-align: middle;
   /* 1 */
 }
 img[alt]:not([src$=".svg"]) {
-  height: auto;
+  block-size: auto;
 }
 img[alt]::after {
   background: hsl(var(--contrast));
@@ -660,7 +660,7 @@ img[alt]::after {
   content: attr(alt) "\a" "— " attr(src); /* 4 */
   font-size: 1rem;
   padding: 0.5rem;
-  width: 100%;
+  inline-size: 100%;
   white-space: pre-wrap;
 }
 
@@ -671,7 +671,7 @@ svg {
 figure {
   background: hsl(var(--contrast));
   margin: 1rem auto;
-  max-width: 100%;
+  max-inline-size: 100%;
   overflow: hidden;
   padding: 1rem;
 }
@@ -683,22 +683,22 @@ figure figcaption {
 
 @media screen and (min-width: 37.5em) {
   figure {
-    min-width: 37.5em;
-    width: min-content;
+    min-inline-size: 37.5em;
+    inline-size: min-content;
   }
   figure img {
-    min-width: min-content;
+    min-inline-size: min-content;
   }
   li figure,
   [class*=grid] figure,
   [class*=columns] figure {
-    min-width: 0;
-    width: auto;
+    min-inline-size: 0;
+    inline-size: auto;
   }
   li figure img,
   [class*=grid] figure img,
   [class*=columns] figure img {
-    min-width: 0;
+    min-inline-size: 0;
   }
 }
 @media (inverted-colors) {
@@ -719,7 +719,7 @@ table {
   caption-side: block-start;
   font-feature-settings: "tnum";
   margin-block-end: 1.5rem;
-  width: 100%;
+  inline-size: 100%;
   vertical-align: top;
 }
 table > caption:first-child {
@@ -741,7 +741,7 @@ table strong {
 
 td {
   line-height: 1.25;
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 tbody {
@@ -767,7 +767,7 @@ thead {
   background-size: 2.5rem 100%, 2.5rem 100%, 1rem 100%, 1rem 100%;
   background-position: 0 0, 100%, 0 0, 100%;
   background-attachment: local, local, scroll, scroll;
-  max-width: 100%;
+  max-inline-size: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
@@ -819,7 +819,7 @@ details[open] summary ~ * {
     }
     .vertical details {
       flex: 0;
-      min-width: 3.5rem;
+      min-inline-size: 3.5rem;
       overflow: hidden;
     }
     .vertical details + details {
@@ -880,7 +880,7 @@ textarea {
 form,
 fieldset,
 .fieldset {
-  max-width: 37.5em;
+  max-inline-size: 37.5em;
 }
 
 form > * + * {
@@ -915,7 +915,7 @@ input[type=text], input[type=number], input[type=search], input[type=password], 
   background-color: hsl(var(--contrast));
   border: 1px solid hsl(var(--contrast-inverse));
   color: hsl(var(--muted-dark));
-  width: 100%;
+  inline-size: 100%;
   /**
    * Avoid zoom on iOS when focus on inputs
    * http://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
@@ -955,11 +955,11 @@ input[type=image],
 input[type=checkbox], input[type=radio] {
   background-color: transparent;
   border: 0;
-  width: auto;
+  inline-size: auto;
 }
 
 input[type=range] {
-  width: 100%;
+  inline-size: 100%;
 }
 
 input[type=number],
@@ -1089,7 +1089,7 @@ select::-ms-expand {
   vertical-align: middle;
   text-decoration: none;
   transition: all 300ms var(--move);
-  width: auto;
+  inline-size: auto;
   appearance: none;
 }
 .button:hover, button:hover, [type=submit]:hover, [type=reset]:hover, [type=button]:hover {
@@ -1130,7 +1130,7 @@ body > * {
   background: hsla(var(--background), 0.75);
   margin: 0 auto;
   padding: 1rem;
-  max-width: 64em;
+  max-inline-size: 64em;
 }
 
 /* ==================== */
@@ -1150,7 +1150,7 @@ body > * {
 [class*=columns] > * {
   display: inline-block;
   margin-block-end: 2rem;
-  max-width: 100%;
+  max-inline-size: 100%;
 }
 
 @media screen and (min-width: 37.5em) {
@@ -1184,7 +1184,7 @@ body > * {
     [class*=grid] {
       display: grid;
       grid-gap: 2rem;
-      width: 100%;
+      inline-size: 100%;
     }
     .grid-2 {
       grid-template-columns: repeat(2, [col] 1fr);
@@ -1400,7 +1400,7 @@ a[id^=footnote-][aria-describedby]::after {
 }
 
 footer[id=footnotes] {
-  max-width: 75ch;
+  max-inline-size: 75ch;
 }
 
 /* ==================== */
@@ -1501,7 +1501,7 @@ footer[id=footnotes] {
 
 .card-img {
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
-  height: 6rem;
+  block-size: 6rem;
 }
 
 .card-text {
@@ -1515,7 +1515,7 @@ footer[id=footnotes] {
 }
 .card-text * {
   color: inherit;
-  max-width: 60ch;
+  max-inline-size: 60ch;
 }
 .card-text :last-child {
   margin-block-start: auto;
@@ -1675,7 +1675,7 @@ footer[id=footnotes] {
   clip: rect(0, 2rem, 2rem, 0); /* 1 */
   flex-direction: column;
   font-size: inherit;
-  min-width: 100%;
+  min-inline-size: 100%;
   padding-block-start: 2.5rem;
   position: absolute;
   inset-block-start: 0;
@@ -1684,7 +1684,7 @@ footer[id=footnotes] {
   z-index: -1;
 }
 .fly-out ul li {
-  min-width: inherit;
+  min-inline-size: inherit;
 }
 .fly-out ul a,
 .fly-out ul button {
@@ -1750,12 +1750,12 @@ button[role=switch] {
   border-radius: 1.375rem !important;
   box-sizing: content-box;
   color: hsl(var(--muted-dark));
-  height: 2.75rem;
+  block-size: 2.75rem;
   line-height: 2.75rem;
   outline-color: transparent;
   padding: 0 3rem;
   transition: all 0.3s var(--enter);
-  width: 4.75rem;
+  inline-size: 4.75rem;
   will-change: background-color;
 }
 button[role=switch]::before {
@@ -1763,12 +1763,12 @@ button[role=switch]::before {
   border-radius: 1.375rem;
   content: "";
   position: absolute;
-  height: 2.375rem;
+  block-size: 2.375rem;
   inset-inline-start: 0.25rem;
   inset-block-start: 0.25rem;
   transform: none;
   transition: transform 0.3s var(--enter) 0s;
-  width: 2.375rem;
+  inline-size: 2.375rem;
   will-change: transform;
 }
 button[role=switch]:hover, button[role=switch]:focus, button[role=switch]:active {
@@ -1811,22 +1811,22 @@ button[role=switch][aria-checked=true] > *:first-child {
 .deck [class*=card] {
   border: 1px solid;
   flex-flow: column nowrap;
-  height: calc(11.25rem * 1.5);
+  block-size: calc(11.25rem * 1.5);
   justify-content: space-between;
-  min-width: unset;
+  min-inline-size: unset;
   outline: 1px dotted;
   outline-offset: -1.75rem;
   padding: 1rem;
   text-align: center;
-  width: 11.25rem;
+  inline-size: 11.25rem;
   z-index: 0;
 }
 .deck [class*=card] figure {
-  width: 100%;
+  inline-size: 100%;
 }
 .deck [class*=card] figcaption {
   margin: 0 auto;
-  max-width: calc(100% - 2.5rem);
+  max-inline-size: calc(100% - 2.5rem);
   padding-block-end: 0;
 }
 .deck [class*=card] figcaption p {
@@ -1836,17 +1836,17 @@ button[role=switch][aria-checked=true] > *:first-child {
 .deck [class*=card] [class*="--l"] {
   border: 0.25rem solid currentColor;
   box-sizing: content-box;
-  height: 2rem;
+  block-size: 2rem;
   justify-content: center;
   margin: 0 auto 0 0;
-  width: 2rem;
+  inline-size: 2rem;
   z-index: 2;
 }
 .deck [class*=card]::after {
   content: "";
   display: flex;
-  height: 2.5rem;
-  width: 2.5rem;
+  block-size: 2.5rem;
+  inline-size: 2.5rem;
 }
 @supports (background: -moz-element(var(--card, 1))) {
   .deck [class*=card]::after {
@@ -1867,8 +1867,8 @@ button[role=switch][aria-checked=true] > *:first-child {
   grid-auto-flow: dense;
 }
 .palette figure {
-  min-width: 0;
-  width: 100%;
+  min-inline-size: 0;
+  inline-size: 100%;
 }
 .palette [class*=grid] {
   grid-gap: 1rem;
@@ -1933,10 +1933,10 @@ button[role=switch][aria-checked=true] > *:first-child {
 }
 
 .stretch {
-  height: 100% !important;
+  block-size: 100% !important;
   object-fit: cover;
   object-position: center;
-  width: 100%;
+  inline-size: 100%;
 }
 
 @media screen and (max-width: 29.9375em) {
@@ -2034,20 +2034,12 @@ button[role=switch][aria-checked=true] > *:first-child {
   margin-block: 0 !important;
 }
 
-.mb-0 {
-  margin-block: 0 !important;
-}
-
 .mbs-0 {
   margin-block-start: 0 !important;
 }
 
 .mbe-0 {
   margin-block-end: 0 !important;
-}
-
-.mi-0 {
-  margin-inline: 0 !important;
 }
 
 .mi-0 {
@@ -2070,20 +2062,12 @@ button[role=switch][aria-checked=true] > *:first-child {
   padding-block: 0 !important;
 }
 
-.pb-0 {
-  padding-block: 0 !important;
-}
-
 .pbs-0 {
   padding-block-start: 0 !important;
 }
 
 .pbe-0 {
   padding-block-end: 0 !important;
-}
-
-.pi-0 {
-  padding-inline: 0 !important;
 }
 
 .pi-0 {
@@ -2106,20 +2090,12 @@ button[role=switch][aria-checked=true] > *:first-child {
   margin-block: 1rem !important;
 }
 
-.mb-1 {
-  margin-block: 1rem !important;
-}
-
 .mbs-1 {
   margin-block-start: 1rem !important;
 }
 
 .mbe-1 {
   margin-block-end: 1rem !important;
-}
-
-.mi-1 {
-  margin-inline: 1rem !important;
 }
 
 .mi-1 {
@@ -2142,20 +2118,12 @@ button[role=switch][aria-checked=true] > *:first-child {
   padding-block: 1rem !important;
 }
 
-.pb-1 {
-  padding-block: 1rem !important;
-}
-
 .pbs-1 {
   padding-block-start: 1rem !important;
 }
 
 .pbe-1 {
   padding-block-end: 1rem !important;
-}
-
-.pi-1 {
-  padding-inline: 1rem !important;
 }
 
 .pi-1 {
@@ -2178,20 +2146,12 @@ button[role=switch][aria-checked=true] > *:first-child {
   margin-block: 2rem !important;
 }
 
-.mb-2 {
-  margin-block: 2rem !important;
-}
-
 .mbs-2 {
   margin-block-start: 2rem !important;
 }
 
 .mbe-2 {
   margin-block-end: 2rem !important;
-}
-
-.mi-2 {
-  margin-inline: 2rem !important;
 }
 
 .mi-2 {
@@ -2214,20 +2174,12 @@ button[role=switch][aria-checked=true] > *:first-child {
   padding-block: 2rem !important;
 }
 
-.pb-2 {
-  padding-block: 2rem !important;
-}
-
 .pbs-2 {
   padding-block-start: 2rem !important;
 }
 
 .pbe-2 {
   padding-block-end: 2rem !important;
-}
-
-.pi-2 {
-  padding-inline: 2rem !important;
 }
 
 .pi-2 {
@@ -2250,20 +2202,12 @@ button[role=switch][aria-checked=true] > *:first-child {
   margin-block: 3rem !important;
 }
 
-.mb-3 {
-  margin-block: 3rem !important;
-}
-
 .mbs-3 {
   margin-block-start: 3rem !important;
 }
 
 .mbe-3 {
   margin-block-end: 3rem !important;
-}
-
-.mi-3 {
-  margin-inline: 3rem !important;
 }
 
 .mi-3 {
@@ -2286,20 +2230,12 @@ button[role=switch][aria-checked=true] > *:first-child {
   padding-block: 3rem !important;
 }
 
-.pb-3 {
-  padding-block: 3rem !important;
-}
-
 .pbs-3 {
   padding-block-start: 3rem !important;
 }
 
 .pbe-3 {
   padding-block-end: 3rem !important;
-}
-
-.pi-3 {
-  padding-inline: 3rem !important;
 }
 
 .pi-3 {
@@ -2322,20 +2258,12 @@ button[role=switch][aria-checked=true] > *:first-child {
   margin-block: auto !important;
 }
 
-.mb-auto {
-  margin-block: auto !important;
-}
-
 .mbs-auto {
   margin-block-start: auto !important;
 }
 
 .mbe-auto {
   margin-block-end: auto !important;
-}
-
-.mi-auto {
-  margin-inline: auto !important;
 }
 
 .mi-auto {
@@ -2358,20 +2286,12 @@ button[role=switch][aria-checked=true] > *:first-child {
   padding-block: auto !important;
 }
 
-.pb-auto {
-  padding-block: auto !important;
-}
-
 .pbs-auto {
   padding-block-start: auto !important;
 }
 
 .pbe-auto {
   padding-block-end: auto !important;
-}
-
-.pi-auto {
-  padding-inline: auto !important;
 }
 
 .pi-auto {
@@ -2386,26 +2306,28 @@ button[role=switch][aria-checked=true] > *:first-child {
   padding-inline-end: auto !important;
 }
 
-.visually-hidden,
+.sr-only,
 .visually-hidden {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px) !important;
   clip-path: inset(50%) !important;
-  height: 1px !important;
+  block-size: 1px !important;
   overflow: hidden !important;
   padding: 0 !important;
   position: absolute !important;
-  width: 1px !important;
+  inline-size: 1px !important;
   white-space: nowrap !important;
 }
 
+.sr-only-focusable:focus,
+.sr-only-focusable:active,
 .visually-hidden-focusable:focus,
 .visually-hidden-focusable:active {
   clip: auto !important;
   clip-path: none !important;
-  height: auto !important;
+  block-size: auto !important;
   overflow: visible !important;
-  width: auto !important;
+  inline-size: auto !important;
   white-space: normal !important;
 }
 
