@@ -35,7 +35,7 @@ fieldset,
 }
 
 form > * + * {
-	margin-top: #{math.div(48, 16)}em;
+	margin-block-start: 3rem;
 }
 
 fieldset,
@@ -46,13 +46,13 @@ fieldset,
 
 	> p,
 	> div {
-		margin-bottom: inherit;
+		margin-block-end: inherit;
 	}
 }
 
 legend:first-child {
 	font-weight: 700;
-	margin-bottom: inherit;
+	margin-block-end: inherit;
 }
 
 label[for] {
@@ -122,7 +122,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 #{variables.$form-radio-checkbox} {
 	&:not(:first-of-type) {
-		margin-left: variables.$gutter * 0.5;
+		margin-inline-start: variables.$gutter * 0.5;
 	}
 
 	&:focus {

@@ -6,9 +6,9 @@
 
 table {
 	border-collapse: collapse;
-	caption-side: top;
+	caption-side: block-start;
 	font-feature-settings: "tnum";
-	margin-bottom: variables.$gutter * 1.5;
+	margin-block-end: variables.$gutter * 1.5;
 	width: 100%;
 	vertical-align: top;
 
@@ -22,7 +22,7 @@ table {
 th,
 td {
 	padding: variables.$gutter * 0.5 .75rem;
-	text-align: left;
+	text-align: start;
 }
 
 th,

@@ -38,7 +38,7 @@
 	display: flex;
 	flex-direction: column;
 	flex-grow: 1;
-	margin-bottom: variables.$gutter;
+	margin-block-end: variables.$gutter;
 	order: 1;
 	padding: 0 variables.$gutter;
 	text-shadow: 1px 1px 0 var(--text-shadow);
@@ -49,7 +49,7 @@
 	}
 
 	:last-child {
-		margin-top: auto;
+		margin-block-start: auto;
 	}
 }
 
@@ -64,12 +64,9 @@
 	text-decoration: none;
 
 	&::before {
-		bottom: 0;
 		content: "";
-		left: 0;
+		inset: 0;
 		position: absolute;
-		right: 0;
-		top: 0;
 	}
 
 	&:hover,

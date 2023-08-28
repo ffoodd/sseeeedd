@@ -18,13 +18,13 @@ nav {
 	}
 
 	a[aria-current] {
-		border-bottom: .25rem solid;
+		border-block-end: .25rem solid;
 		color: hsl(var(--accent));
 
 		&:hover,
 		&:focus,
 		&:active {
-			border-bottom: .25rem solid;
+			border-block-end: .25rem solid;
 		}
 	}
 
@@ -33,6 +33,6 @@ nav {
 	}
 
 	> ul > li + li {
-		margin-left: variables.$gutter;
+		margin-inline-start: variables.$gutter;
 	}
 }
