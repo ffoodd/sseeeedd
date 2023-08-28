@@ -10,6 +10,7 @@ button[role="switch"] {
 	border-radius: 1.375rem !important;
 	box-sizing: content-box;
 	color: hsl(var(--muted-dark));
+	contain: content;
 	block-size: 2.75rem;
 	line-height: 2.75rem;
 	outline-color: transparent;

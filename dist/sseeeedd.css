@@ -1126,6 +1126,7 @@ select::-ms-expand {
 dialog {
   background-color: hsl(var(--background));
   color: hsl(var(--muted-dark));
+  contain: content;
 }
 
 /* ==================== */
@@ -1456,6 +1457,7 @@ footer[id=footnotes] {
 [role=alert] {
   border: 1px solid var(--color);
   box-shadow: 0.25rem 0.25rem 0 0 var(--color);
+  contain: content;
   font-weight: bold;
   margin: 1rem 0.5rem;
   padding: 0 1rem;
@@ -1755,6 +1757,7 @@ button[role=switch] {
   border-radius: 1.375rem !important;
   box-sizing: content-box;
   color: hsl(var(--muted-dark));
+  contain: content;
   block-size: 2.75rem;
   line-height: 2.75rem;
   outline-color: transparent;
@@ -1802,6 +1805,7 @@ button[role=switch][aria-checked=true] > *:first-child {
 /* ==================== */
 .deck {
   display: grid;
+  contain: content;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr));
   grid-auto-flow: dense;
@@ -1867,6 +1871,7 @@ button[role=switch][aria-checked=true] > *:first-child {
 /* ==================== */
 .palette {
   display: grid;
+  contain: content;
   grid-gap: 1rem;
   grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr));
   grid-auto-flow: dense;
