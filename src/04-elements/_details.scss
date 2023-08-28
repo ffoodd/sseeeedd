@@ -8,7 +8,7 @@ details {
 	border: .25rem solid hsl(var(--contrast-inverse));
 
 	& + & {
-		border-top-width: 0;
+		border-block-start-width: 0;
 	}
 
 	summary {
@@ -62,16 +62,16 @@ details {
 				}
 
 				summary {
-					float: left;
+					float: inline-start;
 					min-height: 20rem;
 					writing-mode: vertical-lr; /* 1 */
 					writing-mode: sideways-lr; /* 2 */
 
 					~ * {
-						padding-left: 3.5rem;
+						padding-inline-start: 3.5rem;
 
 						> *:first-child {
-							margin-top: 0;
+							margin-block-start: 0;
 						}
 					}
 				}

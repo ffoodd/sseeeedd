@@ -24,8 +24,8 @@ button[role="switch"] {
 		content: "";
 		position: absolute;
 		height: 2.375rem;
-		left: .25rem;
-		top: .25rem;
+		inset-inline-start: .25rem;
+		inset-block-start: .25rem;
 		transform: none;
 		transition: transform .3s var(--enter) 0s;
 		width: 2.375rem;

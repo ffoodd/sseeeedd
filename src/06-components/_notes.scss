@@ -6,7 +6,7 @@
 
 .note {
 	background: hsl(var(--contrast));
-	border-left: variables.$gutter solid;
+	border-inline-start: variables.$gutter solid;
 	color: hsl(var(--muted-dark));
 	margin: variables.$gutter 0;
 	padding: variables.$gutter * 0.5 variables.$gutter variables.$gutter * 0.25;

@@ -106,7 +106,7 @@ strong:first-child, cite:first-child, h1:first-child,
 .h4:first-child, h5:first-child,
 .h5:first-child, h6:first-child,
 .h6:first-child {
-  margin-top: 0;
+  margin-block-start: 0;
 }
 
 /* ==================== */
@@ -491,8 +491,7 @@ dd {
 li p,
 li ul,
 li ol {
-  margin-bottom: 0;
-  margin-top: 0;
+  margin-block: 0;
 }
 
 /* ==================== */
@@ -504,7 +503,7 @@ blockquote {
   line-height: 1.5;
   margin: 3rem 0 1.5rem;
   max-width: 100%;
-  padding-left: 7em;
+  padding-inline-start: 7em;
   position: relative;
   quotes: "« " " »";
   z-index: 2;
@@ -514,11 +513,11 @@ blockquote::before {
   content: open-quote;
   font-size: 10em;
   font-weight: 700;
-  left: 0;
+  inset-inline-start: 0;
   line-height: 0;
   opacity: 0.25;
   position: absolute;
-  top: 0;
+  inset-block-start: 0;
   z-index: -1;
 }
 blockquote footer {
@@ -526,7 +525,7 @@ blockquote footer {
 }
 
 abbr[aria-label] {
-  border-bottom: 1px dotted;
+  border-block-end: 1px dotted;
   cursor: help;
   text-decoration: none;
   text-transform: uppercase;
@@ -543,8 +542,8 @@ cite {
 }
 
 hr {
-  border-bottom: 1px solid hsl(var(--contrast));
-  border-top: 1px solid hsla(var(--muted-light), 0.5);
+  border-block-end: 1px solid hsl(var(--contrast));
+  border-block-start: 1px solid hsla(var(--muted-light), 0.5);
   height: 0;
 }
 
@@ -567,7 +566,7 @@ pre {
   tab-size: 4;
   overflow-x: auto;
   padding: 2rem 1rem 0.5rem;
-  text-align: left;
+  text-align: start;
   white-space: pre;
   word-break: normal;
   word-spacing: normal;
@@ -616,8 +615,8 @@ dt dfn {
 }
 
 figure dt {
-  clear: left;
-  float: left;
+  clear: inline-start;
+  float: inline-start;
   margin: 0 0 1rem;
 }
 figure dd {
@@ -625,7 +624,7 @@ figure dd {
   margin: 0 0 1rem;
 }
 figure dd::before {
-  border-top: 1px dotted;
+  border-block-start: 1px dotted;
   content: "";
   flex: 1;
   margin: 0 0.5rem;
@@ -717,9 +716,9 @@ figure figcaption {
 /* ==================== */
 table {
   border-collapse: collapse;
-  caption-side: top;
+  caption-side: block-start;
   font-feature-settings: "tnum";
-  margin-bottom: 1.5rem;
+  margin-block-end: 1.5rem;
   width: 100%;
   vertical-align: top;
 }
@@ -732,7 +731,7 @@ table > caption:first-child {
 th,
 td {
   padding: 0.5rem 0.75rem;
-  text-align: left;
+  text-align: start;
 }
 
 th,
@@ -781,7 +780,7 @@ details {
   border: 0.25rem solid hsl(var(--contrast-inverse));
 }
 details + details {
-  border-top-width: 0;
+  border-block-start-width: 0;
 }
 details summary {
   background: hsl(var(--muted-dark));
@@ -827,16 +826,16 @@ details[open] summary ~ * {
       border-width: 0.25rem 0.25rem 0.25rem 0;
     }
     .vertical details summary {
-      float: left;
+      float: inline-start;
       min-height: 20rem;
       writing-mode: vertical-lr; /* 1 */
       writing-mode: sideways-lr; /* 2 */
     }
     .vertical details summary ~ * {
-      padding-left: 3.5rem;
+      padding-inline-start: 3.5rem;
     }
     .vertical details summary ~ * > *:first-child {
-      margin-top: 0;
+      margin-block-start: 0;
     }
     .vertical details[open] {
       flex: 1;
@@ -885,7 +884,7 @@ fieldset,
 }
 
 form > * + * {
-  margin-top: 3em;
+  margin-block-start: 3rem;
 }
 
 fieldset,
@@ -898,12 +897,12 @@ fieldset > p,
 fieldset > div,
 .fieldset > p,
 .fieldset > div {
-  margin-bottom: inherit;
+  margin-block-end: inherit;
 }
 
 legend:first-child {
   font-weight: 700;
-  margin-bottom: inherit;
+  margin-block-end: inherit;
 }
 
 label[for] {
@@ -974,7 +973,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 input[type=checkbox]:not(:first-of-type), input[type=radio]:not(:first-of-type) {
-  margin-left: 0.5rem;
+  margin-inline-start: 0.5rem;
 }
 input[type=checkbox]:focus, input[type=radio]:focus {
   box-shadow: 0 0 0 0.125rem hsla(var(--accent-light), 0.25);
@@ -1150,7 +1149,7 @@ body > * {
 [class*=grid] > *,
 [class*=columns] > * {
   display: inline-block;
-  margin-bottom: 2rem;
+  margin-block-end: 2rem;
   max-width: 100%;
 }
 
@@ -1214,7 +1213,7 @@ body > * {
 /* -- Header
 /* ----------------------------- */
 header .sr-only-focusable {
-  left: 1rem;
+  inset-inline-start: 1rem;
 }
 
 /* ----------------------------- */
@@ -1234,17 +1233,17 @@ nav a {
   padding: 0.5rem 1rem;
 }
 nav a[aria-current] {
-  border-bottom: 0.25rem solid;
+  border-block-end: 0.25rem solid;
   color: hsl(var(--accent));
 }
 nav a[aria-current]:hover, nav a[aria-current]:focus, nav a[aria-current]:active {
-  border-bottom: 0.25rem solid;
+  border-block-end: 0.25rem solid;
 }
 nav button[aria-current] {
   color: hsl(var(--accent));
 }
 nav > ul > li + li {
-  margin-left: 1rem;
+  margin-inline-start: 1rem;
 }
 
 /*! PrismJS 1.11.0
@@ -1364,7 +1363,7 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 /* ==================== */
 .note {
   background: hsl(var(--contrast));
-  border-left: 1rem solid;
+  border-inline-start: 1rem solid;
   color: hsl(var(--muted-dark));
   margin: 1rem 0;
   padding: 0.5rem 1rem 0.25rem;
@@ -1395,7 +1394,7 @@ a[id^=footnote-][aria-describedby]::after {
   vertical-align: super;
   font-size: 0.875rem;
   font-weight: 400;
-  margin-left: 2px;
+  margin-inline-start: 2px;
   color: hsl(var(--accent));
   cursor: pointer;
 }
@@ -1423,10 +1422,10 @@ footer[id=footnotes] {
   --arrow: calc(100% - 0.25rem);
   --rotation: 45deg;
   background: hsl(var(--muted-dark));
-  bottom: calc(100% + 0.5em);
+  inset-block-end: calc(100% + 0.5em);
   clip-path: polygon(0% 0%, 100% 0%, 100% var(--arrow), calc(50% - 0.25rem) var(--arrow), 50% 100%, calc(50% + 0.25rem) var(--arrow), 0% var(--arrow));
   color: hsl(var(--background));
-  left: 50%;
+  inset-inline-start: 50%;
   opacity: 0;
   margin: 0;
   padding: 0.25rem 0.5rem 0.5rem;
@@ -1509,7 +1508,7 @@ footer[id=footnotes] {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
   order: 1;
   padding: 0 1rem;
   text-shadow: 1px 1px 0 var(--text-shadow);
@@ -1519,7 +1518,7 @@ footer[id=footnotes] {
   max-width: 60ch;
 }
 .card-text :last-child {
-  margin-top: auto;
+  margin-block-start: auto;
 }
 
 .card-title {
@@ -1533,12 +1532,9 @@ footer[id=footnotes] {
   text-decoration: none;
 }
 .card-link::before {
-  bottom: 0;
   content: "";
-  left: 0;
+  inset: 0;
   position: absolute;
-  right: 0;
-  top: 0;
 }
 .card-link:hover, .card-link:visited {
   color: inherit;
@@ -1664,12 +1660,12 @@ footer[id=footnotes] {
   background: none;
 }
 .fly-out > * > button {
-  padding-right: 1rem;
+  padding-inline-end: 1rem;
 }
 .fly-out > * > button::after {
   content: "↓";
   display: inline-block;
-  padding-left: 0.5rem;
+  padding-inline-start: 0.5rem;
   transition: transform 0.3s var(--enter) 0.5s;
   will-change: transform;
 }
@@ -1680,9 +1676,9 @@ footer[id=footnotes] {
   flex-direction: column;
   font-size: inherit;
   min-width: 100%;
-  padding-top: 2.5rem;
+  padding-block-start: 2.5rem;
   position: absolute;
-  top: 0;
+  inset-block-start: 0;
   transition: clip 0.3s var(--enter) 0.5s;
   will-change: clip;
   z-index: -1;
@@ -1768,8 +1764,8 @@ button[role=switch]::before {
   content: "";
   position: absolute;
   height: 2.375rem;
-  left: 0.25rem;
-  top: 0.25rem;
+  inset-inline-start: 0.25rem;
+  inset-block-start: 0.25rem;
   transform: none;
   transition: transform 0.3s var(--enter) 0s;
   width: 2.375rem;
@@ -1831,7 +1827,7 @@ button[role=switch][aria-checked=true] > *:first-child {
 .deck [class*=card] figcaption {
   margin: 0 auto;
   max-width: calc(100% - 2.5rem);
-  padding-bottom: 0;
+  padding-block-end: 0;
 }
 .deck [class*=card] figcaption p {
   hyphens: none;
@@ -1855,7 +1851,7 @@ button[role=switch][aria-checked=true] > *:first-child {
 @supports (background: -moz-element(var(--card, 1))) {
   .deck [class*=card]::after {
     background: -moz-element(var(--card, 1)) no-repeat bottom right;
-    margin-left: auto;
+    margin-inline-start: auto;
     position: relative;
     z-index: 2;
   }
@@ -1932,8 +1928,8 @@ button[role=switch][aria-checked=true] > *:first-child {
   font-weight: bold !important;
 }
 
-.f-left {
-  float: left;
+.f-is {
+  float: inline-start;
 }
 
 .stretch {

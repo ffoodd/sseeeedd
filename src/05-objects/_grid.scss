@@ -17,7 +17,7 @@
 [class*="grid"] > *,
 [class*="columns"] > * {
 	display: inline-block;
-	margin-bottom: variables.$gutter * 2;
+	margin-block-end: variables.$gutter * 2;
 	max-width: 100%;
 }
 

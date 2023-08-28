@@ -31,7 +31,7 @@
 		figcaption {
 			margin: 0 auto;
 			max-width: calc(100% - #{variables.$gutter * 2.5});
-			padding-bottom: 0;
+			padding-block-end: 0;
 
 			p {
 				hyphens: none;
@@ -67,7 +67,7 @@
 	@supports (background: -moz-element(var(--card, 1))) {
 		[class*="card"]::after {
 			background: -moz-element(var(--card, 1)) no-repeat bottom right;
-			margin-left: auto;
+			margin-inline-start: auto;
 			position: relative;
 			z-index: 2;
 		}

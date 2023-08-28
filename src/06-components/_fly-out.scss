@@ -80,13 +80,13 @@
 		}
 
 		> button {
-			padding-right: variables.$gutter;
+			padding-inline-end: variables.$gutter;
 		}
 
 		> button::after {
 			content: "↓";
 			display: inline-block;
-			padding-left: variables.$gutter * 0.5;
+			padding-inline-start: variables.$gutter * 0.5;
 			transition: transform .3s var(--enter) .5s;
 			will-change: transform;
 		}
@@ -99,9 +99,9 @@
 		flex-direction: column;
 		font-size: inherit;
 		min-width: 100%;
-		padding-top: 2.5rem;
+		padding-block-start: 2.5rem;
 		position: absolute;
-		top: 0;
+		inset-block-start: 0;
 		transition: clip .3s var(--enter) .5s;
 		will-change: clip;
 		z-index: -1;
