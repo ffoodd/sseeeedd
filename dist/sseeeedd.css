@@ -651,8 +651,13 @@ img[alt] {
   vertical-align: middle;
   /* 1 */
 }
-img[alt]:not([src$=".svg"]) {
+img[alt][width][height] {
   block-size: auto;
+}
+img[alt][src$=".svg"] {
+  block-size: auto;
+  inline-size: 100%;
+  max-inline-size: none;
 }
 img[alt]::after {
   background: hsl(var(--contrast));

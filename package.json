@@ -29,7 +29,7 @@
 		"postbuild": "postcss dist/{sseeeedd,sseeeedd-print}.css --dir dist/ --ext .min.css -u autoprefixer cssnano -m",
 		"prebuild:docs": "shx rm -rf docs/* && shx mkdir docs/img/ docs/js/",
 		"build:docs": "concurrently \"npm:build:docs:*\"",
-		"postbuild:docs": "shx cp -r _site/{favicon.ico,humans.txt} docs/ && shx mkdir docs/css && shx cp -r dist/*.min.{css,css.map} docs/css",
+		"postbuild:docs": "shx cp -r _site/{favicon.svg,humans.txt} docs/ && shx mkdir docs/css && shx cp -r dist/*.min.{css,css.map} docs/css",
 		"build:docs:html": "nunjucks *.njk _site/datas/deck.json -p _site/templates -o docs",
 		"prebuild:docs:svg": "shx rm -rf docs/img/symbol.svg",
 		"build:docs:svg": "svgo _site/img/**/*.svg -o docs/img/",
