@@ -137,12 +137,14 @@ html {
 	}
 }
 
-/*@media screen and (prefers-color-scheme: dark) {
-  html {
-    --lightness:  80%;
-    --brighter:   calc(var(--lightness) / var(--light-scale));
-    --darker:     calc(var(--lightness) * var(--light-scale));
-    --muted:      var(--neutral), 20%;
-    --background: var(--neutral), 10%;
-  }
-}*/
+@media screen and (prefers-color-scheme: dark) {
+	html {
+		--hue: 210;
+		--lightness: 64%;
+		--light-scale: 1.5;
+		--treshold: 40%;
+		--brighter: calc(var(--lightness) / var(--light-scale));
+		--darker: calc(var(--lightness) * var(--light-scale));
+		--background: var(--neutral) 8%;
+	}
+}
