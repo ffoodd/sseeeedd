@@ -37,7 +37,7 @@
 		color: hsl(var(--secondary));
 		display: block;
 		margin: 0;
-		outline: .125rem  solid transparent;
+		outline: .125rem solid transparent;
 		outline-offset: variables.$gutter * 2;
 		padding: variables.$gutter * 0.5 variables.$gutter;
 		text-decoration: none;
@@ -54,7 +54,7 @@
 
 		&:focus {
 			box-shadow: none;
-			outline: .125rem  solid currentColor;
+			outline: .125rem solid currentColor;
 			outline-offset: 0;
 		}
 	}
