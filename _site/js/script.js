@@ -33,4 +33,24 @@
 			})
 		}
 	});
+
+	// Range inputs
+	const ranges = document.querySelectorAll('[type="range"]');
+	ranges.forEach(range => {
+		const output = range.parentNode.querySelector('output');
+		range.addEventListener('input', () => {
+			range.style.setProperty('--value', `${range.value}%`);
+			output.style.setProperty('--value', range.value);
+			output.value = range.value;
+		});
+
+		document.addEventListener('DOMContentLoaded', () => {
+			range.style.setProperty('--value', `${range.value}%`);
+			output.style.setProperty('--value', range.value);
+			output.value = range.value;
+		});
+	})
+
+
+
 })(document);

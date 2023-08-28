@@ -915,7 +915,7 @@ label[for] {
 }
 
 select,
-input, textarea {
+input[type=text], input[type=number], input[type=search], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=date], input[type=time], input[type=datetime-local], input[type=month], input[type=week], input[type=color], input[type=file], textarea {
   appearance: none;
   background-color: hsl(var(--contrast));
   border: 1px solid hsl(var(--contrast-inverse));
@@ -927,22 +927,22 @@ input, textarea {
    */
 }
 select:focus,
-input:focus, textarea:focus {
+input[type=text]:focus, input[type=number]:focus, input[type=search]:focus, input[type=password]:focus, input[type=email]:focus, input[type=url]:focus, input[type=tel]:focus, input[type=date]:focus, input[type=time]:focus, input[type=datetime-local]:focus, input[type=month]:focus, input[type=week]:focus, input[type=color]:focus, input[type=file]:focus, textarea:focus {
   border: 1px solid hsl(var(--accent-light));
   box-shadow: 0 0 0 0.125rem hsl(var(--accent-light)/0.25);
 }
 select[readonly],
-input[readonly], textarea[readonly] {
+input[type=text][readonly], input[type=number][readonly], input[type=search][readonly], input[type=password][readonly], input[type=email][readonly], input[type=url][readonly], input[type=tel][readonly], input[type=date][readonly], input[type=time][readonly], input[type=datetime-local][readonly], input[type=month][readonly], input[type=week][readonly], input[type=color][readonly], input[type=file][readonly], textarea[readonly] {
   background-color: hsl(var(--disabled));
 }
 select[readonly]:focus,
-input[readonly]:focus, textarea[readonly]:focus {
+input[type=text][readonly]:focus, input[type=number][readonly]:focus, input[type=search][readonly]:focus, input[type=password][readonly]:focus, input[type=email][readonly]:focus, input[type=url][readonly]:focus, input[type=tel][readonly]:focus, input[type=date][readonly]:focus, input[type=time][readonly]:focus, input[type=datetime-local][readonly]:focus, input[type=month][readonly]:focus, input[type=week][readonly]:focus, input[type=color][readonly]:focus, input[type=file][readonly]:focus, textarea[readonly]:focus {
   border-color: hsl(var(--muted));
   box-shadow: 0 0 0 0.125rem hsl(var(--muted-light)/0.5);
 }
 @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
   select,
-  input, textarea {
+  input[type=text], input[type=number], input[type=search], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=date], input[type=time], input[type=datetime-local], input[type=month], input[type=week], input[type=color], input[type=file], textarea {
     font-size: 1em;
   }
 }
@@ -957,14 +957,101 @@ select:-moz-focusring {
 }
 
 input[type=image],
-[type=checkbox], [type=radio] {
+input[type=checkbox], input[type=radio] {
   background-color: transparent;
   border: 0;
   inline-size: auto;
 }
 
 input[type=range] {
+  background-color: transparent;
+  appearance: none;
   inline-size: 100%;
+  padding: 0;
+}
+input[type=range]:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 0.25rem hsl(var(--accent-light));
+}
+input[type=range]:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 0.25rem hsl(var(--accent-light));
+}
+input[type=range]::-webkit-slider-thumb {
+  width: 1rem;
+  height: 1rem;
+  margin-top: -0.5rem;
+  background-color: hsl(var(--accent));
+  border: 0.25rem solid hsl(var(--background));
+  border-radius: 1rem;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  appearance: none;
+  box-sizing: content-box;
+  cursor: grab;
+  filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.2));
+}
+input[type=range]::-webkit-slider-thumb:active {
+  cursor: grabbing;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.5rem;
+  color: transparent;
+  cursor: pointer;
+  background-color: hsl(var(--contrast));
+  border-color: transparent;
+  border-radius: 1rem;
+  background-image: linear-gradient(to right, hsl(var(--success)) var(--value, 0%), hsl(var(--contrast)) var(--value, 0%));
+}
+input[type=range]::-moz-range-thumb {
+  width: 1rem;
+  height: 1rem;
+  background-color: hsl(var(--accent));
+  border: 0.25rem solid hsl(var(--background));
+  border-radius: 1rem;
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  appearance: none;
+  cursor: grab;
+  filter: drop-shadow(0 0 0.25rem rgba(0, 0, 0, 0.2));
+}
+input[type=range]::-moz-range-thumb:active {
+  cursor: grabbing;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 0.5rem;
+  color: transparent;
+  cursor: pointer;
+  background-color: hsl(var(--contrast));
+  border-color: transparent;
+  border-radius: 1rem;
+}
+input[type=range]::-moz-range-progress {
+  height: 0.5rem;
+  background-color: hsl(var(--accent-light));
+  border-radius: 1rem;
+}
+@media (prefers-reduced-motion: reduce) {
+  input[type=range]::-webkit-slider-thumb {
+    transition: none;
+  }
+  input[type=range]::-moz-range-thumb {
+    transition: none;
+  }
+}
+input[type=range]:disabled {
+  pointer-events: none;
+}
+input[type=range]:disabled::-webkit-slider-thumb {
+  background-color: hsl(var(--disabled));
+}
+input[type=range]:disabled::-moz-range-thumb {
+  background-color: hsl(var(--disabled));
+}
+input[type=range] ~ output {
+  box-sizing: content-box;
+  inline-size: 3ch;
+  inset-inline-start: calc(var(--value) * 1% - 3ch * var(--value) / 100);
+  text-align: center;
+  translate: -0.5rem;
 }
 
 input[type=number],
@@ -977,14 +1064,14 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
-[type=checkbox]:not(:first-of-type), [type=radio]:not(:first-of-type) {
+input[type=checkbox]:not(:first-of-type), input[type=radio]:not(:first-of-type) {
   margin-inline-start: 0.5rem;
 }
-[type=checkbox]:focus, [type=radio]:focus {
+input[type=checkbox]:focus, input[type=radio]:focus {
   box-shadow: 0 0 0 0.125rem hsl(var(--accent-light)/0.25);
   outline-color: transparent;
 }
-[type=checkbox] + label[for], [type=radio] + label[for] {
+input[type=checkbox] + label[for], input[type=radio] + label[for] {
   display: inline-block;
 }
 
@@ -1035,17 +1122,17 @@ label [class^=label-msg] {
  ** @note Prevent required input to be invalid on first load
  ** @link https://www.ffoodd.fr/l-etat-des-champs/
  */
-input:not([list]):valid:focus, textarea:not([list]):valid:focus {
+input[type=text]:not([list]):valid:focus, input[type=number]:not([list]):valid:focus, input[type=search]:not([list]):valid:focus, input[type=password]:not([list]):valid:focus, input[type=email]:not([list]):valid:focus, input[type=url]:not([list]):valid:focus, input[type=tel]:not([list]):valid:focus, input[type=date]:not([list]):valid:focus, input[type=time]:not([list]):valid:focus, input[type=datetime-local]:not([list]):valid:focus, input[type=month]:not([list]):valid:focus, input[type=week]:not([list]):valid:focus, input[type=color]:not([list]):valid:focus, input[type=file]:not([list]):valid:focus, textarea:not([list]):valid:focus {
   background: hsl(var(--contrast)) no-repeat var(--valid) center right 0.5em/1em 1.25em;
 }
-input:not([list]):invalid:not(:focus), textarea:not([list]):invalid:not(:focus) {
+input[type=text]:not([list]):invalid:not(:focus), input[type=number]:not([list]):invalid:not(:focus), input[type=search]:not([list]):invalid:not(:focus), input[type=password]:not([list]):invalid:not(:focus), input[type=email]:not([list]):invalid:not(:focus), input[type=url]:not([list]):invalid:not(:focus), input[type=tel]:not([list]):invalid:not(:focus), input[type=date]:not([list]):invalid:not(:focus), input[type=time]:not([list]):invalid:not(:focus), input[type=datetime-local]:not([list]):invalid:not(:focus), input[type=month]:not([list]):invalid:not(:focus), input[type=week]:not([list]):invalid:not(:focus), input[type=color]:not([list]):invalid:not(:focus), input[type=file]:not([list]):invalid:not(:focus), textarea:not([list]):invalid:not(:focus) {
   background: hsl(var(--contrast)) no-repeat var(--invalid) center right 0.5em/1em 1.25em;
   box-shadow: 0 0 0 0.125rem hsl(var(--alert-light), 0.5);
 }
-input:invalid:placeholder-shown:not(:focus), textarea:invalid:placeholder-shown:not(:focus) {
+input[type=text]:invalid:placeholder-shown:not(:focus), input[type=number]:invalid:placeholder-shown:not(:focus), input[type=search]:invalid:placeholder-shown:not(:focus), input[type=password]:invalid:placeholder-shown:not(:focus), input[type=email]:invalid:placeholder-shown:not(:focus), input[type=url]:invalid:placeholder-shown:not(:focus), input[type=tel]:invalid:placeholder-shown:not(:focus), input[type=date]:invalid:placeholder-shown:not(:focus), input[type=time]:invalid:placeholder-shown:not(:focus), input[type=datetime-local]:invalid:placeholder-shown:not(:focus), input[type=month]:invalid:placeholder-shown:not(:focus), input[type=week]:invalid:placeholder-shown:not(:focus), input[type=color]:invalid:placeholder-shown:not(:focus), input[type=file]:invalid:placeholder-shown:not(:focus), textarea:invalid:placeholder-shown:not(:focus) {
   box-shadow: none;
 }
-input:not([list]):required:placeholder-shown, textarea:not([list]):required:placeholder-shown {
+input[type=text]:not([list]):required:placeholder-shown, input[type=number]:not([list]):required:placeholder-shown, input[type=search]:not([list]):required:placeholder-shown, input[type=password]:not([list]):required:placeholder-shown, input[type=email]:not([list]):required:placeholder-shown, input[type=url]:not([list]):required:placeholder-shown, input[type=tel]:not([list]):required:placeholder-shown, input[type=date]:not([list]):required:placeholder-shown, input[type=time]:not([list]):required:placeholder-shown, input[type=datetime-local]:not([list]):required:placeholder-shown, input[type=month]:not([list]):required:placeholder-shown, input[type=week]:not([list]):required:placeholder-shown, input[type=color]:not([list]):required:placeholder-shown, input[type=file]:not([list]):required:placeholder-shown, textarea:not([list]):required:placeholder-shown {
   background: hsl(var(--contrast)) no-repeat var(--required) center right 0.5em/1em 1.25em;
 }
 
@@ -1415,7 +1502,8 @@ footer[id=footnotes] {
   margin: 0;
 }
 
-[role=tooltip] {
+[role=tooltip],
+[type=range] ~ output {
   --arrow: calc(100% - 0.25rem);
   --rotation: 45deg;
   background: hsl(var(--muted-dark));
@@ -1423,16 +1511,19 @@ footer[id=footnotes] {
   clip-path: polygon(0% 0%, 100% 0%, 100% var(--arrow), calc(50% - 0.25rem) var(--arrow), 50% 100%, calc(50% + 0.25rem) var(--arrow), 0% var(--arrow));
   color: hsl(var(--background));
   inset-inline-start: 50%;
-  opacity: 0;
   margin: 0;
   padding: 0.25rem 0.5rem 0.5rem;
   pointer-events: none;
   position: absolute;
+  white-space: nowrap;
+}
+
+[role=tooltip] {
+  opacity: 0;
   transform-origin: 50% calc(100% + 10px);
   transform: perspective(1000px) rotate3d(1, 0, 0, var(--rotation)) translateX(-50%);
   transition: opacity 0.2s var(--enter), transform 0.2s var(--enter), visibility 0s linear 0.2s;
   visibility: hidden;
-  white-space: nowrap;
 }
 .tooltip:focus-within [role=tooltip], .tooltip button:hover + [role=tooltip], .tooltip button:focus + [role=tooltip], .tooltip button:active + [role=tooltip] {
   --rotation: 0deg;
@@ -1896,6 +1987,14 @@ button[role=switch][aria-checked=true] > *:first-child {
 
 .p-relative {
   position: relative !important;
+}
+
+.p-absolute {
+  position: absolute !important;
+}
+
+.p-sticky {
+  position: sticky !important;
 }
 
 .d-flex {

@@ -25,8 +25,10 @@
 	}
 }
 
-.p-relative {
-	position: relative !important;
+@each $position in 'relative', 'absolute', 'sticky' {
+	.p-#{$position} {
+		position: string.unquote($position) !important;
+	}
 }
 
 .d-flex {
