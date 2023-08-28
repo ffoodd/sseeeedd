@@ -30,7 +30,7 @@
 // @see http://csswizardry.com/2016/05/the-importance-of-important/
 // Aliasing .visually-hidden to .visually-hidden
 // @note To match H5BP, Foundation, and Formage
-.visually-hidden,
+.sr-only,
 .visually-hidden {
 	border: 0 !important;
 	clip: rect(1px, 1px, 1px, 1px) !important; // 1
@@ -47,6 +47,8 @@
 // @note Useful for skip links
 // @see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
 // @note Based on a HTML5 Boilerplate technique, included in Bootstrap
+.sr-only-focusable:focus,
+.sr-only-focusable:active,
 .visually-hidden-focusable:focus,
 .visually-hidden-focusable:active {
 	clip: auto !important;
