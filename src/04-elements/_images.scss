@@ -17,8 +17,14 @@ img[alt] {
 	max-inline-size: 100%;
 	vertical-align: middle;
 
-	&:not([src$=".svg"]) {
+	&[width][height] {
 		block-size: auto;
+	}
+
+	&[src$=".svg"] {
+		block-size: auto;
+		inline-size: 100%;
+		max-inline-size: none;
 	}
 
 	/* 1 */
