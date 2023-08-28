@@ -139,6 +139,7 @@ select[multiple] {
 	vertical-align: top;
 }
 
+input[list],
 select:not([multiple]) {
 	appearance: none;
 	background: hsl(var(--contrast)) no-repeat var(--select) center right .5em / 1em 1em;
@@ -182,11 +183,11 @@ label [class^="label-msg"] {
  ** @link https://www.ffoodd.fr/l-etat-des-champs/
  */
 #{variables.$form-fields} {
-	&:valid:focus {
+	&:not([list]):valid:focus {
 		background: hsl(var(--contrast)) no-repeat var(--valid) center right .5em / 1em 1.25em;
 	}
 
-	&:invalid:not(:focus) {
+	&:not([list]):invalid:not(:focus) {
 		background: hsl(var(--contrast)) no-repeat var(--invalid) center right .5em / 1em 1.25em;
 		box-shadow: 0 0 0 .125rem  hsl(var(--alert-light), .5);
 	}
@@ -195,7 +196,7 @@ label [class^="label-msg"] {
 		box-shadow: none;
 	}
 
-	&:required:placeholder-shown {
+	&:not([list]):required:placeholder-shown {
 		background: hsl(var(--contrast)) no-repeat var(--required) center right .5em / 1em 1.25em;
 	}
 }
@@ -203,23 +204,14 @@ label [class^="label-msg"] {
 /**
  * Browser reset
  *
- * 1. Do not display delete cross in IE/Edge
- * 2. hiding IE11 arrow
- * 3. 'x' appears on right of search input when text is entered. This removes it
+ * 1. 'x' appears on right of search input when text is entered. This removes it
  */
-::-ms-clear {
-	display: none; /* 1 */
-}
-
-select::-ms-expand {
-	display: none; /* 2 */
-}
 
 [type="search"] {
 	&::-webkit-search-decoration,
 	&::-webkit-search-cancel-button,
 	&::-webkit-search-results-button,
 	&::-webkit-search-results-decoration {
-		display: none; /* 3 */
+		display: none; /* 1 */
 	}
 }
