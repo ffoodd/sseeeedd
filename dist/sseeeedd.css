@@ -20,7 +20,7 @@
 /* == Formage
 /* ==================== */
 html {
-  color-scheme: light dark;
+  color-scheme: light;
   --neutral: 0 0%;
   --treshold: 60%;
   --hue: 240;
@@ -30,8 +30,8 @@ html {
   --light-scale: 1.61803398875;
   --lightness: 30%;
   --brighter: calc(var(--lightness) * var(--light-scale));
-  --darker: calc(var(--lightness) / var(--light-scale));
-  --switch: calc((var(--lightness) - var(--treshold)) * -100);
+  --darker: max(calc(var(--lightness) / var(--light-scale)), 80%);
+  --switch: min(calc((var(--lightness) - var(--treshold)) * -100), 20%);
   --secondary: var(--hue) 100% var(--lightness);
   --secondary-light: var(--hue) 100% var(--brighter);
   --secondary-dark: var(--hue) 100% var(--darker);
@@ -70,17 +70,6 @@ html {
   html {
     --light-scale: 1.25;
     --lightness: 40%;
-  }
-}
-@media screen and (prefers-color-scheme: dark) {
-  html {
-    --hue: 210;
-    --lightness: 64%;
-    --light-scale: 1.5;
-    --treshold: 40%;
-    --brighter: calc(var(--lightness) / var(--light-scale));
-    --darker: calc(var(--lightness) * var(--light-scale));
-    --background: var(--neutral) 8%;
   }
 }
 .hn, blockquote footer, b,
@@ -378,40 +367,6 @@ main {
   outline-color: transparent;
 }
 
-@media screen and (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-/**
- * Handle high contrast mode in Windows
- * @link http://adrianroselli.com/2017/12/tweaking-text-level-styles.html
- */
-@media screen and (-ms-high-contrast: active) {
-  a svg,
-  button svg {
-    background: none;
-    border-color: Highlight;
-    fill: Highlight;
-  }
-  mark {
-    background-color: Highlight;
-    color: HighlightText;
-  }
-}
-@media screen and (prefers-color-scheme: dark) {
-  body {
-    color: hsl(var(--muted));
-  }
-  img {
-    filter: brightness(0.9) contrast(1.2);
-  }
-}
 /* ==================== */
 /* == Typography
 /* ==================== */
@@ -506,6 +461,72 @@ li ol {
   margin-block: 0;
 }
 
+@media screen and (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+/**
+ * Handle high contrast mode in Windows
+ * @link http://adrianroselli.com/2017/12/tweaking-text-level-styles.html
+ */
+@media screen and (-ms-high-contrast: active) {
+  a svg,
+  button svg {
+    background: none;
+    border-color: Highlight;
+    fill: Highlight;
+  }
+  mark {
+    background-color: Highlight;
+    color: HighlightText;
+  }
+}
+/**
+ * Dark mode
+ */
+html[data-theme=dark] {
+  color-scheme: dark;
+  --hue: 210;
+  --lightness: 60%;
+  --treshold: 40%;
+  --rotation: calc(var(--hue) - 30);
+  --brighter: max(calc(var(--lightness) / var(--light-scale)), 80%);
+  --darker: min(calc(var(--lightness) * var(--light-scale)), 20%);
+  --disabled: var(--neutral) 10%;
+  --background: var(--neutral) 8%;
+  --success-light: var(--right) 100% calc(var(--lightness) / 2);
+  --success-dark: var(--right) 100% var(--brighter);
+}
+html[data-theme=dark] img {
+  filter: brightness(0.8) contrast(1.2);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  .no-js,
+  html:not([data-theme=light]) {
+    color-scheme: dark;
+    --hue: 210;
+    --lightness: 60%;
+    --treshold: 40%;
+    --rotation: calc(var(--hue) - 30);
+    --brighter: max(calc(var(--lightness) / var(--light-scale)), 80%);
+    --darker: min(calc(var(--lightness) * var(--light-scale)), 20%);
+    --disabled: var(--neutral) 10%;
+    --background: var(--neutral) 8%;
+    --success-light: var(--right) 100% calc(var(--lightness) / 2);
+    --success-dark: var(--right) 100% var(--brighter);
+  }
+  .no-js img,
+  html:not([data-theme=light]) img {
+    filter: brightness(0.8) contrast(1.2);
+  }
+}
 /* ==================== */
 /* == Contents
 /* ==================== */
@@ -965,7 +986,6 @@ input[type=text][readonly]:focus, input[type=number][readonly]:focus, input[type
  */
 select:-moz-focusring {
   color: transparent;
-  text-shadow: 0 0 0 hsl(var(--muted-dark));
 }
 
 input[type=image],
@@ -1555,7 +1575,6 @@ footer[id=footnotes] {
   font-weight: bold;
   margin: 1rem 0.5rem;
   padding: 0 1rem;
-  text-shadow: 0.125rem 0.125rem 0 var(--color);
 }
 
 .bg-alert[role=alert] {
@@ -1585,7 +1604,6 @@ footer[id=footnotes] {
   --border: hsl(var(--muted-light));
   --color: hsl(var(--muted-dark));
   --shadow: hsl(var(--muted-dark), .25);
-  --text-shadow: var(--background);
   background: var(--background);
   border: 1px solid var(--border);
   border-radius: 0.25rem;
@@ -1612,7 +1630,6 @@ footer[id=footnotes] {
   margin-block-end: 1rem;
   order: 1;
   padding: 0 1rem;
-  text-shadow: 1px 1px 0 var(--text-shadow);
 }
 .card-text * {
   color: inherit;
@@ -1625,7 +1642,6 @@ footer[id=footnotes] {
 .card-title {
   font-size: 1.625rem;
   line-height: 1.2;
-  text-shadow: 0.125rem 0.125rem 0 var(--text-shadow);
   margin: 1rem 0 !important;
 }
 
@@ -1657,7 +1673,6 @@ footer[id=footnotes] {
   --border: hsl(var(--alert-dark));
   --color: hsl(var(--contrast));
   --shadow: hsl(var(--alert), .25);
-  --text-shadow: var(--border);
 }
 
 .card-success {
@@ -1665,7 +1680,6 @@ footer[id=footnotes] {
   --border: hsl(var(--success-dark));
   --color: hsl(var(--contrast));
   --shadow: hsl(var(--success), .25);
-  --text-shadow: var(--border);
 }
 
 .card-accent {
@@ -1673,7 +1687,6 @@ footer[id=footnotes] {
   --border: hsl(var(--accent-dark));
   --color: hsl(var(--contrast));
   --shadow: hsl(var(--accent), .25);
-  --text-shadow: var(--border);
 }
 
 .card-default {
@@ -1681,7 +1694,6 @@ footer[id=footnotes] {
   --border: hsl(var(--default-dark));
   --color: hsl(var(--contrast));
   --shadow: hsl(var(--default), .25);
-  --text-shadow: var(--border);
 }
 
 .card-secondary {
@@ -1689,7 +1701,6 @@ footer[id=footnotes] {
   --border: hsl(var(--secondary-dark));
   --color: hsl(var(--contrast));
   --shadow: hsl(var(--secondary), .25);
-  --text-shadow: var(--border);
 }
 
 /* ==================== */
@@ -1750,6 +1761,9 @@ footer[id=footnotes] {
   margin: 0.5rem;
   position: relative;
   z-index: 1;
+}
+.fly-out > *:first-child {
+  margin-inline-start: 0;
 }
 .fly-out > *:hover, .fly-out > *.focus-within {
   z-index: 2;
@@ -1991,6 +2005,30 @@ button[role=switch][aria-checked=true] > *:first-child {
   grid-gap: 1rem;
 }
 
+.toggle {
+  background-color: hsl(var(--contrast));
+  border-radius: 0.25rem;
+  padding: 0 0.5rem;
+}
+.toggle button {
+  aspect-ratio: 1;
+}
+.toggle button[aria-pressed=false] {
+  background-color: transparent;
+  border: 0;
+  color: hsl(var(--accent));
+}
+
+.skip-links {
+  flex: 1 0 100%;
+}
+.skip-links:focus-within {
+  inset-block-start: -0.25rem;
+}
+.skip-links > * {
+  margin-inline-end: 0.5rem;
+}
+
 /* == Helpers
 /* ==================== */
 .no-border {
@@ -2030,6 +2068,11 @@ button[role=switch][aria-checked=true] > *:first-child {
 
 .d-block {
   display: block !important;
+}
+
+.js .js-hidden,
+.no-js .no-js-hidden {
+  display: none !important;
 }
 
 .align-top {
@@ -2446,8 +2489,10 @@ button[role=switch][aria-checked=true] > *:first-child {
 
 .sr-only-focusable:focus,
 .sr-only-focusable:active,
+.sr-only-focusable:focus-within,
 .visually-hidden-focusable:focus,
-.visually-hidden-focusable:active {
+.visually-hidden-focusable:active,
+.visually-hidden-focusable:focus-within {
   clip: auto !important;
   clip-path: none !important;
   block-size: auto !important;

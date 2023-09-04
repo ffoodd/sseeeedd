@@ -55,7 +55,7 @@ html {
 	// 5. Using golden ratio for light scale
 	// @see https://en.wikipedia.org/wiki/Golden_ratio
 	// ====================
-	color-scheme: light dark;
+	color-scheme: light;
 	--neutral: 0 0%;
 	--treshold: 60%; // 3
 	// Hues
@@ -67,8 +67,8 @@ html {
 	--light-scale: 1.61803398875; // 5
 	--lightness: 30%;
 	--brighter: calc(var(--lightness) * var(--light-scale));
-	--darker: calc(var(--lightness) / var(--light-scale));
-	--switch: calc((var(--lightness) - var(--treshold)) * -100); // 3
+	--darker: max(calc(var(--lightness) / var(--light-scale)), 80%);
+	--switch: min(calc((var(--lightness) - var(--treshold)) * -100), 20%); // 3
 	// Palette
 	--secondary: var(--hue) 100% var(--lightness);
 	--secondary-light: var(--hue) 100% var(--brighter);
@@ -124,27 +124,9 @@ html {
 	--tel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 88'%3E%3Cpath d='M6 0C2.676 0 0 2.676 0 6v76.00005c0 3.324 2.676 6 6 6h34c3.324 0 6-2.676 6-6V6c0-3.324-2.676-6-6-6zM4 10h38v64.00005H4z'/%3E%3C/svg%3E");
 }
 
-@media screen and (-ms-high-contrast: active) {
-	html {
-		// @todo Find a way to override custom props ↑
-	}
-}
-
 @media screen and (min-width: #{$content-width}) {
 	html {
 		--light-scale: 1.25;
 		--lightness: 40%;
-	}
-}
-
-@media screen and (prefers-color-scheme: dark) {
-	html {
-		--hue: 210;
-		--lightness: 64%;
-		--light-scale: 1.5;
-		--treshold: 40%;
-		--brighter: calc(var(--lightness) / var(--light-scale));
-		--darker: calc(var(--lightness) * var(--light-scale));
-		--background: var(--neutral) 8%;
 	}
 }

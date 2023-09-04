@@ -11,10 +11,10 @@
 	<link rel="stylesheet" href="css/sseeeedd-print.min.css" media="print">
 </head>
 <body itemscope itemtype="http://schema.org/WebPage">
-<header role="banner">
-		<div>
-			<a href="#nav" class="visually-hidden visually-hidden-focusable">Aller à la navigation</a>
-			<a href="#main" class="visually-hidden visually-hidden-focusable">Aller au contenu</a>
+<header role="banner" class="d-flex">
+		<div class="skip-links visually-hidden visually-hidden-focusable">
+			<a href="#nav">Aller à la navigation</a>
+			<a href="#main">Aller au contenu</a>
 		</div>
 
 	<nav role="navigation" id="nav" aria-label="Navigation principale">
@@ -36,6 +36,21 @@
 		<li><a aria-current="page">Jeu de cartes</a></li>
 	</ul>
 	</nav>
+	<div role="group" aria-label="Choix du thème" id="theme" class="toggle no-js-hidden mis-auto">
+		<button type="button" title="Thème sombre"
+						data-scheme="dark" aria-pressed="false">
+			<svg width="24" height="24" role="img" aria-label="Thème sombre" class="mx-auto no-padding">
+				<use xlink:href="img/symbol.svg#moon"></use>
+			</svg>
+		</button>
+		<button type="button"	title="Thème clair"
+						data-scheme="light" aria-pressed="false">
+			<svg width="24" height="24" role="img" aria-label="Thème clair" class="mx-auto no-padding">
+				<use xlink:href="img/symbol.svg#sun"></use>
+			</svg>
+		</button>
+		</button>
+	</div>
 </header>
 
 <main role="main" id="main" tabindex="-1" itemprop="mainContentOfPage">

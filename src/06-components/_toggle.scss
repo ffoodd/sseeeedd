@@ -1,0 +1,15 @@
+.toggle {
+	background-color: hsl(var(--contrast));
+	border-radius: .25rem;
+	padding: 0 .5rem;
+
+	button {
+		aspect-ratio: 1;
+
+		&[aria-pressed="false"] {
+			background-color: transparent;
+			border: 0;
+			color: hsl(var(--accent));
+		}
+	}
+}
