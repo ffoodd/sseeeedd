@@ -12,7 +12,6 @@
 	--border: hsl(var(--muted-light));
 	--color: hsl(var(--muted-dark));
 	--shadow: hsl(var(--muted-dark), .25);
-	--text-shadow: var(--background);
 	background: var(--background);
 	border: 1px solid var(--border);
 	border-radius: .25rem;
@@ -41,7 +40,6 @@
 	margin-block-end: variables.$gutter;
 	order: 1;
 	padding: 0 variables.$gutter;
-	text-shadow: 1px 1px 0 var(--text-shadow);
 
 	* {
 		color: inherit;
@@ -56,7 +54,6 @@
 .card-title {
 	font-size: 1.625rem;
 	line-height: 1.2;
-	text-shadow: .125rem .125rem 0 var(--text-shadow);
 	margin: variables.$gutter 0 !important;
 }
 
@@ -95,6 +92,5 @@
 		--border: hsl(var(--#{$variant}-dark));
 		--color: hsl(var(--contrast));
 		--shadow: hsl(var(--#{$variant}), .25);
-		--text-shadow: var(--border);
 	}
 }

@@ -11,7 +11,6 @@
 	font-weight: bold;
 	margin: variables.$gutter variables.$gutter * 0.5;
 	padding: 0 variables.$gutter;
-	text-shadow: .125rem .125rem 0 var(--color);
 }
 
 @each $alert in alert, success, accent, secondary {
