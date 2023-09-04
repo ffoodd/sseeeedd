@@ -51,9 +51,23 @@
 		});
 	});
 
-	// Theme
-	const toggle = document.getElementById('theme');
-	const buttons = toggle.querySelectorAll('button');
+	// Toggles
+	const toggles = document.querySelectorAll('.toggle');
+	toggles.forEach(toggle => {
+		const buttons = toggle.querySelectorAll('button');
+		buttons.forEach(button => {
+			button.addEventListener('click', () => {
+				for (let button of buttons) {
+					button.setAttribute('aria-pressed', 'false');
+				}
+				button.setAttribute('aria-pressed', 'true');
+			});
+		});
+	});
+
+	// Dark mode
+	const switcher = document.getElementById('theme');
+	const options = switcher.querySelectorAll('button');
 	//// Start with user preference
 	const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 	document.documentElement.dataset.theme = (prefersDarkScheme.matches) ? 'dark' : 'light';
@@ -67,14 +81,11 @@
 		document.querySelector('[data-scheme="light"]').setAttribute('aria-pressed', 'true');
 	}
 	//// Finally handle overriding through buttons
-	toggle.addEventListener('click', (event) => {
-		for (let button of buttons) {
-			button.setAttribute('aria-pressed', 'false');
-		}
-		const target = event.target;
-		document.documentElement.dataset.theme = target.dataset.scheme;
-		localStorage.setItem('theme', target.dataset.scheme);
-		target.setAttribute('aria-pressed', 'true');
+	options.forEach(option => {
+		option.addEventListener('click', () => {
+			document.documentElement.dataset.theme = option.dataset.scheme;
+			localStorage.setItem('theme', option.dataset.scheme);
+		});
 	});
 
 })(document);
