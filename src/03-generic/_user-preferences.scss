@@ -36,7 +36,7 @@ html[data-theme="dark"] {
 	--hue: 210;
 	--lightness: 60%;
 	--treshold: 40%;
-	--rotation: calc(var(--hue) - 30); // 1
+	--rotation: calc(var(--hue) - 30);
 	--brighter: max(calc(var(--lightness) / var(--light-scale)), 80%);
 	--darker: min(calc(var(--lightness) * var(--light-scale)), 20%);
 	--disabled: var(--neutral) 10%;
