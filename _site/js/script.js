@@ -49,8 +49,32 @@
 			output.style.setProperty('--value', range.value);
 			output.value = range.value;
 		});
-	})
+	});
 
-
+	// Theme
+	const toggle = document.getElementById('theme');
+	const buttons = toggle.querySelectorAll('button');
+	//// Start with user preference
+	const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+	document.documentElement.dataset.theme = (prefersDarkScheme.matches) ? 'dark' : 'light';
+	//// Then check for localStorage
+	const currentTheme = localStorage.getItem('theme');
+	document.documentElement.dataset.theme = (currentTheme === 'dark') ? 'dark' : 'light';
+	//// Apply expected theme
+	if (document.documentElement.dataset.theme === 'dark') {
+		document.querySelector('[data-scheme="dark"]').setAttribute('aria-pressed', 'true');
+	} else {
+		document.querySelector('[data-scheme="light"]').setAttribute('aria-pressed', 'true');
+	}
+	//// Finally handle overriding through buttons
+	toggle.addEventListener('click', (event) => {
+		for (let button of buttons) {
+			button.setAttribute('aria-pressed', 'false');
+		}
+		const target = event.target;
+		document.documentElement.dataset.theme = target.dataset.scheme;
+		localStorage.setItem('theme', target.dataset.scheme);
+		target.setAttribute('aria-pressed', 'true');
+	});
 
 })(document);

@@ -41,6 +41,11 @@
 	display: block !important;
 }
 
+.js .js-hidden,
+.no-js .no-js-hidden {
+	display: none !important;
+}
+
 .align-top {
 	align-items: flex-start !important;
 }

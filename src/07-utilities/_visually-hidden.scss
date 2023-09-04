@@ -49,8 +49,10 @@
 // @note Based on a HTML5 Boilerplate technique, included in Bootstrap
 .sr-only-focusable:focus,
 .sr-only-focusable:active,
+.sr-only-focusable:focus-within,
 .visually-hidden-focusable:focus,
-.visually-hidden-focusable:active {
+.visually-hidden-focusable:active,
+.visually-hidden-focusable:focus-within {
 	clip: auto !important;
 	clip-path: none !important;
 	block-size: auto !important;

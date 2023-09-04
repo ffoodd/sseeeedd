@@ -1,0 +1,11 @@
+.skip-links {
+	flex: 1 0 100%;
+
+	&:focus-within {
+		inset-block-start: -.25rem;
+	}
+
+	> * {
+		margin-inline-end: .5rem;
+	}
+}
