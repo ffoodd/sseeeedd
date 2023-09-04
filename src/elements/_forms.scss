@@ -1,0 +1,323 @@
+@use "sass:math";
+@use "../settings/variables";
+
+/* ==================== */
+/* == Forms
+/* ==================== */
+
+input,
+optgroup,
+select,
+textarea {
+	line-height: inherit;
+}
+
+input,
+select,
+label[for] {
+	vertical-align: middle;
+}
+
+input,
+button,
+select,
+textarea {
+	border-radius: variables.$gutter * 0.25;
+	font-family: inherit;
+	font-size: 1em;
+	padding: variables.$gutter * 0.5;
+}
+
+form,
+fieldset,
+.fieldset {
+	max-inline-size: variables.$content-width;
+}
+
+form > * + * {
+	margin-block-start: 3rem;
+}
+
+fieldset,
+.fieldset {
+	border: 0;
+	margin: variables.$gutter auto variables.$gutter * 2;
+	padding: 0;
+
+	> p,
+	> div {
+		margin-block-end: inherit;
+	}
+}
+
+legend:first-child {
+	font-weight: 700;
+	margin-block-end: inherit;
+}
+
+label[for] {
+	display: block;
+}
+
+select,
+#{variables.$form-fields} {
+	appearance: none;
+	background-color: hsl(var(--contrast));
+	border: 1px solid hsl(var(--contrast-inverse));
+	color: hsl(var(--muted-dark));
+	inline-size: 100%;
+
+	&:focus {
+		border: 1px solid hsl(var(--accent-light));
+		box-shadow: 0 0 0 .125rem hsl(var(--accent-light) / .25);
+	}
+
+	&[readonly] {
+		background-color: hsl(var(--disabled));
+
+		&:focus {
+			border-color: hsl(var(--muted));
+			box-shadow: 0 0 0 .125rem hsl(var(--muted-light) / .5);
+		}
+	}
+
+	/**
+	 * Avoid zoom on iOS when focus on inputs
+	 * http://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
+	 */
+	@media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+		font-size: 1em;
+	}
+}
+
+/**
+ * Prevent inner select focus indicator in Firefox
+ ** @see https://developer.mozilla.org/fr/docs/Web/CSS/:-moz-focusring
+ */
+select:-moz-focusring {
+	color: transparent;
+}
+
+input[type="image"],
+#{variables.$form-radio-checkbox} {
+	background-color: transparent;
+	border: 0;
+	inline-size: auto;
+}
+
+input[type="range"] {
+	background-color: transparent;
+	appearance: none;
+	inline-size: 100%;
+	padding: 0;
+
+	&:focus-visible {
+		&::-webkit-slider-thumb {
+			box-shadow: 0 0 0 .25rem hsl(var(--accent-light));
+		}
+
+		&::-moz-range-thumb {
+			box-shadow: 0 0 0 .25rem hsl(var(--accent-light));
+		}
+	}
+
+	&::-webkit-slider-thumb {
+		width: 1rem;
+		height: 1rem;
+		margin-top: -.5rem;
+		background-color: hsl(var(--accent));
+		border: .25rem solid hsl(var(--background));
+		border-radius: 1rem;
+		transition:
+			background-color .15s ease-in-out,
+			border-color .15s ease-in-out,
+			box-shadow .15s ease-in-out;
+		appearance: none;
+		box-sizing: content-box;
+		cursor: grab;
+		filter: drop-shadow(0 0 .25rem rgb(0 0 0 / .2));
+
+		&:active {
+			cursor: grabbing;
+		}
+	}
+
+	&::-webkit-slider-runnable-track {
+		width: 100%;
+		height: .5rem;
+		color: transparent;
+		cursor: pointer;
+		background-color: hsl(var(--contrast));
+		border-color: transparent;
+		border-radius: 1rem;
+		background-image: linear-gradient(to right, hsl(var(--success)) var(--value, 0%), hsl(var(--contrast)) var(--value, 0%));
+	}
+
+	&::-moz-range-thumb {
+		width: 1rem;
+		height: 1rem;
+		background-color: hsl(var(--accent));
+		border: .25rem solid hsl(var(--background));
+		border-radius: 1rem;
+		transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+		appearance: none;
+		cursor: grab;
+		filter: drop-shadow(0 0 .25rem rgb(0 0 0 / .2));
+
+		&:active {
+			cursor: grabbing;
+		}
+	}
+
+	&::-moz-range-track {
+		width: 100%;
+		height: .5rem;
+		color: transparent;
+		cursor: pointer;
+		background-color: hsl(var(--contrast));
+		border-color: transparent;
+		border-radius: 1rem;
+	}
+
+	&::-moz-range-progress {
+		height: .5rem;
+		background-color: hsl(var(--accent-light));
+		border-radius: 1rem;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		&::-webkit-slider-thumb {
+			transition: none;
+		}
+
+		&::-moz-range-thumb {
+			transition: none;
+		}
+	}
+
+	&:disabled {
+		pointer-events: none;
+
+		&::-webkit-slider-thumb {
+			background-color: hsl(var(--disabled));
+		}
+
+		&::-moz-range-thumb {
+			background-color: hsl(var(--disabled));
+		}
+	}
+
+	~ output {
+		box-sizing: content-box;
+		inline-size: 3ch;
+		inset-inline-start: calc((var(--value) * 1%) - (3ch * (var(--value) / 100)));
+		text-align: center;
+		translate: -.5rem;
+	}
+}
+
+input[type="number"],
+input[type="search"] {
+	appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+}
+
+#{variables.$form-radio-checkbox} {
+	&:not(:first-of-type) {
+		margin-inline-start: variables.$gutter * 0.5;
+	}
+
+	&:focus {
+		box-shadow: 0 0 0 .125rem hsl(var(--accent-light) / .25);
+		outline-color: transparent;
+	}
+
+	+ label[for] {
+		display: inline-block;
+	}
+}
+
+select[multiple] {
+	vertical-align: top;
+}
+
+input[list],
+select:not([multiple]) {
+	appearance: none;
+	background: hsl(var(--contrast)) no-repeat var(--select) center right .5em / 1em 1em;
+}
+
+textarea {
+	resize: vertical;
+	vertical-align: top;
+}
+
+/**
+ * Cursors
+ */
+label[for],
+#{variables.$form-buttons} {
+	appearance: none;
+	cursor: pointer;
+}
+
+form [disabled] {
+	background-color: hsl(var(--disabled));
+	cursor: not-allowed;
+}
+
+/**
+ * Messages
+ */
+label [class^="label-msg"] {
+	display: block;
+	margin: math.div(variables.$gutter, -4) 0 variables.$gutter * 0.25;
+	font-size: small;
+}
+
+.label-msg-error {
+	color: hsl(var(--alert));
+}
+
+/**
+ * States
+ ** @note Prevent required input to be invalid on first load
+ ** @link https://www.ffoodd.fr/l-etat-des-champs/
+ */
+#{variables.$form-fields} {
+	&:not([list]):valid:focus {
+		background: hsl(var(--contrast)) no-repeat var(--valid) center right .5em / 1em 1.25em;
+	}
+
+	&:not([list]):invalid:not(:focus) {
+		background: hsl(var(--contrast)) no-repeat var(--invalid) center right .5em / 1em 1.25em;
+		box-shadow: 0 0 0 .125rem hsl(var(--alert-light), .5);
+	}
+
+	&:invalid:placeholder-shown:not(:focus) {
+		box-shadow: none;
+	}
+
+	&:not([list]):required:placeholder-shown {
+		background: hsl(var(--contrast)) no-repeat var(--required) center right .5em / 1em 1.25em;
+	}
+}
+
+/**
+ * Browser reset
+ *
+ * 1. 'x' appears on right of search input when text is entered. This removes it
+ */
+
+[type="search"] {
+	&::-webkit-search-decoration,
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-results-button,
+	&::-webkit-search-results-decoration {
+		display: none; /* 1 */
+	}
+}

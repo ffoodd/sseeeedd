@@ -1,0 +1,9 @@
+@use "../settings/variables";
+
+/* ----------------------------- */
+/* -- Header
+/* ----------------------------- */
+
+header .sr-only-focusable {
+	inset-inline-start: variables.$gutter;
+}

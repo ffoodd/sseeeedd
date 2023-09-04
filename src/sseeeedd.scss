@@ -1,53 +1,72 @@
+@use "sass:meta";
+
 @charset "UTF-8";
+@layer settings, base, elements, layout, components, utilities, preferences;
 
 // Settings
-@use "01-settings/variables";
-
-// Abstracts
-@use "02-abstracts/mixins";
-@use "02-abstracts/placeholders";
+@layer settings {
+	@include meta.load-css("settings/variables");
+	@include meta.load-css("settings/mixins");
+	@include meta.load-css("settings/placeholders");
+}
 
 // Base
-@use "03-generic/base";
-@use "03-generic/typography";
-@use "03-generic/user-preferences";
+@layer base {
+	@include meta.load-css("base/base");
+	@include meta.load-css("base/typography");
+}
 
 // Elements
-@use "04-elements/contents";
-@use "04-elements/images";
-@use "04-elements/tables";
-@use "04-elements/details";
-@use "04-elements/forms";
-@use "04-elements/buttons";
-@use "04-elements/dialog";
+@layer elements {
+	@include meta.load-css("elements/contents");
+	@include meta.load-css("elements/images");
+	@include meta.load-css("elements/tables");
+	@include meta.load-css("elements/details");
+	@include meta.load-css("elements/forms");
+	@include meta.load-css("elements/buttons");
+	@include meta.load-css("elements/dialog");
+}
 
 // Layout
-@use "05-objects/base" as layout;
-@use "05-objects/grid";
-@use "05-objects/header";
-@use "05-objects/footer";
-@use "05-objects/navigation";
-@use "05-objects/prism"; // @todo Include from node_modules
+@layer layout {
+	@include meta.load-css("layout/base");
+	@include meta.load-css("layout/grid");
+	@include meta.load-css("layout/header");
+	@include meta.load-css("layout/footer");
+	@include meta.load-css("layout/navigation");
+	@include meta.load-css("layout/prism");
+}
 
 // Components
-@use "06-components/breadcrumb";
-@use "06-components/pagination";
-@use "06-components/notes";
-@use "06-components/footnotes";
-@use "06-components/tooltips";
-@use "06-components/alerts";
-@use "06-components/cards";
-@use "06-components/fly-out";
-@use "06-components/switch";
-@use "06-components/deck";
-@use "06-components/palette";
-@use "06-components/toggle";
-@use "06-components/skip-links";
+@layer components {
+	@include meta.load-css("components/breadcrumb");
+	@include meta.load-css("components/pagination");
+	@include meta.load-css("components/notes");
+	@include meta.load-css("components/footnotes");
+	@include meta.load-css("components/tooltips");
+	@include meta.load-css("components/alerts");
+	@include meta.load-css("components/cards");
+	@include meta.load-css("components/fly-out");
+	@include meta.load-css("components/switch");
+	@include meta.load-css("components/deck");
+	@include meta.load-css("components/palette");
+	@include meta.load-css("components/toggle");
+	@include meta.load-css("components/skip-links");
+}
 
 // Utilities
-@use "07-utilities/utilities";
-@use "07-utilities/backgrounds";
-@use "07-utilities/colors";
-@use "07-utilities/sizing";
-@use "07-utilities/spacings";
-@use "07-utilities/visually-hidden";
+@layer utilities {
+	@include meta.load-css("utilities/utilities");
+	@include meta.load-css("utilities/backgrounds");
+	@include meta.load-css("utilities/colors");
+	@include meta.load-css("utilities/sizing");
+	@include meta.load-css("utilities/spacings");
+	@include meta.load-css("utilities/visually-hidden");
+}
+
+// User preferences
+@layer preferences {
+	@include meta.load-css("preferences/reduced-motion");
+	@include meta.load-css("preferences/high-contrast");
+	@include meta.load-css("preferences/dark-mode");
+}

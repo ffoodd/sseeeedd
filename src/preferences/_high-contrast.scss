@@ -1,0 +1,17 @@
+/**
+ * Handle high contrast mode in Windows
+ * @link http://adrianroselli.com/2017/12/tweaking-text-level-styles.html
+ */
+@media screen and (-ms-high-contrast: active) {
+	a svg,
+	button svg {
+		background: none;
+		border-color: Highlight;
+		fill: Highlight;
+	}
+
+	mark {
+		background-color: Highlight;
+		color: HighlightText;
+	}
+}

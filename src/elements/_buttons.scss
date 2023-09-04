@@ -1,0 +1,72 @@
+@use "../settings/variables";
+
+/* ==================== */
+/* == Buttons
+/* ==================== */
+
+/**
+ * 1. High contrast mode helper
+ ** @see http://fr.slideshare.net/TheZero1/webexpo-highcontrast (slide 11)
+ * 2. Ensure outline stay visible in High contrast mode
+ ** @see https://accessibility.blog.gov.uk/2018/08/01/supporting-users-who-change-colours-on-gov-uk/
+ * 3. Better <button> styling
+ ** @author Florens Verschelde (@fvsch)
+ ** @see https://fvsch.com/styling-buttons/
+ */
+#{variables.$form-buttons} {
+	background-color: hsl(var(--accent));
+	border: 1px solid hsl(var(--accent));
+	border-radius: variables.$gutter * 0.25;
+	color: hsl(var(--contrast));
+	cursor: pointer; /* 3 */
+	display: inline-block;
+	font: inherit; /* 3 */
+	line-height: 1.5;
+	margin: variables.$gutter * 0.5 0;
+	outline: none; /* 2 */
+	padding: variables.$gutter * 0.5;
+	vertical-align: middle;
+	text-decoration: none;
+	transition: all 300ms var(--move);
+	inline-size: auto;
+	appearance: none;
+
+	&:hover {
+		border: 1px solid hsl(var(--accent-light));
+		background-color: hsl(var(--accent-light));
+	}
+
+	&:focus,
+	&:active,
+	&[aria-expanded="true"] {
+		border: 1px solid hsl(var(--accent-dark));
+		background-color: hsl(var(--accent-dark));
+	}
+
+	&:focus {
+		box-shadow: 0 0 0 .125rem hsl(var(--accent-light) / .25);
+		outline: .125rem solid transparent; /* 2 */
+	}
+
+	&:-moz-focusring {
+		outline: .125rem solid transparent; /* 2 */
+	}
+
+	&:active,
+	&[aria-expanded="true"] {
+		transform: translateY(.125rem);
+	}
+
+	&[disabled] {
+		&,
+		&:hover,
+		&:focus,
+		&:active {
+			background-color: hsl(var(--muted-dark));
+			box-shadow: none;
+			color: hsl(var(--background));
+			cursor: not-allowed;
+			pointer-events: none;
+		}
+	}
+}

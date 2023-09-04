@@ -1,0 +1,21 @@
+@use "../settings/variables";
+
+/* ==================== */
+/* == Notes
+/* ==================== */
+
+.note {
+	background: hsl(var(--contrast));
+	border-inline-start: variables.$gutter solid;
+	color: hsl(var(--muted-dark));
+	margin: variables.$gutter 0;
+	padding: variables.$gutter * 0.5 variables.$gutter variables.$gutter * 0.25;
+
+	*:not(pre) {
+		color: inherit;
+	}
+
+	&.wip {
+		color: hsl(var(--alert));
+	}
+}

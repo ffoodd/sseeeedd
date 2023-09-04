@@ -1,7 +1,0 @@
-@use "../01-settings/variables";
-
-dialog {
-	background-color: hsl(var(--background));
-	color: hsl(var(--muted-dark));
-	contain: content;
-}

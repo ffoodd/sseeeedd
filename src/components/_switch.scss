@@ -1,0 +1,82 @@
+@use "sass:math";
+@use "../settings/variables";
+
+/* ==================== */
+/* == Switch
+/* ==================== */
+
+button[role="switch"] {
+	background-color: hsl(var(--muted) / .1);
+	border-radius: 1.375rem;
+	box-sizing: content-box;
+	color: hsl(var(--muted-dark));
+	contain: content;
+	block-size: 2.75rem;
+	line-height: 2.75rem;
+	outline-color: transparent;
+	padding: 0 variables.$gutter * 3;
+	transition: all .3s var(--enter);
+	inline-size: 4.75rem;
+	will-change: background-color;
+
+	&::after,
+	&::before {
+		background: currentColor;
+		block-size: 2.375rem;
+		border-radius: 50%;
+		content: "";
+		position: absolute;
+		inline-size: 2.375rem;
+		inset-inline-start: .25rem;
+		inset-block-start: .25rem;
+		transform: none;
+		transition: transform .3s var(--enter) 0s;
+		will-change: transform;
+	}
+
+	&::after {
+		background: hsl(var(--contrast) / .5);
+		block-size: 1rem;
+		inline-size: 1rem;
+		inset-inline-start: .925rem;
+		inset-block-start: .925rem;
+		visibility: hidden;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: hsl(var(--muted) / .075);
+		color: hsl(var(--contrast-inverse));
+
+		&::after {
+			visibility: visible;
+		}
+	}
+
+	&[aria-checked="true"] {
+		background-color: hsl(var(--success-light) / .25);
+
+		&::before {
+			background: hsl(var(--success-dark));
+		}
+
+		&::after,
+		&::before {
+			transform: translateX(calc(4.75rem + .125rem + #{variables.$gutter * 3}));
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 .125rem hsl(var(--success-dark) / .25);
+		}
+	}
+
+	> *:first-child,
+	&[aria-checked="true"] > *:last-child {
+		display: none;
+	}
+
+	&[aria-checked="true"] > *:first-child {
+		display: block;
+	}
+}

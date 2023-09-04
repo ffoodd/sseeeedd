@@ -1,0 +1,40 @@
+@use "sass:string";
+@use "sass:meta";
+@use "../settings/variables";
+
+@each $spacing in 0, 1, 2, 3, 'auto' {
+	$value: $spacing;
+	@if meta.type-of($spacing) == number and $value != 0 {
+		$value: $spacing * variables.$gutter;
+	} @else if meta.type-of($spacing) == string {
+		$value: string.unquote($spacing);
+	}
+
+	@each $property in 'margin', 'padding' {
+		$prop: string.slice($property, 1, 1);
+
+		@if $value == 0 {
+			.no-#{$property} {
+				#{$property}: $value;
+			}
+		} @else {
+			.#{$prop}-#{$spacing} {
+				#{$property}: $value;
+			}
+		}
+
+		@each $side in 'block', 'inline' {
+			$axis: string.slice($side, 1, 1);
+
+			.#{$prop}#{$axis}-#{$spacing} {
+				#{$property}-#{$side}: $value;
+			}
+
+			@each $position in 'start', 'end' {
+				.#{$prop}#{$axis}#{string.slice($position, 1, 1)}-#{$spacing} {
+					#{$property}-#{$side}-#{$position}: $value;
+				}
+			}
+		}
+	}
+}

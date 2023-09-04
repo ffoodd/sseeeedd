@@ -1,0 +1,96 @@
+@use "../settings/variables";
+
+/* ==================== */
+/* == Images
+/* ==================== */
+
+/**
+ * 1. Display something if source is unreachable
+ * @see https://bitsofco.de/styling-broken-images/
+ * 2. This is a line break, like \n.
+ * 3. attr() functions returns attribute value, only in content property for now
+ * 4. And \A0 is a non-breakable space.
+ */
+img[alt] {
+	display: inline-block;
+	font-size: 0;
+	max-inline-size: 100%;
+	vertical-align: middle;
+
+	&[width][height] {
+		block-size: auto;
+	}
+
+	&[src$=".svg"] {
+		block-size: auto;
+		inline-size: 100%;
+		max-inline-size: none;
+	}
+
+	/* 1 */
+	&::after {
+		background: hsl(var(--contrast));
+		display: block;
+		content: attr(alt) /* 3 */
+		"\A" /* 2 */
+		"—\A0" attr(src); /* 4 */
+		font-size: 1rem;
+		padding: variables.$gutter * 0.5;
+		inline-size: 100%;
+		white-space: pre-wrap;
+	}
+}
+
+svg {
+	fill: currentColor;
+}
+
+figure {
+	background: hsl(var(--contrast));
+	margin: variables.$gutter auto;
+	max-inline-size: 100%;
+	overflow: hidden;
+	padding: variables.$gutter;
+
+	figcaption {
+		display: block;
+		font-size: .875rem;
+		padding: variables.$gutter 0;
+	}
+}
+
+@media screen and (min-width: #{variables.$content-width}) {
+	figure {
+		min-inline-size: variables.$content-width;
+		inline-size: min-content;
+
+		img {
+			min-inline-size: min-content;
+		}
+	}
+
+	li,
+	[class*="grid"],
+	[class*="columns"] {
+		figure {
+			min-inline-size: 0;
+			inline-size: auto;
+
+			img {
+				min-inline-size: 0;
+			}
+		}
+	}
+}
+
+@media (inverted-colors) {
+	img {
+		filter: invert(100%);
+	}
+}
+
+@media screen and (-ms-high-contrast: active) {
+	img {
+		filter: brightness(1) contrast(1) saturate(1.5);
+	}
+}

@@ -1,0 +1,15 @@
+@use "../settings/variables";
+
+/* ==================== */
+/* == Layout base
+/* ==================== */
+
+body > * {
+	background: hsl(var(--background) / .75);
+	margin: 0 auto;
+	padding: variables.$gutter;
+
+	@if variables.$full-width == false {
+		max-inline-size: variables.$width;
+	}
+}

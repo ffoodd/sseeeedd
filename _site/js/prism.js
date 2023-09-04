@@ -815,7 +815,7 @@ var Prism = (function (_self) {
 	}
 
 	/**
-	 * A token stream is an array of strings and {@link Token Token} objects.
+	 * A token stream is an array of strings and {@link Token Token} layout.
 	 *
 	 * Token streams have to fulfill a few properties that are assumed by most functions (mostly internal ones) that process
 	 * them.

@@ -1,0 +1,68 @@
+@use "../settings/variables";
+
+/* ==================== */
+/* == Tables
+/* ==================== */
+
+table {
+	border-collapse: collapse;
+	caption-side: block-start;
+	font-feature-settings: "tnum";
+	margin-block-end: variables.$gutter * 1.5;
+	inline-size: 100%;
+	vertical-align: top;
+
+	> caption:first-child {
+		font-style: italic;
+		margin: 0;
+		padding: 2.5rem variables.$gutter;
+	}
+}
+
+th,
+td {
+	padding: variables.$gutter * 0.5 .75rem;
+	text-align: start;
+}
+
+th,
+table strong {
+	color: hsl(var(--contrast-inverse));
+}
+
+td {
+	line-height: 1.25;
+	max-inline-size: 100%;
+}
+
+tbody {
+	border: 1px solid hsl(var(--muted-dark));
+}
+
+thead {
+	border: 1px solid hsl(var(--contrast-inverse));
+}
+
+/**
+ * Gives scrollbale table some UX hints with shadows
+ * @author Chen Hui Jing
+ * @link https://codepen.io/huijing/pen/XBGaNQ
+ ** Based on:
+ ** @author Lea Verou
+ ** @link http://lea.verou.me/2012/04/background-attachment-local/
+ */
+.table-container {
+	background: linear-gradient(to right, rgb(255 255 255 / 1) 30%, rgb(255 255 255 / 0)),
+							linear-gradient(to right, rgb(255 255 255 / 0), rgb(255 255 255 / 1) 70%) 0 100%,
+							radial-gradient(farthest-side at 0% 50%, rgb(0 0 0 / .2), rgb(0 0 0 / 0)),
+							radial-gradient(farthest-side at 100% 50%, rgb(0 0 0 / .2), rgb(0 0 0 / 0)) 0 100%;
+	background-repeat: no-repeat;
+	background-color: var(--contrast);
+	background-size: 2.5rem 100%, 2.5rem 100%, 1rem 100%, 1rem 100%;
+	background-position: 0 0, 100%, 0 0, 100%;
+	background-attachment: local, local, scroll, scroll;
+	max-inline-size: 100%;
+	overflow-x: auto;
+	overflow-y: hidden;
+	-webkit-overflow-scrolling: touch;
+}

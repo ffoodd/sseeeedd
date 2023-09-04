@@ -1,0 +1,24 @@
+
+[class*="bg-"] {
+	* {
+		color: inherit;
+	}
+
+	a:hover,
+	a:focus {
+		color: inherit;
+		opacity: .75;
+	}
+}
+
+// Backgrounds
+@each $color in alert, success, accent, secondary {
+	.bg-#{$color} {
+		background-color: hsl(var(--#{$color}));
+		color: hsl(var(--contrast));
+	}
+}
+
+.no-background {
+	background: none;
+}

@@ -1,0 +1,20 @@
+@use "../settings/variables";
+
+/* ==================== */
+/* == Alerts
+/* ==================== */
+
+[role="alert"] {
+	border: .25rem solid var(--color);
+	border-inline-start-width: 1rem;
+	contain: content;
+	font-weight: bold;
+	margin: variables.$gutter variables.$gutter * 0.5;
+	padding: 0 variables.$gutter;
+}
+
+@each $alert in alert, success, accent, secondary {
+	.alert-#{$alert} {
+		--color: hsl(var(--#{$alert}-dark));
+	}
+}
