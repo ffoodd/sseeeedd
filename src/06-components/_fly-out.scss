@@ -65,6 +65,10 @@
 		position: relative;
 		z-index: 1;
 
+		&:first-child {
+			margin-inline-start: 0;
+		}
+
 		&:hover,
 		&.focus-within {
 			z-index: 2;
