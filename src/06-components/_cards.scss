@@ -8,12 +8,10 @@
 /* ==================== */
 
 .card {
-	--background: hsl(var(--contrast));
-	--border: hsl(var(--muted-light));
 	--color: hsl(var(--muted-dark));
 	--shadow: hsl(var(--muted-dark), .25);
-	background: var(--background);
-	border: 1px solid var(--border);
+	background: hsl(var(--contrast));
+	border: 1px solid;
 	border-radius: .25rem;
 	color: var(--color);
 	display: flex;
@@ -88,9 +86,7 @@
 
 @each $variant in alert, success, accent, default, secondary {
 	.card-#{$variant} {
-		--background: hsl(var(--#{$variant}));
-		--border: hsl(var(--#{$variant}-dark));
-		--color: hsl(var(--contrast));
+		--color: hsl(var(--#{$variant}-dark));
 		--shadow: hsl(var(--#{$variant}), .25);
 	}
 }

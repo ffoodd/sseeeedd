@@ -5,8 +5,8 @@
 /* ==================== */
 
 [role="alert"] {
-	border: 1px solid var(--color);
-	box-shadow: .25rem .25rem 0 0 var(--color);
+	border: .25rem solid var(--color);
+	border-inline-start-width: 1rem;
 	contain: content;
 	font-weight: bold;
 	margin: variables.$gutter variables.$gutter * 0.5;
@@ -14,7 +14,7 @@
 }
 
 @each $alert in alert, success, accent, secondary {
-	.bg-#{$alert}[role="alert"] {
+	.alert-#{$alert} {
 		--color: hsl(var(--#{$alert}-dark));
 	}
 }
