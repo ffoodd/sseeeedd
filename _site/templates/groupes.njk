@@ -53,7 +53,7 @@
 
 	{% set messages = ['alert','success','accent','secondary'] %}
 	{% for message in messages %}
-		<div role="alert" aria-live="assertive" class="alert bg-{{ message }}">
+		<div role="alert" aria-live="assertive" class="alert-{{ message }}">
 			<p>Oh, le joli message&nbsp;!</p>
 		</div>
 	{% endfor %}

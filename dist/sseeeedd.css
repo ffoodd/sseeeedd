@@ -1569,27 +1569,27 @@ footer[id=footnotes] {
 /* == Alerts
 /* ==================== */
 [role=alert] {
-  border: 1px solid var(--color);
-  box-shadow: 0.25rem 0.25rem 0 0 var(--color);
+  border: 0.25rem solid var(--color);
+  border-inline-start-width: 1rem;
   contain: content;
   font-weight: bold;
   margin: 1rem 0.5rem;
   padding: 0 1rem;
 }
 
-.bg-alert[role=alert] {
+.alert-alert {
   --color: hsl(var(--alert-dark));
 }
 
-.bg-success[role=alert] {
+.alert-success {
   --color: hsl(var(--success-dark));
 }
 
-.bg-accent[role=alert] {
+.alert-accent {
   --color: hsl(var(--accent-dark));
 }
 
-.bg-secondary[role=alert] {
+.alert-secondary {
   --color: hsl(var(--secondary-dark));
 }
 
@@ -1600,12 +1600,10 @@ footer[id=footnotes] {
  * @link https://inclusive-components.design/cards/
 /* ==================== */
 .card {
-  --background: hsl(var(--contrast));
-  --border: hsl(var(--muted-light));
   --color: hsl(var(--muted-dark));
   --shadow: hsl(var(--muted-dark), .25);
-  background: var(--background);
-  border: 1px solid var(--border);
+  background: hsl(var(--contrast));
+  border: 1px solid;
   border-radius: 0.25rem;
   color: var(--color);
   display: flex;
@@ -1669,37 +1667,27 @@ footer[id=footnotes] {
 /* -- Variants
 /* -------------------- */
 .card-alert {
-  --background: hsl(var(--alert));
-  --border: hsl(var(--alert-dark));
-  --color: hsl(var(--contrast));
+  --color: hsl(var(--alert-dark));
   --shadow: hsl(var(--alert), .25);
 }
 
 .card-success {
-  --background: hsl(var(--success));
-  --border: hsl(var(--success-dark));
-  --color: hsl(var(--contrast));
+  --color: hsl(var(--success-dark));
   --shadow: hsl(var(--success), .25);
 }
 
 .card-accent {
-  --background: hsl(var(--accent));
-  --border: hsl(var(--accent-dark));
-  --color: hsl(var(--contrast));
+  --color: hsl(var(--accent-dark));
   --shadow: hsl(var(--accent), .25);
 }
 
 .card-default {
-  --background: hsl(var(--default));
-  --border: hsl(var(--default-dark));
-  --color: hsl(var(--contrast));
+  --color: hsl(var(--default-dark));
   --shadow: hsl(var(--default), .25);
 }
 
 .card-secondary {
-  --background: hsl(var(--secondary));
-  --border: hsl(var(--secondary-dark));
-  --color: hsl(var(--contrast));
+  --color: hsl(var(--secondary-dark));
   --shadow: hsl(var(--secondary), .25);
 }
 
