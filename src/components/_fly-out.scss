@@ -22,7 +22,6 @@
 	& ul {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-between;
 		list-style: none;
 		margin: 0;
 		padding: 0;
@@ -68,7 +67,8 @@
 		> button {
 			&:hover,
 			&:focus,
-			&:active {
+			&:active,
+			&:focus-visible {
 				background: none;
 			}
 		}
@@ -89,15 +89,15 @@
 	ul {
 		align-items: flex-start;
 		background: inherit;
-		clip: rect(0, 2rem, 2rem, 0); /* 1 */
+		clip-path: circle(1.125rem at left top); /* 1 */
 		flex-direction: column;
 		font-size: inherit;
 		min-inline-size: 100%;
 		padding-block-start: 2.5rem;
 		position: absolute;
 		inset-block-start: 0;
-		transition: clip .3s var(--enter) .5s;
-		will-change: clip;
+		transition: clip-path .3s var(--enter) .5s;
+		will-change: clip-path;
 		z-index: -1;
 
 		li {
@@ -116,9 +116,9 @@
 	> * > button:focus + ul,
 	> * > button:active + ul {
 		box-shadow: .25rem .25rem 0 0 hsl(var(--muted-dark) / .25);
-		clip: auto; /* 1 */
+		clip-path: circle(150% at top right);
 		outline: 1px solid hsl(var(--muted-light));
-		transition: clip .3s var(--exit);
+		transition: clip-path .3s var(--exit);
 	}
 
 	> * > button:hover::after,
@@ -128,47 +128,5 @@
 	> *:focus-within > button::after {
 		transform: rotateX(.5turn);
 		transition: transform .3s var(--exit);
-	}
-}
-
-@supports (clip-path: circle(150% at top right)) {
-	@media screen and (min-width: #{math.div(480, 16)}em) {
-		.fly-out {
-			&,
-			& ul {
-				justify-content: initial;
-			}
-
-			> *:focus-within {
-				z-index: 2;
-
-				button {
-					background: none;
-				}
-			}
-
-			ul {
-				clip: auto;
-				clip-path: circle(1.125rem at left top); /* 1 */
-				transition: clip-path .3s var(--enter) .5s; /* 2 */
-				will-change: clip-path;
-			}
-
-			> *:hover > ul,
-			> *:focus-within > ul,
-			> * > button:hover + ul,
-			> * > button:focus + ul,
-			> * > button:active + ul {
-				box-shadow: .25rem .25rem 0 0 hsl(var(--muted-dark), .25);
-				clip-path: circle(150% at top right);
-				outline: 1px solid hsl(var(--muted-light));
-				transition: clip-path .3s var(--exit);
-			}
-
-			> *:focus-within > button::after {
-				transform: rotateX(.5turn);
-				transition: transform .3s var(--exit);
-			}
-		}
 	}
 }
