@@ -16,13 +16,16 @@
 	color: var(--color);
 	display: flex;
 	flex-direction: column;
+	outline-offset: variables.$gutter;
 	overflow: hidden;
 	position: relative;
-	transition: box-shadow .3s var(--enter);
+	transition: outline-offset .3s var(--enter);
 
-	&:hover,
 	&:focus-within {
-		box-shadow: 0 0 0 .25rem var(--shadow);
+		box-shadow: 0 0 0 .125rem hsl(var(--contrast));
+		isolation: isolate;
+		outline: .125rem solid var(--color);
+		outline-offset: .125rem;
 	}
 }
 

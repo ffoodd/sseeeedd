@@ -18,8 +18,8 @@
 	a {
 		text-decoration: none;
 
-		&:hover,
-		&:focus {
+		&:not([aria-current]):hover,
+		&:not([aria-current]):focus {
 			background: hsl(var(--contrast));
 		}
 	}
@@ -31,6 +31,7 @@
 
 	[aria-current] {
 		background: hsl(var(--accent));
+		border: 0;
 		color: hsl(var(--contrast));
 		pointer-events: none;
 	}

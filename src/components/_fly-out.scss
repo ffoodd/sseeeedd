@@ -6,7 +6,6 @@
  *
  * @note The whole thing needs :focus-within support
  * @link https://caniuse.com/#search=%3Afocus-within
- * @note A polyfill is used for unsupporting browsers, adding .focus-within on matching elements
  *
  * 1. clip-path is used to visually hide subnav
  * @link https://developer.mozilla.org/fr/docs/Web/CSS/clip-path
@@ -37,11 +36,8 @@
 		color: hsl(var(--secondary));
 		display: block;
 		margin: 0;
-		outline: .125rem solid transparent;
-		outline-offset: variables.$gutter * 2;
 		padding: variables.$gutter * 0.5 variables.$gutter;
 		text-decoration: none;
-		transition: outline-offset .3s var(--enter);
 		white-space: nowrap;
 
 		&:hover,
@@ -50,12 +46,6 @@
 			background: hsl(var(--background));
 			border: 0;
 			color: hsl(var(--secondary-dark));
-		}
-
-		&:focus {
-			box-shadow: none;
-			outline: .125rem solid currentColor;
-			outline-offset: 0;
 		}
 	}
 
@@ -70,7 +60,7 @@
 		}
 
 		&:hover,
-		&.focus-within {
+		&:focus-within {
 			z-index: 2;
 		}
 
@@ -121,7 +111,7 @@
 	}
 
 	> *:hover > ul,
-	> *.focus-within > ul,
+	> *:focus-within > ul,
 	> * > button:hover + ul,
 	> * > button:focus + ul,
 	> * > button:active + ul {
@@ -135,7 +125,7 @@
 	> * > button:focus::after,
 	> * > button:active::after,
 	> *:hover > button::after,
-	> *.focus-within > button::after {
+	> *:focus-within > button::after {
 		transform: rotateX(.5turn);
 		transition: transform .3s var(--exit);
 	}
