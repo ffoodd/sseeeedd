@@ -13,7 +13,6 @@ button[role="switch"] {
 	contain: content;
 	block-size: 2.75rem;
 	line-height: 2.75rem;
-	outline-color: transparent;
 	padding: 0 variables.$gutter * 3;
 	transition: all .3s var(--enter);
 	inline-size: 4.75rem;
@@ -64,10 +63,6 @@ button[role="switch"] {
 		&::after,
 		&::before {
 			transform: translateX(calc(4.75rem + .125rem + #{variables.$gutter * 3}));
-		}
-
-		&:focus {
-			box-shadow: 0 0 0 .125rem hsl(var(--success-dark) / .25);
 		}
 	}
 

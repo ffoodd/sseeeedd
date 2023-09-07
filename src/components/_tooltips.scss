@@ -57,7 +57,7 @@
 		opacity: 1;
 		pointer-events: auto;
 		transition: opacity .2s var(--exit),
-		transform .2s var(--exit);
+								transform .2s var(--exit);
 		visibility: visible;
 	}
 }
