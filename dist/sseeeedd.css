@@ -1833,7 +1833,6 @@
   .fly-out, .fly-out ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -1870,10 +1869,11 @@
   .fly-out > *:hover, .fly-out > *:focus-within {
     z-index: 2;
   }
-  .fly-out > * > a:hover, .fly-out > * > a:focus, .fly-out > * > a:active,
+  .fly-out > * > a:hover, .fly-out > * > a:focus, .fly-out > * > a:active, .fly-out > * > a:focus-visible,
   .fly-out > * > button:hover,
   .fly-out > * > button:focus,
-  .fly-out > * > button:active {
+  .fly-out > * > button:active,
+  .fly-out > * > button:focus-visible {
     background: none;
   }
   .fly-out > * > button {
@@ -1889,15 +1889,15 @@
   .fly-out ul {
     align-items: flex-start;
     background: inherit;
-    clip: rect(0, 2rem, 2rem, 0); /* 1 */
+    clip-path: circle(1.125rem at left top); /* 1 */
     flex-direction: column;
     font-size: inherit;
     min-inline-size: 100%;
     padding-block-start: 2.5rem;
     position: absolute;
     inset-block-start: 0;
-    transition: clip 0.3s var(--enter) 0.5s;
-    will-change: clip;
+    transition: clip-path 0.3s var(--enter) 0.5s;
+    will-change: clip-path;
     z-index: -1;
   }
   .fly-out ul li {
@@ -1913,9 +1913,9 @@
   .fly-out > * > button:focus + ul,
   .fly-out > * > button:active + ul {
     box-shadow: 0.25rem 0.25rem 0 0 hsl(var(--muted-dark)/0.25);
-    clip: auto; /* 1 */
+    clip-path: circle(150% at top right);
     outline: 1px solid hsl(var(--muted-light));
-    transition: clip 0.3s var(--exit);
+    transition: clip-path 0.3s var(--exit);
   }
   .fly-out > * > button:hover::after,
   .fly-out > * > button:focus::after,
@@ -1924,39 +1924,6 @@
   .fly-out > *:focus-within > button::after {
     transform: rotateX(0.5turn);
     transition: transform 0.3s var(--exit);
-  }
-  @supports (clip-path: circle(150% at top right)) {
-    @media screen and (min-width: 30em) {
-      .fly-out, .fly-out ul {
-        justify-content: initial;
-      }
-      .fly-out > *:focus-within {
-        z-index: 2;
-      }
-      .fly-out > *:focus-within button {
-        background: none;
-      }
-      .fly-out ul {
-        clip: auto;
-        clip-path: circle(1.125rem at left top); /* 1 */
-        transition: clip-path 0.3s var(--enter) 0.5s; /* 2 */
-        will-change: clip-path;
-      }
-      .fly-out > *:hover > ul,
-      .fly-out > *:focus-within > ul,
-      .fly-out > * > button:hover + ul,
-      .fly-out > * > button:focus + ul,
-      .fly-out > * > button:active + ul {
-        box-shadow: 0.25rem 0.25rem 0 0 hsl(var(--muted-dark), 0.25);
-        clip-path: circle(150% at top right);
-        outline: 1px solid hsl(var(--muted-light));
-        transition: clip-path 0.3s var(--exit);
-      }
-      .fly-out > *:focus-within > button::after {
-        transform: rotateX(0.5turn);
-        transition: transform 0.3s var(--exit);
-      }
-    }
   }
   /* ----------------------------- */
   /* Table of contents */
