@@ -8,7 +8,7 @@ html[data-theme="dark"] {
 	--brighter: max(calc(var(--lightness) / var(--light-scale)), 80%);
 	--darker: min(calc(var(--lightness) * var(--light-scale)), 20%);
 	--disabled: var(--neutral) 10%;
-	--background: var(--neutral) 8%;
+	--background: var(--neutral) 20%;
 	--success-light: var(--right) 100% calc(var(--lightness) / 2);
 	--success-dark: var(--right) 100% var(--brighter);
 
@@ -29,7 +29,7 @@ html[data-theme="dark"] {
 		--brighter: max(calc(var(--lightness) / var(--light-scale)), 80%);
 		--darker: min(calc(var(--lightness) * var(--light-scale)), 20%);
 		--disabled: var(--neutral) 10%;
-		--background: var(--neutral) 8%;
+		--background: var(--neutral) 20%;
 		--success-light: var(--right) 100% calc(var(--lightness) / 2);
 		--success-dark: var(--right) 100% var(--brighter);
 
