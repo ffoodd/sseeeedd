@@ -86,8 +86,8 @@
     --wrong: calc(var(--right) + 180);
     --light-scale: 1.61803398875;
     --lightness: 30%;
-    --brighter: min(calc(var(--lightness) * var(--light-scale)), 20%);
-    --darker: max(calc(var(--lightness) / var(--light-scale)), 80%);
+    --brighter: calc(var(--lightness) * var(--light-scale));
+    --darker: calc(var(--lightness) / var(--light-scale));
     --switch: calc((var(--lightness) - var(--treshold)) * -100);
     --secondary: var(--hue) 100% var(--lightness);
     --secondary-light: var(--hue) 100% var(--brighter);
@@ -212,6 +212,7 @@
     color: hsl(var(--secondary));
     text-decoration-style: dotted;
     text-decoration-skip-ink: auto;
+    text-underline-offset: 0.25rem;
   }
   a:hover {
     color: hsl(var(--secondary-dark));
@@ -823,7 +824,7 @@
         border-width: 0.25rem 0.25rem 0.25rem 0;
       }
       .vertical details summary {
-        float: inline-start;
+        float: left;
         min-height: 20rem;
         writing-mode: vertical-lr; /* 1 */
         writing-mode: sideways-lr; /* 2 */
@@ -997,7 +998,7 @@
     background-color: hsl(var(--contrast));
     border-color: transparent;
     border-radius: 1rem;
-    background-image: linear-gradient(to right, hsl(var(--success)) var(--value, 0%), hsl(var(--contrast)) var(--value, 0%));
+    background-image: linear-gradient(to right, hsl(var(--accent-light)) var(--value, 0%), hsl(var(--contrast)) var(--value, 0%));
   }
   input[type=range]::-moz-range-thumb {
     width: 1rem;
@@ -1672,16 +1673,16 @@
     padding: 0 1rem;
   }
   .alert-alert {
-    --color: hsl(var(--alert-dark));
+    --color: hsl(var(--alert));
   }
   .alert-success {
-    --color: hsl(var(--success-dark));
+    --color: hsl(var(--success));
   }
   .alert-accent {
-    --color: hsl(var(--accent-dark));
+    --color: hsl(var(--accent));
   }
   .alert-secondary {
-    --color: hsl(var(--secondary-dark));
+    --color: hsl(var(--secondary));
   }
   /* ----------------------------- */
   /* Table of contents */
@@ -1776,23 +1777,23 @@
   /* -- Variants
   /* -------------------- */
   .card-alert {
-    --color: hsl(var(--alert-dark));
+    --color: hsl(var(--alert));
     --shadow: hsl(var(--alert), .25);
   }
   .card-success {
-    --color: hsl(var(--success-dark));
+    --color: hsl(var(--success));
     --shadow: hsl(var(--success), .25);
   }
   .card-accent {
-    --color: hsl(var(--accent-dark));
+    --color: hsl(var(--accent));
     --shadow: hsl(var(--accent), .25);
   }
   .card-default {
-    --color: hsl(var(--default-dark));
+    --color: hsl(var(--default));
     --shadow: hsl(var(--default), .25);
   }
   .card-secondary {
-    --color: hsl(var(--secondary-dark));
+    --color: hsl(var(--secondary));
     --shadow: hsl(var(--secondary), .25);
   }
   /* ----------------------------- */
@@ -1990,7 +1991,7 @@
     visibility: visible;
   }
   button[role=switch][aria-checked=true] {
-    background-color: hsl(var(--success-light)/0.25);
+    background-color: hsl(var(--success-light)/var(--lightness));
   }
   button[role=switch][aria-checked=true]::before {
     background: hsl(var(--success-dark));
@@ -2591,8 +2592,8 @@
     --lightness: 60%;
     --treshold: 40%;
     --rotation: calc(var(--hue) - 30);
-    --brighter: max(calc(var(--lightness) / var(--light-scale)), 80%);
-    --darker: min(calc(var(--lightness) * var(--light-scale)), 20%);
+    --brighter: calc(var(--lightness) / var(--light-scale));
+    --darker: calc(var(--lightness) * var(--light-scale));
     --disabled: var(--neutral) 10%;
     --background: var(--neutral) 20%;
     --success-light: var(--right) 100% calc(var(--lightness) / 2);
@@ -2609,8 +2610,8 @@
       --lightness: 60%;
       --treshold: 40%;
       --rotation: calc(var(--hue) - 30);
-      --brighter: max(calc(var(--lightness) / var(--light-scale)), 80%);
-      --darker: min(calc(var(--lightness) * var(--light-scale)), 20%);
+      --brighter: calc(var(--lightness) / var(--light-scale));
+      --darker: calc(var(--lightness) * var(--light-scale));
       --disabled: var(--neutral) 10%;
       --background: var(--neutral) 20%;
       --success-light: var(--right) 100% calc(var(--lightness) / 2);
