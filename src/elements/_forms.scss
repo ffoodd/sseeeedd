@@ -148,7 +148,7 @@ input[type="range"] {
 		background-color: hsl(var(--contrast));
 		border-color: transparent;
 		border-radius: 1rem;
-		background-image: linear-gradient(to right, hsl(var(--success)) var(--value, 0%), hsl(var(--contrast)) var(--value, 0%));
+		background-image: linear-gradient(to right, hsl(var(--accent-light)) var(--value, 0%), hsl(var(--contrast)) var(--value, 0%));
 	}
 
 	&::-moz-range-thumb {
