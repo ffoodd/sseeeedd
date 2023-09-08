@@ -15,6 +15,6 @@
 
 @each $alert in alert, success, accent, secondary {
 	.alert-#{$alert} {
-		--color: hsl(var(--#{$alert}-dark));
+		--color: hsl(var(--#{$alert}));
 	}
 }
