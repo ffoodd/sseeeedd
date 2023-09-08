@@ -1619,7 +1619,6 @@
     inset-block-end: calc(100% + 0.5em);
     clip-path: polygon(0% 0%, 100% 0%, 100% var(--arrow), calc(50% - 0.25rem) var(--arrow), 50% 100%, calc(50% + 0.25rem) var(--arrow), 0% var(--arrow));
     color: hsl(var(--background));
-    inset-inline-start: 50%;
     margin: 0;
     padding: 0.25rem 0.5rem 0.5rem;
     pointer-events: none;
@@ -1627,6 +1626,7 @@
     white-space: nowrap;
   }
   [role=tooltip] {
+    inset-inline-start: 50%;
     opacity: 0;
     transform-origin: 50% calc(100% + 10px);
     transform: perspective(1000px) rotate3d(1, 0, 0, var(--rotation)) translateX(-50%);
