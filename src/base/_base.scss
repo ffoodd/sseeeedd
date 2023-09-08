@@ -63,8 +63,8 @@ html[lang] {
 	// Lightnesses
 	--light-scale: 1.61803398875; // 5
 	--lightness: 30%;
-	--brighter: min(calc(var(--lightness) * var(--light-scale)), 20%);
-	--darker: max(calc(var(--lightness) / var(--light-scale)), 80%);
+	--brighter: calc(var(--lightness) * var(--light-scale));
+	--darker: calc(var(--lightness) / var(--light-scale));
 	--switch: calc((var(--lightness) - var(--treshold)) * -100); // 3
 	// Palette
 	--secondary: var(--hue) 100% var(--lightness);
@@ -218,6 +218,7 @@ a {
 	color: hsl(var(--secondary));
 	text-decoration-style: dotted;
 	text-decoration-skip-ink: auto;
+	text-underline-offset: .25rem;
 
 	&:hover {
 		color: hsl(var(--secondary-dark));

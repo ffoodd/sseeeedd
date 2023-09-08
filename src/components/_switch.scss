@@ -54,7 +54,7 @@ button[role="switch"] {
 	}
 
 	&[aria-checked="true"] {
-		background-color: hsl(var(--success-light) / .25);
+		background-color: hsl(var(--success-light) / var(--lightness));
 
 		&::before {
 			background: hsl(var(--success-dark));

@@ -5,8 +5,8 @@ html[data-theme="dark"] {
 	--lightness: 60%;
 	--treshold: 40%;
 	--rotation: calc(var(--hue) - 30);
-	--brighter: max(calc(var(--lightness) / var(--light-scale)), 80%);
-	--darker: min(calc(var(--lightness) * var(--light-scale)), 20%);
+	--brighter: calc(var(--lightness) / var(--light-scale));
+	--darker: calc(var(--lightness) * var(--light-scale));
 	--disabled: var(--neutral) 10%;
 	--background: var(--neutral) 20%;
 	--success-light: var(--right) 100% calc(var(--lightness) / 2);
@@ -26,8 +26,8 @@ html[data-theme="dark"] {
 		--lightness: 60%;
 		--treshold: 40%;
 		--rotation: calc(var(--hue) - 30); // 1
-		--brighter: max(calc(var(--lightness) / var(--light-scale)), 80%);
-		--darker: min(calc(var(--lightness) * var(--light-scale)), 20%);
+		--brighter: calc(var(--lightness) / var(--light-scale));
+		--darker: calc(var(--lightness) * var(--light-scale));
 		--disabled: var(--neutral) 10%;
 		--background: var(--neutral) 20%;
 		--success-light: var(--right) 100% calc(var(--lightness) / 2);
