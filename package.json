@@ -6,7 +6,11 @@
 		"type": "git",
 		"url": "git@github.com:ffoodd/sseeeedd.git"
 	},
-	"author": "Gaël Poupard",
+	"author": {
+		"name": "Gaël Poupard",
+		"url": "https://www.ffoodd.fr",
+		"email": "gael+npm@ffoodd.fr"
+	},
 	"license": "MIT",
 	"keywords": [
 		"template",
