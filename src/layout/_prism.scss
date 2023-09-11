@@ -10,12 +10,12 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: hsl(var(--background));
+	color: hsl(var(--contrast));
 }
 
 .token.function,
 .token.punctuation {
-	color: hsl(var(--rotation) 50% 75%);
+	color: hsl(var(--rotation) 50% 25%);
 }
 
 .token.namespace {
@@ -26,7 +26,7 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.char,
 .token.builtin,
 .token.inserted {
-	color: hsl(var(--contrast));
+	color: hsl(var(--contrast-inverse));
 }
 
 .token.selector,
@@ -40,7 +40,7 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.variable,
 .token.regex,
 .token.important  {
-	color: hsl(var(--alert-light));
+	color: hsl(var(--alert));
 }
 
 .token.property,
@@ -51,7 +51,7 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.atrule,
 .token.attr-value,
 .token.keyword {
-	color: hsl(var(--success-light));
+	color: hsl(var(--success-dark));
 }
 
 .token.important,
@@ -77,7 +77,7 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 	html:not([data-theme="light"]) {
 		.token.function,
 		.token.punctuation {
-			color: hsl(var(--secondary-light));
+			color: hsl(var(--secondary));
 		}
 	}
 }

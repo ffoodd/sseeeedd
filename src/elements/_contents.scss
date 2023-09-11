@@ -73,10 +73,10 @@ code {
 }
 
 pre {
-	background: hsl(var(--contrast-inverse));
-	border: 0;
+	background: hsl(var(--contrast));
+	border: 1px dotted;
 	border-radius: .25rem;
-	color: hsl(var(--contrast));
+	color: hsl(var(--contrast-inverse));
 	direction: ltr;
 	font-family: "Fira Mono", "Consolas", "Monaco", "Andale Mono", monospace;
 	font-size: small;

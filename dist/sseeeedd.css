@@ -526,10 +526,10 @@
     line-height: 1;
   }
   pre {
-    background: hsl(var(--contrast-inverse));
-    border: 0;
+    background: hsl(var(--contrast));
+    border: 1px dotted;
     border-radius: 0.25rem;
-    color: hsl(var(--contrast));
+    color: hsl(var(--contrast-inverse));
     direction: ltr;
     font-family: "Fira Mono", "Consolas", "Monaco", "Andale Mono", monospace;
     font-size: small;
@@ -723,7 +723,7 @@
   /* ==================== */
   table {
     border-collapse: collapse;
-    caption-side: block-start;
+    caption-side: top;
     font-feature-settings: "tnum";
     margin-block-end: 1.5rem;
     inline-size: 100%;
@@ -739,8 +739,8 @@
     padding: 0.5rem 0.75rem;
     text-align: start;
   }
-  th,
-  table strong {
+  th {
+    background-color: hsl(var(--contrast));
     color: hsl(var(--contrast-inverse));
   }
   td {
@@ -1427,11 +1427,11 @@
   .token.prolog,
   .token.doctype,
   .token.cdata {
-    color: hsl(var(--background));
+    color: hsl(var(--contrast));
   }
   .token.function,
   .token.punctuation {
-    color: hsl(var(--rotation), 50%, 75%);
+    color: hsl(var(--rotation), 50%, 25%);
   }
   .token.namespace {
     opacity: 0.7;
@@ -1440,7 +1440,7 @@
   .token.char,
   .token.builtin,
   .token.inserted {
-    color: hsl(var(--contrast));
+    color: hsl(var(--contrast-inverse));
   }
   .token.selector,
   .token.attr-name,
@@ -1453,7 +1453,7 @@
   .token.variable,
   .token.regex,
   .token.important {
-    color: hsl(var(--alert-light));
+    color: hsl(var(--alert));
   }
   .token.property,
   .token.tag,
@@ -1463,7 +1463,7 @@
   .token.atrule,
   .token.attr-value,
   .token.keyword {
-    color: hsl(var(--success-light));
+    color: hsl(var(--success-dark));
   }
   .token.important,
   .token.bold {
@@ -1484,7 +1484,7 @@
     .no-js .token.punctuation,
     html:not([data-theme=light]) .token.function,
     html:not([data-theme=light]) .token.punctuation {
-      color: hsl(var(--secondary-light));
+      color: hsl(var(--secondary));
     }
   }
   /*! purgecss end ignore */
