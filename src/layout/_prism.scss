@@ -9,26 +9,19 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.comment,
 .token.prolog,
 .token.doctype,
-.token.cdata,
-.token.punctuation {
+.token.cdata {
 	color: hsl(var(--background));
+}
+
+.token.function,
+.token.punctuation {
+	color: hsl(var(--rotation) 50% 75%);
 }
 
 .token.namespace {
 	opacity: .7;
 }
 
-.token.property,
-.token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol {
-	color: hsl(var(--success-light));
-}
-
-.token.selector,
-.token.attr-name,
 .token.string,
 .token.char,
 .token.builtin,
@@ -36,24 +29,29 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 	color: hsl(var(--contrast));
 }
 
+.token.selector,
+.token.attr-name,
+.token.number,
 .token.operator,
 .token.entity,
 .token.url,
 .language-css .token.string,
 .style .token.string,
-.token.variable {
-	color: Orange;
+.token.variable,
+.token.regex,
+.token.important  {
+	color: hsl(var(--alert-light));
 }
 
+.token.property,
+.token.tag,
+.token.boolean,
+.token.constant,
+.token.symbol,
 .token.atrule,
 .token.attr-value,
 .token.keyword {
 	color: hsl(var(--success-light));
-}
-
-.token.regex,
-.token.important {
-	color: hsl(var(--alert-light));
 }
 
 .token.important,
@@ -74,4 +72,13 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 	text-decoration: line-through;
 }
 
+@media screen and (prefers-color-scheme: dark) {
+	.no-js,
+	html:not([data-theme="light"]) {
+		.token.function,
+		.token.punctuation {
+			color: hsl(var(--secondary-light));
+		}
+	}
+}
 /*! purgecss end ignore */

@@ -71,7 +71,7 @@
   *     @author Florens Verschelde (@fvsch)
    *    @see https://twitter.com/fvsch/status/1190277947871105027
    */
-  html[lang] {
+  html:where([lang]) {
     box-sizing: border-box;
     caret-color: hsl(var(--accent));
     overflow-y: scroll; /* 1 */
@@ -85,7 +85,7 @@
     --right: 150;
     --wrong: calc(var(--right) + 180);
     --light-scale: 1.61803398875;
-    --lightness: 30%;
+    --lightness: 40%;
     --brighter: calc(var(--lightness) * var(--light-scale));
     --darker: calc(var(--lightness) / var(--light-scale));
     --switch: calc((var(--lightness) - var(--treshold)) * -100);
@@ -122,13 +122,12 @@
     --mail: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 56'%3E%3Cpath d='M0 0v3.7188l42 28.62504L84.000004 3.7188V0zm0 10.9688v45.03124h84.000004V10.9688L43.6875 38.46884a3.0003 3.0003 0 0 1-3.375 0z'/%3E%3C/svg%3E");
     --tel: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 88'%3E%3Cpath d='M6 0C2.676 0 0 2.676 0 6v76.00005c0 3.324 2.676 6 6 6h34c3.324 0 6-2.676 6-6V6c0-3.324-2.676-6-6-6zM4 10h38v64.00005H4z'/%3E%3C/svg%3E");
   }
-  html[lang]:focus-within {
+  html:where([lang]):focus-within {
     scroll-behavior: smooth; /*2 */
   }
   @media screen and (min-width: 37.5em) {
-    html {
-      --light-scale: 1.25;
-      --lightness: 40%;
+    html:where([lang]) {
+      --lightness: 30%;
     }
   }
   *,
@@ -212,7 +211,8 @@
     color: hsl(var(--secondary));
     text-decoration-style: dotted;
     text-decoration-skip-ink: auto;
-    text-underline-offset: 0.25rem;
+    text-decoration-thickness: max(0.1em, 1px);
+    text-underline-offset: 0.25em;
   }
   a:hover {
     color: hsl(var(--secondary-dark));
@@ -526,7 +526,7 @@
     line-height: 1;
   }
   pre {
-    background: hsl(var(--muted-dark));
+    background: hsl(var(--contrast-inverse));
     border: 0;
     border-radius: 0.25rem;
     color: hsl(var(--contrast));
@@ -1426,45 +1426,44 @@
   .token.comment,
   .token.prolog,
   .token.doctype,
-  .token.cdata,
-  .token.punctuation {
+  .token.cdata {
     color: hsl(var(--background));
+  }
+  .token.function,
+  .token.punctuation {
+    color: hsl(var(--rotation), 50%, 75%);
   }
   .token.namespace {
     opacity: 0.7;
   }
-  .token.property,
-  .token.tag,
-  .token.boolean,
-  .token.number,
-  .token.constant,
-  .token.symbol {
-    color: hsl(var(--success-light));
-  }
-  .token.selector,
-  .token.attr-name,
   .token.string,
   .token.char,
   .token.builtin,
   .token.inserted {
     color: hsl(var(--contrast));
   }
+  .token.selector,
+  .token.attr-name,
+  .token.number,
   .token.operator,
   .token.entity,
   .token.url,
   .language-css .token.string,
   .style .token.string,
-  .token.variable {
-    color: Orange;
+  .token.variable,
+  .token.regex,
+  .token.important {
+    color: hsl(var(--alert-light));
   }
+  .token.property,
+  .token.tag,
+  .token.boolean,
+  .token.constant,
+  .token.symbol,
   .token.atrule,
   .token.attr-value,
   .token.keyword {
     color: hsl(var(--success-light));
-  }
-  .token.regex,
-  .token.important {
-    color: hsl(var(--alert-light));
   }
   .token.important,
   .token.bold {
@@ -1479,6 +1478,14 @@
   .token.deleted {
     color: hsl(var(--alert));
     text-decoration: line-through;
+  }
+  @media screen and (prefers-color-scheme: dark) {
+    .no-js .token.function,
+    .no-js .token.punctuation,
+    html:not([data-theme=light]) .token.function,
+    html:not([data-theme=light]) .token.punctuation {
+      color: hsl(var(--secondary-light));
+    }
   }
   /*! purgecss end ignore */
 }
@@ -1546,9 +1553,6 @@
     color: hsl(var(--muted-dark));
     margin: 1rem 0;
     padding: 0.5rem 1rem 0.25rem;
-  }
-  .note *:not(pre) {
-    color: inherit;
   }
   .note.wip {
     color: hsl(var(--alert));
@@ -2586,40 +2590,71 @@
       color: HighlightText;
     }
   }
-  html[data-theme=dark] {
+  /* ----------------------------- */
+  /* Table of contents */
+  /* ----------------------------- */
+  /*
+    == Paths
+    == Colors
+    == Timing functions
+    == Spacings
+    == Patterns
+    == Formage
+  */
+  /* ==================== */
+  /* == Paths
+  /* ==================== */
+  /* ==================== */
+  /* == Spacings
+  /* ==================== */
+  /* ==================== */
+  /* == Formage
+  /* ==================== */
+  html:where([data-theme=dark]) {
     color-scheme: dark;
     --hue: 210;
-    --lightness: 60%;
+    --lightness: 66%;
     --treshold: 40%;
     --rotation: calc(var(--hue) - 30);
     --brighter: calc(var(--lightness) / var(--light-scale));
     --darker: calc(var(--lightness) * var(--light-scale));
     --disabled: var(--neutral) 10%;
     --background: var(--neutral) 20%;
-    --success-light: var(--right) 100% calc(var(--lightness) / 2);
+    --success-light: var(--right) 100% calc(var(--lightness) / 3);
     --success-dark: var(--right) 100% var(--brighter);
   }
-  html[data-theme=dark] img {
+  html:where([data-theme=dark]) img {
     filter: brightness(0.8) contrast(1.2);
+  }
+  @media screen and (min-width: 37.5em) {
+    html:where([data-theme=dark]) {
+      --lightness: 60%;
+    }
   }
   @media screen and (prefers-color-scheme: dark) {
     .no-js,
-    html:not([data-theme=light]) {
+    html:where(:not([data-theme=light])) {
       color-scheme: dark;
       --hue: 210;
-      --lightness: 60%;
+      --lightness: 66%;
       --treshold: 40%;
       --rotation: calc(var(--hue) - 30);
       --brighter: calc(var(--lightness) / var(--light-scale));
       --darker: calc(var(--lightness) * var(--light-scale));
       --disabled: var(--neutral) 10%;
       --background: var(--neutral) 20%;
-      --success-light: var(--right) 100% calc(var(--lightness) / 2);
+      --success-light: var(--right) 100% calc(var(--lightness) / 3);
       --success-dark: var(--right) 100% var(--brighter);
     }
     .no-js img,
-    html:not([data-theme=light]) img {
+    html:where(:not([data-theme=light])) img {
       filter: brightness(0.8) contrast(1.2);
+    }
+  }
+  @media screen and (min-width: 37.5em) and (prefers-color-scheme: dark) {
+    .no-js,
+    html:where(:not([data-theme=light])) {
+      --lightness: 60%;
     }
   }
 }

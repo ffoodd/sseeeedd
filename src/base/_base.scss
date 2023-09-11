@@ -19,7 +19,7 @@
 *     @author Florens Verschelde (@fvsch)
  *    @see https://twitter.com/fvsch/status/1190277947871105027
  */
-html[lang] {
+html:where([lang]) {
 	box-sizing: border-box;
 	caret-color: hsl(var(--accent));
 
@@ -62,7 +62,7 @@ html[lang] {
 	--wrong: calc(var(--right) + 180); // 2
 	// Lightnesses
 	--light-scale: 1.61803398875; // 5
-	--lightness: 30%;
+	--lightness: 40%;
 	--brighter: calc(var(--lightness) * var(--light-scale));
 	--darker: calc(var(--lightness) / var(--light-scale));
 	--switch: calc((var(--lightness) - var(--treshold)) * -100); // 3
@@ -86,17 +86,17 @@ html[lang] {
 	--muted-dark: var(--neutral) var(--darker);
 	--disabled: var(--neutral) 90%;
 	--background: var(--neutral) 96%;
-	// ==================== */
+	// ====================
 	// == Timing functions
 	//
 	// @note Simple cubic-bezier curves for timing functions
 	// @author David K. Piano
 	// @link https://twitter.com/DavidKPiano/status/965704092545900544
-	// ==================== */
+	// ====================
 	--enter: cubic-bezier(0, .5, .5, 1);
 	--exit: cubic-bezier(.5, 0, 1, .5);
 	--move: cubic-bezier(.5, 0, .5, 1);
-	//
+	// ====================
 	// == Icons
 	//
 	// With proper credits and links to TheNounProject:
@@ -122,9 +122,8 @@ html[lang] {
 }
 
 @media screen and (min-width: #{variables.$content-width}) {
-	html {
-		--light-scale: 1.25;
-		--lightness: 40%;
+	html:where([lang]) {
+		--lightness: 30%;
 	}
 }
 
@@ -218,7 +217,8 @@ a {
 	color: hsl(var(--secondary));
 	text-decoration-style: dotted;
 	text-decoration-skip-ink: auto;
-	text-underline-offset: .25rem;
+	text-decoration-thickness: max(.1em, 1px);
+	text-underline-offset: .25em;
 
 	&:hover {
 		color: hsl(var(--secondary-dark));
