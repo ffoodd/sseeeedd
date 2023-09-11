@@ -1,15 +1,17 @@
-html[data-theme="dark"] {
+@use "../settings/variables";
+
+html:where([data-theme="dark"]) {
 	color-scheme: dark;
 
 	--hue: 210;
-	--lightness: 60%;
+	--lightness: 66%;
 	--treshold: 40%;
 	--rotation: calc(var(--hue) - 30);
 	--brighter: calc(var(--lightness) / var(--light-scale));
 	--darker: calc(var(--lightness) * var(--light-scale));
 	--disabled: var(--neutral) 10%;
 	--background: var(--neutral) 20%;
-	--success-light: var(--right) 100% calc(var(--lightness) / 2);
+	--success-light: var(--right) 100% calc(var(--lightness) / 3);
 	--success-dark: var(--right) 100% var(--brighter);
 
 	img {
@@ -17,20 +19,26 @@ html[data-theme="dark"] {
 	}
 }
 
+@media screen and (min-width: #{variables.$content-width}) {
+	html:where([data-theme="dark"]) {
+		--lightness: 60%;
+	}
+}
+
 @media screen and (prefers-color-scheme: dark) {
 	.no-js,
-	html:not([data-theme="light"]) {
+	html:where(:not([data-theme="light"])) {
 		color-scheme: dark;
 
 		--hue: 210;
-		--lightness: 60%;
+		--lightness: 66%;
 		--treshold: 40%;
 		--rotation: calc(var(--hue) - 30); // 1
 		--brighter: calc(var(--lightness) / var(--light-scale));
 		--darker: calc(var(--lightness) * var(--light-scale));
 		--disabled: var(--neutral) 10%;
 		--background: var(--neutral) 20%;
-		--success-light: var(--right) 100% calc(var(--lightness) / 2);
+		--success-light: var(--right) 100% calc(var(--lightness) / 3);
 		--success-dark: var(--right) 100% var(--brighter);
 
 		img {
@@ -38,3 +46,12 @@ html[data-theme="dark"] {
 		}
 	}
 }
+
+@media screen and (min-width: #{variables.$content-width}) and (prefers-color-scheme: dark) {
+	.no-js,
+	html:where(:not([data-theme="light"])) {
+		--lightness: 60%;
+	}
+}
+
+

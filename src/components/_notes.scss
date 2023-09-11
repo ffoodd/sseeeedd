@@ -11,10 +11,6 @@
 	margin: variables.$gutter 0;
 	padding: variables.$gutter * 0.5 variables.$gutter variables.$gutter * 0.25;
 
-	*:not(pre) {
-		color: inherit;
-	}
-
 	&.wip {
 		color: hsl(var(--alert));
 	}
