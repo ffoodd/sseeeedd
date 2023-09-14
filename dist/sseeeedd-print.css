@@ -1,30 +1,25 @@
 @media print {
-  body > :not(main),
-  main > :not(.deck),
-  *:not(.card)::after,
-  *:not(.card)::before {
-    display: none !important;
+  nav,
+  .fly-out,
+  .no-js-hidden,
+  .tooltip,
+  .dialog-opener {
+    display: none;
   }
   html,
   body,
   body > * {
-    background: none !important;
+    background: none;
   }
-  /**
-  	* 1. No orphans
-  	* 2. No widows
-  	*/
   p,
   blockquote,
   .deck .card {
-    orphans: 3; /* 1 */
-    widows: 3; /* 2 */
+    orphans: 3;
+    widows: 3;
   }
-  /* @note Avoid random page break */
   ul,
   ol,
-  blockquote,
-  .deck .card {
+  blockquote {
     page-break-inside: avoid;
     break-inside: avoid;
   }
@@ -37,20 +32,11 @@
   caption {
     page-break-after: avoid;
   }
-  /**
-  	* @note Display links' target, except for images
-  	*/
-  a::after {
+  a[href]:not([href=""], [href^="#"], [href^=javascript], [href^="data:"])::after {
+    all: unset;
     content: " (" attr(href) ") ";
-    display: inline-block !important;
   }
-  /* Hide anchors' target */
-  a::after img,
-  a[href^="#"]::after,
-  a[href^=javascript]::after {
-    content: "";
-  }
-  abbr::after {
+  abbr[title]::after {
     content: " (" attr(title) ") ";
   }
 }
