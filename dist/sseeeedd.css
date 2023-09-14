@@ -1966,7 +1966,7 @@
     background: hsl(var(--success-dark));
   }
   button[role=switch][aria-checked=true]::after, button[role=switch][aria-checked=true]::before {
-    transform: translateX(calc(4.75rem + .125rem + 3rem));
+    transform: translateX(calc(4.875rem + 3rem));
   }
   button[role=switch] > *:first-child, button[role=switch][aria-checked=true] > *:last-child {
     display: none;
