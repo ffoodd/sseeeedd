@@ -22,10 +22,9 @@ $path: "../" !default;
 /* == Spacings
 /* ==================== */
 $full-width: false !default;
-$base: math.div(1140, 16) !default;
-$width: #{math.div(1024, 16)}em !default;
+$width: math.div(1024em, 16) !default;
 $gutter: 1rem !default;
-$content-width: #{math.div(600, 16)}em !default;
+$content-width: math.div(600em, 16) !default;
 
 
 /* ==================== */
