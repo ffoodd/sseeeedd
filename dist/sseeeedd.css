@@ -241,33 +241,37 @@
     content: " [" attr(hreflang) "]";
   }
   main a[download]::after, main a[href^="#"]::before, main a[href^="tel:"]::before, main a[target$=blank]::after, main a[href^="http:"]::before, main a[href^="mailto:"]::before {
+    background: currentColor;
+    block-size: 0.625em;
     content: "";
     display: inline-block;
-    margin: 0 0.25em 0 0;
+    margin-inline-end: 0.25em;
+    mask-repeat: no-repeat;
+    mask-position: center center;
+    inline-size: 0.625em;
   }
   main a[download]::after {
-    content: "⬇";
-    margin: 0 0 0 0.25em;
+    margin-inline-end: 0;
+    margin-inline-start: 0.25em;
+    mask-image: var(--download);
   }
   main a[href^="tel:"]::before {
-    content: "📱";
-  }
-  main a[href^="#"]::before {
-    content: "⚓";
-  }
-  main a[target$=blank]::after {
-    content: "🗗";
-    margin: 0 0 0 0.25em;
-  }
-  main a[href^="mailto:"]::after {
-    display: none;
+    mask-image: var(--tel);
   }
   main a[href^="mailto:"]::before {
-    content: "📧";
+    mask-image: var(--mail);
   }
   main a[href^="http:"]::before {
     color: hsl(var(--alert));
-    content: "🔓";
+    mask-image: var(--unsafe);
+  }
+  main a[href^="#"]::before {
+    mask-image: var(--anchor);
+  }
+  main a[target$=blank]::after {
+    margin-inline-end: 0;
+    margin-inline-start: 0.25em;
+    mask-image: var(--external);
   }
   @media (hover: hover) {
     main a[href^="tel:"] {
@@ -277,36 +281,6 @@
     }
     main a[href^="tel:"]::before {
       display: none !important;
-    }
-  }
-  @supports (mask-image: url(".")) {
-    main a[download]::after, main a[href^="#"]::before, main a[href^="tel:"]::before, main a[target$=blank]::after, main a[href^="http://"]::before, main a[href^="mailto:"]::before {
-      background: currentColor;
-      content: "";
-      block-size: 0.625em;
-      mask-repeat: no-repeat;
-      mask-position: center center;
-      inline-size: 0.625em;
-    }
-    main a[download]::after {
-      mask-image: var(--download);
-    }
-    main a[href^="#"]::before {
-      mask-image: var(--anchor);
-    }
-    main a[target$=blank]::after {
-      mask-image: var(--external);
-    }
-    main a[href^="http://"]::before {
-      mask-image: var(--unsafe);
-    }
-    main a[href^="mailto:"]::before {
-      mask-image: var(--mail);
-    }
-    @media (hover: hover) {
-      main a[href^="tel:"]::before {
-        mask-image: var(--tel);
-      }
     }
   }
   address {
@@ -812,35 +786,33 @@
      ** 2. Firefox is the only one supporting the nicer value
      * @link https://developer.mozilla.org/fr/docs/Web/CSS/writing-mode#Compatibilité_des_navigateurs
      */
-    @supports (--css: var(--iables)) {
-      .vertical {
-        display: flex;
-      }
-      .vertical details {
-        flex: 0;
-        min-inline-size: 3.5rem;
-      }
-      .vertical details + details {
-        border-width: 0.25rem 0.25rem 0.25rem 0;
-      }
-      .vertical details summary {
-        float: left;
-        min-height: 20rem;
-        writing-mode: vertical-lr; /* 1 */
-        writing-mode: sideways-lr; /* 2 */
-      }
-      .vertical details summary ~ * {
-        padding-inline-start: 3.5rem;
-      }
-      .vertical details summary ~ * > *:first-child {
-        margin-block-start: 0;
-      }
-      .vertical details[open] {
-        flex: 1;
-      }
-      .vertical details[open] summary ~ * {
-        animation: slide-in 0.5s var(--enter);
-      }
+    .vertical {
+      display: flex;
+    }
+    .vertical details {
+      flex: 0;
+      min-inline-size: 3.5rem;
+    }
+    .vertical details + details {
+      border-width: 0.25rem 0.25rem 0.25rem 0;
+    }
+    .vertical details summary {
+      float: left;
+      min-height: 20rem;
+      writing-mode: vertical-lr; /* 1 */
+      writing-mode: sideways-lr; /* 2 */
+    }
+    .vertical details summary ~ * {
+      padding-inline-start: 3.5rem;
+    }
+    .vertical details summary ~ * > *:first-child {
+      margin-block-start: 0;
+    }
+    .vertical details[open] {
+      flex: 1;
+    }
+    .vertical details[open] summary ~ * {
+      animation: slide-in 0.5s var(--enter);
     }
   }
   @keyframes slide-in {
@@ -1268,16 +1240,6 @@
   /* ==================== */
   /* == Grid
   /* ==================== */
-  /* -------------------- */
-  /* -- Columns
-   * 1.
-   * @bugfix avoiding weird gaps in Chrome
-   * @affected Chrome
-   * @see https://github.com/twbs/bootstrap/issues/20925
-   * 2.
-   * @note Avoiding break inside children isn't so well supported
-   * @see https://caniuse.com/#search=break-inside
-  /* -------------------- */
   [class*=grid] > *,
   [class*=columns] > * {
     display: inline-block;
@@ -1285,59 +1247,62 @@
     max-inline-size: 100%;
   }
   @media screen and (min-width: 37.5em) {
-    [class*=grid],
+    /* -------------------- */
+    /* -- Columns
+     * 1.
+     * @bugfix avoiding weird gaps in Chrome
+     * @affected Chrome
+     * @see https://github.com/twbs/bootstrap/issues/20925
+     * 2.
+     * @note Avoiding break inside children isn't so well supported
+     * @see https://caniuse.com/#search=break-inside
+    /* -------------------- */
     [class*=columns] {
       column-gap: 2rem;
       orphans: 1; /* 1 */
       widows: 1; /* 1 */
     }
-    [class*=grid] > *,
     [class*=columns] > * {
       page-break-inside: avoid; /* 2 */
       break-inside: avoid; /* 2 */
     }
-    .grid-2,
     .columns-2 {
       columns: 2;
     }
-    .grid-3, .grid-2-1, .grid-1-2,
     .columns-3 {
       columns: 3;
     }
-    .grid-4, .grid-3-1, .grid-1-3,
     .columns-4 {
       columns: 4;
     }
     /* -------------------- */
     /* -- Fixed grid
     /* -------------------- */
-    @supports (display: grid) {
-      [class*=grid] {
-        display: grid;
-        grid-gap: 2rem;
-        inline-size: 100%;
-      }
-      .grid-2 {
-        grid-template-columns: repeat(2, [col] 1fr);
-      }
-      .grid-3, .grid-2-1, .grid-1-2 {
-        grid-template-columns: repeat(3, [col] 1fr);
-      }
-      .grid-4, .grid-3-1, .grid-1-3 {
-        grid-template-columns: repeat(4, [col] 1fr);
-      }
-      .grid-1-2 > *:nth-child(even) {
-        grid-column: 2/span 2;
-      }
-      .grid-2-1 > *:nth-child(odd) {
-        grid-column: 1/span 2;
-      }
-      .grid-1-3 > *:nth-child(even) {
-        grid-column: 2/span 3;
-      }
-      .grid-3-1 > *:nth-child(odd) {
-        grid-column: 1/span 3;
-      }
+    [class*=grid] {
+      display: grid;
+      grid-gap: 2rem;
+      inline-size: 100%;
+    }
+    .grid-2 {
+      grid-template-columns: repeat(2, [col] 1fr);
+    }
+    .grid-3, .grid-2-1, .grid-1-2 {
+      grid-template-columns: repeat(3, [col] 1fr);
+    }
+    .grid-4, .grid-3-1, .grid-1-3 {
+      grid-template-columns: repeat(4, [col] 1fr);
+    }
+    .grid-1-2 > *:nth-child(even) {
+      grid-column: 2/span 2;
+    }
+    .grid-2-1 > *:nth-child(odd) {
+      grid-column: 1/span 2;
+    }
+    .grid-1-3 > *:nth-child(even) {
+      grid-column: 2/span 3;
+    }
+    .grid-3-1 > *:nth-child(odd) {
+      grid-column: 1/span 3;
     }
   }
   /* ----------------------------- */
@@ -2049,7 +2014,7 @@
   .deck [class*=card] {
     border: 1px solid;
     flex-flow: column nowrap;
-    block-size: calc(11.25rem * 1.5);
+    block-size: 16.875rem;
     justify-content: space-between;
     min-inline-size: unset;
     outline: 1px dotted;

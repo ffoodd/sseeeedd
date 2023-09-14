@@ -247,46 +247,53 @@ main a {
 		content: "\A0[" attr(hreflang) "]";
 	}
 
+	/**
+	 * @note Using CSS masks to use colored base64 encoded SVG
+	 * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
+	 */
 	&[download]::after,
 	&[href^="#"]::before,
 	&[href^="tel:"]::before,
 	&[target$="blank"]::after,
 	&[href^="http:"]::before,
 	&[href^="mailto:"]::before {
+		background: currentColor;
+		block-size: .625em;
 		content: "";
 		display: inline-block;
-		margin: 0 .25em 0 0;
+		margin-inline-end: .25em;
+		mask-repeat: no-repeat;
+		mask-position: center center;
+		inline-size: .625em;
 	}
 
 	&[download]::after {
-		content: "\2b07";
-		margin: 0 0 0 .25em;
+		margin-inline-end: 0;
+		margin-inline-start: .25em;
+		mask-image: var(--download);
 	}
 
 	&[href^="tel:"]::before {
-		content: "\1f4f1";
-	}
-
-	&[href^="#"]::before {
-		content: "\2693";
-	}
-
-	&[target$="blank"]::after {
-		content: "\1f5d7";
-		margin: 0 0 0 .25em;
-	}
-
-	&[href^="mailto:"]::after {
-		display: none;
+		mask-image: var(--tel);
 	}
 
 	&[href^="mailto:"]::before {
-		content: "\1f4e7";
+		mask-image: var(--mail);
 	}
 
 	&[href^="http:"]::before {
 		color: hsl(var(--alert));
-		content: "\1f513";
+		mask-image: var(--unsafe);
+	}
+
+	&[href^="#"]::before {
+		mask-image: var(--anchor);
+	}
+
+	&[target$="blank"]::after {
+		margin-inline-end: 0;
+		margin-inline-start: .25em;
+		mask-image: var(--external);
 	}
 
 	@media (hover: hover) {
@@ -300,56 +307,10 @@ main a {
 			}
 		}
 	}
-
-	/**
-	 * @note Using CSS masks to use colored base64 encoded SVG
-	 * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
-	 */
-	@supports (mask-image: url('.')) {
-		&[download]::after,
-		&[href^="#"]::before,
-		&[href^="tel:"]::before,
-		&[target$="blank"]::after,
-		&[href^="http://"]::before,
-		&[href^="mailto:"]::before {
-			background: currentColor;
-			content: "";
-			block-size: .625em;
-			mask-repeat: no-repeat;
-			mask-position: center center;
-			inline-size: .625em;
-		}
-
-		&[download]::after {
-			mask-image: var(--download);
-		}
-
-		&[href^="#"]::before {
-			mask-image: var(--anchor);
-		}
-
-		&[target$="blank"]::after {
-			mask-image: var(--external);
-		}
-
-		&[href^="http://"]::before {
-			mask-image: var(--unsafe);
-		}
-
-		&[href^="mailto:"]::before {
-			mask-image: var(--mail);
-		}
-
-		@media (hover: hover) {
-			&[href^="tel:"]::before {
-				mask-image: var(--tel);
-			}
-		}
-	}
 }
 
 address {
-	font-size: #{math.div(22, 16)}rem;
+	font-size: math.div(22rem, 16);
 	font-style: normal;
 	padding: 0 0 0 2em;
 }

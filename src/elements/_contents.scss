@@ -12,7 +12,7 @@ blockquote {
 	line-height: 1.5;
 	margin: 3rem 0 1.5rem;
 	max-inline-size: 100%;
-	padding-inline-start: #{math.div(112, 16)}em;
+	padding-inline-start: math.div(112em, 16);
 	position: relative;
 	quotes: "«\00A0" "\00A0»";
 	z-index: 2;
@@ -20,7 +20,7 @@ blockquote {
 	&::before {
 		color: hsl(var(--muted-light));
 		content: open-quote;
-		font-size: #{math.div(160, 16)}em;
+		font-size: math.div(160em, 16);
 		font-weight: 700;
 		inset-inline-start: 0;
 		line-height: 0;

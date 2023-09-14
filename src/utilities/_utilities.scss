@@ -80,7 +80,7 @@
 }
 
 // RWD
-@media screen and (max-width: #{math.div(479, 16)}em) {
+@media screen and (max-width: math.div(479em, 16)) {
 	.sm-hidden {
 		display: none;
 	}
