@@ -1,15 +1,16 @@
 @media print {
-  nav,
-  .fly-out,
+  .print-hidden,
   .no-js-hidden,
+  .fly-out,
   .tooltip,
   .dialog-opener {
-    display: none;
+    display: none !important;
   }
   html,
   body,
   body > * {
     background: none;
+    color: black;
   }
   p,
   blockquote,
