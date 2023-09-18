@@ -10,7 +10,7 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.prolog,
 .token.doctype,
 .token.cdata {
-	color: hsl(var(--contrast));
+	color: hsl(var(--muted));
 }
 
 .token.function,
@@ -72,6 +72,47 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 	text-decoration: line-through;
 }
 
+pre[data-line] {
+	position: relative;
+	z-index: 0;
+
+	.token {
+		position: relative;
+		z-index: 2;
+	}
+}
+
+
+.line-highlight {
+	background: hsl(var(--disabled));
+	inset-inline: 0;
+	line-height: inherit;
+	margin-block-start: 3rem;
+	padding: .25em;
+	pointer-events: none;
+	position: absolute;
+	white-space: pre;
+	z-index: 1;
+}
+
+.line-highlight::before,
+.line-highlight[data-end]:after {
+	color: hsl(var(--contrast-inverse));
+	content: attr(data-start);
+	font-weight: 700;
+	inset-block-start: .25em;
+	inset-inline-start: .5em;
+	min-inline-size: 1ch;
+	position: absolute;
+}
+
+.line-highlight[data-end]:after {
+	content: attr(data-end);
+	inset-block-start: auto;
+	inset-block-end: .25em;
+}
+
+
 @media screen and (prefers-color-scheme: dark) {
 	.no-js,
 	html:not([data-theme="light"]) {
@@ -79,6 +120,12 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 		.token.punctuation {
 			color: hsl(var(--secondary));
 		}
+	}
+}
+
+@media print {
+	.line-highlight {
+		print-color-adjust: exact;
 	}
 }
 /*! purgecss end ignore */
