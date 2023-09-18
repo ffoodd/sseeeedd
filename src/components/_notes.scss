@@ -9,9 +9,17 @@
 	border-inline-start: variables.$gutter solid;
 	color: hsl(var(--muted-dark));
 	margin: variables.$gutter 0;
-	padding: variables.$gutter * 0.5 variables.$gutter variables.$gutter * 0.25;
+	padding: variables.$gutter;
 
 	&.wip {
 		color: hsl(var(--alert));
+	}
+
+	> :first-child {
+		margin-block-start: 0;
+	}
+
+	> :last-child {
+		margin-block-end: 0;
 	}
 }

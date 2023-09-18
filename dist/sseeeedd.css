@@ -1556,10 +1556,16 @@
     border-inline-start: 1rem solid;
     color: hsl(var(--muted-dark));
     margin: 1rem 0;
-    padding: 0.5rem 1rem 0.25rem;
+    padding: 1rem;
   }
   .note.wip {
     color: hsl(var(--alert));
+  }
+  .note > :first-child {
+    margin-block-start: 0;
+  }
+  .note > :last-child {
+    margin-block-end: 0;
   }
   /* ==================== */
   /* == Footnotes
