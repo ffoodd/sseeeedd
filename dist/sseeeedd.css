@@ -255,7 +255,7 @@
   main a:visited {
     color: var(--success-dark);
   }
-  main a:visited::before {
+  main a:visited::before, main a:visited::after {
     background: var(--success-dark);
   }
   main a[hreflang]::after {
@@ -302,6 +302,14 @@
     }
     main a[href^="tel:"]::before {
       display: none !important;
+    }
+  }
+  @media (prefers-contrast: more) {
+    main a[download]::after, main a[href^="#"]::before, main a[href^="tel:"]::before, main a[target$=blank]::after, main a[href^="http:"]::before, main a[href^="mailto:"]::before {
+      background: LinkText;
+    }
+    main a[download]::after:visited, main a[href^="#"]::before:visited, main a[href^="tel:"]::before:visited, main a[target$=blank]::after:visited, main a[href^="http:"]::before:visited, main a[href^="mailto:"]::before:visited {
+      background: VisitedText;
     }
   }
   address {
@@ -1427,6 +1435,12 @@
   .token.punctuation {
     color: hsl(var(--rotation), 50%, 25%);
   }
+  @media (prefers-contrast: more) {
+    .token.function,
+    .token.punctuation {
+      color: VisitedText;
+    }
+  }
   .token.namespace {
     opacity: 0.7;
   }
@@ -1449,6 +1463,21 @@
   .token.important {
     color: var(--alert);
   }
+  @media (prefers-contrast: more) {
+    .token.selector,
+    .token.attr-name,
+    .token.number,
+    .token.operator,
+    .token.entity,
+    .token.url,
+    .language-css .token.string,
+    .style .token.string,
+    .token.variable,
+    .token.regex,
+    .token.important {
+      color: Highlight;
+    }
+  }
   .token.property,
   .token.tag,
   .token.boolean,
@@ -1458,6 +1487,18 @@
   .token.attr-value,
   .token.keyword {
     color: var(--success-dark);
+  }
+  @media (prefers-contrast: more) {
+    .token.property,
+    .token.tag,
+    .token.boolean,
+    .token.constant,
+    .token.symbol,
+    .token.atrule,
+    .token.attr-value,
+    .token.keyword {
+      color: ActiveText;
+    }
   }
   .token.important,
   .token.bold {
@@ -1723,6 +1764,12 @@
     margin: 1rem 0.5rem;
     padding: 0 1rem;
   }
+  @media (prefers-contrast: more) {
+    [role=alert] {
+      background-color: Highlight;
+      border-color: Highlight;
+    }
+  }
   .alert-alert {
     --color: var(--alert);
     --background: var(--alert-shadow);
@@ -1784,6 +1831,12 @@
     isolation: isolate;
     outline: 0.125rem solid var(--color);
     outline-offset: 0.125rem;
+  }
+  @media (prefers-contrast: more) {
+    .card {
+      background-color: Canvas;
+      color: CanvasText;
+    }
   }
   .card-img {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
@@ -2631,46 +2684,6 @@
       animation-iteration-count: 1;
       transition-duration: 0.01ms;
       scroll-behavior: auto;
-    }
-  }
-  @media (prefers-contrast: more) {
-    html:where([lang]) {
-      --secondary: VisitedText;
-      --secondary-light: VisitedText;
-      --secondary-lighter: VisitedText;
-      --secondary-dark: VisitedText;
-      --accent: Higlight;
-      --accent-light: Higlight;
-      --accent-dark: Higlight;
-      --alert: ActiveText;
-      --alert-light: ActiveText;
-      --alert-dark: ActiveText;
-      --success: ActiveText;
-      --success-light: ActiveText;
-      --success-lighter: ActiveText;
-      --success-dark: ActiveText;
-      --contrast: CanvasText;
-      --contrast-o-50: CanvasText;
-      --contrast-inverse: Canvas;
-      --muted: Canvas;
-      --muted-light: Canvas;
-      --muted-lighter: Canvas;
-      --muted-dark: Canvas;
-      --disabled: Canvas;
-      --background: Canvas;
-    }
-    a svg,
-    button svg {
-      background: none;
-      border-color: Highlight;
-      fill: Highlight;
-    }
-    mark {
-      background-color: Highlight;
-      color: HighlightText;
-    }
-    img {
-      filter: brightness(1) contrast(1) saturate(1.5);
     }
   }
   @media (inverted-colors) {
