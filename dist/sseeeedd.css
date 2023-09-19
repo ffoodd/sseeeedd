@@ -225,20 +225,13 @@
     text-decoration-thickness: max(0.1em, 1px);
     text-underline-offset: 0.25em;
   }
-  main a::before {
-    background: var(--secondary);
-  }
   a:hover {
+    color: var(--secondary-dark);
     text-decoration-style: solid;
   }
   a:focus {
-    text-decoration: none;
-  }
-  a:hover, a:focus {
     color: var(--secondary-dark);
-  }
-  main a:hover::before, main a:focus::before {
-    background: var(--secondary-dark);
+    text-decoration: none;
   }
   a:active {
     opacity: 0.75;

@@ -232,25 +232,14 @@ a {
 	text-decoration-thickness: max(.1em, 1px);
 	text-underline-offset: .25em;
 
-	main &::before {
-		background: var(--secondary);
-	}
-
 	&:hover {
+		color: var(--secondary-dark);
 		text-decoration-style: solid;
 	}
 
 	&:focus {
-		text-decoration: none;
-	}
-
-	&:hover,
-	&:focus {
 		color: var(--secondary-dark);
-
-		main &::before {
-			background: var(--secondary-dark);
-		}
+		text-decoration: none;
 	}
 
 	&:active {
