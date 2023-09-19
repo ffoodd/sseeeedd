@@ -653,23 +653,13 @@
     li figure,
     [class*=grid] figure,
     [class*=columns] figure {
-      min-inline-size: 0;
+      min-inline-size: 100%;
       inline-size: auto;
     }
     li figure img,
     [class*=grid] figure img,
     [class*=columns] figure img {
       min-inline-size: 0;
-    }
-  }
-  @media (inverted-colors) {
-    img {
-      filter: invert(100%);
-    }
-  }
-  @media screen and (-ms-high-contrast: active) {
-    img {
-      filter: brightness(1) contrast(1) saturate(1.5);
     }
   }
   /* ----------------------------- */
@@ -1726,7 +1716,7 @@
   /* ==================== */
   .card {
     --color: hsl(var(--muted-dark));
-    --shadow: hsl(var(--muted-dark), .25);
+    --shadow: hsl(var(--muted-dark) / .25);
     background: hsl(var(--contrast));
     border: 1px solid;
     border-radius: 0.25rem;
@@ -2598,6 +2588,14 @@
     mark {
       background-color: Highlight;
       color: HighlightText;
+    }
+    img {
+      filter: brightness(1) contrast(1) saturate(1.5);
+    }
+  }
+  @media (inverted-colors) {
+    img {
+      filter: invert(100%);
     }
   }
   /* ----------------------------- */

@@ -73,24 +73,12 @@ figure {
 	[class*="grid"],
 	[class*="columns"] {
 		figure {
-			min-inline-size: 0;
+			min-inline-size: 100%;
 			inline-size: auto;
 
 			img {
 				min-inline-size: 0;
 			}
 		}
-	}
-}
-
-@media (inverted-colors) {
-	img {
-		filter: invert(100%);
-	}
-}
-
-@media screen and (-ms-high-contrast: active) {
-	img {
-		filter: brightness(1) contrast(1) saturate(1.5);
 	}
 }
