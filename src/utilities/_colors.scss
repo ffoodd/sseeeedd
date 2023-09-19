@@ -1,14 +1,14 @@
 .muted {
-	color: hsl(var(--muted));
+	color: var(--muted);
 
 	em,
 	strong {
-		color: hsl(var(--background));
+		color: var(--background);
 	}
 }
 
 @each $color in alert, success, accent, secondary {
 	.clr-#{$color} {
-		color: hsl(var(--#{$color}));
+		color: var(--#{$color});
 	}
 }

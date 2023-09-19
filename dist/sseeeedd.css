@@ -22,7 +22,7 @@
   /* == Formage
   /* ==================== */
   .hn {
-    color: hsl(var(--contrast-inverse));
+    color: var(--contrast-inverse);
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -74,7 +74,7 @@
    */
   html:where([lang]) {
     box-sizing: border-box;
-    caret-color: hsl(var(--accent));
+    caret-color: var(--accent);
     text-size-adjust: none;
     overflow-y: scroll; /* 1 */
     position: relative;
@@ -91,25 +91,34 @@
     --brighter: calc(var(--lightness) * var(--light-scale));
     --darker: calc(var(--lightness) / var(--light-scale));
     --switch: calc((var(--lightness) - var(--treshold)) * -100);
-    --secondary: var(--hue) 100% var(--lightness);
-    --secondary-light: var(--hue) 100% var(--brighter);
-    --secondary-dark: var(--hue) 100% var(--darker);
-    --accent: var(--rotation) 50% var(--lightness);
-    --accent-light: var(--rotation) 50% var(--brighter);
-    --accent-dark: var(--rotation) 50% var(--darker);
-    --alert: var(--wrong) 100% var(--lightness);
-    --alert-light: var(--wrong) 100% var(--brighter);
-    --alert-dark: var(--wrong) 100% var(--darker);
-    --success: var(--right) 100% var(--lightness);
-    --success-light: var(--right) 100% var(--brighter);
-    --success-dark: var(--right) 100% var(--darker);
-    --contrast: var(--neutral) var(--switch);
-    --contrast-inverse: var(--neutral) calc(var(--switch) * -1);
-    --muted: var(--neutral) var(--lightness);
-    --muted-light: var(--neutral) var(--brighter);
-    --muted-dark: var(--neutral) var(--darker);
-    --disabled: var(--neutral) 90%;
-    --background: var(--neutral) 96%;
+    --secondary: hsl(var(--hue) 100% var(--lightness));
+    --secondary-shadow: hsl(var(--hue) 100% var(--lightness) / .1);
+    --secondary-light: hsl(var(--hue) 100% var(--brighter));
+    --secondary-lighter: hsl(var(--hue) 100% var(--brighter) / .1);
+    --secondary-dark: hsl(var(--hue) 100% var(--darker));
+    --accent: hsl(var(--rotation) 50% var(--lightness));
+    --accent-shadow: hsl(var(--rotation) 50% var(--lightness) / .1);
+    --accent-light: hsl(var(--rotation) 50% var(--brighter));
+    --accent-dark: hsl(var(--rotation) 50% var(--darker));
+    --alert: hsl(var(--wrong) 100% var(--lightness));
+    --alert-shadow: hsl(var(--wrong) 100% var(--lightness) / .1);
+    --alert-light: hsl(var(--wrong) 100% var(--brighter));
+    --alert-dark: hsl(var(--wrong) 100% var(--darker));
+    --success: hsl(var(--right) 100% var(--lightness));
+    --success-shadow: hsl(var(--right) 100% var(--lightness) / .1);
+    --success-light: hsl(var(--right) 100% var(--brighter));
+    --success-lighter: hsl(var(--right) 100% var(--brighter) / .4);
+    --success-dark: hsl(var(--right) 100% var(--darker));
+    --contrast: hsl(var(--neutral) var(--switch));
+    --contrast-o-50: hsl(var(--neutral) var(--switch) / .5);
+    --contrast-inverse: hsl(var(--neutral) calc(var(--switch) * -1));
+    --muted: hsl(var(--neutral) var(--lightness));
+    --muted-light: hsl(var(--neutral) var(--brighter));
+    --muted-lighter: hsl(var(--neutral) var(--brighter) / .5);
+    --muted-dark: hsl(var(--neutral) var(--darker));
+    --disabled: hsl(var(--neutral) 90%);
+    --background: hsl(var(--neutral) 96%);
+    --shadow: hsl(var(--neutral) var(--darker) / .1);
     --enter: cubic-bezier(0, .5, .5, 1);
     --exit: cubic-bezier(.5, 0, 1, .5);
     --move: cubic-bezier(.5, 0, .5, 1);
@@ -118,9 +127,9 @@
     --unsafe: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 47 59.5'><path d='m 44,26.5 h -3.5 v -10 C 40.5,7.402 33.098,0 24,0 H 23 C 14.801,0 7.943,5.874 6.694,13.966 c -0.295,1.91 1.015,3.698 2.925,3.993 1.916,0.297 3.699,-1.016 3.993,-2.925 C 14.319,10.454 18.355,7 23,7 h 1 c 5.238,0 9.5,4.262 9.5,9.5 v 10 H 3 c -1.657,0 -3,1.343 -3,3 v 27 c 0,1.657 1.343,3 3,3 h 41 c 1.657,0 3,-1.343 3,-3 v -27 c 0,-1.657 -1.343,-3 -3,-3 z'/></svg>");
     --anchor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 85 85.2'><path d='M56.7 51.7l9.1 9c-2.3 5.5-8.1 9.7-17.3 11.2v-45c6.1-2.3 8-7.1 8-12.7C56.5 6.4 50.2 0 42.4 0s-14 6.3-14 14.2c0 5.6 1.9 10.4 8 12.7v45c-9.1-1.5-15-5.7-17.3-11.2l9.2-9H0v27.8l9.8-9.8c6.2 9.2 18.5 15.5 32.7 15.5 14.2 0 26.5-6.3 32.7-15.5l9.8 9.8V51.7zM42.5 19c-2.6 0-4.7-2.1-4.7-4.7s2.1-4.7 4.7-4.7 4.7 2.1 4.7 4.7-2.1 4.7-4.7 4.7z'/></svg>");
     --select: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 59 47.5'><path d='M29.414,37.657 L0.344,8.586 L8.828,0.102 L29.414,20.686 L50,0.1 L58.484,8.585 L29.414,37.657'/></svg>");
-    --required: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'><path fill='hsl(var(--alert))' d='M53.5355339 41.4644661L70 25l5 5-16.4644661 16.4644661h23.2842713v7.0710678H58.5355339L75 70l-5 5-16.4644661-16.4644661v23.2842713h-7.0710678V58.5355339L30 75l-5-5 16.4644661-16.4644661H18.1801948v-7.0710678h23.2842713L25 30l5-5 16.4644661 16.4644661V18.1801948h7.0710678z'/></svg>");
-    --valid: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6.3 6.1'><path fill='hsl(var(--success))' d='M0 2.6235l.898-.898 1.3851 1.3851L5.3936 0l.898.8981-4.0085 4.0085L0 2.6235z'/></svg>");
-    --invalid: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'><path fill='hsl(var(--alert))' d='M74.749 11.109L50 35.858 25.251 11.109 11.109 25.251 35.858 50 11.109 74.749l14.142 14.142L50 64.142l24.749 24.749 14.142-14.142L64.142 50l24.749-24.749z'/></svg>");
+    --required: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'><path fill='var(--alert)' d='M53.5355339 41.4644661L70 25l5 5-16.4644661 16.4644661h23.2842713v7.0710678H58.5355339L75 70l-5 5-16.4644661-16.4644661v23.2842713h-7.0710678V58.5355339L30 75l-5-5 16.4644661-16.4644661H18.1801948v-7.0710678h23.2842713L25 30l5-5 16.4644661 16.4644661V18.1801948h7.0710678z'/></svg>");
+    --valid: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 6.3 6.1'><path fill='var(--success)' d='M0 2.6235l.898-.898 1.3851 1.3851L5.3936 0l.898.8981-4.0085 4.0085L0 2.6235z'/></svg>");
+    --invalid: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'><path fill='var(--alert)' d='M74.749 11.109L50 35.858 25.251 11.109 11.109 25.251 35.858 50 11.109 74.749l14.142 14.142L50 64.142l24.749 24.749 14.142-14.142L64.142 50l24.749-24.749z'/></svg>");
     --mail: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 56'><path d='M0 0v3.7188l42 28.62504L84.000004 3.7188V0zm0 10.9688v45.03124h84.000004V10.9688L43.6875 38.46884a3.0003 3.0003 0 0 1-3.375 0z'/></svg>");
     --tel: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 88'><path d='M6 0C2.676 0 0 2.676 0 6v76.00005c0 3.324 2.676 6 6 6h34c3.324 0 6-2.676 6-6V6c0-3.324-2.676-6-6-6zM4 10h38v64.00005H4z'/></svg>");
   }
@@ -138,8 +147,8 @@
     box-sizing: inherit;
   }
   body {
-    background: hsl(var(--background));
-    color: hsl(var(--muted-dark));
+    background: var(--background);
+    color: var(--muted-dark);
     counter-reset: footnotes;
     font: normal 400 1em/1.5 sans-serif;
     font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
@@ -162,9 +171,9 @@
       outline-offset: 2rem;
     }
     to {
-      background-color: hsl(var(--contrast));
-      box-shadow: 0 0 0 0.25rem hsl(var(--contrast));
-      outline: 0.125rem solid hsl(var(--accent));
+      background-color: var(--contrast);
+      box-shadow: 0 0 0 0.25rem var(--contrast);
+      outline: 0.125rem solid var(--accent);
       outline-offset: 0.25rem;
     }
   }
@@ -176,8 +185,8 @@
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::selection
    */
   ::selection {
-    background-color: hsl(var(--accent));
-    color: hsl(var(--background));
+    background-color: var(--accent);
+    color: var(--background);
     text-shadow: none;
   }
   /**
@@ -185,7 +194,7 @@
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/::placeholder
    */
   ::placeholder {
-    color: hsl(var(--muted));
+    color: var(--muted);
   }
   /**
    * @note Focus styles
@@ -204,24 +213,24 @@
     outline-color: transparent;
   }
   :focus-visible {
-    box-shadow: 0 0 0 0.125rem hsl(var(--contrast));
+    box-shadow: 0 0 0 0.125rem var(--contrast);
     isolation: isolate;
-    outline: 0.125rem solid hsl(var(--accent));
+    outline: 0.125rem solid var(--accent);
     outline-offset: 0.125rem;
   }
   a {
-    color: hsl(var(--secondary));
+    color: var(--secondary);
     text-decoration-style: dotted;
     text-decoration-skip-ink: auto;
     text-decoration-thickness: max(0.1em, 1px);
     text-underline-offset: 0.25em;
   }
   a:hover {
-    color: hsl(var(--secondary-dark));
+    color: var(--secondary-dark);
     text-decoration-style: solid;
   }
   a:focus {
-    color: hsl(var(--secondary-dark));
+    color: var(--secondary-dark);
     text-decoration: none;
   }
   a:active {
@@ -237,7 +246,7 @@
      */
   }
   main a:visited {
-    color: hsl(var(--success-dark));
+    color: var(--success-dark);
   }
   main a[hreflang]::after {
     content: " [" attr(hreflang) "]";
@@ -264,7 +273,7 @@
     mask-image: var(--mail);
   }
   main a[href^="http:"]::before {
-    color: hsl(var(--alert));
+    color: var(--alert);
     mask-image: var(--unsafe);
   }
   main a[href^="#"]::before {
@@ -319,7 +328,7 @@
   .h4, h5,
   .h5, h6,
   .h6 {
-    color: hsl(var(--contrast-inverse));
+    color: var(--contrast-inverse);
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -347,23 +356,23 @@
   }
   h1,
   .h1 {
-    color: hsl(var(--secondary));
+    color: var(--secondary);
     font-size: 2.875em;
     line-height: 1.0434;
   }
   h1 strong,
   .h1 strong {
-    color: hsl(var(--muted-dark));
+    color: var(--muted-dark);
   }
   h2,
   .h2 {
-    color: hsl(var(--accent));
+    color: var(--accent);
     font-size: 2.5em;
     line-height: 1.2;
   }
   h3,
   .h3 {
-    color: hsl(var(--muted-dark));
+    color: var(--muted-dark);
     font-size: 2.25em;
     line-height: 1.3334;
   }
@@ -439,7 +448,7 @@
   .hn, blockquote footer, b,
   dt,
   strong, cite {
-    color: hsl(var(--contrast-inverse));
+    color: var(--contrast-inverse);
     font-weight: 700;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -465,7 +474,7 @@
     z-index: 2;
   }
   blockquote::before {
-    color: hsl(var(--muted-light));
+    color: var(--muted-light);
     content: open-quote;
     font-size: 10em;
     font-weight: 700;
@@ -490,12 +499,12 @@
     font-size: 0.875rem;
   }
   cite {
-    color: hsl(var(--accent));
+    color: var(--accent);
     font-style: normal;
   }
   hr {
-    border-block-end: 1px solid hsl(var(--contrast));
-    border-block-start: 1px solid hsl(var(--muted-light)/0.5);
+    border-block-end: 1px solid var(--contrast);
+    border-block-start: 1px solid var(--muted-lighter);
     block-size: 0;
   }
   var,
@@ -504,10 +513,10 @@
     line-height: 1;
   }
   pre {
-    background: hsl(var(--contrast));
+    background: var(--contrast);
     border: 1px dotted;
     border-radius: 0.25rem;
-    color: hsl(var(--contrast-inverse));
+    color: var(--contrast-inverse);
     direction: ltr;
     font-family: "Fira Mono", "Consolas", "Monaco", "Andale Mono", monospace;
     font-size: small;
@@ -523,9 +532,9 @@
     word-wrap: normal;
   }
   pre::before {
-    background: hsl(var(--alert));
+    background: var(--alert);
     border-radius: 50%;
-    box-shadow: 1.5rem 0 0 0 Orange, 3rem 0 0 0 hsl(var(--success));
+    box-shadow: 1.5rem 0 0 0 Orange, 3rem 0 0 0 var(--success);
     content: "";
     display: block;
     block-size: 1rem;
@@ -536,7 +545,7 @@
   :not(pre) > code {
     border: 1px solid;
     border-radius: 0.2em;
-    color: hsl(var(--accent));
+    color: var(--accent);
     display: inline-block;
     font-family: inherit;
     padding: 0.1em;
@@ -544,9 +553,9 @@
     white-space: nowrap;
   }
   :not(pre) > var {
-    background: hsl(var(--contrast));
+    background: var(--contrast);
     border-style: dashed;
-    color: hsl(var(--accent-dark));
+    color: var(--accent-dark);
   }
   dl,
   dd {
@@ -623,7 +632,7 @@
     max-inline-size: none;
   }
   img[alt]::after {
-    background: hsl(var(--contrast));
+    background: var(--contrast);
     display: block;
     content: attr(alt) "\a" "— " attr(src); /* 4 */
     font-size: 1rem;
@@ -635,7 +644,7 @@
     fill: currentColor;
   }
   figure {
-    background: hsl(var(--contrast));
+    background: var(--contrast);
     margin: 1rem auto;
     max-inline-size: 100%;
     overflow: hidden;
@@ -708,18 +717,18 @@
     text-align: start;
   }
   th {
-    background-color: hsl(var(--contrast));
-    color: hsl(var(--contrast-inverse));
+    background-color: var(--contrast);
+    color: var(--contrast-inverse);
   }
   td {
     line-height: 1.25;
     max-inline-size: 100%;
   }
   tbody {
-    border: 1px solid hsl(var(--muted-dark));
+    border: 1px solid var(--muted-dark);
   }
   thead {
-    border: 1px solid hsl(var(--contrast-inverse));
+    border: 1px solid var(--contrast-inverse);
   }
   /**
    * Gives scrollbale table some UX hints with shadows
@@ -745,20 +754,20 @@
   /* == Details
   /* ==================== */
   details {
-    border: 0.25rem solid hsl(var(--contrast-inverse));
+    border: 0.25rem solid var(--contrast-inverse);
   }
   details + details {
     border-block-start-width: 0;
   }
   details summary {
-    background: hsl(var(--muted-dark));
-    color: hsl(var(--contrast));
+    background: var(--muted-dark);
+    color: var(--contrast);
     cursor: pointer;
     padding: 1rem;
     transition: background 0.2s var(--enter);
   }
   details summary:hover, details summary:focus {
-    background: hsl(var(--contrast-inverse));
+    background: var(--contrast-inverse);
   }
   details summary ~ * {
     box-sizing: border-box;
@@ -888,9 +897,9 @@
   select,
   input[type=text], input[type=number], input[type=search], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=date], input[type=time], input[type=datetime-local], input[type=month], input[type=week], input[type=color], input[type=file], textarea {
     appearance: none;
-    background-color: hsl(var(--contrast));
-    border: 1px solid hsl(var(--contrast-inverse));
-    color: hsl(var(--muted-dark));
+    background-color: var(--contrast);
+    border: 1px solid var(--contrast-inverse);
+    color: var(--muted-dark);
     inline-size: 100%;
     /**
      * Avoid zoom on iOS when focus on inputs
@@ -899,15 +908,15 @@
   }
   select:focus,
   input[type=text]:focus, input[type=number]:focus, input[type=search]:focus, input[type=password]:focus, input[type=email]:focus, input[type=url]:focus, input[type=tel]:focus, input[type=date]:focus, input[type=time]:focus, input[type=datetime-local]:focus, input[type=month]:focus, input[type=week]:focus, input[type=color]:focus, input[type=file]:focus, textarea:focus {
-    border-color: hsl(var(--accent-light));
+    border-color: var(--accent-light);
   }
   select[readonly],
   input[type=text][readonly], input[type=number][readonly], input[type=search][readonly], input[type=password][readonly], input[type=email][readonly], input[type=url][readonly], input[type=tel][readonly], input[type=date][readonly], input[type=time][readonly], input[type=datetime-local][readonly], input[type=month][readonly], input[type=week][readonly], input[type=color][readonly], input[type=file][readonly], textarea[readonly] {
-    background-color: hsl(var(--disabled));
+    background-color: var(--disabled);
   }
   select[readonly]:focus,
   input[type=text][readonly]:focus, input[type=number][readonly]:focus, input[type=search][readonly]:focus, input[type=password][readonly]:focus, input[type=email][readonly]:focus, input[type=url][readonly]:focus, input[type=tel][readonly]:focus, input[type=date][readonly]:focus, input[type=time][readonly]:focus, input[type=datetime-local][readonly]:focus, input[type=month][readonly]:focus, input[type=week][readonly]:focus, input[type=color][readonly]:focus, input[type=file][readonly]:focus, textarea[readonly]:focus {
-    border-color: hsl(var(--muted));
+    border-color: var(--muted);
   }
   @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
     select,
@@ -935,17 +944,17 @@
     padding: 0;
   }
   input[type=range]:focus-visible::-webkit-slider-thumb {
-    box-shadow: 0 0 0 0.25rem hsl(var(--accent-light));
+    box-shadow: 0 0 0 0.25rem var(--accent-light);
   }
   input[type=range]:focus-visible::-moz-range-thumb {
-    box-shadow: 0 0 0 0.25rem hsl(var(--accent-light));
+    box-shadow: 0 0 0 0.25rem var(--accent-light);
   }
   input[type=range]::-webkit-slider-thumb {
     width: 1rem;
     height: 1rem;
     margin-top: -0.5rem;
-    background-color: hsl(var(--accent));
-    border: 0.25rem solid hsl(var(--background));
+    background-color: var(--accent);
+    border: 0.25rem solid var(--background);
     border-radius: 1rem;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     appearance: none;
@@ -961,16 +970,16 @@
     height: 0.5rem;
     color: transparent;
     cursor: pointer;
-    background-color: hsl(var(--contrast));
+    background-color: var(--contrast);
     border-color: transparent;
     border-radius: 1rem;
-    background-image: linear-gradient(to right, hsl(var(--accent-light)) var(--value, 0%), hsl(var(--contrast)) var(--value, 0%));
+    background-image: linear-gradient(to right, var(--accent-light) var(--value, 0%), var(--contrast) var(--value, 0%));
   }
   input[type=range]::-moz-range-thumb {
     width: 1rem;
     height: 1rem;
-    background-color: hsl(var(--accent));
-    border: 0.25rem solid hsl(var(--background));
+    background-color: var(--accent);
+    border: 0.25rem solid var(--background);
     border-radius: 1rem;
     transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     appearance: none;
@@ -985,13 +994,13 @@
     height: 0.5rem;
     color: transparent;
     cursor: pointer;
-    background-color: hsl(var(--contrast));
+    background-color: var(--contrast);
     border-color: transparent;
     border-radius: 1rem;
   }
   input[type=range]::-moz-range-progress {
     height: 0.5rem;
-    background-color: hsl(var(--accent-light));
+    background-color: var(--accent-light);
     border-radius: 1rem;
   }
   @media (prefers-reduced-motion: reduce) {
@@ -1006,10 +1015,10 @@
     pointer-events: none;
   }
   input[type=range]:disabled::-webkit-slider-thumb {
-    background-color: hsl(var(--disabled));
+    background-color: var(--disabled);
   }
   input[type=range]:disabled::-moz-range-thumb {
-    background-color: hsl(var(--disabled));
+    background-color: var(--disabled);
   }
   input[type=range] ~ output {
     box-sizing: content-box;
@@ -1038,7 +1047,7 @@
   input[list],
   select:not([multiple]) {
     appearance: none;
-    background: hsl(var(--contrast)) no-repeat var(--select) center right 0.5em/1em 1em;
+    background: var(--contrast) no-repeat var(--select) center right 0.5em/1em 1em;
   }
   textarea {
     resize: vertical;
@@ -1053,7 +1062,7 @@
     cursor: pointer;
   }
   form [disabled] {
-    background-color: hsl(var(--disabled));
+    background-color: var(--disabled);
     cursor: not-allowed;
   }
   /**
@@ -1065,7 +1074,7 @@
     font-size: small;
   }
   .label-msg-error {
-    color: hsl(var(--alert));
+    color: var(--alert);
   }
   /**
    * States
@@ -1073,17 +1082,17 @@
    ** @link https://www.ffoodd.fr/l-etat-des-champs/
    */
   input[type=text]:not([list]):valid:focus, input[type=number]:not([list]):valid:focus, input[type=search]:not([list]):valid:focus, input[type=password]:not([list]):valid:focus, input[type=email]:not([list]):valid:focus, input[type=url]:not([list]):valid:focus, input[type=tel]:not([list]):valid:focus, input[type=date]:not([list]):valid:focus, input[type=time]:not([list]):valid:focus, input[type=datetime-local]:not([list]):valid:focus, input[type=month]:not([list]):valid:focus, input[type=week]:not([list]):valid:focus, input[type=color]:not([list]):valid:focus, input[type=file]:not([list]):valid:focus, textarea:not([list]):valid:focus {
-    background: hsl(var(--contrast)) no-repeat var(--valid) center right 0.5em/1em 1.25em;
+    background: var(--contrast) no-repeat var(--valid) center right 0.5em/1em 1.25em;
   }
   input[type=text]:not([list]):invalid:not(:focus), input[type=number]:not([list]):invalid:not(:focus), input[type=search]:not([list]):invalid:not(:focus), input[type=password]:not([list]):invalid:not(:focus), input[type=email]:not([list]):invalid:not(:focus), input[type=url]:not([list]):invalid:not(:focus), input[type=tel]:not([list]):invalid:not(:focus), input[type=date]:not([list]):invalid:not(:focus), input[type=time]:not([list]):invalid:not(:focus), input[type=datetime-local]:not([list]):invalid:not(:focus), input[type=month]:not([list]):invalid:not(:focus), input[type=week]:not([list]):invalid:not(:focus), input[type=color]:not([list]):invalid:not(:focus), input[type=file]:not([list]):invalid:not(:focus), textarea:not([list]):invalid:not(:focus) {
-    background: hsl(var(--contrast)) no-repeat var(--invalid) center right 0.5em/1em 1.25em;
-    box-shadow: 0 0 0 0.125rem hsl(var(--alert-light), 0.5);
+    background: var(--contrast) no-repeat var(--invalid) center right 0.5em/1em 1.25em;
+    box-shadow: 0 0 0 0.125rem var(--alert-light);
   }
   input[type=text]:invalid:placeholder-shown:not(:focus), input[type=number]:invalid:placeholder-shown:not(:focus), input[type=search]:invalid:placeholder-shown:not(:focus), input[type=password]:invalid:placeholder-shown:not(:focus), input[type=email]:invalid:placeholder-shown:not(:focus), input[type=url]:invalid:placeholder-shown:not(:focus), input[type=tel]:invalid:placeholder-shown:not(:focus), input[type=date]:invalid:placeholder-shown:not(:focus), input[type=time]:invalid:placeholder-shown:not(:focus), input[type=datetime-local]:invalid:placeholder-shown:not(:focus), input[type=month]:invalid:placeholder-shown:not(:focus), input[type=week]:invalid:placeholder-shown:not(:focus), input[type=color]:invalid:placeholder-shown:not(:focus), input[type=file]:invalid:placeholder-shown:not(:focus), textarea:invalid:placeholder-shown:not(:focus) {
     box-shadow: none;
   }
   input[type=text]:not([list]):required:placeholder-shown, input[type=number]:not([list]):required:placeholder-shown, input[type=search]:not([list]):required:placeholder-shown, input[type=password]:not([list]):required:placeholder-shown, input[type=email]:not([list]):required:placeholder-shown, input[type=url]:not([list]):required:placeholder-shown, input[type=tel]:not([list]):required:placeholder-shown, input[type=date]:not([list]):required:placeholder-shown, input[type=time]:not([list]):required:placeholder-shown, input[type=datetime-local]:not([list]):required:placeholder-shown, input[type=month]:not([list]):required:placeholder-shown, input[type=week]:not([list]):required:placeholder-shown, input[type=color]:not([list]):required:placeholder-shown, input[type=file]:not([list]):required:placeholder-shown, textarea:not([list]):required:placeholder-shown {
-    background: hsl(var(--contrast)) no-repeat var(--required) center right 0.5em/1em 1.25em;
+    background: var(--contrast) no-repeat var(--required) center right 0.5em/1em 1.25em;
   }
   /**
    * Browser reset
@@ -1122,10 +1131,10 @@
    ** @see https://fvsch.com/styling-buttons/
    */
   .button, button, [type=submit], [type=reset], [type=button] {
-    background-color: hsl(var(--accent));
-    border: 1px solid hsl(var(--accent));
+    background-color: var(--accent);
+    border: 1px solid var(--accent);
     border-radius: 0.25rem;
-    color: hsl(var(--contrast));
+    color: var(--contrast);
     cursor: pointer;
     display: inline-block;
     font: inherit;
@@ -1139,19 +1148,19 @@
     appearance: none;
   }
   .button:hover, button:hover, [type=submit]:hover, [type=reset]:hover, [type=button]:hover {
-    border: 1px solid hsl(var(--accent-light));
-    background-color: hsl(var(--accent-light));
+    border: 1px solid var(--accent-light);
+    background-color: var(--accent-light);
   }
   .button:focus, .button:active, .button[aria-expanded=true], button:focus, button:active, button[aria-expanded=true], [type=submit]:focus, [type=submit]:active, [type=submit][aria-expanded=true], [type=reset]:focus, [type=reset]:active, [type=reset][aria-expanded=true], [type=button]:focus, [type=button]:active, [type=button][aria-expanded=true] {
-    border: 1px solid hsl(var(--accent-dark));
-    background-color: hsl(var(--accent-dark));
+    border: 1px solid var(--accent-dark);
+    background-color: var(--accent-dark);
   }
   .button:active, .button[aria-expanded=true], button:active, button[aria-expanded=true], [type=submit]:active, [type=submit][aria-expanded=true], [type=reset]:active, [type=reset][aria-expanded=true], [type=button]:active, [type=button][aria-expanded=true] {
     transform: translateY(0.125rem);
   }
   .button[disabled], .button[disabled]:hover, .button[disabled]:focus, .button[disabled]:active, button[disabled], button[disabled]:hover, button[disabled]:focus, button[disabled]:active, [type=submit][disabled], [type=submit][disabled]:hover, [type=submit][disabled]:focus, [type=submit][disabled]:active, [type=reset][disabled], [type=reset][disabled]:hover, [type=reset][disabled]:focus, [type=reset][disabled]:active, [type=button][disabled], [type=button][disabled]:hover, [type=button][disabled]:focus, [type=button][disabled]:active {
-    background-color: hsl(var(--muted-dark));
-    color: hsl(var(--background));
+    background-color: var(--muted-dark);
+    color: var(--background);
     cursor: not-allowed;
     pointer-events: none;
   }
@@ -1176,8 +1185,8 @@
   /* == Formage
   /* ==================== */
   dialog {
-    background-color: hsl(var(--background));
-    color: hsl(var(--muted-dark));
+    background-color: var(--background);
+    color: var(--muted-dark);
     contain: content;
   }
 }
@@ -1206,7 +1215,6 @@
   /* == Layout base
   /* ==================== */
   body > * {
-    background: hsl(var(--background)/0.75);
     margin: 0 auto;
     padding: 1rem;
     max-inline-size: 64em;
@@ -1363,13 +1371,13 @@
   }
   nav a[aria-current] {
     border-block-end: 0.25rem solid;
-    color: hsl(var(--accent));
+    color: var(--accent);
   }
   nav a[aria-current]:hover, nav a[aria-current]:focus, nav a[aria-current]:active {
     border-block-end: 0.25rem solid;
   }
   nav button[aria-current] {
-    color: hsl(var(--accent));
+    color: var(--accent);
   }
   nav > ul > li + li {
     margin-inline-start: 1rem;
@@ -1386,7 +1394,7 @@
   .token.prolog,
   .token.doctype,
   .token.cdata {
-    color: hsl(var(--muted));
+    color: var(--muted);
   }
   .token.function,
   .token.punctuation {
@@ -1399,7 +1407,7 @@
   .token.char,
   .token.builtin,
   .token.inserted {
-    color: hsl(var(--contrast-inverse));
+    color: var(--contrast-inverse);
   }
   .token.selector,
   .token.attr-name,
@@ -1412,7 +1420,7 @@
   .token.variable,
   .token.regex,
   .token.important {
-    color: hsl(var(--alert));
+    color: var(--alert);
   }
   .token.property,
   .token.tag,
@@ -1422,7 +1430,7 @@
   .token.atrule,
   .token.attr-value,
   .token.keyword {
-    color: hsl(var(--success-dark));
+    color: var(--success-dark);
   }
   .token.important,
   .token.bold {
@@ -1435,7 +1443,7 @@
     cursor: help;
   }
   .token.deleted {
-    color: hsl(var(--alert));
+    color: var(--alert);
     text-decoration: line-through;
   }
   pre[data-line] {
@@ -1447,7 +1455,7 @@
     z-index: 2;
   }
   .line-highlight {
-    background: hsl(var(--disabled));
+    background: var(--disabled);
     inset-inline: 0;
     line-height: inherit;
     margin-block-start: 3rem;
@@ -1459,7 +1467,7 @@
   }
   .line-highlight::before,
   .line-highlight[data-end]:after {
-    color: hsl(var(--contrast-inverse));
+    color: var(--contrast-inverse);
     content: attr(data-start);
     font-weight: 700;
     inset-block-start: 0.25em;
@@ -1477,7 +1485,7 @@
     .no-js .token.punctuation,
     html:not([data-theme=light]) .token.function,
     html:not([data-theme=light]) .token.punctuation {
-      color: hsl(var(--secondary));
+      color: var(--secondary);
     }
   }
   @media print {
@@ -1510,16 +1518,16 @@
     text-decoration: none;
   }
   [id=pagination] a:not([aria-current]):hover, [id=pagination] a:not([aria-current]):focus {
-    background: hsl(var(--contrast));
+    background: var(--contrast);
   }
   [id=pagination] [tabindex="-1"] {
-    color: hsl(var(--muted));
+    color: var(--muted);
     pointer-events: none;
   }
   [id=pagination] [aria-current] {
-    background: hsl(var(--accent));
+    background: var(--accent);
     border: 0;
-    color: hsl(var(--contrast));
+    color: var(--contrast);
     pointer-events: none;
   }
   /* ----------------------------- */
@@ -1546,14 +1554,14 @@
   /* == Notes
   /* ==================== */
   .note {
-    background: hsl(var(--contrast));
+    background: var(--contrast);
     border-inline-start: 1rem solid;
-    color: hsl(var(--muted-dark));
+    color: var(--muted-dark);
     margin: 1rem 0;
     padding: 1rem;
   }
   .note.wip {
-    color: hsl(var(--alert));
+    color: var(--alert);
   }
   .note > :first-child {
     margin-block-start: 0;
@@ -1580,7 +1588,7 @@
     font-size: 0.875rem;
     font-weight: 400;
     margin-inline-start: 2px;
-    color: hsl(var(--accent));
+    color: var(--accent);
     cursor: pointer;
   }
   footer[id=footnotes] {
@@ -1624,10 +1632,10 @@
   [type=range] ~ output {
     --arrow: calc(100% - 0.25rem);
     --rotation: 45deg;
-    background: hsl(var(--muted-dark));
+    background: var(--muted-dark);
     inset-block-end: calc(100% + 0.5em);
     clip-path: polygon(0% 0%, 100% 0%, 100% var(--arrow), calc(50% - 0.25rem) var(--arrow), 50% 100%, calc(50% + 0.25rem) var(--arrow), 0% var(--arrow));
-    color: hsl(var(--background));
+    color: var(--background);
     margin: 0;
     padding: 0.25rem 0.5rem 0.5rem;
     pointer-events: none;
@@ -1673,8 +1681,8 @@
   /* == Alerts
   /* ==================== */
   [role=alert] {
-    background-color: hsl(var(--color)/0.1);
-    border: 0.25rem solid hsl(var(--color));
+    background-color: var(--background);
+    border: 0.25rem solid var(--color);
     border-inline-start-width: 1rem;
     contain: content;
     font-weight: bold;
@@ -1683,15 +1691,19 @@
   }
   .alert-alert {
     --color: var(--alert);
+    --background: var(--alert-shadow);
   }
   .alert-success {
     --color: var(--success);
+    --background: var(--success-shadow);
   }
   .alert-accent {
     --color: var(--accent);
+    --background: var(--accent-shadow);
   }
   .alert-secondary {
     --color: var(--secondary);
+    --background: var(--secondary-shadow);
   }
   /* ----------------------------- */
   /* Table of contents */
@@ -1720,9 +1732,8 @@
    * @link https://inclusive-components.design/cards/
   /* ==================== */
   .card {
-    --color: hsl(var(--muted-dark));
-    --shadow: hsl(var(--muted-dark) / .1);
-    background: hsl(var(--contrast));
+    --color: var(--muted-dark);
+    background: var(--contrast);
     border: 1px solid;
     border-radius: 0.25rem;
     box-shadow: 0.25rem 0.25rem 0 var(--shadow);
@@ -1735,7 +1746,7 @@
     transition: outline-offset 0.3s var(--enter);
   }
   .card:focus-within {
-    box-shadow: 0 0 0 0.125rem hsl(var(--contrast));
+    box-shadow: 0 0 0 0.125rem var(--contrast);
     isolation: isolate;
     outline: 0.125rem solid var(--color);
     outline-offset: 0.125rem;
@@ -1787,24 +1798,20 @@
   /* -- Variants
   /* -------------------- */
   .card-alert {
-    --color: hsl(var(--alert));
-    --shadow: hsl(var(--alert) / .1);
+    --color: var(--alert);
+    --shadow: var(--alert-shadow);
   }
   .card-success {
-    --color: hsl(var(--success));
-    --shadow: hsl(var(--success) / .1);
+    --color: var(--success);
+    --shadow: var(--success-shadow);
   }
   .card-accent {
-    --color: hsl(var(--accent));
-    --shadow: hsl(var(--accent) / .1);
-  }
-  .card-default {
-    --color: hsl(var(--default));
-    --shadow: hsl(var(--default) / .1);
+    --color: var(--accent);
+    --shadow: var(--accent-shadow);
   }
   .card-secondary {
-    --color: hsl(var(--secondary));
-    --shadow: hsl(var(--secondary) / .1);
+    --color: var(--secondary);
+    --shadow: var(--secondary-shadow);
   }
   /* ----------------------------- */
   /* Table of contents */
@@ -1850,10 +1857,10 @@
   }
   .fly-out a,
   .fly-out button {
-    background: hsl(var(--contrast));
+    background: var(--contrast);
     border: 0;
     border-radius: 0;
-    color: hsl(var(--secondary));
+    color: var(--secondary);
     display: block;
     margin: 0;
     padding: 0.5rem 1rem;
@@ -1864,12 +1871,12 @@
   .fly-out button:hover,
   .fly-out button:focus,
   .fly-out button:active {
-    background: hsl(var(--background));
+    background: var(--background);
     border: 0;
-    color: hsl(var(--secondary-dark));
+    color: var(--secondary-dark);
   }
   .fly-out > * {
-    background: hsl(var(--contrast));
+    background: var(--contrast);
     margin: 0.5rem;
     position: relative;
     z-index: 1;
@@ -1923,9 +1930,9 @@
   .fly-out > * > button:hover + ul,
   .fly-out > * > button:focus + ul,
   .fly-out > * > button:active + ul {
-    box-shadow: 0.25rem 0.25rem 0 0 hsl(var(--muted-dark)/0.25);
+    box-shadow: 0.25rem 0.25rem 0 0 var(--shadow);
     clip-path: circle(150% at top right);
-    outline: 1px solid hsl(var(--muted-light));
+    outline: 1px solid var(--muted-light);
     transition: clip-path 0.3s var(--exit);
   }
   .fly-out > * > button:hover::after,
@@ -1960,10 +1967,10 @@
   /* == Switch
   /* ==================== */
   button[role=switch] {
-    background-color: hsl(var(--muted)/0.1);
+    background-color: var(--muted-lighter);
     border-radius: 1.375rem;
     box-sizing: content-box;
-    color: hsl(var(--muted-dark));
+    color: var(--muted-dark);
     contain: content;
     block-size: 2.75rem;
     line-height: 2.75rem;
@@ -1986,7 +1993,7 @@
     will-change: transform;
   }
   button[role=switch]::after {
-    background: hsl(var(--contrast)/0.5);
+    background: var(--contrast-o-50);
     block-size: 1rem;
     inline-size: 1rem;
     inset-inline-start: 0.925rem;
@@ -1994,17 +2001,17 @@
     visibility: hidden;
   }
   button[role=switch]:hover, button[role=switch]:focus, button[role=switch]:active {
-    background-color: hsl(var(--muted)/0.075);
-    color: hsl(var(--contrast-inverse));
+    background-color: var(--muted-lighter);
+    color: var(--contrast-inverse);
   }
   button[role=switch]:hover::after, button[role=switch]:focus::after, button[role=switch]:active::after {
     visibility: visible;
   }
   button[role=switch][aria-checked=true] {
-    background-color: hsl(var(--success-light)/var(--lightness));
+    background-color: var(--success-lighter);
   }
   button[role=switch][aria-checked=true]::before {
-    background: hsl(var(--success-dark));
+    background: var(--success-dark);
   }
   button[role=switch][aria-checked=true]::after, button[role=switch][aria-checked=true]::before {
     transform: translateX(calc(4.875rem + 3rem));
@@ -2138,7 +2145,7 @@
     grid-gap: 1rem;
   }
   .toggle {
-    background-color: hsl(var(--contrast));
+    background-color: var(--contrast);
     border-radius: 0.25rem;
     padding: 0 0.5rem;
   }
@@ -2148,7 +2155,7 @@
   .toggle button[aria-pressed=false] {
     background-color: transparent;
     border: 0;
-    color: hsl(var(--accent));
+    color: var(--accent);
   }
   .skip-links {
     flex: 1 0 100%;
@@ -2259,42 +2266,42 @@
     opacity: 0.75;
   }
   .bg-alert {
-    background-color: hsl(var(--alert));
-    color: hsl(var(--contrast));
+    background-color: var(--alert);
+    color: var(--contrast);
   }
   .bg-success {
-    background-color: hsl(var(--success));
-    color: hsl(var(--contrast));
+    background-color: var(--success);
+    color: var(--contrast);
   }
   .bg-accent {
-    background-color: hsl(var(--accent));
-    color: hsl(var(--contrast));
+    background-color: var(--accent);
+    color: var(--contrast);
   }
   .bg-secondary {
-    background-color: hsl(var(--secondary));
-    color: hsl(var(--contrast));
+    background-color: var(--secondary);
+    color: var(--contrast);
   }
   .no-background {
     background: none;
   }
   .muted {
-    color: hsl(var(--muted));
+    color: var(--muted);
   }
   .muted em,
   .muted strong {
-    color: hsl(var(--background));
+    color: var(--background);
   }
   .clr-alert {
-    color: hsl(var(--alert));
+    color: var(--alert);
   }
   .clr-success {
-    color: hsl(var(--success));
+    color: var(--success);
   }
   .clr-accent {
-    color: hsl(var(--accent));
+    color: var(--accent);
   }
   .clr-secondary {
-    color: hsl(var(--secondary));
+    color: var(--secondary);
   }
   [class*="--xs"] {
     font-size: 0.75rem;
@@ -2580,11 +2587,7 @@
       scroll-behavior: auto;
     }
   }
-  /**
-   * Handle high contrast mode in Windows
-   * @link http://adrianroselli.com/2017/12/tweaking-text-level-styles.html
-   */
-  @media screen and (-ms-high-contrast: active) {
+  @media screen and (prefers-contrast: more) {
     a svg,
     button svg {
       background: none;
@@ -2632,10 +2635,10 @@
     --rotation: calc(var(--hue) - 30);
     --brighter: calc(var(--lightness) / var(--light-scale));
     --darker: calc(var(--lightness) * var(--light-scale));
-    --disabled: var(--neutral) 10%;
-    --background: var(--neutral) 20%;
-    --success-light: var(--right) 100% calc(var(--lightness) / 3);
-    --success-dark: var(--right) 100% var(--brighter);
+    --disabled: hsl(var(--neutral) 10%);
+    --background: hsl(var(--neutral) 20%);
+    --success-light: hsl(var(--right) 100% calc(var(--lightness) / 3));
+    --success-dark: hsl(var(--right) 100% var(--brighter));
   }
   html:where([data-theme=dark]) img {
     filter: brightness(0.8) contrast(1.2);
@@ -2655,10 +2658,10 @@
       --rotation: calc(var(--hue) - 30);
       --brighter: calc(var(--lightness) / var(--light-scale));
       --darker: calc(var(--lightness) * var(--light-scale));
-      --disabled: var(--neutral) 10%;
-      --background: var(--neutral) 20%;
-      --success-light: var(--right) 100% calc(var(--lightness) / 3);
-      --success-dark: var(--right) 100% var(--brighter);
+      --disabled: hsl(var(--neutral) 10%);
+      --background: hsl(var(--neutral) 20%);
+      --success-light: hsl(var(--right) 100% calc(var(--lightness) / 3));
+      --success-dark: hsl(var(--right) 100% var(--brighter));
     }
     .no-js img,
     html:where(:not([data-theme=light])) img {

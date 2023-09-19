@@ -5,14 +5,14 @@
 /* ==================== */
 
 .note {
-	background: hsl(var(--contrast));
+	background: var(--contrast);
 	border-inline-start: variables.$gutter solid;
-	color: hsl(var(--muted-dark));
+	color: var(--muted-dark);
 	margin: variables.$gutter 0;
 	padding: variables.$gutter;
 
 	&.wip {
-		color: hsl(var(--alert));
+		color: var(--alert);
 	}
 
 	> :first-child {

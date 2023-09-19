@@ -20,19 +20,19 @@ caption {
 
 h1,
 .h1 {
-	color: hsl(var(--secondary));
+	color: var(--secondary);
 	font-size: math.div(46em, 16);
 	line-height: 1.0434;
 	@extend .hn;
 
 	strong {
-		color: hsl(var(--muted-dark));
+		color: var(--muted-dark);
 	}
 }
 
 h2,
 .h2 {
-	color: hsl(var(--accent));
+	color: var(--accent);
 	font-size: math.div(40em, 16);
 	line-height: 1.2;
 	@extend .hn;
@@ -40,7 +40,7 @@ h2,
 
 h3,
 .h3 {
-	color: hsl(var(--muted-dark));
+	color: var(--muted-dark);
 	font-size: math.div(36em, 16);
 	line-height: 1.3334;
 	@extend .hn;

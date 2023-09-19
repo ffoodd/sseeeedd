@@ -1,5 +1,5 @@
 .toggle {
-	background-color: hsl(var(--contrast));
+	background-color: var(--contrast);
 	border-radius: .25rem;
 	padding: 0 .5rem;
 
@@ -9,7 +9,7 @@
 		&[aria-pressed="false"] {
 			background-color: transparent;
 			border: 0;
-			color: hsl(var(--accent));
+			color: var(--accent);
 		}
 	}
 }

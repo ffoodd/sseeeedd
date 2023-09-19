@@ -14,8 +14,8 @@
 // Backgrounds
 @each $color in alert, success, accent, secondary {
 	.bg-#{$color} {
-		background-color: hsl(var(--#{$color}));
-		color: hsl(var(--contrast));
+		background-color: var(--#{$color});
+		color: var(--contrast);
 	}
 }
 

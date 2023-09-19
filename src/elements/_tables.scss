@@ -26,8 +26,8 @@ td {
 }
 
 th {
-	background-color: hsl(var(--contrast));
-	color: hsl(var(--contrast-inverse));
+	background-color: var(--contrast);
+	color: var(--contrast-inverse);
 }
 
 td {
@@ -36,11 +36,11 @@ td {
 }
 
 tbody {
-	border: 1px solid hsl(var(--muted-dark));
+	border: 1px solid var(--muted-dark);
 }
 
 thead {
-	border: 1px solid hsl(var(--contrast-inverse));
+	border: 1px solid var(--contrast-inverse);
 }
 
 /**
