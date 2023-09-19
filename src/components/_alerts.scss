@@ -12,6 +12,13 @@
 	font-weight: bold;
 	margin: variables.$gutter variables.$gutter * 0.5;
 	padding: 0 variables.$gutter;
+
+	@media (prefers-contrast: more) {
+		& {
+			background-color: Highlight;
+			border-color: Highlight;
+		}
+	}
 }
 
 @each $alert in alert, success, accent, secondary {

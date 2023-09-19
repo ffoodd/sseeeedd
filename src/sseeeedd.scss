@@ -67,7 +67,6 @@
 // User preferences
 @layer preferences {
 	@include meta.load-css("preferences/reduced-motion");
-	@include meta.load-css("preferences/high-contrast");
 	@include meta.load-css("preferences/inverted-colors");
 	@include meta.load-css("preferences/dark-mode");
 }

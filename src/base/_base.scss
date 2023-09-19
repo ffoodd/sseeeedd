@@ -265,7 +265,8 @@ main a {
 	&:visited {
 		color: var(--success-dark);
 
-		&::before {
+		&::before,
+		&::after {
 			background: var(--success-dark);
 		}
 	}
@@ -331,6 +332,21 @@ main a {
 
 			&::before {
 				display: none !important;
+			}
+		}
+	}
+
+	@media (prefers-contrast: more) {
+		&[download]::after,
+		&[href^="#"]::before,
+		&[href^="tel:"]::before,
+		&[target$="blank"]::after,
+		&[href^="http:"]::before,
+		&[href^="mailto:"]::before {
+			background: LinkText;
+
+			&:visited {
+				background: VisitedText;
 			}
 		}
 	}

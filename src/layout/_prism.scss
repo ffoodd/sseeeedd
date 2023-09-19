@@ -16,6 +16,10 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.function,
 .token.punctuation {
 	color: hsl(var(--rotation) 50% 25%);
+
+	@media (prefers-contrast: more) {
+		color: VisitedText;
+	}
 }
 
 .token.namespace {
@@ -41,6 +45,10 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.regex,
 .token.important  {
 	color: var(--alert);
+
+	@media (prefers-contrast: more) {
+		color: Highlight;
+	}
 }
 
 .token.property,
@@ -52,6 +60,10 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.attr-value,
 .token.keyword {
 	color: var(--success-dark);
+
+	@media (prefers-contrast: more) {
+		color: ActiveText;
+	}
 }
 
 .token.important,

@@ -27,6 +27,13 @@
 		outline: .125rem solid var(--color);
 		outline-offset: .125rem;
 	}
+
+	@media (prefers-contrast: more) {
+		& {
+			background-color: Canvas;
+			color: CanvasText;
+		}
+	}
 }
 
 .card-img {
