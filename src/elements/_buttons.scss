@@ -10,10 +10,10 @@
  ** @see https://fvsch.com/styling-buttons/
  */
 #{variables.$form-buttons} {
-	background-color: hsl(var(--accent));
-	border: 1px solid hsl(var(--accent));
+	background-color: var(--accent);
+	border: 1px solid var(--accent);
 	border-radius: variables.$gutter * 0.25;
-	color: hsl(var(--contrast));
+	color: var(--contrast);
 	cursor: pointer;
 	display: inline-block;
 	font: inherit;
@@ -27,15 +27,15 @@
 	appearance: none;
 
 	&:hover {
-		border: 1px solid hsl(var(--accent-light));
-		background-color: hsl(var(--accent-light));
+		border: 1px solid var(--accent-light);
+		background-color: var(--accent-light);
 	}
 
 	&:focus,
 	&:active,
 	&[aria-expanded="true"] {
-		border: 1px solid hsl(var(--accent-dark));
-		background-color: hsl(var(--accent-dark));
+		border: 1px solid var(--accent-dark);
+		background-color: var(--accent-dark);
 	}
 
 	&:active,
@@ -48,8 +48,8 @@
 		&:hover,
 		&:focus,
 		&:active {
-			background-color: hsl(var(--muted-dark));
-			color: hsl(var(--background));
+			background-color: var(--muted-dark);
+			color: var(--background);
 			cursor: not-allowed;
 			pointer-events: none;
 		}

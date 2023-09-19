@@ -6,10 +6,10 @@
 /* ==================== */
 
 button[role="switch"] {
-	background-color: hsl(var(--muted) / .1);
+	background-color: var(--muted-lighter);
 	border-radius: 1.375rem;
 	box-sizing: content-box;
-	color: hsl(var(--muted-dark));
+	color: var(--muted-dark);
 	contain: content;
 	block-size: 2.75rem;
 	line-height: 2.75rem;
@@ -34,7 +34,7 @@ button[role="switch"] {
 	}
 
 	&::after {
-		background: hsl(var(--contrast) / .5);
+		background: var(--contrast-o-50);
 		block-size: 1rem;
 		inline-size: 1rem;
 		inset-inline-start: .925rem;
@@ -45,8 +45,8 @@ button[role="switch"] {
 	&:hover,
 	&:focus,
 	&:active {
-		background-color: hsl(var(--muted) / .075);
-		color: hsl(var(--contrast-inverse));
+		background-color: var(--muted-lighter);
+		color: var(--contrast-inverse);
 
 		&::after {
 			visibility: visible;
@@ -54,10 +54,10 @@ button[role="switch"] {
 	}
 
 	&[aria-checked="true"] {
-		background-color: hsl(var(--success-light) / var(--lightness));
+		background-color: var(--success-lighter);
 
 		&::before {
-			background: hsl(var(--success-dark));
+			background: var(--success-dark);
 		}
 
 		&::after,

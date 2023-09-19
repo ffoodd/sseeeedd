@@ -29,7 +29,7 @@ img[alt] {
 
 	/* 1 */
 	&::after {
-		background: hsl(var(--contrast));
+		background: var(--contrast);
 		display: block;
 		content: attr(alt) /* 3 */
 		"\A" /* 2 */
@@ -46,7 +46,7 @@ svg {
 }
 
 figure {
-	background: hsl(var(--contrast));
+	background: var(--contrast);
 	margin: variables.$gutter auto;
 	max-inline-size: 100%;
 	overflow: hidden;

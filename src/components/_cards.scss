@@ -8,9 +8,8 @@
 /* ==================== */
 
 .card {
-	--color: hsl(var(--muted-dark));
-	--shadow: hsl(var(--muted-dark) / .1);
-	background: hsl(var(--contrast));
+	--color: var(--muted-dark);
+	background: var(--contrast);
 	border: 1px solid;
 	border-radius: .25rem;
 	box-shadow: .25rem .25rem 0 var(--shadow);
@@ -23,7 +22,7 @@
 	transition: outline-offset .3s var(--enter);
 
 	&:focus-within {
-		box-shadow: 0 0 0 .125rem hsl(var(--contrast));
+		box-shadow: 0 0 0 .125rem var(--contrast);
 		isolation: isolate;
 		outline: .125rem solid var(--color);
 		outline-offset: .125rem;
@@ -88,9 +87,9 @@
 /* -- Variants
 /* -------------------- */
 
-@each $variant in alert, success, accent, default, secondary {
+@each $variant in alert, success, accent, secondary {
 	.card-#{$variant} {
-		--color: hsl(var(--#{$variant}));
-		--shadow: hsl(var(--#{$variant}) / .1);
+		--color: var(--#{$variant});
+		--shadow: var(--#{$variant}-shadow);
 	}
 }

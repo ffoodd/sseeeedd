@@ -18,7 +18,7 @@ blockquote {
 	z-index: 2;
 
 	&::before {
-		color: hsl(var(--muted-light));
+		color: var(--muted-light);
 		content: open-quote;
 		font-size: math.div(160em, 16);
 		font-weight: 700;
@@ -55,14 +55,14 @@ strong {
 }
 
 cite {
-	color: hsl(var(--accent));
+	color: var(--accent);
 	font-style: normal;
 	@extend .hn;
 }
 
 hr {
-	border-block-end: 1px solid hsl(var(--contrast));
-	border-block-start: 1px solid hsl(var(--muted-light) / .5);
+	border-block-end: 1px solid var(--contrast);
+	border-block-start: 1px solid var(--muted-lighter);
 	block-size: 0;
 }
 
@@ -73,10 +73,10 @@ code {
 }
 
 pre {
-	background: hsl(var(--contrast));
+	background: var(--contrast);
 	border: 1px dotted;
 	border-radius: .25rem;
-	color: hsl(var(--contrast-inverse));
+	color: var(--contrast-inverse);
 	direction: ltr;
 	font-family: "Fira Mono", "Consolas", "Monaco", "Andale Mono", monospace;
 	font-size: small;
@@ -92,10 +92,10 @@ pre {
 	word-wrap: normal;
 
 	&::before {
-		background: hsl(var(--alert));
+		background: var(--alert);
 		border-radius: 50%;
 		box-shadow: 1.5rem 0 0 0 Orange,
-		3rem 0 0 0 hsl(var(--success));
+		3rem 0 0 0 var(--success);
 		content: "";
 		display: block;
 		block-size: 1rem;
@@ -108,7 +108,7 @@ pre {
 :not(pre) > code {
 	border: 1px solid;
 	border-radius: .2em;
-	color: hsl(var(--accent));
+	color: var(--accent);
 	display: inline-block;
 	font-family: inherit;
 	padding: .1em;
@@ -117,9 +117,9 @@ pre {
 }
 
 :not(pre) > var {
-	background: hsl(var(--contrast));
+	background: var(--contrast);
 	border-style: dashed;
-	color: hsl(var(--accent-dark));
+	color: var(--accent-dark);
 }
 
 dl,

@@ -20,19 +20,19 @@
 
 		&:not([aria-current]):hover,
 		&:not([aria-current]):focus {
-			background: hsl(var(--contrast));
+			background: var(--contrast);
 		}
 	}
 
 	[tabindex="-1"] {
-		color: hsl(var(--muted));
+		color: var(--muted);
 		pointer-events: none;
 	}
 
 	[aria-current] {
-		background: hsl(var(--accent));
+		background: var(--accent);
 		border: 0;
-		color: hsl(var(--contrast));
+		color: var(--contrast);
 		pointer-events: none;
 	}
 }

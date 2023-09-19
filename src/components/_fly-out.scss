@@ -29,10 +29,10 @@
 
 	a,
 	button {
-		background: hsl(var(--contrast));
+		background: var(--contrast);
 		border: 0;
 		border-radius: 0;
-		color: hsl(var(--secondary));
+		color: var(--secondary);
 		display: block;
 		margin: 0;
 		padding: variables.$gutter * 0.5 variables.$gutter;
@@ -42,14 +42,14 @@
 		&:hover,
 		&:focus,
 		&:active {
-			background: hsl(var(--background));
+			background: var(--background);
 			border: 0;
-			color: hsl(var(--secondary-dark));
+			color: var(--secondary-dark);
 		}
 	}
 
 	> * {
-		background: hsl(var(--contrast));
+		background: var(--contrast);
 		margin: variables.$gutter * 0.5;
 		position: relative;
 		z-index: 1;
@@ -115,9 +115,9 @@
 	> * > button:hover + ul,
 	> * > button:focus + ul,
 	> * > button:active + ul {
-		box-shadow: .25rem .25rem 0 0 hsl(var(--muted-dark) / .25);
+		box-shadow: .25rem .25rem 0 0 var(--shadow);
 		clip-path: circle(150% at top right);
-		outline: 1px solid hsl(var(--muted-light));
+		outline: 1px solid var(--muted-light);
 		transition: clip-path .3s var(--exit);
 	}
 

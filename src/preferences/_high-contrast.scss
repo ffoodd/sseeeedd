@@ -1,8 +1,12 @@
-/**
- * Handle high contrast mode in Windows
- * @link http://adrianroselli.com/2017/12/tweaking-text-level-styles.html
- */
-@media screen and (-ms-high-contrast: active) {
+// ====================
+// == High contrasts
+//
+// @note Tweak text-level styles
+// @link http://adrianroselli.com/2017/12/tweaking-text-level-styles.html
+// @note Custom color palette for WHCM
+// @link @link https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/
+// ====================
+@media screen and (prefers-contrast: more) {
 	a svg,
 	button svg {
 		background: none;

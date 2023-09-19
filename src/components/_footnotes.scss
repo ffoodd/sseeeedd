@@ -19,7 +19,7 @@ a[id^="footnote-"][aria-describedby] {
 		font-size: .875rem;
 		font-weight: 400;
 		margin-inline-start: 2px;
-		color: hsl(var(--accent));
+		color: var(--accent);
 		cursor: pointer;
 	}
 }

@@ -5,22 +5,22 @@
 /* ==================== */
 
 details {
-	border: .25rem solid hsl(var(--contrast-inverse));
+	border: .25rem solid var(--contrast-inverse);
 
 	& + & {
 		border-block-start-width: 0;
 	}
 
 	summary {
-		background: hsl(var(--muted-dark));
-		color: hsl(var(--contrast));
+		background: var(--muted-dark);
+		color: var(--contrast);
 		cursor: pointer;
 		padding: 1rem;
 		transition: background .2s var(--enter);
 
 		&:hover,
 		&:focus {
-			background: hsl(var(--contrast-inverse));
+			background: var(--contrast-inverse);
 		}
 
 		~ * {

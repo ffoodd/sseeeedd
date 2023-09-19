@@ -62,20 +62,20 @@ label[for] {
 select,
 #{variables.$form-fields} {
 	appearance: none;
-	background-color: hsl(var(--contrast));
-	border: 1px solid hsl(var(--contrast-inverse));
-	color: hsl(var(--muted-dark));
+	background-color: var(--contrast);
+	border: 1px solid var(--contrast-inverse);
+	color: var(--muted-dark);
 	inline-size: 100%;
 
 	&:focus {
-		border-color: hsl(var(--accent-light));
+		border-color: var(--accent-light);
 	}
 
 	&[readonly] {
-		background-color: hsl(var(--disabled));
+		background-color: var(--disabled);
 
 		&:focus {
-			border-color: hsl(var(--muted));
+			border-color: var(--muted);
 		}
 	}
 
@@ -111,11 +111,11 @@ input[type="range"] {
 
 	&:focus-visible {
 		&::-webkit-slider-thumb {
-			box-shadow: 0 0 0 .25rem hsl(var(--accent-light));
+			box-shadow: 0 0 0 .25rem var(--accent-light);
 		}
 
 		&::-moz-range-thumb {
-			box-shadow: 0 0 0 .25rem hsl(var(--accent-light));
+			box-shadow: 0 0 0 .25rem var(--accent-light);
 		}
 	}
 
@@ -123,8 +123,8 @@ input[type="range"] {
 		width: 1rem;
 		height: 1rem;
 		margin-top: -.5rem;
-		background-color: hsl(var(--accent));
-		border: .25rem solid hsl(var(--background));
+		background-color: var(--accent);
+		border: .25rem solid var(--background);
 		border-radius: 1rem;
 		transition:
 			background-color .15s ease-in-out,
@@ -145,17 +145,17 @@ input[type="range"] {
 		height: .5rem;
 		color: transparent;
 		cursor: pointer;
-		background-color: hsl(var(--contrast));
+		background-color: var(--contrast);
 		border-color: transparent;
 		border-radius: 1rem;
-		background-image: linear-gradient(to right, hsl(var(--accent-light)) var(--value, 0%), hsl(var(--contrast)) var(--value, 0%));
+		background-image: linear-gradient(to right, var(--accent-light) var(--value, 0%), var(--contrast) var(--value, 0%));
 	}
 
 	&::-moz-range-thumb {
 		width: 1rem;
 		height: 1rem;
-		background-color: hsl(var(--accent));
-		border: .25rem solid hsl(var(--background));
+		background-color: var(--accent);
+		border: .25rem solid var(--background);
 		border-radius: 1rem;
 		transition: background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
 		appearance: none;
@@ -172,14 +172,14 @@ input[type="range"] {
 		height: .5rem;
 		color: transparent;
 		cursor: pointer;
-		background-color: hsl(var(--contrast));
+		background-color: var(--contrast);
 		border-color: transparent;
 		border-radius: 1rem;
 	}
 
 	&::-moz-range-progress {
 		height: .5rem;
-		background-color: hsl(var(--accent-light));
+		background-color: var(--accent-light);
 		border-radius: 1rem;
 	}
 
@@ -197,11 +197,11 @@ input[type="range"] {
 		pointer-events: none;
 
 		&::-webkit-slider-thumb {
-			background-color: hsl(var(--disabled));
+			background-color: var(--disabled);
 		}
 
 		&::-moz-range-thumb {
-			background-color: hsl(var(--disabled));
+			background-color: var(--disabled);
 		}
 	}
 
@@ -241,7 +241,7 @@ select[multiple] {
 input[list],
 select:not([multiple]) {
 	appearance: none;
-	background: hsl(var(--contrast)) no-repeat var(--select) center right .5em / 1em 1em;
+	background: var(--contrast) no-repeat var(--select) center right .5em / 1em 1em;
 }
 
 textarea {
@@ -259,7 +259,7 @@ label[for],
 }
 
 form [disabled] {
-	background-color: hsl(var(--disabled));
+	background-color: var(--disabled);
 	cursor: not-allowed;
 }
 
@@ -273,7 +273,7 @@ label [class^="label-msg"] {
 }
 
 .label-msg-error {
-	color: hsl(var(--alert));
+	color: var(--alert);
 }
 
 /**
@@ -283,12 +283,12 @@ label [class^="label-msg"] {
  */
 #{variables.$form-fields} {
 	&:not([list]):valid:focus {
-		background: hsl(var(--contrast)) no-repeat var(--valid) center right .5em / 1em 1.25em;
+		background: var(--contrast) no-repeat var(--valid) center right .5em / 1em 1.25em;
 	}
 
 	&:not([list]):invalid:not(:focus) {
-		background: hsl(var(--contrast)) no-repeat var(--invalid) center right .5em / 1em 1.25em;
-		box-shadow: 0 0 0 .125rem hsl(var(--alert-light), .5);
+		background: var(--contrast) no-repeat var(--invalid) center right .5em / 1em 1.25em;
+		box-shadow: 0 0 0 .125rem var(--alert-light);
 	}
 
 	&:invalid:placeholder-shown:not(:focus) {
@@ -296,7 +296,7 @@ label [class^="label-msg"] {
 	}
 
 	&:not([list]):required:placeholder-shown {
-		background: hsl(var(--contrast)) no-repeat var(--required) center right .5em / 1em 1.25em;
+		background: var(--contrast) no-repeat var(--required) center right .5em / 1em 1.25em;
 	}
 }
 
