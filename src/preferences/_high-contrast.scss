@@ -6,7 +6,33 @@
 // @note Custom color palette for WHCM
 // @link @link https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/
 // ====================
-@media screen and (prefers-contrast: more) {
+@media (prefers-contrast: more) {
+	html:where([lang]) {
+		--secondary: VisitedText;
+		--secondary-light: VisitedText;
+		--secondary-lighter: VisitedText;
+		--secondary-dark: VisitedText;
+		--accent: Higlight;
+		--accent-light: Higlight;
+		--accent-dark: Higlight;
+		--alert: ActiveText;
+		--alert-light: ActiveText;
+		--alert-dark: ActiveText;
+		--success: ActiveText;
+		--success-light: ActiveText;
+		--success-lighter: ActiveText;
+		--success-dark: ActiveText;
+		--contrast: CanvasText;
+		--contrast-o-50: CanvasText;
+		--contrast-inverse: Canvas;
+		--muted: Canvas;
+		--muted-light: Canvas;
+		--muted-lighter: Canvas;
+		--muted-dark: Canvas;
+		--disabled: Canvas;
+		--background: Canvas;
+	}
+
 	a svg,
 	button svg {
 		background: none;

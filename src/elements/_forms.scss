@@ -83,7 +83,7 @@ select,
 	 * Avoid zoom on iOS when focus on inputs
 	 * http://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
 	 */
-	@media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+	@media (-webkit-min-device-pixel-ratio: 1.5) {
 		font-size: 1em;
 	}
 }
@@ -190,6 +190,28 @@ input[type="range"] {
 
 		&::-moz-range-thumb {
 			transition: none;
+		}
+	}
+
+	@media (prefers-contrast: more) {
+		&::-webkit-slider-thumb {
+			border-color: Highlight;
+		}
+
+		&::-webkit-slider-runnable-track {
+			background-color: CanvasText;
+		}
+
+		&::-moz-range-thumb {
+			border-color: Highlight;
+		}
+
+		&::-moz-range-track {
+			background-color: CanvasText;
+		}
+
+		&::-moz-range-progress {
+			background-color: Highlight;
 		}
 	}
 

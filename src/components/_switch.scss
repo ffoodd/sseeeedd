@@ -74,4 +74,24 @@ button[role="switch"] {
 	&[aria-checked="true"] > *:first-child {
 		display: block;
 	}
+
+	@media (prefers-contrast: more) {
+		&,
+		&:hover,
+		&:focus,
+		&:active,
+		&::after {
+			background-color: ActiveText;
+			color: Canvas;
+		}
+
+		&[aria-checked="true"],
+		&[aria-checked="true"]::after {
+			background-color: Highlight;
+		}
+
+		&[aria-checked="true"]::before {
+			background: HighlightText;
+		}
+	}
 }
