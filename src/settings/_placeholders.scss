@@ -5,6 +5,7 @@
 	-moz-osx-font-smoothing: grayscale;
 	margin: 3rem 0 1.5rem;
 	text-rendering: optimizelegibility;
+	text-wrap: balance;
 
 	&:first-child {
 		margin-block-start: 0;
