@@ -9,10 +9,11 @@
 
 .card {
 	--color: hsl(var(--muted-dark));
-	--shadow: hsl(var(--muted-dark) / .25);
+	--shadow: hsl(var(--muted-dark) / .1);
 	background: hsl(var(--contrast));
 	border: 1px solid;
 	border-radius: .25rem;
+	box-shadow: .25rem .25rem 0 var(--shadow);
 	color: var(--color);
 	display: flex;
 	flex-direction: column;
@@ -90,6 +91,6 @@
 @each $variant in alert, success, accent, default, secondary {
 	.card-#{$variant} {
 		--color: hsl(var(--#{$variant}));
-		--shadow: hsl(var(--#{$variant}), .25);
+		--shadow: hsl(var(--#{$variant}) / .1);
 	}
 }
