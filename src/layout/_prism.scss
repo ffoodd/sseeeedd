@@ -113,7 +113,7 @@ pre[data-line] {
 }
 
 
-@media screen and (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
 	.no-js,
 	html:not([data-theme="light"]) {
 		.token.function,

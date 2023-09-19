@@ -41,7 +41,7 @@ details {
 	}
 }
 
-@media screen and (min-width: math.div(480em, 16)) {
+@media (min-width: math.div(480em, 16)) {
 	/**
 	 * @note Writing-mode
 	 ** 1. For everyone except Firefox

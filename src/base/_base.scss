@@ -61,7 +61,7 @@ html:where([lang]) {
 	--rotation: calc(var(--hue) + 30); // 1
 	--right: 150;
 	--wrong: calc(var(--right) + 180); // 2
-	// Lightnesses
+	// Lightness
 	--light-scale: 1.61803398875; // 5
 	--lightness: 40%;
 	--brighter: calc(var(--lightness) * var(--light-scale));
@@ -133,7 +133,7 @@ html:where([lang]) {
 	--tel: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 88'><path d='M6 0C2.676 0 0 2.676 0 6v76.00005c0 3.324 2.676 6 6 6h34c3.324 0 6-2.676 6-6V6c0-3.324-2.676-6-6-6zM4 10h38v64.00005H4z'/></svg>");
 }
 
-@media screen and (min-width: #{variables.$content-width}) {
+@media (min-width: #{variables.$content-width}) {
 	html:where([lang]) {
 		--lightness: 30%;
 	}
@@ -232,14 +232,25 @@ a {
 	text-decoration-thickness: max(.1em, 1px);
 	text-underline-offset: .25em;
 
+	main &::before {
+		background: var(--secondary);
+	}
+
 	&:hover {
-		color: var(--secondary-dark);
 		text-decoration-style: solid;
 	}
 
 	&:focus {
-		color: var(--secondary-dark);
 		text-decoration: none;
+	}
+
+	&:hover,
+	&:focus {
+		color: var(--secondary-dark);
+
+		main &::before {
+			background: var(--secondary-dark);
+		}
 	}
 
 	&:active {
@@ -253,6 +264,10 @@ a {
 main a {
 	&:visited {
 		color: var(--success-dark);
+
+		&::before {
+			background: var(--success-dark);
+		}
 	}
 
 	&[hreflang]::after {
@@ -269,7 +284,7 @@ main a {
 	&[target$="blank"]::after,
 	&[href^="http:"]::before,
 	&[href^="mailto:"]::before {
-		background: currentColor;
+		background: var(--secondary);
 		block-size: .625em;
 		content: "";
 		display: inline-block;
@@ -294,7 +309,7 @@ main a {
 	}
 
 	&[href^="http:"]::before {
-		color: var(--alert);
+		background: var(--alert);
 		mask-image: var(--unsafe);
 	}
 

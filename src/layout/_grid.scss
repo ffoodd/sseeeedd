@@ -11,7 +11,7 @@
 	max-inline-size: 100%;
 }
 
-@media screen and (min-width: #{variables.$content-width}) {
+@media (min-width: #{variables.$content-width}) {
 	/* -------------------- */
 	/* -- Columns
 	 * 1.

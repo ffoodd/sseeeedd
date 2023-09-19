@@ -136,7 +136,7 @@
   html:where([lang]):focus-within {
     scroll-behavior: smooth; /*2 */
   }
-  @media screen and (min-width: 37.5em) {
+  @media (min-width: 37.5em) {
     html:where([lang]) {
       --lightness: 30%;
     }
@@ -225,13 +225,20 @@
     text-decoration-thickness: max(0.1em, 1px);
     text-underline-offset: 0.25em;
   }
+  main a::before {
+    background: var(--secondary);
+  }
   a:hover {
-    color: var(--secondary-dark);
     text-decoration-style: solid;
   }
   a:focus {
-    color: var(--secondary-dark);
     text-decoration: none;
+  }
+  a:hover, a:focus {
+    color: var(--secondary-dark);
+  }
+  main a:hover::before, main a:focus::before {
+    background: var(--secondary-dark);
   }
   a:active {
     opacity: 0.75;
@@ -248,11 +255,14 @@
   main a:visited {
     color: var(--success-dark);
   }
+  main a:visited::before {
+    background: var(--success-dark);
+  }
   main a[hreflang]::after {
     content: " [" attr(hreflang) "]";
   }
   main a[download]::after, main a[href^="#"]::before, main a[href^="tel:"]::before, main a[target$=blank]::after, main a[href^="http:"]::before, main a[href^="mailto:"]::before {
-    background: currentColor;
+    background: var(--secondary);
     block-size: 0.625em;
     content: "";
     display: inline-block;
@@ -273,7 +283,7 @@
     mask-image: var(--mail);
   }
   main a[href^="http:"]::before {
-    color: var(--alert);
+    background: var(--alert);
     mask-image: var(--unsafe);
   }
   main a[href^="#"]::before {
@@ -655,7 +665,7 @@
     font-size: 0.875rem;
     padding: 1rem 0;
   }
-  @media screen and (min-width: 37.5em) {
+  @media (min-width: 37.5em) {
     figure {
       min-inline-size: 37.5em;
       inline-size: min-content;
@@ -782,7 +792,7 @@
       transform: translateY(1.5rem);
     }
   }
-  @media screen and (min-width: 30em) {
+  @media (min-width: 30em) {
     /**
      * @note Writing-mode
      ** 1. For everyone except Firefox
@@ -918,7 +928,7 @@
   input[type=text][readonly]:focus, input[type=number][readonly]:focus, input[type=search][readonly]:focus, input[type=password][readonly]:focus, input[type=email][readonly]:focus, input[type=url][readonly]:focus, input[type=tel][readonly]:focus, input[type=date][readonly]:focus, input[type=time][readonly]:focus, input[type=datetime-local][readonly]:focus, input[type=month][readonly]:focus, input[type=week][readonly]:focus, input[type=color][readonly]:focus, input[type=file][readonly]:focus, textarea[readonly]:focus {
     border-color: var(--muted);
   }
-  @media screen and (-webkit-min-device-pixel-ratio: 1.5) {
+  @media (-webkit-min-device-pixel-ratio: 1.5) {
     select,
     input[type=text], input[type=number], input[type=search], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=date], input[type=time], input[type=datetime-local], input[type=month], input[type=week], input[type=color], input[type=file], textarea {
       font-size: 1em;
@@ -1009,6 +1019,23 @@
     }
     input[type=range]::-moz-range-thumb {
       transition: none;
+    }
+  }
+  @media (prefers-contrast: more) {
+    input[type=range]::-webkit-slider-thumb {
+      border-color: Highlight;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      background-color: CanvasText;
+    }
+    input[type=range]::-moz-range-thumb {
+      border-color: Highlight;
+    }
+    input[type=range]::-moz-range-track {
+      background-color: CanvasText;
+    }
+    input[type=range]::-moz-range-progress {
+      background-color: Highlight;
     }
   }
   input[type=range]:disabled {
@@ -1248,7 +1275,7 @@
     margin-block-end: 2rem;
     max-inline-size: 100%;
   }
-  @media screen and (min-width: 37.5em) {
+  @media (min-width: 37.5em) {
     /* -------------------- */
     /* -- Columns
      * 1.
@@ -1480,7 +1507,7 @@
     inset-block-start: auto;
     inset-block-end: 0.25em;
   }
-  @media screen and (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
     .no-js .token.function,
     .no-js .token.punctuation,
     html:not([data-theme=light]) .token.function,
@@ -1641,6 +1668,13 @@
     pointer-events: none;
     position: absolute;
     white-space: nowrap;
+  }
+  @media (prefers-contrast: more) {
+    [role=tooltip],
+    [type=range] ~ output {
+      background: CanvasText;
+      color: Canvas;
+    }
   }
   [role=tooltip] {
     inset-inline-start: 50%;
@@ -2022,6 +2056,18 @@
   button[role=switch][aria-checked=true] > *:first-child {
     display: block;
   }
+  @media (prefers-contrast: more) {
+    button[role=switch], button[role=switch]:hover, button[role=switch]:focus, button[role=switch]:active, button[role=switch]::after {
+      background-color: ActiveText;
+      color: Canvas;
+    }
+    button[role=switch][aria-checked=true], button[role=switch][aria-checked=true]::after {
+      background-color: Highlight;
+    }
+    button[role=switch][aria-checked=true]::before {
+      background: HighlightText;
+    }
+  }
   /* ----------------------------- */
   /* Table of contents */
   /* ----------------------------- */
@@ -2249,7 +2295,7 @@
     object-position: center;
     inline-size: 100%;
   }
-  @media screen and (max-width: 29.9375em) {
+  @media (max-width: 29.9375em) {
     .sm-hidden {
       display: none;
     }
@@ -2577,7 +2623,7 @@
   }
 }
 @layer preferences {
-  @media screen and (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
     *::after {
@@ -2587,7 +2633,32 @@
       scroll-behavior: auto;
     }
   }
-  @media screen and (prefers-contrast: more) {
+  @media (prefers-contrast: more) {
+    html:where([lang]) {
+      --secondary: VisitedText;
+      --secondary-light: VisitedText;
+      --secondary-lighter: VisitedText;
+      --secondary-dark: VisitedText;
+      --accent: Higlight;
+      --accent-light: Higlight;
+      --accent-dark: Higlight;
+      --alert: ActiveText;
+      --alert-light: ActiveText;
+      --alert-dark: ActiveText;
+      --success: ActiveText;
+      --success-light: ActiveText;
+      --success-lighter: ActiveText;
+      --success-dark: ActiveText;
+      --contrast: CanvasText;
+      --contrast-o-50: CanvasText;
+      --contrast-inverse: Canvas;
+      --muted: Canvas;
+      --muted-light: Canvas;
+      --muted-lighter: Canvas;
+      --muted-dark: Canvas;
+      --disabled: Canvas;
+      --background: Canvas;
+    }
     a svg,
     button svg {
       background: none;
@@ -2643,12 +2714,12 @@
   html:where([data-theme=dark]) img {
     filter: brightness(0.8) contrast(1.2);
   }
-  @media screen and (min-width: 37.5em) {
+  @media (min-width: 37.5em) {
     html:where([data-theme=dark]) {
       --lightness: 60%;
     }
   }
-  @media screen and (prefers-color-scheme: dark) {
+  @media (prefers-color-scheme: dark) {
     .no-js,
     html:where(:not([data-theme=light])) {
       color-scheme: dark;
@@ -2668,7 +2739,7 @@
       filter: brightness(0.8) contrast(1.2);
     }
   }
-  @media screen and (min-width: 37.5em) and (prefers-color-scheme: dark) {
+  @media (min-width: 37.5em) and (prefers-color-scheme: dark) {
     .no-js,
     html:where(:not([data-theme=light])) {
       --lightness: 60%;

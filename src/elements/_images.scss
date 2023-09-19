@@ -59,7 +59,7 @@ figure {
 	}
 }
 
-@media screen and (min-width: #{variables.$content-width}) {
+@media (min-width: #{variables.$content-width}) {
 	figure {
 		min-inline-size: variables.$content-width;
 		inline-size: min-content;
