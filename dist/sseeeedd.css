@@ -255,9 +255,6 @@
   main a:visited {
     color: var(--success-dark);
   }
-  main a:visited::before, main a:visited::after {
-    background: var(--success-dark);
-  }
   main a[hreflang]::after {
     content: " [" attr(hreflang) "]";
   }
@@ -1766,7 +1763,6 @@
   }
   @media (prefers-contrast: more) {
     [role=alert] {
-      background-color: Highlight;
       border-color: Highlight;
     }
   }

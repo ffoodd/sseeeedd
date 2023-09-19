@@ -264,11 +264,6 @@ a {
 main a {
 	&:visited {
 		color: var(--success-dark);
-
-		&::before,
-		&::after {
-			background: var(--success-dark);
-		}
 	}
 
 	&[hreflang]::after {
