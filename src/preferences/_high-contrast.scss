@@ -1,5 +1,9 @@
 // ====================
 // == High contrast
+//
+// @note Using system color keywords
+// @link https://drafts.csswg.org/css-color/#css-system-colors
+// @note https://adrianroselli.com/2021/02/whcm-and-system-colors.html
 // ====================
 @media (prefers-contrast: more) {
 	html:where([lang]) {
