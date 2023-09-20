@@ -68,8 +68,6 @@ html:where([lang]) {
 	--darker: calc(var(--lightness) / var(--light-scale));
 	--switch: calc((var(--lightness) - var(--treshold)) * -100); // 3
 	// Palette
-	// @todo Using system color keywords should work
-	// @todo gradients are dropped: need to switch to plain colors
 	--secondary: hsl(var(--hue) 100% var(--lightness));
 	--secondary-shadow: hsl(var(--hue) 100% var(--lightness) / .1);
 	--secondary-light: hsl(var(--hue) 100% var(--brighter));
