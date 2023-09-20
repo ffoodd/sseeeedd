@@ -1,0 +1,30 @@
+// ====================
+// == High contrast
+// ====================
+@media (prefers-contrast: more) {
+	html:where([lang]) {
+		--secondary: LinkText;
+		--secondary-light: LinkText;
+		--secondary-lighter: LinkText;
+		--secondary-dark: LinkText;
+		--accent: Highlight;
+		--accent-light: Highlight;
+		--accent-dark: Highlight;
+		--alert: Highlight;
+		--alert-light: Highlight;
+		--alert-dark: Highlight;
+		--success: Highlight;
+		--success-light: Highlight;
+		--success-lighter: Highlight;
+		--success-dark: Highlight;
+		--contrast: Canvas;
+		--contrast-o-50: CanvasText;
+		--contrast-inverse: CanvasText;
+		--muted: CanvasText;
+		--muted-light: CanvasText;
+		--muted-lighter: CanvasText;
+		--muted-dark: CanvasText;
+		--disabled: Canvas;
+		--background: Canvas;
+	}
+}
