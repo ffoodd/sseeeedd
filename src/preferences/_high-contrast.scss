@@ -3,7 +3,8 @@
 //
 // @note Using system color keywords
 // @link https://drafts.csswg.org/css-color/#css-system-colors
-// @note https://adrianroselli.com/2021/02/whcm-and-system-colors.html
+// @link https://adrianroselli.com/2021/02/whcm-and-system-colors.html
+// @link https://blogs.windows.com/msedgedev/2020/09/17/styling-for-windows-high-contrast-with-new-standards-for-forced-colors/
 // ====================
 @media (prefers-contrast: more) {
 	html:where([lang]) {
