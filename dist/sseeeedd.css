@@ -2719,6 +2719,9 @@
       --disabled: Canvas;
       --background: Canvas;
     }
+    .high-contrast-hidden {
+      display: none !important;
+    }
   }
 }
 
