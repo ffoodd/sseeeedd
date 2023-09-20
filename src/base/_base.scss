@@ -319,21 +319,6 @@ main a {
 			}
 		}
 	}
-
-	@media (prefers-contrast: more) {
-		&[download]::after,
-		&[href^="#"]::before,
-		&[href^="tel:"]::before,
-		&[target$="blank"]::after,
-		&[href^="http:"]::before,
-		&[href^="mailto:"]::before {
-			background: LinkText;
-
-			&:visited {
-				background: VisitedText;
-			}
-		}
-	}
 }
 
 address {

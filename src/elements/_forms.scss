@@ -195,6 +195,7 @@ input[type="range"] {
 
 	@media (prefers-contrast: more) {
 		&::-webkit-slider-thumb {
+			background: HighlightText;
 			border-color: Highlight;
 		}
 
@@ -203,15 +204,12 @@ input[type="range"] {
 		}
 
 		&::-moz-range-thumb {
+			background: HighlightText;
 			border-color: Highlight;
 		}
 
 		&::-moz-range-track {
 			background-color: CanvasText;
-		}
-
-		&::-moz-range-progress {
-			background-color: Highlight;
 		}
 	}
 

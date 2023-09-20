@@ -45,10 +45,6 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.regex,
 .token.important  {
 	color: var(--alert);
-
-	@media (prefers-contrast: more) {
-		color: Highlight;
-	}
 }
 
 .token.property,
@@ -60,10 +56,6 @@ http://prismjs.com/download.html?themes=prism-dark&languages=markup+css+clike+ja
 .token.attr-value,
 .token.keyword {
 	color: var(--success-dark);
-
-	@media (prefers-contrast: more) {
-		color: ActiveText;
-	}
 }
 
 .token.important,

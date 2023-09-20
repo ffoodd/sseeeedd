@@ -294,14 +294,6 @@
       display: none !important;
     }
   }
-  @media (prefers-contrast: more) {
-    main a[download]::after, main a[href^="#"]::before, main a[href^="tel:"]::before, main a[target$=blank]::after, main a[href^="http:"]::before, main a[href^="mailto:"]::before {
-      background: LinkText;
-    }
-    main a[download]::after:visited, main a[href^="#"]::before:visited, main a[href^="tel:"]::before:visited, main a[target$=blank]::after:visited, main a[href^="http:"]::before:visited, main a[href^="mailto:"]::before:visited {
-      background: VisitedText;
-    }
-  }
   address {
     font-size: 1.375rem;
     font-style: normal;
@@ -1021,19 +1013,18 @@
   }
   @media (prefers-contrast: more) {
     input[type=range]::-webkit-slider-thumb {
+      background: HighlightText;
       border-color: Highlight;
     }
     input[type=range]::-webkit-slider-runnable-track {
       background-color: CanvasText;
     }
     input[type=range]::-moz-range-thumb {
+      background: HighlightText;
       border-color: Highlight;
     }
     input[type=range]::-moz-range-track {
       background-color: CanvasText;
-    }
-    input[type=range]::-moz-range-progress {
-      background-color: Highlight;
     }
   }
   input[type=range]:disabled {
@@ -1453,21 +1444,6 @@
   .token.important {
     color: var(--alert);
   }
-  @media (prefers-contrast: more) {
-    .token.selector,
-    .token.attr-name,
-    .token.number,
-    .token.operator,
-    .token.entity,
-    .token.url,
-    .language-css .token.string,
-    .style .token.string,
-    .token.variable,
-    .token.regex,
-    .token.important {
-      color: Highlight;
-    }
-  }
   .token.property,
   .token.tag,
   .token.boolean,
@@ -1477,18 +1453,6 @@
   .token.attr-value,
   .token.keyword {
     color: var(--success-dark);
-  }
-  @media (prefers-contrast: more) {
-    .token.property,
-    .token.tag,
-    .token.boolean,
-    .token.constant,
-    .token.symbol,
-    .token.atrule,
-    .token.attr-value,
-    .token.keyword {
-      color: ActiveText;
-    }
   }
   .token.important,
   .token.bold {
@@ -1700,13 +1664,6 @@
     position: absolute;
     white-space: nowrap;
   }
-  @media (prefers-contrast: more) {
-    [role=tooltip],
-    [type=range] ~ output {
-      background: CanvasText;
-      color: Canvas;
-    }
-  }
   [role=tooltip] {
     inset-inline-start: 50%;
     opacity: 0;
@@ -1753,11 +1710,6 @@
     font-weight: bold;
     margin: 1rem 0.5rem;
     padding: 0 1rem;
-  }
-  @media (prefers-contrast: more) {
-    [role=alert] {
-      border-color: Highlight;
-    }
   }
   .alert-alert {
     --color: var(--alert);
@@ -1820,12 +1772,6 @@
     isolation: isolate;
     outline: 0.125rem solid var(--color);
     outline-offset: 0.125rem;
-  }
-  @media (prefers-contrast: more) {
-    .card {
-      background-color: Canvas;
-      color: CanvasText;
-    }
   }
   .card-img {
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 80%);
@@ -2100,7 +2046,7 @@
   }
   @media (prefers-contrast: more) {
     button[role=switch], button[role=switch]:hover, button[role=switch]:focus, button[role=switch]:active, button[role=switch]::after {
-      background-color: ActiveText;
+      background-color: CanvasText;
       color: Canvas;
     }
     button[role=switch][aria-checked=true], button[role=switch][aria-checked=true]::after {
@@ -2680,33 +2626,6 @@
       filter: invert(100%);
     }
   }
-  @media (prefers-contrast: more) {
-    html:where([lang]) {
-      --secondary: LinkText;
-      --secondary-light: LinkText;
-      --secondary-lighter: LinkText;
-      --secondary-dark: LinkText;
-      --accent: Highlight;
-      --accent-light: Highlight;
-      --accent-dark: Highlight;
-      --alert: Highlight;
-      --alert-light: Highlight;
-      --alert-dark: Highlight;
-      --success: Highlight;
-      --success-light: Highlight;
-      --success-lighter: Highlight;
-      --success-dark: Highlight;
-      --contrast: Canvas;
-      --contrast-o-50: CanvasText;
-      --contrast-inverse: CanvasText;
-      --muted: CanvasText;
-      --muted-light: CanvasText;
-      --muted-lighter: CanvasText;
-      --muted-dark: CanvasText;
-      --disabled: Canvas;
-      --background: Canvas;
-    }
-  }
   /* ----------------------------- */
   /* Table of contents */
   /* ----------------------------- */
@@ -2772,6 +2691,33 @@
     .no-js,
     html:where(:not([data-theme=light])) {
       --lightness: 60%;
+    }
+  }
+  @media (prefers-contrast: more) {
+    html:where([lang]) {
+      --secondary: LinkText;
+      --secondary-light: LinkText;
+      --secondary-lighter: LinkText;
+      --secondary-dark: LinkText;
+      --accent: Highlight;
+      --accent-light: Highlight;
+      --accent-dark: Highlight;
+      --alert: ActiveText;
+      --alert-light: ActiveText;
+      --alert-dark: ActiveText;
+      --success: VisitedText;
+      --success-light: VisitedText;
+      --success-lighter: VisitedText;
+      --success-dark: VisitedText;
+      --contrast: Canvas;
+      --contrast-o-50: CanvasText;
+      --contrast-inverse: CanvasText;
+      --muted: CanvasText;
+      --muted-light: CanvasText;
+      --muted-lighter: CanvasText;
+      --muted-dark: CanvasText;
+      --disabled: Canvas;
+      --background: Canvas;
     }
   }
 }

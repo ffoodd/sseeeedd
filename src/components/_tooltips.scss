@@ -37,11 +37,6 @@
 	pointer-events: none;
 	position: absolute;
 	white-space: nowrap;
-
-	@media (prefers-contrast: more) {
-		background: CanvasText;
-		color: Canvas;
-	}
 }
 
 [role="tooltip"] {
