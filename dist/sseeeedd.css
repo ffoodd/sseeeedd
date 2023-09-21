@@ -2051,6 +2051,7 @@
     }
     button[role=switch][aria-checked=true], button[role=switch][aria-checked=true]::after {
       background-color: Highlight;
+      color: HighlightText;
     }
     button[role=switch][aria-checked=true]::before {
       background: HighlightText;

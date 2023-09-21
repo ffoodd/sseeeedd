@@ -88,6 +88,7 @@ button[role="switch"] {
 		&[aria-checked="true"],
 		&[aria-checked="true"]::after {
 			background-color: Highlight;
+			color: HighlightText;
 		}
 
 		&[aria-checked="true"]::before {
