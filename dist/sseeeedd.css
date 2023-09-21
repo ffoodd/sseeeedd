@@ -2045,7 +2045,7 @@
     display: block;
   }
   @media (prefers-contrast: more) {
-    button[role=switch], button[role=switch]:hover, button[role=switch]:focus, button[role=switch]:active, button[role=switch]::after {
+    button[role=switch][aria-checked=false], button[role=switch]:hover, button[role=switch]:focus, button[role=switch]:active, button[role=switch]::after {
       background-color: CanvasText;
       color: Canvas;
     }

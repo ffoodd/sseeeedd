@@ -76,7 +76,7 @@ button[role="switch"] {
 	}
 
 	@media (prefers-contrast: more) {
-		&,
+		&[aria-checked="false"],
 		&:hover,
 		&:focus,
 		&:active,
