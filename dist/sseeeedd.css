@@ -136,6 +136,9 @@
   html:where([lang]):focus-within {
     scroll-behavior: smooth; /*2 */
   }
+  html:where([dir=rtl]) {
+    --is-rtl: -1;
+  }
   @media (min-width: 37.5em) {
     html:where([lang]) {
       --lightness: 30%;
@@ -800,10 +803,14 @@
       border-width: 0.25rem 0.25rem 0.25rem 0;
     }
     .vertical details summary {
-      float: left;
+      float: inline-start;
       min-height: 20rem;
       writing-mode: vertical-lr; /* 1 */
       writing-mode: sideways-lr; /* 2 */
+    }
+    [dir=rtl] .vertical details summary {
+      writing-mode: vertical-rl; /* 1 */
+      writing-mode: sideways-rl; /* 2 */
     }
     .vertical details summary ~ * {
       padding-inline-start: 3.5rem;
@@ -821,7 +828,7 @@
   @keyframes slide-in {
     0%, 50% {
       opacity: 0;
-      transform: translateX(-1.5rem);
+      transform: translateX(calc(-1.5rem * var(--is-rtl, -1)));
     }
   }
   /* ----------------------------- */
@@ -1041,7 +1048,7 @@
     inline-size: 3ch;
     inset-inline-start: calc(var(--value) * 1% - 3ch * var(--value) / 100);
     text-align: center;
-    translate: -0.5rem;
+    translate: calc(-0.5rem * var(--is-rtl, 1));
   }
   input[type=number],
   input[type=search] {
@@ -1523,18 +1530,28 @@
   /* ==================== */
   [id=breadcrumb] li:not(:last-child)::after {
     content: "→";
+    display: inline-block;
     speak: none;
+    transform: scaleX(calc(1 * var(--is-rtl, 1)));
   }
   /* ==================== */
   /* == Pagination
   /* ==================== */
-  [id=pagination] li:first-child a::before {
-    content: "← ";
+  [id=pagination] li:first-child a {
+    padding-inline-start: 0;
+  }
+  [id=pagination] li:last-child a {
+    padding-inline-end: 0;
+  }
+  [id=pagination] li:first-child a::before, [id=pagination] li:last-child a::after {
+    content: "←";
+    display: inline-block;
+    padding-inline: 1ch;
     speak: none;
+    transform: scaleX(calc(1 * var(--is-rtl, 1)));
   }
   [id=pagination] li:last-child a::after {
-    content: " →";
-    speak: none;
+    transform: scaleX(calc(-1 * var(--is-rtl, 1)));
   }
   [id=pagination] a {
     text-decoration: none;
@@ -1668,7 +1685,7 @@
     inset-inline-start: 50%;
     opacity: 0;
     transform-origin: 50% calc(100% + 10px);
-    transform: perspective(1000px) rotate3d(1, 0, 0, var(--rotation)) translateX(-50%);
+    transform: perspective(1000px) rotate3d(1, 0, 0, var(--rotation)) translateX(calc(-50% * var(--is-rtl, -1)));
     transition: opacity 0.2s var(--enter), transform 0.2s var(--enter), visibility 0s linear 0.2s;
     visibility: hidden;
   }
@@ -1940,6 +1957,9 @@
     will-change: clip-path;
     z-index: -1;
   }
+  [dir=rtl] .fly-out ul {
+    clip-path: circle(1.125rem at right top); /* 1 */
+  }
   .fly-out ul li {
     min-inline-size: inherit;
   }
@@ -1956,6 +1976,13 @@
     clip-path: circle(150% at top right);
     outline: 1px solid var(--muted-light);
     transition: clip-path 0.3s var(--exit);
+  }
+  [dir=rtl] .fly-out > *:hover > ul,
+  [dir=rtl] .fly-out > *:focus-within > ul,
+  [dir=rtl] .fly-out > * > button:hover + ul,
+  [dir=rtl] .fly-out > * > button:focus + ul,
+  [dir=rtl] .fly-out > * > button:active + ul {
+    clip-path: circle(150% at top left);
   }
   .fly-out > * > button:hover::after,
   .fly-out > * > button:focus::after,
@@ -2036,7 +2063,7 @@
     background: var(--success-dark);
   }
   button[role=switch][aria-checked=true]::after, button[role=switch][aria-checked=true]::before {
-    transform: translateX(calc(4.875rem + 3rem));
+    transform: translateX(calc((4.875rem + 3rem) * var(--is-rtl, 1)));
   }
   button[role=switch] > *:first-child, button[role=switch][aria-checked=true] > *:last-child {
     display: none;

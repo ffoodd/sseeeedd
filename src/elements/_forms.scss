@@ -230,7 +230,7 @@ input[type="range"] {
 		inline-size: 3ch;
 		inset-inline-start: calc((var(--value) * 1%) - (3ch * (var(--value) / 100)));
 		text-align: center;
-		translate: -.5rem;
+		translate: calc(-.5rem  * var(--is-rtl, 1));
 	}
 }
 

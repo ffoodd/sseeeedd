@@ -43,7 +43,7 @@
 	inset-inline-start: 50%;
 	opacity: 0;
 	transform-origin: 50% calc(100% + 10px);
-	transform: perspective(1000px) rotate3d(1, 0, 0, var(--rotation)) translateX(-50%);
+	transform: perspective(1000px) rotate3d(1, 0, 0, var(--rotation)) translateX(calc(-50% * var(--is-rtl, -1)));
 	transition: opacity .2s var(--enter),
 	transform .2s var(--enter),
 	visibility 0s linear .2s;

@@ -4,14 +4,25 @@
 
 [id="pagination"] {
 	li {
-		&:first-child a::before {
-			content: "← ";
+		&:first-child a {
+			padding-inline-start: 0;
+		}
+
+		&:last-child a {
+			padding-inline-end: 0;
+		}
+
+		&:first-child a::before,
+		&:last-child a::after {
+			content: "←";
+			display: inline-block;
+			padding-inline: 1ch;
 			speak: none;
+			transform: scaleX(calc(1 * var(--is-rtl, 1)));
 		}
 
 		&:last-child a::after {
-			content: " →";
-			speak: none;
+			transform: scaleX(calc(-1 * var(--is-rtl, 1)));
 		}
 	}
 

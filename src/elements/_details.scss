@@ -60,10 +60,15 @@ details {
 			}
 
 			summary {
-				float: left;
+				float: inline-start;
 				min-height: 20rem;
 				writing-mode: vertical-lr; /* 1 */
 				writing-mode: sideways-lr; /* 2 */
+
+				[dir="rtl"] & {
+					writing-mode: vertical-rl; /* 1 */
+					writing-mode: sideways-rl; /* 2 */
+				}
 
 				~ * {
 					padding-inline-start: 3.5rem;
@@ -88,6 +93,6 @@ details {
 @keyframes slide-in {
 	0%, 50% {
 		opacity: 0;
-		transform: translateX(-1.5rem);
+		transform: translateX(calc(-1.5rem * var(--is-rtl, -1)));
 	}
 }

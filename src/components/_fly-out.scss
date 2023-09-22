@@ -100,6 +100,10 @@
 		will-change: clip-path;
 		z-index: -1;
 
+		[dir="rtl"] & {
+			clip-path: circle(1.125rem at right top); /* 1 */
+		}
+
 		li {
 			min-inline-size: inherit;
 		}
@@ -119,6 +123,10 @@
 		clip-path: circle(150% at top right);
 		outline: 1px solid var(--muted-light);
 		transition: clip-path .3s var(--exit);
+
+		[dir="rtl"] & {
+			clip-path: circle(150% at top left);
+		}
 	}
 
 	> * > button:hover::after,

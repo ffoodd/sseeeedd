@@ -131,6 +131,10 @@ html:where([lang]) {
 	--tel: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 88'><path d='M6 0C2.676 0 0 2.676 0 6v76.00005c0 3.324 2.676 6 6 6h34c3.324 0 6-2.676 6-6V6c0-3.324-2.676-6-6-6zM4 10h38v64.00005H4z'/></svg>");
 }
 
+html:where([dir="rtl"]) {
+	--is-rtl: -1;
+}
+
 @media (min-width: #{variables.$content-width}) {
 	html:where([lang]) {
 		--lightness: 30%;

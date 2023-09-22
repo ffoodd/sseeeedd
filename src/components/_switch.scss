@@ -62,7 +62,7 @@ button[role="switch"] {
 
 		&::after,
 		&::before {
-			transform: translateX(calc(4.75rem + .125rem + #{variables.$gutter * 3}));
+			transform: translateX(calc((4.75rem + .125rem + #{variables.$gutter * 3}) * var(--is-rtl, 1)));
 		}
 	}
 

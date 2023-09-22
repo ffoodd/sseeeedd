@@ -4,5 +4,7 @@
 
 [id="breadcrumb"] li:not(:last-child)::after {
 	content: "→";
+	display: inline-block;
 	speak: none;
+	transform: scaleX(calc(1 * var(--is-rtl, 1)));
 }
