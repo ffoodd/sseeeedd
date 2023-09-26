@@ -733,24 +733,6 @@
   thead {
     border: 1px solid var(--contrast-inverse);
   }
-  /**
-   * Gives scrollbale table some UX hints with shadows
-   * @author Chen Hui Jing
-   * @link https://codepen.io/huijing/pen/XBGaNQ
-   ** Based on:
-   ** @author Lea Verou
-   ** @link http://lea.verou.me/2012/04/background-attachment-local/
-   */
-  .table-container {
-    background: local linear-gradient(to right, var(--background) 30%, transparent) 0 0/2.5rem 100% no-repeat, local linear-gradient(to right, transparent, var(--background) 70%) 100%/2.5rem 100% no-repeat, scroll radial-gradient(farthest-side at 0% 50%, var(--muted-dark), transparent) 0 0/1rem 100% no-repeat, var(--background) scroll radial-gradient(farthest-side at 100% 50%, var(--muted-dark), transparent) 100%/1rem 100% no-repeat;
-    max-inline-size: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-  .table-container th {
-    background-color: transparent;
-  }
   /* ==================== */
   /* == Details
   /* ==================== */
@@ -1239,6 +1221,28 @@
     margin: 0 auto;
     padding: 1rem;
     max-inline-size: 64em;
+  }
+  /**
+   * Gives scrollbale table some UX hints with shadows
+   * @author Chen Hui Jing
+   * @link https://codepen.io/huijing/pen/XBGaNQ
+   ** Based on:
+   ** @author Lea Verou
+   ** @link http://lea.verou.me/2012/04/background-attachment-local/
+   */
+  .scrollable-container {
+    --scrollable-background: var(--background);
+    background: local linear-gradient(to right, var(--scrollable-background) 30%, transparent) 0 0/2.5rem 100% no-repeat, local linear-gradient(to right, transparent, var(--scrollable-background) 70%) 100%/2.5rem 100% no-repeat, scroll radial-gradient(farthest-side at 0% 50%, var(--muted-lighter), transparent) 0 0/1rem 100% no-repeat, var(--scrollable-background) scroll radial-gradient(farthest-side at 100% 50%, var(--muted-lighter), transparent) 100%/1rem 100% no-repeat;
+    max-inline-size: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+  .scrollable-container th {
+    background-color: transparent;
+  }
+  .scrollable-container:is(pre) {
+    --scrollable-background: var(--contrast);
   }
   /* ----------------------------- */
   /* Table of contents */

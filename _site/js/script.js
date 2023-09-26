@@ -10,14 +10,14 @@
 		});
 	});
 
-	// Scrollable tables
-	const regions = document.querySelectorAll('.table-container');
+	// Scrollable tables or code blocks
+	const regions = document.querySelectorAll('.scrollable-container');
 	if (window.matchMedia('(min-width: 30em)').matches) {
 		regions.forEach(region => {
 			const width = region.offsetWidth;
-			const table = region.querySelector('table');
+			const child = region.querySelector('table') || region.querySelector('code');
 
-			if (table.offsetWidth > width) {
+			if (child.offsetWidth > width) {
 				region.setAttribute('tabindex', '0');
 			}
 		});

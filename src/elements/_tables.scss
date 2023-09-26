@@ -42,28 +42,3 @@ tbody {
 thead {
 	border: 1px solid var(--contrast-inverse);
 }
-
-/**
- * Gives scrollbale table some UX hints with shadows
- * @author Chen Hui Jing
- * @link https://codepen.io/huijing/pen/XBGaNQ
- ** Based on:
- ** @author Lea Verou
- ** @link http://lea.verou.me/2012/04/background-attachment-local/
- */
-.table-container {
-	background: local linear-gradient(to right, var(--background) 30%, transparent) 0 0 / 2.5rem 100% no-repeat,
-							local linear-gradient(to right, transparent, var(--background) 70%) 100% / 2.5rem 100% no-repeat,
-							scroll radial-gradient(farthest-side at 0% 50%, var(--muted-dark), transparent) 0 0 / 1rem 100% no-repeat,
-							var(--background)
-							scroll radial-gradient(farthest-side at 100% 50%, var(--muted-dark), transparent) 100% / 1rem 100% no-repeat;
-
-	max-inline-size: 100%;
-	overflow-x: auto;
-	overflow-y: hidden;
-	-webkit-overflow-scrolling: touch;
-
-	th {
-		background-color: transparent;
-	}
-}
