@@ -23,21 +23,40 @@ body > * {
  */
 .scrollable-container {
 	--scrollable-background: var(--background);
-	background: local linear-gradient(to right, var(--scrollable-background) 30%, transparent) 0 0 / 2.5rem 100% no-repeat,
-	local linear-gradient(to right, transparent, var(--scrollable-background) 70%) 100% / 2.5rem 100% no-repeat,
-	scroll radial-gradient(farthest-side at 0% 50%, var(--muted-lighter), transparent) 0 0 / 1rem 100% no-repeat,
-	var(--scrollable-background)
-	scroll radial-gradient(farthest-side at 100% 50%, var(--muted-lighter), transparent) 100% / 1rem 100% no-repeat;
+	background:
+		local linear-gradient(to right, var(--scrollable-background) 30%, transparent) 0 0 / 2.5rem 100% no-repeat,
+		local linear-gradient(to right, transparent, var(--scrollable-background) 70%) 100% / 2.5rem 100% no-repeat,
+		scroll radial-gradient(farthest-side at 0% 50%, var(--muted-lighter), transparent) 0 0 / 1rem 100% no-repeat,
+		var(--scrollable-background)
+		scroll radial-gradient(farthest-side at 100% 50%, var(--muted-lighter), transparent) 100% / 1rem 100% no-repeat;
 
 	max-inline-size: 100%;
+	position: relative;
 	overflow-x: auto;
 	overflow-y: hidden;
 	-webkit-overflow-scrolling: touch;
+	scroll-snap-type: both mandatory;
 
 	// Table adjustments
+	th,
+	td {
+		scroll-snap-align: start;
+	}
+
 	th {
 		background-color: transparent;
+		position: sticky;
+
+		&[scope="col"] {
+			inset-block-start: 0;
+		}
+
+		&[scope="row"] {
+			inset-inline-start: 0;
+		}
 	}
+
+
 
 	// Code block adjustments
 	&:is(pre) {
