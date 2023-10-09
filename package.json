@@ -73,6 +73,6 @@
 		"stylelint-scss": "^5.2.1",
 		"svg-sprite": "^2.0.2",
 		"svgo": "^3.0.2",
-		"terser": "^5.20.0"
+		"terser": "^5.21.0"
 	}
 }
