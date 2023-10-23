@@ -68,7 +68,7 @@
 		"sass": "^1.69.4",
 		"servor": "^4.0.2",
 		"shx": "^0.3.4",
-		"stylelint": "^15.10.3",
+		"stylelint": "^15.11.0",
 		"stylelint-config-recommended-scss": "^13.0.0",
 		"stylelint-scss": "^5.2.1",
 		"svg-sprite": "^2.0.2",
