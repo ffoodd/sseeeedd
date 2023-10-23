@@ -57,7 +57,7 @@
 		"autoprefixer": "^10.4.16",
 		"concurrently": "^8.2.1",
 		"cssnano": "^6.0.1",
-		"eslint": "^8.51.0",
+		"eslint": "^8.52.0",
 		"html-validate": "^8.6.0",
 		"nodemon": "^3.0.1",
 		"nunjucks-cli": "^1.0.0",
