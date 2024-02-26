@@ -59,7 +59,7 @@
 		"cssnano": "^6.0.3",
 		"eslint": "^8.57.0",
 		"html-validate": "^8.11.0",
-		"nodemon": "^3.0.3",
+		"nodemon": "^3.1.0",
 		"nunjucks-cli": "^1.0.0",
 		"pa11y-ci": "^3.1.0",
 		"pa11y-ci-reporter-html": "^6.0.2",
