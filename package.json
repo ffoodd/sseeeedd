@@ -58,7 +58,7 @@
 		"concurrently": "^8.2.2",
 		"cssnano": "^7.0.1",
 		"eslint": "^9.2.0",
-		"html-validate": "^8.18.2",
+		"html-validate": "^8.19.0",
 		"nodemon": "^3.1.0",
 		"nunjucks-cli": "^1.0.0",
 		"pa11y-ci": "^3.1.0",
