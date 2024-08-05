@@ -59,7 +59,7 @@
 		"concurrently": "^8.2.2",
 		"cssnano": "^7.0.4",
 		"eslint": "^9.8.0",
-		"globals": "^15.8.0",
+		"globals": "^15.9.0",
 		"html-validate": "^8.21.0",
 		"nodemon": "^3.1.4",
 		"nunjucks-cli": "^1.0.0",
