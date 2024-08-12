@@ -57,7 +57,7 @@
 	"devDependencies": {
 		"autoprefixer": "^10.4.20",
 		"concurrently": "^8.2.2",
-		"cssnano": "^7.0.4",
+		"cssnano": "^7.0.5",
 		"eslint": "^9.9.0",
 		"globals": "^15.9.0",
 		"html-validate": "^8.21.0",
