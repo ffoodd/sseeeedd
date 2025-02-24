@@ -60,7 +60,7 @@
 		"cssnano": "^7.0.6",
 		"eslint": "^9.20.1",
 		"globals": "^15.15.0",
-		"html-validate": "^9.3.0",
+		"html-validate": "^9.4.0",
 		"nodemon": "^3.1.9",
 		"nunjucks-cli": "^1.0.0",
 		"pa11y-ci": "^3.1.0",
