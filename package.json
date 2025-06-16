@@ -65,7 +65,7 @@
 		"nunjucks-cli": "^1.0.0",
 		"pa11y-ci": "^3.1.0",
 		"pa11y-ci-reporter-html": "^7.0.0",
-		"postcss": "^8.5.4",
+		"postcss": "^8.5.5",
 		"postcss-cli": "^11.0.1",
 		"sass": "^1.89.1",
 		"servor": "^4.0.2",
