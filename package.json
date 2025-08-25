@@ -63,7 +63,7 @@
 		"html-validate": "^10.0.0",
 		"nodemon": "^3.1.10",
 		"nunjucks-cli": "^1.0.0",
-		"pa11y-ci": "^4.0.0",
+		"pa11y-ci": "^4.0.1",
 		"pa11y-ci-reporter-html": "^8.0.0",
 		"postcss": "^8.5.6",
 		"postcss-cli": "^11.0.1",
