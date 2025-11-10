@@ -58,7 +58,7 @@
 		"autoprefixer": "^10.4.21",
 		"concurrently": "^9.2.1",
 		"cssnano": "^7.1.2",
-		"eslint": "^9.39.0",
+		"eslint": "^9.39.1",
 		"globals": "^16.5.0",
 		"html-validate": "^10.3.0",
 		"nodemon": "^3.1.10",
