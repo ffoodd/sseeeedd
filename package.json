@@ -55,7 +55,7 @@
 		"node_modules"
 	],
 	"devDependencies": {
-		"autoprefixer": "^10.4.21",
+		"autoprefixer": "^10.4.22",
 		"concurrently": "^9.2.1",
 		"cssnano": "^7.1.2",
 		"eslint": "^9.39.1",
