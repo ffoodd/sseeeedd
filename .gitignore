@@ -33,3 +33,6 @@ Thumbs.db
 docs/includes/
 docs/img/*.svg
 !docs/img/symbol.svg
+
+# Tests
+reports/
