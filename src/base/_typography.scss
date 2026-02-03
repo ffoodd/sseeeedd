@@ -73,7 +73,7 @@ div,
 table,
 textarea {
 	hyphens: auto;
-	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
 
 /**
@@ -90,7 +90,7 @@ dd {
 	hyphenate-limit-zone: 8%;
 	hyphens: auto;
 	text-wrap: pretty;
-	word-wrap: break-word;
+	overflow-wrap: break-word;
 }
 
 li {

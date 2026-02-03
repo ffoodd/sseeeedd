@@ -73,6 +73,11 @@
     overflow-y: scroll; /* 1 */
     position: relative;
     scroll-padding-block: 1vh; /* 3 */
+  }
+  html:where([lang]):focus-within {
+    scroll-behavior: smooth; /*2 */
+  }
+  html:where([lang]) {
     color-scheme: light;
     --neutral: 0 0%;
     --treshold: 60%;
@@ -126,9 +131,6 @@
     --invalid: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 125'><path fill='var(--alert)' d='M74.749 11.109L50 35.858 25.251 11.109 11.109 25.251 35.858 50 11.109 74.749l14.142 14.142L50 64.142l24.749 24.749 14.142-14.142L64.142 50l24.749-24.749z'/></svg>");
     --mail: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 84 56'><path d='M0 0v3.7188l42 28.62504L84.000004 3.7188V0zm0 10.9688v45.03124h84.000004V10.9688L43.6875 38.46884a3.0003 3.0003 0 0 1-3.375 0z'/></svg>");
     --tel: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 46 88'><path d='M6 0C2.676 0 0 2.676 0 6v76.00005c0 3.324 2.676 6 6 6h34c3.324 0 6-2.676 6-6V6c0-3.324-2.676-6-6-6zM4 10h38v64.00005H4z'/></svg>");
-  }
-  html:where([lang]):focus-within {
-    scroll-behavior: smooth; /*2 */
   }
   html:where([dir=rtl]) {
     --is-rtl: -1;
@@ -236,17 +238,17 @@
   /**
    * @note Only to main content links
    */
-  main a {
-    /**
-     * @note Using CSS masks to use colored base64 encoded SVG
-     * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
-     */
-  }
   main a:visited {
     color: var(--success-dark);
   }
   main a[hreflang]::after {
     content: " [" attr(hreflang) "]";
+  }
+  main a {
+    /**
+     * @note Using CSS masks to use colored base64 encoded SVG
+     * @link https://codepen.io/noahblon/post/coloring-svgs-in-css-background-images#css-masks-1
+     */
   }
   main a[download]::after, main a[href^="#"]::before, main a[href^="tel:"]::before, main a[target$=blank]::after, main a[href^="http:"]::before, main a[href^="mailto:"]::before {
     background: var(--secondary);
@@ -333,7 +335,13 @@
     text-rendering: optimizelegibility;
     text-wrap: balance;
   }
-  .hn:first-child {
+  .hn:first-child, h1:first-child,
+  .h1:first-child, h2:first-child,
+  .h2:first-child, h3:first-child,
+  .h3:first-child, h4:first-child,
+  .h4:first-child, h5:first-child,
+  .h5:first-child, h6:first-child,
+  .h6:first-child {
     margin-block-start: 0;
   }
   /* ==================== */
@@ -394,7 +402,7 @@
   table,
   textarea {
     hyphens: auto;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   /**
    * @note Advanced hyphenation
@@ -410,7 +418,7 @@
     hyphenate-limit-zone: 8%;
     hyphens: auto;
     text-wrap: pretty;
-    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
   li p,
   li ul,
@@ -447,7 +455,9 @@
     text-rendering: optimizelegibility;
     text-wrap: balance;
   }
-  .hn:first-child {
+  .hn:first-child, blockquote footer:first-child, b:first-child,
+  dt:first-child,
+  strong:first-child, cite:first-child {
     margin-block-start: 0;
   }
   /* ==================== */
@@ -520,7 +530,7 @@
     white-space: pre;
     word-break: normal;
     word-spacing: normal;
-    word-wrap: normal;
+    overflow-wrap: normal;
   }
   pre::before {
     background: var(--alert);
@@ -609,7 +619,6 @@
     font-size: 0;
     max-inline-size: 100%;
     vertical-align: middle;
-    /* 1 */
   }
   img[alt][width][height] {
     block-size: auto;
@@ -618,6 +627,9 @@
     block-size: auto;
     inline-size: 100%;
     max-inline-size: none;
+  }
+  img[alt] {
+    /* 1 */
   }
   img[alt]::after {
     background: var(--contrast);
@@ -867,10 +879,6 @@
     border: 1px solid var(--contrast-inverse);
     color: var(--muted-dark);
     inline-size: 100%;
-    /**
-     * Avoid zoom on iOS when focus on inputs
-     * http://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
-     */
   }
   select:focus,
   input[type=text]:focus, input[type=number]:focus, input[type=search]:focus, input[type=password]:focus, input[type=email]:focus, input[type=url]:focus, input[type=tel]:focus, input[type=date]:focus, input[type=time]:focus, input[type=datetime-local]:focus, input[type=month]:focus, input[type=week]:focus, input[type=color]:focus, input[type=file]:focus, textarea:focus {
@@ -883,6 +891,13 @@
   select[readonly]:focus,
   input[type=text][readonly]:focus, input[type=number][readonly]:focus, input[type=search][readonly]:focus, input[type=password][readonly]:focus, input[type=email][readonly]:focus, input[type=url][readonly]:focus, input[type=tel][readonly]:focus, input[type=date][readonly]:focus, input[type=time][readonly]:focus, input[type=datetime-local][readonly]:focus, input[type=month][readonly]:focus, input[type=week][readonly]:focus, input[type=color][readonly]:focus, input[type=file][readonly]:focus, textarea[readonly]:focus {
     border-color: var(--muted);
+  }
+  select,
+  input[type=text], input[type=number], input[type=search], input[type=password], input[type=email], input[type=url], input[type=tel], input[type=date], input[type=time], input[type=datetime-local], input[type=month], input[type=week], input[type=color], input[type=file], textarea {
+    /**
+     * Avoid zoom on iOS when focus on inputs
+     * http://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone
+     */
   }
   @media (-webkit-min-device-pixel-ratio: 1.5) {
     select,
@@ -1260,9 +1275,6 @@
      * @bugfix avoiding weird gaps in Chrome
      * @affected Chrome
      * @see https://github.com/twbs/bootstrap/issues/20925
-     * 2.
-     * @note Avoiding break inside children isn't so well supported
-     * @see https://caniuse.com/#search=break-inside
     /* -------------------- */
     [class*=columns] {
       column-gap: 2rem;
@@ -1270,7 +1282,6 @@
       widows: 1; /* 1 */
     }
     [class*=columns] > * {
-      page-break-inside: avoid; /* 2 */
       break-inside: avoid; /* 2 */
     }
     .columns-2 {
@@ -1287,7 +1298,7 @@
     /* -------------------- */
     [class*=grid] {
       display: grid;
-      grid-gap: 2rem;
+      gap: 2rem;
       inline-size: 100%;
     }
     .grid-2 {
@@ -2065,16 +2076,9 @@
   .deck {
     display: grid;
     contain: content;
-    grid-gap: 1rem;
+    gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr));
     grid-auto-flow: dense;
-    /**
-     * @note Using element() function
-     *
-     * @note Based on Vincent De Oliveira's work:
-     * @link http://iamvdo.me/blog/la-fonction-element-en-css
-     * @author Vincent De Oliveira
-     */
   }
   .deck [class*=card] {
     border: 1px solid;
@@ -2116,6 +2120,15 @@
     block-size: 2.5rem;
     inline-size: 2.5rem;
   }
+  .deck {
+    /**
+     * @note Using element() function
+     *
+     * @note Based on Vincent De Oliveira's work:
+     * @link http://iamvdo.me/blog/la-fonction-element-en-css
+     * @author Vincent De Oliveira
+     */
+  }
   @supports (background: -moz-element(var(--card, 1))) {
     .deck [class*=card]::after {
       background: -moz-element(var(--card, 1)) no-repeat bottom right;
@@ -2147,7 +2160,7 @@
   .palette {
     display: grid;
     contain: content;
-    grid-gap: 1rem;
+    gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(11.25rem, 1fr));
     grid-auto-flow: dense;
   }
@@ -2156,7 +2169,7 @@
     inline-size: 100%;
   }
   .palette [class*=grid] {
-    grid-gap: 1rem;
+    gap: 1rem;
   }
   .toggle {
     background-color: var(--contrast);
@@ -2558,30 +2571,24 @@
   .pie-auto {
     padding-inline-end: auto;
   }
-  .sr-only,
-  .visually-hidden {
+  .visually-hidden,
+  .visually-hidden-focusable:not(:focus, :focus-within) {
     border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
     clip-path: inset(50%);
     block-size: 1px;
+    margin: -1px;
     overflow: hidden;
     padding: 0;
-    position: absolute;
     inline-size: 1px;
     white-space: nowrap;
   }
-  .sr-only-focusable:focus,
-  .sr-only-focusable:active,
-  .sr-only-focusable:focus-within,
-  .visually-hidden-focusable:focus,
-  .visually-hidden-focusable:active,
-  .visually-hidden-focusable:focus-within {
-    clip: auto;
-    clip-path: none;
-    block-size: auto;
-    overflow: visible;
-    inline-size: auto;
-    white-space: normal;
+  .visually-hidden:not(caption),
+  .visually-hidden-focusable:not(caption):not(:focus, :focus-within) {
+    position: absolute;
+  }
+  .visually-hidden *,
+  .visually-hidden-focusable:not(:focus, :focus-within) * {
+    overflow: hidden;
   }
 }
 @layer preferences {
