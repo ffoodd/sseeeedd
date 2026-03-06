@@ -61,7 +61,7 @@
 		"eslint": "^9.39.2",
 		"globals": "^17.3.0",
 		"html-validate": "^10.9.0",
-		"nodemon": "^3.1.11",
+		"nodemon": "^3.1.14",
 		"nunjucks-cli": "^1.0.0",
 		"pa11y-ci": "^4.0.1",
 		"pa11y-ci-reporter-html": "^8.0.1",
